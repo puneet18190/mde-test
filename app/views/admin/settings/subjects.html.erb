@@ -1,0 +1,21 @@
+<%= render :partial => 'menu', :locals => {:current => 'subjects'} %>
+
+<h4><%= t('admin.settings.subjects.title') %></h4>
+
+<ul class="nav nav-tabs nav-stacked subjects">
+  <% @subjects.each do |subject| %>
+    <li id="subject-<%= subject.id %>" data-param="<%= subject.id %>">
+      <a>
+        <%= subject.description %>
+        <% if subject.instances.to_i == 0 %>
+          <i class="pull-right icon-remove"></i>
+        <% end %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_tag '/admin/settings/subjects/new', :class => 'form-inline' do %>
+  <%= text_field_tag :description, '', :class => 'input-xlarge', :placeholder => t('admin.settings.subjects.add.description') %>
+  <%= submit_tag t('admin.settings.subjects.add.button'), :class => 'btn' %>
+<% end %>

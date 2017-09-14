@@ -1,0 +1,17 @@
+<div id="image_gallery_content" class="scrollVerde pseudo-ul">
+  <div class="scroll-pane">
+    <% if images.empty? %>
+      <div class="emptyGalleryImageEditor">
+        <p><%= t('galleries.empty.image') %></p>
+      </div>
+    <% else %>
+      <%
+        images_count = images.count
+        images_count = ((images_count % 7 == 0) ? (images_count - 8) : ((images_count / 7) * 7 - 1))
+      %>
+      <% images.each_with_index do |image, index| %>
+        <%= render :partial => 'galleries/thumbs/image', :locals => {:image => image, :index => index, :count => images_count, :force_margin_top => false} %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

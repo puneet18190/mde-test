@@ -1,0 +1,36 @@
+<%
+  cover ||= nil
+  cover = lesson.cover if cover.nil?
+  image_cover = cover.media_elements_slides.first
+  image = image_cover.nil? ? nil : image_cover.media_element
+  author = lesson.user
+  subject = lesson.subject
+%>
+
+<div class="img_expanded _lesson_thumb _lesson_<%= lesson.id %>" data-lesson-id="<%= lesson.id %>" style="width:247px; height:162px">
+  <% if image %>
+    <%
+      image_height = image_cover.resize_height('cover') / 3.64
+      image_width = image_cover.resize_width('cover') / 3.64
+      image_alignment = image_cover.alignment / 3.64
+    %>
+    <div class="cover" style="height:144px">
+      <% if image_cover.is_horizontal?('cover') %>
+        <%= image_tag image.url, :style => "left:#{image_alignment}px; height: 153px; width: #{image_width}px" %>
+      <% else %>
+        <%= image_tag image.url, :style => "top:#{image_alignment}px; width: 247px; height: #{image_height}px" %>
+      <% end %>
+    </div>
+  <% else %>
+    <div style="width:247px; height:144px; background-color:white"></div>
+  <% end %>
+  <div class="bg_text" style="height:30px">
+    <div class="lessonTitle"><%= lesson.title %></div>
+  </div>
+  <div class="lessonSubject" style="height:12px">
+    <%= lesson.subject.description %>
+    <span>
+      <%= t('lessons.author') %>: <strong><%= lesson.user.full_name %></strong>
+    </span>
+  </div>
+</div>

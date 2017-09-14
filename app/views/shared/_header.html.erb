@@ -1,0 +1,30 @@
+<div class="header-main">
+  <a href="<%= dashboard_path %>" class="header-link">
+    <span class="vertical-aligner"></span>
+    <%= image_tag('logo.gif') %>
+  </a>
+  <% if current_user.trial? %>
+    <span id="trial_header" class="trialHeader" style="background-size: <%= current_user.trial_to_expiration_percentage %> 100%;">
+      <span class="UpTrialHeader"></span>
+      <%= t('users.trial.expiration', :days => (current_user.trial_to_expiration / 86400 + 1).to_s).html_safe %>
+    </span>
+    <%= render :partial => 'shared/trial_header' %>
+  <% end %>
+  <div class="logout">
+    <div class="fltlft nome_e_cognome">
+      <span class="nome"><%= current_user.name %></span>
+      <span class="cognome"><%= current_user.surname %></span>
+      <br class="clearfloat"/>
+      <% if personificated_user %>
+        <%= link_to t('admin.users.actions.unpersonificate'), admin_personification_path, method: :delete %>
+      <% else -%>
+        <%= link_to t('registration.logout'), users_session_path, method: :delete %>
+      <% end -%>
+      <% if current_user.admin? %>
+        | <%= link_to t('admin.general.link'), '/admin' %>
+      <% end %>
+    </div>
+    <%= render :partial => 'notifications/main', :locals => {:notifications => notifications, :news => news, :offset => offset, :tot => tot, :where => where} %>
+  </div>
+  <br class="clearfloat"/>
+</div>

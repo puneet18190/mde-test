@@ -1,0 +1,4 @@
+<% if locations.any? %>
+  <option value="0"><%= t("locations.placeholder.#{locations.first.gender}", :location => locations.first.label).downcase %></option>
+  <%= options_from_collection_for_select(locations, 'id', 'name', param.to_i) %>
+<% end %>

@@ -1,0 +1,30 @@
+<%
+  external_div_attributes = "data-position=\"\" data-duration=\"\""
+  last = false
+  if !empty
+    external_div_attributes = "id=\"video_component_#{position}\" data-position=\"#{position}\" data-duration=\"#{component[:duration]}\""
+    last = component[:last]
+  end
+%>
+
+<div class="lista <%= empty ? '_video_editor_empty_component'.html_safe : '_video_editor_component'.html_safe %> _image" <%= external_div_attributes.html_safe %> data-rolloverable="true" data-preview-selected="false" data-current-preview-time="0">
+  <div class="contatore _video_component_icon">
+    <div class="_left fltlft">
+      <%= empty ? '' : position %>
+    </div>
+    <div class="_right fltrt" style="color:#787575">
+      <%= empty ? '' : seconds_to_time(component[:duration]) %>
+    </div>
+  </div>
+  <div class="boxMediaElement _video_editor_component_hover">
+    <% if !empty %>
+      <%= render :partial => 'video_editor/components/thumbs/image', :locals => {:image => component[:image]} %>
+      <%= hidden_field_tag "type_#{position}", component[:type], :class => '_video_component_input_type' %>
+      <%= hidden_field_tag "image_id_#{position}", component[:image].id, :class => '_video_component_input_image_id' %>
+      <%= hidden_field_tag "duration_#{position}", component[:duration], :class => '_video_component_input_duration' %>
+      <%= hidden_field_tag "position_#{position}", position, :class => '_video_component_input_position' %>
+    <% end %>
+  </div>
+  <div class="_video_component_transition separatore <%= last ? 'current'.html_safe : '' %>">&nbsp;</div>
+  <div class="arrowUpCutter _video_component_cutter_arrow" style="display:none"></div>
+</div>

@@ -1,0 +1,24 @@
+<div id="virtual_classroom_playlist" class="playList">
+  <% if lessons.empty? %>
+    <%= render :partial => 'virtual_classroom/empty_playlist' %>
+  <% else %>
+    <div class="playInVirtualClassroom _playlist_play">
+      <a class="lower"><%= t('virtual_classroom.playlist.play') %></a>
+    </div>
+    <div class="apposito">
+      <span class="fltrt lower _empty_playlist_button emptyPlayListButton">
+        <%= t('virtual_classroom.playlist.make_it_empty') %>
+      </span>
+      <span class="fltlft" style="padding-top:8px">
+      </span>
+      <div class="titlePlaylist fltlft " style="padding-left:0">
+        <%= t('virtual_classroom.playlist.label') %><%= " (#{lessons.length} / #{SETTINGS['lessons_in_playlist']})".html_safe %>
+      </div>
+      </div>
+    <div id="lessons_list_in_playlist" class="scroll-pane">
+      <% lessons.each_with_index do |l, index| %>
+        <%= render :partial => 'virtual_classroom/view_single_playlist', :locals => {:virtual => l, :without_margin => (index == 0)} %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

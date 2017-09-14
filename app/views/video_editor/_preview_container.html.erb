@@ -1,0 +1,13 @@
+<div id="video_editor_preview_container" class="contentVideo hideMe">
+  <% cont = 1 %>
+  <% parameters[:components].each do |c| %>
+    <%= render :partial => "video_editor/previews/#{c[:type]}", :locals => {:component => c, :identifier => cont, :empty => false, :mute => !parameters[:audio_track].nil?} %>
+    <% cont += 1 %>
+  <% end %>
+  <% if parameters[:audio_track] %>
+    <%= render :partial => 'video_editor/previews/audio_track', :locals => {:audio_track => parameters[:audio_track]} %>
+  <% end %>
+  <div class="_loader" style="padding-top:120px; display:none">
+    <%= image_tag 'loading3.gif' %>
+  </div>
+</div>

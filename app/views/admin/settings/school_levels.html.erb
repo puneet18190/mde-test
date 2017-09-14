@@ -1,0 +1,21 @@
+<%= render :partial => 'menu', :locals => {:current => 'school_levels'} %>
+
+<h4><%= t('admin.settings.school_levels.title').upcase %></h4>
+
+<ul class="nav nav-tabs nav-stacked school_levels">
+  <% @school_levels.each do |level| %>
+    <li id="level-<%= level.id %>" data-param="<%= level.id %>">
+      <a>
+        <%= level.description %>
+        <% if level.instances.to_i == 0 %>
+          <i class="pull-right icon-remove"></i>
+        <% end %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_tag '/admin/settings/school_levels/new', :class => 'form-inline' do %>
+  <%= text_field_tag :description, '', :class => 'input-xlarge', :placeholder => t('admin.settings.school_levels.add.description') %>
+  <%= submit_tag t('admin.settings.school_levels.add.button'), :class => 'btn' %>
+<% end %>

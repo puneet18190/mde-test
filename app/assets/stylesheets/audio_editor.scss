@@ -1,0 +1,561 @@
+@import 'variables';
+@import 'mixins';
+
+html.audio_editor-controller {
+  
+  .dialog_opaco {
+    
+    z-index: 103;
+    
+  }
+  
+  .mediaEditorAudioContainer {
+    
+    .global-data {
+      
+      width: 97px;
+      height: 433px;
+      background-color: #504F50;
+      padding: 20px 10px;
+      top: 0;
+      right: 29px;
+      background-image: $assets-title-colonna-info-audio_gif;
+      background-repeat: repeat-x;
+      background-position: top left;
+      font-size: 12px;
+      text-align: center;
+      
+      p {
+        
+        margin-top: 30px;
+        text-align: left;
+        
+      }
+      
+      .bottoniVerdi {
+        
+        margin-top: 0;
+        margin-bottom: 0;
+        
+        a {
+          
+          width: auto;
+          margin: 0;
+          
+        }
+        
+      }
+      
+      .audioLateralControls {
+        
+        padding-top: 14px;
+        display: inline-block;
+        
+        a.rewind {
+          
+          float: left;
+          background-image: none;
+          margin-right: 12px;
+          background: $assets-rew-laterale_png no-repeat top left;
+          width: 35px;
+          height: 35px;
+          
+          &:hover {
+            
+            opacity: 0.3;
+            
+          }
+          
+        }
+        
+        a.play {
+          
+          float: right;
+          background: $assets-play-lateral_png  no-repeat top left;
+          width: 35px;
+          height: 35px;
+          opacity: 1;
+          background-size: 35px 35px;
+          
+          &:hover {
+            
+            opacity: 0.3;
+            
+          }
+          
+        }
+        
+        a.pause {
+          
+          float: left;
+          background: $assets-pause-lateral_png  no-repeat top left;
+          width: 35px;
+          height: 35px;
+          opacity: 1;
+          background-size: 35px 35px;
+          
+        }
+        
+        a.disabled {
+          
+          opacity: 0.3;
+          cursor: default;
+          
+        }
+        
+      }
+      
+    }
+    
+    .goToNextStep {
+      
+      border-top: 10px solid #504F50;
+      margin-left: 56px;
+      
+    }
+    
+    .audioComponentContent {
+      
+      float: left;
+      margin: 0px;
+      text-align: left;
+      width: 617px;
+      height: 103px;
+      
+    }
+    
+    .audioContent {
+      
+      float: left;
+      padding: 0px;
+      border: 1px solid #686969;
+      margin-left: 10px;
+      -webkit-box-shadow: 0px 2px 6px rgba(22, 21, 21, 0.6);
+      box-shadow: 0px 2px 6px rgba(22, 21, 21, 0.6);
+      width: 710px;
+      background-color: #232323;
+      
+      .manigliaAudio {
+        
+        float: left;
+        width: 93px;
+        height: 103px;
+        margin: 0px;
+        background-image: $assets-maniglia-audio-off_gif;
+        background-repeat: no-repeat;
+        background-position: top left;
+        
+        &.current {
+          
+          background-image: $assets-maniglia-audio-on_gif;
+          
+        }
+        
+        &:hover {
+          
+          background-image: $assets-maniglia-audio-on_gif;
+          cursor: move;
+          
+        }
+        
+      }
+      
+      &.current {
+        
+        border: 1px solid #fff;
+        
+      }
+      
+      .audioComponentTitle {
+        
+        width: auto;
+        background-color: #424343;
+        padding: 5px 0px 5px 20px;
+        color: white;
+        height: 20px;
+        
+      }
+      
+      .audioComponentPlayer {
+        
+        @include nunito(10px);
+        height: 46px;
+        background-color: #303030;
+        padding: 0;
+        width: 617px;
+        position: absolute;
+        top: 31px;
+        color: #787575;
+        text-align: left;
+        
+        .audioSlider, .audioDoubleSlider {
+          
+          margin-top: 0;
+          width: 75%;
+          position: absolute;
+          left: 72px;
+          
+        }
+        
+        span._current_time {
+          
+          position: absolute;
+          top: 20px;
+          left: 10px;
+          
+          &.selected {
+            
+            color: #fff;
+            
+          }
+          
+        }
+        
+        span._total_length {
+          
+          position: absolute;
+          top: 20px;
+          right: 10px;
+          
+          &.selected {
+            
+            color: #fff;
+            
+          }
+          
+        }
+        
+        .cutter {
+          
+          padding-top: 18px;
+          padding-left: 50px;
+          height: 28px;
+          margin-bottom: 10px;
+          width: 510px;
+          
+          .audioSlider {
+            
+            cursor: pointer;
+            z-index: 96;
+            
+            .ui-slider-handle {
+              
+              cursor: default;
+              position: absolute;
+              background-color: #787575;
+              border-radius: 0%;
+              height: 44px;
+              width: 0;
+              top: -18px;
+              margin-left: 0;
+              border: 1px solid #787575;
+              
+              &.selected {
+                
+                background-color: #fff;
+                border: 1px solid #fff;
+                
+              }
+              
+            }
+            
+          }
+          
+          .audioDoubleSlider {
+            
+            cursor: pointer;
+            z-index: 98;
+            
+            .ui-slider-handle {
+              
+              cursor: pointer;
+              position: absolute;
+              background-color: $green;
+              border-radius: 0%;
+              height: 44px;
+              width: 0;
+              top: -18px;
+              margin-left: 0;
+              border-left: 1px solid rgb(20, 20, 20);
+              border-right: 7px solid rgb(70, 70, 70);
+              border-top: 1px solid rgb(70, 70, 70);
+              border-bottom: 1px solid rgb(70, 70, 70);
+              
+              &:hover {
+                
+                border-left: 4px solid rgb(141, 141, 141);
+                border-right: 4px solid rgb(141, 141, 141);
+                border-top: 1px solid rgb(141, 141, 141);
+                border-bottom: 1px solid rgb(141, 141, 141);
+                
+              }
+              
+              &.selected {
+                
+                border-left: 1px solid rgb(20, 20, 20);
+                border-right: 7px solid #fff;
+                border-top: 1px solid #fff;
+                border-bottom: 1px solid #fff;
+                
+              }
+              
+            }
+            
+            .ui-slider-range {
+              
+              position: absolute;
+              background: $assets-bg-ui-slider-horizontal_png repeat-x top left;
+              
+            }
+            
+          }
+          
+          .ui-slider-horizontal {
+            
+            height: 13px;
+            background-color: #000;
+            
+          }
+          
+        }
+        
+      }
+      
+      .audioComponentBottom {
+        
+        @include nunito(10px);
+        padding: 0px 0px 13px 8px;
+        height: 5px;
+        color: #787575;
+        position: absolute;
+        top: 78px;
+        width: 552px;
+        
+        .audioComponentDurations {
+          
+          width: 260px;
+          float: left;
+          padding-top: 7px;
+          
+          span.selected {
+            
+            color: #fff;
+            
+          }
+          
+        }
+        
+        .audioComponentControls {
+          
+          padding-top: 4px;
+          float: right;
+          
+          a.rewind {
+            
+            float: left;
+            background-image: none;
+            margin-right: 12px;
+            background: $assets-rew_png no-repeat top left;
+            width: 18px;
+            height: 18px;
+            
+            &:hover {
+              
+              opacity: 0.3;
+              
+            }
+            
+          }
+          
+          a.play {
+            
+            float: right;
+            background: $assets-play_png no-repeat top left;
+            width: 18px;
+            height: 18px;
+            opacity: 1;
+            background-size: 18px 18px;
+            
+            &:hover {
+              
+              opacity: 0.3;
+              
+            }
+            
+          }
+          
+          a.pause {
+            
+            float: left;
+            background: $assets-pause_png no-repeat top left;
+            width: 18px;
+            height: 18px;
+            opacity: 1;
+            background-size: 18px 18px;
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+    .contatore {
+      
+      float: left;
+      margin: 5px;
+      width: 18px;
+      
+    }
+    
+  }
+  
+  ._audio_editor_component {
+    
+    position: relative;
+    width: 756px;
+    height: 113px;
+    
+    &._last {
+      
+      height: 109px;
+      
+    }
+    
+    .boxGhost {
+      
+      height: 103px;
+      width: 617px;
+      position: absolute;
+      z-index: 100;
+      top: 1px;
+      left: 132px;
+      cursor: pointer;
+      background-color: black;
+      opacity: 0;
+      
+    }
+    
+    a.exitButton {
+      
+      @include svg-circle-icon-handler($assets-set-icone-editor_svg, 18px, 4, 12, 0.2, 0, 0, 1, 0, 0, right);
+      position: absolute;
+      z-index: 101;
+      top: 82px;
+      right: 10px;
+      
+    }
+    
+  }
+  
+  .sliderDisabler, .underDoubleSlider {
+    
+    position: absolute;
+    background-color: #000;
+    opacity: 0;
+    
+  }
+  
+  .sliderDisabler {
+    
+    z-index: 99;
+    height: 46px;
+    width: 617px;
+    left: 0;
+    top: 0;
+    
+  }
+  
+  .underDoubleSlider {
+    
+    z-index: 97;
+    width: 469px;
+    height: 46px;
+    left: 72px;
+    top: 0;
+    
+  }
+  
+  #audio_editor_timeline {
+    
+    margin-left: 30px;
+    margin-bottom: 30px;
+    
+  }
+  
+  #audio_editor_box_ghost {
+    
+    position: absolute;
+    z-index: 102;
+    left: 30px;
+    background-color: #000;
+    opacity: 0;
+    
+  }
+  
+  #audio_editor_timeline, #audio_editor_box_ghost {
+    
+    height: 448px;
+    width: 768px;
+    
+  }
+  
+  .jspVerticalBar {
+    
+    top: 0;
+    
+  }
+  
+  .jspTrack {
+    
+    background-color: #3F3F3F;
+    
+  }
+  
+  .jspDrag {
+    
+    background-color: $green;
+    
+  }
+  
+  #add_new_audio_component_in_audio_editor {
+    
+    margin-left: 22px;
+    @include svg-circle-icon-handler($assets-icone-player_svg, 53px, 5, 4, 0.5, 4, 2, 1, 4, 0);
+    
+    &.disabled {
+      
+      @include svg-circle-icon-handler($assets-icone-player_svg, 53px, 5, 4, 0.5, 4, 2, 0.5, 4, 2);
+      cursor: default;
+      
+    }
+    
+  }
+  
+  .emptyAudioEditor {
+    
+    background: $assets-empty-audio-editor_png no-repeat center center;
+    padding: 60px 290px;
+    position: absolute;
+    right: 190px;
+    
+    p {
+      
+      padding: 220px 0px 0px 0px;
+      width: 199px;
+      color: #727377;
+      text-align: right;
+      
+    }
+    
+  }
+  
+  .lateralContentGatto {
+    
+    width: 98px;
+    height: 278px;
+    
+  }
+  
+}

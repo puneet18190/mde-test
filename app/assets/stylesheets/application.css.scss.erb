@@ -1,0 +1,57 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.jscrollpane
+ *= require jquery.selectbox
+ *= require jquery-ui-1.9.0.custom
+ */
+
+@import url(//fonts.googleapis.com/css?family=Nunito);
+@import url(//fonts.googleapis.com/css?family=Droid+Sans);
+
+<%= Erubis::Eruby.new( Rails.application.config.assets.stylesheets.paths.urls.read ).result binding() %>
+
+<% SETTINGS['colors'].each do |key, value| %>
+  $<%= key %>:<%= value['code'] %>;
+  .color_<%= key %>{
+    color: <%= value['code'] %>;
+  }
+  .background_color_<%= key %>{
+    background-color: <%= value['code'] %>;
+  }
+<% end %>
+
+@import 'variables';
+@import 'mixins';
+@import 'dialog_popups';
+@import 'global';
+@import 'shared';
+@import 'galleries';
+@import 'players';
+@import 'shared_editor_player';
+@import 'header';
+@import 'menu';
+@import 'graybar';
+@import 'tooltips';
+@import 'content';
+@import 'dots_pagination';
+@import 'profile';
+@import 'layouts/lesson_editor';
+@import 'layouts/slides';
+@import 'layouts/lesson_viewer';
+@import 'layouts/media_element_editor';
+@import 'layouts/document';
+@import 'layouts/fullpage_notification';
+@import 'layouts/virtual_classroom';
+@import 'audio_editor';
+@import 'layouts/faqs';
+@import 'forms';
+@import 'msie';

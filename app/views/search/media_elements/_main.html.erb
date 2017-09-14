@@ -1,0 +1,95 @@
+<%
+  display = ['none'.html_safe, 'block'.html_safe]
+  display = ['block'.html_safe, 'none'.html_safe] if active
+%>
+
+
+<div id="search_media_elements_main_page" style="display:<%= pointed ? 'block'.html_safe : 'none'.html_safe %>">
+  
+  
+  <div class="contentSearch">
+    <div class="boxCerca">
+      <form id="search_media_elements" class="search-form" method="get" action="/search">
+        
+        <a class="_keep_searching" style="display:<%= display[0] %>" data-opened="false">
+          <div class="keep_searching_icon"></div>
+          <div class="keep_searching_label">
+            <%= t('search.again') %>
+          </div>
+        </a>
+        
+        <%= hidden_field_tag 'item', 'media_elements' %>
+        <table class="_search_engine_form" summary="" cellpadding="0" cellspacing="0" style="width:100%; display:<%= display[1] %>">
+          <tr>
+            <td style="width:20%">
+              <label><%= t('search.media_elements.keyword.label') %></label><br/>
+              <input type="text" name="word" value="<%= t('search.media_elements.keyword.placeholder') %>" class="text lower" id="media_elements_tag_reader_for_search"/>
+              <%= hidden_field_tag 'word_placeholder', '', :id => 'media_elements_tag_kind_for_search' %>
+            </td>
+            <td width="20%">
+              <label><%= t('search.media_elements.filters.format') %></label><br/>
+              <select name="filter" id="filter_search_media_elements">
+                <option value="<%= Filters::ALL_MEDIA_ELEMENTS %>" selected="selected"><%= MediaElement.filter(Filters::ALL_MEDIA_ELEMENTS) %></option>
+                <% (Filters::MEDIA_ELEMENTS_SEARCH_SET - [Filters::ALL_MEDIA_ELEMENTS]).each do |f| %>
+                  <option value="<%= f %>"><%= MediaElement.filter(f) %></option>
+                <% end %>
+              </select>
+            </td>
+            <td colspan="2" width="40%">
+            </td>
+            <td width="20%">
+              <p style="font-size:80%; padding-left:10px; padding-top:10px;">
+                <%= t('search.media_elements.suggestion.title') %><br/>
+                <%= t('search.media_elements.suggestion.description') %>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <br/>
+              <h3><%= t('search.media_elements.sort') %></h3>
+            </td>
+          </tr>
+          <tr>
+            <% my_order_id = "#{SearchOrders::TITLE}_media_elements_radio_input" %>
+            <td width="5%">
+              <input type="radio" name="order" id="<%= my_order_id %>" value="<%= SearchOrders::TITLE %>" class="regular-radio _order_media_elements_radio_input" checked="checked"/>
+              <label for="<%= my_order_id %>"></label>
+              &nbsp;<%= MediaElement.search_order(SearchOrders::TITLE) %>
+            </td>
+            <% (SearchOrders::MEDIA_ELEMENTS_SET - [SearchOrders::TITLE]).each do |so| %>
+              <% my_order_id = "#{so}_media_elements_radio_input" %>
+              <td width="5%">
+                <input type="radio" name="order" id="<%= my_order_id %>" value="<%= so %>" class="regular-radio _order_media_elements_radio_input"/>
+                <label for="<%= my_order_id %>"></label>
+                &nbsp;<%= MediaElement.search_order(so) %>
+              </td>
+            <% end %>
+            <td colspan="3" width="60%">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <br/><br/>
+              <%= submit_tag t('search.short_label'), :id => 'search_media_elements_submit', :class => 'cerca' %>
+            </td>
+          </tr>
+        </table>
+        
+      </form>
+    </div>
+  </div>
+  
+  <br class="clearfloat"/>
+  
+  <% if active %>
+    <% if results[:amount] > 0 %>
+      <%= render :partial => 'search/media_elements/amount', :locals => {:amount => results[:amount], :tags => results[:tags], :specific_tag => results[:specific_tag]} %>
+      <% if results[:tags].any? %>
+        <%= render :partial => 'search/media_elements/tag_details', :locals => {:tags => results[:tags], :specific_tag => results[:specific_tag]} %>
+      <% end %>
+    <% end %>
+    <%= render :partial => 'search/media_elements/results', :locals => {:media_elements => results[:records], :word => word} %>
+  <% end %>
+  
+</div>

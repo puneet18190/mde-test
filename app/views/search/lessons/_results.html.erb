@@ -1,0 +1,10 @@
+<div id="found_lessons">
+  <% if lessons.empty? %>
+    <%= render :partial => 'search/lessons/empty', :locals => {:word => word} %>
+  <% else %>
+    <% lessons.each_with_index do |l, index| %>
+      <% forced_margin = (index == lessons.length - 1) ? (@for_page - lessons.length) : nil %>
+      <%= render :partial => 'lessons/view_single_compact', :locals => {:lesson => l, :destination => ButtonDestinations::FOUND_LESSON, :likes_general_count => l.likes_general_count.to_i, :cover => covers[l.id], :notification_bookmarks => l.notification_bookmarks.to_i, :forced_margin => forced_margin, :bookmarks_count => l.all_bookmarks_count.to_i} %>
+    <% end %>
+  <% end %>
+</div>

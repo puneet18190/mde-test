@@ -1,0 +1,11 @@
+<% if @ok %>
+  $('._lesson_in_playlist').each(function() {
+    var lesson_id = $(this).data('lesson-id');
+    initializeDraggableVirtualClassroomLesson('virtual_classroom_lesson_' + lesson_id);
+  });
+  $('#virtual_classroom_playlist').replaceWith('<%= j(render(:partial => "virtual_classroom/playlist", :locals => {:lessons => []})) %>');
+  initializePlaylist();
+  $('#virtual_classroom_playlist').effect('highlight', {color: '#6E6363'}, 1000);
+<% else %>
+  showErrorPopUp('<%= j @error %>');
+<% end %>

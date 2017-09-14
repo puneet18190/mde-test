@@ -1,0 +1,22 @@
+<div class="documentsExternal">
+  <div class="for-scroll-pain" style="display:<%= display_docs[0] %>">
+    <% documents.each_with_index do |document, index| %>
+      <% margin = (index == 0) ? "style=\"margin-top:0\"".html_safe : '' %>
+      <div id="gallery_document_<%= document.id %>" class="documentInGalleryExternal" <%= margin %>>
+        <%= render :partial => 'galleries/thumbs/document', :locals => {:document => document} %>
+      </div>
+    <% end %>
+  </div>
+  <div id="empty_document_gallery" style="display:<%= display_docs[1] %>">
+    <div class="bigDocumentIcon"></div>
+    <br class="clearfloat"/>
+    <p class="regular_empty">
+      <% if empty %>
+        <%= t('galleries.empty.document') %>
+      <% else %>
+        <%= t('galleries.documents.locked') %>
+      <% end %>
+    </p>
+    <p class="filter_empty" style="display:none"></p>
+  </div>
+</div>

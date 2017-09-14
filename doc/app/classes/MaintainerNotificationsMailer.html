@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>MaintainerNotificationsMailer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            MaintainerNotificationsMailer 
+            
+                <span class="parent">&lt; 
+                    
+                    ActionMailer::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/mailers/maintainer_notifications_mailer_rb.html">app/mailers/maintainer_notifications_mailer.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Specific mailer for administration</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-media_elements_folder_size_alert">media_elements_folder_size_alert</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-media_elements_folder_size_alert">
+            
+              <b>media_elements_folder_size_alert</b>(current_media_elements_folder_size, maximum_media_elements_folder_size)
+            
+            <a href="../classes/MaintainerNotificationsMailer.html#method-i-media_elements_folder_size_alert" name="method-i-media_elements_folder_size_alert" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>It sends an email if the media elements hard disk is getting full</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-media_elements_folder_size_alert_source')" id="l_method-i-media_elements_folder_size_alert_source">show</a>
+                
+              </p>
+              <div id="method-i-media_elements_folder_size_alert_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/mailers/maintainer_notifications_mailer.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">media_elements_folder_size_alert</span>(<span class="ruby-identifier">current_media_elements_folder_size</span>, <span class="ruby-identifier">maximum_media_elements_folder_size</span>)
+  <span class="ruby-ivar">@current_media_elements_folder_size_in_gigabytes</span> = <span class="ruby-identifier">current_media_elements_folder_size</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-number">1024</span><span class="ruby-operator">**</span><span class="ruby-number">3</span>
+  <span class="ruby-ivar">@maximum_media_elements_folder_size_in_gigabytes</span> = <span class="ruby-identifier">maximum_media_elements_folder_size</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-number">1024</span><span class="ruby-operator">**</span><span class="ruby-number">3</span>
+  <span class="ruby-identifier">mail</span> <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{SETTINGS[&#39;application_name&#39;]} - media elements folder size is reaching the maximum size allowed&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

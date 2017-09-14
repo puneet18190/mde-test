@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>app/assets/javascripts/video_editor.js - DESY</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="DESY"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdminAutocomplete.html">AdminAutocomplete</a></li>
+            
+                <li><a href="../classes/AdminBrowserSupport.html">AdminBrowserSupport</a></li>
+            
+                <li><a href="../classes/AdminCollapsed.html">AdminCollapsed</a></li>
+            
+                <li><a href="../classes/AdminDocumentReady.html">AdminDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderBinder.html">AjaxLoaderBinder</a></li>
+            
+                <li><a href="../classes/AjaxLoaderDocumentReady.html">AjaxLoaderDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderVisibility.html">AjaxLoaderVisibility</a></li>
+            
+                <li><a href="../classes/AudioEditorComponents.html">AudioEditorComponents</a></li>
+            
+                <li><a href="../classes/AudioEditorCutters.html">AudioEditorCutters</a></li>
+            
+                <li><a href="../classes/AudioEditorDocumentReady.html">AudioEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/AudioEditorGalleries.html">AudioEditorGalleries</a></li>
+            
+                <li><a href="../classes/AudioEditorGeneral.html">AudioEditorGeneral</a></li>
+            
+                <li><a href="../classes/AudioEditorGraphics.html">AudioEditorGraphics</a></li>
+            
+                <li><a href="../classes/AudioEditorPreview.html">AudioEditorPreview</a></li>
+            
+                <li><a href="../classes/AudioEditorScrollpain.html">AudioEditorScrollpain</a></li>
+            
+                <li><a href="../classes/BrowserSupportMain.html">BrowserSupportMain</a></li>
+            
+                <li><a href="../classes/ButtonsAccessories.html">ButtonsAccessories</a></li>
+            
+                <li><a href="../classes/ButtonsDocumentReady.html">ButtonsDocumentReady</a></li>
+            
+                <li><a href="../classes/ButtonsLesson.html">ButtonsLesson</a></li>
+            
+                <li><a href="../classes/ButtonsMediaElement.html">ButtonsMediaElement</a></li>
+            
+                <li><a href="../classes/DashboardAccessories.html">DashboardAccessories</a></li>
+            
+                <li><a href="../classes/DashboardExpandedContents.html">DashboardExpandedContents</a></li>
+            
+                <li><a href="../classes/DashboardLessonDescriptions.html">DashboardLessonDescriptions</a></li>
+            
+                <li><a href="../classes/DashboardResizing.html">DashboardResizing</a></li>
+            
+                <li><a href="../classes/DialogsAccessories.html">DialogsAccessories</a></li>
+            
+                <li><a href="../classes/DialogsConfirmation.html">DialogsConfirmation</a></li>
+            
+                <li><a href="../classes/DialogsGalleries.html">DialogsGalleries</a></li>
+            
+                <li><a href="../classes/DialogsTimed.html">DialogsTimed</a></li>
+            
+                <li><a href="../classes/DialogsWithForm.html">DialogsWithForm</a></li>
+            
+                <li><a href="../classes/GalleriesAccessories.html">GalleriesAccessories</a></li>
+            
+                <li><a href="../classes/GalleriesDocumentReady.html">GalleriesDocumentReady</a></li>
+            
+                <li><a href="../classes/GalleriesInitializers.html">GalleriesInitializers</a></li>
+            
+                <li><a href="../classes/GeneralCentering.html">GeneralCentering</a></li>
+            
+                <li><a href="../classes/GeneralDocumentReady.html">GeneralDocumentReady</a></li>
+            
+                <li><a href="../classes/GeneralMiscellanea.html">GeneralMiscellanea</a></li>
+            
+                <li><a href="../classes/GeneralUrls.html">GeneralUrls</a></li>
+            
+                <li><a href="../classes/ImageEditorDocumentReady.html">ImageEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/ImageEditorGraphics.html">ImageEditorGraphics</a></li>
+            
+                <li><a href="../classes/ImageEditorImageScale.html">ImageEditorImageScale</a></li>
+            
+                <li><a href="../classes/ImageEditorTexts.html">ImageEditorTexts</a></li>
+            
+                <li><a href="../classes/JqueryBrowsersDetection.html">JqueryBrowsersDetection</a></li>
+            
+                <li><a href="../classes/JqueryPatchesBrowsers.html">JqueryPatchesBrowsers</a></li>
+            
+                <li><a href="../classes/LessonEditorCurrentSlide.html">LessonEditorCurrentSlide</a></li>
+            
+                <li><a href="../classes/LessonEditorDocumentReady.html">LessonEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonEditorForms.html">LessonEditorForms</a></li>
+            
+                <li><a href="../classes/LessonEditorGalleries.html">LessonEditorGalleries</a></li>
+            
+                <li><a href="../classes/LessonEditorImageResizing.html">LessonEditorImageResizing</a></li>
+            
+                <li><a href="../classes/LessonEditorJqueryAnimations.html">LessonEditorJqueryAnimations</a></li>
+            
+                <li><a href="../classes/LessonEditorSlideLoading.html">LessonEditorSlideLoading</a></li>
+            
+                <li><a href="../classes/LessonEditorSlidesNavigation.html">LessonEditorSlidesNavigation</a></li>
+            
+                <li><a href="../classes/LessonEditorTinyMCE.html">LessonEditorTinyMCE</a></li>
+            
+                <li><a href="../classes/LessonViewerDocumentReady.html">LessonViewerDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonViewerGeneral.html">LessonViewerGeneral</a></li>
+            
+                <li><a href="../classes/LessonViewerGraphics.html">LessonViewerGraphics</a></li>
+            
+                <li><a href="../classes/LessonViewerPlaylist.html">LessonViewerPlaylist</a></li>
+            
+                <li><a href="../classes/LessonViewerSlidesNavigation.html">LessonViewerSlidesNavigation</a></li>
+            
+                <li><a href="../classes/MediaElementEditorCache.html">MediaElementEditorCache</a></li>
+            
+                <li><a href="../classes/MediaElementEditorConversion.html">MediaElementEditorConversion</a></li>
+            
+                <li><a href="../classes/MediaElementEditorDocumentReady.html">MediaElementEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/MediaElementEditorForms.html">MediaElementEditorForms</a></li>
+            
+                <li><a href="../classes/MediaElementEditorHorizontalTimelines.html">MediaElementEditorHorizontalTimelines</a></li>
+            
+                <li><a href="../classes/NotificationsAccessories.html">NotificationsAccessories</a></li>
+            
+                <li><a href="../classes/NotificationsDocumentReady.html">NotificationsDocumentReady</a></li>
+            
+                <li><a href="../classes/NotificationsGraphics.html">NotificationsGraphics</a></li>
+            
+                <li><a href="../classes/PlayersAudioEditor.html">PlayersAudioEditor</a></li>
+            
+                <li><a href="../classes/PlayersCommon.html">PlayersCommon</a></li>
+            
+                <li><a href="../classes/PlayersDocumentReady.html">PlayersDocumentReady</a></li>
+            
+                <li><a href="../classes/PlayersGeneral.html">PlayersGeneral</a></li>
+            
+                <li><a href="../classes/PlayersVideoEditor.html">PlayersVideoEditor</a></li>
+            
+                <li><a href="../classes/ProfilePrelogin.html">ProfilePrelogin</a></li>
+            
+                <li><a href="../classes/ProfileUsers.html">ProfileUsers</a></li>
+            
+                <li><a href="../classes/SearchDocumentReady.html">SearchDocumentReady</a></li>
+            
+                <li><a href="../classes/TagsAccessories.html">TagsAccessories</a></li>
+            
+                <li><a href="../classes/TagsInitializers.html">TagsInitializers</a></li>
+            
+                <li><a href="../classes/UploaderDocumentReady.html">UploaderDocumentReady</a></li>
+            
+                <li><a href="../classes/UploaderGlobal.html">UploaderGlobal</a></li>
+            
+                <li><a href="../classes/UploaderLoadingBar.html">UploaderLoadingBar</a></li>
+            
+                <li><a href="../classes/VideoEditorAddComponents.html">VideoEditorAddComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorComponents.html">VideoEditorComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorCutters.html">VideoEditorCutters</a></li>
+            
+                <li><a href="../classes/VideoEditorDocumentReady.html">VideoEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/VideoEditorGalleries.html">VideoEditorGalleries</a></li>
+            
+                <li><a href="../classes/VideoEditorGeneral.html">VideoEditorGeneral</a></li>
+            
+                <li><a href="../classes/VideoEditorPreview.html">VideoEditorPreview</a></li>
+            
+                <li><a href="../classes/VideoEditorPreviewAccessories.html">VideoEditorPreviewAccessories</a></li>
+            
+                <li><a href="../classes/VideoEditorReplaceComponents.html">VideoEditorReplaceComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorScrollPain.html">VideoEditorScrollPain</a></li>
+            
+                <li><a href="../classes/VideoEditorTextComponentEditor.html">VideoEditorTextComponentEditor</a></li>
+            
+                <li><a href="../classes/VirtualClassroomDocumentReady.html">VirtualClassroomDocumentReady</a></li>
+            
+                <li><a href="../classes/VirtualClassroomJavaScriptAnimations.html">VirtualClassroomJavaScriptAnimations</a></li>
+            
+                <li><a href="../classes/VirtualClassroomMultipleLoading.html">VirtualClassroomMultipleLoading</a></li>
+            
+                <li><a href="../classes/VirtualClassroomSendLink.html">VirtualClassroomSendLink</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/admin.html">admin</a></li>
+            
+                <li><a href="../modules/ajax-loader.html">ajax-loader</a></li>
+            
+                <li><a href="../modules/audio-editor.html">audio-editor</a></li>
+            
+                <li><a href="../modules/browser-support.html">browser-support</a></li>
+            
+                <li><a href="../modules/buttons.html">buttons</a></li>
+            
+                <li><a href="../modules/dashboard.html">dashboard</a></li>
+            
+                <li><a href="../modules/dialogs.html">dialogs</a></li>
+            
+                <li><a href="../modules/galleries.html">galleries</a></li>
+            
+                <li><a href="../modules/general.html">general</a></li>
+            
+                <li><a href="../modules/image-editor.html">image-editor</a></li>
+            
+                <li><a href="../modules/jquery-browsers.html">jquery-browsers</a></li>
+            
+                <li><a href="../modules/jquery-patches.html">jquery-patches</a></li>
+            
+                <li><a href="../modules/lesson-editor.html">lesson-editor</a></li>
+            
+                <li><a href="../modules/lesson-viewer.html">lesson-viewer</a></li>
+            
+                <li><a href="../modules/media-element-editor.html">media-element-editor</a></li>
+            
+                <li><a href="../modules/notifications.html">notifications</a></li>
+            
+                <li><a href="../modules/players.html">players</a></li>
+            
+                <li><a href="../modules/profile.html">profile</a></li>
+            
+                <li><a href="../modules/search.html">search</a></li>
+            
+                <li><a href="../modules/tags.html">tags</a></li>
+            
+                <li><a href="../modules/uploader.html">uploader</a></li>
+            
+                <li><a href="../modules/video-editor.html">video-editor</a></li>
+            
+                <li><a href="../modules/virtual-classroom.html">virtual-classroom</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: app/assets/javascripts/video_editor.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+The Video Editor is structured as follows: centered in the middle of the Editor is located the &lt;b&gt;preview screen&lt;/b&gt;, below it the &lt;b&gt;components timeline&lt;/b&gt; and the &lt;b&gt;audio track&lt;/b&gt;, and on the right the &lt;b&gt;preview column&lt;/b&gt; which contains also global statistics about the video.
+&lt;br/&gt;&lt;br/&gt;
+A video created with the Video Editor can be composed by &lt;b&gt;three types of components&lt;/b&gt; (and optionally an &lt;b&gt;audio track&lt;/b&gt;):
+&lt;ul&gt;
+  &lt;li&gt;a &lt;b&gt;video component&lt;/b&gt; is an element of type video extracted from the user&#x27;s gallery, associated to an &lt;b&gt;initial&lt;/b&gt; and &lt;b&gt;final time&lt;/b&gt;&lt;/li&gt;
+  &lt;li&gt;a &lt;b&gt;image component&lt;/b&gt; is an element of type image extracted from the user&#x27;s gallery, associated to a &lt;b&gt;duration&lt;/b&gt; in seconds (the image is held in the video for a number of seconds equal to the component&#x27;s duration); the image is centered and cropped maintaining its original proportions, to make it fit in the video screen (which has proportions 16/9)&lt;/li&gt;
+  &lt;li&gt;a &lt;b&gt;text component&lt;/b&gt; is a centered title for which the user chooses a &lt;b&gt;background color&lt;/b&gt;, a &lt;b&gt;font color&lt;/b&gt; and a &lt;b&gt;duration&lt;/b&gt; (which has the same interpretation as for image components).&lt;/li&gt;
+&lt;/ul&gt;
+The resulting video will be the concatenation of all the components inside the timeline, with optionally the chosen audio track as background audio. On the &lt;b&gt;timeline&lt;/b&gt; the user may perform the following actions:
+&lt;ul&gt;
+  &lt;li&gt;&lt;b&gt;add&lt;/b&gt; a new component (see class {{#crossLink &quot;VideoEditorAddComponents&quot;}}{{/crossLink}}) or &lt;b&gt;replace&lt;/b&gt; an existing one, even without maintaining its original type (see class {{#crossLink &quot;VideoEditorReplaceComponents&quot;}}{{/crossLink}}): these functionalities are initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyAddComponent:method&quot;}}{{/crossLink}}&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;remove&lt;/b&gt; a component from the timeline (initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyRemoveComponent:method&quot;}}{{/crossLink}})&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;sort&lt;/b&gt; and change the order of the components (initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyInitialization:method&quot;}}{{/crossLink}})&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;cut&lt;/b&gt; a video component (change its initial and final point) or &lt;b&gt;change duration&lt;/b&gt; of an image or text compoent (both these functionalities are initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyCutters:method&quot;}}{{/crossLink}} and implemented in the class {{#crossLink &quot;VideoEditorCutters&quot;}}{{/crossLink}}).&lt;/li&gt;
+&lt;/ul&gt;
+Each component is provided of its own &lt;b&gt;identifier&lt;/b&gt; (similar to the one used in {{#crossLinkModule &quot;audio-editor&quot;}}{{/crossLinkModule}}), that is unique and doesn&#x27;t change on any operation performed by the user. Moreover, regardless of its type, a component is strictly linked with two &lt;b&gt;external accessories&lt;/b&gt;:
+&lt;ul&gt;
+  &lt;li&gt;a &lt;b&gt;cutter&lt;/b&gt; (whose HTML id is &lt;i&gt;video component [identifier] cutter&lt;/i&gt;): this item is normally hidden, when requested it appears below the timeline and is used to cut a video component or change the duration of an image or text component (class {{#crossLink &quot;VideoEditorCutters&quot;}}{{/crossLink}})&lt;/li&gt;
+  &lt;li&gt;a &lt;b&gt;preview clip&lt;/b&gt; (whose HTML id is &lt;i&gt;video component [identifier] preview&lt;/i&gt;): this item is hidden inside the &lt;b&gt;preview screen&lt;/b&gt;, and it&#x27;s used
+    &lt;ul&gt;
+      &lt;li&gt;to provide the user of a big clip of the component while handling it (functionality initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyComponentsCommon:method&quot;}}{{/crossLink}})&lt;/li&gt;
+      &lt;li&gt;to play a video component while cutting it (initialized in the method {{#crossLink &quot;PlayersDocumentReady/playersDocumentReadyVideoEditor:method&quot;}}{{/crossLink}} in the module {{#crossLinkModule &quot;players&quot;}}{{/crossLinkModule}})&lt;/li&gt;
+      &lt;li&gt;to be shown in the &lt;b&gt;global preview&lt;/b&gt; (see class {{#crossLink &quot;VideoEditorPreview&quot;}}{{/crossLink}}).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+The method that &lt;b&gt;extracts the identifier from a component&lt;/b&gt; is {{#crossLink &quot;VideoEditorGeneral/getVideoComponentIdentifier:method&quot;}}{{/crossLink}} (it works receiving as parameter either the component or its cutter or preview clip).
+&lt;br/&gt;&lt;br/&gt;
+While the user is working, the &lt;b&gt;preview clip&lt;/b&gt; visible in the preview screen corresponds to the last component &lt;b&gt;selected&lt;/b&gt; by the user. A component gets selected either if the user keeps the mouse on it for more than half a second (using the method {{#crossLink &quot;VideoEditorComponents/startVideoEditorPreviewClipWithDelay:method&quot;}}{{/crossLink}}, which avoids compulsive changes inside the preview screen when the user passes with the mouse over the timeline), or immediately on the actions of &lt;b&gt;sorting&lt;/b&gt; and &lt;b&gt;cutting&lt;/b&gt; (using the method {{#crossLink &quot;VideoEditorCutters/startVideoEditorPreviewClip:method&quot;}}{{/crossLink}}): both behaviors are initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyComponentsCommon:method&quot;}}{{/crossLink}}. To the &lt;b&gt;preview clip&lt;/b&gt; of a video component is also associated a method ({{#crossLink &quot;VideoEditorGeneral/loadVideoComponentIfNotLoadedYet:method&quot;}}{{/crossLink}}) that loads the HTML5 video tag only when necessary: this, similarly to {{#crossLinkModule &quot;audio-editor&quot;}}{{/crossLinkModule}}, avoids overloading of the HTML.
+&lt;br/&gt;&lt;br/&gt;
+The &lt;b&gt;component gallery&lt;/b&gt; used inside the Video Editor (initialized in {{#crossLink &quot;GalleriesInitializers/initializeMixedGalleryInVideoEditor:method&quot;}}{{/crossLink}}) is the only gallery in the application which contains mixed types of elements. It&#x27;s divided into three sections, one for each kind of component: the sections for &lt;b&gt;video&lt;/b&gt; and &lt;b&gt;image&lt;/b&gt; components have the same external behavior of normal image and video galleries (see the module {{#crossLinkModule &quot;galleries&quot;}}{{/crossLinkModule}}), whereas the section for &lt;b&gt;text&lt;/b&gt; components is a peculiar text editor (see the class {{#crossLink &quot;VideoEditorTextComponentEditor&quot;}}{{/crossLink}}). The component gallery (together with the regular audio gallery for the &lt;b&gt;audio track&lt;/b&gt;) is initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyGalleries:method&quot;}}{{/crossLink}}, and its functionality defined in the methods of {{#crossLink &quot;VideoEditorGalleries&quot;}}{{/crossLink}} (for instance, the method to switch from a section to another).
+&lt;br/&gt;&lt;br/&gt;
+The method {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyAddComponent:method&quot;}}{{/crossLink}} initializes the general procedure to &lt;b&gt;add or replace a component&lt;/b&gt;. The system sets a HTML &lt;i&gt;data&lt;/i&gt; that records if the component gallery was opened to &lt;b&gt;replace&lt;/b&gt; or &lt;b&gt;add&lt;/b&gt; a component: depending on this data, when the user picks a component from the gallery it&#x27;s called the corresponding method in {{#crossLink &quot;VideoEditorAddComponents&quot;}}{{/crossLink}} or in {{#crossLink &quot;VideoEditorReplaceComponents&quot;}}{{/crossLink}}.
+&lt;br/&gt;&lt;br/&gt;
+When the user adds a component, the system makes a copy of an &lt;b&gt;empty hidden component&lt;/b&gt; and fills it with the new data. This behavior is quite similar to the one in {{#crossLinkModule &quot;audio-editor&quot;}}{{/crossLinkModule}}, but in the case of Video Editor the procedure is slightly more complicated, due to the following reasons:
+&lt;ul&gt;
+  &lt;li&gt;there are &lt;b&gt;three empty items&lt;/b&gt; (empty component, empty cutter, empty preview clip) for each type of component, &lt;b&gt;for a total of nine&lt;/b&gt;&lt;/li&gt;
+  &lt;li&gt;unlike {{#crossLinkModule &quot;audio-editor&quot;}}{{/crossLinkModule}}, in the Video Editor each component needs a &lt;b&gt;miniature&lt;/b&gt;, that necessarily must be inserted in the empty component &lt;b&gt;together with the rest of the data&lt;/b&gt;. For text components, the miniature is built in the moment of the component&#x27;s creation (there is an &lt;b&gt;empty text miniature&lt;/b&gt; hidden in the template of text component editor, see {{#crossLink &quot;VideoEditorTextComponentEditor&quot;}}{{/crossLink}}); for video and image components, the miniatures are loaded together with the &lt;b&gt;mixed gallery&lt;/b&gt; and stored &lt;b&gt;in the popup of each element&lt;/b&gt; (see module {{#crossLinkModule &quot;galleries&quot;}}{{/crossLinkModule}}, and especially the &lt;i&gt;js.erb&lt;/i&gt; templates associated to the routes of the mixed gallery)
+  &lt;li&gt;in the Video Editor it&#x27;s possible to &lt;b&gt;replace&lt;/b&gt; a component: when the system does this, it&#x27;s not enough to fill the inputs of the previous component (with {{#crossLink &quot;VideoEditorComponents/fillVideoEditorSingleParameter:method&quot;}}{{/crossLink}}): it&#x27;s additionally necessary to &lt;b&gt;reset the inputs&lt;/b&gt; of the previous component, thing done by the method {{#crossLink &quot;VideoEditorComponents/clearSpecificVideoEditorComponentParameters:method&quot;}}{{/crossLink}}. Moreover, when replacing a component, the duration is updated using {{#crossLink &quot;VideoEditorComponents/changeDurationVideoEditorComponent:method&quot;}}{{/crossLink}}.&lt;/li&gt;
+&lt;/ul&gt;
+Besides the durations, two graphical details are peculiar to each component: the &lt;b&gt;position&lt;/b&gt;, handled by {{#crossLink &quot;VideoEditorComponents/reloadVideoEditorComponentPositions:method&quot;}}{{/crossLink}}; and the &lt;b&gt;transition&lt;/b&gt;, a small icon representing the &lt;b&gt;fade transition&lt;/b&gt; of one second between a component and the following, that must be visible &lt;i&gt;after all components except for the last one&lt;/i&gt; (see {{#crossLink &quot;VideoEditorComponents/resetVisibilityOfVideoEditorTransitions:method&quot;}}{{/crossLink}}). The operations in which callback it&#x27;s necessary to reset transitions and positions are &lt;b&gt;sorting&lt;/b&gt; ({{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyInitialization:method&quot;}}{{/crossLink}}) and &lt;b&gt;removing&lt;/b&gt; ({{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyRemoveComponent:method&quot;}}{{/crossLink}}).
+&lt;br/&gt;&lt;br/&gt;
+A video component cutter (or simply &lt;b&gt;cutter&lt;/b&gt;) is an instrument used to change the initial and final second of a component of type video: it&#x27;s very similar to the audio cutter, and its functionalities (JQueryUi sliders, players, etc) are defined in {{#crossLink &quot;PlayersVideoEditor/initializeVideoInVideoEditorPreview:method&quot;}}{{/crossLink}} and {{#crossLink &quot;PlayersDocumentReady/playersDocumentReadyVideoEditor:method&quot;}}{{/crossLink}}. A property that is worth mentioning is the &lt;b&gt;automatic return to the previous integer second&lt;/b&gt; when pausing: this is a functionality of both cutters and global reproduction (see {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyPreview:method&quot;}}{{/crossLink}} and {{#crossLink &quot;VideoEditorPreview&quot;}}{{/crossLink}}), necessary to set with precision the current time of the &lt;b&gt;preview screen&lt;/b&gt;, in order to simulate faithfully the effect of transitions and the correspondance with the optional audio track.
+&lt;br/&gt;&lt;br/&gt;
+For image and text components, a cutter is simply a small form where the user may insert a new duration (the associated callback is {{#crossLink &quot;VideoEditorComponents/changeDurationVideoEditorComponent:method&quot;}}{{/crossLink}}. Since it doesn&#x27;t fit the whole timeline, this paraticular cutter must be aligned to the JScrollPain: this is done with the functions of the class {{#crossLink &quot;MediaElementEditorHorizontalTimelines&quot;}}{{/crossLink}}.
+&lt;br/&gt;&lt;br/&gt;
+All the cutters are initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyCutters:method&quot;}}{{/crossLink}}, and their functionalities included in the class {{#crossLink &quot;AudioEditorCutters&quot;}}{{/crossLink}}.
+&lt;br/&gt;&lt;br/&gt;
+The &lt;b&gt;text component editor&lt;/b&gt; can be opened clicking on the icon &#x27;T&#x27; in the header of the component editor (see method {{#crossLink &quot;VideoEditorGalleries/switchToOtherGalleryInMixedGalleryInVideoEditor:method&quot;}}{{/crossLink}}). The user can insert a text and choose background and text color: the functionality is initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyTextComponentEditor:method&quot;}}{{/crossLink}}, and the main methods are contained in the class {{#crossLink &quot;VideoEditorTextComponentEditor&quot;}}{{/crossLink}}. Notice that, unlike image and video components, the &lt;b&gt;miniature&lt;/b&gt; of a text component is created in the moment of the insertion of the compoent (see both {{#crossLink &quot;VideoEditorAddComponents/addTextComponentInVideoEditor:method&quot;}}{{/crossLink}} and {{#crossLink &quot;VideoEditorReplaceComponents/replaceTextComponentInVideoEditor:method&quot;}}{{/crossLink}}).
+&lt;br/&gt;&lt;br/&gt;
+The &lt;b&gt;optional audio track&lt;/b&gt; is added clicking on the button on the bottom. When the user opens the audio gallery and selects an audio, the system automatically sets &lt;i&gt;muted&lt;/i&gt; as &lt;i&gt;true&lt;/i&gt; in all the video components ({{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyAudioTrack:method&quot;}}{{/crossLink}}); when adding or replacing a video component (see both {{#crossLink &quot;VideoEditorAddComponents/addVideoComponentInVideoEditor:method&quot;}}{{/crossLink}} and {{#crossLink &quot;VideoEditorReplaceComponents/replaceVideoComponentInVideoEditor:method&quot;}}{{/crossLink}}) the attribute &lt;i&gt;muted&lt;/i&gt; is inserted if an audio track is present.
+&lt;br/&gt;&lt;br/&gt;
+The audio track is handled while playing a video component inside the video cutter (class {{#crossLink &quot;VideoEditorCutters&quot;}}{{/crossLink}}): the system ensures that the starting of the audio corresponds to the position of the selected video component inside the whole video, using the methods {{#crossLink &quot;PlayersDocumentReady/playersDocumentReadyVideoEditor:method&quot;}}{{/crossLink}} and {{#crossLink &quot;PlayersVideoEditor/initializeActionOfMediaTimeUpdaterInVideoEditor:method&quot;}}{{/crossLink}} of the module {{#crossLinkModule &quot;players&quot;}}{{/crossLinkModule}}.
+&lt;br/&gt;&lt;br/&gt;
+Unlike the {{#crossLinkModule &quot;audio-editor&quot;}}{{/crossLinkModule}}, in Video Editor the &lt;b&gt;preview mode&lt;/b&gt; is not left automatically when the user stops the global preview: The system has different behaviors for each item in the editor while being in preview mode. While the global preview is playing it sets to true the HTML data &lt;b&gt;preview mode in-use&lt;/b&gt;.
+&lt;br/&gt;&lt;br/&gt;
+While in preview mode, the &lt;b&gt;preview&lt;/b&gt; button in the right column is substituted by a button &lt;b&gt;play / pause&lt;/b&gt;; the &lt;i&gt;arrow&lt;/i&gt; on the bottom used to commit changes (see {{#crossLink &quot;MediaElementEditorDocumentReady/mediaElementEditorDocumentReady:method&quot;}}{{/crossLink}}) is replaced by &lt;b&gt;a button &#x27;X&#x27;&lt;/b&gt; that is used to leave the preview mode. Furthermore, in preview mode many graphical details are slightly changed respect to the normal mode (for instance it&#x27;s not possible to open the cutters, remove components, etc).
+&lt;br/&gt;&lt;br/&gt;
+The general methods relative to the preview mode are contained in {{#crossLink &quot;VideoEditorPreview&quot;}}{{/crossLink}}; the method to enter in preview mode is {{#crossLink &quot;VideoEditorPreview/openPreviewModeInVideoEditor:method&quot;}}{{/crossLink}}; the initializer, which contains also the functionality of &lt;b&gt;leaving&lt;/b&gt; the preview mode, is {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyPreview:method&quot;}}{{/crossLink}}.
+&lt;br/&gt;&lt;br/&gt;
+While in preview mode, it&#x27;s possible to start the global preview (starting &lt;b&gt;from the selected component at the selected second&lt;/b&gt;) using the method {{#crossLink &quot;VideoEditorPreview/startVideoEditorGlobalPreview:method&quot;}}{{/crossLink}}: this method is automatically fired with the first component selectedm when the user opens the preview mode for the first time. The method to &lt;b&gt;play a component&lt;/b&gt; is {{#crossLink &quot;VideoEditorPreview/playVideoEditorComponent:method&quot;}}{{/crossLink}}; the functionality of passing from a component to another is placed in the last method (if the last component was of type &lt;b&gt;image&lt;/b&gt; or &lt;b&gt;text&lt;/b&gt;), and in {{#crossLink &quot;PlayersVideoEditor/initializeActionOfMediaTimeUpdaterInVideoEditor:method&quot;}}{{/crossLink}} (it it&#x27;s of type &lt;b&gt;video&lt;/b&gt;, in which case the behavior differs slightly).
+&lt;br/&gt;&lt;br/&gt;
+Unlike in {{#crossLinkModule &quot;audio-editor&quot;}}{{/crossLinkModule}}, there are &lt;b&gt;two methods for increasing the global time&lt;/b&gt;: the regular one is {{#crossLink &quot;VideoEditorPreview/increaseVideoEditorPreviewTimer:method&quot;}}{{/crossLink}} (used to increase the time according to the &lt;b&gt;currentTime&lt;/b&gt; of a video component), and the automatic one is {{#crossLink &quot;VideoEditorPreview/automaticIncreaseVideoEditorPreviewTimer:method&quot;}}{{/crossLink}} (used for automatic increase while playing image and text components).
+&lt;br/&gt;&lt;br/&gt;
+Another important difference with {{#crossLinkModule &quot;audio-editor&quot;}}{{/crossLinkModule}} is the reproduction of the &lt;b&gt;one second transitions&lt;/b&gt; between two components: if the user clicks on &lt;i&gt;pause&lt;/i&gt; while the global preview is playing a transition, the method that is playing the component (as we have already seen, it can be either {{#crossLink &quot;VideoEditorPreview/playVideoEditorComponent:method&quot;}}{{/crossLink}} or {{#crossLink &quot;PlayersVideoEditor/initializeActionOfMediaTimeUpdaterInVideoEditor:method&quot;}}{{/crossLink}}) waits until the transition is over to stop the reproduction.
+&lt;br/&gt;&lt;br/&gt;
+In the class {{#crossLink &quot;VideoEditorPreviewAccessories&quot;}}{{/crossLink}} are stored the methods to handle the instruments available for the user to get to a specific position inside the timeline during preview mode. Such instruments (initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyPreview:method&quot;}}{{/crossLink}}) are:
+&lt;ul&gt;
+  &lt;li&gt;the &lt;b&gt;arrows&lt;/b&gt; that allow the user to pass from a component to another&lt;/li&gt;
+  &lt;li&gt;the &lt;b&gt;precision bar&lt;/b&gt; that allows the user to select a specific point inside the selected component: notice that this bar is implemented with a &lt;i&gt;JQueryUi slider&lt;/i&gt; which is destroyed and re-initialized at each component change (using the methods {{#crossLink &quot;VideoEditorPreviewAccessories/showVideoEditorPreviewComponentProgressBar:method&quot;}}{{/crossLink}} and {{#crossLink &quot;VideoEditorPreviewAccessories/hideVideoEditorPreviewComponentProgressBar:method&quot;}}{{/crossLink}}).&lt;/li&gt;
+&lt;/ul&gt;
+Both precision instruments use the general method {{#crossLink &quot;VideoEditorPreviewAccessories/selectVideoComponentInPreview:method&quot;}}{{/crossLink}}, that allows to select a component at a specific time.
+&lt;br/&gt;&lt;br/&gt;
+To include the &lt;b&gt;background audio track&lt;/b&gt; in the global preview, the system uses the method {{#crossLink &quot;VideoEditorPreviewAccessories/calculateVideoComponentStartSecondInVideoEditor:method&quot;}}{{/crossLink}}, which calculates &lt;b&gt;the total amount of seconds&lt;/b&gt; until the selected point, including the time necessary for the transitions.
+&lt;br/&gt;&lt;br/&gt;
+Finally, let&#x27;s have a look at the functionalities of the JScrollPain: the method {{#crossLink &quot;VideoEditorScrollPain/followPreviewComponentsWithHorizontalScrollInVideoEditor:method&quot;}}{{/crossLink}} is called at any time the selected component changes inside the preview mode (that is, either while reproducing the global preview, or if the user changes component using the arrows); this method re-implements many functionalities that were badly implemented or absent in the original plugin, such as for instance the uniform speed to scroll different amounts of components. The method uses the class {{#crossLink &quot;MediaElementEditorHorizontalTimelines&quot;}}{{/crossLink}}
+&lt;br/&gt;&lt;br/&gt;
+As for the other Element Editors ({{#crossLinkModule &quot;image-editor&quot;}}{{/crossLinkModule}}, {{#crossLinkModule &quot;audio-editor&quot;}}{{/crossLinkModule}}) the core of the process of committing changes is handled in the module {{#crossLinkModule &quot;media-element-editor&quot;}}{{/crossLinkModule}} (more specificly in the class {{#crossLink &quot;MediaElementEditorForms&quot;}}{{/crossLink}}); the part of this functionality specific for the Video Editor is handled in {{#crossLink &quot;MediaElementEditorDocumentReady/mediaElementEditorDocumentReady:method&quot;}}{{/crossLink}}.
+@module video-editor
+**/
+
+
+
+
+
+/**
+Adds an image component to the timeline, contructing an empty &lt;b&gt;preview&lt;/b&gt;, &lt;b&gt;cutter&lt;/b&gt; and &lt;b&gt;component&lt;/b&gt;, and then filling them (see the commentaries inside the code). This method is called by {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyAddComponent:method&quot;}}{{/crossLink}}.
+@method addImageComponentInVideoEditor
+@for VideoEditorAddComponents
+@param image_id {Number} the id of the image in the database
+@param component {String} HTML code corresponding to the already built &lt;b&gt;miniature&lt;/b&gt; of the image
+@param preview {String} HTML code corresponding to the already built &lt;b&gt;content of the preview&lt;/b&gt; for the image
+@param duration {Number} the duration in seconds of the image component
+**/
+function addImageComponentInVideoEditor(image_id, component, preview, duration) {
+  $(&#x27;._new_component_in_video_editor_hover a&#x27;).removeClass(&#x27;current&#x27;);
+  var next_position = $(&#x27;#info_container&#x27;).data(&#x27;last-component-id&#x27;) + 1;
+  var new_timeline_width = parseInt($(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;).replace(&#x27;px&#x27;, &#x27;&#x27;)) + 186;
+  $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;).destroy();
+  $(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;, new_timeline_width + &#x27;px&#x27;);
+  $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane({
+    autoReinitialise: true
+  });
+  $(&#x27;#media_elements_list_in_video_editor .jspHorizontalBar&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+  $(&#x27;#info_container&#x27;).data(&#x27;last-component-id&#x27;, next_position);
+  // build preview
+  var empty_preview = $(&#x27;#empty_image_preview_for_video_editor&#x27;).html();
+  empty_preview = &#x27;&lt;div id=&quot;temporary_empty_preview&quot; &#x27; + empty_preview.substr(empty_preview.indexOf(&#x27;div&#x27;) + 3, empty_preview.length);
+  $(&#x27;#video_editor_preview_container&#x27;).append(empty_preview);
+  // build cutter
+  var empty_cutter = $(&#x27;#empty_image_cutter_for_video_editor&#x27;).html();
+  empty_cutter = &#x27;&lt;div id=&quot;temporary_empty_cutter&quot; &#x27; + empty_cutter.substr(empty_cutter.indexOf(&#x27;div&#x27;) + 3, empty_cutter.length);
+  $(&#x27;#video_editor_cutters&#x27;).append(empty_cutter);
+  // build component
+  var empty_component = $(&#x27;#empty_image_component_for_video_editor&#x27;).html();
+  empty_component = &#x27;&lt;div id=&quot;temporary_empty_component&quot; &#x27; + empty_component.substr(empty_component.indexOf(&#x27;div&#x27;) + 3, empty_component.length);
+  $(&#x27;#add_new_video_component&#x27;).before(empty_component);
+  // edit preview
+  current_preview = $(&#x27;#temporary_empty_preview&#x27;);
+  current_preview.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + next_position + &#x27;_preview&#x27;));
+  current_preview.html(preview);
+  // edit cutter
+  current_cutter = $(&#x27;#temporary_empty_cutter&#x27;);
+  current_cutter.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + next_position + &#x27;_cutter&#x27;));
+  current_cutter.find(&#x27;._old&#x27;).html(secondsToDateString(duration));
+  // edit component
+  current_component = $(&#x27;#temporary_empty_component&#x27;);
+  current_component.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + next_position));
+  current_component.removeClass(&#x27;_video_editor_empty_component&#x27;).addClass(&#x27;_video_editor_component&#x27;);
+  current_component.data(&#x27;duration&#x27;, 0);
+  current_component.data(&#x27;position&#x27;, next_position);
+  current_component.find(&#x27;._video_component_icon ._left&#x27;).html(next_position);
+  current_component.find(&#x27;._video_editor_component_hover&#x27;).append(component);
+  var to_be_appended = fillVideoEditorSingleParameter(&#x27;type&#x27;, next_position, &#x27;image&#x27;);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;image_id&#x27;, next_position, image_id);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;duration&#x27;, next_position, duration);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;position&#x27;, next_position, next_position);
+  current_component.find(&#x27;._video_editor_component_hover&#x27;).append(to_be_appended);
+  // other things
+  changeDurationVideoEditorComponent((&#x27;video_component_&#x27; + next_position), duration);
+  reloadVideoEditorComponentPositions();
+  resetVisibilityOfVideoEditorTransitions();
+  if(!$(&#x27;#video_editor_global_preview&#x27;).hasClass(&#x27;_enabled&#x27;)) {
+    $(&#x27;#video_editor_global_preview&#x27;).addClass(&#x27;_enabled&#x27;);
+    $(&#x27;#video_editor_global_preview a&#x27;).removeClass(&#x27;disabled&#x27;);
+    $(&#x27;._commit_media_element_editor&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+  }
+  setTimeout(function() {
+    highlightAndUpdateVideoComponentIcon((&#x27;video_component_&#x27; + next_position));
+    $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;).scrollToPercentX(100, true);
+  }, 1100);
+}
+
+/**
+Adds a text component to the timeline, contructing an empty &lt;b&gt;preview&lt;/b&gt;, &lt;b&gt;cutter&lt;/b&gt; and &lt;b&gt;component&lt;/b&gt;, and then filling them (see the commentaries inside the code). This method is called by {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyAddComponent:method&quot;}}{{/crossLink}}.
+@method addTextComponentInVideoEditor
+@for VideoEditorAddComponents
+@param component {String} HTML code corresponding to the already built &lt;b&gt;miniature&lt;/b&gt; of the text
+@param content {String} the text content
+@param duration {Number} the duration in seconds of the image component
+@param background_color {String} the class corresponding to the color chosen for the background
+@param text_color {String} the class corresponding to the color chosen for the text font
+**/
+function addTextComponentInVideoEditor(component, content, duration, background_color, text_color) {
+  $(&#x27;._new_component_in_video_editor_hover a&#x27;).removeClass(&#x27;current&#x27;);
+  var next_position = $(&#x27;#info_container&#x27;).data(&#x27;last-component-id&#x27;) + 1;
+  var new_timeline_width = parseInt($(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;).replace(&#x27;px&#x27;, &#x27;&#x27;)) + 186;
+  $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;).destroy();
+  $(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;, new_timeline_width + &#x27;px&#x27;);
+  $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane({
+    autoReinitialise: true
+  });
+  $(&#x27;#media_elements_list_in_video_editor .jspHorizontalBar&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+  $(&#x27;#info_container&#x27;).data(&#x27;last-component-id&#x27;, next_position);
+  // build preview
+  var empty_preview = $(&#x27;#empty_text_preview_for_video_editor&#x27;).html();
+  empty_preview = &#x27;&lt;div id=&quot;temporary_empty_preview&quot; &#x27; + empty_preview.substr(empty_preview.indexOf(&#x27;div&#x27;) + 3, empty_preview.length);
+  $(&#x27;#video_editor_preview_container&#x27;).append(empty_preview);
+  // build cutter
+  var empty_cutter = $(&#x27;#empty_text_cutter_for_video_editor&#x27;).html();
+  empty_cutter = &#x27;&lt;div id=&quot;temporary_empty_cutter&quot; &#x27; + empty_cutter.substr(empty_cutter.indexOf(&#x27;div&#x27;) + 3, empty_cutter.length);
+  $(&#x27;#video_editor_cutters&#x27;).append(empty_cutter);
+  // build component
+  var empty_component = $(&#x27;#empty_text_component_for_video_editor&#x27;).html();
+  empty_component = &#x27;&lt;div id=&quot;temporary_empty_component&quot; &#x27; + empty_component.substr(empty_component.indexOf(&#x27;div&#x27;) + 3, empty_component.length);
+  $(&#x27;#add_new_video_component&#x27;).before(empty_component);
+  // edit preview
+  current_preview = $(&#x27;#temporary_empty_preview&#x27;);
+  current_preview.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + next_position + &#x27;_preview&#x27;));
+  current_preview.removeClass(&#x27;background_color_white&#x27;).addClass(&#x27;background_color_&#x27; + background_color);
+  current_preview.find(&#x27;p&#x27;).removeClass(&#x27;color_black&#x27;).addClass(&#x27;color_&#x27; + text_color);
+  current_preview.find(&#x27;p&#x27;).html(content);
+  // edit cutter
+  current_cutter = $(&#x27;#temporary_empty_cutter&#x27;);
+  current_cutter.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + next_position + &#x27;_cutter&#x27;));
+  current_cutter.find(&#x27;._old&#x27;).html(secondsToDateString(duration));
+  // edit component
+  current_component = $(&#x27;#temporary_empty_component&#x27;);
+  current_component.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + next_position));
+  current_component.removeClass(&#x27;_video_editor_empty_component&#x27;).addClass(&#x27;_video_editor_component&#x27;);
+  current_component.data(&#x27;duration&#x27;, 0);
+  current_component.data(&#x27;position&#x27;, next_position);
+  current_component.find(&#x27;._video_component_icon ._left&#x27;).html(next_position);
+  current_component.find(&#x27;._video_editor_component_hover&#x27;).append(component);
+  $(&#x27;#video_component_&#x27; + next_position + &#x27; ._video_component_thumb ._text_content&#x27;).html(content);
+  $(&#x27;#video_component_&#x27; + next_position + &#x27; ._video_component_thumb ._text_content&#x27;).removeClass(&#x27;color_black&#x27;).addClass(&#x27;color_&#x27; + text_color);
+  $(&#x27;#video_component_&#x27; + next_position + &#x27; ._video_component_thumb&#x27;).removeClass(&#x27;background_color_white&#x27;).addClass(&#x27;background_color_&#x27; + background_color);
+  var to_be_appended = fillVideoEditorSingleParameter(&#x27;type&#x27;, next_position, &#x27;text&#x27;);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;content&#x27;, next_position, content);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;duration&#x27;, next_position, duration);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;background_color&#x27;, next_position, background_color);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;text_color&#x27;, next_position, text_color);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;position&#x27;, next_position, next_position);
+  current_component.find(&#x27;._video_editor_component_hover&#x27;).append(to_be_appended);
+  // other things
+  changeDurationVideoEditorComponent((&#x27;video_component_&#x27; + next_position), duration);
+  reloadVideoEditorComponentPositions();
+  resetVisibilityOfVideoEditorTransitions();
+  if(!$(&#x27;#video_editor_global_preview&#x27;).hasClass(&#x27;_enabled&#x27;)) {
+    $(&#x27;#video_editor_global_preview&#x27;).addClass(&#x27;_enabled&#x27;);
+    $(&#x27;#video_editor_global_preview a&#x27;).removeClass(&#x27;disabled&#x27;);
+    $(&#x27;._commit_media_element_editor&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+  }
+  setTimeout(function() {
+    highlightAndUpdateVideoComponentIcon((&#x27;video_component_&#x27; + next_position));
+    $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;).scrollToPercentX(100, true);
+  }, 1100);
+}
+
+/**
+Adds a video component to the timeline, contructing an empty &lt;b&gt;preview&lt;/b&gt;, &lt;b&gt;cutter&lt;/b&gt; and &lt;b&gt;component&lt;/b&gt;, and then filling them (see the commentaries inside the code). This method is called by {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyAddComponent:method&quot;}}{{/crossLink}}.
+@method addVideoComponentInVideoEditor
+@for VideoEditorAddComponents
+@param video_id {Number} the id of the video in the database
+@param webm {String} path of the webm attached of the video
+@param mp4 {String} path of the mp4 attached of the video
+@param component {String} HTML code corresponding to the already built &lt;b&gt;miniature&lt;/b&gt; of the video
+@param duration {Number} the duration in seconds of the video component (initially the values &lt;b&gt;from&lt;/b&gt; and &lt;b&gt;to&lt;/b&gt; are respectively &lt;b&gt;0&lt;/b&gt; and &lt;b&gt;duration&lt;/b&gt;)
+**/
+function addVideoComponentInVideoEditor(video_id, webm, mp4, component, duration) {
+  $(&#x27;._new_component_in_video_editor_hover a&#x27;).removeClass(&#x27;current&#x27;);
+  var next_position = $(&#x27;#info_container&#x27;).data(&#x27;last-component-id&#x27;) + 1;
+  var new_timeline_width = parseInt($(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;).replace(&#x27;px&#x27;, &#x27;&#x27;)) + 186;
+  $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;).destroy();
+  $(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;, new_timeline_width + &#x27;px&#x27;);
+  $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane({
+    autoReinitialise: true
+  });
+  $(&#x27;#media_elements_list_in_video_editor .jspHorizontalBar&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+  $(&#x27;#info_container&#x27;).data(&#x27;last-component-id&#x27;, next_position);
+  // build preview
+  var empty_preview = $(&#x27;#empty_video_preview_for_video_editor&#x27;).html();
+  empty_preview = &#x27;&lt;div id=&quot;temporary_empty_preview&quot; &#x27; + empty_preview.substr(empty_preview.indexOf(&#x27;div&#x27;) + 3, empty_preview.length);
+  $(&#x27;#video_editor_preview_container&#x27;).append(empty_preview);
+  // build cutter
+  var empty_cutter = $(&#x27;#empty_video_cutter_for_video_editor&#x27;).html();
+  empty_cutter = &#x27;&lt;div id=&quot;temporary_empty_cutter&quot; &#x27; + empty_cutter.substr(empty_cutter.indexOf(&#x27;div&#x27;) + 3, empty_cutter.length);
+  $(&#x27;#video_editor_cutters&#x27;).append(empty_cutter);
+  // build component
+  var empty_component = $(&#x27;#empty_video_component_for_video_editor&#x27;).html();
+  empty_component = &#x27;&lt;div id=&quot;temporary_empty_component&quot; &#x27; + empty_component.substr(empty_component.indexOf(&#x27;div&#x27;) + 3, empty_component.length);
+  $(&#x27;#add_new_video_component&#x27;).before(empty_component);
+  // edit preview
+  current_preview = $(&#x27;#temporary_empty_preview&#x27;);
+  if(videoEditorWithAudioTrack()) {
+    current_preview.find(&#x27;video&#x27;).prop(&#x27;muted&#x27;, true);
+  }
+  current_preview.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + next_position + &#x27;_preview&#x27;));
+  current_preview.find(&#x27;source[type=&quot;video/webm&quot;]&#x27;).attr(&#x27;src&#x27;, webm);
+  current_preview.find(&#x27;source[type=&quot;video/mp4&quot;]&#x27;).attr(&#x27;src&#x27;, mp4);
+  current_preview.find(&#x27;video&#x27;).load();
+  // edit cutter
+  current_cutter = $(&#x27;#temporary_empty_cutter&#x27;);
+  current_cutter.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + next_position + &#x27;_cutter&#x27;));
+  current_cutter.find(&#x27;._video_editor_cutter_total_time&#x27;).html(secondsToDateString(duration));
+  current_cutter.find(&#x27;._video_editor_cutter_selected_time&#x27;).html(secondsToDateString(duration));
+  current_cutter.data(&#x27;to&#x27;, duration);
+  current_cutter.data(&#x27;max-to&#x27;, duration);
+  initializeVideoInVideoEditorPreview(next_position);
+  // edit component
+  current_component = $(&#x27;#temporary_empty_component&#x27;);
+  current_component.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + next_position));
+  current_component.removeClass(&#x27;_video_editor_empty_component&#x27;).addClass(&#x27;_video_editor_component&#x27;);
+  current_component.data(&#x27;duration&#x27;, 0);
+  current_component.data(&#x27;position&#x27;, next_position);
+  current_component.find(&#x27;._video_component_icon ._left&#x27;).html(next_position);
+  current_component.find(&#x27;._video_editor_component_hover&#x27;).append(component);
+  var to_be_appended = fillVideoEditorSingleParameter(&#x27;type&#x27;, next_position, &#x27;video&#x27;);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;video_id&#x27;, next_position, video_id);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;from&#x27;, next_position, 0);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;to&#x27;, next_position, duration);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;position&#x27;, next_position, next_position);
+  current_component.find(&#x27;._video_editor_component_hover&#x27;).append(to_be_appended);
+  // other things
+  changeDurationVideoEditorComponent((&#x27;video_component_&#x27; + next_position), duration);
+  reloadVideoEditorComponentPositions();
+  resetVisibilityOfVideoEditorTransitions();
+  if(!$(&#x27;#video_editor_global_preview&#x27;).hasClass(&#x27;_enabled&#x27;)) {
+    $(&#x27;#video_editor_global_preview&#x27;).addClass(&#x27;_enabled&#x27;);
+    $(&#x27;#video_editor_global_preview a&#x27;).removeClass(&#x27;disabled&#x27;);
+    $(&#x27;._commit_media_element_editor&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+  }
+  setTimeout(function() {
+    highlightAndUpdateVideoComponentIcon((&#x27;video_component_&#x27; + next_position));
+    $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;).scrollToPercentX(100, true);
+  }, 1100);
+}
+
+
+
+
+
+/**
+Changes the duration of a given component, and updates all the global durations and data.
+@method changeDurationVideoEditorComponent
+@for VideoEditorComponents
+@param component_id {String} the HTML id of the component
+@param new_duration {Number} the new duration (the old one is stored as data inside the HTML of the component)
+**/
+function changeDurationVideoEditorComponent(component_id, new_duration) {
+  var old_duration = $(&#x27;#&#x27; + component_id).data(&#x27;duration&#x27;);
+  var total_length = $(&#x27;#info_container&#x27;).data(&#x27;total-length&#x27;);
+  total_length -= old_duration;
+  total_length += new_duration;
+  if($(&#x27;._video_editor_component&#x27;).length &gt; 1) {
+    if(old_duration == 0) {
+      total_length += 1;
+    }
+    if(new_duration == 0) {
+      total_length -= 1;
+    }
+  }
+  $(&#x27;#&#x27; + component_id).data(&#x27;duration&#x27;, new_duration);
+  $(&#x27;#&#x27; + component_id + &#x27; ._video_component_icon ._right&#x27;).html(secondsToDateString(new_duration));
+  $(&#x27;#info_container&#x27;).data(&#x27;total-length&#x27;, total_length);
+  $(&#x27;#visual_video_editor_total_length&#x27;).html(secondsToDateString(total_length));
+}
+
+/**
+Clears all the inputs of a component which refer to specific types (this is used in {{#crossLink &quot;VideoEditorReplaceComponents&quot;}}{{/crossLink}}, when the user replaces a component with another of a different type).
+@method clearSpecificVideoEditorComponentParameters
+@for VideoEditorComponents
+@param component_id {String} the HTML id of the component
+**/
+function clearSpecificVideoEditorComponentParameters(component_id) {
+  var huge_selector = &#x27;#&#x27; + component_id + &#x27; ._video_component_input_content&#x27;;
+  huge_selector += &#x27;, #&#x27; + component_id + &#x27; ._video_component_input_background_color&#x27;;
+  huge_selector += &#x27;, #&#x27; + component_id + &#x27; ._video_component_input_text_color&#x27;;
+  huge_selector += &#x27;, #&#x27; + component_id + &#x27; ._video_component_input_duration&#x27;;
+  huge_selector += &#x27;, #&#x27; + component_id + &#x27; ._video_component_input_image_id&#x27;;
+  huge_selector += &#x27;, #&#x27; + component_id + &#x27; ._video_component_input_video_id&#x27;;
+  huge_selector += &#x27;, #&#x27; + component_id + &#x27; ._video_component_input_from&#x27;;
+  huge_selector += &#x27;, #&#x27; + component_id + &#x27; ._video_component_input_to&#x27;;
+  $(huge_selector).remove();
+}
+
+/**
+Function that creates a single input field to be inserted in the empty audio component during the process of construction of a new one (similar to {{#crossLink &quot;AudioEditorComponents/fillAudioEditorSingleParameter:method&quot;}}{{/crossLink}}).
+@method fillVideoEditorSingleParameter
+@for VideoEditorComponents
+@param input {String} the specific input to be filled (for example, &lt;i&gt;video_id&lt;/i&gt;, &lt;i&gt;from&lt;/i&gt;, &lt;i&gt;duration&lt;/i&gt;, or &lt;i&gt;to&lt;/i&gt;)
+@param identifier {Number} the identifier of the component
+@param value {String} the HTML value to be assigned to the input
+@return {String} the resulting input written in HTML
+**/
+function fillVideoEditorSingleParameter(input, identifier, value) {
+  return &#x27;&lt;input id=&quot;&#x27; + input + &#x27;_&#x27; + identifier + &#x27;&quot; class=&quot;_video_component_input_&#x27; + input + &#x27;&quot; type=&quot;hidden&quot; value=&quot;&#x27; + value + &#x27;&quot; name=&quot;&#x27; + input + &#x27;_&#x27; + identifier + &#x27;&quot;/&gt;&#x27;;
+}
+
+/**
+Highlights the small header of a component.
+@method highlightAndUpdateVideoComponentIcon
+@for VideoEditorComponents
+@param component_id {string} the HTML id of the component
+**/
+function highlightAndUpdateVideoComponentIcon(component_id) {
+  $(&#x27;#&#x27; + component_id + &#x27; ._video_component_icon&#x27;).effect(&#x27;highlight&#x27;, {color: &#x27;#41A62A&#x27;}, 1500);
+}
+
+/**
+Reloads all the positions of components in the timeline; used in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyRemoveComponent:method&quot;}}{{/crossLink}} (removing a component) and in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyInitialization:method&quot;}}{{/crossLink}} (sorting components).
+@method reloadVideoEditorComponentPositions
+@for VideoEditorComponents
+**/
+function reloadVideoEditorComponentPositions() {
+  var components = $(&#x27;._video_editor_component&#x27;);
+  components.each(function(index) {
+    $(this).data(&#x27;position&#x27;, (index + 1));
+    $(this).find(&#x27;._video_component_input_position&#x27;).val(index + 1);
+    $(this).find(&#x27;._video_component_icon ._left&#x27;).html(index + 1);
+  });
+}
+
+/**
+Resets the visibility of all the transitions between components (because the last transition is not visible); used in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyRemoveComponent:method&quot;}}{{/crossLink}} (removing a component) and in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyInitialization:method&quot;}}{{/crossLink}} (sorting components).
+@method resetVisibilityOfVideoEditorTransitions
+@for VideoEditorComponents
+**/
+function resetVisibilityOfVideoEditorTransitions() {
+  var components = $(&#x27;._video_editor_component&#x27;);
+  components.each(function(index) {
+    if(index &lt; (components.length - 1)) {
+      $(this).find(&#x27;._video_component_transition&#x27;).removeClass(&#x27;current&#x27;);
+    } else {
+      $(this).find(&#x27;._video_component_transition&#x27;).addClass(&#x27;current&#x27;);
+    }
+  });
+}
+
+/**
+Selects the component with a delay, after passing with the mouse. Used in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyComponentsCommon:method&quot;}}{{/crossLink}}.
+@method startVideoEditorPreviewClipWithDelay
+@for VideoEditorComponents
+@param component_id {string} the HTML id of the component
+**/
+function startVideoEditorPreviewClipWithDelay(component_id) {
+  setTimeout(function() {
+    var obj = $(&#x27;#&#x27; + component_id);
+    if(obj.data(&#x27;preview-selected&#x27;) &amp;&amp; !$(&#x27;#&#x27; + component_id + &#x27;_preview&#x27;).is(&#x27;:visible&#x27;)) {
+      startVideoEditorPreviewClip(component_id);
+    }
+  }, 500);
+}
+
+
+
+
+
+/**
+Closes the cutter that is visible at the moment, regardless of its type.
+@method closeGenericVideoComponentCutter
+@for VideoEditorCutters
+**/
+function closeGenericVideoComponentCutter() {
+  $(&#x27;._video_component_cutter_arrow&#x27;).hide(&#x27;fade&#x27;, {}, 250);
+  $(&#x27;._video_component_cutter&#x27;).hide(&#x27;fade&#x27;, {}, 250, function() {
+    $(&#x27;._commit_media_element_editor&#x27;).show();
+    $(&#x27;#video_editor_global_preview a&#x27;).removeClass(&#x27;disabled&#x27;);
+    $(&#x27;._video_editor_bottom_bar&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+    resetVisibilityOfVideoEditorTransitions();
+    $(&#x27;#media_elements_list_in_video_editor .jspHorizontalBar&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+    $(&#x27;._video_editor_bottom_bar&#x27;).show();
+    $(&#x27;#video_editor_box_ghost&#x27;).hide();
+    $(&#x27;._video_editor_component_hover&#x27;).removeClass(&#x27;selected&#x27;);
+    $(&#x27;._new_component_in_video_editor_hover&#x27;).removeClass(&#x27;selected&#x27;);
+    $(&#x27;._video_component_icon&#x27;).removeClass(&#x27;selected&#x27;);
+  });
+}
+
+/**
+Commits the changes of a generic cutter.
+@method commitVideoComponentVideoCutter
+@for VideoEditorCutters
+@param identifier {Number} the unique identifier of the component
+**/
+function commitVideoComponentVideoCutter(identifier) {
+  var from = $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).data(&#x27;from&#x27;);
+  var to = $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).data(&#x27;to&#x27;);
+  $(&#x27;#video_component_&#x27; + identifier + &#x27; ._video_component_input_from&#x27;).val(from);
+  $(&#x27;#video_component_&#x27; + identifier + &#x27; ._video_component_input_to&#x27;).val(to);
+  changeDurationVideoEditorComponent(&#x27;video_component_&#x27; + identifier, to - from);
+  if($(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).data(&#x27;changed&#x27;)) {
+    highlightAndUpdateVideoComponentIcon(&#x27;video_component_&#x27; + identifier);
+    $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).data(&#x27;changed&#x27;, false);
+  }
+}
+
+/**
+Cuts the left side of a video component.
+@method cutVideoComponentLeftSide
+@for VideoEditorCutters
+@param identifier {Number} the unique identifier of the video component
+@param pos {Number} the new value for the input &lt;i&gt;from&lt;/i&gt;
+**/
+function cutVideoComponentLeftSide(identifier, pos) {
+  $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).data(&#x27;from&#x27;, pos);
+  var new_duration = $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).data(&#x27;to&#x27;) - pos;
+  $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter ._video_editor_cutter_selected_time&#x27;).html(secondsToDateString(new_duration));
+}
+
+/**
+Cuts the right side of a video component.
+@method cutVideoComponentRightSide
+@for VideoEditorCutters
+@param identifier {Number} the unique identifier of the video component
+@param pos {Number} the new value for the input &lt;i&gt;to&lt;/i&gt;
+**/
+function cutVideoComponentRightSide(identifier, pos) {
+  $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).data(&#x27;to&#x27;, pos);
+  var new_duration = pos - $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).data(&#x27;from&#x27;);
+  $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter ._video_editor_cutter_selected_time&#x27;).html(secondsToDateString(new_duration));
+}
+
+/**
+Scrolls (using {{#crossLink &quot;MediaElementEditorHorizontalTimelines&quot;}}{{/crossLink}}) and shows the cutter for a &lt;b&gt;video&lt;/b&gt; component. The similar functionality for &lt;b&gt;image&lt;/b&gt; and &lt;b&gt;text&lt;/b&gt; components is initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyCutters:method&quot;}}{{/crossLink}}.
+@method showVideoEditorCutter
+@for VideoEditorCutters
+@param component_id {String} the HTML id of the component
+**/
+function showVideoEditorCutter(component_id) {
+  $(&#x27;._video_editor_bottom_bar&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+  $(&#x27;._commit_media_element_editor&#x27;).hide();
+  $(&#x27;#media_elements_list_in_video_editor .jspHorizontalBar&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+  $(&#x27;#&#x27; + component_id + &#x27; ._video_component_cutter_arrow&#x27;).show(&#x27;fade&#x27;, {}, 250);
+  $(&#x27;#&#x27; + component_id + &#x27;_cutter&#x27;).show(&#x27;fade&#x27;, {}, 250, function() {
+    $(&#x27;#video_editor_global_preview a&#x27;).addClass(&#x27;disabled&#x27;);
+    $(&#x27;._video_component_transition&#x27;).addClass(&#x27;current&#x27;);
+    $(&#x27;._video_editor_component:not(#&#x27; + component_id + &#x27;) ._video_editor_component_hover&#x27;).addClass(&#x27;selected&#x27;);
+    $(&#x27;._video_component_icon&#x27;).addClass(&#x27;selected&#x27;);
+    $(&#x27;#&#x27; + component_id + &#x27; ._video_component_icon&#x27;).removeClass(&#x27;selected&#x27;);
+    $(&#x27;._new_component_in_video_editor_hover&#x27;).addClass(&#x27;selected&#x27;);
+  });
+}
+
+/**
+Similar to {{#crossLink &quot;VideoEditorComponents/startVideoEditorPreviewClipWithDelay:method&quot;}}{{/crossLink}}, but without delay (used for sorting and opening cutter).
+@method startVideoEditorPreviewClip
+@for VideoEditorCutters
+@param component_id {String} the HTML id of the component
+**/
+function startVideoEditorPreviewClip(component_id) {
+  $(&#x27;._video_component_preview&#x27;).hide();
+  loadVideoComponentIfNotLoadedYet(component_id);
+  $(&#x27;#&#x27; + component_id + &#x27;_preview&#x27;).show(&#x27;fade&#x27;, {}, 250);
+}
+
+
+
+
+
+/**
+Global initializer.
+@method videoEditorDocumentReady
+@for VideoEditorDocumentReady
+**/
+function videoEditorDocumentReady() {
+  videoEditorDocumentReadyPreview();
+  videoEditorDocumentReadyCutters();
+  videoEditorDocumentReadyRemoveComponent();
+  videoEditorDocumentReadyComponentsCommon();
+  videoEditorDocumentReadyGalleries();
+  videoEditorDocumentReadyTextComponentEditor();
+  videoEditorDocumentReadyAddComponent();
+  videoEditorDocumentReadyAudioTrack();
+  videoEditorDocumentReadyInitialization();
+}
+
+/**
+Initializer for adding components (this method calls both classes {{#crossLink &quot;VideoEditorAddComponents&quot;}}{{/crossLink}} and {{#crossLink &quot;VideoEditorReplaceComponents&quot;}}{{/crossLink}}).
+@method videoEditorDocumentReadyAddComponent
+@for VideoEditorDocumentReady
+**/
+function videoEditorDocumentReadyAddComponent() {
+  $body.on(&#x27;click&#x27;, &#x27;._add_video_component_to_video_editor&#x27;, function() {
+    var video_id = $(this).data(&#x27;video-id&#x27;);
+    var popup_id = &#x27;dialog-video-gallery-&#x27; + video_id;
+    var component = $(&#x27;#&#x27; + popup_id + &#x27; ._temporary&#x27;).html();
+    var webm = $(&#x27;#&#x27; + popup_id + &#x27; source[type=&quot;video/webm&quot;]&#x27;).attr(&#x27;src&#x27;);
+    var mp4 = $(&#x27;#&#x27; + popup_id + &#x27; source[type=&quot;video/mp4&quot;]&#x27;).attr(&#x27;src&#x27;);
+    var duration = $(this).data(&#x27;duration&#x27;);
+    closePopUp(popup_id);
+    setTimeout(function() {
+      closeGalleryInVideoEditor(&#x27;mixed&#x27;);
+    }, 700);
+    if($(&#x27;#info_container&#x27;).data(&#x27;replacing-component&#x27;)) {
+      var current_component = $(&#x27;#info_container&#x27;).data(&#x27;current-component&#x27;);
+      setTimeout(function() {
+        highlightAndUpdateVideoComponentIcon(current_component);
+      }, 1400);
+      replaceVideoComponentInVideoEditor(video_id, webm, mp4, component, current_component, duration);
+    } else {
+      addVideoComponentInVideoEditor(video_id, webm, mp4, component, duration);
+    }
+  });
+  $body.on(&#x27;keydown&#x27;, &#x27;.imageInGalleryPopUp ._duration_selector input&#x27;, function(e) {
+    if(e.which === 13) {
+      $(this).parents(&#x27;._duration_selector&#x27;).find(&#x27;._add_image_component_to_video_editor_after_select_duration&#x27;).click();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._add_image_component_to_video_editor&#x27;, function() {
+    var popup_id = &#x27;dialog-image-gallery-&#x27; + $(this).data(&#x27;image-id&#x27;);
+    $(&#x27;#&#x27; + popup_id + &#x27; ._bottom_of_image_popup_in_gallery&#x27;).hide();
+    $(&#x27;#&#x27; + popup_id + &#x27; ._duration_selector&#x27;).show();
+    $(&#x27;#&#x27; + popup_id + &#x27; ._duration_selector input&#x27;).val(&#x27;&#x27;);
+    $(&#x27;#&#x27; + popup_id + &#x27; ._duration_selector input&#x27;).focus();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._add_image_component_to_video_editor_after_select_duration&#x27;, function() {
+    var image_id = $(this).data(&#x27;image-id&#x27;)
+    var popup_id = &#x27;dialog-image-gallery-&#x27; + image_id;
+    var duration = parseInt($(&#x27;#&#x27; + popup_id + &#x27; input&#x27;).val());
+    if(isNaN(duration) || duration &lt; 1) {
+      showErrorPopUp($captions.data(&#x27;invalid-component-duration-in-video-editor&#x27;));
+    } else {
+      var component = $(&#x27;#&#x27; + popup_id + &#x27; ._temporary ._video_component_thumb&#x27;)[0].outerHTML;
+      var preview = $(&#x27;#&#x27; + popup_id + &#x27; ._temporary ._image_preview_in_video_editor_gallery&#x27;).html();
+      closePopUp(popup_id);
+      setTimeout(function() {
+        closeGalleryInVideoEditor(&#x27;mixed&#x27;);
+      }, 700);
+      if($(&#x27;#info_container&#x27;).data(&#x27;replacing-component&#x27;)) {
+        var current_component = $(&#x27;#info_container&#x27;).data(&#x27;current-component&#x27;);
+        setTimeout(function() {
+          highlightAndUpdateVideoComponentIcon(current_component);
+        }, 1400);
+        replaceImageComponentInVideoEditor(image_id, component, preview, current_component, duration);
+      } else {
+        addImageComponentInVideoEditor(image_id, component, preview, duration);
+      }
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#insert_text_component_in_video_editor&#x27;, function() {
+    var preview = $(&#x27;#text_component_preview&#x27;);
+    var background_color = preview.data(&#x27;background-color&#x27;);
+    var text_color = preview.data(&#x27;text-color&#x27;);
+    var duration = parseInt($(&#x27;#video_editor_mixed_gallery_container ._texts ._duration_selector input&#x27;).val());
+    if(isNaN(duration) || duration &lt; 1) {
+      showErrorPopUp($captions.data(&#x27;invalid-component-duration-in-video-editor&#x27;));
+    } else if(preview.data(&#x27;placeholder&#x27;)) {
+      showErrorPopUp($captions.data(&#x27;empty-text-component-in-video-editor&#x27;));
+    } else {
+      var content = $(&#x27;#text_component_preview textarea&#x27;).val().split(&quot;\n&quot;).join(&#x27;&lt;br/&gt;&#x27;);
+      var component = $(&#x27;#video_editor_mixed_gallery_container ._texts ._temporary&#x27;).html();
+      closeGalleryInVideoEditor(&#x27;mixed&#x27;);
+      if($(&#x27;#info_container&#x27;).data(&#x27;replacing-component&#x27;)) {
+        var current_component = $(&#x27;#info_container&#x27;).data(&#x27;current-component&#x27;);
+        setTimeout(function() {
+          highlightAndUpdateVideoComponentIcon(current_component);
+        }, 700);
+        replaceTextComponentInVideoEditor(component, content, current_component, duration, background_color, text_color);
+      } else {
+        addTextComponentInVideoEditor(component, content, duration, background_color, text_color);
+      }
+    }
+  });
+}
+
+/**
+Initializes functionality for audio track.
+@method videoEditorDocumentReadyAudioTrack
+@for VideoEditorDocumentReady
+**/
+function videoEditorDocumentReadyAudioTrack() {
+  $body.on(&#x27;click&#x27;, &#x27;._add_audio_track_to_video_editor&#x27;, function() {
+    $(&#x27;#video_editor_preview_container ._audio_track_preview&#x27;).remove();
+    if(!$(&#x27;#video_editor_preview_container video&#x27;).prop(&#x27;muted&#x27;)) {
+      $(&#x27;#video_editor_preview_container video&#x27;).prop(&#x27;muted&#x27;, true);
+    }
+    var audio_id = $(this).data(&#x27;audio-id&#x27;);
+    closeGalleryInVideoEditor(&#x27;audio&#x27;);
+    stopMedia(&#x27;._audio_expanded_in_gallery audio&#x27;);
+    $(&#x27;._audio_expanded_in_gallery ._expanded&#x27;).hide();
+    $(&#x27;._audio_expanded_in_gallery&#x27;).removeClass(&#x27;_audio_expanded_in_gallery&#x27;);
+    $(&#x27;#audio_track_in_video_editor_input&#x27;).val(audio_id);
+    $(&#x27;#empty_audio_track_placeholder_in_video_editor&#x27;).hide();
+    $(&#x27;#full_audio_track_placeholder_in_video_editor&#x27;).show();
+    $(&#x27;#full_audio_track_placeholder_in_video_editor&#x27;).data(&#x27;duration&#x27;, $(this).data(&#x27;duration&#x27;));
+    var new_html_title = $(&#x27;#gallery_audio_&#x27; + audio_id + &#x27; ._compact p&#x27;).html();
+    new_html_title += (&#x27;&lt;br/&gt;&#x27; + secondsToDateString($(this).data(&#x27;duration&#x27;)));
+    $(&#x27;#full_audio_track_placeholder_in_video_editor ._title&#x27;).html(new_html_title);
+    $(&#x27;#video_editor_preview_container&#x27;).append($(&#x27;#empty_audio_track_preview_for_video_editor&#x27;).html());
+    var new_audio_track = $(&#x27;#video_editor_preview_container ._audio_track_preview&#x27;);
+    new_audio_track.data(&#x27;duration&#x27;, $(this).data(&#x27;duration&#x27;));
+    new_audio_track.find(&#x27;source[type=&quot;audio/mp4&quot;]&#x27;).attr(&#x27;src&#x27;, $(this).data(&#x27;m4a&#x27;));
+    new_audio_track.find(&#x27;source[type=&quot;audio/ogg&quot;]&#x27;).attr(&#x27;src&#x27;, $(this).data(&#x27;ogg&#x27;));
+    new_audio_track.find(&#x27;audio&#x27;).load();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#full_audio_track_placeholder_in_video_editor ._remove&#x27;, function() {
+    $(&#x27;#video_editor_preview_container video&#x27;).prop(&#x27;muted&#x27;, false);
+    var audio_id = $(&#x27;#audio_track_in_video_editor_input&#x27;).val();
+    $(&#x27;#video_editor_preview_container ._audio_track_preview&#x27;).remove();
+    $(&#x27;#audio_track_in_video_editor_input&#x27;).val(&#x27;&#x27;);
+    $(&#x27;#full_audio_track_placeholder_in_video_editor&#x27;).hide();
+    $(&#x27;#empty_audio_track_placeholder_in_video_editor&#x27;).show();
+  });
+}
+
+/**
+Initializer for functionalities common to all types of components.
+@method videoEditorDocumentReadyComponentsCommon
+@for VideoEditorDocumentReady
+**/
+function videoEditorDocumentReadyComponentsCommon() {
+  $body.on(&#x27;mouseover&#x27;, &#x27;._video_editor_component_hover&#x27;, function() {
+    var father = $(this).parent();
+    if(father.data(&#x27;rolloverable&#x27;)) {
+      father.data(&#x27;preview-selected&#x27;, true);
+      startVideoEditorPreviewClipWithDelay(father.attr(&#x27;id&#x27;));
+      $(&#x27;#&#x27; + father.attr(&#x27;id&#x27;) + &#x27; ._video_editor_component_menu&#x27;).show();
+    }
+  });
+  $body.on(&#x27;mouseout&#x27;, &#x27;._video_editor_component_hover&#x27;, function() {
+    var father = $(this).parent();
+    father.data(&#x27;preview-selected&#x27;, false);
+    if(father.data(&#x27;rolloverable&#x27;)) {
+      $(&#x27;#&#x27; + father.attr(&#x27;id&#x27;) + &#x27; ._video_editor_component_menu&#x27;).hide();
+    }
+  });
+  $body.on(&#x27;mouseover&#x27;, &#x27;._new_component_in_video_editor_hover&#x27;, function() {
+    $(&#x27;._new_component_in_video_editor_hover a&#x27;).addClass(&#x27;current&#x27;);
+  });
+  $body.on(&#x27;mouseout&#x27;, &#x27;._new_component_in_video_editor_hover&#x27;, function() {
+    $(&#x27;._new_component_in_video_editor_hover a&#x27;).removeClass(&#x27;current&#x27;);
+  });
+}
+
+/**
+Initializer for cutters.
+@method videoEditorDocumentReadyCutters
+@for VideoEditorDocumentReady
+**/
+function videoEditorDocumentReadyCutters() {
+  $body.on(&#x27;click&#x27;, &#x27;._video_component_cutter_button&#x27;, function() {
+    var component_id = $(this).parents(&#x27;._video_editor_component&#x27;).attr(&#x27;id&#x27;);
+    if(!$(&#x27;#&#x27; + component_id + &#x27;_preview&#x27;).is(&#x27;:visible&#x27;)) {
+      startVideoEditorPreviewClip(component_id);
+    }
+    $(&#x27;#video_editor_box_ghost&#x27;).show();
+    $(&#x27;#video_editor_global_preview&#x27;).removeClass(&#x27;_enabled&#x27;);
+    var pos = $(&#x27;#&#x27; + component_id).data(&#x27;position&#x27;);
+    var scroll_to = getNormalizedPositionTimelineHorizontalScrollPane(&#x27;media_elements_list_in_video_editor&#x27;, 186, pos, 5);
+    if($(&#x27;#&#x27; + component_id + &#x27;_cutter&#x27;).hasClass(&#x27;_mini_cutter&#x27;)) {
+      $(&#x27;#&#x27; + component_id + &#x27;_cutter&#x27;).css(&#x27;left&#x27;, (3 + getAbsolutePositionTimelineHorizontalScrollPane(&#x27;media_elements_list_in_video_editor&#x27;, 186, pos, 5)));
+    }
+    var jsp_handler = $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;);
+    if(scroll_to != jsp_handler.getContentPositionX() &amp;&amp; jsp_handler.getPercentScrolledX() != 1) {
+      $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane().bind(&#x27;panescrollstop&#x27;, function() {
+        showVideoEditorCutter(component_id);
+        $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane().unbind(&#x27;panescrollstop&#x27;);
+      });
+      jsp_handler.scrollToX(scroll_to, true);
+    } else {
+      showVideoEditorCutter(component_id);
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._media_player_done_video_component_in_video_editor_preview&#x27;, function() {
+    closeGenericVideoComponentCutter();
+    var component_id = $(this).parents(&#x27;._video_component_cutter&#x27;).attr(&#x27;id&#x27;);
+    var identifier = getVideoComponentIdentifier(component_id);
+    $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter ._double_slider .ui-slider-handle&#x27;).removeClass(&#x27;selected&#x27;);
+    stopVideoInVideoEditorPreview(identifier);
+    commitVideoComponentVideoCutter(identifier);
+    $(&#x27;#video_editor_global_preview&#x27;).addClass(&#x27;_enabled&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._media_player_done_other_component_in_video_editor_preview&#x27;, function() {
+    var component_id = $(this).parents(&#x27;._video_component_cutter&#x27;).attr(&#x27;id&#x27;);
+    var identifier = getVideoComponentIdentifier(component_id);
+    var duration = $(&#x27;#&#x27; + component_id + &#x27; ._duration_selector input&#x27;).val();
+    if(duration == &#x27;&#x27;) {
+      closeGenericVideoComponentCutter();
+    } else {
+      duration = parseInt(duration);
+      if(isNaN(duration) || duration &lt; 1) {
+        showErrorPopUp($captions.data(&#x27;invalid-component-duration-in-video-editor&#x27;));
+      } else {
+        closeGenericVideoComponentCutter();
+        changeDurationVideoEditorComponent((&#x27;video_component_&#x27; + identifier), duration);
+        $(&#x27;#&#x27; + component_id + &#x27; ._duration_selector input&#x27;).val(&#x27;&#x27;);
+        $(&#x27;#&#x27; + component_id + &#x27; ._old&#x27;).html(secondsToDateString(duration));
+        $(&#x27;#video_component_&#x27; + identifier + &#x27; ._video_component_input_duration&#x27;).val(duration);
+        highlightAndUpdateVideoComponentIcon(&#x27;video_component_&#x27; + identifier);
+      }
+    }
+    $(&#x27;#video_editor_global_preview&#x27;).addClass(&#x27;_enabled&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._video_component_cutter ._precision_arrow_left&#x27;, function() {
+    var cutter = $(this).parents(&#x27;._video_component_cutter&#x27;);
+    var identifier = getVideoComponentIdentifier(cutter.attr(&#x27;id&#x27;));
+    var single_slider = cutter.find(&#x27;._media_player_slider&#x27;);
+    var double_slider = cutter.find(&#x27;._double_slider&#x27;);
+    if(single_slider.find(&#x27;.ui-slider-handle&#x27;).hasClass(&#x27;selected&#x27;)) {
+      var resp = single_slider.slider(&#x27;value&#x27;);
+      if(resp &gt; 0 &amp;&amp; resp &gt; double_slider.slider(&#x27;values&#x27;, 0)) {
+        selectVideoComponentCutterHandle(cutter, resp - 1);
+      }
+    } else if(double_slider.find(&#x27;.ui-slider-handle&#x27;).first().hasClass(&#x27;selected&#x27;)) {
+      var resp = double_slider.slider(&#x27;values&#x27;, 0);
+      if(resp &gt; 0) {
+        double_slider.slider(&#x27;values&#x27;, 0, resp - 1);
+        cutVideoComponentLeftSide(identifier, resp - 1);
+      }
+    } else {
+      var resp = double_slider.slider(&#x27;values&#x27;, 1);
+      if(resp &gt; double_slider.slider(&#x27;values&#x27;, 0) + 1) {
+        if(single_slider.slider(&#x27;value&#x27;) == resp) {
+          selectVideoComponentCutterHandle(cutter, resp - 1);
+        }
+        double_slider.slider(&#x27;values&#x27;, 1, resp - 1);
+        cutVideoComponentRightSide(identifier, resp - 1);
+      }
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._video_component_cutter ._precision_arrow_right&#x27;, function() {
+    var cutter = $(this).parents(&#x27;._video_component_cutter&#x27;);
+    var identifier = getVideoComponentIdentifier(cutter.attr(&#x27;id&#x27;));
+    var duration = cutter.data(&#x27;max-to&#x27;);
+    var single_slider = cutter.find(&#x27;._media_player_slider&#x27;);
+    var double_slider = cutter.find(&#x27;._double_slider&#x27;);
+    if(single_slider.find(&#x27;.ui-slider-handle&#x27;).hasClass(&#x27;selected&#x27;)) {
+      var resp = single_slider.slider(&#x27;value&#x27;);
+      if(resp &lt; duration &amp;&amp; resp &lt; double_slider.slider(&#x27;values&#x27;, 1)) {
+        selectVideoComponentCutterHandle(cutter, resp + 1);
+      }
+    } else if(double_slider.find(&#x27;.ui-slider-handle&#x27;).first().hasClass(&#x27;selected&#x27;)) {
+      var resp = double_slider.slider(&#x27;values&#x27;, 0);
+      if(resp &lt; double_slider.slider(&#x27;values&#x27;, 1) - 1) {
+        if(single_slider.slider(&#x27;value&#x27;) == resp) {
+          selectVideoComponentCutterHandle(cutter, resp + 1);
+        }
+        double_slider.slider(&#x27;values&#x27;, 0, resp + 1);
+        cutVideoComponentLeftSide(identifier, resp + 1);
+      }
+    } else {
+      var resp = double_slider.slider(&#x27;values&#x27;, 1);
+      if(resp &lt; duration) {
+        double_slider.slider(&#x27;values&#x27;, 1, resp + 1);
+        cutVideoComponentRightSide(identifier, resp + 1);
+      }
+    }
+  });
+}
+
+/**
+Initializer for galleries.
+@method videoEditorDocumentReadyGalleries
+@for VideoEditorDocumentReady
+**/
+function videoEditorDocumentReadyGalleries() {
+  $body.on(&#x27;click&#x27;, &#x27;._close_mixed_gallery_in_video_editor&#x27;, function() {
+    closeGalleryInVideoEditor(&#x27;mixed&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._close_audio_gallery_in_video_editor&#x27;, function() {
+    closeGalleryInVideoEditor(&#x27;audio&#x27;);
+    var expanded_audio = $(&#x27;._audio_expanded_in_gallery&#x27;);
+    if(expanded_audio.length &gt; 0) {
+      expanded_audio.removeClass(&#x27;_audio_expanded_in_gallery&#x27;);
+      var audio_id = expanded_audio.attr(&#x27;id&#x27;);
+      stopMedia(&#x27;#&#x27; + audio_id + &#x27; audio&#x27;);
+      $(&#x27;#&#x27; + audio_id + &#x27; ._expanded&#x27;).hide();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._new_component_in_video_editor_button&#x27;, function() {
+    var father = $(this).parent().parent().parent().parent();
+    var infos = $(&#x27;#info_container&#x27;);
+    if($(this).hasClass(&#x27;_replace_component&#x27;)) {
+      infos.data(&#x27;replacing-component&#x27;, true);
+      infos.data(&#x27;current-component&#x27;, father.attr(&#x27;id&#x27;));
+    } else {
+      infos.data(&#x27;replacing-component&#x27;, false);
+    }
+    if($(&#x27;#video_editor_mixed_gallery_container&#x27;).data(&#x27;loaded&#x27;)) {
+      showGalleryInVideoEditor(&#x27;mixed&#x27;);
+      resetVideoEditorTextComponent();
+    } else {
+      $.ajax({
+        type: &#x27;get&#x27;,
+        url: &#x27;/videos/galleries&#x27;
+      });
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._show_audio_gallery_in_video_editor&#x27;, function() {
+    if($(&#x27;#video_editor_audio_gallery_container&#x27;).data(&#x27;loaded&#x27;)) {
+      showGalleryInVideoEditor(&#x27;audio&#x27;);
+    } else {
+      $.ajax({
+        type: &#x27;get&#x27;,
+        url: &#x27;/videos/galleries/audio&#x27;
+      });
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#video_editor_mixed_gallery_container ._switch_video&#x27;, function() {
+    $(&#x27;._switch_image, ._switch_text&#x27;).removeClass(&#x27;current&#x27;);
+    $(this).addClass(&#x27;current&#x27;);
+    switchToOtherGalleryInMixedGalleryInVideoEditor(&#x27;._videos&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#video_editor_mixed_gallery_container ._switch_image&#x27;, function() {
+    $(&#x27;._switch_video, ._switch_text&#x27;).removeClass(&#x27;current&#x27;);
+    $(this).addClass(&#x27;current&#x27;);
+    switchToOtherGalleryInMixedGalleryInVideoEditor(&#x27;._images&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#video_editor_mixed_gallery_container ._switch_text&#x27;, function() {
+    $(&#x27;._switch_image, ._switch_video&#x27;).removeClass(&#x27;current&#x27;);
+    $(this).addClass(&#x27;current&#x27;);
+    switchToOtherGalleryInMixedGalleryInVideoEditor(&#x27;._texts&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._image_gallery_thumb_in_mixed_gallery_video_editor&#x27;, function(e) {
+    e.preventDefault();
+    var image_id = $(this).data(&#x27;image-id&#x27;);
+    showImageInGalleryPopUp(image_id, function() {
+      var popup_id = &#x27;dialog-image-gallery-&#x27; + image_id;
+      $(&#x27;#&#x27; + popup_id + &#x27; ._bottom_of_image_popup_in_gallery&#x27;).show();
+      $(&#x27;#&#x27; + popup_id + &#x27; ._duration_selector&#x27;).hide();
+    });
+  });
+}
+
+/**
+Initializer for sorting and other JQueryUi plugins.
+@method videoEditorDocumentReadyInitialization
+@for VideoEditorDocumentReady
+**/
+function videoEditorDocumentReadyInitialization() {
+  $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane({
+    autoReinitialise: true
+  });
+  calculateNewPositionGalleriesInVideoEditor();
+  $(&#x27;#video_editor_timeline&#x27;).sortable({
+    scroll: true,
+    handle: &#x27;._video_editor_component_hover&#x27;,
+    axis: &#x27;x&#x27;,
+    cursor: &#x27;move&#x27;,
+    cancel: &#x27;._video_editor_component_menu&#x27;,
+    containment: &#x27;parent&#x27;,
+    start: function(event, ui) {
+      my_item = $(ui.item);
+      if(!$(&#x27;#&#x27; + my_item.attr(&#x27;id&#x27;) + &#x27;_preview&#x27;).is(&#x27;:visible&#x27;)) {
+        startVideoEditorPreviewClip(my_item.attr(&#x27;id&#x27;));
+      }
+      my_item.find(&#x27;._video_editor_component_menu&#x27;).hide();
+      my_item.data(&#x27;rolloverable&#x27;, false);
+      my_item.find(&#x27;._video_component_icon&#x27;).addClass(&#x27;current&#x27;);
+      my_item.find(&#x27;._video_component_thumb&#x27;).addClass(&#x27;current&#x27;);
+      $(&#x27;._video_editor_component ._video_component_transition&#x27;).addClass(&#x27;current&#x27;);
+    },
+    stop: function(event, ui) {
+      my_item = $(ui.item);
+      my_item.data(&#x27;rolloverable&#x27;, true);
+      my_item.find(&#x27;._video_component_icon&#x27;).removeClass(&#x27;current&#x27;);
+      my_item.find(&#x27;._video_component_thumb&#x27;).removeClass(&#x27;current&#x27;);
+      resetVisibilityOfVideoEditorTransitions();
+      var boolean1 = (my_item.next().attr(&#x27;id&#x27;) == &#x27;add_new_video_component&#x27;);
+      var boolean2 = (my_item.data(&#x27;position&#x27;) != $(&#x27;._video_editor_component&#x27;).length);
+      var boolean3 = (my_item.next().data(&#x27;position&#x27;) != (my_item.data(&#x27;position&#x27;) + 1));
+      if(boolean1 &amp;&amp; boolean2 || !boolean1 &amp;&amp; boolean3) {
+        reloadVideoEditorComponentPositions();
+        $(&#x27;._video_component_icon&#x27;).effect(&#x27;highlight&#x27;, {color: &#x27;#41A62A&#x27;}, 1500);
+      }
+    }
+  });
+}
+
+/**
+Initializer for preview mode (see {{#crossLink &quot;VideoEditorPreview&quot;}}{{/crossLink}} and {{#crossLink &quot;VideoEditorPreviewAccessories&quot;}}{{/crossLink}}).
+@method videoEditorDocumentReadyPreview
+@for VideoEditorDocumentReady
+**/
+function videoEditorDocumentReadyPreview() {
+  $body.on(&#x27;click&#x27;, &#x27;#video_editor_preview_go_to_left_component&#x27;, function() {
+    if($(&#x27;#video_editor_global_preview&#x27;).data(&#x27;arrows&#x27;)) {
+      var prev_component = $(&#x27;#video_component_&#x27; + $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;current-component&#x27;)).prev();
+      loadVideoComponentIfNotLoadedYet(prev_component.attr(&#x27;id&#x27;));
+      selectVideoComponentInPreview(prev_component);
+      showVideoEditorPreviewArrowToComponents();
+      hideVideoEditorPreviewComponentProgressBar();
+      followPreviewComponentsWithHorizontalScrollInVideoEditor();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#video_editor_preview_go_to_right_component&#x27;, function() {
+    if($(&#x27;#video_editor_global_preview&#x27;).data(&#x27;arrows&#x27;)) {
+      var next_component = $(&#x27;#video_component_&#x27; + $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;current-component&#x27;)).next();
+      loadVideoComponentIfNotLoadedYet(next_component.attr(&#x27;id&#x27;));
+      selectVideoComponentInPreview(next_component);
+      showVideoEditorPreviewArrowToComponents();
+      hideVideoEditorPreviewComponentProgressBar();
+      followPreviewComponentsWithHorizontalScrollInVideoEditor();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#video_editor_global_preview_play&#x27;, function() {
+    if(!$(this).data(&#x27;temporarily-disabled&#x27;)) {
+      $(this).hide();
+      $(&#x27;#video_editor_preview_slider_box_ghost&#x27;).show();
+      $(&#x27;#video_editor_preview_go_to_left_component, #video_editor_preview_go_to_right_component&#x27;).hide();
+      $(&#x27;#video_editor_global_preview_pause&#x27;).show();
+      $(&#x27;#visual_video_editor_current_time&#x27;).css(&#x27;color&#x27;, &#x27;white&#x27;);
+      $(&#x27;#visual_video_editor_total_length&#x27;).css(&#x27;color&#x27;, &#x27;#787575&#x27;);
+      $(&#x27;#exit_video_editor_preview&#x27;).hide();
+      startVideoEditorGlobalPreview();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#exit_video_editor_preview&#x27;, function() {
+    hideVideoEditorPreviewComponentProgressBar();
+    $(&#x27;#info_container&#x27;).data(&#x27;forced-kevin-luck-style&#x27;, &#x27;&#x27;);
+    $(&#x27;#video_editor_global_preview_pause&#x27;).removeClass(&#x27;_enabled&#x27;);
+    $(&#x27;#video_editor_preview_go_to_left_component, #video_editor_preview_go_to_right_component&#x27;).hide();
+    $(&#x27;._video_component_preview&#x27;).hide();
+    $(&#x27;._video_editor_component_hover, ._video_component_icon&#x27;).removeClass(&#x27;selected&#x27;);
+    setVisualTimesVideoEditorPreview(getFirstVideoEditorComponent(), 0);
+    resetVisibilityOfVideoEditorTransitions();
+    $(&#x27;._video_editor_component&#x27;).each(function() {
+      $(this).find(&#x27;._video_component_icon ._right&#x27;).html(secondsToDateString($(this).data(&#x27;duration&#x27;)));
+    });
+    $(&#x27;#full_audio_track_placeholder_in_video_editor, #empty_audio_track_placeholder_in_video_editor&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+    $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;).destroy();
+    $(&#x27;#add_new_video_component&#x27;).show();
+    $(&#x27;#add_new_video_component&#x27;).prev().find(&#x27;._video_component_transition&#x27;).show();
+    $(&#x27;#add_new_video_component&#x27;).prev().css(&#x27;width&#x27;, &#x27;186&#x27;);
+    var new_timeline_width = parseInt($(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;).replace(&#x27;px&#x27;, &#x27;&#x27;)) + 184;
+    $(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;, new_timeline_width + &#x27;px&#x27;);
+    $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane({
+      autoReinitialise: true,
+    });
+    $(&#x27;#visual_video_editor_current_time&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;)
+    $(&#x27;#video_editor_global_preview&#x27;).show();
+    $(&#x27;#video_editor_global_preview_play&#x27;).hide();
+    $(&#x27;._commit_media_element_editor&#x27;).show();
+    $(&#x27;#exit_video_editor_preview&#x27;).hide();
+    $(&#x27;#video_editor_box_ghost&#x27;).hide();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#video_editor_global_preview_pause._enabled&#x27;, function() {
+    $(&#x27;#video_editor_global_preview_play&#x27;).data(&#x27;temporarily-disabled&#x27;, true);
+    setTimeout(function() {
+      $(&#x27;#video_editor_global_preview_play&#x27;).data(&#x27;temporarily-disabled&#x27;, false);
+    }, 1000);
+    $(&#x27;#video_editor_preview_slider_box_ghost&#x27;).hide();
+    $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;in-use&#x27;, false);
+    showVideoEditorPreviewArrowToComponents();
+    $(this).hide();
+    $(&#x27;#video_editor_global_preview_play&#x27;).show();
+    $(&#x27;#exit_video_editor_preview&#x27;).show();
+    $(&#x27;#visual_video_editor_current_time&#x27;).css(&#x27;color&#x27;, &#x27;#787575&#x27;);
+    $(&#x27;#visual_video_editor_total_length&#x27;).css(&#x27;color&#x27;, &#x27;white&#x27;);
+    var current_identifier = $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;current-component&#x27;);
+    var current_component = $(&#x27;#video_component_&#x27; + current_identifier);
+    if($(&#x27;#video_component_&#x27; + current_identifier + &#x27;_preview video&#x27;).length &gt; 0) {
+      $(&#x27;#video_component_&#x27; + current_identifier + &#x27;_preview video&#x27;)[0].pause();
+      setCurrentTimeToMedia($(&#x27;#video_component_&#x27; + current_identifier + &#x27;_preview video&#x27;), ($(&#x27;#video_component_&#x27; + current_identifier + &#x27;_cutter&#x27;).data(&#x27;from&#x27;) + current_component.data(&#x27;current-preview-time&#x27;)));
+    }
+    if(videoEditorWithAudioTrack()) {
+      $(&#x27;#video_editor_preview_container audio&#x27;)[0].pause();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#video_editor_global_preview._enabled&#x27;, function() {
+    loadVideoComponentIfNotLoadedYet(getFirstVideoEditorComponent().attr(&#x27;id&#x27;));
+    $(&#x27;#info_container&#x27;).data(&#x27;forced-kevin-luck-style&#x27;, &#x27;visibility:hidden&#x27;);
+    var jsp_handler = $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;);
+    if(jsp_handler.getContentPositionX() &gt; 0) {
+      $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane().bind(&#x27;panescrollstop&#x27;, function() {
+        openPreviewModeInVideoEditor();
+        $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane().unbind(&#x27;panescrollstop&#x27;);
+      });
+      $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;).scrollToPercentX(0, true);
+    } else {
+      openPreviewModeInVideoEditor();
+    }
+  });
+}
+
+/**
+Initializer for the functionality of &lt;b&gt;removing a component&lt;/b&gt; from the timeline (is uses {{#crossLink &quot;VideoEditorComponents/changeDurationVideoEditorComponent:method&quot;}}{{/crossLink}} passing &lt;i&gt;new duration = 0&lt;/i&gt;).
+@method videoEditorDocumentReadyRemoveComponent
+@for VideoEditorDocumentReady
+**/
+function videoEditorDocumentReadyRemoveComponent() {
+  $body.on(&#x27;click&#x27;, &#x27;._remove_component_from_video_editor_button&#x27;, function() {
+    var component = $(this).parents(&#x27;._video_editor_component&#x27;);
+    var identifier = getVideoComponentIdentifier(component.attr(&#x27;id&#x27;));
+    $(&#x27;#video_component_&#x27; + identifier).hide(&#x27;fade&#x27;, {}, 500, function() {
+      $(&#x27;#video_component_&#x27; + identifier + &#x27;_preview&#x27;).remove();
+      $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).remove();
+      changeDurationVideoEditorComponent((&#x27;video_component_&#x27; + identifier), 0);
+      $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;).destroy();
+      $(this).remove();
+      reloadVideoEditorComponentPositions();
+      var old_timeline_width = parseInt($(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;).replace(&#x27;px&#x27;, &#x27;&#x27;));
+      $(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;, ((old_timeline_width - 186) + &#x27;px&#x27;));
+      $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane({
+        autoReinitialise: true
+      });
+      resetVisibilityOfVideoEditorTransitions();
+      if($(&#x27;._video_editor_component&#x27;).length == 0) {
+        $(&#x27;#video_editor_global_preview&#x27;).removeClass(&#x27;_enabled&#x27;);
+        $(&#x27;#video_editor_global_preview a&#x27;).addClass(&#x27;disabled&#x27;);
+        $(&#x27;._commit_media_element_editor&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+      }
+    });
+  });
+}
+
+/**
+Initializes the &lt;b&gt;text component editor&lt;/b&gt; (see {{#crossLink &quot;VideoEditorTextComponentEditor&quot;}}{{/crossLink}}).
+@method videoEditorDocumentReadyTextComponentEditor
+@for VideoEditorDocumentReady
+**/
+function videoEditorDocumentReadyTextComponentEditor() {
+  $body.on(&#x27;click&#x27;, &#x27;._text_component_in_video_editor_background_color_selector ._color&#x27;, function() {
+    var old_background_color = $(&#x27;#text_component_preview&#x27;).data(&#x27;background-color&#x27;);
+    var new_background_color = $(this).data(&#x27;color&#x27;);
+    switchTextComponentBackgroundColor(old_background_color, new_background_color);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._text_component_in_video_editor_text_color_selector ._color&#x27;, function() {
+    var old_text_color = $(&#x27;#text_component_preview&#x27;).data(&#x27;text-color&#x27;);
+    var new_text_color = $(this).data(&#x27;color&#x27;);
+    switchTextComponentTextColor(old_text_color, new_text_color);
+  });
+  $body.on(&#x27;focus&#x27;, &#x27;#text_component_preview textarea&#x27;, function() {
+    var preview = $(&#x27;#text_component_preview&#x27;);
+    if(preview.data(&#x27;placeholder&#x27;)) {
+      preview.data(&#x27;placeholder&#x27;, false);
+      $(this).val(&#x27;&#x27;);
+    }
+  });
+}
+
+
+
+
+
+/**
+Centers the gallery when shown.
+@method calculateNewPositionGalleriesInVideoEditor
+@for VideoEditorGalleries
+**/
+function calculateNewPositionGalleriesInVideoEditor() {
+  $(&#x27;#video_editor_mixed_gallery_container&#x27;).css(&#x27;left&#x27;, (($window.width() - 940) / 2) + &#x27;px&#x27;);
+  $(&#x27;#video_editor_audio_gallery_container&#x27;).css(&#x27;left&#x27;, (($window.width() - 940) / 2) + &#x27;px&#x27;);
+}
+
+/**
+Opposite of {{#crossLink &quot;VideoEditorGalleries/showGalleryInVideoEditor:method&quot;}}{{/crossLink}}.
+@method closeGalleryInVideoEditor
+@for VideoEditorGalleries
+@param type {String} it can be either &#x27;mixed&#x27; or &#x27;audio&#x27;
+**/
+function closeGalleryInVideoEditor(type) {
+  $(&#x27;#video_editor_&#x27; + type + &#x27;_gallery_container&#x27;).hide(&#x27;fade&#x27;, {}, 250, function() {
+    $(&#x27;#media_elements_list_in_video_editor .jspHorizontalBar&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+    $(&#x27;._video_editor_bottom_bar&#x27;).show();
+    calculateNewPositionGalleriesInVideoEditor();
+  });
+}
+
+/**
+Opens a chosen gallery.
+@method showGalleryInVideoEditor
+@for VideoEditorGalleries
+@param type {String} it can be either &#x27;mixed&#x27; or &#x27;audio&#x27;
+**/
+function showGalleryInVideoEditor(type) {
+  $(&#x27;#media_elements_list_in_video_editor .jspHorizontalBar&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+  $(&#x27;#video_editor_&#x27; + type + &#x27;_gallery_container&#x27;).show();
+  $(&#x27;._video_editor_bottom_bar&#x27;).hide();
+  calculateNewPositionGalleriesInVideoEditor();
+  $(&#x27;._video_editor_component_menu&#x27;).hide();
+}
+
+/**
+Switches between &lt;b&gt;video gallery&lt;/b&gt;, &lt;b&gt;image gallery&lt;/b&gt; and &lt;b&gt;text component editor&lt;/b&gt; in the component editor.
+@method switchToOtherGalleryInMixedGalleryInVideoEditor
+@for VideoEditorGalleries
+@param type {String} it can be either &#x27;mixed&#x27; or &#x27;audio&#x27;
+**/
+function switchToOtherGalleryInMixedGalleryInVideoEditor(type) {
+  if(!$(&#x27;#video_editor_mixed_gallery_container &#x27; + type).is(&#x27;:visible&#x27;)) {
+    var big_selector = &#x27;#video_editor_mixed_gallery_container ._videos, #video_editor_mixed_gallery_container ._images, #video_editor_mixed_gallery_container ._texts&#x27;;
+    $(big_selector).each(function() {
+      if($(this).is(&#x27;:visible&#x27;)) {
+        big_selector = this;
+      }
+    });
+    $(big_selector).hide();
+    if(type == &#x27;._texts&#x27;) {
+      resetVideoEditorTextComponent();
+    }
+    $(&#x27;#video_editor_mixed_gallery_container &#x27; + type).show();
+  }
+}
+
+
+
+
+
+/**
+Returns the first component in the timeline.
+@method getFirstVideoEditorComponent
+@for VideoEditorGeneral
+@return {Object} the first component
+**/
+function getFirstVideoEditorComponent() {
+  return $(&#x27;._video_editor_component&#x27;).first();
+}
+
+/**
+Returns the last component in the timeline.
+@method getLastVideoEditorComponent
+@for VideoEditorGeneral
+@return {Object} the last component
+**/
+function getLastVideoEditorComponent() {
+  var components = $(&#x27;._video_editor_component&#x27;);
+  return $(components[components.length - 1]);
+}
+
+/**
+Method that extracts the &lt;b&gt;unique identifier&lt;/b&gt; of a component, starting indifferently from the component id, the cutter id, or the preview id.
+@method getVideoComponentIdentifier
+@for VideoEditorGeneral
+@param item_id {String} the HTML id of either the &lt;i&gt;component&lt;/i&gt;, the &lt;i&gt;preview&lt;/i&gt; or the &lt;i&gt;cutter&lt;/i&gt;
+@return {Number} the unique identifier of the component
+**/
+function getVideoComponentIdentifier(item_id) {
+  var resp = item_id.split(&#x27;_&#x27;);
+  if($(&#x27;#&#x27; + item_id).hasClass(&#x27;_video_editor_component&#x27;)) {
+    return resp[resp.length - 1];
+  } else {
+    return resp[resp.length - 2];
+  }
+}
+
+/**
+Checks if the HTML5 video inside a &lt;b&gt;video component&lt;/b&gt; has been loaded, and if not it loads it.
+@method loadVideoComponentIfNotLoadedYet
+@for VideoEditorGeneral
+@param component_id {String} the HTML id of the video component
+**/
+function loadVideoComponentIfNotLoadedYet(component_id) {
+  if(!$(&#x27;#&#x27; + component_id + &#x27;_preview&#x27;).data(&#x27;loaded&#x27;)) {
+    var mp4 = $(&#x27;#&#x27; + component_id + &#x27;_preview&#x27;).data(&#x27;mp4&#x27;);
+    var webm = $(&#x27;#&#x27; + component_id + &#x27;_preview&#x27;).data(&#x27;webm&#x27;);
+    $(&#x27;#&#x27; + component_id + &#x27;_preview video source[type=&quot;video/mp4&quot;]&#x27;).attr(&#x27;src&#x27;, mp4);
+    $(&#x27;#&#x27; + component_id + &#x27;_preview video source[type=&quot;video/webm&quot;]&#x27;).attr(&#x27;src&#x27;, webm);
+    $(&#x27;#&#x27; + component_id + &#x27;_preview video&#x27;).load();
+    $(&#x27;#&#x27; + component_id + &#x27;_preview&#x27;).data(&#x27;loaded&#x27;, true);
+  }
+}
+
+/**
+Checks if an optional audio track has been set by the user.
+@method videoEditorWithAudioTrack
+@for VideoEditorGeneral
+@return {Boolean} true if there is an audio track
+**/
+function videoEditorWithAudioTrack() {
+  return $(&#x27;#audio_track_in_video_editor_input&#x27;).val() != &#x27;&#x27;;
+}
+
+
+
+
+
+/**
+Automatic increase for the global preview current time (used when playing image or text components).
+@method automaticIncreaseVideoEditorPreviewTimer
+@for VideoEditorPreview
+@param time {Number} the global time before calling the method
+@param total_length {Number} the total length of the component
+@param callback {Function} the callback to be executed after the time update
+**/
+function automaticIncreaseVideoEditorPreviewTimer(time, total_length, callback) {
+  setTimeout(function() {
+    if($(&#x27;#video_editor_global_preview&#x27;).data(&#x27;in-use&#x27;)) {
+      if(time &lt; total_length) {
+        increaseVideoEditorPreviewTimer(true);
+        automaticIncreaseVideoEditorPreviewTimer(time + 1, total_length, callback);
+      } else {
+        callback();
+      }
+    }
+  }, 1000);
+}
+
+/**
+Increases of one step the global preview time (typically used in {{#crossLink &quot;PlayersVideoEditor/initializeActionOfMediaTimeUpdaterInVideoEditor:method&quot;}}{{/crossLink}}).
+@method increaseVideoEditorPreviewTimer
+@for VideoEditorPreview
+@param with_component {Boolean} if true, it updates also the local time of the selected component
+**/
+function increaseVideoEditorPreviewTimer(with_component) {
+  var data_container = $(&#x27;#video_editor_global_preview&#x27;);
+  var global_time = data_container.data(&#x27;current-time&#x27;);
+  $(&#x27;#visual_video_editor_current_time&#x27;).html(secondsToDateString(global_time + 1));
+  data_container.data(&#x27;current-time&#x27;, global_time + 1);
+  if(with_component) {
+    var identifier = data_container.data(&#x27;current-component&#x27;);
+    var component = $(&#x27;#video_component_&#x27; + identifier);
+    var component_time = component.data(&#x27;current-preview-time&#x27;);
+    component.find(&#x27;._video_component_icon ._right&#x27;).html(secondsToDateString(component_time + 1));
+    component.data(&#x27;current-preview-time&#x27;, component_time + 1);
+    if($(&#x27;#video_editor_preview_slider&#x27;).is(&#x27;:visible&#x27;)) {
+      $(&#x27;#video_editor_preview_slider&#x27;).slider(&#x27;value&#x27;, component_time + 1);
+    }
+  }
+}
+
+/**
+Opens the preview mode with all its graphical effects. The similar functionality to close the preview mode is initialized in {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyPreview:method&quot;}}{{/crossLink}}.
+@method openPreviewModeInVideoEditor
+@for VideoEditorPreview
+**/
+function openPreviewModeInVideoEditor() {
+  var first_component = getFirstVideoEditorComponent();
+  var first_identifier = getVideoComponentIdentifier(first_component.attr(&#x27;id&#x27;));
+  $(&#x27;._video_component_preview&#x27;).hide();
+  $(&#x27;#full_audio_track_placeholder_in_video_editor, #empty_audio_track_placeholder_in_video_editor&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+  $(&#x27;#visual_video_editor_current_time&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;).css(&#x27;color&#x27;, &#x27;white&#x27;);
+  $(&#x27;#visual_video_editor_total_length&#x27;).css(&#x27;color&#x27;, &#x27;#787575&#x27;);
+  $(&#x27;#video_editor_global_preview&#x27;).hide();
+  $(&#x27;#video_editor_global_preview_pause&#x27;).show();
+  $(&#x27;._commit_media_element_editor&#x27;).hide();
+  $(&#x27;#video_editor_box_ghost&#x27;).show();
+  $(&#x27;._video_editor_component_hover, ._video_component_icon&#x27;).addClass(&#x27;selected&#x27;);
+  $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;).destroy();
+  $(&#x27;#add_new_video_component&#x27;).hide();
+  $(&#x27;#add_new_video_component&#x27;).prev().find(&#x27;._video_component_transition&#x27;).hide();
+  $(&#x27;#add_new_video_component&#x27;).prev().css(&#x27;width&#x27;, &#x27;159&#x27;);
+  var new_timeline_width = parseInt($(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;).replace(&#x27;px&#x27;, &#x27;&#x27;)) - 184;
+  $(&#x27;#video_editor_timeline&#x27;).css(&#x27;width&#x27;, new_timeline_width + &#x27;px&#x27;);
+  $(&#x27;#video_editor_preview_slider_box_ghost&#x27;).show();
+  $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane({
+    autoReinitialise: true,
+    initialHorizontalStyles: &#x27;visibility:hidden&#x27;
+  });
+  $(&#x27;._video_component_transition&#x27;).addClass(&#x27;current&#x27;);
+  setVisualTimesVideoEditorPreview(first_component, 0);
+  $(&#x27;#video_editor_preview_container ._loader&#x27;).show();
+  $(&#x27;#video_editor_global_preview_pause a&#x27;).addClass(&#x27;disabled&#x27;);
+  setTimeout(function() {
+    $(&#x27;#video_editor_global_preview_pause&#x27;).addClass(&#x27;_enabled&#x27;);
+    $(&#x27;#video_editor_global_preview_pause a&#x27;).removeClass(&#x27;disabled&#x27;);
+    $(&#x27;#video_editor_preview_container ._loader&#x27;).hide();
+    $(&#x27;#video_component_&#x27; + first_identifier + &#x27;_preview&#x27;).show();
+    showVideoEditorPreviewComponentProgressBar(first_identifier, 1);
+    first_component.find(&#x27;._video_editor_component_hover, ._video_component_icon&#x27;).removeClass(&#x27;selected&#x27;);
+    startVideoEditorGlobalPreview();
+  }, 1500);
+}
+
+/**
+Plays a component and handles the transition to the next one (if there is any). In case the component is of type &lt;b&gt;image&lt;/b&gt; or &lt;b&gt;text&lt;/b&gt;, the time increase is handled by {{#crossLink &quot;VideoEditorPreview/automaticIncreaseVideoEditorPreviewTimer:method&quot;}}{{/crossLink}}; if the component is of type &lt;b&gt;video&lt;/b&gt; the transition is handled by {{#crossLink &quot;PlayersVideoEditor/initializeActionOfMediaTimeUpdaterInVideoEditor:method&quot;}}{{/crossLink}} and the time increase by {{#crossLink &quot;VideoEditorPreview/increaseVideoEditorPreviewTimer:method&quot;}}{{/crossLink}}.
+@method playVideoEditorComponent
+@for VideoEditorPreview
+@param component {Object} the component to be played
+@param with_scroll {Boolean} if true, it uses {{#crossLink &quot;VideoEditorScrollPain/followPreviewComponentsWithHorizontalScrollInVideoEditor:method&quot;}}{{/crossLink}} to follow the timeline with the scroll.
+**/
+function playVideoEditorComponent(component, with_scroll) {
+  if(with_scroll) {
+    followPreviewComponentsWithHorizontalScrollInVideoEditor();
+  }
+  var identifier = getVideoComponentIdentifier(component.attr(&#x27;id&#x27;));
+  $(&#x27;._video_component_transition&#x27;).addClass(&#x27;current&#x27;);
+  var next_component_to_load = component.next();
+  if(next_component_to_load.hasClass(&#x27;_video_editor_component&#x27;)) {
+    loadVideoComponentIfNotLoadedYet(next_component_to_load.attr(&#x27;id&#x27;));
+  }
+  if(component.hasClass(&#x27;_video&#x27;)) {
+    var video = $(&#x27;#video_component_&#x27; + identifier + &#x27;_preview video&#x27;);
+    if(video[0].error) {
+      showLoadingMediaErrorPopup(video[0].error.code, &#x27;video&#x27;);
+      $(&#x27;#video_editor_global_preview_pause&#x27;).click();
+    } else {
+      video[0].play();
+    }
+  } else {
+    automaticIncreaseVideoEditorPreviewTimer(component.data(&#x27;current-preview-time&#x27;) + 1, component.data(&#x27;duration&#x27;), function() {
+      var next_component = component.next();
+      var next_identifier = getVideoComponentIdentifier(next_component.attr(&#x27;id&#x27;));
+      if(next_component.hasClass(&#x27;_video_editor_component&#x27;)) {
+        increaseVideoEditorPreviewTimer(true);
+        $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;current-component&#x27;, getVideoComponentIdentifier(next_component.attr(&#x27;id&#x27;)));
+        $(&#x27;#video_component_&#x27; + identifier + &#x27;_preview&#x27;).hide(&#x27;fade&#x27;, {}, 1000);
+        component.find(&#x27;._video_component_transition&#x27;).removeClass(&#x27;current&#x27;);
+        next_component.find(&#x27;._video_editor_component_hover, ._video_component_icon&#x27;).removeClass(&#x27;selected&#x27;);
+        $(&#x27;#video_component_&#x27; + next_identifier + &#x27;_preview&#x27;).show(&#x27;fade&#x27;, {}, 1000, function() {
+          hideVideoEditorPreviewComponentProgressBar();
+          $(&#x27;#video_component_&#x27; + identifier + &#x27; ._video_component_icon ._right&#x27;).html(secondsToDateString(0));
+          if(!$(&#x27;#video_editor_global_preview&#x27;).data(&#x27;in-use&#x27;)) {
+            $(&#x27;._video_component_transition&#x27;).addClass(&#x27;current&#x27;);
+          }
+          increaseVideoEditorPreviewTimer(false);
+          component.find(&#x27;._video_editor_component_hover, ._video_component_icon&#x27;).addClass(&#x27;selected&#x27;);
+          if($(&#x27;#video_editor_global_preview&#x27;).data(&#x27;in-use&#x27;)) {
+            playVideoEditorComponent(next_component, true);
+          } else {
+            var how_many_hidden_to_left = getHowManyComponentsHiddenToLeftTimelineHorizontalScrollPane(&#x27;media_elements_list_in_video_editor&#x27;, 186);
+            showVideoEditorPreviewComponentProgressBar(next_identifier, next_component.data(&#x27;position&#x27;) - how_many_hidden_to_left);
+          }
+        });
+      } else {
+        var first_component = getFirstVideoEditorComponent();
+        selectVideoComponentInPreview(first_component);
+        hideVideoEditorPreviewComponentProgressBar();
+        if(videoEditorWithAudioTrack()) {
+          $(&#x27;#video_editor_preview_container audio&#x27;)[0].pause();
+        }
+        $(&#x27;#video_editor_global_preview_pause&#x27;).trigger(&#x27;click&#x27;);
+        if($(&#x27;._video_editor_component&#x27;).length &gt; 5) {
+          $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane().bind(&#x27;panescrollstop&#x27;, function() {
+            showVideoEditorPreviewComponentProgressBar(getVideoComponentIdentifier(first_component.attr(&#x27;id&#x27;)), 1);
+            $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane().unbind(&#x27;panescrollstop&#x27;);
+          });
+          $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;).scrollToX(0, true, 500);
+        } else {
+          showVideoEditorPreviewComponentProgressBar(getVideoComponentIdentifier(first_component.attr(&#x27;id&#x27;)), 1);
+        }
+      }
+    });
+  }
+}
+
+/**
+Starts the preview from the selected component.
+@method startVideoEditorGlobalPreview
+@for VideoEditorPreview
+**/
+function startVideoEditorGlobalPreview() {
+  $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;in-use&#x27;, true);
+  var current_identifier = $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;current-component&#x27;);
+  var current_component = $(&#x27;#video_component_&#x27; + current_identifier);
+  var actual_audio_track_time = calculateVideoComponentStartSecondInVideoEditor(current_identifier) + current_component.data(&#x27;current-preview-time&#x27;);
+  if(videoEditorWithAudioTrack() &amp;&amp; actual_audio_track_time &lt; $(&#x27;#full_audio_track_placeholder_in_video_editor&#x27;).data(&#x27;duration&#x27;)) {
+    var audio_track = $(&#x27;#video_editor_preview_container audio&#x27;);
+    if(audio_track[0].error) {
+      showLoadingMediaErrorPopup(audio_track[0].error.code, &#x27;audio&#x27;);
+    } else {
+      setCurrentTimeToMedia(audio_track, actual_audio_track_time);
+      audio_track[0].play();
+    }
+  }
+  if(current_component.data(&#x27;position&#x27;) == getHowManyComponentsHiddenToLeftTimelineHorizontalScrollPane(&#x27;media_elements_list_in_video_editor&#x27;, 186) + 1) {
+    playVideoEditorComponent(current_component, false);
+  } else {
+    hideVideoEditorPreviewComponentProgressBar();
+    playVideoEditorComponent(current_component, true);
+  }
+}
+
+
+
+
+
+/**
+Calculates the amount of seconds before the current position in the global preview (used for {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyAudioTrack:method&quot;}}{{/crossLink}}).
+@method calculateVideoComponentStartSecondInVideoEditor
+@for VideoEditorPreviewAccessories
+@param identifier {Number} the unique identifier of the current component in preview mode
+@return {Number} the amount of seconds before the current global time in preview
+**/
+function calculateVideoComponentStartSecondInVideoEditor(identifier) {
+  var duration = 0;
+  var stop = false;
+  $(&#x27;._video_editor_component&#x27;).each(function(index) {
+    if(getVideoComponentIdentifier($(this).attr(&#x27;id&#x27;)) == identifier) {
+      stop = true;
+    } else if(!stop) {
+      duration += ($(this).data(&#x27;duration&#x27;) + 1);
+    }
+  });
+  var cutter = $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;);
+  if(!cutter.hasClass(&#x27;_mini_cutter&#x27;)) {
+    duration += (cutter.find(&#x27;._media_player_slider&#x27;).slider(&#x27;value&#x27;) - cutter.data(&#x27;from&#x27;));
+  }
+  return duration;
+}
+
+/**
+Hides the component progress bar.
+@method hideVideoEditorPreviewComponentProgressBar
+@for VideoEditorPreviewAccessories
+**/
+function hideVideoEditorPreviewComponentProgressBar() {
+  $(&#x27;#video_editor_preview_slider&#x27;).slider(&#x27;destroy&#x27;);
+  $(&#x27;#video_editor_preview_slider&#x27;).hide();
+}
+
+/**
+Selects a video component with a specific time in preview mode.
+@method selectVideoComponentInPreview
+@for VideoEditorPreviewAccessories
+@param component {Object} the component
+@param time {Number} the local time to be selected
+**/
+function selectVideoComponentInPreview(component, time) {
+  $(&#x27;._video_component_preview&#x27;).hide();
+  $(&#x27;#&#x27; + component.attr(&#x27;id&#x27;) + &#x27;_preview&#x27;).show();
+  $(&#x27;._video_editor_component_hover, ._video_component_icon&#x27;).addClass(&#x27;selected&#x27;);
+  component.find(&#x27;._video_editor_component_hover, ._video_component_icon&#x27;).removeClass(&#x27;selected&#x27;);
+  if(time == undefined) {
+    time = 0;
+  }
+  setVisualTimesVideoEditorPreview(component, time);
+}
+
+/**
+Sets the times of all previous and following components. The normal status of the global preview is with time = 0 for each component which is not selected.
+@method setVisualTimesVideoEditorPreview
+@for VideoEditorPreviewAccessories
+@param component {Object} the selected component
+@param time {Object} the time to be set in the selected component
+**/
+function setVisualTimesVideoEditorPreview(component, time) {
+  var identifier = getVideoComponentIdentifier(component.attr(&#x27;id&#x27;));
+  var global_time = calculateVideoComponentStartSecondInVideoEditor(identifier) + time;
+  $(&#x27;#visual_video_editor_current_time&#x27;).html(secondsToDateString(global_time));
+  $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;current-time&#x27;, global_time);
+  $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;current-component&#x27;, identifier);
+  $(&#x27;._video_editor_component&#x27;).each(function() {
+    var my_identifier = getVideoComponentIdentifier($(this).attr(&#x27;id&#x27;));
+    if(my_identifier == identifier) {
+      $(this).find(&#x27;._video_component_icon ._right&#x27;).html(secondsToDateString(time));
+      $(this).data(&#x27;current-preview-time&#x27;, time);
+      if($(&#x27;#video_component_&#x27; + my_identifier + &#x27;_preview video&#x27;).length &gt; 0 &amp;&amp; $(&#x27;#video_component_&#x27; + my_identifier + &#x27;_preview&#x27;).data(&#x27;loaded&#x27;)) {
+        setCurrentTimeToMedia($(&#x27;#video_component_&#x27; + my_identifier + &#x27;_preview video&#x27;), $(&#x27;#video_component_&#x27; + my_identifier + &#x27;_cutter&#x27;).data(&#x27;from&#x27;) + time);
+      }
+    } else {
+      $(this).find(&#x27;._video_component_icon ._right&#x27;).html(secondsToDateString(0));
+      $(this).data(&#x27;current-preview-time&#x27;, 0);
+      if($(&#x27;#video_component_&#x27; + my_identifier + &#x27;_preview video&#x27;).length &gt; 0 &amp;&amp; $(&#x27;#video_component_&#x27; + my_identifier + &#x27;_preview&#x27;).data(&#x27;loaded&#x27;)) {
+        setCurrentTimeToMedia($(&#x27;#video_component_&#x27; + my_identifier + &#x27;_preview video&#x27;), $(&#x27;#video_component_&#x27; + my_identifier + &#x27;_cutter&#x27;).data(&#x27;from&#x27;));
+      }
+    }
+  });
+}
+
+/**
+Shows the arrows to switch between components in preview mode.
+@method showVideoEditorPreviewArrowToComponents
+@for VideoEditorPreviewAccessories
+**/
+function showVideoEditorPreviewArrowToComponents() {
+  if(getVideoComponentIdentifier(getFirstVideoEditorComponent().attr(&#x27;id&#x27;)) != $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;current-component&#x27;)) {
+    $(&#x27;#video_editor_preview_go_to_left_component&#x27;).show();
+  } else {
+    $(&#x27;#video_editor_preview_go_to_left_component&#x27;).hide();
+  }
+  if(getVideoComponentIdentifier(getLastVideoEditorComponent().attr(&#x27;id&#x27;)) != $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;current-component&#x27;)) {
+    $(&#x27;#video_editor_preview_go_to_right_component&#x27;).show();
+  } else {
+    $(&#x27;#video_editor_preview_go_to_right_component&#x27;).hide();
+  }
+}
+
+/**
+Shows the progress bar for a given component. This bar is used to set the time of the component (using {{#crossLink &quot;VideoEditorPreviewAccessories/selectVideoComponentInPreview:method&quot;}}{{/crossLink}}), and while the preview is playing to show the progress of the component. Remember that the progress bar is the same for each component, and it is initialized and destroyed each time. This method uses {{#crossLink &quot;MediaElementEditorHorizontalTimelines&quot;}}{{/crossLink}} for the correct positioning of the progress bar.
+@method showVideoEditorPreviewComponentProgressBar
+@for VideoEditorPreviewAccessories
+@param identifier {Number} the unique identifier of the component
+@param position {Number} the position (1...5) of the progress bar
+**/
+function showVideoEditorPreviewComponentProgressBar(identifier, position) {
+  var component = $(&#x27;#video_component_&#x27; + identifier);
+  var tool = $(&#x27;#video_editor_preview_slider&#x27;);
+  if(!tool.is(&#x27;:visible&#x27;)) {
+    tool.slider({
+      min: 0,
+      max: component.data(&#x27;duration&#x27;),
+      value: component.data(&#x27;current-preview-time&#x27;),
+      range: &#x27;min&#x27;,
+      stop: function(event, ui) {
+        var my_value = ui.value;
+        if(my_value == component.data(&#x27;duration&#x27;)) {
+          my_value = component.data(&#x27;duration&#x27;) - 1;
+          tool.slider(&#x27;value&#x27;, my_value);
+        }
+        setVisualTimesVideoEditorPreview(component, my_value);
+      }
+    });
+    tool.show();
+    tool.css(&#x27;left&#x27;, (position - 1) * 186 + 3);
+  }
+}
+
+
+
+
+
+/**
+Replaces a generig component with an image component, contructing an empty &lt;b&gt;preview&lt;/b&gt;, &lt;b&gt;cutter&lt;/b&gt; and editing the &lt;b&gt;component&lt;/b&gt; (see the commentaries inside the code). This method is called by {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyAddComponent:method&quot;}}{{/crossLink}}.
+@method replaceImageComponentInVideoEditor
+@for VideoEditorReplaceComponents
+@param image_id {Number} the id of the image in the database
+@param component {String} HTML code corresponding to the already built &lt;b&gt;miniature&lt;/b&gt; of the image
+@param preview {String} HTML code corresponding to the already built &lt;b&gt;content of the preview&lt;/b&gt; for the image
+@param position {String} HTML identifier for the replaced component
+@param duration {Number} the duration in seconds of the image component
+**/
+function replaceImageComponentInVideoEditor(image_id, component, preview, position, duration) {
+  var identifier = getVideoComponentIdentifier(position);
+  // build preview
+  var empty_preview = $(&#x27;#empty_image_preview_for_video_editor&#x27;).html();
+  empty_preview = &#x27;&lt;div id=&quot;temporary_empty_preview&quot; &#x27; + empty_preview.substr(empty_preview.indexOf(&#x27;div&#x27;) + 3, empty_preview.length);
+  $(&#x27;#video_component_&#x27; + identifier + &#x27;_preview&#x27;).replaceWith(empty_preview);
+  // build cutter
+  var empty_cutter = $(&#x27;#empty_image_cutter_for_video_editor&#x27;).html();
+  empty_cutter = &#x27;&lt;div id=&quot;temporary_empty_cutter&quot; &#x27; + empty_cutter.substr(empty_cutter.indexOf(&#x27;div&#x27;) + 3, empty_cutter.length);
+  $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).replaceWith(empty_cutter);
+  // edit preview
+  current_preview = $(&#x27;#temporary_empty_preview&#x27;);
+  current_preview.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + identifier + &#x27;_preview&#x27;));
+  current_preview.html(preview);
+  // edit cutter
+  current_cutter = $(&#x27;#temporary_empty_cutter&#x27;);
+  current_cutter.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + identifier + &#x27;_cutter&#x27;));
+  current_cutter.find(&#x27;._old&#x27;).html(secondsToDateString(duration));
+  // edit component
+  $(&#x27;#&#x27; + position).removeClass(&#x27;_video _image _text&#x27;).addClass(&#x27;_image&#x27;);
+  $(&#x27;#&#x27; + position + &#x27; ._video_component_thumb&#x27;).replaceWith(component);
+  clearSpecificVideoEditorComponentParameters(position);
+  $(&#x27;#&#x27; + position + &#x27; ._video_component_input_type&#x27;).val(&#x27;image&#x27;);
+  var to_be_appended = fillVideoEditorSingleParameter(&#x27;image_id&#x27;, identifier, image_id);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;duration&#x27;, identifier, duration);
+  $(&#x27;#&#x27; + position + &#x27; ._video_editor_component_hover&#x27;).append(to_be_appended);
+  // other things
+  changeDurationVideoEditorComponent(position, duration);
+}
+
+/**
+Replaces a generic component with a text component, contructing an empty &lt;b&gt;preview&lt;/b&gt;, &lt;b&gt;cutter&lt;/b&gt; and editing the &lt;b&gt;component&lt;/b&gt; (see the commentaries inside the code). This method is called by {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyAddComponent:method&quot;}}{{/crossLink}}.
+@method replaceTextComponentInVideoEditor
+@for VideoEditorReplaceComponents
+@param component {String} HTML code corresponding to the already built &lt;b&gt;miniature&lt;/b&gt; of the text
+@param content {String} the text content
+@param position {String} HTML identifier for the replaced component
+@param duration {Number} the duration in seconds of the image component
+@param background_color {String} the class corresponding to the color chosen for the background
+@param text_color {String} the class corresponding to the color chosen for the text font
+**/
+function replaceTextComponentInVideoEditor(component, content, position, duration, background_color, text_color) {
+  var identifier = getVideoComponentIdentifier(position);
+  // build preview
+  var empty_preview = $(&#x27;#empty_text_preview_for_video_editor&#x27;).html();
+  empty_preview = &#x27;&lt;div id=&quot;temporary_empty_preview&quot; &#x27; + empty_preview.substr(empty_preview.indexOf(&#x27;div&#x27;) + 3, empty_preview.length);
+  $(&#x27;#video_component_&#x27; + identifier + &#x27;_preview&#x27;).replaceWith(empty_preview);
+  // build cutter
+  var empty_cutter = $(&#x27;#empty_text_cutter_for_video_editor&#x27;).html();
+  empty_cutter = &#x27;&lt;div id=&quot;temporary_empty_cutter&quot; &#x27; + empty_cutter.substr(empty_cutter.indexOf(&#x27;div&#x27;) + 3, empty_cutter.length);
+  $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).replaceWith(empty_cutter);
+  // edit preview
+  current_preview = $(&#x27;#temporary_empty_preview&#x27;);
+  current_preview.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + identifier + &#x27;_preview&#x27;));
+  current_preview.removeClass(&#x27;background_color_white&#x27;).addClass(&#x27;background_color_&#x27; + background_color);
+  current_preview.find(&#x27;p&#x27;).removeClass(&#x27;color_black&#x27;).addClass(&#x27;color_&#x27; + text_color);
+  current_preview.find(&#x27;p&#x27;).html(content);
+  // edit cutter
+  current_cutter = $(&#x27;#temporary_empty_cutter&#x27;);
+  current_cutter.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + identifier + &#x27;_cutter&#x27;));
+  current_cutter.find(&#x27;._old&#x27;).html(secondsToDateString(duration));
+  // edit component
+  $(&#x27;#&#x27; + position).removeClass(&#x27;_video _image _text&#x27;).addClass(&#x27;_text&#x27;);
+  $(&#x27;#&#x27; + position + &#x27; ._video_component_thumb&#x27;).replaceWith(component);
+  $(&#x27;#&#x27; + position + &#x27; ._video_component_thumb ._text_content&#x27;).html(content);
+  $(&#x27;#&#x27; + position + &#x27; ._video_component_thumb ._text_content&#x27;).removeClass(&#x27;color_black&#x27;).addClass(&#x27;color_&#x27; + text_color);
+  $(&#x27;#&#x27; + position + &#x27; ._video_component_thumb&#x27;).removeClass(&#x27;background_color_white&#x27;).addClass(&#x27;background_color_&#x27; + background_color);
+  clearSpecificVideoEditorComponentParameters(position);
+  $(&#x27;#&#x27; + position + &#x27; ._video_component_input_type&#x27;).val(&#x27;text&#x27;);
+  var to_be_appended = fillVideoEditorSingleParameter(&#x27;content&#x27;, identifier, content);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;background_color&#x27;, identifier, background_color);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;text_color&#x27;, identifier, text_color);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;duration&#x27;, identifier, duration);
+  $(&#x27;#&#x27; + position + &#x27; ._video_editor_component_hover&#x27;).append(to_be_appended);
+  // other things
+  changeDurationVideoEditorComponent(position, duration);
+}
+
+/**
+Replaces a generic component with a video component, contructing an empty &lt;b&gt;preview&lt;/b&gt;, &lt;b&gt;cutter&lt;/b&gt; and editing the &lt;b&gt;component&lt;/b&gt; (see the commentaries inside the code). This method is called by {{#crossLink &quot;VideoEditorDocumentReady/videoEditorDocumentReadyAddComponent:method&quot;}}{{/crossLink}}.
+@method replaceVideoComponentInVideoEditor
+@for VideoEditorReplaceComponents
+@param video_id {Number} the id of the video in the database
+@param webm {String} path of the webm attached of the video
+@param mp4 {String} path of the mp4 attached of the video
+@param component {String} HTML code corresponding to the already built &lt;b&gt;miniature&lt;/b&gt; of the video
+@param position {String} HTML identifier for the replaced component
+@param duration {Number} the duration in seconds of the video component (initially the values &lt;b&gt;from&lt;/b&gt; and &lt;b&gt;to&lt;/b&gt; are respectively &lt;b&gt;0&lt;/b&gt; and &lt;b&gt;duration&lt;/b&gt;)
+**/
+function replaceVideoComponentInVideoEditor(video_id, webm, mp4, component, position, duration) {
+  var identifier = getVideoComponentIdentifier(position);
+  // build preview
+  var empty_preview = $(&#x27;#empty_video_preview_for_video_editor&#x27;).html();
+  empty_preview = &#x27;&lt;div id=&quot;temporary_empty_preview&quot; &#x27; + empty_preview.substr(empty_preview.indexOf(&#x27;div&#x27;) + 3, empty_preview.length);
+  $(&#x27;#video_component_&#x27; + identifier + &#x27;_preview&#x27;).replaceWith(empty_preview);
+  // build cutter
+  var empty_cutter = $(&#x27;#empty_video_cutter_for_video_editor&#x27;).html();
+  empty_cutter = &#x27;&lt;div id=&quot;temporary_empty_cutter&quot; &#x27; + empty_cutter.substr(empty_cutter.indexOf(&#x27;div&#x27;) + 3, empty_cutter.length);
+  $(&#x27;#video_component_&#x27; + identifier + &#x27;_cutter&#x27;).replaceWith(empty_cutter);
+  // edit preview
+  current_preview = $(&#x27;#temporary_empty_preview&#x27;);
+  if(videoEditorWithAudioTrack()) {
+    current_preview.find(&#x27;video&#x27;).prop(&#x27;muted&#x27;, true);
+  }
+  current_preview.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + identifier + &#x27;_preview&#x27;));
+  current_preview.find(&#x27;source[type=&quot;video/webm&quot;]&#x27;).attr(&#x27;src&#x27;, webm);
+  current_preview.find(&#x27;source[type=&quot;video/mp4&quot;]&#x27;).attr(&#x27;src&#x27;, mp4);
+  current_preview.find(&#x27;video&#x27;).load();
+  // edit cutter
+  current_cutter = $(&#x27;#temporary_empty_cutter&#x27;);
+  current_cutter.attr(&#x27;id&#x27;, (&#x27;video_component_&#x27; + identifier + &#x27;_cutter&#x27;));
+  current_cutter.find(&#x27;._video_editor_cutter_total_time&#x27;).html(secondsToDateString(duration));
+  current_cutter.find(&#x27;._video_editor_cutter_selected_time&#x27;).html(secondsToDateString(duration));
+  current_cutter.data(&#x27;to&#x27;, duration);
+  current_cutter.data(&#x27;max-to&#x27;, duration);
+  initializeVideoInVideoEditorPreview(identifier);
+  // edit component
+  $(&#x27;#&#x27; + position).removeClass(&#x27;_video _image _text&#x27;).addClass(&#x27;_video&#x27;);
+  $(&#x27;#&#x27; + position + &#x27; ._video_component_thumb&#x27;).replaceWith(component);
+  clearSpecificVideoEditorComponentParameters(position);
+  $(&#x27;#&#x27; + position + &#x27; ._video_component_input_type&#x27;).val(&#x27;video&#x27;);
+  var to_be_appended = fillVideoEditorSingleParameter(&#x27;video_id&#x27;, identifier, video_id);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;from&#x27;, identifier, 0);
+  to_be_appended += fillVideoEditorSingleParameter(&#x27;to&#x27;, identifier, duration);
+  $(&#x27;#&#x27; + position + &#x27; ._video_editor_component_hover&#x27;).append(to_be_appended);
+  // other things
+  changeDurationVideoEditorComponent(position, duration);
+}
+
+
+
+
+
+/**
+Method that uses the scroll to keep visible the current component in the timeline. It uses {{#crossLink &quot;MediaElementEditorHorizontalTimelines&quot;}}{{/crossLink}}.
+@method followPreviewComponentsWithHorizontalScrollInVideoEditor
+@for VideoEditorScrollPain
+**/
+function followPreviewComponentsWithHorizontalScrollInVideoEditor() {
+  var jsp_handler = $(&#x27;#media_elements_list_in_video_editor&#x27;).data(&#x27;jsp&#x27;);
+  var identifier = $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;current-component&#x27;);
+  var pos = $(&#x27;#video_component_&#x27; + identifier).data(&#x27;position&#x27;);
+  var how_many_hidden_to_left = getHowManyComponentsHiddenToLeftTimelineHorizontalScrollPane(&#x27;media_elements_list_in_video_editor&#x27;, 186);
+  var movement = 0;
+  var whole_movement = 0;
+  if(pos - how_many_hidden_to_left == 5) {
+    movement = calculateCorrectMovementHorizontalScrollRight(how_many_hidden_to_left, 4, $(&#x27;._video_editor_component&#x27;).length, 5);
+    if(movement &gt; 0) {
+      whole_movement = (how_many_hidden_to_left + movement) * 186;
+    }
+  } else if(pos - how_many_hidden_to_left == 6) {
+    movement = calculateCorrectMovementHorizontalScrollRight(how_many_hidden_to_left, 5, $(&#x27;._video_editor_component&#x27;).length, 5);
+    if(movement &gt; 0) {
+      whole_movement = (how_many_hidden_to_left + movement) * 186;
+    }
+  } else if(pos == how_many_hidden_to_left) {
+    movement = calculateCorrectMovementHorizontalScrollLeft(how_many_hidden_to_left, 5);
+    if(movement &gt; 0) {
+      whole_movement = (how_many_hidden_to_left - movement) * 186;
+    }
+  } else if(pos == how_many_hidden_to_left + 1) {
+    movement = calculateCorrectMovementHorizontalScrollLeft(how_many_hidden_to_left, 4);
+    if(movement &gt; 0) {
+      whole_movement = (how_many_hidden_to_left - movement) * 186;
+    }
+  }
+  if(movement != 0) {
+    $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;arrows&#x27;, false);
+    $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane().bind(&#x27;panescrollstop&#x27;, function() {
+      $(&#x27;#video_editor_global_preview&#x27;).data(&#x27;arrows&#x27;, true);
+      showVideoEditorPreviewComponentProgressBar(identifier, pos - (whole_movement / 186));
+      $(&#x27;#media_elements_list_in_video_editor&#x27;).jScrollPane().unbind(&#x27;panescrollstop&#x27;);
+    });
+    jsp_handler.scrollToX(whole_movement, true, (1000 * movement) / 4);
+  } else {
+    showVideoEditorPreviewComponentProgressBar(identifier, pos - how_many_hidden_to_left);
+  }
+}
+
+
+
+
+
+/**
+Resets the text component editor when it&#x27;s closed.
+@method resetVideoEditorTextComponent
+@for VideoEditorTextComponentEditor
+**/
+function resetVideoEditorTextComponent() {
+  $(&#x27;#text_component_preview textarea&#x27;).val($(&#x27;#text_component_preview&#x27;).data(&#x27;placeholder-content&#x27;));
+  $(&#x27;#video_editor_mixed_gallery_container ._texts ._duration_selector input&#x27;).val(&#x27;&#x27;);
+  $(&#x27;#text_component_preview&#x27;).data(&#x27;placeholder&#x27;, true);
+  var old_background_color = $(&#x27;#text_component_preview&#x27;).data(&#x27;background-color&#x27;);
+  var old_text_color = $(&#x27;#text_component_preview&#x27;).data(&#x27;text-color&#x27;);
+  switchTextComponentBackgroundColor(old_background_color, &#x27;white&#x27;);
+  switchTextComponentTextColor(old_text_color, &#x27;black&#x27;);
+}
+
+/**
+Switches to a different background color the text component editor.
+@method switchTextComponentBackgroundColor
+@for VideoEditorTextComponentEditor
+@param old_color {String} the class corresponding to the old color chosen for the background
+@param new_color {String} the class corresponding to the new color chosen for the background
+**/
+function switchTextComponentBackgroundColor(old_color, new_color) {
+  $(&#x27;#text_component_preview&#x27;).removeClass(&#x27;background_color_&#x27; + old_color).addClass(&#x27;background_color_&#x27; + new_color);
+  $(&#x27;._text_component_in_video_editor_background_color_selector ._color&#x27;).removeClass(&#x27;current&#x27;);
+  $(&#x27;._text_component_in_video_editor_background_color_selector .background_color_&#x27; + new_color).addClass(&#x27;current&#x27;);
+  $(&#x27;#text_component_preview&#x27;).data(&#x27;background-color&#x27;, new_color);
+}
+
+/**
+Switches to a different text color the text component editor.
+@method switchTextComponentTextColor
+@for VideoEditorTextComponentEditor
+@param old_color {String} the class corresponding to the old color chosen for the text font
+@param new_color {String} the class corresponding to the new color chosen for the text font
+**/
+function switchTextComponentTextColor(old_color, new_color) {
+  $(&#x27;#text_component_preview textarea&#x27;).removeClass(&#x27;color_&#x27; + old_color).addClass(&#x27;color_&#x27; + new_color);
+  $(&#x27;._text_component_in_video_editor_text_color_selector ._color&#x27;).removeClass(&#x27;current&#x27;);
+  $(&#x27;._text_component_in_video_editor_text_color_selector .background_color_&#x27; + new_color).addClass(&#x27;current&#x27;);
+  $(&#x27;#text_component_preview&#x27;).data(&#x27;text-color&#x27;, new_color);
+}
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<% if empty %>
+  
+  <div class="boxContentMediaElementImage _video_component_preview" data-loaded="true" style="display:none"><div class="videoEditorPreviewImageWrapper"></div></div>
+  
+<% else %>
+  
+  <div id="video_component_<%= identifier %>_preview" data-loaded="true" class="boxContentMediaElementImage _video_component_preview" style="display:none">
+    <div class="videoEditorPreviewImageWrapper">
+      <%= render :partial => 'video_editor/previews/image_thumb', :locals => {:image => component[:image]} %>
+    </div>
+  </div>
+  
+<% end %>

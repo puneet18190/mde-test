@@ -1,0 +1,54 @@
+<div class="virtualClassroomQuickSelectPopUp" id="dialog-virtual-classroom-quick-select" style="display:none" data-loaded="false" data-loaded-correctly="true" data-loaded-msg=""></div>
+
+<div class="virtualClassroomSentLessonLinkPopUp" id="dialog-virtual-classroom-send-link" style="display:none;" data-emails-placeholder="<%= t('virtual_classroom.send_link.emails') %>" data-message-placeholder="<%= t('virtual_classroom.send_link.message', :max => t('language_parameters.notification.message_length_for_send_lesson_link')) %>">
+  <div class="top_side">
+    <h1><%= t('popups.send_lesson_link.title') %></h1>
+    <p><%= t('popups.send_lesson_link.confirm', :desy => SETTINGS['application_name']) %></p>
+  </div>
+  <div class="left_side">
+    <%= form_tag '/virtual_classroom/lesson_id/send_link', :remote => true do %>
+      <%= hidden_field_tag 'emails', '', :id => 'virtual_classroom_send_link_hidden_emails' %>
+      
+      <div class="virtual_classroom_send_link_mails_box_container">
+        <div id="virtual_classroom_send_link_mails_box"></div>
+      </div>
+      
+      <div class="virtual_classroom_emails_selector_container">
+        <input id="virtual_classroom_emails_selector" data-placeholdered="true"/>
+        <a id="virtual_classroom_emails_submitter"></a>
+      </div>
+      
+      <div class="boxSelectMailingList">
+        <%= select_tag 'groups', options_from_collection_for_select(@mailing_list_groups, 'id','name'), :prompt => t('virtual_classroom.send_link.mailing_lists'), :id => 'select_mailing_list' %>
+        <div id="virtual_classroom_hidden_mailing_lists" style="display:none">
+          <% @mailing_list_groups.each do |ma| %>
+            <div class="_mailing_list_<%= ma.id %>">
+              <% ma.addresses.each do |addr| %>
+                <div class="_email">
+                  <span class="_text"><%= addr.email %></span>
+                  <a class="_remove"></a>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="write_message_for_send_link">
+        <%= text_area_tag 'message', '', :id => 'virtual_classroom_send_link_message' %>
+      </div>
+      
+      <%= hidden_field_tag 'message_placeholer', '', :id => 'virtual_classroom_send_link_message_placeholder' %>
+    <% end %>
+  </div>
+  <div class="right_side">
+    <div class="up_up_up">
+      <div class="img_expanded _lesson_thumb"></div>
+    </div>
+    <div class="down_down_down">
+      <a class="_no muttonForm"><%= t('popups.send_lesson_link.cancel') %></a>
+      <a class="_yes muttonForm"><%= t('popups.send_lesson_link.do') %></a>
+    </div>
+  </div>
+  <br class="clearfloat"/>
+</div>

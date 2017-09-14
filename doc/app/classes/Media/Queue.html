@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Queue</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Queue 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/media/queue_rb.html">lib/media/queue.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-current_threads_amount">current_threads_amount</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-parallel_jobs">parallel_jobs</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-run">run</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-run">run</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">PROCESSORS_COUNT</td>
+            <td>=</td>
+            <td class="attr-value">begin
+Facter.fact(:processorcount).value.to_i
+rescue
+1
+end</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">DATABASE_POOL</td>
+            <td>=</td>
+            <td class="attr-value">Rails.configuration.database_configuration[Rails.env][&#39;pool&#39;]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Number of the maximum database pools (taken from the database
+configuration)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">MIN_THREADS</td>
+            <td>=</td>
+            <td class="attr-value">0</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Minimum threads amount (0: no new threads, execution inside Thread.current)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">MAX_THREADS</td>
+            <td>=</td>
+            <td class="attr-value">[PROCESSORS_COUNT-1, DATABASE_POOL-1].min</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Maximum amount of execution threads</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(*procs, close_connection_before_execution: false)
+            
+            <a href="../../classes/Media/Queue.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/queue.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">procs</span>, <span class="ruby-identifier">close_connection_before_execution</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-ivar">@procs</span> = <span class="ruby-identifier">procs</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">proc</span><span class="ruby-operator">|</span> <span class="ruby-constant">ThreadProc</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">close_connection_before_execution</span><span class="ruby-operator">:</span> <span class="ruby-identifier">close_connection_before_execution</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">proc</span>) }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-run">
+            
+              <b>run</b>(*procs, close_connection_before_execution: false)
+            
+            <a href="../../classes/Media/Queue.html#method-c-run" name="method-c-run" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-run_source')" id="l_method-c-run_source">show</a>
+                
+              </p>
+              <div id="method-c-run_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/queue.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">run</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">procs</span>, <span class="ruby-identifier">close_connection_before_execution</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">procs</span>, <span class="ruby-identifier">close_connection_before_execution</span><span class="ruby-operator">:</span> <span class="ruby-identifier">close_connection_before_execution</span>).<span class="ruby-identifier">run</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-run">
+            
+              <b>run</b>()
+            
+            <a href="../../classes/Media/Queue.html#method-i-run" name="method-i-run" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-run_source')" id="l_method-i-run_source">show</a>
+                
+              </p>
+              <div id="method-i-run_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/queue.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">run</span>
+  <span class="ruby-ivar">@procs</span>.<span class="ruby-identifier">threach</span>(<span class="ruby-identifier">parallel_jobs</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">proc</span><span class="ruby-operator">|</span> <span class="ruby-identifier">proc</span>.<span class="ruby-identifier">call</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-current_threads_amount">
+            
+              <b>current_threads_amount</b>()
+            
+            <a href="../../classes/Media/Queue.html#method-i-current_threads_amount" name="method-i-current_threads_amount" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-current_threads_amount_source')" id="l_method-i-current_threads_amount_source">show</a>
+                
+              </p>
+              <div id="method-i-current_threads_amount_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/queue.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">current_threads_amount</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-parallel_jobs">
+            
+              <b>parallel_jobs</b>()
+            
+            <a href="../../classes/Media/Queue.html#method-i-parallel_jobs" name="method-i-parallel_jobs" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-parallel_jobs_source')" id="l_method-i-parallel_jobs_source">show</a>
+                
+              </p>
+              <div id="method-i-parallel_jobs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/queue.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">parallel_jobs</span>
+  [<span class="ruby-constant">MAX_THREADS</span><span class="ruby-operator">-</span><span class="ruby-identifier">current_threads_amount</span>, <span class="ruby-constant">MIN_THREADS</span>].<span class="ruby-identifier">max</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

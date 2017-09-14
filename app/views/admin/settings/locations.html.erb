@@ -1,0 +1,77 @@
+<%= render :partial => 'menu', :locals => {:current => 'locations'} %>
+
+<h4><%= t('admin.settings.locations.search.label') %></h4>
+<div class="search-foam">
+  <div class="row-fluid">
+    <%= form_tag 'locations', :method => :get, :id => 'admin-search-locations' do %>
+      <%= t('admin.settings.locations.search.by_id') %><%= text_field_tag 'selected', '' %>
+      <%= submit_tag t('admin.settings.locations.search.submit_id') %>
+    <% end %>
+  </div>
+  <div class="row-fluid">
+    <%= form_tag 'locations', :method => :get, :id => 'admin-search-locations' do %>
+      <%= t('admin.settings.locations.search.by_code_1') %>
+      <select name="search_by_code_type">
+        <% SETTINGS['location_types'].each_with_index do |location, index| %>
+          <option value="<%= location %>"><%= Location.label_at(index) %></option>
+        <% end %>
+      </select>
+      <%= t('admin.settings.locations.search.by_code_2') %><%= text_field_tag 'search_by_code', '' %>
+      <%= submit_tag t('admin.settings.locations.search.submit_code') %>
+    <% end %>
+  </div>
+</div>
+
+<h3><%= t('admin.settings.locations.title') %></h3>
+<table class="outer_locations table table-striped table-bordered table-rounded">
+  <tbody>
+    <tr>
+      <% (0...(SETTINGS['location_types'].length)).to_a.each do |i| %>
+        <th>
+          <%= Location.label_at(i) %>
+        </th>
+      <% end %>
+    </tr>
+    <tr>
+      <% (0...(SETTINGS['location_types'].length)).to_a.each do |i| %>
+        <td>
+          <% if !@locations[i].nil? %>
+            <table class="inner_locations">
+              <tbody>
+                <% @locations[i][:content].each do |l| %>
+                  <%= render :partial => 'location', :locals => {:location => l, :selected => (l.id == @locations[i][:selected])} %>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+    <tr>
+      <% SETTINGS['location_types'].each_with_index do |location, index| %>
+        <% if !@locations[index].nil? %>
+          <td id="create_admin_location_<%= location.downcase %>">
+            <table class="create_admin_location_form" style="display:none">
+              <tbody>
+                <tr>
+                  <td>
+                    <%= t('admin.settings.locations.fields.name') %><input class="create_admin_location_name" type="text" value=""/>
+                  </td>
+                  <td>
+                    <%= t('admin.settings.locations.fields.code') %><input class="create_admin_location_code" type="text" value=""/>
+                  </td>
+                  <td>
+                    <a class="create_admin_location_form_done" data-location-type="<%= location.downcase %>" data-location-type-for-form="<%= location %>" data-location-parent="<%= (index != 0) ? @locations[index - 1][:selected] : '' %>"><%= t('admin.settings.locations.create') %></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <a class="create_admin_location" data-location-type="<%= location.downcase %>">
+              <%= t('admin.settings.locations.new', :location => Location.label_at(index).downcase) %>
+            </a>
+          </td>
+        <% end %>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

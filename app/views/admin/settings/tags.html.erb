@@ -1,0 +1,31 @@
+<%= render :partial => 'menu', :locals => {:current => 'tags'} %>
+
+<h4><%= t('admin.settings.tags.search.label') %></h4>
+<%= form_tag 'tags', :method => :get, :id => 'admin-search-tags', :class => 'search-form' do %>
+  <%= hidden_field_tag 'search[search_type]', 'tags' %>
+  <%= hidden_field_tag 'search[ordering]', '' %>
+  <%= hidden_field_tag 'search[desc]', '' %>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= render :partial => 'admin/search/alerts' %>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <%= render :partial => 'admin/search/tags_general', :locals => {:params => params[:search]} %>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="form-actions">
+        <button type="submit" class="btn btn-block"><%= t('admin.settings.tags.search.submit').upcase %></button>
+      </div>
+    </div>
+  </div>
+<% end %>
+<h3><%= t('admin.settings.tags.title') %></h3>
+<% if @tags.present? %>
+  <%= render :partial => 'admin/list_heading', :locals => {:items => @tags, :expandable => false} %>
+<% end %>
+<%= render :partial => 'admin/settings/tags_list', :locals => {:tags => @tags} %>
+<% if @tags.present? %>
+  <%= render :partial => 'admin/list_heading', :locals => {:items => @tags, :expandable => false} %>
+<% end %>

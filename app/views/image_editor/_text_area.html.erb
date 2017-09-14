@@ -1,0 +1,29 @@
+<%
+  colors = []
+  SETTINGS['colors'].each do |k, v|
+    colors[v['pos'] - 1] = k
+  end
+-%>
+
+<div style="position:fixed">
+  <div id="image_editor_textarea_tools_without_id" class="text_tools">
+    
+    <a class="_delete closeButton"></a>
+    
+    <div class="text_colors">
+      <% colors.each do |color| %>
+        <a class="background_color_<%= color %> <%= (color == 'black') ? 'current'.html_safe : '' %>"></a>
+      <% end %>
+    </div>
+    
+    <div class="font_sizes">
+      <a class="small_font current upper" data-param="15"><%= t('image_editor.text.sample_letter') %></a>
+      <a class="medium_font upper" data-param="25"><%= t('image_editor.text.sample_letter') %></a>
+      <a class="big_font upper" data-param="35"><%= t('image_editor.text.sample_letter') %></a>
+    </div>
+    
+    <a class="_move"></a>
+    
+  </div>
+  <textarea id="image_editor_textarea_without_id" data-coords="" data-color="color_black" data-size="small_font" name="" class="color_black small_font _inner_textarea"></textarea>
+</div>

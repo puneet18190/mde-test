@@ -1,0 +1,18 @@
+var container = $('#lesson_editor_video_gallery_container');
+var current_slide = $('li._lesson_editor_current_slide');
+container.html("<%= j(render :partial => 'galleries/wrappers/media_element', :locals => {:kind => 'video', :items => @videos}) %>");
+container.show();
+$('li._lesson_editor_current_slide .slide-content').children().hide();
+centerThis('#lesson_editor_video_gallery_container');
+current_slide.find('layer').remove();
+container.data('loaded', true);
+container.data('page', 1);
+container.data('tot-pages', <%= @tot_pages %>);
+$('._close_video_gallery').addClass('_close_video_gallery_in_lesson_editor');
+$('._select_video_from_gallery').addClass('_add_video_to_slide');
+<% if @videos.count > 6 %>
+  initializeVideoGalleryInLessonEditor();
+<% else %>
+  $('.video_gallery .scroll-pane').css('overflow', 'hidden');
+<% end %>
+initTagsAutocomplete($('#load-gallery-video .part2 ._tags_container .tags'), 'media_element');

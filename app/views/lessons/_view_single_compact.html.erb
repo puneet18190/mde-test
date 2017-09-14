@@ -1,0 +1,83 @@
+<%
+  forced_margin ||= nil
+  if forced_margin.nil?
+    forced_margin = ''
+  else
+    forced_margin = "style=\"margin-bottom:#{(71 * forced_margin)}px\"".html_safe
+  end
+  bookmarks_count ||= nil
+  bookmarks_count = lesson.bookmarks.count if bookmarks_count.nil?
+  likes_general_count ||= nil
+  likes_general_count = lesson.likes.count if likes_general_count.nil?
+  cover ||= nil
+  notification_bookmarks ||= nil
+  notification_bookmarks = Bookmark.where('bookmarkable_type = ? AND bookmarkable_id = ? AND created_at < ?', 'Lesson', lesson.id, lesson.updated_at).count if notification_bookmarks.nil?
+  lesson_not_notified = lesson.status.nil? ? false : (!lesson.notified && notification_bookmarks > 0)
+  current_class = (lesson.status == Statuses::COPIED) ? 'current'.html_safe : ''
+  disabled = !lesson.available?
+  additional_class = disabled ? '_disabled'.html_safe : ''
+  current_class = "#{current_class} _lesson_change_not_notified" if lesson_not_notified
+%>
+
+<div id="<%= destination %>_<%= lesson.id %>" class="boxViewSingleLesson <%= current_class %> <%= additional_class %>" <%= forced_margin %>>
+  <div class="contentInterno _lesson_compact">
+    <h3><%= lesson.title %></h3>
+    <p><%= lesson.subject.description %></p>
+    <p><%= lesson.status(true) %></p>
+    <%= render :partial => 'lessons/action_buttons', :locals => {:lesson => lesson, :destination => destination, :additional_class => additional_class} %>
+  </div>
+  <% if !disabled %>
+    <div class="_lesson_expanded">
+      <%= render :partial => 'lessons/thumbnail', :locals => {:lesson => lesson, :cover => cover} %>
+      <div class="box-left">
+        <div class="created">
+          <div class="icon"></div>
+          <div class="text"><%= t('lessons.created_on', :time => TimeConvert.to_string(lesson.created_at)) %></div>
+        </div>
+        <div class="likes">
+          <div class="icon"></div>
+          <div class="text"><%= t('lessons.users_like_this', :likes => likes_general_count) %></div>
+        </div>
+        <div class="followers">
+          <div class="icon"></div>
+          <div class="text"><%= t('lessons.users_follow_this', :followers => bookmarks_count) %></div>
+        </div>
+        <% if lesson.is_reportable %>
+          <a class="report">
+            <div class="icon"></div>
+            <span class="title"><%= t('reports.title') %></span>
+          </a>
+          <%= render :partial => 'reports/form', :locals => {:item => lesson} %>
+        <% end %>
+      </div>
+      <div class="box-right">
+        <% if [Statuses::PUBLIC, Statuses::LINKED].include?(lesson.status) %>
+          <div class="additional-header">
+            <div class="author">
+              <div class="icon"><%= t('lessons.author') %></div>
+              <div class="text"><%= lesson.user.full_name %></div>
+            </div>
+            <div class="school">
+              <div class="icon"><%= Location.base_label %></div>
+              <div class="text"><%= lesson.user.base_location %></div>
+            </div>
+            <div class="school-level">
+              <div class="icon"><%= t('lessons.school_level') %></div>
+              <div class="text"><%= lesson.school_level.description %></div>
+            </div>
+          </div>
+        <% end %>
+        <div class="description">
+          <div class="icon"><%= t('lessons.description') %></div>
+          <div class="text"><%= lesson.description %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#<%= destination %>_<%= lesson.id %>._lesson_change_not_notified .unpublish').attr('title', $('#popup_captions_container').data('title-lesson-modification-not-notified'));
+  });
+</script>

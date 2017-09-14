@@ -1,0 +1,14 @@
+<div class="global-footer">
+  <div class="global-footer-content">
+    <% if controller_name != 'dashboard' %>
+      <%= image_tag 'lesson-editor-logo-footer.png', :class => 'back-to-dashboard' %>
+      <%= link_to t('captions.back_to_dashboard'), dashboard_path, :class => 'back-to-dashboard' %>
+    <% end %>
+  </div>
+  <div class="global-footer-logo">
+    <div class="partner"></div>
+    <div class="copyright" style="display: none;">
+      <%= SETTINGS['application_copyright'] %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1002 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Cmd::Avconv</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Cmd::Avconv 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../Cmd.html">Media::Cmd</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/media/cmd/avconv_rb.html">lib/media/cmd/avconv.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-achannels">achannels</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-acodec">acodec</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-ar">ar</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cmd-21">cmd!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-codecs">codecs</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-default_output_options">default_output_options</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-global_options">global_options</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-input_options">input_options</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-input_options_and_input_files">input_options_and_input_files</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-output_options">output_options</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-output_threads">output_threads</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Q</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-qa">qa</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-qv">qv</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-sn">sn</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-strict">strict</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-vbitrate">vbitrate</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-vcodec">vcodec</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">STREAM_TYPES_OPTIONS</td>
+            <td>=</td>
+            <td class="attr-value">{ audio: &#39;a&#39;, video: &#39;v&#39; }</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">SH_VARS</td>
+            <td>=</td>
+            <td class="attr-value">Hash[ CONFIG.avtools.avconv.cmd.sh_vars.marshal_dump.map{ |k, v| [k.to_s, v] } ]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">BIN</td>
+            <td>=</td>
+            <td class="attr-value">CONFIG.avtools.avconv.cmd.bin</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">TIMEOUT</td>
+            <td>=</td>
+            <td class="attr-value">CONFIG.avtools.avconv.cmd.timeout</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">SUBEXEC_TIMEOUT</td>
+            <td>=</td>
+            <td class="attr-value">TIMEOUT + 10</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">SUBEXEC_OPTIONS</td>
+            <td>=</td>
+            <td class="attr-value">{ sh_vars: SH_VARS, timeout: SUBEXEC_TIMEOUT }</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(input_files, output_file, format = nil)
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">input_files</span>, <span class="ruby-identifier">output_file</span>, <span class="ruby-identifier">format</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">formats</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">format</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>( <span class="ruby-string">&#39;format unsupported&#39;</span>,
+                     <span class="ruby-identifier">input_files</span><span class="ruby-operator">:</span> <span class="ruby-identifier">input_files</span>, <span class="ruby-identifier">output_file</span><span class="ruby-operator">:</span> <span class="ruby-identifier">output_file</span>, <span class="ruby-identifier">formats</span><span class="ruby-operator">:</span> <span class="ruby-identifier">formats</span>, <span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-identifier">format</span> )
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@input_files</span>, <span class="ruby-ivar">@output_file</span>, <span class="ruby-ivar">@format</span> = <span class="ruby-identifier">input_files</span>, <span class="ruby-identifier">output_file</span>, <span class="ruby-identifier">format</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-achannels">
+            
+              <b>achannels</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-achannels" name="method-i-achannels" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-achannels_source')" id="l_method-i-achannels_source">show</a>
+                
+              </p>
+              <div id="method-i-achannels_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">achannels</span>
+  <span class="ruby-string">&#39;-ac 2&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-acodec">
+            
+              <b>acodec</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-acodec" name="method-i-acodec" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-acodec_source')" id="l_method-i-acodec_source">show</a>
+                
+              </p>
+              <div id="method-i-acodec_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">acodec</span>
+  <span class="ruby-node">&quot;-c:a #{codecs[1].shellescape}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ar">
+            
+              <b>ar</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-ar" name="method-i-ar" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ar_source')" id="l_method-i-ar_source">show</a>
+                
+              </p>
+              <div id="method-i-ar_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">ar</span>
+  <span class="ruby-string">&#39;-ar 44100&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cmd-21">
+            
+              <b>cmd!</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-cmd-21" name="method-i-cmd-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cmd-21_source')" id="l_method-i-cmd-21_source">show</a>
+                
+              </p>
+              <div id="method-i-cmd-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cmd!</span>
+  <span class="ruby-node">%Q[ #{BIN}
+        #{global_options.join(&#39; &#39;)}
+        #{input_options_and_input_files}
+        #{output_options.join(&#39; &#39;)}
+        #{@output_file.shellescape} ]</span>.<span class="ruby-identifier">squish</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-codecs">
+            
+              <b>codecs</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-codecs" name="method-i-codecs" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-codecs_source')" id="l_method-i-codecs_source">show</a>
+                
+              </p>
+              <div id="method-i-codecs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">codecs</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">codecs</span>[<span class="ruby-ivar">@format</span>] <span class="ruby-keyword">if</span> <span class="ruby-ivar">@format</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-default_output_options">
+            
+              <b>default_output_options</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-default_output_options" name="method-i-default_output_options" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-default_output_options_source')" id="l_method-i-default_output_options_source">show</a>
+                
+              </p>
+              <div id="method-i-default_output_options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">default_output_options</span>
+  [ <span class="ruby-identifier">strict</span>, <span class="ruby-identifier">sn</span>, <span class="ruby-identifier">output_threads</span>, <span class="ruby-identifier">qv</span>, <span class="ruby-identifier">qa</span>, <span class="ruby-identifier">vbitrate</span> ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-global_options">
+            
+              <b>global_options</b>(additional_options = [])
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-global_options" name="method-i-global_options" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-global_options_source')" id="l_method-i-global_options_source">show</a>
+                
+              </p>
+              <div id="method-i-global_options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">global_options</span>(<span class="ruby-identifier">additional_options</span> = [])
+  <span class="ruby-ivar">@global_options</span> <span class="ruby-operator">||=</span> <span class="ruby-node">%W( -loglevel debug -benchmark -y -timelimit #{TIMEOUT.to_s.shellescape} )</span>
+  <span class="ruby-ivar">@global_options</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">additional_options</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-input_options">
+            
+              <b>input_options</b>(additional_options = [])
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-input_options" name="method-i-input_options" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-input_options_source')" id="l_method-i-input_options_source">show</a>
+                
+              </p>
+              <div id="method-i-input_options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">input_options</span>(<span class="ruby-identifier">additional_options</span> = [])
+  <span class="ruby-ivar">@input_options</span> <span class="ruby-operator">||=</span> []
+  <span class="ruby-ivar">@input_options</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">additional_options</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-input_options_and_input_files">
+            
+              <b>input_options_and_input_files</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-input_options_and_input_files" name="method-i-input_options_and_input_files" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-input_options_and_input_files_source')" id="l_method-i-input_options_and_input_files_source">show</a>
+                
+              </p>
+              <div id="method-i-input_options_and_input_files_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">input_options_and_input_files</span>
+  <span class="ruby-ivar">@input_files</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">input</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;#{input_options.join(&#39; &#39;)} -i #{input.shellescape}&quot;</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-output_options">
+            
+              <b>output_options</b>(additional_options = [])
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-output_options" name="method-i-output_options" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-output_options_source')" id="l_method-i-output_options_source">show</a>
+                
+              </p>
+              <div id="method-i-output_options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">output_options</span>(<span class="ruby-identifier">additional_options</span> = [])
+  <span class="ruby-ivar">@output_options</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">default_output_options</span>
+  <span class="ruby-ivar">@output_options</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">additional_options</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-output_threads">
+            
+              <b>output_threads</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-output_threads" name="method-i-output_threads" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-output_threads_source')" id="l_method-i-output_threads_source">show</a>
+                
+              </p>
+              <div id="method-i-output_threads_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">output_threads</span>
+  <span class="ruby-node">&quot;-threads #{self.class.output_threads[@format].to_s.shellescape}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@format</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-qa">
+            
+              <b>qa</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-qa" name="method-i-qa" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-qa_source')" id="l_method-i-qa_source">show</a>
+                
+              </p>
+              <div id="method-i-qa_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">qa</span>
+  <span class="ruby-node">&quot;-q:a #{self.class.output_qa[@format].to_s.shellescape}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@format</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-qv">
+            
+              <b>qv</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-qv" name="method-i-qv" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-qv_source')" id="l_method-i-qv_source">show</a>
+                
+              </p>
+              <div id="method-i-qv_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">qv</span>
+  <span class="ruby-string">&#39;-q:v 1&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sn">
+            
+              <b>sn</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-sn" name="method-i-sn" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-sn_source')" id="l_method-i-sn_source">show</a>
+                
+              </p>
+              <div id="method-i-sn_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sn</span>
+  <span class="ruby-string">&#39;-sn&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-strict">
+            
+              <b>strict</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-strict" name="method-i-strict" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-strict_source')" id="l_method-i-strict_source">show</a>
+                
+              </p>
+              <div id="method-i-strict_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">strict</span>
+  <span class="ruby-string">&#39;-strict experimental&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-vbitrate">
+            
+              <b>vbitrate</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-vbitrate" name="method-i-vbitrate" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-vbitrate_source')" id="l_method-i-vbitrate_source">show</a>
+                
+              </p>
+              <div id="method-i-vbitrate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">vbitrate</span>
+  <span class="ruby-string">&#39;-b:v 2M&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@format</span> <span class="ruby-operator">==</span> <span class="ruby-value">:webm</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-vcodec">
+            
+              <b>vcodec</b>()
+            
+            <a href="../../../classes/Media/Cmd/Avconv.html#method-i-vcodec" name="method-i-vcodec" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-vcodec_source')" id="l_method-i-vcodec_source">show</a>
+                
+              </p>
+              <div id="method-i-vcodec_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/cmd/avconv.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">vcodec</span>
+  <span class="ruby-node">&quot;-c:v #{codecs[0].shellescape}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

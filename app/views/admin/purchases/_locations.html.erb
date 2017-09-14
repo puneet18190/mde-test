@@ -1,0 +1,4 @@
+<option value="0" class="dont_delete_me">
+  <%= t("locations.placeholder.#{gender}", :location => Location.label_at(index).downcase) %>
+</option>
+<%= options_from_collection_for_select(locations, 'id', 'name', selected) %>

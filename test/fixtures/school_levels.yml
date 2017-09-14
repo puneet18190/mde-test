@@ -1,0 +1,7 @@
+one:
+  id: 1
+  description: 'Scuola Elementare'
+
+two:
+  id: 2
+  description: 'Scuola Media'

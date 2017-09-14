@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Audio::Editing::Composer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Audio::Editing::Composer 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/media/audio/editing/composer_rb.html">lib/media/audio/editing/composer.rb</a></li>
+            
+            <li><a href="../../../../files/lib/media/audio/editing/composer/job_rb.html">lib/media/audio/editing/composer/job.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Compose the components supplied (audios) in order to create a new audio
+based on them</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Composer/Job.html">Media::Audio::Editing::Composer::Job</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-audio">audio</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-audio_copy">audio_copy</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-compose">compose</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-compose_audio">compose_audio</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_log_folder">create_log_folder</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-log_folder">log_folder</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-log_folder">log_folder</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-log_folder_name">log_folder_name</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-notification_translation_key">notification_translation_key</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-output_without_extension">output_without_extension</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-run">run</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../../InTmpDir.html">
+              Media::InTmpDir
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="../../Logging.html">
+              Media::Logging
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-log_folder">
+            
+              <b>log_folder</b>()
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-c-log_folder" name="method-c-log_folder" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Composing processings main log folder</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-log_folder_source')" id="l_method-c-log_folder_source">show</a>
+                
+              </p>
+              <div id="method-c-log_folder_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">log_folder</span>
+  <span class="ruby-keyword">super</span> <span class="ruby-string">&#39;composings&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(params)
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Create a new <a href="Composer.html">Media::Audio::Editing::Composer</a>
+instance, which processes audio composings. <code>params</code> should be
+created using <a
+href="Parameters.html#method-i-convert_to_primitive_parameters">Media::Audio::Editing::Parameters#convert_to_primitive_parameters</a>
+. Example of the <code>params</code> hash:</p>
+
+<p>{  :initial_audio =&gt; 12 # initial audio id,  :components =&gt; [ {
+:audio =&gt; 123, # audio id :from =&gt; 12, # start of the audio in
+seconds (the new audio will contain the audio component starting from this
+second) :to =&gt; 24 # end of the audio in seconds (the new audio will
+contain the audio component ending to this second) }, { # etc… } ]  }</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-ivar">@params</span> = <span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-compose">
+            
+              <b>compose</b>()
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-i-compose" name="method-i-compose" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Composing of a single component</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-compose_source')" id="l_method-i-compose_source">show</a>
+                
+              </p>
+              <div id="method-i-compose_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">compose</span>
+  <span class="ruby-identifier">create_log_folder</span>
+  <span class="ruby-identifier">in_tmp_dir</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">concats</span> = {}.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">concats</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">run</span> <span class="ruby-operator">*</span><span class="ruby-ivar">@params</span>[<span class="ruby-value">:components</span>].<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">component</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">proc</span>{ <span class="ruby-identifier">concats</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">i</span>, <span class="ruby-identifier">compose_audio</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">component</span>.<span class="ruby-identifier">values_at</span>(<span class="ruby-value">:audio</span>, <span class="ruby-value">:from</span>, <span class="ruby-value">:to</span>), <span class="ruby-identifier">i</span>) }
+      }
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">concat</span> = <span class="ruby-identifier">tmp_path</span> <span class="ruby-string">&#39;concat&#39;</span>
+    <span class="ruby-identifier">outputs</span> = <span class="ruby-constant">Concat</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">concats</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span> }, <span class="ruby-identifier">concat</span>, <span class="ruby-identifier">log_folder</span>(<span class="ruby-string">&#39;concat&#39;</span>)).<span class="ruby-identifier">run</span>
+
+    <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">media</span>               = <span class="ruby-identifier">outputs</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">filename</span><span class="ruby-operator">:</span> <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">title</span>)
+    <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">composing</span>           = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">old_fields</span> = <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">save!</span>
+      <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">enable_lessons_containing_me</span>
+      <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+        <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">user_id</span>,
+        <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-node">&quot;notifications.audio.compose.#{notification_translation_key}.ok.title&quot;</span>),
+        <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-node">&quot;notifications.audio.compose.#{notification_translation_key}.ok.message&quot;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">title</span>),
+        <span class="ruby-string">&#39;&#39;</span>
+      )
+      <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">user</span>.<span class="ruby-identifier">audio_editor_cache!</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-run">
+            
+              <b>run</b>()
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-i-run" name="method-i-run" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Execute the composing processing; if it works, a success notification will
+be sent to the user; otherwise a fail notification will be sent to the user
+and the media record will be destroyed</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-run_source')" id="l_method-i-run_source">show</a>
+                
+              </p>
+              <div id="method-i-run_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">run</span>
+  <span class="ruby-ivar">@old_media</span> = <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">media</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:dup</span>)
+  <span class="ruby-identifier">compose</span>
+  <span class="ruby-ivar">@old_media</span>.<span class="ruby-identifier">paths</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_f</span> <span class="ruby-identifier">p</span> } <span class="ruby-keyword">if</span> <span class="ruby-ivar">@old_media</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@old_media</span>
+    <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">media</span>     = <span class="ruby-ivar">@old_media</span>.<span class="ruby-identifier">to_hash</span>
+    <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">converted</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_fields</span> = <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:metadata</span>).<span class="ruby-identifier">try</span>(<span class="ruby-value">:old_fields</span>)
+      <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">title</span>       = <span class="ruby-identifier">old_fields</span>[<span class="ruby-string">&#39;title&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_fields</span>[<span class="ruby-string">&#39;title&#39;</span>].<span class="ruby-identifier">present?</span>
+      <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">old_fields</span>[<span class="ruby-string">&#39;description&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_fields</span>[<span class="ruby-string">&#39;description&#39;</span>].<span class="ruby-identifier">present?</span>
+      <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">tags</span>        = <span class="ruby-identifier">old_fields</span>[<span class="ruby-string">&#39;tags&#39;</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_fields</span>[<span class="ruby-string">&#39;tags&#39;</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">save!</span>
+    <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">enable_lessons_containing_me</span>
+    <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+      <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">user_id</span>,
+      <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.update.failed.title&#39;</span>),
+      <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.update.failed.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">title</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Audio</span><span class="ruby-operator">::</span><span class="ruby-constant">CACHE_RESTORE_PATH</span>),
+      <span class="ruby-string">&#39;&#39;</span>
+    )
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">destroyable_even_if_not_converted</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">destroy</span>
+    <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+      <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">user_id</span>,
+      <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.create.failed.title&#39;</span>),
+      <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.create.failed.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">title</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Audio</span><span class="ruby-operator">::</span><span class="ruby-constant">CACHE_RESTORE_PATH</span>),
+      <span class="ruby-string">&#39;&#39;</span>
+    )
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-audio">
+            
+              <b>audio</b>()
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-i-audio" name="method-i-audio" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initial audio instance</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-audio_source')" id="l_method-i-audio_source">show</a>
+                
+              </p>
+              <div id="method-i-audio_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">audio</span>
+  <span class="ruby-ivar">@audio</span> <span class="ruby-operator">||=</span> <span class="ruby-operator">::</span><span class="ruby-constant">Audio</span>.<span class="ruby-identifier">find</span> <span class="ruby-ivar">@params</span>[<span class="ruby-value">:initial_audio</span>][<span class="ruby-value">:id</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-audio_copy">
+            
+              <b>audio_copy</b>(input, output)
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-i-audio_copy" name="method-i-audio_copy" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../../Audio.html">Audio</a> file copy</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-audio_copy_source')" id="l_method-i-audio_copy_source">show</a>
+                
+              </p>
+              <div id="method-i-audio_copy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">audio_copy</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">output</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">output</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-compose_audio">
+            
+              <b>compose_audio</b>(audio_id, from, to, i)
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-i-compose_audio" name="method-i-compose_audio" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../../Audio.html">Audio</a> component composing</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-compose_audio_source')" id="l_method-i-compose_audio_source">show</a>
+                
+              </p>
+              <div id="method-i-compose_audio_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">compose_audio</span>(<span class="ruby-identifier">audio_id</span>, <span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>, <span class="ruby-identifier">i</span>)
+  <span class="ruby-identifier">audio</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Audio</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">audio_id</span>
+  <span class="ruby-identifier">inputs</span> = <span class="ruby-constant">Hash</span>[ <span class="ruby-constant">FORMATS</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">f</span>, <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">media</span>.<span class="ruby-identifier">path</span>(<span class="ruby-identifier">f</span>)] } ]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">from</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">to</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">min_duration</span>
+    {}.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">outputs</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">run</span> <span class="ruby-operator">*</span><span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">format</span>, <span class="ruby-identifier">input</span><span class="ruby-operator">|</span> <span class="ruby-identifier">proc</span> { <span class="ruby-identifier">audio_copy</span> <span class="ruby-identifier">input</span>, (<span class="ruby-identifier">outputs</span>[<span class="ruby-identifier">format</span>] = <span class="ruby-node">&quot;#{output_without_extension(i)}.#{format}&quot;</span>) } }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">start</span>, <span class="ruby-identifier">duration</span> = <span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">-</span><span class="ruby-identifier">from</span>
+    <span class="ruby-constant">Crop</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">inputs</span>, <span class="ruby-identifier">output_without_extension</span>(<span class="ruby-identifier">i</span>), <span class="ruby-identifier">start</span>, <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">log_folder</span>(<span class="ruby-string">&#39;crop&#39;</span>, <span class="ruby-identifier">i</span>.<span class="ruby-identifier">to_s</span>)).<span class="ruby-identifier">run</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_log_folder">
+            
+              <b>create_log_folder</b>()
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-i-create_log_folder" name="method-i-create_log_folder" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Create the log folder</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_log_folder_source')" id="l_method-i-create_log_folder_source">show</a>
+                
+              </p>
+              <div id="method-i-create_log_folder_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_log_folder</span>
+  <span class="ruby-ivar">@log_folder</span> = <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">log_folder_name</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-log_folder">
+            
+              <b>log_folder</b>(*folders)
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-i-log_folder" name="method-i-log_folder" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Instance-relative log folder</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-log_folder_source')" id="l_method-i-log_folder_source">show</a>
+                
+              </p>
+              <div id="method-i-log_folder_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">log_folder</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">folders</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@log_folder</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">folders</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-log_folder_name">
+            
+              <b>log_folder_name</b>()
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-i-log_folder_name" name="method-i-log_folder_name" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Instance-model-thread relative log folder</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-log_folder_name_source')" id="l_method-i-log_folder_name_source">show</a>
+                
+              </p>
+              <div id="method-i-log_folder_name_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">log_folder_name</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">log_folder</span>, <span class="ruby-identifier">audio</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-node">&quot;#{Time.now.utc.strftime(&quot;%Y-%m-%d_%H-%M-%S&quot;)}_#{::Thread.main.object_id}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-notification_translation_key">
+            
+              <b>notification_translation_key</b>()
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-i-notification_translation_key" name="method-i-notification_translation_key" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Locale key depending of the composing action type</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-notification_translation_key_source')" id="l_method-i-notification_translation_key_source">show</a>
+                
+              </p>
+              <div id="method-i-notification_translation_key_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">notification_translation_key</span>
+  <span class="ruby-ivar">@old_media</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;update&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;create&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-output_without_extension">
+            
+              <b>output_without_extension</b>(i)
+            
+            <a href="../../../../classes/Media/Audio/Editing/Composer.html#method-i-output_without_extension" name="method-i-output_without_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Temporary output path without extension</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-output_without_extension_source')" id="l_method-i-output_without_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-output_without_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/composer.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">output_without_extension</span>(<span class="ruby-identifier">i</span>)
+  <span class="ruby-identifier">tmp_path</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

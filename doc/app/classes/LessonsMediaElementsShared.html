@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>LessonsMediaElementsShared</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            LessonsMediaElementsShared 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/lib/autoload/lessons_media_elements_shared_rb.html">lib/autoload/lessons_media_elements_shared.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>List of common translation methods that call I18n</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-filter">filter</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-search_order">search_order</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-status">status</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-filter">
+            
+              <b>filter</b>(f)
+            
+            <a href="../classes/LessonsMediaElementsShared.html#method-i-filter" name="method-i-filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Translation of the filter of a lesson or of an element (see <a
+href="Filters.html">Filters</a>). Example of usage:  &lt;%
+Filters::LESSONS_SET.each do |f| %&gt;  &lt;%= Lesson.filter(f) %&gt; 
+&lt;% end %&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-filter_source')" id="l_method-i-filter_source">show</a>
+                
+              </p>
+              <div id="method-i-filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/lessons_media_elements_shared.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">filter</span>(<span class="ruby-identifier">f</span>)
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-node">&quot;filters.#{f}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-search_order">
+            
+              <b>search_order</b>(so)
+            
+            <a href="../classes/LessonsMediaElementsShared.html#method-i-search_order" name="method-i-search_order" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Translation of the search order of a lesson or of an element (see <a
+href="SearchOrders.html">SearchOrders</a>). Example of usage:  &lt;%
+SearchOrders::LESSONS_SET.each do |so| %&gt;  &lt;%=
+Lesson.search_order(so) %&gt;  &lt;% end %&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-search_order_source')" id="l_method-i-search_order_source">show</a>
+                
+              </p>
+              <div id="method-i-search_order_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/lessons_media_elements_shared.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">search_order</span>(<span class="ruby-identifier">so</span>)
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-node">&quot;orders.#{so}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-status">
+            
+              <b>status</b>(s)
+            
+            <a href="../classes/LessonsMediaElementsShared.html#method-i-status" name="method-i-status" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Translation of the status of a lesson or of an element (see <a
+href="Statuses.html">Statuses</a>). For an example of usage see <a
+href="Lesson.html#method-i-status">Lesson#status</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-status_source')" id="l_method-i-status_source">show</a>
+                
+              </p>
+              <div id="method-i-status_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/lessons_media_elements_shared.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">status</span>(<span class="ruby-identifier">s</span>)
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-node">&quot;statuses.#{table_name}.#{s}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

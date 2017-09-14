@@ -1,0 +1,1320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>VirtualClassroomController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            VirtualClassroomController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="ApplicationController.html">ApplicationController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/controllers/virtual_classroom_controller_rb.html">app/controllers/virtual_classroom_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-VirtualClassroomController-label-Description">Description</h3>
+
+<p>Contains all the actions related with the user&#39;s Virtual Classroom</p>
+
+<h3 id="class-VirtualClassroomController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="VirtualClassroomLesson.html">VirtualClassroomLesson</a></p>
+</li><li>
+<p><a href="Lesson.html">Lesson</a></p>
+</li><li>
+<p><a href="Notification.html">Notification</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_lesson">add_lesson</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-add_lesson_to_playlist">add_lesson_to_playlist</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-change_position_in_playlist">change_position_in_playlist</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-empty_playlist">empty_playlist</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-empty_virtual_classroom">empty_virtual_classroom</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get_lessons">get_lessons</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-index">index</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_emails">initialize_emails</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_lesson_for_sending_link">initialize_lesson_for_sending_link</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_loaded_lessons">initialize_loaded_lessons</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_page">initialize_page</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_paginator">initialize_paginator</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_virtual_classroom_lesson">initialize_virtual_classroom_lesson</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-load_lessons">load_lessons</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-remove_lesson">remove_lesson</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-remove_lesson_from_inside">remove_lesson_from_inside</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-remove_lesson_from_playlist">remove_lesson_from_playlist</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-select_lessons">select_lessons</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-select_lessons_new_block">select_lessons_new_block</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-send_link">send_link</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">FOR_PAGE</td>
+            <td>=</td>
+            <td class="attr-value">SETTINGS[&#39;lessons_for_page_in_virtual_classroom&#39;]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Number of lessons in a page of the Virtual Classroom (configured in
+settings.yml)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">LESSONS_IN_QUICK_LOADER</td>
+            <td>=</td>
+            <td class="attr-value">SETTINGS[&#39;lessons_in_quick_loader&#39;]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Number of lessons in the first block of the quick loader (configured in
+settings.yml)</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add_lesson">
+            
+              <b>add_lesson</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-add_lesson" name="method-i-add_lesson" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-add_lesson-label-Description">Description</h3>
+
+<p>Creates a link of this lesson into your Virtual Classroom. List of possible
+graphical effects (see <a
+href="LessonsController.html">LessonsController</a> and <a
+href="ButtonDestinations.html">ButtonDestinations</a> for more details): *
+<em>found</em>: reloads the lesson in compact mode * <em>compact</em>:
+reloads the lesson in compact mode * <em>expanded</em>: <em>[this action
+doesn&#39;t occur]</em></p>
+
+<h3 id="method-i-add_lesson-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-add_lesson-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson">ApplicationController#initialize_lesson</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_destination">ApplicationController#initialize_lesson_destination</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_lesson_source')" id="l_method-i-add_lesson_source">show</a>
+                
+              </p>
+              <div id="method-i-add_lesson_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_lesson</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">add_to_virtual_classroom</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">get_base_error</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.lesson.problem_adding_to_virtual_classroom&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">prepare_lesson_for_js</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_compact.js&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-add_lesson_to_playlist">
+            
+              <b>add_lesson_to_playlist</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-add_lesson_to_playlist" name="method-i-add_lesson_to_playlist" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-add_lesson_to_playlist-label-Description">Description</h3>
+
+<p>Adds a lesson to your playlist</p>
+
+<h3 id="method-i-add_lesson_to_playlist-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-add_lesson_to_playlist-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="VirtualClassroomController.html#method-i-initialize_virtual_classroom_lesson">#initialize_virtual_classroom_lesson</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_lesson_to_playlist_source')" id="l_method-i-add_lesson_to_playlist_source">show</a>
+                
+              </p>
+              <div id="method-i-add_lesson_to_playlist_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_lesson_to_playlist</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@virtual_classroom_lesson</span>.<span class="ruby-identifier">add_to_playlist</span>
+      <span class="ruby-ivar">@playlist</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">playlist</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-ivar">@virtual_classroom_lesson</span>.<span class="ruby-identifier">get_base_error</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.virtual_classroom_lesson.problem_adding_to_playlist&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-change_position_in_playlist">
+            
+              <b>change_position_in_playlist</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-change_position_in_playlist" name="method-i-change_position_in_playlist" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-change_position_in_playlist-label-Description">Description</h3>
+
+<p>Moves the lesson into a different position inside the playlist</p>
+
+<h3 id="method-i-change_position_in_playlist-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-change_position_in_playlist-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="VirtualClassroomController.html#method-i-initialize_virtual_classroom_lesson">#initialize_virtual_classroom_lesson</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_position">ApplicationController#initialize_position</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-change_position_in_playlist_source')" id="l_method-i-change_position_in_playlist_source">show</a>
+                
+              </p>
+              <div id="method-i-change_position_in_playlist_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">change_position_in_playlist</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@virtual_classroom_lesson</span>.<span class="ruby-identifier">change_position</span>(<span class="ruby-ivar">@position</span>)
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-ivar">@virtual_classroom_lesson</span>.<span class="ruby-identifier">get_base_error</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.virtual_classroom_lesson.problem_changing_position_in_playlist&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@playlist</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">playlist</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-empty_playlist">
+            
+              <b>empty_playlist</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-empty_playlist" name="method-i-empty_playlist" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-empty_playlist-label-Description">Description</h3>
+
+<p>Empties the playlist and reloads it</p>
+
+<h3 id="method-i-empty_playlist-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-empty_playlist_source')" id="l_method-i-empty_playlist_source">show</a>
+                
+              </p>
+              <div id="method-i-empty_playlist_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">empty_playlist</span>
+  <span class="ruby-ivar">@ok</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">empty_playlist</span>
+  <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.virtual_classroom_lesson.problem_emptying_playlist&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@ok</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-empty_virtual_classroom">
+            
+              <b>empty_virtual_classroom</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-empty_virtual_classroom" name="method-i-empty_virtual_classroom" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-empty_virtual_classroom-label-Description">Description</h3>
+
+<p>Empties the Virtual Classroom and reloads it</p>
+
+<h3 id="method-i-empty_virtual_classroom-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-empty_virtual_classroom_source')" id="l_method-i-empty_virtual_classroom_source">show</a>
+                
+              </p>
+              <div id="method-i-empty_virtual_classroom_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 233</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">empty_virtual_classroom</span>
+  <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">empty_virtual_classroom</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-index">
+            
+              <b>index</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-index" name="method-i-index" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-index-label-Description">Description</h3>
+
+<p>Main page of the section &#39;Virtual Classroom&#39;. When it&#39;s called
+via ajax it&#39;s because of the application of filters, paginations, or
+after an operation that changed the number of items in the page.</p>
+
+<h3 id="method-i-index-label-Mode">Mode</h3>
+
+<p>Html + Ajax</p>
+
+<h3 id="method-i-index-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_layout">ApplicationController#initialize_layout</a></p>
+</li><li>
+<p><a
+href="VirtualClassroomController.html#method-i-initialize_paginator">#initialize_paginator</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-index_source')" id="l_method-i-index_source">show</a>
+                
+              </p>
+              <div id="method-i-index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">index</span>
+  <span class="ruby-identifier">get_lessons</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@page</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+    <span class="ruby-ivar">@page</span> = <span class="ruby-ivar">@pages_amount</span>
+    <span class="ruby-identifier">get_lessons</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@playlist</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">playlist</span>
+  <span class="ruby-ivar">@mailing_list_groups</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">own_mailing_list_groups</span>
+  <span class="ruby-ivar">@emptier</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">own_lessons</span>(<span class="ruby-number">1</span>, <span class="ruby-constant">LESSONS_IN_QUICK_LOADER</span>, <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">ALL_LESSONS</span>, <span class="ruby-keyword">true</span>)[<span class="ruby-value">:records</span>].<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">render_js_or_html_index</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-load_lessons">
+            
+              <b>load_lessons</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-load_lessons" name="method-i-load_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-load_lessons-label-Description">Description</h3>
+
+<p>From the list initialized in <a
+href="VirtualClassroomController.html#method-i-select_lessons">#select_lessons</a>,
+load lessons into the Virtual Classroom</p>
+
+<h3 id="method-i-load_lessons-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-load_lessons-label-Specific+filters">Specific filters</h3>
+
+<p><a
+href="VirtualClassroomController.html#method-i-initialize_loaded_lessons">#initialize_loaded_lessons</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-load_lessons_source')" id="l_method-i-load_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-load_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">load_lessons</span>
+  <span class="ruby-ivar">@loaded</span> = <span class="ruby-number">0</span>
+  <span class="ruby-ivar">@load_lessons</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@loaded</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">add_to_virtual_classroom</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">initialize_paginator</span>
+  <span class="ruby-identifier">get_lessons</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-remove_lesson">
+            
+              <b>remove_lesson</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-remove_lesson" name="method-i-remove_lesson" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-remove_lesson-label-Description">Description</h3>
+
+<p>Removes the link of this lesson from your Virtual Classroom. List of
+possible graphical effects (see <a
+href="LessonsController.html">LessonsController</a> and <a
+href="ButtonDestinations.html">ButtonDestinations</a> for more details): *
+<em>found</em>: reloads the lesson in compact mode * <em>compact</em>:
+reloads the lesson in compact mode * <em>expanded</em>: <em>[this action
+doesn&#39;t occur]</em></p>
+
+<h3 id="method-i-remove_lesson-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-remove_lesson-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson">ApplicationController#initialize_lesson</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_destination">ApplicationController#initialize_lesson_destination</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-remove_lesson_source')" id="l_method-i-remove_lesson_source">show</a>
+                
+              </p>
+              <div id="method-i-remove_lesson_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">remove_lesson</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">remove_from_virtual_classroom</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">get_base_error</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.lesson.problem_removing_from_virtual_classroom&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">prepare_lesson_for_js</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_compact.js&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-remove_lesson_from_inside">
+            
+              <b>remove_lesson_from_inside</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-remove_lesson_from_inside" name="method-i-remove_lesson_from_inside" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-remove_lesson_from_inside-label-Description">Description</h3>
+
+<p>Removes the lesson from your Virtual Classroom while you are inside the
+Virtual Classroom itself</p>
+
+<h3 id="method-i-remove_lesson_from_inside-label-Mode">Mode</h3>
+
+<p>Json</p>
+
+<h3 id="method-i-remove_lesson_from_inside-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson">ApplicationController#initialize_lesson</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-remove_lesson_from_inside_source')" id="l_method-i-remove_lesson_from_inside_source">show</a>
+                
+              </p>
+              <div id="method-i-remove_lesson_from_inside_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">remove_lesson_from_inside</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">remove_from_virtual_classroom</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">get_base_error</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.lesson.problem_removing_from_virtual_classroom&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:ok</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@ok</span>, <span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@error</span>}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-remove_lesson_from_playlist">
+            
+              <b>remove_lesson_from_playlist</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-remove_lesson_from_playlist" name="method-i-remove_lesson_from_playlist" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-remove_lesson_from_playlist-label-Description">Description</h3>
+
+<p>Removes a lesson from the playlist</p>
+
+<h3 id="method-i-remove_lesson_from_playlist-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-remove_lesson_from_playlist-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="VirtualClassroomController.html#method-i-initialize_virtual_classroom_lesson">#initialize_virtual_classroom_lesson</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-remove_lesson_from_playlist_source')" id="l_method-i-remove_lesson_from_playlist_source">show</a>
+                
+              </p>
+              <div id="method-i-remove_lesson_from_playlist_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">remove_lesson_from_playlist</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@virtual_classroom_lesson</span>.<span class="ruby-identifier">remove_from_playlist</span>
+      <span class="ruby-ivar">@playlist</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">playlist</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-ivar">@virtual_classroom_lesson</span>.<span class="ruby-identifier">get_base_error</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.virtual_classroom_lesson.problem_removing_from_playlist&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-select_lessons">
+            
+              <b>select_lessons</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-select_lessons" name="method-i-select_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-select_lessons-label-Description">Description</h3>
+
+<p>Opens a window that contains the list of your lessons: you can pick
+multiple lessons and add them directly into your Virtual Classroom</p>
+
+<h3 id="method-i-select_lessons-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-select_lessons_source')" id="l_method-i-select_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-select_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">select_lessons</span>
+  <span class="ruby-identifier">x</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">own_lessons</span>(<span class="ruby-number">1</span>, <span class="ruby-constant">LESSONS_IN_QUICK_LOADER</span>, <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">ALL_LESSONS</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-ivar">@lessons</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:records</span>]
+  <span class="ruby-ivar">@tot_pages</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:pages_amount</span>]
+  <span class="ruby-ivar">@covers</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:covers</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-select_lessons_new_block">
+            
+              <b>select_lessons_new_block</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-select_lessons_new_block" name="method-i-select_lessons_new_block" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-select_lessons_new_block-label-Description">Description</h3>
+
+<p>Gets a new block of the list initialized in <a
+href="VirtualClassroomController.html#method-i-select_lessons">#select_lessons</a></p>
+
+<h3 id="method-i-select_lessons_new_block-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-select_lessons_new_block-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="VirtualClassroomController.html#method-i-initialize_page">#initialize_page</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-select_lessons_new_block_source')" id="l_method-i-select_lessons_new_block_source">show</a>
+                
+              </p>
+              <div id="method-i-select_lessons_new_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 264</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">select_lessons_new_block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">x</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">own_lessons</span>(<span class="ruby-ivar">@page</span>, <span class="ruby-constant">LESSONS_IN_QUICK_LOADER</span>, <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">ALL_LESSONS</span>, <span class="ruby-keyword">true</span>)
+    <span class="ruby-ivar">@lessons</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:records</span>]
+    <span class="ruby-ivar">@covers</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:covers</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-send_link">
+            
+              <b>send_link</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-send_link" name="method-i-send_link" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-send_link-label-Description">Description</h3>
+
+<p>Sends a link containing the public url of a lesson to a list of emails (see
+<a href="MailingListGroup.html">MailingListGroup</a>)</p>
+
+<h3 id="method-i-send_link-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-send_link-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="VirtualClassroomController.html#method-i-initialize_lesson_for_sending_link">#initialize_lesson_for_sending_link</a></p>
+</li><li>
+<p><a
+href="VirtualClassroomController.html#method-i-initialize_emails">#initialize_emails</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-send_link_source')" id="l_method-i-send_link_source">show</a>
+                
+              </p>
+              <div id="method-i-send_link_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">send_link</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">trial?</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">see_my_lesson</span>(<span class="ruby-ivar">@emails</span>, <span class="ruby-identifier">current_user</span>, <span class="ruby-ivar">@lesson</span>, <span class="ruby-ivar">@message</span>).<span class="ruby-identifier">deliver</span>
+    <span class="ruby-identifier">string_emails</span> = <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-ivar">@emails</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">em</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">string_emails</span> = <span class="ruby-node">&quot;#{string_emails} &#39;#{em}&#39;,&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">string_emails</span>.<span class="ruby-identifier">chop!</span>
+    <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+      <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>,
+      <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.link_sent.title&#39;</span>),
+      <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.link_sent.message&#39;</span>, <span class="ruby-value">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">title</span>, <span class="ruby-value">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@message</span>, <span class="ruby-value">:emails</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">string_emails</span>),
+      <span class="ruby-string">&#39;&#39;</span>
+    )
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-get_lessons">
+            
+              <b>get_lessons</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-get_lessons" name="method-i-get_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets lessons, using <a
+href="User.html#method-i-full_virtual_classroom">User#full_virtual_classroom</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_lessons_source')" id="l_method-i-get_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-get_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_lessons</span>
+  <span class="ruby-identifier">current_user_virtual_classroom_lessons</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">full_virtual_classroom</span>(<span class="ruby-ivar">@page</span>, <span class="ruby-ivar">@for_page</span>)
+  <span class="ruby-ivar">@lessons</span> = <span class="ruby-identifier">current_user_virtual_classroom_lessons</span>[<span class="ruby-value">:records</span>]
+  <span class="ruby-ivar">@pages_amount</span> = <span class="ruby-identifier">current_user_virtual_classroom_lessons</span>[<span class="ruby-value">:pages_amount</span>]
+  <span class="ruby-ivar">@covers</span> = <span class="ruby-identifier">current_user_virtual_classroom_lessons</span>[<span class="ruby-value">:covers</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_emails">
+            
+              <b>initialize_emails</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-initialize_emails" name="method-i-initialize_emails" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes the list of the emails, from a mix of single emails and mailing
+lists (see <a href="MailingListGroup.html">MailingListGroup</a>)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_emails_source')" id="l_method-i-initialize_emails_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_emails_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 355</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_emails</span>
+  <span class="ruby-identifier">emails_hash</span> = {}
+  <span class="ruby-ivar">@original_emails_number</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:emails</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>).<span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-value">:emails</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">email</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">emails_hash</span>[<span class="ruby-identifier">email</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span>(<span class="ruby-regexp">/^([0-9a-zA-Z].*?@([0-9a-zA-Z].*\.\w{2,4}))$/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">email</span>).<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@emails</span> = <span class="ruby-identifier">emails_hash</span>.<span class="ruby-identifier">keys</span>
+  <span class="ruby-ivar">@message</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:message_placeholer</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:message</span>]
+  <span class="ruby-ivar">@message</span> = <span class="ruby-ivar">@message</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;virtual_classroom.send_link.empty_message&#39;</span>) <span class="ruby-operator">:</span> <span class="ruby-ivar">@message</span>[<span class="ruby-number">0</span>, <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;language_parameters.notification.message_length_for_send_lesson_link&#39;</span>)]
+  <span class="ruby-identifier">update_ok</span>(<span class="ruby-ivar">@emails</span>.<span class="ruby-identifier">any?</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_lesson_for_sending_link">
+            
+              <b>initialize_lesson_for_sending_link</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-initialize_lesson_for_sending_link" name="method-i-initialize_lesson_for_sending_link" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes the lesson and checks that it&#39;s in the Virtual Classroom</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_lesson_for_sending_link_source')" id="l_method-i-initialize_lesson_for_sending_link_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_lesson_for_sending_link_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 330</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_lesson_for_sending_link</span>
+  <span class="ruby-identifier">initialize_lesson</span>
+  <span class="ruby-identifier">update_ok</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">in_virtual_classroom?</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>))
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_loaded_lessons">
+            
+              <b>initialize_loaded_lessons</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-initialize_loaded_lessons" name="method-i-initialize_loaded_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes the lessons just loaded in the multiple loader</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_loaded_lessons_source')" id="l_method-i-initialize_loaded_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_loaded_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 336</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_loaded_lessons</span>
+  <span class="ruby-ivar">@load_lessons</span> = []
+  <span class="ruby-identifier">param_name</span> = <span class="ruby-string">&#39;virtual_classroom_quick_loaded_lesson_name&#39;</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">k_last</span> = <span class="ruby-identifier">k</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;_&#39;</span>).<span class="ruby-identifier">last</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-node">&quot;_#{k_last}&quot;</span>, <span class="ruby-string">&#39;&#39;</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">param_name</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">k_last</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;1&#39;</span>
+      <span class="ruby-identifier">lesson</span> = <span class="ruby-constant">Lesson</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">k_last</span>.<span class="ruby-identifier">to_i</span>)
+      <span class="ruby-ivar">@load_lessons</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lesson</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">lesson</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_page">
+            
+              <b>initialize_page</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-initialize_page" name="method-i-initialize_page" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes the page parameter</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_page_source')" id="l_method-i-initialize_page_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_page_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 349</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_page</span>
+  <span class="ruby-ivar">@page</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-number">0</span>
+  <span class="ruby-identifier">update_ok</span>(<span class="ruby-ivar">@page</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_paginator">
+            
+              <b>initialize_paginator</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-initialize_paginator" name="method-i-initialize_paginator" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes paginator parameters</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_paginator_source')" id="l_method-i-initialize_paginator_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_paginator_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 383</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_paginator</span>
+  <span class="ruby-ivar">@page</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-number">1</span>
+  <span class="ruby-ivar">@for_page</span> = <span class="ruby-constant">FOR_PAGE</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_virtual_classroom_lesson">
+            
+              <b>initialize_virtual_classroom_lesson</b>()
+            
+            <a href="../classes/VirtualClassroomController.html#method-i-initialize_virtual_classroom_lesson" name="method-i-initialize_virtual_classroom_lesson" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes a lesson for the Virtual Classroom (checks that it&#39;s
+included in the section &#39;lessons&#39; of the current user)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_virtual_classroom_lesson_source')" id="l_method-i-initialize_virtual_classroom_lesson_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_virtual_classroom_lesson_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/virtual_classroom_controller.rb, line 368</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_virtual_classroom_lesson</span>
+  <span class="ruby-ivar">@lesson_id</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:lesson_id</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:lesson_id</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-number">0</span>
+  <span class="ruby-ivar">@virtual_classroom_lesson</span> = <span class="ruby-constant">VirtualClassroomLesson</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:lesson_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@lesson_id</span>, <span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">update_ok</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@virtual_classroom_lesson</span>.<span class="ruby-identifier">nil?</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

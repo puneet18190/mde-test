@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Valid</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Valid 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/lib/autoload/valid_rb.html">lib/autoload/valid.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Module used to extract the object associated to a standard association</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Valid/Validness.html">Valid::Validness</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-char_for_email-3F">char_for_email?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-email-3F">email?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-get_association">get_association</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-char_for_email-3F">
+            
+              <b>char_for_email?</b>(i)
+            
+            <a href="../classes/Valid.html#method-c-char_for_email-3F" name="method-c-char_for_email-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>White list of allowed characters in email</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-char_for_email-3F_source')" id="l_method-c-char_for_email-3F_source">show</a>
+                
+              </p>
+              <div id="method-c-char_for_email-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/valid.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">char_for_email?</span>(<span class="ruby-identifier">i</span>)
+  [
+    <span class="ruby-number">33</span>, <span class="ruby-number">35</span>, <span class="ruby-number">36</span>, <span class="ruby-number">37</span>, <span class="ruby-number">38</span>, <span class="ruby-number">39</span>, <span class="ruby-number">42</span>, <span class="ruby-number">43</span>, <span class="ruby-number">45</span>, <span class="ruby-number">47</span>, <span class="ruby-number">48</span>, <span class="ruby-number">49</span>, <span class="ruby-number">50</span>, <span class="ruby-number">51</span>, <span class="ruby-number">52</span>, <span class="ruby-number">53</span>, <span class="ruby-number">54</span>, <span class="ruby-number">55</span>, <span class="ruby-number">56</span>, <span class="ruby-number">57</span>,
+    <span class="ruby-number">61</span>, <span class="ruby-number">63</span>, <span class="ruby-number">65</span>, <span class="ruby-number">66</span>, <span class="ruby-number">67</span>, <span class="ruby-number">68</span>, <span class="ruby-number">69</span>, <span class="ruby-number">70</span>, <span class="ruby-number">71</span>, <span class="ruby-number">72</span>, <span class="ruby-number">73</span>, <span class="ruby-number">74</span>, <span class="ruby-number">75</span>, <span class="ruby-number">76</span>, <span class="ruby-number">77</span>, <span class="ruby-number">78</span>, <span class="ruby-number">79</span>, <span class="ruby-number">80</span>, <span class="ruby-number">81</span>, <span class="ruby-number">82</span>,
+    <span class="ruby-number">83</span>, <span class="ruby-number">84</span>, <span class="ruby-number">85</span>, <span class="ruby-number">86</span>, <span class="ruby-number">87</span>, <span class="ruby-number">88</span>, <span class="ruby-number">89</span>, <span class="ruby-number">90</span>, <span class="ruby-number">92</span>, <span class="ruby-number">94</span>, <span class="ruby-number">95</span>, <span class="ruby-number">96</span>, <span class="ruby-number">97</span>, <span class="ruby-number">98</span>, <span class="ruby-number">99</span>, <span class="ruby-number">100</span>, <span class="ruby-number">101</span>, <span class="ruby-number">102</span>, <span class="ruby-number">103</span>,
+    <span class="ruby-number">104</span>, <span class="ruby-number">105</span>, <span class="ruby-number">106</span>, <span class="ruby-number">107</span>, <span class="ruby-number">108</span>, <span class="ruby-number">109</span>, <span class="ruby-number">110</span>, <span class="ruby-number">111</span>, <span class="ruby-number">112</span>, <span class="ruby-number">113</span>, <span class="ruby-number">114</span>, <span class="ruby-number">115</span>, <span class="ruby-number">116</span>, <span class="ruby-number">117</span>, <span class="ruby-number">118</span>, <span class="ruby-number">119</span>,
+    <span class="ruby-number">120</span>, <span class="ruby-number">121</span>, <span class="ruby-number">122</span>, <span class="ruby-number">123</span>, <span class="ruby-number">124</span>, <span class="ruby-number">125</span>, <span class="ruby-number">126</span>
+  ].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">i</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-email-3F">
+            
+              <b>email?</b>(email)
+            
+            <a href="../classes/Valid.html#method-c-email-3F" name="method-c-email-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Method that validates the format of an e-mail address (used in <a
+href="User.html">User</a> and <a
+href="MailingListAddress.html">MailingListAddress</a>)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-email-3F_source')" id="l_method-c-email-3F_source">show</a>
+                
+              </p>
+              <div id="method-c-email-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/valid.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">email?</span>(<span class="ruby-identifier">email</span>)
+  <span class="ruby-identifier">index</span> = <span class="ruby-number">0</span>
+  <span class="ruby-identifier">at</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">after_point</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">count_after_point</span> = <span class="ruby-number">0</span>
+  <span class="ruby-identifier">after_at</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">point_after_at</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">email</span>.<span class="ruby-identifier">each_byte</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Valid</span>.<span class="ruby-identifier">char_for_email?</span>(<span class="ruby-identifier">i</span>)
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-number">64</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">at</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">after_point</span>
+        <span class="ruby-identifier">at</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">after_at</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">after_point</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-number">46</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">after_at</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">after_point</span>
+        <span class="ruby-identifier">point_after_at</span> = <span class="ruby-identifier">at</span>
+        <span class="ruby-identifier">after_point</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">count_after_point</span> = <span class="ruby-number">0</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">after_at</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">after_point</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">count_after_point</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">index</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> (<span class="ruby-identifier">point_after_at</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">count_after_point</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">1</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-get_association">
+            
+              <b>get_association</b>(object, column, my_class=nil)
+            
+            <a href="../classes/Valid.html#method-c-get_association" name="method-c-get_association" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Method that uses <a href="Valid/Validness.html">Validness</a> to validate
+and extract the object associated to a field</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-get_association_source')" id="l_method-c-get_association_source">show</a>
+                
+              </p>
+              <div id="method-c-get_association_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/valid.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">get_association</span>(<span class="ruby-identifier">object</span>, <span class="ruby-identifier">column</span>, <span class="ruby-identifier">my_class</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-constant">Validness</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">x</span>.<span class="ruby-identifier">get</span> <span class="ruby-identifier">object</span>, <span class="ruby-identifier">column</span>, <span class="ruby-identifier">my_class</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                        </div>
+
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,1868 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>GalleriesController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            GalleriesController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="ApplicationController.html">ApplicationController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/controllers/galleries_controller_rb.html">app/controllers/galleries_controller.rb</a></li>
+            
+            <li><a href="../files/app/controllers/lesson_editor_controller_rb.html">app/controllers/lesson_editor_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-GalleriesController-label-Description">Description</h3>
+
+<p>List of actions to handle all the instances of galleries in the
+application. Since the gallery pagination is made with infinite scroll, for
+each gallery there is an action that extracts it first, and another one
+that gets a new block of elements. List of galleries for each section *
+lesson editor (see <a
+href="LessonEditorController.html">LessonEditorController</a>):  * audio
+gallery  * <a
+href="GalleriesController.html#method-i-audio_for_lesson_editor">#audio_for_lesson_editor</a>
+* <a
+href="GalleriesController.html#method-i-audio_for_lesson_editor_new_block">#audio_for_lesson_editor_new_block</a>
+* image gallery  * <a
+href="GalleriesController.html#method-i-image_for_lesson_editor">#image_for_lesson_editor</a>
+* <a
+href="GalleriesController.html#method-i-image_for_lesson_editor_new_block">#image_for_lesson_editor_new_block</a>
+* video gallery  * <a
+href="GalleriesController.html#method-i-video_for_lesson_editor">#video_for_lesson_editor</a>
+* <a
+href="GalleriesController.html#method-i-video_for_lesson_editor_new_block">#video_for_lesson_editor_new_block</a>
+* image editor (see <a
+href="ImageEditorController.html">ImageEditorController</a>):  * image
+gallery  * <a
+href="GalleriesController.html#method-i-image_for_image_editor">#image_for_image_editor</a>
+* <a
+href="GalleriesController.html#method-i-image_for_image_editor_new_block">#image_for_image_editor_new_block</a>
+* audio editor (see <a
+href="AudioEditorController.html">AudioEditorController</a>):  * audio
+gallery  * <a
+href="GalleriesController.html#method-i-audio_for_audio_editor">#audio_for_audio_editor</a>
+* <a
+href="GalleriesController.html#method-i-audio_for_audio_editor_new_block">#audio_for_audio_editor_new_block</a>
+* video editor (see <a
+href="VideoEditorController.html">VideoEditorController</a>):  * mixed
+gallery (video + image + texts)  * <a
+href="GalleriesController.html#method-i-mixed_for_video_editor">#mixed_for_video_editor</a>
+* <a
+href="GalleriesController.html#method-i-mixed_for_video_editor_video_new_block">#mixed_for_video_editor_video_new_block</a>
+* <a
+href="GalleriesController.html#method-i-mixed_for_video_editor_image_new_block">#mixed_for_video_editor_image_new_block</a>
+* audio gallery  * <a
+href="GalleriesController.html#method-i-audio_for_video_editor">#audio_for_video_editor</a>
+* <a
+href="GalleriesController.html#method-i-audio_for_video_editor_new_block">#audio_for_video_editor_new_block</a></p>
+
+<h3 id="class-GalleriesController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="User.html">User</a></p>
+</li><li>
+<p><a href="Image.html">Image</a></p>
+</li><li>
+<p><a href="Audio.html">Audio</a></p>
+</li><li>
+<p><a href="Video.html">Video</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-audio_for_audio_editor">audio_for_audio_editor</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-audio_for_audio_editor_new_block">audio_for_audio_editor_new_block</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-audio_for_lesson_editor">audio_for_lesson_editor</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-audio_for_lesson_editor_new_block">audio_for_lesson_editor_new_block</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-audio_for_video_editor">audio_for_video_editor</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-audio_for_video_editor_new_block">audio_for_video_editor_new_block</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-create_audio">create_audio</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_document">create_document</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_fake_document">create_fake_document</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_fake_media_element">create_fake_media_element</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_image">create_image</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_video">create_video</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-document_for_lesson_editor">document_for_lesson_editor</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-document_for_lesson_editor_filter">document_for_lesson_editor_filter</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-document_for_lesson_editor_new_block">document_for_lesson_editor_new_block</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get_audios">get_audios</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-get_documents">get_documents</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-get_images">get_images</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-get_videos">get_videos</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-image_for_image_editor">image_for_image_editor</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-image_for_image_editor_new_block">image_for_image_editor_new_block</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-image_for_lesson_editor">image_for_lesson_editor</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-image_for_lesson_editor_new_block">image_for_lesson_editor_new_block</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_media_element_creation">initialize_media_element_creation</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_page">initialize_page</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-mixed_for_video_editor">mixed_for_video_editor</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-mixed_for_video_editor_image_new_block">mixed_for_video_editor_image_new_block</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-mixed_for_video_editor_video_new_block">mixed_for_video_editor_video_new_block</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-video_for_lesson_editor">video_for_lesson_editor</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-video_for_lesson_editor_new_block">video_for_lesson_editor_new_block</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">IMAGES_FOR_PAGE</td>
+            <td>=</td>
+            <td class="attr-value">SETTINGS[&#39;images_for_page_in_gallery&#39;]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Number of images for page, configured in settings.yml</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">AUDIOS_FOR_PAGE</td>
+            <td>=</td>
+            <td class="attr-value">SETTINGS[&#39;audios_for_page_in_gallery&#39;]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Number of audios for page, configured in settings.yml</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">VIDEOS_FOR_PAGE</td>
+            <td>=</td>
+            <td class="attr-value">SETTINGS[&#39;videos_for_page_in_gallery&#39;]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Number of videos for page, configured in settings.yml</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">DOCUMENTS_FOR_PAGE</td>
+            <td>=</td>
+            <td class="attr-value">SETTINGS[&#39;documents_for_page_in_gallery&#39;]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Number of documents for page, configured in settings.yml</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-audio_for_audio_editor">
+            
+              <b>audio_for_audio_editor</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-audio_for_audio_editor" name="method-i-audio_for_audio_editor" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-audio_for_audio_editor-label-Description">Description</h3>
+
+<p>Gets the first block of audios for the audio editor</p>
+
+<h3 id="method-i-audio_for_audio_editor-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-audio_for_audio_editor_source')" id="l_method-i-audio_for_audio_editor_source">show</a>
+                
+              </p>
+              <div id="method-i-audio_for_audio_editor_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 255</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">audio_for_audio_editor</span>
+  <span class="ruby-identifier">get_audios</span>(<span class="ruby-number">1</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-audio_for_audio_editor_new_block">
+            
+              <b>audio_for_audio_editor_new_block</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-audio_for_audio_editor_new_block" name="method-i-audio_for_audio_editor_new_block" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-audio_for_audio_editor_new_block-label-Description">Description</h3>
+
+<p>Gets following blocks of audios for the audio editor</p>
+
+<h3 id="method-i-audio_for_audio_editor_new_block-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-audio_for_audio_editor_new_block-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="GalleriesController.html#method-i-initialize_page">#initialize_page</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-audio_for_audio_editor_new_block_source')" id="l_method-i-audio_for_audio_editor_new_block_source">show</a>
+                
+              </p>
+              <div id="method-i-audio_for_audio_editor_new_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">audio_for_audio_editor_new_block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">get_audios</span>(<span class="ruby-ivar">@page</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-audio_for_lesson_editor">
+            
+              <b>audio_for_lesson_editor</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-audio_for_lesson_editor" name="method-i-audio_for_lesson_editor" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-audio_for_lesson_editor-label-Description">Description</h3>
+
+<p>Gets the first block of audios for the lesson editor</p>
+
+<h3 id="method-i-audio_for_lesson_editor-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-audio_for_lesson_editor_source')" id="l_method-i-audio_for_lesson_editor_source">show</a>
+                
+              </p>
+              <div id="method-i-audio_for_lesson_editor_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">audio_for_lesson_editor</span>
+  <span class="ruby-identifier">get_audios</span>(<span class="ruby-number">1</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-audio_for_lesson_editor_new_block">
+            
+              <b>audio_for_lesson_editor_new_block</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-audio_for_lesson_editor_new_block" name="method-i-audio_for_lesson_editor_new_block" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-audio_for_lesson_editor_new_block-label-Description">Description</h3>
+
+<p>Gets following blocks of audios for the lesson editor</p>
+
+<h3 id="method-i-audio_for_lesson_editor_new_block-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-audio_for_lesson_editor_new_block-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="GalleriesController.html#method-i-initialize_page">#initialize_page</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-audio_for_lesson_editor_new_block_source')" id="l_method-i-audio_for_lesson_editor_new_block_source">show</a>
+                
+              </p>
+              <div id="method-i-audio_for_lesson_editor_new_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">audio_for_lesson_editor_new_block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">get_audios</span>(<span class="ruby-ivar">@page</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-audio_for_video_editor">
+            
+              <b>audio_for_video_editor</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-audio_for_video_editor" name="method-i-audio_for_video_editor" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-audio_for_video_editor-label-Description">Description</h3>
+
+<p>Gets the first block of audios for the video editor</p>
+
+<h3 id="method-i-audio_for_video_editor-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-audio_for_video_editor_source')" id="l_method-i-audio_for_video_editor_source">show</a>
+                
+              </p>
+              <div id="method-i-audio_for_video_editor_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">audio_for_video_editor</span>
+  <span class="ruby-identifier">get_audios</span>(<span class="ruby-number">1</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-audio_for_video_editor_new_block">
+            
+              <b>audio_for_video_editor_new_block</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-audio_for_video_editor_new_block" name="method-i-audio_for_video_editor_new_block" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-audio_for_video_editor_new_block-label-Description">Description</h3>
+
+<p>Gets following blocks of audios for the video editor</p>
+
+<h3 id="method-i-audio_for_video_editor_new_block-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-audio_for_video_editor_new_block-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="GalleriesController.html#method-i-initialize_page">#initialize_page</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-audio_for_video_editor_new_block_source')" id="l_method-i-audio_for_video_editor_new_block_source">show</a>
+                
+              </p>
+              <div id="method-i-audio_for_video_editor_new_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">audio_for_video_editor_new_block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">get_audios</span>(<span class="ruby-ivar">@page</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_audio">
+            
+              <b>create_audio</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-create_audio" name="method-i-create_audio" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create_audio-label-Description">Description</h3>
+
+<p>Action that calls the uploader from inside <a href="Lesson.html">Lesson</a>
+Editor, and creates the new audio.</p>
+
+<h3 id="method-i-create_audio-label-Mode">Mode</h3>
+
+<p>Html</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_audio_source')" id="l_method-i-create_audio_source">show</a>
+                
+              </p>
+              <div id="method-i-create_audio_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 367</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_audio</span>
+  <span class="ruby-identifier">record</span> = <span class="ruby-identifier">initialize_media_element_creation</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">valid?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">sti_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Audio&#39;</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">save</span>
+        <span class="ruby-identifier">get_audios</span>(<span class="ruby-number">1</span>)
+        <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+          <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>,
+          <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.upload.started.title&#39;</span>),
+          <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.upload.started.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">title</span>),
+          <span class="ruby-string">&#39;&#39;</span>
+        )
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@errors</span> = {<span class="ruby-value">:media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;forms.error_captions.wrong_sti_type.audio&#39;</span>).<span class="ruby-identifier">downcase</span>}
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">added?</span> <span class="ruby-value">:media</span>, <span class="ruby-value">:too_large</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">render</span> <span class="ruby-operator">:</span><span class="ruby-identifier">file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;public/413.html&#39;</span>), <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">413</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@errors</span> = <span class="ruby-identifier">convert_media_element_error_messages</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>
+    <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:media</span>] = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;forms.error_captions.wrong_sti_type.audio&#39;</span>).<span class="ruby-identifier">downcase</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:media</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">sti_type</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;Audio&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_document">
+            
+              <b>create_document</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-create_document" name="method-i-create_document" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create_document-label-Description">Description</h3>
+
+<p>Action that calls the uploader from inside <a href="Lesson.html">Lesson</a>
+Editor, and creates the new document.</p>
+
+<h3 id="method-i-create_document-label-Mode">Mode</h3>
+
+<p>Html</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_document_source')" id="l_method-i-create_document_source">show</a>
+                
+              </p>
+              <div id="method-i-create_document_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 482</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_document</span>
+  <span class="ruby-identifier">record</span> = <span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:attachment</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:media</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">title</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:title_placeholder</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:description_placeholder</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">record</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">added?</span> <span class="ruby-value">:attachment</span>, <span class="ruby-value">:too_large</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">render</span> <span class="ruby-operator">:</span><span class="ruby-identifier">file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;public/413.html&#39;</span>), <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">413</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@errors</span> = <span class="ruby-identifier">convert_document_error_messages</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">get_documents</span>(<span class="ruby-number">1</span>)
+    <span class="ruby-ivar">@document_id</span> = <span class="ruby-identifier">record</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_fake_document">
+            
+              <b>create_fake_document</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-create_fake_document" name="method-i-create_fake_document" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create_fake_document-label-Description">Description</h3>
+
+<p>This action checks for errors without setting the attachment on the new
+document</p>
+
+<h3 id="method-i-create_fake_document-label-Mode">Mode</h3>
+
+<p>Js</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_fake_document_source')" id="l_method-i-create_fake_document_source">show</a>
+                
+              </p>
+              <div id="method-i-create_fake_document_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 507</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_fake_document</span>
+  <span class="ruby-identifier">record</span> = <span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">title</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:title_placeholder</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:description_placeholder</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">valid?</span>
+  <span class="ruby-ivar">@errors</span> = <span class="ruby-identifier">convert_document_error_messages</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>
+  <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:media</span>] = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;documents.upload_form.attachment_too_large&#39;</span>).<span class="ruby-identifier">downcase</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_fake_media_element">
+            
+              <b>create_fake_media_element</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-create_fake_media_element" name="method-i-create_fake_media_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create_fake_media_element-label-Description">Description</h3>
+
+<p>This action checks for errors without setting the media on the new element</p>
+
+<h3 id="method-i-create_fake_media_element-label-Mode">Mode</h3>
+
+<p>Js</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_fake_media_element_source')" id="l_method-i-create_fake_media_element_source">show</a>
+                
+              </p>
+              <div id="method-i-create_fake_media_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 462</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_fake_media_element</span>
+  <span class="ruby-identifier">record</span> = <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">title</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:title_placeholder</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:description_placeholder</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">tags</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:tags_value</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">save_tags</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">valid?</span>
+  <span class="ruby-ivar">@errors</span> = <span class="ruby-identifier">convert_media_element_error_messages</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>
+  <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:media</span>] = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;forms.error_captions.media_file_too_large&#39;</span>).<span class="ruby-identifier">downcase</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_image">
+            
+              <b>create_image</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-create_image" name="method-i-create_image" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create_image-label-Description">Description</h3>
+
+<p>Action that calls the uploader from inside <a href="Lesson.html">Lesson</a>
+Editor, and creates the new image.</p>
+
+<h3 id="method-i-create_image-label-Mode">Mode</h3>
+
+<p>Html</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_image_source')" id="l_method-i-create_image_source">show</a>
+                
+              </p>
+              <div id="method-i-create_image_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 401</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_image</span>
+  <span class="ruby-identifier">record</span> = <span class="ruby-identifier">initialize_media_element_creation</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">valid?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">sti_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Image&#39;</span>
+      <span class="ruby-identifier">record</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-identifier">get_images</span>(<span class="ruby-number">1</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@errors</span> = {<span class="ruby-value">:media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;forms.error_captions.wrong_sti_type.image&#39;</span>).<span class="ruby-identifier">downcase</span>}
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">added?</span> <span class="ruby-value">:media</span>, <span class="ruby-value">:too_large</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">render</span> <span class="ruby-operator">:</span><span class="ruby-identifier">file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;public/413.html&#39;</span>), <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">413</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@errors</span> = <span class="ruby-identifier">convert_media_element_error_messages</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>
+    <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:media</span>] = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;forms.error_captions.wrong_sti_type.image&#39;</span>).<span class="ruby-identifier">downcase</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:media</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">sti_type</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;Image&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_video">
+            
+              <b>create_video</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-create_video" name="method-i-create_video" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create_video-label-Description">Description</h3>
+
+<p>Action that calls the uploader from inside <a href="Lesson.html">Lesson</a>
+Editor, and creates the new video.</p>
+
+<h3 id="method-i-create_video-label-Mode">Mode</h3>
+
+<p>Html</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_video_source')" id="l_method-i-create_video_source">show</a>
+                
+              </p>
+              <div id="method-i-create_video_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 428</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_video</span>
+  <span class="ruby-identifier">record</span> = <span class="ruby-identifier">initialize_media_element_creation</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">valid?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">sti_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Video&#39;</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">save</span>
+        <span class="ruby-identifier">get_videos</span>(<span class="ruby-number">1</span>)
+        <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+          <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>,
+          <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.upload.started.title&#39;</span>),
+          <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.upload.started.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">title</span>),
+          <span class="ruby-string">&#39;&#39;</span>
+        )
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@errors</span> = {<span class="ruby-value">:media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;forms.error_captions.wrong_sti_type.video&#39;</span>).<span class="ruby-identifier">downcase</span>}
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">added?</span> <span class="ruby-value">:media</span>, <span class="ruby-value">:too_large</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">render</span> <span class="ruby-operator">:</span><span class="ruby-identifier">file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;public/413.html&#39;</span>), <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">413</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@errors</span> = <span class="ruby-identifier">convert_media_element_error_messages</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">errors</span>
+    <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:media</span>] = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;forms.error_captions.wrong_sti_type.video&#39;</span>).<span class="ruby-identifier">downcase</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:media</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">record</span>.<span class="ruby-identifier">sti_type</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;Video&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-document_for_lesson_editor">
+            
+              <b>document_for_lesson_editor</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-document_for_lesson_editor" name="method-i-document_for_lesson_editor" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-document_for_lesson_editor-label-Description">Description</h3>
+
+<p>Gets the first block of documents for the lesson editor</p>
+
+<h3 id="method-i-document_for_lesson_editor-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-document_for_lesson_editor_source')" id="l_method-i-document_for_lesson_editor_source">show</a>
+                
+              </p>
+              <div id="method-i-document_for_lesson_editor_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 321</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">document_for_lesson_editor</span>
+  <span class="ruby-identifier">get_documents</span>(<span class="ruby-number">1</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-document_for_lesson_editor_filter">
+            
+              <b>document_for_lesson_editor_filter</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-document_for_lesson_editor_filter" name="method-i-document_for_lesson_editor_filter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-document_for_lesson_editor_filter-label-Description">Description</h3>
+
+<p>Gets documents filtered by word</p>
+
+<h3 id="method-i-document_for_lesson_editor_filter-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-document_for_lesson_editor_filter_source')" id="l_method-i-document_for_lesson_editor_filter_source">show</a>
+                
+              </p>
+              <div id="method-i-document_for_lesson_editor_filter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 354</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">document_for_lesson_editor_filter</span>
+  <span class="ruby-ivar">@word</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:word</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:word</span>]
+  <span class="ruby-identifier">get_documents</span>(<span class="ruby-ivar">@page</span>, <span class="ruby-ivar">@word</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-document_for_lesson_editor_new_block">
+            
+              <b>document_for_lesson_editor_new_block</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-document_for_lesson_editor_new_block" name="method-i-document_for_lesson_editor_new_block" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-document_for_lesson_editor_new_block-label-Description">Description</h3>
+
+<p>Gets following blocks of documents for the lesson editor</p>
+
+<h3 id="method-i-document_for_lesson_editor_new_block-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-document_for_lesson_editor_new_block-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="GalleriesController.html#method-i-initialize_page">#initialize_page</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-document_for_lesson_editor_new_block_source')" id="l_method-i-document_for_lesson_editor_new_block_source">show</a>
+                
+              </p>
+              <div id="method-i-document_for_lesson_editor_new_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 337</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">document_for_lesson_editor_new_block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-ivar">@word</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:word</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:word</span>]
+    <span class="ruby-identifier">get_documents</span>(<span class="ruby-ivar">@page</span>, <span class="ruby-ivar">@word</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image_for_image_editor">
+            
+              <b>image_for_image_editor</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-image_for_image_editor" name="method-i-image_for_image_editor" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-image_for_image_editor-label-Description">Description</h3>
+
+<p>Gets the first block of images for the image editor: this is the only
+gallery with its own html page, since it is used only to get a new image to
+open the image editor.</p>
+
+<h3 id="method-i-image_for_image_editor-label-Mode">Mode</h3>
+
+<p>Html</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_for_image_editor_source')" id="l_method-i-image_for_image_editor_source">show</a>
+                
+              </p>
+              <div id="method-i-image_for_image_editor_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 287</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image_for_image_editor</span>
+  <span class="ruby-identifier">get_images</span>(<span class="ruby-number">1</span>)
+  <span class="ruby-ivar">@back</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:back</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:back</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;media_element_editor&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image_for_image_editor_new_block">
+            
+              <b>image_for_image_editor_new_block</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-image_for_image_editor_new_block" name="method-i-image_for_image_editor_new_block" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-image_for_image_editor_new_block-label-Description">Description</h3>
+
+<p>Gets following blocks of images for the image editor</p>
+
+<h3 id="method-i-image_for_image_editor_new_block-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-image_for_image_editor_new_block-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="GalleriesController.html#method-i-initialize_page">#initialize_page</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_for_image_editor_new_block_source')" id="l_method-i-image_for_image_editor_new_block_source">show</a>
+                
+              </p>
+              <div id="method-i-image_for_image_editor_new_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 305</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image_for_image_editor_new_block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">get_images</span>(<span class="ruby-ivar">@page</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image_for_lesson_editor">
+            
+              <b>image_for_lesson_editor</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-image_for_lesson_editor" name="method-i-image_for_lesson_editor" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-image_for_lesson_editor-label-Description">Description</h3>
+
+<p>Gets the first block of images for the lesson editor</p>
+
+<h3 id="method-i-image_for_lesson_editor-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_for_lesson_editor_source')" id="l_method-i-image_for_lesson_editor_source">show</a>
+                
+              </p>
+              <div id="method-i-image_for_lesson_editor_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image_for_lesson_editor</span>
+  <span class="ruby-identifier">get_images</span>(<span class="ruby-number">1</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image_for_lesson_editor_new_block">
+            
+              <b>image_for_lesson_editor_new_block</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-image_for_lesson_editor_new_block" name="method-i-image_for_lesson_editor_new_block" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-image_for_lesson_editor_new_block-label-Description">Description</h3>
+
+<p>Gets following blocks of images for the lesson editor</p>
+
+<h3 id="method-i-image_for_lesson_editor_new_block-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-image_for_lesson_editor_new_block-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="GalleriesController.html#method-i-initialize_page">#initialize_page</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_for_lesson_editor_new_block_source')" id="l_method-i-image_for_lesson_editor_new_block_source">show</a>
+                
+              </p>
+              <div id="method-i-image_for_lesson_editor_new_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image_for_lesson_editor_new_block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">get_images</span>(<span class="ruby-ivar">@page</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mixed_for_video_editor">
+            
+              <b>mixed_for_video_editor</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-mixed_for_video_editor" name="method-i-mixed_for_video_editor" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-mixed_for_video_editor-label-Description">Description</h3>
+
+<p>Gets the first block of videos and images for the video editor</p>
+
+<h3 id="method-i-mixed_for_video_editor-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mixed_for_video_editor_source')" id="l_method-i-mixed_for_video_editor_source">show</a>
+                
+              </p>
+              <div id="method-i-mixed_for_video_editor_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mixed_for_video_editor</span>
+  <span class="ruby-identifier">get_images</span>(<span class="ruby-number">1</span>)
+  <span class="ruby-ivar">@image_tot_pages</span> = <span class="ruby-ivar">@tot_pages</span>
+  <span class="ruby-identifier">get_videos</span>(<span class="ruby-number">1</span>)
+  <span class="ruby-ivar">@video_tot_pages</span> = <span class="ruby-ivar">@tot_pages</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mixed_for_video_editor_image_new_block">
+            
+              <b>mixed_for_video_editor_image_new_block</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-mixed_for_video_editor_image_new_block" name="method-i-mixed_for_video_editor_image_new_block" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-mixed_for_video_editor_image_new_block-label-Description">Description</h3>
+
+<p>Gets following blocks of images for the video editor</p>
+
+<h3 id="method-i-mixed_for_video_editor_image_new_block-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-mixed_for_video_editor_image_new_block-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="GalleriesController.html#method-i-initialize_page">#initialize_page</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mixed_for_video_editor_image_new_block_source')" id="l_method-i-mixed_for_video_editor_image_new_block_source">show</a>
+                
+              </p>
+              <div id="method-i-mixed_for_video_editor_image_new_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mixed_for_video_editor_image_new_block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">get_images</span>(<span class="ruby-ivar">@page</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mixed_for_video_editor_video_new_block">
+            
+              <b>mixed_for_video_editor_video_new_block</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-mixed_for_video_editor_video_new_block" name="method-i-mixed_for_video_editor_video_new_block" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-mixed_for_video_editor_video_new_block-label-Description">Description</h3>
+
+<p>Gets following blocks of videos for the video editor</p>
+
+<h3 id="method-i-mixed_for_video_editor_video_new_block-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-mixed_for_video_editor_video_new_block-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="GalleriesController.html#method-i-initialize_page">#initialize_page</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mixed_for_video_editor_video_new_block_source')" id="l_method-i-mixed_for_video_editor_video_new_block_source">show</a>
+                
+              </p>
+              <div id="method-i-mixed_for_video_editor_video_new_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mixed_for_video_editor_video_new_block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">get_videos</span>(<span class="ruby-ivar">@page</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-video_for_lesson_editor">
+            
+              <b>video_for_lesson_editor</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-video_for_lesson_editor" name="method-i-video_for_lesson_editor" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-video_for_lesson_editor-label-Description">Description</h3>
+
+<p>Gets the first block of videos for the lesson editor</p>
+
+<h3 id="method-i-video_for_lesson_editor-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-video_for_lesson_editor_source')" id="l_method-i-video_for_lesson_editor_source">show</a>
+                
+              </p>
+              <div id="method-i-video_for_lesson_editor_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">video_for_lesson_editor</span>
+  <span class="ruby-identifier">get_videos</span>(<span class="ruby-number">1</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-video_for_lesson_editor_new_block">
+            
+              <b>video_for_lesson_editor_new_block</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-video_for_lesson_editor_new_block" name="method-i-video_for_lesson_editor_new_block" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-video_for_lesson_editor_new_block-label-Description">Description</h3>
+
+<p>Gets following blocks of videos for the lesson editor</p>
+
+<h3 id="method-i-video_for_lesson_editor_new_block-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-video_for_lesson_editor_new_block-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="GalleriesController.html#method-i-initialize_page">#initialize_page</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-video_for_lesson_editor_new_block_source')" id="l_method-i-video_for_lesson_editor_new_block_source">show</a>
+                
+              </p>
+              <div id="method-i-video_for_lesson_editor_new_block_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">video_for_lesson_editor_new_block</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">get_videos</span>(<span class="ruby-ivar">@page</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-get_audios">
+            
+              <b>get_audios</b>(page)
+            
+            <a href="../classes/GalleriesController.html#method-i-get_audios" name="method-i-get_audios" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets the audios, using <a
+href="User.html#method-i-own_media_elements">User#own_media_elements</a>
+with <code>filter</code> = <code>audio</code></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_audios_source')" id="l_method-i-get_audios_source">show</a>
+                
+              </p>
+              <div id="method-i-get_audios_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 537</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_audios</span>(<span class="ruby-identifier">page</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">own_media_elements</span>(<span class="ruby-identifier">page</span>, <span class="ruby-constant">AUDIOS_FOR_PAGE</span>, <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">AUDIO</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-ivar">@audios</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:records</span>]
+  <span class="ruby-ivar">@tot_pages</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:pages_amount</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_documents">
+            
+              <b>get_documents</b>(page, word = nil)
+            
+            <a href="../classes/GalleriesController.html#method-i-get_documents" name="method-i-get_documents" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets the documents, using <a
+href="User.html#method-i-own_documents">User#own_documents</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_documents_source')" id="l_method-i-get_documents_source">show</a>
+                
+              </p>
+              <div id="method-i-get_documents_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 558</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_documents</span>(<span class="ruby-identifier">page</span>, <span class="ruby-identifier">word</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">own_documents</span>(<span class="ruby-identifier">page</span>, <span class="ruby-constant">DOCUMENTS_FOR_PAGE</span>, <span class="ruby-constant">SearchOrders</span><span class="ruby-operator">::</span><span class="ruby-constant">CREATED_AT</span>, <span class="ruby-identifier">word</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-ivar">@documents</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:records</span>]
+  <span class="ruby-ivar">@tot_pages</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:pages_amount</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_images">
+            
+              <b>get_images</b>(page)
+            
+            <a href="../classes/GalleriesController.html#method-i-get_images" name="method-i-get_images" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets the images, using <a
+href="User.html#method-i-own_media_elements">User#own_media_elements</a>
+with <code>filter</code> = <code>image</code></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_images_source')" id="l_method-i-get_images_source">show</a>
+                
+              </p>
+              <div id="method-i-get_images_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 551</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_images</span>(<span class="ruby-identifier">page</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">own_media_elements</span>(<span class="ruby-identifier">page</span>, <span class="ruby-constant">IMAGES_FOR_PAGE</span>, <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAGE</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-ivar">@images</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:records</span>]
+  <span class="ruby-ivar">@tot_pages</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:pages_amount</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_videos">
+            
+              <b>get_videos</b>(page)
+            
+            <a href="../classes/GalleriesController.html#method-i-get_videos" name="method-i-get_videos" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets the videos, using <a
+href="User.html#method-i-own_media_elements">User#own_media_elements</a>
+with <code>filter</code> = <code>video</code></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_videos_source')" id="l_method-i-get_videos_source">show</a>
+                
+              </p>
+              <div id="method-i-get_videos_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 544</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_videos</span>(<span class="ruby-identifier">page</span>)
+  <span class="ruby-identifier">x</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">own_media_elements</span>(<span class="ruby-identifier">page</span>, <span class="ruby-constant">VIDEOS_FOR_PAGE</span>, <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">VIDEO</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-ivar">@videos</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:records</span>]
+  <span class="ruby-ivar">@tot_pages</span> = <span class="ruby-identifier">x</span>[<span class="ruby-value">:pages_amount</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_media_element_creation">
+            
+              <b>initialize_media_element_creation</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-initialize_media_element_creation" name="method-i-initialize_media_element_creation" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Common operations in media element initialization.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_media_element_creation_source')" id="l_method-i-initialize_media_element_creation_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_media_element_creation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 520</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_media_element_creation</span>
+  <span class="ruby-identifier">record</span> = <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:media</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">title</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:title_placeholder</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:description_placeholder</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">tags</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:tags_value</span>]
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">record</span>.<span class="ruby-identifier">save_tags</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">record</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_page">
+            
+              <b>initialize_page</b>()
+            
+            <a href="../classes/GalleriesController.html#method-i-initialize_page" name="method-i-initialize_page" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes the parameter <code>page</code> used in all the actions getting
+new blocks in the gallery</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_page_source')" id="l_method-i-initialize_page_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_page_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/galleries_controller.rb, line 531</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_page</span>
+  <span class="ruby-ivar">@page</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-number">0</span>
+  <span class="ruby-identifier">update_ok</span>(<span class="ruby-ivar">@page</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

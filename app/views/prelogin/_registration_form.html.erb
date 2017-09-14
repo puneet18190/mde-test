@@ -1,0 +1,205 @@
+<%
+  disabling = !forced_location.nil?
+  forced_ancestors = (forced_location.ancestors + [forced_location]) if disabling
+%>
+
+
+<%= form_tag users_path, :method => :post, :id => 'official_registration_form', :autocomplete => 'off' do %>
+  
+  <% if saas %>
+    <div id="registration-purchase-id" class="registration-element-container">
+      <div class="profile-element code">
+        <%= t('registration.purchase_id') %><br/>
+        <input id="registration_purchase_id" type="text" value="<%= purchase_id %>" name="purchase_id" <%= trial ? "disabled=\"disabled\"".html_safe : '' %>/>
+        <input id="hidden_registration_purchase_id" type="hidden" value="<%= purchase_id %>"/>
+        <div id="registration_ok">&#10004;</div>
+      </div>
+      <br class="clearfloat"/>
+      <div class="profile-element check">
+        <%= t('registration.trial', :days => SETTINGS['saas_trial_duration']) %><br/>
+        <input id="registration_trial" type="checkbox" value="1" name="trial" <%= trial ? "class=\"checked\" checked=\"checked\"".html_safe : '' %>/>
+        <%= label_tag 'registration_trial', '' %>
+      </div>
+      <br class="clearfloat"/>
+      <ul class="profile-errors">
+        <% errors[:purchase].each do |err| %>
+          <li><%= err %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <div id="registration_not_saas_spacer"></div>
+  <% end %>
+  
+  <br class="clearfloat"/>
+  <h2 class="title_for_registration_subsection">
+    <%= t('registration.title_sections.general') %>
+  </h2>
+  <div id="registration-general" class="registration-element-container">
+    <div class="profile-element">
+      <%= t('users.info.attributes.name') %><br/>
+      <input type="text" value="<%= user.name %>" name="name" class="<%= user.errors.messages.has_key?(:name).to_s %>"/>
+    </div>
+    <div class="profile-element">
+      <%= t('users.info.attributes.surname') %><br/>
+      <input type="text" value="<%= user.surname %>" name="surname" class="<%= user.errors.messages.has_key?(:surname).to_s %>"/>
+    </div>
+    <div class="profile-element email">
+      <%= t('users.info.attributes.email') %><br/>
+      <input type="text" value="<%= user.email %>" name="email" class="<%= user.errors.messages.has_key?(:email).to_s %>"/>
+    </div>
+    <br class="clearfloat"/>
+    <div class="profile-element">
+      <%= t('users.info.attributes.email_confirmation') %><br/>
+      <input type="text" name="email_confirmation" class="<%= user.errors.added?(:email_confirmation, :confirmation, :attribute => 'Email').to_s %>"/>
+    </div>
+    <div class="profile-element">
+      <%= t('users.info.attributes.password') %><br/>
+      <input type="password" name="password" class="<%= user.errors.messages.has_key?(:password).to_s %>"/>
+    </div>
+    <div class="profile-element">
+      <%= t('users.info.attributes.password_confirmation') %><br/>
+      <input type="password" name="password_confirmation" class="<%= user.errors.added?(:password_confirmation, :confirmation, :attribute => 'Password').to_s %>"/>
+    </div>
+    <br class="clearfloat"/>
+    <ul class="profile-errors">
+      <% errors[:general].each do |err| %>
+        <li><%= err %></li>
+      <% end %>
+    </ul>
+  </div>
+  
+  <br class="clearfloat"/>
+  <h2 class="title_for_registration_subsection">
+    <%= t('registration.title_sections.location') %>
+  </h2>
+  <div id="registration-locations" class="registration-element-container">
+    <% location_types.each_with_index do |location, index| %>
+      <div id="<%= location.downcase %>_id" class="profile-element">
+        <%
+          locals_for_location = {
+            :empty      => (index > 0 && locations[index - 1][:selected] != 0 && locations[index][:content].empty?),
+            :forced     => (disabling ? forced_ancestors[index] : nil),
+            :is_last    => (index == location_types.length - 1),
+            :label      => Location.label_at(index),
+            :label_plur => Location.label_at(index, true),
+            :locations  => locations[index][:content],
+            :selected   => locations[index][:selected],
+            :type       => location.downcase
+          }
+        %>
+        <%= render :partial => 'users/locations_list', :locals => locals_for_location %>
+      </div>
+      <% disabling = false if disabling && forced_location.sti_type == location %>
+    <% end %>
+    <input id="hidden_location_in_registration" type="hidden" value=""/>
+  </div>
+  <br class="clearfloat"/>
+  <div id="outer_locations_disclaimer">
+    <input id="locations_disclaimer" type="checkbox" value="0"/>
+    <%= label_tag 'locations_disclaimer', '' %>
+    <span><%= t('registration.locations_disclaimer', :location => Location.base_label.downcase) %></span>
+  </div>
+  
+  <h2 class="title_for_registration_subsection">
+    <%= t('registration.title_sections.school_level') %>
+  </h2>
+  <div id="registration-school-level" class="registration-element-container">
+    <div class="profile-element">
+      <%= t('users.info.attributes.school_level_id') %><br/>
+      <select id="user_school_level_id" name="school_level_id">
+        <% school_levels.each do |sl| %>
+          <% if user.school_level_id == sl.id %>
+            <option value="<%= sl.id %>" selected="selected"><%= sl.description %></option>
+          <% else %>
+            <option value="<%= sl.id %>"><%= sl.description %></option>
+          <% end %>
+        <% end %>
+      </select>
+    </div>
+  </div>
+  
+  <br class="clearfloat"/>
+  <h2 class="title_for_registration_subsection">
+    <%= t('registration.title_sections.subjects') %>
+  </h2>
+  <div id="registration-subjects" class="registration-element-container">
+    <% subjects.each_with_index do |cathegory, index| %>
+      <div class="profile-subject-cathegory-container <%= (index == subjects.length - 1) ? 'no-border' : '' %>">
+        <div class="profile-subject-cathegory-label">
+          <%= cathegory[:label].present? ? cathegory[:label] : (subjects.first[:label].blank? ? '' : t('users.subjects.no_cathegory')) %>
+        </div>
+        <% additional_subj_class = errors[:subjects].any? ? 'true' : '' %>
+        <% cathegory[:items].each do |subject| %>
+          <div class="profile-element">
+            <% if subject_ids.include?(subject.id) %>
+              <input id="profile-subject-<%= subject.id %>" type="checkbox" value="1" name="subjects[id_<%= subject.id %>]" checked="checked"/>
+              <%= label_tag "profile-subject-#{subject.id}", '', :class => 'checked' %>
+            <% else %>
+              <input id="profile-subject-<%= subject.id %>" type="checkbox" value="1" name="subjects[id_<%= subject.id %>]"/>
+              <%= label_tag "profile-subject-#{subject.id}", '', :class => "unchecked #{additional_subj_class}" %>
+            <% end %>
+            <span><%= subject.to_s %></span>
+          </div>
+        <% end %>
+        <br class="clearfloat"/>
+        <% if cathegory[:label].present? %>
+          <a class="checkAllSubjects"><%= t('registration.select_all_subjects') %></a>
+        <% end %>
+      </div>
+    <% end %>
+    <ul class="profile-errors">
+      <% errors[:subjects].each do |err| %>
+        <li><%= err %></li>
+      <% end %>
+    </ul>
+  </div>
+  
+  <br class="clearfloat"/>
+  <h2 class="title_for_registration_subsection">
+    <%= t('registration.title_sections.policies') %>
+  </h2>
+  <div id="registration-policies" class="registration-element-container">
+    <% user.registration_policies.each_with_index do |policy, index| %>
+      <div class="profile-element">
+        <% my_policy = t('registration.policies')[index] %>
+        <h3><%= my_policy['title'] %></h3>
+        <div class="policy-verticalScroll">
+          <span><%= my_policy['description'].html_safe %></span>
+        </div>
+        <div class="accept">
+          <% if user.send(policy) == '1' %>
+            <input id="registration-policy_<%= index %>" type="checkbox" value="1" name="policies[<%= policy %>]" checked="checked"/>
+            <label for="registration-policy_<%= index %>"></label>
+          <% else %>
+            <% err_class = user.errors.messages.has_key?(:"#{policy}").to_s %>
+            <input id="registration-policy_<%= index %>" type="checkbox" value="1" name="policies[<%= policy %>]"/>
+            <label for="registration-policy_<%= index %>" class="<%= err_class %>"></label>
+          <% end %>
+          <span><%= my_policy['accept'] %></span>
+        </div>
+      </div>
+    <% end %>
+    <ul class="profile-errors">
+      <% errors[:policies].each do |err| %>
+        <li><%= err %></li>
+      <% end %>
+    </ul>
+  </div>
+  
+  <div class="form_submit">
+    <input type="submit" value="<%= t('registration.done') %>"/>
+  </div>
+  
+<% end %>
+
+<% if saas && !trial && controller_path == 'users' %>
+  <script>
+    $(document).ready(function() {
+      $.ajax({
+        type: 'get',
+        url: 'sign_up/purchase_code?token=<%= purchase_id %>&dont_load_locations=true'
+      });
+    });
+  </script>
+<% end %>

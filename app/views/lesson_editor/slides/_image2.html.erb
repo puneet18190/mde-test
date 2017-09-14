@@ -1,0 +1,17 @@
+<%
+  image1, image2 = slide.media_elements_at
+%>
+
+<div class="slide-content image2 normal-size">
+  <%= form_tag save_slide_path(slide.lesson_id, slide.id), :method => :post, :remote => true, :id => "form-#{slide.id}", :autocomplete => 'off' do %>
+    
+    <div class="item image-container">
+      <%= render :partial => 'lesson_editor/slides/parts/image', :locals => {:slide => slide, :position => 1, :image => image1} %>
+    </div>
+    
+    <div class="item image-container" style="margin-right:0">
+      <%= render :partial => 'lesson_editor/slides/parts/image', :locals => {:slide => slide, :position => 2, :image => image2} %>
+    </div>
+    
+  <% end %>
+</div>

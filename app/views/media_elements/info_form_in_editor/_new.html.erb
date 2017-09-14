@@ -1,0 +1,63 @@
+<%
+  title_max = t('forms.placeholders.title', :num => t('language_parameters.media_element.length_title').to_s).downcase 
+  description_max = t('forms.placeholders.description', :num => t('language_parameters.media_element.length_description').to_s).downcase
+  tags_max = t('forms.placeholders.tags', :items => SETTINGS['min_tags_for_item'].to_s, :num => SETTINGS['max_tag_length'].to_s).downcase
+%>
+
+<div id="new-media-element" class="formMediaElement" style="display:none" data-placeholder-title="<%= title_max %>" data-placeholder-description="<%= description_max %>" data-form-action="new" data-form-type="<%= type %>">
+  <div class="form-selector-class">
+    <div class="part1">
+      <div class="attachment">
+        <div class="icon <%= type %>"></div>
+      </div>
+      <div class="title_and_subtitle">
+        <h1>
+          <%= t('forms.new_media_element_in_editor.title') %>
+        </h1>
+        <p>
+          <%= t('forms.new_media_element_in_editor.description').html_safe %>
+        </p>
+      </div>
+    </div>
+    <div class="part2">
+      <div class="title_and_description">
+        <input class="title" type="text" name="new_title" value="<%= title_max %>"/>
+        <input class="title_placeholder" type="hidden" value="" name="title_placeholder"/>
+        <textarea class="description" name="new_description"><%= description_max %></textarea>
+        <input class="description_placeholder" type="hidden" value="" name="description_placeholder"/>
+      </div>
+      <div class="tags_loader">
+        <div class="_tags_container" data-max-width="377.5" data-lines="5">
+          <input class="tags" type="text" value="" maxlength="<%= SETTINGS['max_tag_length'] %>"/>
+          <div class="_placeholder">
+            <%= tags_max %>
+          </div>
+          <input class="tags_value" name="new_tags" type="hidden" value=""/>
+        </div>
+      </div>
+    </div>
+    <div class="part3">
+      <div class="on-left">
+        <% if edited %>
+          <div class="reuse-old-data">
+            <input id="reuse-old-data" type="checkbox">
+            <label for="reuse-old-data"></label>
+            <p><%= t('forms.new_media_element_in_editor.conserve_tags') %></p>
+          </div>
+          <div class="hidden-data" style="display:none" data-title="<%= edited.title %>" data-description="<%= edited.description %>" data-tags="<%= edited.tags %>">
+            <% Tagging.includes(:tag).where(:taggable_type => 'MediaElement', :taggable_id => edited.id).order(:tag_id).reverse.each do |t| %>
+              <span><%= t.tag.word.strip %><a class="remove"></a></span>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="on-right">
+        <a class="submit"><%= t('forms.new_media_element_in_editor.done').downcase %></a>
+        <a class="close"><%= t('forms.new_media_element_in_editor.cancel').downcase %></a>
+      </div>
+    </div>
+    <div class="errors_layer description" data-focus-selector=".part2 .description" data-form-error-selector=".part2 .description" data-focus-action="focus"></div>
+    <div class="errors_layer tags" data-focus-selector=".part2 ._tags_container .tags" data-form-error-selector=".part2 ._tags_container" data-focus-action="focus"></div>
+    <div class="errors_layer title" data-focus-selector=".part2 .title" data-form-error-selector=".part2 .title" data-focus-action="focus"></div>
+  </div>
+</div>

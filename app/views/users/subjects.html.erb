@@ -1,0 +1,43 @@
+<div class="griglia-contenuti">
+  <div class="profile-content">
+    <%= render :partial => 'users/title_bar', :locals => {:classes => ['', 'current', '', '', '']} %>
+    <br class="clearfloat"/>
+    <div class="contentFormInProfile">
+      <header>
+        <h2><%= t('users.subjects.title') %></h2>
+        <p><%= t('users.subjects.description') %></p>
+      </header>
+      <%= form_tag user_subjects_path, :method => :put, :autocomplete => 'off' do %>
+        <div id="profile-subjects-edit" class="profile-element-container">
+          <% @subjects.each_with_index do |cathegory, index| %>
+            <div class="profile-subject-cathegory-container <%= (index == @subjects.length - 1) ? 'no-border' : '' %>">
+              <div class="profile-subject-cathegory-label">
+                <%= cathegory[:label].present? ? cathegory[:label] : (@subjects.first[:label].blank? ? '' : t('users.subjects.no_cathegory')) %>
+              </div>
+              <% cathegory[:items].each do |subject| %>
+                <div class="profile-element">
+                  <% if @subject_ids.include?(subject.id) %>
+                    <input id="profile-subject-<%= subject.id %>" type="checkbox" value="1" name="subjects[id_<%= subject.id %>]" checked="checked"/>
+                  <% else %>
+                    <input id="profile-subject-<%= subject.id %>" type="checkbox" value="1" name="subjects[id_<%= subject.id %>]"/>
+                  <% end %>
+                  <%= label_tag "profile-subject-#{subject.id}", '' %>
+                  <span><%= subject.to_s %></span>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+          <br class="clearfloat"/>
+          <ul class="profile-errors">
+            <% @errors.each do |err| %>
+              <li><%= err %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="form_submit">
+          <input type="submit" value="<%= t('users.subjects.save') %>"/>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

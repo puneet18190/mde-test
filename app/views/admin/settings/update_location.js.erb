@@ -1,0 +1,8 @@
+<% if @ok %>
+  var item = $('#admin_location_<%= @location.id %>');
+  var on = item.hasClass('on');
+  item.replaceWith("<%= j(render(:partial => 'location', :locals => {:location => @location, :selected => false})) %>");
+  if(on) {
+    $('#admin_location_<%= @location.id %>').removeClass('off').addClass('on');
+  }
+<% end %>

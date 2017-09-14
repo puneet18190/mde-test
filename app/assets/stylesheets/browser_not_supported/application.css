@@ -1,0 +1,48 @@
+@import url(//fonts.googleapis.com/css?family=Nunito);
+
+body {
+  
+  background-color: #373737;
+  color: #fff;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  
+}
+
+div.dialog {
+  
+  width: 40em;
+  padding: 0 4em;
+  margin: 15% auto 0 auto;
+  text-align: left;
+  
+}
+
+div.dialog h1 {
+  
+  font-size: 260%;
+  color: #25AAE1;
+  padding: 0;
+  margin: 0;
+  line-height: 1em;
+  
+}
+
+div.dialog p {
+  
+  padding: 0;
+  margin: 0;
+  
+}
+
+div.dialog a {
+  
+  margin-right: 1px;
+  
+}
+
+img {
+  
+  border: none;
+  
+}

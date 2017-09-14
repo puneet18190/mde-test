@@ -1,0 +1,21 @@
+<div id="mailing_lists">
+  <div id="add_new_group">
+    <%= link_to '', '/mailing_lists/create', :method => :post, :remote => true %>
+    <span><%= t('users.mailing_list.add') %></span>
+  </div>
+  <div id="mailing_lists_accordion">
+    <% current_user.own_mailing_list_groups.each_with_index do |group, index| %>
+      <%= render :partial => 'mailing_lists/group', :locals => {:group => group} %>
+    <% end %>
+  </div>
+</div>
+
+
+<script>
+  $('#mailing_lists_accordion').accordion({
+    heightStyle: "content"
+  });
+  $.ui.accordion.prototype._keydown = function(event) {
+    return;
+  };
+</script>

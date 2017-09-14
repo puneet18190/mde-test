@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Audio::Editing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Media::Audio::Editing 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/media/audio/editing_rb.html">lib/media/audio/editing.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/cmd_rb.html">lib/media/audio/editing/cmd.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/cmd/avconv_rb.html">lib/media/audio/editing/cmd/avconv.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/cmd/concat_rb.html">lib/media/audio/editing/cmd/concat.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/cmd/conversion_rb.html">lib/media/audio/editing/cmd/conversion.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/cmd/crop_rb.html">lib/media/audio/editing/cmd/crop.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/cmd/sox_rb.html">lib/media/audio/editing/cmd/sox.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/composer_rb.html">lib/media/audio/editing/composer.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/composer/job_rb.html">lib/media/audio/editing/composer/job.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/concat_rb.html">lib/media/audio/editing/concat.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/conversion_rb.html">lib/media/audio/editing/conversion.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/conversion/job_rb.html">lib/media/audio/editing/conversion/job.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/crop_rb.html">lib/media/audio/editing/crop.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/audio/editing/parameters_rb.html">lib/media/audio/editing/parameters.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/video/editing/concat_rb.html">lib/media/video/editing/concat.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Module relative to audio editing</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="Editing/Parameters.html">Media::Audio::Editing::Parameters</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Editing/Cmd.html">Media::Audio::Editing::Cmd</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Editing/Composer.html">Media::Audio::Editing::Composer</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Editing/Concat.html">Media::Audio::Editing::Concat</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Editing/Conversion.html">Media::Audio::Editing::Conversion</a>
+        </li>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Editing/Crop.html">Media::Audio::Editing::Crop</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">SOX_BIN</td>
+            <td>=</td>
+            <td class="attr-value">CONFIG.sox.cmd.bin</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p><code>sox</code> executable</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">SOX_GLOBAL_OPTIONS</td>
+            <td>=</td>
+            <td class="attr-value">CONFIG.sox.cmd.global_options</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p><code>sox</code> options (applied on every <code>sox</code> execution)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">AVCONV_CODECS</td>
+            <td>=</td>
+            <td class="attr-value">Hash[ FORMATS.map{ |f| [f, CONFIG.avtools.avconv.audio.formats.send(f).codecs] } ]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Avconv output codecs per audio format</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">AVCONV_OUTPUT_THREADS</td>
+            <td>=</td>
+            <td class="attr-value">Hash[ FORMATS.map{ |f| [f, CONFIG.avtools.avconv.audio.formats.send(f).threads] } ]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Avconv output threads per audio format</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">AVCONV_OUTPUT_QA</td>
+            <td>=</td>
+            <td class="attr-value">Hash[ FORMATS.map{ |f| [f, CONFIG.avtools.avconv.audio.formats.send(f).qa] } ]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Avconv output audio quality per audio format</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>    

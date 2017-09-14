@@ -1,0 +1,22 @@
+$body-padding: 16px;
+
+html.video2-slide {
+
+body {
+  margin: 0;
+  padding: $body-padding;
+  min-width: 400px;
+  max-width: 960px + ($body-padding*2);
+}
+
+.video {
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+video {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+}

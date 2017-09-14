@@ -1,0 +1,23 @@
+$('._location_select_box').each(function() {
+  $('#' + $(this).attr('id')).selectbox('detach');
+});
+<% @location_types.each_with_index do |location, index| %>
+  <% if index >= @first_depth %>
+    <%
+      locals_for_location = {
+        :empty      => (index > 0 && @locations[index - 1][:selected] != 0 && @locations[index][:content].empty?),
+        :forced     => nil,
+        :is_last    => (index == @location_types.length - 1),
+        :label      => Location.label_at(index),
+        :label_plur => Location.label_at(index, true),
+        :locations  => @locations[index][:content],
+        :selected   => @locations[index][:selected],
+        :type       => location.downcase
+      }
+    %>
+    $('#<%= location.downcase %>_id').html('<%= j(render :partial => "users/locations_list", :locals => locals_for_location) %>');
+  <% end %>
+<% end %>
+$('._location_select_box').each(function() {
+  $('#' + $(this).attr('id')).selectbox();
+});

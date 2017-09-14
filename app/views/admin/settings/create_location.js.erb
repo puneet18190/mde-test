@@ -1,0 +1,5 @@
+<% if @ok %>
+  window.location = '/admin/settings/locations?selected=<%= @location.id %>';
+<% else %>
+  window.location.reload();
+<% end %>

@@ -1,0 +1,27 @@
+<% if @ok %>
+  <%
+    locals = {
+      :class_slide => "#{@current_slide.kind} slides",
+      :div_covering => '<layer class="_not_current_slide"></layer>',
+      :slide => @current_slide,
+      :loaded => true,
+      :first_time => false,
+      :documents_slides => []
+    }
+  %>
+  $('#nav_list_menu').data('jsp').destroy();
+  $('#slide_in_lesson_editor_<%= @slide_id %>').after('<%= j(render(:partial => "lesson_editor/slide_wrapper", :locals => locals)) %>');
+  reInitializeSlidePositionsInLessonEditor();
+  $("nav#heading #nav_list_menu").html("<%= j(render :partial => 'index_nav', :locals => {:slides => @slides, :with_current => false}) %>");
+  initializeSortableNavs();
+  $('#nav_list_menu').jScrollPane({
+    autoReinitialise: false
+  });
+  if($('#slides li').length == <%= SETTINGS['max_number_slides_in_a_lesson'] %>) {
+    $('._add_new_slide_options, ._add_new_slide_options_in_last_position').addClass('disabled');
+    switchDisabledMaximumSlideNumberLessonEditor();
+  }
+  slideTo(<%= @current_slide.id %>);
+<% else %>
+  redError();
+<% end %>

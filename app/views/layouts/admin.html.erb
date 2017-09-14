@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="admin-layout <%= controller_html_class %> <%= action_html_class %>">
+  
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title_tag %></title>
+    <%= favicon_link_tag 'favicon32x32.png', type: 'image/png' %>
+    <!--[if lt IE 9]>
+      <%= stylesheet_link_tag "browser_not_supported/application", :media => "all" %>
+      <%= javascript_include_tag "browser_not_supported/application" %>
+    <![endif]-->
+    <!--[if gte IE 9]>
+    <%= stylesheet_link_tag 'admin', :media => 'all' %>
+    <%= javascript_include_tag 'admin/application' %>
+    <![endif]-->
+    <!--[if !IE]> -->
+    <%= stylesheet_link_tag 'admin', :media => 'all' %>
+    <%= javascript_include_tag 'admin/application' %>
+    <!-- <![endif]-->
+    <%= csrf_meta_tags %>
+  </head>
+  
+  <body>
+    <%= render :partial => 'shared/browser_support_script' %>
+    <div class="top-nav-box">
+    </div>
+    <%= render :partial => 'shared/loading' %>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <%= render :partial => 'admin/header' %>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12 full-content <%= controller_name %>">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span12">
+          <footer>
+            <%= render :partial => 'admin/footer' %>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+</html>

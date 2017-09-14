@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>app/assets/javascripts/dialogs.js - DESY</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="DESY"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdminAutocomplete.html">AdminAutocomplete</a></li>
+            
+                <li><a href="../classes/AdminBrowserSupport.html">AdminBrowserSupport</a></li>
+            
+                <li><a href="../classes/AdminCollapsed.html">AdminCollapsed</a></li>
+            
+                <li><a href="../classes/AdminDocumentReady.html">AdminDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderBinder.html">AjaxLoaderBinder</a></li>
+            
+                <li><a href="../classes/AjaxLoaderDocumentReady.html">AjaxLoaderDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderVisibility.html">AjaxLoaderVisibility</a></li>
+            
+                <li><a href="../classes/AudioEditorComponents.html">AudioEditorComponents</a></li>
+            
+                <li><a href="../classes/AudioEditorCutters.html">AudioEditorCutters</a></li>
+            
+                <li><a href="../classes/AudioEditorDocumentReady.html">AudioEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/AudioEditorGalleries.html">AudioEditorGalleries</a></li>
+            
+                <li><a href="../classes/AudioEditorGeneral.html">AudioEditorGeneral</a></li>
+            
+                <li><a href="../classes/AudioEditorGraphics.html">AudioEditorGraphics</a></li>
+            
+                <li><a href="../classes/AudioEditorPreview.html">AudioEditorPreview</a></li>
+            
+                <li><a href="../classes/AudioEditorScrollpain.html">AudioEditorScrollpain</a></li>
+            
+                <li><a href="../classes/BrowserSupportMain.html">BrowserSupportMain</a></li>
+            
+                <li><a href="../classes/ButtonsAccessories.html">ButtonsAccessories</a></li>
+            
+                <li><a href="../classes/ButtonsDocumentReady.html">ButtonsDocumentReady</a></li>
+            
+                <li><a href="../classes/ButtonsLesson.html">ButtonsLesson</a></li>
+            
+                <li><a href="../classes/ButtonsMediaElement.html">ButtonsMediaElement</a></li>
+            
+                <li><a href="../classes/DashboardAccessories.html">DashboardAccessories</a></li>
+            
+                <li><a href="../classes/DashboardExpandedContents.html">DashboardExpandedContents</a></li>
+            
+                <li><a href="../classes/DashboardLessonDescriptions.html">DashboardLessonDescriptions</a></li>
+            
+                <li><a href="../classes/DashboardResizing.html">DashboardResizing</a></li>
+            
+                <li><a href="../classes/DialogsAccessories.html">DialogsAccessories</a></li>
+            
+                <li><a href="../classes/DialogsConfirmation.html">DialogsConfirmation</a></li>
+            
+                <li><a href="../classes/DialogsGalleries.html">DialogsGalleries</a></li>
+            
+                <li><a href="../classes/DialogsTimed.html">DialogsTimed</a></li>
+            
+                <li><a href="../classes/DialogsWithForm.html">DialogsWithForm</a></li>
+            
+                <li><a href="../classes/GalleriesAccessories.html">GalleriesAccessories</a></li>
+            
+                <li><a href="../classes/GalleriesDocumentReady.html">GalleriesDocumentReady</a></li>
+            
+                <li><a href="../classes/GalleriesInitializers.html">GalleriesInitializers</a></li>
+            
+                <li><a href="../classes/GeneralCentering.html">GeneralCentering</a></li>
+            
+                <li><a href="../classes/GeneralDocumentReady.html">GeneralDocumentReady</a></li>
+            
+                <li><a href="../classes/GeneralMiscellanea.html">GeneralMiscellanea</a></li>
+            
+                <li><a href="../classes/GeneralUrls.html">GeneralUrls</a></li>
+            
+                <li><a href="../classes/ImageEditorDocumentReady.html">ImageEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/ImageEditorGraphics.html">ImageEditorGraphics</a></li>
+            
+                <li><a href="../classes/ImageEditorImageScale.html">ImageEditorImageScale</a></li>
+            
+                <li><a href="../classes/ImageEditorTexts.html">ImageEditorTexts</a></li>
+            
+                <li><a href="../classes/JqueryBrowsersDetection.html">JqueryBrowsersDetection</a></li>
+            
+                <li><a href="../classes/JqueryPatchesBrowsers.html">JqueryPatchesBrowsers</a></li>
+            
+                <li><a href="../classes/LessonEditorCurrentSlide.html">LessonEditorCurrentSlide</a></li>
+            
+                <li><a href="../classes/LessonEditorDocumentReady.html">LessonEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonEditorForms.html">LessonEditorForms</a></li>
+            
+                <li><a href="../classes/LessonEditorGalleries.html">LessonEditorGalleries</a></li>
+            
+                <li><a href="../classes/LessonEditorImageResizing.html">LessonEditorImageResizing</a></li>
+            
+                <li><a href="../classes/LessonEditorJqueryAnimations.html">LessonEditorJqueryAnimations</a></li>
+            
+                <li><a href="../classes/LessonEditorSlideLoading.html">LessonEditorSlideLoading</a></li>
+            
+                <li><a href="../classes/LessonEditorSlidesNavigation.html">LessonEditorSlidesNavigation</a></li>
+            
+                <li><a href="../classes/LessonEditorTinyMCE.html">LessonEditorTinyMCE</a></li>
+            
+                <li><a href="../classes/LessonViewerDocumentReady.html">LessonViewerDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonViewerGeneral.html">LessonViewerGeneral</a></li>
+            
+                <li><a href="../classes/LessonViewerGraphics.html">LessonViewerGraphics</a></li>
+            
+                <li><a href="../classes/LessonViewerPlaylist.html">LessonViewerPlaylist</a></li>
+            
+                <li><a href="../classes/LessonViewerSlidesNavigation.html">LessonViewerSlidesNavigation</a></li>
+            
+                <li><a href="../classes/MediaElementEditorCache.html">MediaElementEditorCache</a></li>
+            
+                <li><a href="../classes/MediaElementEditorConversion.html">MediaElementEditorConversion</a></li>
+            
+                <li><a href="../classes/MediaElementEditorDocumentReady.html">MediaElementEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/MediaElementEditorForms.html">MediaElementEditorForms</a></li>
+            
+                <li><a href="../classes/MediaElementEditorHorizontalTimelines.html">MediaElementEditorHorizontalTimelines</a></li>
+            
+                <li><a href="../classes/NotificationsAccessories.html">NotificationsAccessories</a></li>
+            
+                <li><a href="../classes/NotificationsDocumentReady.html">NotificationsDocumentReady</a></li>
+            
+                <li><a href="../classes/NotificationsGraphics.html">NotificationsGraphics</a></li>
+            
+                <li><a href="../classes/PlayersAudioEditor.html">PlayersAudioEditor</a></li>
+            
+                <li><a href="../classes/PlayersCommon.html">PlayersCommon</a></li>
+            
+                <li><a href="../classes/PlayersDocumentReady.html">PlayersDocumentReady</a></li>
+            
+                <li><a href="../classes/PlayersGeneral.html">PlayersGeneral</a></li>
+            
+                <li><a href="../classes/PlayersVideoEditor.html">PlayersVideoEditor</a></li>
+            
+                <li><a href="../classes/ProfilePrelogin.html">ProfilePrelogin</a></li>
+            
+                <li><a href="../classes/ProfileUsers.html">ProfileUsers</a></li>
+            
+                <li><a href="../classes/SearchDocumentReady.html">SearchDocumentReady</a></li>
+            
+                <li><a href="../classes/TagsAccessories.html">TagsAccessories</a></li>
+            
+                <li><a href="../classes/TagsInitializers.html">TagsInitializers</a></li>
+            
+                <li><a href="../classes/UploaderDocumentReady.html">UploaderDocumentReady</a></li>
+            
+                <li><a href="../classes/UploaderGlobal.html">UploaderGlobal</a></li>
+            
+                <li><a href="../classes/UploaderLoadingBar.html">UploaderLoadingBar</a></li>
+            
+                <li><a href="../classes/VideoEditorAddComponents.html">VideoEditorAddComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorComponents.html">VideoEditorComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorCutters.html">VideoEditorCutters</a></li>
+            
+                <li><a href="../classes/VideoEditorDocumentReady.html">VideoEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/VideoEditorGalleries.html">VideoEditorGalleries</a></li>
+            
+                <li><a href="../classes/VideoEditorGeneral.html">VideoEditorGeneral</a></li>
+            
+                <li><a href="../classes/VideoEditorPreview.html">VideoEditorPreview</a></li>
+            
+                <li><a href="../classes/VideoEditorPreviewAccessories.html">VideoEditorPreviewAccessories</a></li>
+            
+                <li><a href="../classes/VideoEditorReplaceComponents.html">VideoEditorReplaceComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorScrollPain.html">VideoEditorScrollPain</a></li>
+            
+                <li><a href="../classes/VideoEditorTextComponentEditor.html">VideoEditorTextComponentEditor</a></li>
+            
+                <li><a href="../classes/VirtualClassroomDocumentReady.html">VirtualClassroomDocumentReady</a></li>
+            
+                <li><a href="../classes/VirtualClassroomJavaScriptAnimations.html">VirtualClassroomJavaScriptAnimations</a></li>
+            
+                <li><a href="../classes/VirtualClassroomMultipleLoading.html">VirtualClassroomMultipleLoading</a></li>
+            
+                <li><a href="../classes/VirtualClassroomSendLink.html">VirtualClassroomSendLink</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/admin.html">admin</a></li>
+            
+                <li><a href="../modules/ajax-loader.html">ajax-loader</a></li>
+            
+                <li><a href="../modules/audio-editor.html">audio-editor</a></li>
+            
+                <li><a href="../modules/browser-support.html">browser-support</a></li>
+            
+                <li><a href="../modules/buttons.html">buttons</a></li>
+            
+                <li><a href="../modules/dashboard.html">dashboard</a></li>
+            
+                <li><a href="../modules/dialogs.html">dialogs</a></li>
+            
+                <li><a href="../modules/galleries.html">galleries</a></li>
+            
+                <li><a href="../modules/general.html">general</a></li>
+            
+                <li><a href="../modules/image-editor.html">image-editor</a></li>
+            
+                <li><a href="../modules/jquery-browsers.html">jquery-browsers</a></li>
+            
+                <li><a href="../modules/jquery-patches.html">jquery-patches</a></li>
+            
+                <li><a href="../modules/lesson-editor.html">lesson-editor</a></li>
+            
+                <li><a href="../modules/lesson-viewer.html">lesson-viewer</a></li>
+            
+                <li><a href="../modules/media-element-editor.html">media-element-editor</a></li>
+            
+                <li><a href="../modules/notifications.html">notifications</a></li>
+            
+                <li><a href="../modules/players.html">players</a></li>
+            
+                <li><a href="../modules/profile.html">profile</a></li>
+            
+                <li><a href="../modules/search.html">search</a></li>
+            
+                <li><a href="../modules/tags.html">tags</a></li>
+            
+                <li><a href="../modules/uploader.html">uploader</a></li>
+            
+                <li><a href="../modules/video-editor.html">video-editor</a></li>
+            
+                <li><a href="../modules/virtual-classroom.html">virtual-classroom</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: app/assets/javascripts/dialogs.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+This module contains the javascript functions that use JQueryUi dialogs. Some of them are closed with a time delay (class {{#crossLink &quot;DialogsTimed&quot;}}{{/crossLink}}), other are closed with buttons by the user (class {{#crossLink &quot;DialogsConfirmation&quot;}}{{/crossLink}}), and other ones contain a form to be filled in by the user (class {{#crossLink &quot;DialogsWithForm&quot;}}{{/crossLink}}).
+@module dialogs
+**/
+
+
+
+
+
+/**
+Close a dialog with given HTML id.
+@method closePopUp
+@for DialogsAccessories
+@param id {String} HTML id of the dialog
+**/
+function closePopUp(id) {
+  $(&#x27;#&#x27; + id).dialog(&#x27;close&#x27;);
+}
+
+/**
+Adds the class &lt;i&gt;close on click out&lt;/i&gt; to the widget overlay: this function is called on the callbacks of dialog functions, to allow the user to close the dialog directly clicking out.
+@method customOverlayClose
+@for DialogsAccessories
+**/
+function customOverlayClose() {
+  $(&#x27;.ui-widget-overlay&#x27;).show().css(&#x27;height&#x27;, (2 * $window.height()) + &#x27;px&#x27;);
+  $(&#x27;.ui-widget-overlay&#x27;).addClass(&#x27;_close_on_click_out&#x27;);
+}
+
+/**
+Close and successively remove HTML for all media element poopups. It calls {{#crossLink &quot;DialogsAccessories/removeCompletelyDocumentPopup:method&quot;}}{{/crossLink}}.
+@method removeCompletelyAllDocumentPopups
+@for DialogsAccessories
+**/
+function removeCompletelyAllDocumentPopups() {
+  $(&#x27;.boxViewSingleDocument .menuController .preview&#x27;).each(function() {
+    removeCompletelyDocumentPopup($(this).data(&#x27;document-id&#x27;));
+  });
+}
+
+/**
+Close and successively remove HTML for all media element poopups. It calls {{#crossLink &quot;DialogsAccessories/removeCompletelyMediaElementPopup:method&quot;}}{{/crossLink}}.
+@method removeCompletelyAllMediaElementPopups
+@for DialogsAccessories
+**/
+function removeCompletelyAllMediaElementPopups() {
+  $(&#x27;._media_element_item .menuController .preview&#x27;).each(function() {
+    removeCompletelyMediaElementPopup($(this).data(&#x27;clickparam&#x27;));
+  });
+}
+
+/**
+Close and successively remove HTML for a given document popup.
+@method removeCompletelyDocumentPopup
+@for DialogsAccessories
+@param document_id {Number} id of the document in the database, used to extract the HTML id of the dialog
+**/
+function removeCompletelyDocumentPopup(document_id) {
+  var obj = $(&#x27;#dialog-document-&#x27; + document_id);
+  if(obj.length == 0) {
+    return;
+  }
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.dialog(&#x27;destroy&#x27;);
+  }
+  obj.remove();
+}
+
+/**
+Close and successively remove HTML for a given media element popup.
+@method removeCompletelyMediaElementPopup
+@for DialogsAccessories
+@param media_element_id {Number} id of the element in the database, used to extract the HTML id of the dialog
+**/
+function removeCompletelyMediaElementPopup(media_element_id) {
+  var obj = $(&#x27;#dialog-media-element-&#x27; + media_element_id);
+  if(obj.length == 0) {
+    return;
+  }
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.dialog(&#x27;destroy&#x27;);
+  }
+  obj.remove();
+}
+
+/**
+Opposite of {{#crossLink &quot;DialogsAccessories/customOverlayClose:method&quot;}}{{/crossLink}}. Remember that the widget-overlay object is unique for every dialog built with JQueryUi, thus it&#x27;s compulsory to remove the class &lt;i&gt;close on click out&lt;/i&gt; before opening a new dialog.
+@method removeCustomOverlayClose
+@for DialogsAccessories
+**/
+function removeCustomOverlayClose() {
+  $(&#x27;.ui-widget-overlay&#x27;).removeClass(&#x27;_close_on_click_out&#x27;);
+}
+
+
+
+
+
+/**
+Generic confirmation dialog.
+@method showConfirmPopUp
+@for DialogsConfirmation
+@param title {String} title
+@param content {String} text
+@param msg_ok {String} caption for the button &#x27;ok&#x27; (on the left side of the dialog)
+@param msg_no {String} caption for the button &#x27;cancel&#x27; (on the right side of the dialog)
+@param callback_ok {Function} callback associated to the button &#x27;ok&#x27;
+@param callback_no {Function} callback associated to the button &#x27;cancel&#x27;
+**/
+function showConfirmPopUp(title, content, msg_ok, msg_no, callback_ok, callback_no) {
+  var obj = $(&#x27;#dialog-confirm&#x27;);
+  content = &#x27;&lt;img src=&quot;/assets/alert.png&quot;/&gt;&lt;h1&gt;&#x27; + title + &#x27;&lt;/h1&gt;&lt;p&gt;&#x27; + content + &#x27;&lt;/p&gt;&#x27;;
+  var dialog_buttons = {};
+  dialog_buttons[msg_ok] = callback_ok;
+  dialog_buttons[msg_no] = callback_no;
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.html(content);
+    obj.dialog(&#x27;option&#x27;, &#x27;buttons&#x27;, dialog_buttons);
+    obj.dialog(&#x27;open&#x27;);
+  } else {
+    obj.show();
+    obj.html(content);
+    obj.dialog({
+      modal: true,
+      resizable: false,
+      draggable: false,
+      width: 485,
+      show: &#x27;fade&#x27;,
+      hide: {effect: &#x27;fade&#x27;},
+      buttons: dialog_buttons
+    });
+  }
+}
+
+/**
+Dialog used in {{#crossLinkModule &quot;audio-editor&quot;}}{{/crossLinkModule}} and in {{#crossLinkModule &quot;video-editor&quot;}}{{/crossLinkModule}}, that asks the user if he wants to restore the cache or not. Specificly, it&#x27;s used in the generic function {{#crossLink &quot;MediaElementEditorCache/startCacheLoop:method&quot;}}{{/crossLink}}.
+@method showRestoreCacheMediaElementEditorPopUp
+@for DialogsConfirmation
+@param callback_ok {Function} callback function to restore the cache
+@param callback_no {Function} callback function that removes the cache and opens the requested page
+**/
+function showRestoreCacheMediaElementEditorPopUp(callback_ok, callback_no) {
+  var obj = $(&#x27;#dialog-restore-cache-media-element-editor&#x27;);
+  var caption = $captions.data(&#x27;restore-cache-media-element-editor-message&#x27;);
+  var msg_ok = $captions.data(&#x27;restore-cache-media-element-editor-yes&#x27;);
+  var msg_no = $captions.data(&#x27;restore-cache-media-element-editor-no&#x27;);
+  content = &#x27;&lt;p class=&quot;upper&quot;&gt;&#x27; + caption + &#x27;&lt;/p&gt;&#x27;;
+  var dialog_buttons = {};
+  dialog_buttons[msg_ok] = callback_ok;
+  dialog_buttons[msg_no] = callback_no;
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.html(content);
+    obj.dialog(&#x27;option&#x27;, &#x27;buttons&#x27;, dialog_buttons);
+    obj.dialog(&#x27;open&#x27;);
+  } else {
+    obj.show();
+    obj.html(content);
+    obj.dialog({
+      modal: true,
+      resizable: false,
+      draggable: false,
+      width: 520,
+      show: &#x27;fade&#x27;,
+      hide: {effect: &#x27;fade&#x27;},
+      buttons: dialog_buttons,
+      open: function(event, ui) {
+        var overlay = obj.parent().prev();
+        overlay.addClass(&#x27;dialog_opaco&#x27;);
+        $(&#x27;.ui-widget-overlay&#x27;).css(&#x27;opacity&#x27;, 0.9);
+      },
+      beforeClose: function() {
+        $(&#x27;.dialog_opaco&#x27;).removeClass(&#x27;dialog_opaco&#x27;);
+        $(&#x27;.ui-widget-overlay&#x27;).css(&#x27;opacity&#x27;, 0);
+      },
+      create:function () {
+        $(this).closest(&#x27;.ui-dialog&#x27;).find(&#x27;.ui-button&#x27;).addClass(&#x27;upper&#x27;).addClass(&#x27;schiacciato&#x27;);
+      }
+    });
+  }
+}
+
+
+
+
+
+/**
+Dialog for the image gallery.
+@method showImageInGalleryPopUp
+@for DialogsGalleries
+@param image_id {Number} id in the database of the image, which is used to extract the HTML id of the dialog
+@param callback {Object} callback function (it depends on the gallery, see module {{#crossLinkModule &quot;galleries&quot;}}{{/crossLinkModule}}
+**/
+function showImageInGalleryPopUp(image_id, callback) {
+  var obj = $(&#x27;#dialog-image-gallery-&#x27; + image_id);
+  var my_width = resizedWidthForImageGallery(obj.find(&#x27;a&#x27;).data(&#x27;width&#x27;), obj.find(&#x27;a&#x27;).data(&#x27;height&#x27;));
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.dialog(&#x27;open&#x27;);
+  } else {
+    obj.show();
+    obj.dialog({
+      closeOnEscape: true,
+      modal: true,
+      width: my_width,
+      resizable: false,
+      draggable: false,
+      show: &#x27;fade&#x27;,
+      hide: {
+        effect: &#x27;fade&#x27;,
+        duration: 500
+      },
+      open: function() {
+        customOverlayClose();
+      },
+      beforeClose: function() {
+        removeCustomOverlayClose();
+      },
+      close: function() {
+        if(typeof(callback) != &#x27;undefined&#x27;) {
+          callback();
+        }
+      }
+    });
+  }
+}
+
+/**
+Dialog for the video gallery (notice that the video is initialized in the moment the dialog gets opened.
+@method showVideoInGalleryPopUp
+@for DialogsGalleries
+@param video_id {Number} id in the database of the video, which is used to extract the HTML id of the dialog
+**/
+function showVideoInGalleryPopUp(video_id) {
+  var obj = $(&#x27;#dialog-video-gallery-&#x27; + video_id);
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.dialog(&#x27;open&#x27;);
+  } else {
+    obj.show();
+    obj.dialog({
+      closeOnEscape: true,
+      modal: true,
+      resizable: false,
+      draggable: false,
+      width: 446,
+      height: 360,
+      show: &#x27;fade&#x27;,
+      hide: {
+        effect: &#x27;fade&#x27;,
+        duration: 500
+      },
+      open: function() {
+        customOverlayClose();
+        var instance_id = $(&#x27;#dialog-video-gallery-&#x27; + video_id + &#x27; ._empty_video_player, #dialog-video-gallery-&#x27; + video_id + &#x27; ._instance_of_player&#x27;).attr(&#x27;id&#x27;);
+        if(!$(&#x27;#&#x27; + instance_id).data(&#x27;initialized&#x27;)) {
+          var button = $(this).find(&#x27;._select_video_from_gallery&#x27;);
+          var duration = button.data(&#x27;duration&#x27;);
+          $(&#x27;#&#x27; + instance_id + &#x27; source[type=&quot;video/mp4&quot;]&#x27;).attr(&#x27;src&#x27;, button.data(&#x27;mp4&#x27;));
+          $(&#x27;#&#x27; + instance_id + &#x27; source[type=&quot;video/webm&quot;]&#x27;).attr(&#x27;src&#x27;, button.data(&#x27;webm&#x27;));
+          $(&#x27;#&#x27; + instance_id + &#x27; video&#x27;).load();
+          $(&#x27;#&#x27; + instance_id + &#x27; ._media_player_total_time&#x27;).html(secondsToDateString(duration));
+          $(&#x27;#&#x27; + instance_id).data(&#x27;duration&#x27;, duration);
+          $(&#x27;#&#x27; + instance_id).removeClass(&#x27;_empty_video_player&#x27;).addClass(&#x27;_instance_of_player&#x27;);
+          initializeMedia(instance_id, &#x27;video&#x27;);
+        }
+      },
+      beforeClose: function() {
+        stopMedia(&#x27;#dialog-video-gallery-&#x27; + video_id + &#x27; video&#x27;);
+        removeCustomOverlayClose();
+      }
+    });
+  }
+}
+
+
+
+
+
+/**
+Timed dialog for errors. It uses the general {{#crossLink &quot;DialogsTimed/showTimedPopUp:method&quot;}}{{/crossLink}}.
+@method showErrorPopUp
+@for DialogsTimed
+@param content {String} the text content of the dialog
+**/
+function showErrorPopUp(content) {
+  var new_content = &#x27;&lt;img src=&quot;/assets/unsuccess.png&quot;/&gt;&lt;h1&gt;&#x27; + content + &#x27;&lt;/h1&gt;&#x27;;
+  showTimedPopUp(new_content, &#x27;dialog-error&#x27;);
+}
+
+/**
+Timed dialog for success. It uses the general {{#crossLink &quot;DialogsTimed/showTimedPopUp:method&quot;}}{{/crossLink}}.
+@method showOkPopUp
+@for DialogsTimed
+@param content {String} the text content of the dialog
+**/
+function showOkPopUp(content) {
+  var new_content = &#x27;&lt;img src=&quot;/assets/success.png&quot;/&gt;&lt;h1&gt;&#x27; + content + &#x27;&lt;/h1&gt;&#x27;;
+  showTimedPopUp(new_content, &#x27;dialog-ok&#x27;);
+}
+
+/**
+General function that opens a dialog, fills it with HTML content and closes it after a configured time.
+@method showTimedPopUp
+@for DialogsTimed
+@param content {String} HTML content
+@param id {String} HTML id of the dialog
+**/
+function showTimedPopUp(content, id) {
+  var obj = $(&#x27;#&#x27; + id);
+  obj.html(content);
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.dialog(&#x27;open&#x27;);
+  } else {
+    obj.show();
+    obj.dialog({
+      modal: true,
+      resizable: false,
+      draggable: false,
+      width: 485,
+      show: &#x27;fade&#x27;,
+      hide: {effect: &#x27;fade&#x27;},
+      open: function(event, ui) {
+        setTimeout(function() {
+          closePopUp(id);
+        }, $parameters.data(&#x27;timeout&#x27;));
+      }
+    });
+  }
+}
+
+
+
+
+
+/**
+Dialog containing a form used to send a notification about modifications of a public lesson.
+@method showLessonNotificationPopUp
+@for DialogsWithForm
+@param lesson_id {Number} id in the database of the lesson
+**/
+function showLessonNotificationPopUp(lesson_id) {
+  var lesson_id_number = lesson_id.split(&#x27;_&#x27;);
+  lesson_id_number = lesson_id_number[lesson_id_number.length - 1];
+  var obj = $(&#x27;#lesson-notification&#x27;);
+  $(&#x27;#lesson-notification form&#x27;).attr(&#x27;action&#x27;, (&#x27;/lessons/&#x27; + lesson_id_number + &#x27;/notify_modification&#x27;));
+  var html_cover_content = $(&#x27;._lesson_thumb._lesson_&#x27; + lesson_id_number).html();
+  $(&#x27;._lesson_notification_cover&#x27;).html(html_cover_content);
+  obj.data(&#x27;lesson-id&#x27;, lesson_id);
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.dialog(&#x27;open&#x27;);
+  } else {
+    obj.show();
+    obj.dialog({
+      modal: true,
+      resizable: false,
+      draggable: false,
+      width: 710,
+      height: 300,
+      hide: {effect: &#x27;fade&#x27;},
+      show: &#x27;fade&#x27;,
+      open: function() {
+        $(&#x27;#lesson-notification #lesson_notify_modification_details&#x27;).blur();
+        $(&#x27;#lesson-notification #lesson_notify_modification_details&#x27;).val($(&#x27;#lesson-notification&#x27;).data(&#x27;message-placeholder&#x27;));
+        $(&#x27;#lesson-notification #lesson_notify_modification_details_placeholder&#x27;).val(&#x27;&#x27;);
+      }
+    });
+  }
+}
+
+/**
+Dialog containing the form to upload a new document or media element. This function interacts with the module {{#crossLinkModule &quot;uploader&quot;}}{{/crossLinkModule}}.
+@method showLoadPopUp
+@param type {String} either &#x27;document&#x27; or &#x27;media-element&#x27;
+@for DialogsWithForm
+**/
+function showLoadPopUp(type) {
+  var obj = $(&#x27;#load-&#x27; + type);
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.dialog(&#x27;open&#x27;);
+  } else {
+    obj.show();
+    obj.dialog({
+      modal: true,
+      resizable: false,
+      draggable: false,
+      width: 760,
+      height: 440,
+      show: &#x27;fade&#x27;,
+      hide: {effect: &#x27;fade&#x27;},
+      open: function(event, ui) {
+        setTimeout(function() {
+          obj.find(&#x27;input&#x27;).blur();
+          obj.find(&#x27;.title&#x27;).val(obj.data(&#x27;placeholder-title&#x27;));
+          obj.find(&#x27;.description&#x27;).val(obj.data(&#x27;placeholder-description&#x27;));
+          obj.find(&#x27;.title_placeholder&#x27;).val(&#x27;&#x27;);
+          obj.find(&#x27;.description_placeholder&#x27;).val(&#x27;&#x27;);
+          obj.find(&#x27;.tags_value&#x27;).val(&#x27;&#x27;);
+          obj.find(&#x27;._tags_container span&#x27;).remove();
+          obj.find(&#x27;._tags_container ._placeholder&#x27;).show();
+          obj.find(&#x27;._tags_container .tags&#x27;).val(&#x27;&#x27;).show();
+          obj.find(&#x27;.part1 .attachment .media&#x27;).val(obj.data(&#x27;placeholder-media&#x27;));
+          obj.find(&#x27;.form_error&#x27;).removeClass(&#x27;form_error&#x27;);
+          obj.find(&#x27;.errors_layer&#x27;).hide();
+          obj.find(&#x27;.part1 .attachment .file&#x27;).val(&#x27;&#x27;);
+        }, 100);
+      }
+    });
+  }
+}
+
+/**
+Dialog containing the document general information. This dialog contains also the form to change title and description (see the method {{#crossLink &quot;MediaElementEditorForms/resetDocumentChangeInfo:method&quot;}}{{/crossLink}}).
+@method showDocumentInfoPopUp
+@for DialogsWithForm
+@param document_id {Number} id in the database of the document
+**/
+function showDocumentInfoPopUp(document_id) {
+  var obj = $(&#x27;#dialog-document-&#x27; + document_id);
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.dialog(&#x27;open&#x27;);
+  } else {
+    obj.show();
+    obj.dialog({
+      modal: true,
+      resizable: false,
+      draggable: false,
+      width: 760,
+      height: 440,
+      show: &#x27;fade&#x27;,
+      hide: {effect: &#x27;fade&#x27;},
+      open: function() {
+        customOverlayClose();
+        var word = $(&#x27;#search_documents ._word_input&#x27;).val()
+        $(&#x27;#dialog-document-&#x27; + document_id + &#x27; .hidden_word&#x27;).val(word);
+      },
+      beforeClose: function() {
+        removeCustomOverlayClose();
+      },
+      close: function() {
+        var container = $(&#x27;#dialog-document-&#x27; + document_id);
+        resetDocumentChangeInfo(container.find(&#x27;.wrapper .change-info&#x27;));
+        container.find(&#x27;.preview&#x27;).show();
+        container.find(&#x27;.wrapper .change-info&#x27;).hide();
+        container.find(&#x27;.menu .change-info&#x27;).removeClass(&#x27;encendido&#x27;);
+      }
+    });
+  }
+}
+
+/**
+Dialog containing the media element general information. If the element is private, this same dialog contains the form to change title, description and tags (see the method {{#crossLink &quot;MediaElementEditorForms/resetMediaElementChangeInfo:method&quot;}}{{/crossLink}}).
+@method showMediaElementInfoPopUp
+@for DialogsWithForm
+@param media_element_id {Number} id in the database of the media element
+**/
+function showMediaElementInfoPopUp(media_element_id) {
+  var obj = $(&#x27;#dialog-media-element-&#x27; + media_element_id);
+  if(obj.length &gt; 0 &amp;&amp; $(&#x27;#dashboard_container .literature_container&#x27;).length &gt; 0) {
+    $(&#x27;#dashboard_container .literature_container, #dashboard_container .lesson_dashboard_thumb&#x27;).css(&#x27;z-index&#x27;, 0);
+  }
+  if(!$(&#x27;._media_element_item_id_&#x27; + media_element_id).data(&#x27;preview-loaded&#x27;)) {
+    $.ajax({
+      type: &#x27;get&#x27;,
+      url: &#x27;/media_elements/&#x27; + media_element_id + &#x27;/preview/load&#x27;
+    });
+  } else {
+    if(obj.data(&#x27;dialog&#x27;)) {
+      obj.dialog(&#x27;open&#x27;);
+    } else {
+      obj.show();
+      obj.dialog({
+        modal: true,
+        resizable: false,
+        draggable: false,
+        width: 760,
+        height: 440,
+        show: &#x27;fade&#x27;,
+        hide: {effect: &#x27;fade&#x27;},
+        open: function() {
+          customOverlayClose();
+        },
+        beforeClose: function() {
+          removeCustomOverlayClose();
+        },
+        close: function() {
+          var container = $(&#x27;#dialog-media-element-&#x27; + media_element_id);
+          var player = container.find(&#x27;.preview .content ._instance_of_player&#x27;);
+          if(player.length &gt; 0) {
+            stopMedia(&#x27;#dialog-media-element-&#x27; + media_element_id + &#x27; &#x27; + player.data(&#x27;media-type&#x27;));
+          }
+          resetMediaElementChangeInfo(container.find(&#x27;.wrapper .change-info&#x27;));
+          container.find(&#x27;.preview&#x27;).show();
+          container.find(&#x27;._report_form_content&#x27;).hide();
+          container.find(&#x27;.menu .report&#x27;).removeClass(&#x27;encendido&#x27;);
+          container.find(&#x27;.wrapper .change-info&#x27;).hide();
+          container.find(&#x27;.menu .change-info&#x27;).removeClass(&#x27;encendido&#x27;);
+        }
+      });
+    }
+  }
+}
+
+/**
+Dialog containing the form to send the public link of a lesson. Used in {{#crossLink &quot;VirtualClassroomSendLink&quot;}}{{/crossLink}}.
+@method showSendLessonLinkPopUp
+@for DialogsWithForm
+@param lesson_id {Number} id in the database of the lesson
+**/
+function showSendLessonLinkPopUp(lesson_id) {
+  var obj = $(&#x27;#dialog-virtual-classroom-send-link&#x27;);
+  $(&#x27;#dialog-virtual-classroom-send-link form&#x27;).attr(&#x27;action&#x27;, (&#x27;/virtual_classroom/&#x27; + lesson_id + &#x27;/send_link&#x27;));
+  var html_cover_content = $(&#x27;#virtual_classroom_lesson_&#x27; + lesson_id + &#x27; ._lesson_thumb&#x27;).html();
+  $(&#x27;#dialog-virtual-classroom-send-link ._lesson_thumb&#x27;).html(html_cover_content);
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.dialog(&#x27;open&#x27;);
+  } else {
+    obj.show();
+    obj.dialog({
+      modal: true,
+      resizable: false,
+      draggable: false,
+      width: 690,
+      height: 410,
+      show: &#x27;fade&#x27;,
+      hide: {effect: &#x27;fade&#x27;},
+      beforeClose: function() {
+        $(&#x27;#virtual_classroom_send_link_mails_box&#x27;).data(&#x27;jsp&#x27;).destroy();
+      },
+      open: function() {
+        $(&#x27;#virtual_classroom_emails_selector&#x27;).blur();
+        $(&#x27;#virtual_classroom_send_link_message&#x27;).blur();
+        $(&#x27;#virtual_classroom_emails_selector&#x27;).val(obj.data(&#x27;emails-placeholder&#x27;));
+        $(&#x27;#virtual_classroom_send_link_message&#x27;).val(obj.data(&#x27;message-placeholder&#x27;));
+        $(&#x27;#virtual_classroom_emails_selector&#x27;).data(&#x27;placeholdered&#x27;, true);
+        $(&#x27;#virtual_classroom_send_link_message_placeholder&#x27;).val(&#x27;&#x27;);
+        $(&#x27;#virtual_classroom_send_link_hidden_emails&#x27;).val(&#x27;&#x27;);
+        $(&#x27;#virtual_classroom_send_link_mails_box&#x27;).html(&#x27;&#x27;);
+        $(&#x27;#select_mailing_list option[selected]&#x27;).removeAttr(&#x27;selected&#x27;);
+        var placeholder_select_box = $(&#x27;#select_mailing_list option&#x27;).first();
+        placeholder_select_box.attr(&#x27;selected&#x27;, &#x27;selected&#x27;);
+        $($(&#x27;#select_mailing_list&#x27;).next().find(&#x27;a&#x27;)[1]).html(placeholder_select_box.html());
+      }
+    });
+  }
+}
+
+/**
+Dialog containing a list of lessons to be loaded in the Virtual Classroom. Used in {{#crossLink &quot;VirtualClassroomMultipleLoading&quot;}}{{/crossLink}}.
+@method showVirtualClassroomQuickSelectPopUp
+@for DialogsWithForm
+@param content {Object} HTML content for the list of lessons
+**/
+function showVirtualClassroomQuickSelectPopUp(content) {
+  var obj = $(&#x27;#dialog-virtual-classroom-quick-select&#x27;);
+  obj.html(content);
+  if(obj.data(&#x27;dialog&#x27;)) {
+    obj.dialog(&#x27;open&#x27;);
+  } else {
+    obj.show();
+    obj.dialog({
+      modal: true,
+      resizable: false,
+      draggable: false,
+      width: 920,
+      show: &#x27;fade&#x27;,
+      hide: {effect: &#x27;fade&#x27;},
+      open: function(event, ui) {
+        var overlay = obj.parent().prev();
+        overlay.addClass(&#x27;dialog_opaco&#x27;);
+        $(&#x27;.ui-widget-overlay&#x27;).css(&#x27;opacity&#x27;, 0.9);
+      },
+      close: function() {
+        if(obj.data(&#x27;loaded&#x27;)) {
+          var loaded_msg = obj.data(&#x27;loaded-msg&#x27;);
+          if(obj.data(&#x27;loaded-correctly&#x27;)) {
+            showOkPopUp(loaded_msg);
+          } else {
+            showErrorPopUp(loaded_msg);
+          }
+        }
+        obj.data(&#x27;loaded&#x27;, false);
+      }
+    });
+  }
+}
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

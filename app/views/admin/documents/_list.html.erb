@@ -1,0 +1,65 @@
+<% if documents.present? %>
+  <table id="documents-list" class="table table-striped table-hover table-bordered table-rounded">
+    <thead>
+      <tr>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.documents.fields.id'), :ordering => 0} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.documents.fields.title'), :ordering => 1} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.documents.fields.user'), :ordering => 2} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.documents.fields.format'), :ordering => nil} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.documents.fields.size'), :ordering => nil} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.documents.fields.created_at'), :ordering => 3} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.documents.fields.updated_at'), :ordering => 4} %>
+        </th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <a name="list-anchor"></a>
+      <%
+       back_page = 1
+       if params[:page]
+         back_page = (documents.length == 1) ? params[:page].to_i - 1 : params[:page].to_i
+       end
+      %>
+      <% documents.each do |document| %>
+        <tr id="<%= document.id %>">
+          <td><%= document.id %></td>
+          <td><%= document.title %></td>
+          <td><%= link_to "#{document.users_name} #{document.users_surname}", admin_user_path(document.user_id), :class => '_user_link_in_admin' %></td>
+          <td><%= document.extension %></td>
+          <td><%= document.human_size %></td>
+          <td><%= TimeConvert.to_string document.created_at %></td>
+          <td><%= TimeConvert.to_string document.updated_at %></td>
+          <td>
+            <a class="action" href="<%= document.url %>">
+              <i class="icon-eye-open"></i>
+            </a>
+          </td>
+          <td>
+            <a rel="nofollow" data-method="delete" data-confirm="<%= t('admin.documents.delete_confirm') %>" href="/admin/documents/<%= document.id %>?back_url=<%= manipulate_url(:page => back_page, :escape => true).html_safe %>">
+              <i class="icon-remove"></i>
+            </a>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="widget">
+    <%= t('admin.documents.empty') %>
+  </div>
+<% end %>

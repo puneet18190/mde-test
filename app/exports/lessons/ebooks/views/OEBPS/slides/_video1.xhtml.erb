@@ -1,0 +1,21 @@
+<%
+  loaded            = true
+  url_type          = UrlTypes::EXPORT
+  video             = slide.media_elements_at
+  slide_text        = slide.text(math_images_path_relative_from_folder: math_images_archive_folder_name)
+  media_viewer_type = MediaElement::ViewerTypes::SIMPLE
+-%>
+
+<h1 class="title"><%= slide.title.to_s.strip %></h1>
+
+<div class="video">
+  <% if video -%>
+    <% if video.converted? -%>
+      <%= render partial: "shared/players/#{media_viewer_type}/video", locals: { video: video, initialize_now: loaded, url_type: url_type, exporting_slide: !loaded } %>
+    <% else -%>
+      <p><%= t('titles.not_available.video', :title => video.title) %></p>
+    <% end -%>
+  <% end -%>
+</div>
+
+<div class="text"><%= slide_text.html_safe if slide_text %></div>

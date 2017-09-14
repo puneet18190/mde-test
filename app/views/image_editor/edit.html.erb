@@ -1,0 +1,74 @@
+<%= render :partial => 'image_editor/header', :locals => {:image => @image, :is_public => @is_public} %>
+
+<div id="image_editor" class="mediaEditorElementContainer image_editor_only">
+  
+  <div class="menuLeftEditorElement hideMe">
+    <h2><%= t('image_editor.left_column.title') %></h2><p><%= t('image_editor.left_column.description') %></p>
+    <div class="menuModifyImages">
+      <ul>
+        <li><a id="image_editor_crop_action" class="do_crop cutButton" title="<%= t('titles.image_editor.crop') %>"></a></li>
+        <li><a id="image_editor_text_action" class="write_text abcButton" title="<%= t('titles.image_editor.text') %>"></a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div id="image_editor_container" class="imagesContainer">
+    <div id="image_wrapper">
+      <%= image_tag @image.url, :id => 'cropped_image', :class => 'hideMe', :data => {:width => @image.width, :height => @image.height} %>
+      <%= form_tag '/images/commit/new', :id => 'image_editor_form', :remote => true, :autocomplete => 'off' do %>
+        <input type="hidden" name="image_id" value="<%= @image.id %>"/>
+        <input type="hidden" name="x1" value="" class="_coord"/>
+        <input type="hidden" name="y1" value="" class="_coord"/>
+        <input type="hidden" name="x2" value="" class="_coord"/>
+        <input type="hidden" name="y2" value="" class="_coord"/>
+        <%= render :partial => 'media_elements/info_form_in_editor/new', :locals => {:type => @image.sti_type.downcase, :edited => @image} %>
+        <% if !@is_public %>
+          <%= render :partial => 'media_elements/info_form_in_editor/edit', :locals => {:media_element => @image} %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="menuBottomEditorElement hideMe">
+    
+    <div id="image_editor_empty_buttons" class="menuTextImages upper">
+      <div class="bottoniVerdi fltrt">
+        <a class="_undo upper" style="display:none"><%= t('image_editor.undo') %></a>
+      </div>
+    </div>
+    
+    <div id="image_editor_crop_buttons" class="menuServiceImages upper" style="display:none">
+      <span><%= t('image_editor.crop.instructions') %></span>
+      <div class="bottoniVerdi fltrt">
+        <a class="_do disabled"><%= t('image_editor.crop.done') %></a>
+        <a class="_cancel"><%= t('image_editor.crop.cancel') %></a>
+      </div>
+    </div>
+    
+    <div id="image_editor_text_buttons" class="menuServiceImages upper" style="display:none">
+      <span><%= t('image_editor.text.instructions') %></span>
+      <div class="bottoniVerdi fltrt">
+        <a class="_do disabled"><%= t('image_editor.text.done') %></a>
+        <a class="_cancel"><%= t('image_editor.text.cancel') %></a>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="menuFooterEditorElement hideMe _image_editor_bottom_bar">
+    <p id="image_editor_real_dimensions"><%= t('image_editor.original_size') %>: <%= @image.width %>x<%= @image.height %>px</p>
+    <div class="fltrt">
+      <div class="fltrt">
+        <a class="_commit_media_element_editor nextButton <%= @is_public ? '' : '_with_choice'.html_safe %>" title="<%= t('titles.image_editor.commit') %>" data-type="image"></a>
+      </div>
+    </div>
+    <br class="clearfloat"/>
+  </div>
+  
+  <div id="image_editor_empty_text_area_container" style="display:none">
+    <%= render :partial => 'image_editor/text_area' %>
+  </div>
+  
+  <div id="info_container" data-current-textarea-identifier="1" data-used-in-private-lessons="<%= @image.media_elements_slides.any? %>"></div>
+  
+</div>

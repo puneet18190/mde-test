@@ -1,0 +1,11 @@
+<% if !@new_url.blank? %>
+  $('#image_wrapper img').attr('src', '<%= @new_url %>?timestamp=' + new Date().getTime());
+  $('#image_editor_text_buttons ._cancel').trigger('click');
+  $('#image_editor_form input._additional').remove();
+  $('#image_editor_empty_buttons ._undo').show();
+  $('body').prepend('<span class="_saved"></span>');
+  centerThisInContainer('._saved','#image_wrapper');
+  $('._saved').fadeTo('fast', 0).fadeTo('fast', 0.7).fadeTo('fast', 0.3).fadeOut();
+<% else %>
+  redError();
+<% end %>

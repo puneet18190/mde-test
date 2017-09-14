@@ -1,0 +1,16 @@
+<% if @ok %>
+  <% if @saved %>
+    $('#quick_load_element_<%= @key %>').hide('fade', {}, 500, function() {
+      $(this).remove();
+    });
+  <% else %>
+    $('#quick_load_element_<%= @key %> ._form_input').css('border-color', '#CCCCCC').css('color', '#555555');
+    <% @error_fields.each do |field| %>
+      <% if field == 'media' %>
+        $('#quick_load_element_<%= @key %> .alert').addClass('alert-error');
+      <% else %>
+        $('#quick_load_element_<%= @key %> ._form_input[name=<%= field %>]').css('border-color', '#B94A48').css('color', '#B94A48');
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

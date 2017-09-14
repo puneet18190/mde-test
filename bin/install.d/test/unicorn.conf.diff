@@ -1,0 +1,6 @@
+1,2c1,2
+< APPEND_TO_ENV_PATH="/home/$username/.rbenv/shims":"/home/$username/.rbenv/bin"
+< APP_PATH=$app_path
+---
+> APPEND_TO_ENV_PATH="/home/testuser/.rbenv/shims":"/home/testuser/.rbenv/bin"
+> APP_PATH=/home/testuser/www/desy

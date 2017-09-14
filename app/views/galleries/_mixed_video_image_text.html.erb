@@ -1,0 +1,22 @@
+<div class="gallery-header">
+  <h3 class="pull-left"><%= t('video_editor.select_component_to_add') %></h3>
+  <div class="_switch_video current" title="<%= t('titles.galleries.mixed_for_video_editor.video') %>">&nbsp;</div>
+  <div class="_switch_image" title="<%= t('titles.galleries.mixed_for_video_editor.image') %>">&nbsp;</div>
+  <div class="_switch_text" title="<%= t('titles.galleries.mixed_for_video_editor.text') %>">&nbsp;</div>
+</div>
+<br style="clear:both">
+<div class="_videos video_gallery video-kind">
+  <%= render :partial => 'galleries/contents/video', :locals => {:videos => videos} %>
+</div>
+
+<div class="_images image_gallery image-kind" style="display:none">
+  <%= render :partial => 'galleries/contents/image', :locals => {:images => images} %>
+</div>
+
+<div class="_texts" style="display:none">
+  <%= render :partial => 'video_editor/text_component_editor' %>
+</div>
+
+<div class="gallery-footer">
+  <div class="pull-right"><a class="_close_mixed_gallery_in_video_editor exitGallery" title="<%= t('titles.galleries.close') %>"></a></div>
+</div>

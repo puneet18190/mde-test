@@ -1,0 +1,45 @@
+<div class="control-group heading">
+  <label><h5><%= t('admin.search.notifications.title') %></h5></label>
+</div>
+<div class="control-group">
+  <label for="subject"><%= t('admin.search.users.fields.subject') %></label>
+  <div class="controls">
+    <select id="search_subject_id" name="search[subject_id]">
+      <option value=''><%= t('admin.search.users.fields.select_subject') %></option>
+      <% Subject.all.each do |subject| %>
+        <% if params.present? && (params[:subject_id].to_i == subject.id.to_i) %>
+          <option value="<%= subject.id %>" selected="selected">
+            <%= subject.description %>
+          </option>
+        <% else %>
+          <option value="<%= subject.id %>">
+            <%= subject.description %>
+          </option>
+        <% end %>
+      <% end %>
+    </select>
+  </div>
+</div>
+<div class="control-group">
+  <label for="school_level_id"><%= t('admin.search.users.fields.school_level') %></label>
+  <div class="controls">
+    <select id="school_level" name="search[school_level_id]">
+      <option value=''><%= t('admin.search.users.fields.select_school_level') %></option>
+      <% SchoolLevel.all.each do |level|%>
+        <option value="<%= level.id %>"><%= level.description %></option>
+      <% end %>
+    </select>
+  </div>
+</div>
+<div class="control-group">
+  <label for="recency"><%= t('admin.search.users.fields.created_at.title') %></label>
+  <div class="controls">
+    <select id="recency" name="search[recency]">
+      <option value=""><%= t('admin.search.users.fields.created_at.select') %></option>
+      <option value="<%= 1.day.ago %>"><%= t('admin.search.users.fields.created_at.today') %></option>
+      <option value="<%= 1.week.ago %>"><%= t('admin.search.users.fields.created_at.week') %></option>
+      <option value="<%= 1.month.ago %>"><%= t('admin.search.users.fields.created_at.month') %></option>
+      <option value="<%= 1.year.ago %>"><%= t('admin.search.users.fields.created_at.year') %></option>
+    </select>
+  </div>
+</div>

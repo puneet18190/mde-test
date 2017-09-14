@@ -1,0 +1,10 @@
+<div style="position:relative;">
+  <% if !item.converted? %>
+    <%= image_tag item.placeholder_url(:thumb) %>
+  <% else %>
+    <%= image_tag item.thumb_url, :alt => '' %>
+    <div class="bulletPointVideo" style="top:0">
+      <%= image_tag 'bullet_video2.png', :class => "_Video_button_#{Buttons::PREVIEW}", :data => {:clickparam => item.id} %>
+    </div>
+  <% end %>
+</div>

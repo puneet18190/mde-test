@@ -1,0 +1,188 @@
+@import 'variables';
+@import 'mixins';
+
+html.faqs-controller {
+  
+  .faqsHeader {
+    
+    background-color: #5D5D5D;
+    padding: 8px 0 12px 40px;
+    height: 34px;
+    
+    h1 {
+      
+      @include nunito(30px);
+      color: white;
+      padding: 0px;
+      
+    }
+    
+  }
+  
+  .gray-description {
+    
+    background-color: #F5F5F5;
+    padding: 30px 40px;
+    color: #666;
+    
+    a {
+      
+      font-weight: bold;
+      
+    }
+    
+    a:hover {
+      
+      text-decoration: underline;
+      
+    }
+    
+  }
+  
+  .faqs_content {
+    
+    .lessons, .media_elements, .profile, .virtual_classroom {
+      
+      padding: 30px 40px 0 40px;
+      float: left;
+      width: calc(25% - 80px);
+      
+      &:last-child {
+        
+        margin-right: 0;
+        
+      }
+      
+      ul {
+        
+        padding-top: 15px;
+        
+        li {
+          
+          list-style: none;
+          margin-bottom: 15px;
+          font-weight: bold;
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  h2 {
+    
+    @include nunito(23px);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-bottom: 0;
+    
+  }
+  
+  h3 {
+    
+    @include nunito(23px);
+    color: #5D5C5C;
+    font-size: 20px;
+    padding-top: 10px;
+    
+  }
+  
+  .lessons {
+    
+    h2.title, a:hover {
+      
+      color: $orange;
+      
+    }
+    
+  }
+  
+  .media_elements {
+    
+    h2.title, a:hover {
+      
+      color: $green;
+      
+    }
+    
+  }
+  
+  .virtual_classroom {
+    
+    h2.title, a:hover {
+      
+      color: $blue;
+      
+    }
+    
+  }
+  
+  .profile {
+    
+    h2.title, a:hover {
+      
+      color: #5D5C5C;
+      
+    }
+    
+  }
+  
+  #lessons_faq h2.title {
+    
+    color: $orange;
+    
+  }
+  
+  #media_elements_faq h2.title {
+    
+    color: $green;
+    
+  }
+  
+  #profile_faq h2.title {
+    
+    color: #5D5C5C;
+    
+  }
+  
+  #virtual_classroom_faq h2.title {
+    
+    color: $blue;
+    
+  }
+  
+  .backBtn {
+    
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    color: #5D5D5D;
+    padding: 10px 35px;
+    background-image: $assets-back-arrow_png;
+    background-repeat: no-repeat;
+    background-size: 26px 26px;
+    background-position: center left;
+    
+  }
+  
+  #lessons_faq, #media_elements_faq, #profile_faq, #virtual_classroom_faq {
+    
+    padding: 30px 40px 0 40px;
+    
+    .content {
+      
+      padding: 0 0 43px 0;
+      
+    }
+    
+    a:hover {
+      
+      text-decoration: underline;
+      
+    }
+    
+  }
+  
+}

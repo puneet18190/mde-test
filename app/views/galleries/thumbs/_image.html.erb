@@ -1,0 +1,23 @@
+<%
+  personal_margin = ''
+  classs = ''
+  personal_margin = "style=\"margin-top:1px\"".html_safe if index < 7 && !force_margin_top
+  if index > count
+    personal_margin = "style=\"margin-bottom:1px\"".html_safe
+    classs = '_with_margin_bottom'
+  end
+%>
+
+<div id="gallery_image_<%= image.id %>" class="_image_gallery_thumb pseudo-li <%= classs %>" data-image-id="<%= image.id %>" title="<%= image.title %>" <%= personal_margin %>>
+  <a><%= image_tag image.thumb_url, :width => '111' %></a>
+  <div class="imageInGalleryPopUp" id="dialog-image-gallery-<%= image.id %>" data-image-id="<%= image.id %>">
+    <%= image_tag image.url, :class => 'popup_expanded', :style => "max-height: 420px; max-width: 420px" %>
+    <div class=" _bottom_of_image_popup_in_gallery">
+      <div class="caption">
+        <p><%= image.title %></p>
+        <p class="originalSize"><%= t('galleries.images.original_size') %>: <%= image.width %> x <%= image.height %></p>
+      </div>
+      <a class="addButtonContent current _select_image_from_gallery image-<%= image.id %>" data-image-id="<%= image.id %>" data-url="<%= image.url %>" data-width="<%= image.width %>" data-height="<%= image.height %>" style="float:right"  title="<%= t('titles.galleries.add_image') %>"></a>
+    </div>
+  </div>
+</div>

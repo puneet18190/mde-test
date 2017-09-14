@@ -1,0 +1,23 @@
+removeCompletelyAllDocumentPopups();
+<% if @delete_item.blank? %>
+  $('#my_documents').hide('fade', {}, 500, function() {
+    $('#my_documents').replaceWith("<%= j(render(:partial => 'documents/my_documents', :locals => {:documents => @documents, :word => @word})) %>");
+    <% if @documents.any? %>
+      $('#general_pagination').replaceWith("<%= j(render(:partial => 'shared/pagination', :locals => {:page => @page, :pages_amount => @pages_amount})) %>");
+    <% else %>
+      $('#general_pagination').html('');
+    <% end %>
+  });
+<% else %>
+  var to_delete = $('#<%= @delete_item %>');
+  to_delete.hide('fade', {}, 500, function() {
+    $('#my_documents').replaceWith("<%= j(render(:partial => 'documents/my_documents', :locals => {:documents => @documents, :word => @word})) %>");
+    <% if @documents.any? %>
+      $('#general_pagination').replaceWith("<%= j(render(:partial => 'shared/pagination', :locals => {:page => @page, :pages_amount => @pages_amount})) %>");
+    <% else %>
+      $('#general_pagination').html('');
+    <% end %>
+  });
+<% end %>
+
+$('#info_container').data('currenturl', <%= manipulate_url(remove_query_param: ["delete_item"], page: @page).to_json.html_safe %>);

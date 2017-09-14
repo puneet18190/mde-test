@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html class="application-layout <%= controller_html_class %> <%= action_html_class %>">
+  
+  <head><%= render :partial => 'layouts/application/head' %></head>
+  
+  <body>
+    <%= render :partial => 'shared/browser_support_script' %>
+    <div class="container">
+      <%= render :partial => 'shared/header', :locals => {:notifications => @notifications, :news => @new_notifications, :offset => @offset_notifications, :tot => @tot_notifications, :where => 'dashboard'} %>
+      <div id="faqs_header" class="faqsHeader">
+        <h1><%= t('faqs.title') %></h1>
+      </div>
+      <div class="global-content">
+        <%= yield %>
+      </div>
+      <%= render :partial => 'shared/footer' %>
+    </div>
+  </body>
+  
+</html>

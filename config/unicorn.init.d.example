@@ -1,0 +1,392 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: unicorn
+# Required-Start:    $all
+# Required-Stop:     $network $local_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts the unicorn instances
+# Description:       starts the unicorn server instances using start-stop-daemon
+#
+### END INIT INFO
+
+# Author: https://github.com/mdesantis
+# URL:    https://gist.github.com/mdesantis/4740439
+#
+# This is /etc/init.d/unicorn (without .sh)
+# init.d script for single or multiple unicorn installations. 
+#
+# Modified by https://github.com/mdesantis
+# based on modified version by https://github.com/romaimperator
+# which is based on modified version by jay@gooby.org https://github.com/jaygooby
+# which is based on https://gist.github.com/308216 by https://github.com/mguterl
+#
+# This configures a unicorn master for your rack app (Rails, Sinatra, ...).
+#
+# Its aim is to support every web application unicorn-compatible and every Ruby version manager
+# (rvm, rbenv, chruby...), as well as bundle without version manager, as well as every other 
+# configuration, given that exists a unicorn binary which points to the correct 'gemset'. If it 
+# does not, let me know it and I will update this script.
+#
+# Without version managers, using bundler you can `bundle install --binstubs` which generates
+# a <APP_PATH>/bin/unicorn which will require the right gems needed to start your application.
+#
+# If you have issues with this script, let me know it commenting to this gist:
+#
+#   https://gist.github.com/mdesantis/4740439
+#
+# Configuration
+# 
+# The configuration files of this script must be located in /etc/unicorn .
+# Expects at least one config file.
+#
+# You should ensure different ports or sockets are set in each unicorn config file if
+# you are running more than one master concurrently.
+#
+# It is required to specify a configuration file for every unicorn master instance.
+#
+# You can disable configuration files appending '.disabled' to their filenames.
+#
+#
+# A sample: /etc/unicorn/unicorn:cool_app
+#
+#   APP_USER=unicorn
+#   APP_NAME=cool_app
+#   APP_PATH=/path/to/cool_app
+#   APPEND_TO_ENV_PATH=''
+#   ADDITIONAL_ENV_VARS='RBENV_VERSION=2.1.0'
+#   UNICORN=/home/unicorn/.rvm/bin/unicorn_rails_wrapper
+#   UNICORN_CONFIG=/home/unicorn/configs/cool_app
+#   RACK_ENV=development
+#   PIDFILE=/path/to/cool_app/shared/pids/unicorn.pid
+#
+# You can skip APP_USER and APP_NAME declarations; their values will be inferred by the 
+# configuration file name. Also the other variables can be skipped; their values will be setted
+# depending on APP_USER and APP_NAME (see below for details)
+#
+#
+# Other samples:
+#
+# RVM:
+#
+#   UNICORN=/home/unicorn/.rvm/bin/unicorn_wrapper
+#
+# rbenv:
+#
+#   APPEND_TO_ENV_PATH="/home/user/.rbenv/shims":"/home/user/.rbenv/bin"
+#
+# chruby:
+#
+#   You should create a unicorn_wrapper with
+#
+#   #!/bin/sh
+#   source /usr/local/share/chruby/chruby.sh && \
+#   chruby <ruby_version> && \
+#   unicorn "$@" # or bundle exec unicorn "$@", and BUNDLE_EXEC=off
+#
+#   `chmod +x /path/to/unicorn_wrapper` and in the configuration file:
+#
+#   UNICORN=/path/to/unicorn_wrapper
+#
+# bundle exec:
+#
+#   BUNDLE_EXEC=on
+#
+# Rails 2.3:
+# 
+#   UNICORN=<APP_PATH>/bin/unicorn_rails
+#
+#
+# Inside the configuration file you can set the following variables (defaults are applied when not 
+# specified):
+#
+#   APP_USER             The user which runs the unicorn server process
+#     defaults to        the part before the colon (:) of the configuration file name
+#
+#   APP_GROUP            The group which runs the delayed_job server process
+#     defaults to        <APP_USER>
+#  
+#   APP_NAME             The application name
+#     defaults to        the part after the colon (:) of the configuration file name
+#  
+#   APP_PATH             The path to the application
+#     defaults to        /home/<APP_USER>/www/<APP_NAME>
+#  
+#   APPEND_TO_ENV_PATH   A list of paths which will be appended to the user path variable
+#                        at the unicorn start
+#     defaults to        ''
+#
+#   ADDITIONAL_ENV_VARS  Additional enviroment variables in the format
+#                        "VAR1=value1 VAR2=value2"
+#     defaults to        ''
+#  
+#   BUNDLE_EXEC          Whether the command should be launched with bundle exec or not.
+#                        Enabled if its value is "on", otherwise disabled.
+#     defaults_to        "off"
+#  
+#   UNICORN              The path to the unicorn binary.
+#     defaults to        unicorn if BUNDLE_EXEC is on, otherwise <APP_PATH>/bin/unicorn (the default 
+#                        path of `bundler install --binstubs`)
+#  
+#   UNICORN_CONFIG       The path to the unicorn configuration file
+#     defaults to        <APP_PATH>/config/unicorn.rb
+#  
+#   RACK_ENV             The value which unicorn will use as environment (unicorn --env)
+#                        - notice that the config file has the last word
+#     defaults to         production
+#  
+#   PIDFILE              The path to the unicorn PID file
+#     defaults to        <APP_PATH>/tmp/pids/unicorn.<RACK_ENV>.pid
+#
+# The colon (:) was chosen as user/app_name separator because it is an invalid character
+# for UNIX usernames.
+#
+#
+# Usage
+#
+# If you call this script without any config parameters, it will attempt to run the
+# init command for all your unicorn configurations listed in /etc/unicorn/* .
+#
+# /etc/init.d/unicorn start # starts all unicorns
+#
+# If you specify a particular config, it will only operate on that one
+#
+# /etc/init.d/unicorn start my_app
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+. /lib/init/vars.sh
+
+. /lib/lsb/init-functions
+
+unicorn_log_daemon_msg () {
+  log_daemon_msg $1 "$APP_DESC"
+}
+
+unicorn_log_end_msg () {
+  log_end_msg $1
+}
+ 
+do_start () {
+  set -e
+
+  local start_stop_daemon_args process_args
+
+  set -- --start --quiet --chuid "$APP_USER":"$APP_GROUP" --pidfile "$PIDFILE"   \
+      --chdir "$APP_PATH" --exec /usr/bin/env PATH="$APPEND_TO_ENV_PATH":"$PATH" \
+      $ADDITIONAL_ENV_VARS
+  start_stop_daemon_args="$@"
+
+  set -- --env "$RACK_ENV" --config-file "$UNICORN_CONFIG" --daemonize
+  process_args="$@"
+
+  if [ "$BUNDLE_EXEC" = 'on' ]; then
+    set -- $start_stop_daemon_args bundle
+    start_stop_daemon_args="$@"
+
+    set -- exec "$UNICORN" $process_args
+    process_args="$@"
+  else
+    set -- $start_stop_daemon_args "$UNICORN"
+    start_stop_daemon_args="$@"
+  fi
+
+  set +e
+
+  start-stop-daemon $start_stop_daemon_args --test > /dev/null || return 1
+  start-stop-daemon $start_stop_daemon_args -- $process_args || return 2
+}
+
+do_stop () {
+  start-stop-daemon --stop --quiet --retry=QUIT/30/TERM/5/KILL/5 --pidfile "$PIDFILE"
+}
+
+do_upgrade () {
+  start-stop-daemon --stop --quiet --signal USR2 --pidfile "$PIDFILE" || return 2
+
+  # wait for unicorn to upgrade by itself
+  sleep 1
+  
+  # when the old pid does not exists we suppose that unicorn managed to upgrade by itself,
+  # so we can safely exit
+  [ -s "$OLD_PIDFILE" ] || return 0
+
+  # 28 = WINCH; start-stop-daemon doesn't like WINCH
+  start-stop-daemon --stop --quiet --signal 28 --pidfile "$OLD_PIDFILE" || return 1
+  start-stop-daemon --stop --quiet --signal QUIT --pidfile "$OLD_PIDFILE" || return 1
+}
+
+cmd () {
+  case "$1" in
+    start)
+    unicorn_log_daemon_msg "Starting"
+    do_start
+    case "$?" in
+      0|1) unicorn_log_end_msg 0 ;;
+      *) unicorn_log_end_msg 1 ;;
+    esac
+    ;;
+
+    stop)
+    unicorn_log_daemon_msg "Stopping"
+    do_stop
+    case "$?" in
+      0|1) unicorn_log_end_msg 0 ;;
+      2) unicorn_log_end_msg 1 ;;
+    esac
+    ;;
+
+    force-stop)
+    start-stop-daemon --stop --quiet --retry=TERM/5/KILL/5 --pidfile "$PIDFILE"
+    case "$?" in
+      0|1) unicorn_log_end_msg 0 ;;
+      2) unicorn_log_end_msg 1 ;;
+    esac
+    ;;
+
+    restart|force-reload)
+    unicorn_log_daemon_msg "Restarting"
+    do_stop
+    case "$?" in
+      0|1)
+      do_start
+      case "$?" in
+        0) unicorn_log_end_msg 0 ;;
+        1) unicorn_log_end_msg 1 ;; # Old process is still running
+        *) unicorn_log_end_msg 1 ;; # Failed to start
+      esac
+      ;;
+      *)
+        # Failed to stop
+      unicorn_log_end_msg 1
+      ;;
+    esac
+    ;;
+
+    upgrade)
+    unicorn_log_daemon_msg "Upgrading"
+    do_upgrade
+    unicorn_log_end_msg $?
+    ;;
+
+    rotate-logs)
+    unicorn_log_daemon_msg "Rotating logs"
+    start-stop-daemon --stop --quiet --signal USR1 --pidfile "$PIDFILE"
+    unicorn_log_end_msg $?
+    ;;
+
+    increment-workers)
+    unicorn_log_daemon_msg "Incrementing workers"
+    start-stop-daemon --stop --quiet --signal TTIN --pidfile "$PIDFILE"
+    unicorn_log_end_msg $?
+    ;;
+
+    decrement-workers)
+    unicorn_log_daemon_msg "Decrementing workers"
+    start-stop-daemon --stop --quiet --signal TTOU --pidfile "$PIDFILE"
+    unicorn_log_end_msg $?
+    ;;
+
+    status)
+    status_of_proc -p $PIDFILE "$UNICORN" "$APP_DESC"
+    ;;
+
+    *)
+    echo "Usage: $0 <start|stop|force-stop|restart|force-reload|upgrade|rotate-logs|increment-workers|decrement-workers|status>" >&2
+    exit 3
+    ;;
+  esac
+}
+
+unset_variables () {
+  unset APP_USER
+  unset APP_GROUP
+  unset APP_NAME
+  unset APP_PATH
+  unset APPEND_TO_ENV_PATH
+  unset ADDITIONAL_ENV_VARS
+  unset BUNDLE_EXEC
+  unset UNICORN
+  unset UNICORN_CONFIG
+  unset RACK_ENV
+  unset PIDFILE
+}
+
+# Read settings or composing default values
+setup () {
+  CONFIG=$1
+
+  [ -z "$APP_USER" ] && APP_USER=`basename $1 | cut -f 1 -d :`
+
+  [ -z "$APP_GROUP" ] && APP_GROUP=`id --group $APP_USER`
+
+  [ -z "$APP_NAME" ] && APP_NAME=`basename $1 | cut -f 2- -d :`
+  
+  # Displayed inside messages
+  APP_DESC="Unicorn - $APP_NAME"
+  
+  [ -z "$APP_PATH" ] && APP_PATH="/home/$APP_USER/www/$APP_NAME"
+
+  # Check whether the application directory exists
+  if [ ! -d "$APP_PATH" ]; then
+    log_failure_msg "$APP_DESC: $APP_PATH is not a valid directory"
+    return 1
+  fi
+
+  [ -z "$APPEND_TO_ENV_PATH" ] && APPEND_TO_ENV_PATH=''
+
+  [ -z "$ADDITIONAL_ENV_VARS" ] && ADDITIONAL_ENV_VARS=''
+
+  [ -z "$BUNDLE_EXEC" ] && BUNDLE_EXEC='off'
+
+  if [ -z "$UNICORN" ]; then
+    [ "$BUNDLE_EXEC" = 'on' ] && UNICORN='unicorn' || UNICORN="$APP_PATH/bin/unicorn"
+  fi
+
+  [ -z "$UNICORN_CONFIG" ] && UNICORN_CONFIG="$APP_PATH/config/unicorn.rb"
+  
+  [ -z "$RACK_ENV" ] && RACK_ENV="production"
+
+  [ -z "$PIDFILE" ] && PIDFILE="$APP_PATH/tmp/pids/unicorn.$RACK_ENV.pid"
+
+  OLD_PIDFILE="$PIDFILE.oldbin"
+
+  return 0
+}
+
+# Either run the start/stop/reload/etc command for every config under /etc/unicorn
+# or just do it for a specific one
+
+# $1 contains the start/stop/etc command
+# $2 if it exists, should be the specific config we want to act on
+
+if [ $2 ]; then
+  # Check whether the conf file is disabled
+  
+  if ! echo "$2" | grep -qv '\.disabled$' ; then
+    echo "$2 is disabled. Rename it in order to use it."
+    exit 1
+  fi
+
+  set -e
+  . /etc/unicorn/$2
+  setup "/etc/unicorn/$2"
+  set +e
+  cmd $1
+else
+  FAILURE=0
+  for CONFIG in `find /etc/unicorn -type f -print0 | grep -zv '\.disabled$' | sed "s/\x00/\n/g"`; do
+    # clean variables from prev configs
+    unset_variables
+
+    . $CONFIG && setup $CONFIG
+    if [ "$?" != 0 ]; then
+      FAILURE=3
+      continue
+    fi
+
+    # run the start/stop/etc command
+    cmd $1 || FAILURE=3
+  done
+  exit $FAILURE
+fi

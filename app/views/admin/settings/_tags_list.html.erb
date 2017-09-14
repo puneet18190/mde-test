@@ -1,0 +1,61 @@
+<% if tags.present? %>
+  <table id="tags-list" class="table table-striped table-hover table-bordered table-rounded">
+    <thead>
+      <tr>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.settings.tags.fields.id'), :ordering => 0} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.settings.tags.fields.word'), :ordering => 1} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.settings.tags.fields.created_at'), :ordering => 2} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.settings.tags.fields.lessons_number'), :ordering => 3} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.settings.tags.fields.media_elements_number'), :ordering => 4} %>
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <a name="list-anchor"></a>
+      <%
+       back_page = 1
+       if params[:page]
+         back_page = (tags.length == 1) ? params[:page].to_i - 1 : params[:page].to_i
+       end
+      %>
+      <% tags.each do |tag| %>
+        <tr id="<%= tag.id %>">
+          <td><%= tag.id %></td>
+          <td><%= tag.word %></td>
+          <td><%= TimeConvert.to_string tag.created_at %></td>
+          <td><%= link_to tag.lessons_count, "/admin/settings/tags/#{tag.id}/show/lessons" %></td>
+          <td><%= link_to tag.media_elements_count, "/admin/settings/tags/#{tag.id}/show/media_elements" %></td>
+          <td>
+            <a rel="nofollow" data-method="delete" data-confirm="<%= t('admin.settings.tags.delete_confirm') %>" href="/admin/settings/tags/<%= tag.id %>/delete?back_url=<%= manipulate_url(:page => back_page, :escape => true).html_safe %>">
+              <i class="icon-remove"></i>
+            </a>
+          </td>
+        </tr>
+        <div style="clear:both;"></div>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <% if params[:search].present? && params[:search][:id].present? %>
+    <script>
+      openAndLoadNextTr($('tr#<%=params[:search][:id] %>'));
+    </script>
+  <% end %>
+  
+<% else %>
+  
+  <div class="widget">
+    <%= t('admin.settings.tags.empty') %>
+  </div>
+  
+<% end %>

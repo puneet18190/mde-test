@@ -1,0 +1,38 @@
+<div class="control-group heading">
+  <label><h5><%= t('admin.search.lessons.title') %></h5></label>
+</div>
+<div class="control-group">
+  <label for="id"><%= t('admin.search.lessons.fields.id') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[id]', params ? params[:id] : '', :class => 'input-small', :placeholder => t('admin.search.lessons.fields.id') %>
+  </div>
+</div>
+<div class="control-group">
+  <label><%= t('admin.search.lessons.fields.title') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[title]', params ? params[:title] : '', :class => 'input-medium', :placeholder => t('admin.search.lessons.fields.title') %>
+  </div>
+</div>
+<div class="control-group">
+  <label for="subject"><%= t('admin.search.lessons.fields.subject') %></label>
+  <div class="controls">
+    <select id="search_subject_id" name="search[subject_id]">
+      <option value=''><%= t('admin.search.lessons.fields.select_subject') %></option>
+      <% Subject.all.each do |subject| %>
+      <% if params.present? && (params[:subject_id].to_i == subject.id.to_i) %>
+        <option value="<%= subject.id %>" selected="selected">
+      <% else %>
+        <option value="<%= subject.id %>">
+      <% end %>
+          <%= subject.description %>
+        </option>
+      <% end %>
+    </select>
+  </div>
+</div>
+<div class="control-group">
+  <label for="search_user"><%= t('admin.search.lessons.fields.user') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[user]',  params ? params[:user] : '', :class=>'input-medium', :placeholder => t('admin.search.lessons.fields.user') %>
+  </div>
+</div>

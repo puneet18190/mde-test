@@ -1,0 +1,12 @@
+<script>
+  window.onload = function() {
+    <% if @errors %>
+      top.uploadDone('#load-gallery-image', <%= @errors.to_json.html_safe %>);
+    <% else %>
+      var html_content = "<%= j(render :partial => 'galleries/image', :locals => {:images => @images}) %>";
+      top.uploadDone('#load-gallery-image', undefined, function() {
+        top.reloadGalleryInLessonEditor('#load-gallery-image', 'image', html_content, <%= @tot_pages %>, <%= @images.count %>);
+      });
+    <% end %>
+  }
+</script>

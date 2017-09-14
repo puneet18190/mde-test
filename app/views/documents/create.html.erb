@@ -1,0 +1,7 @@
+<script>
+  window.onload = function() {
+    top.uploadDone('#load-document', <%= @errors ? @errors.to_json.html_safe : 'undefined' %>, function() {
+       top.window.location = '/documents';
+    });
+  }
+</script>

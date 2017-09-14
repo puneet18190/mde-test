@@ -1,0 +1,7 @@
+<div id="new_slide_option_list" style="display:none">
+  <div class="box new_slide">
+    <% Slide::KINDS_WITHOUT_COVER.each do |kind| %>
+      <a class="_add_new_slide" data-kind="<%= kind %>"><%= image_tag "new_slide_thumb_#{kind}.png" %></a>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,2267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Uploader</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Uploader 
+            
+                <span class="parent">&lt; 
+                    
+                    String
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/lib/media/uploader_rb.html">lib/media/uploader.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="../Media.html">Media</a> uploading abstract class; ancestor of <a
+href="Video/Uploader.html">Media::Video::Uploader</a> and <a
+href="Audio/Uploader.html">Media::Audio::Uploader</a></p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-blank-3F">blank?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-column_changed-3F">column_changed?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-copy">copy</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-duration_keys">duration_keys</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-durations">durations</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-durations-3F">durations?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-extract_versions">extract_versions</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-filename">filename</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-filename_without_extension">filename_without_extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-folder">folder</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-folder_size">folder_size</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-formats">formats</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-inspect">inspect</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-max_processed_filename_size">max_processed_filename_size</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-maximum_media_elements_folder_size_exceeded-3F">maximum_media_elements_folder_size_exceeded?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-media_elements_folder_size">media_elements_folder_size</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-model_id">model_id</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-original_filename">original_filename</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-original_filename_extension">original_filename_extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-original_filename_without_extension">original_filename_without_extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-output_folder">output_folder</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-output_path">output_path</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-output_path_without_extension">output_path_without_extension</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-path">path</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-paths">paths</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-processed_filename">processed_filename</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-processed_original_filename">processed_original_filename</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-processed_original_filename_without_extension">processed_original_filename_without_extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-public_relative_folder">public_relative_folder</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-public_relative_path">public_relative_path</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-remove_folder-21">remove_folder!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-rename-3F">rename?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-size">size</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_hash">to_hash</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-to_s">to_s</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-upload">upload</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-upload_copy_and_job">upload_copy_and_job</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-upload_or_copy">upload_or_copy</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-url">url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-version_formats">version_formats</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-version_input_path_keys">version_input_path_keys</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-version_input_paths">version_input_paths</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-version_input_paths-3F">version_input_paths?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="SimilarDurations.html">
+              Media::SimilarDurations
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">PUBLIC_RELATIVE_MEDIA_ELEMENTS_FOLDER</td>
+            <td>=</td>
+            <td class="attr-value">&#39;media_elements&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p><a href="../Media.html">Media</a> folder (relative to the app public/
+folder, for using in URLs)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">MEDIA_ELEMENTS_FOLDER</td>
+            <td>=</td>
+            <td class="attr-value">Rails.public_pathname.join PUBLIC_RELATIVE_MEDIA_ELEMENTS_FOLDER</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Absolute path to the media folders (for using in paths)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">MAXIMUM_MEDIA_ELEMENTS_FOLDER_SIZE</td>
+            <td>=</td>
+            <td class="attr-value">SETTINGS[&#39;maximum_media_elements_folder_size&#39;].gigabytes.to_i</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Maximum allowed size for media elements folder; if exceeded, upload gets
+disabled</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">PROCESSED_FILENAME_MAX_EXTENSION_SIZE</td>
+            <td>=</td>
+            <td class="attr-value">4</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Maximum size of a processed media filename extension. For our files is the
+“webm” extension size, that is 4.</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">PROCESSED_FILENAME_MAX_EXTENSION_SIZE_DOT_INCLUDED</td>
+            <td>=</td>
+            <td class="attr-value">PROCESSED_FILENAME_MAX_EXTENSION_SIZE + 1</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Above plus “dot” (<code>.</code>) size</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>column</td>
+            <td class='attr-desc'><p>Table column which will contain the media name</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>model</td>
+            <td class='attr-desc'><p>Record instance of the media</p></td>
+          </tr>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>value</td>
+            <td class='attr-desc'><p><a href="../Media.html">Media</a> value</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-folder_size">
+            
+              <b>folder_size</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-c-folder_size" name="method-c-folder_size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../Media.html">Media</a> folder size (descendants)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-folder_size_source')" id="l_method-c-folder_size_source">show</a>
+                
+              </p>
+              <div id="method-c-folder_size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">folder_size</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-number">0</span> <span class="ruby-keyword">unless</span>  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-keyword">self</span><span class="ruby-operator">::</span><span class="ruby-constant">FOLDER</span>
+  <span class="ruby-constant">Find</span>.<span class="ruby-identifier">find</span>(<span class="ruby-keyword">self</span><span class="ruby-operator">::</span><span class="ruby-constant">FOLDER</span>).<span class="ruby-identifier">sum</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-identifier">f</span>).<span class="ruby-identifier">size</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-maximum_media_elements_folder_size_exceeded-3F">
+            
+              <b>maximum_media_elements_folder_size_exceeded?</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-c-maximum_media_elements_folder_size_exceeded-3F" name="method-c-maximum_media_elements_folder_size_exceeded-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Whether the media folder size exceeds the maximum size or not</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-maximum_media_elements_folder_size_exceeded-3F_source')" id="l_method-c-maximum_media_elements_folder_size_exceeded-3F_source">show</a>
+                
+              </p>
+              <div id="method-c-maximum_media_elements_folder_size_exceeded-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">maximum_media_elements_folder_size_exceeded?</span>
+  <span class="ruby-identifier">media_elements_folder_size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">MAXIMUM_MEDIA_ELEMENTS_FOLDER_SIZE</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-media_elements_folder_size">
+            
+              <b>media_elements_folder_size</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-c-media_elements_folder_size" name="method-c-media_elements_folder_size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../Media.html">Media</a> folder size</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-media_elements_folder_size_source')" id="l_method-c-media_elements_folder_size_source">show</a>
+                
+              </p>
+              <div id="method-c-media_elements_folder_size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">media_elements_folder_size</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-number">0</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">MEDIA_ELEMENTS_FOLDER</span>.<span class="ruby-identifier">directory?</span>
+  <span class="ruby-constant">Find</span>.<span class="ruby-identifier">find</span>(<span class="ruby-constant">MEDIA_ELEMENTS_FOLDER</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">sum</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-identifier">f</span>).<span class="ruby-identifier">size</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(model, column, value)
+            
+            <a href="../../classes/Media/Uploader.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Called by the relative model attribute setter and getter</p>
+
+<h3 id="method-c-new-label-Args">Args</h3>
+<ul><li>
+<p><em>model</em>: instance to which the media supplied will be associated</p>
+</li><li>
+<p><em>column</em>: column of the record table which will contain the media
+name</p>
+</li><li>
+<p><em>value</em>: value of the media; it supports instances of the following
+classes:</p>
+</li><li>
+<p><code>String</code></p>
+</li><li>
+<p><code>File</code></p>
+</li><li>
+<p>+ActionDispatch::Http::UploadedFile+</p>
+</li><li>
+<p><code>Hash</code></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">model</span>, <span class="ruby-identifier">column</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-ivar">@model</span>, <span class="ruby-ivar">@column</span>, <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">model</span>, <span class="ruby-identifier">column</span>, <span class="ruby-identifier">value</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@value</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+    <span class="ruby-ivar">@filename_without_extension</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span> <span class="ruby-ivar">@value</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">File</span>
+    <span class="ruby-ivar">@original_file</span>     = <span class="ruby-ivar">@value</span>
+    <span class="ruby-ivar">@original_filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span> <span class="ruby-ivar">@value</span>.<span class="ruby-identifier">path</span>
+    <span class="ruby-identifier">model</span>.<span class="ruby-identifier">converted</span>    = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">Http</span><span class="ruby-operator">::</span><span class="ruby-constant">UploadedFile</span>
+    <span class="ruby-ivar">@original_file</span>     = <span class="ruby-ivar">@value</span>.<span class="ruby-identifier">tempfile</span>
+    <span class="ruby-ivar">@original_filename</span> = <span class="ruby-ivar">@value</span>.<span class="ruby-identifier">original_filename</span>
+    <span class="ruby-identifier">model</span>.<span class="ruby-identifier">converted</span>    = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-ivar">@converted_files</span>                     = <span class="ruby-ivar">@value</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">k</span> }
+    <span class="ruby-ivar">@original_filename_without_extension</span> = <span class="ruby-ivar">@value</span>[<span class="ruby-value">:filename</span>]
+    <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">instance_variable_set</span> <span class="ruby-value">:&quot;@#{duration_keys[f]}&quot;</span>, <span class="ruby-ivar">@value</span>[ <span class="ruby-identifier">duration_keys</span>[<span class="ruby-identifier">f</span>] ] }
+    <span class="ruby-identifier">version_formats</span>.<span class="ruby-identifier">each</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">instance_variable_set</span> <span class="ruby-value">:&quot;@#{version_input_path_keys[v]}&quot;</span>, <span class="ruby-ivar">@value</span>[ <span class="ruby-identifier">version_input_path_keys</span>[<span class="ruby-identifier">v</span>] ] }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@filename_without_extension</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-remove_folder-21">
+            
+              <b>remove_folder!</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-c-remove_folder-21" name="method-c-remove_folder-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Remove media folder (descendants)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-remove_folder-21_source')" id="l_method-c-remove_folder-21_source">show</a>
+                
+              </p>
+              <div id="method-c-remove_folder-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">remove_folder!</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-keyword">self</span><span class="ruby-operator">::</span><span class="ruby-constant">FOLDER</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-blank-3F">
+            
+              <b>blank?</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-blank-3F" name="method-i-blank-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns <code>false</code> (a <a href="Uploader.html">Media::Uploader</a>
+instance is never <code>blank?</code>)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-blank-3F_source')" id="l_method-i-blank-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-blank-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">blank?</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-column_changed-3F">
+            
+              <b>column_changed?</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-column_changed-3F" name="method-i-column_changed-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Whether the value of the attribute of the instance is changed</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-column_changed-3F_source')" id="l_method-i-column_changed-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-column_changed-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">column_changed?</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:&quot;#{column}_changed?&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-filename">
+            
+              <b>filename</b>(format)
+            
+            <a href="../../classes/Media/Uploader.html#method-i-filename" name="method-i-filename" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Filename of the media relative to the supplied format</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-filename_source')" id="l_method-i-filename_source">show</a>
+                
+              </p>
+              <div id="method-i-filename_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">filename</span>(<span class="ruby-identifier">format</span>)
+  <span class="ruby-node">&quot;#{filename_without_extension}.#{format}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-filename_without_extension">
+            
+              <b>filename_without_extension</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-filename_without_extension" name="method-i-filename_without_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Filename without the extension (related to the format)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-filename_without_extension_source')" id="l_method-i-filename_without_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-filename_without_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">filename_without_extension</span>
+  (<span class="ruby-ivar">@filename_without_extension</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">original_filename_without_extension</span>).<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-folder">
+            
+              <b>folder</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-folder" name="method-i-folder" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Folder of the output path</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Uploader.html#method-i-output_folder">output_folder</a>
+            </div>
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-folder_source')" id="l_method-i-folder_source">show</a>
+                
+              </p>
+              <div id="method-i-folder_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">folder</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">FOLDER</span>, <span class="ruby-identifier">model_id</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-inspect">
+            
+              <b>inspect</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-inspect" name="method-i-inspect" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Uploader.html#method-i-to_s">to_s</a>
+            </div>
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-max_processed_filename_size">
+            
+              <b>max_processed_filename_size</b>(suffix)
+            
+            <a href="../../classes/Media/Uploader.html#method-i-max_processed_filename_size" name="method-i-max_processed_filename_size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-max_processed_filename_size_source')" id="l_method-i-max_processed_filename_size_source">show</a>
+                
+              </p>
+              <div id="method-i-max_processed_filename_size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">max_processed_filename_size</span>(<span class="ruby-identifier">suffix</span>)
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;max_#{column}_column_size&quot;</span>) <span class="ruby-operator">-</span> <span class="ruby-identifier">suffix</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-constant">PROCESSED_FILENAME_MAX_EXTENSION_SIZE_DOT_INCLUDED</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-model_id">
+            
+              <b>model_id</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-model_id" name="method-i-model_id" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>id of the model instance</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-model_id_source')" id="l_method-i-model_id_source">show</a>
+                
+              </p>
+              <div id="method-i-model_id_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">model_id</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">id</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-original_filename">
+            
+              <b>original_filename</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-original_filename" name="method-i-original_filename" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Original filename</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-original_filename_source')" id="l_method-i-original_filename_source">show</a>
+                
+              </p>
+              <div id="method-i-original_filename_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">original_filename</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-ivar">@original_filename</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-original_filename_extension">
+            
+              <b>original_filename_extension</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-original_filename_extension" name="method-i-original_filename_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Original filename extension</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-original_filename_extension_source')" id="l_method-i-original_filename_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-original_filename_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">original_filename_extension</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-ivar">@original_filename</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-original_filename_without_extension">
+            
+              <b>original_filename_without_extension</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-original_filename_without_extension" name="method-i-original_filename_without_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Original filename without the extension</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-original_filename_without_extension_source')" id="l_method-i-original_filename_without_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-original_filename_without_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">original_filename_without_extension</span>
+  <span class="ruby-ivar">@original_filename_without_extension</span> <span class="ruby-operator">||</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">original_filename</span>, <span class="ruby-identifier">original_filename_extension</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-output_folder">
+            
+              <b>output_folder</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-output_folder" name="method-i-output_folder" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Uploader.html#method-i-folder">folder</a>
+            </div>
+          
+          
+          
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-output_path">
+            
+              <b>output_path</b>(format)
+            
+            <a href="../../classes/Media/Uploader.html#method-i-output_path" name="method-i-output_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Path where the uploaded/copied file will be written (related to the format)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-output_path_source')" id="l_method-i-output_path_source">show</a>
+                
+              </p>
+              <div id="method-i-output_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">output_path</span>(<span class="ruby-identifier">format</span>)
+  <span class="ruby-node">&quot;#{output_path_without_extension}.#{format}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-output_path_without_extension">
+            
+              <b>output_path_without_extension</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-output_path_without_extension" name="method-i-output_path_without_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Path where the uploaded/copied file will be written without the extension</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-output_path_without_extension_source')" id="l_method-i-output_path_without_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-output_path_without_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">output_path_without_extension</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">output_folder</span>, <span class="ruby-identifier">processed_original_filename_without_extension</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-path">
+            
+              <b>path</b>(format)
+            
+            <a href="../../classes/Media/Uploader.html#method-i-path" name="method-i-path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Absolute path of the file, related to the supplied <code>format</code>
+(<code>format</code> required)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-path_source')" id="l_method-i-path_source">show</a>
+                
+              </p>
+              <div id="method-i-path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">path</span>(<span class="ruby-identifier">format</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">format</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">*</span><span class="ruby-identifier">formats</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">folder</span>, <span class="ruby-identifier">filename</span>(<span class="ruby-identifier">format</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">*</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION_FORMATS</span>.<span class="ruby-identifier">keys</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">folder</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION_FORMATS</span>[<span class="ruby-identifier">format</span>] <span class="ruby-operator">%</span> <span class="ruby-identifier">filename_without_extension</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-paths">
+            
+              <b>paths</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-paths" name="method-i-paths" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Hash where the keys are the supported formats (version formats included)
+and the values the absolute paths of the media files</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-paths_source')" id="l_method-i-paths_source">show</a>
+                
+              </p>
+              <div id="method-i-paths_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 231</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">paths</span>
+  <span class="ruby-constant">Hash</span>[ (<span class="ruby-identifier">formats</span> <span class="ruby-operator">+</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION_FORMATS</span>.<span class="ruby-identifier">keys</span>).<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">f</span>, <span class="ruby-identifier">path</span>(<span class="ruby-identifier">f</span>)] } ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-processed_filename">
+            
+              <b>processed_filename</b>(filename, extension = nil)
+            
+            <a href="../../classes/Media/Uploader.html#method-i-processed_filename" name="method-i-processed_filename" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns a new filename adding a token (provided by the model instance),
+adding the extension if provided</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-processed_filename_source')" id="l_method-i-processed_filename_source">show</a>
+                
+              </p>
+              <div id="method-i-processed_filename_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">processed_filename</span>(<span class="ruby-identifier">filename</span>, <span class="ruby-identifier">extension</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">suffix</span>                      = <span class="ruby-node">&quot;_#{model.filename_token}&quot;</span>
+  <span class="ruby-identifier">max_processed_filename_size</span> = <span class="ruby-identifier">max_processed_filename_size</span>(<span class="ruby-identifier">suffix</span>)
+  <span class="ruby-identifier">filename_without_suffix</span>     = <span class="ruby-identifier">filename</span>.<span class="ruby-identifier">slice</span> <span class="ruby-number">0</span>, <span class="ruby-identifier">max_processed_filename_size</span>
+  <span class="ruby-node">&quot;#{filename_without_suffix.parameterize}#{suffix}&quot;</span>.<span class="ruby-identifier">tap</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;.#{extension}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">extension</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-processed_original_filename">
+            
+              <b>processed_original_filename</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-processed_original_filename" name="method-i-processed_original_filename" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Original filename after being processed by Media::Uploader.process</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-processed_original_filename_source')" id="l_method-i-processed_original_filename_source">show</a>
+                
+              </p>
+              <div id="method-i-processed_original_filename_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">processed_original_filename</span>
+  <span class="ruby-identifier">processed_filename</span> <span class="ruby-identifier">original_filename_without_extension</span>, <span class="ruby-identifier">original_filename_extension</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-processed_original_filename_without_extension">
+            
+              <b>processed_original_filename_without_extension</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-processed_original_filename_without_extension" name="method-i-processed_original_filename_without_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Original filename after being processed by Media::Uploader.process without
+the extension</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-processed_original_filename_without_extension_source')" id="l_method-i-processed_original_filename_without_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-processed_original_filename_without_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">processed_original_filename_without_extension</span>
+  <span class="ruby-identifier">processed_filename</span> <span class="ruby-identifier">original_filename_without_extension</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-public_relative_folder">
+            
+              <b>public_relative_folder</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-public_relative_folder" name="method-i-public_relative_folder" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Folder of the output path relative to the Rails static resources folder (in
+order to be used by URLs)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-public_relative_folder_source')" id="l_method-i-public_relative_folder_source">show</a>
+                
+              </p>
+              <div id="method-i-public_relative_folder_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">public_relative_folder</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-string">&#39;/&#39;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">PUBLIC_RELATIVE_FOLDER</span>, <span class="ruby-identifier">model_id</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-public_relative_path">
+            
+              <b>public_relative_path</b>(format = nil)
+            
+            <a href="../../classes/Media/Uploader.html#method-i-public_relative_path" name="method-i-public_relative_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the public relative path related to the supplied format, or without
+extension if format is blank</p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Uploader.html#method-i-url">url</a>
+            </div>
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-public_relative_path_source')" id="l_method-i-public_relative_path_source">show</a>
+                
+              </p>
+              <div id="method-i-public_relative_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">public_relative_path</span>(<span class="ruby-identifier">format</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">public_relative_folder</span>, (
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">format</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-operator">-</span><span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">f</span>) { <span class="ruby-identifier">f</span>.<span class="ruby-identifier">blank?</span> }
+      <span class="ruby-identifier">filename_without_extension</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-operator">*</span><span class="ruby-identifier">formats</span>
+      <span class="ruby-identifier">filename</span>(<span class="ruby-identifier">format</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-operator">*</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION_FORMATS</span>.<span class="ruby-identifier">keys</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION_FORMATS</span>[<span class="ruby-identifier">format</span>] <span class="ruby-operator">%</span> <span class="ruby-identifier">filename_without_extension</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-keyword">end</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-rename-3F">
+            
+              <b>rename?</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-rename-3F" name="method-i-rename-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Whether the value of the attribute of the instance can be renamed</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-rename-3F_source')" id="l_method-i-rename-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-rename-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">rename?</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:&quot;rename_#{column}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-size">
+            
+              <b>size</b>(format)
+            
+            <a href="../../classes/Media/Uploader.html#method-i-size" name="method-i-size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-size_source')" id="l_method-i-size_source">show</a>
+                
+              </p>
+              <div id="method-i-size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">size</span>(<span class="ruby-identifier">format</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">size</span> <span class="ruby-identifier">path</span>(<span class="ruby-identifier">format</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_hash">
+            
+              <b>to_hash</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-to_hash" name="method-i-to_hash" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Hash where the keys are the supported formats (version formats excluded)
+plus a pair key =&gt; value where the key is <code>:filename</code> and the
+value <a
+href="Uploader.html#method-i-filename_without_extension">#filename_without_extension</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_hash_source')" id="l_method-i-to_hash_source">show</a>
+                
+              </p>
+              <div id="method-i-to_hash_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_hash</span>
+  <span class="ruby-constant">Hash</span>[ <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">f</span>, <span class="ruby-identifier">path</span>(<span class="ruby-identifier">f</span>)] } ].<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">filename</span><span class="ruby-operator">:</span> <span class="ruby-identifier">filename_without_extension</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_s">
+            
+              <b>to_s</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-to_s" name="method-i-to_s" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>If the attribute is changed and can be renamed returns the processed
+filename, otherwise returns <a
+href="Uploader.html#method-i-public_relative_path">#public_relative_path</a></p>
+            </div>
+          
+          
+          
+            <div class="aka">
+              Also aliased as: <a href="Uploader.html#method-i-inspect">inspect</a>
+            </div>
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_s_source')" id="l_method-i-to_s_source">show</a>
+                
+              </p>
+              <div id="method-i-to_s_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_s</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">column_changed?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">rename?</span>
+    <span class="ruby-identifier">processed_filename</span> <span class="ruby-ivar">@value</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">public_relative_path</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-upload_or_copy">
+            
+              <b>upload_or_copy</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-upload_or_copy" name="method-i-upload_or_copy" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Start the upload or the copy processing, depending on <code>@value</code></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-upload_or_copy_source')" id="l_method-i-upload_or_copy_source">show</a>
+                
+              </p>
+              <div id="method-i-upload_or_copy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">upload_or_copy</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;model_id cannot be blank&#39;</span>, <span class="ruby-identifier">model</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@model</span>, <span class="ruby-identifier">column</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@column</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@value</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">model_id</span>.<span class="ruby-identifier">blank?</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@converted_files</span>
+    <span class="ruby-identifier">copy</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@original_file</span>
+    <span class="ruby-identifier">upload</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-url">
+            
+              <b>url</b>(format = nil)
+            
+            <a href="../../classes/Media/Uploader.html#method-i-url" name="method-i-url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+            <div class="aka">
+              Alias for: <a href="Uploader.html#method-i-public_relative_path">public_relative_path</a>
+            </div>
+          
+          
+          
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-copy">
+            
+              <b>copy</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-copy" name="method-i-copy" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Executes the copy process</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-copy_source')" id="l_method-i-copy_source">show</a>
+                
+              </p>
+              <div id="method-i-copy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 282</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">copy</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-identifier">output_folder</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-identifier">output_folder</span>
+  
+  <span class="ruby-identifier">infos</span> = {}
+  <span class="ruby-ivar">@converted_files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span>, <span class="ruby-identifier">input_path</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">output_path</span> = <span class="ruby-identifier">output_path</span>(<span class="ruby-identifier">format</span>)
+    <span class="ruby-comment"># se il percorso del file è uguale a quello vecchio è lo stesso file; per cui non copio</span>
+    <span class="ruby-comment"># (è un caso che si verifica p.e. nel caso di un errore nel Composer, che ripristina il file vecchio)</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span> <span class="ruby-identifier">input_path</span>, <span class="ruby-identifier">output_path</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">input_path</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">output_path</span>
+
+    <span class="ruby-identifier">model</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:&quot;#{format}_duration=&quot;</span>, 
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">durations?</span>
+        <span class="ruby-identifier">durations</span>[<span class="ruby-identifier">format</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">info</span> = <span class="ruby-constant">Info</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">output_path</span>)
+        <span class="ruby-identifier">infos</span>[<span class="ruby-identifier">format</span>] = <span class="ruby-identifier">info</span>
+        <span class="ruby-identifier">info</span>.<span class="ruby-identifier">duration</span>
+      <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">extract_versions</span>(<span class="ruby-identifier">infos</span>)
+
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">converted</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:&quot;rename_#{column}=&quot;</span>, <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:&quot;#{column}=&quot;</span>, <span class="ruby-identifier">processed_original_filename_without_extension</span>
+  <span class="ruby-identifier">model</span>[<span class="ruby-identifier">column</span>] = <span class="ruby-identifier">processed_original_filename_without_extension</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">save!</span>
+
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:&quot;rename_#{column}=&quot;</span>, <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">skip_conversion</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">model</span>.<span class="ruby-identifier">send</span> <span class="ruby-value">:&quot;reload_#{column}&quot;</span>
+
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-duration_keys">
+            
+              <b>duration_keys</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-duration_keys" name="method-i-duration_keys" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Hash where the keys are the formats and the values are the keys to be used
+in the initializer in order to submit the durations</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-duration_keys_source')" id="l_method-i-duration_keys_source">show</a>
+                
+              </p>
+              <div id="method-i-duration_keys_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 267</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">duration_keys</span>
+  <span class="ruby-ivar">@duration_keys</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>[ <span class="ruby-identifier">formats</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> [ <span class="ruby-identifier">f</span>, <span class="ruby-value">:&quot;#{f}_duration&quot;</span> ] } ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-durations">
+            
+              <b>durations</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-durations" name="method-i-durations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Hash where the keys are the versions and the values are the respective
+instance variable values</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-durations_source')" id="l_method-i-durations_source">show</a>
+                
+              </p>
+              <div id="method-i-durations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 272</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">durations</span>
+  <span class="ruby-ivar">@durations</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>[ <span class="ruby-identifier">duration_keys</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">f</span>, <span class="ruby-identifier">k</span><span class="ruby-operator">|</span> [ <span class="ruby-identifier">f</span>, <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:&quot;@#{k}&quot;</span>) ] } ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-durations-3F">
+            
+              <b>durations?</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-durations-3F" name="method-i-durations-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Whether the durations have been provided or not</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-durations-3F_source')" id="l_method-i-durations-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-durations-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 277</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">durations?</span>
+  <span class="ruby-identifier">durations</span>.<span class="ruby-identifier">all?</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">duration</span><span class="ruby-operator">|</span> <span class="ruby-identifier">duration</span>.<span class="ruby-identifier">present?</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_versions">
+            
+              <b>extract_versions</b>(infos)
+            
+            <a href="../../classes/Media/Uploader.html#method-i-extract_versions" name="method-i-extract_versions" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Implemented by the descendant classes in order to extract the versions
+needed (used by <a href="Uploader.html#method-i-copy">#copy</a>)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extract_versions_source')" id="l_method-i-extract_versions_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_versions_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 318</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extract_versions</span>(<span class="ruby-identifier">infos</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-formats">
+            
+              <b>formats</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-formats" name="method-i-formats" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Instance-level alias of +self.class::FORMATS+</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-formats_source')" id="l_method-i-formats_source">show</a>
+                
+              </p>
+              <div id="method-i-formats_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">formats</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">FORMATS</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-upload">
+            
+              <b>upload</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-upload" name="method-i-upload" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Executes the upload process</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-upload_source')" id="l_method-i-upload_source">show</a>
+                
+              </p>
+              <div id="method-i-upload_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 329</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">upload</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">model</span>.<span class="ruby-identifier">skip_conversion</span>
+
+  <span class="ruby-identifier">conversion_temp_path</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">CONVERSION_CLASS</span>.<span class="ruby-identifier">temp_path</span>(<span class="ruby-identifier">model_id</span>, <span class="ruby-identifier">original_filename</span>)
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">conversion_temp_path</span>)
+
+  <span class="ruby-comment"># FIXME Test environment doesn&#39;t use delayed_job, so parallel execution breaks tests</span>
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">env</span>.<span class="ruby-identifier">test?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">upload_copy_and_job</span>(<span class="ruby-identifier">conversion_temp_path</span>) <span class="ruby-operator">:</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">&amp;</span><span class="ruby-constant">ThreadProc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">upload_copy_and_job</span>(<span class="ruby-identifier">conversion_temp_path</span>) })
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-upload_copy_and_job">
+            
+              <b>upload_copy_and_job</b>(conversion_temp_path)
+            
+            <a href="../../classes/Media/Uploader.html#method-i-upload_copy_and_job" name="method-i-upload_copy_and_job" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Executes the copy of the uploaded file to the temporary folder and add
+related job to the jobs queue</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-upload_copy_and_job_source')" id="l_method-i-upload_copy_and_job_source">show</a>
+                
+              </p>
+              <div id="method-i-upload_copy_and_job_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 323</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">upload_copy_and_job</span>(<span class="ruby-identifier">conversion_temp_path</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span> <span class="ruby-ivar">@original_file</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">conversion_temp_path</span>
+  <span class="ruby-constant">Delayed</span><span class="ruby-operator">::</span><span class="ruby-constant">Job</span>.<span class="ruby-identifier">enqueue</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">CONVERSION_CLASS</span><span class="ruby-operator">::</span><span class="ruby-constant">Job</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@original_file</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">output_path_without_extension</span>, <span class="ruby-identifier">original_filename</span>, <span class="ruby-identifier">model_id</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-version_formats">
+            
+              <b>version_formats</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-version_formats" name="method-i-version_formats" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Instance-level alias of +self.class::VERSION_FORMATS+</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-version_formats_source')" id="l_method-i-version_formats_source">show</a>
+                
+              </p>
+              <div id="method-i-version_formats_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">version_formats</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION_FORMATS</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-version_input_path_keys">
+            
+              <b>version_input_path_keys</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-version_input_path_keys" name="method-i-version_input_path_keys" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Hash where the keys are the versions and the values are the keys to be used
+in the initializer in order to submit the version input paths</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-version_input_path_keys_source')" id="l_method-i-version_input_path_keys_source">show</a>
+                
+              </p>
+              <div id="method-i-version_input_path_keys_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">version_input_path_keys</span>
+  <span class="ruby-ivar">@version_input_path_keys</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>[ <span class="ruby-identifier">version_formats</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> [ <span class="ruby-identifier">v</span>, <span class="ruby-value">:&quot;#{v}&quot;</span> ] } ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-version_input_paths">
+            
+              <b>version_input_paths</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-version_input_paths" name="method-i-version_input_paths" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Hash where the keys are the versions and the values are the respective
+instance variable values</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-version_input_paths_source')" id="l_method-i-version_input_paths_source">show</a>
+                
+              </p>
+              <div id="method-i-version_input_paths_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">version_input_paths</span>
+  <span class="ruby-ivar">@version_input_paths</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>[ <span class="ruby-identifier">version_input_path_keys</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span>, <span class="ruby-identifier">k</span><span class="ruby-operator">|</span> [ <span class="ruby-identifier">v</span>, <span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:&quot;@#{k}&quot;</span>) ] } ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-version_input_paths-3F">
+            
+              <b>version_input_paths?</b>()
+            
+            <a href="../../classes/Media/Uploader.html#method-i-version_input_paths-3F" name="method-i-version_input_paths-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Whether the version input paths have been provided or not</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-version_input_paths-3F_source')" id="l_method-i-version_input_paths-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-version_input_paths-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/uploader.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">version_input_paths?</span>
+  <span class="ruby-identifier">version_input_paths</span>.<span class="ruby-identifier">all?</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">version_input_path</span><span class="ruby-operator">|</span> <span class="ruby-identifier">version_input_path</span>.<span class="ruby-identifier">present?</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

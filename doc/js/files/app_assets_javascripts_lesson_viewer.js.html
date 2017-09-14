@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>app/assets/javascripts/lesson_viewer.js - DESY</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="DESY"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdminAutocomplete.html">AdminAutocomplete</a></li>
+            
+                <li><a href="../classes/AdminBrowserSupport.html">AdminBrowserSupport</a></li>
+            
+                <li><a href="../classes/AdminCollapsed.html">AdminCollapsed</a></li>
+            
+                <li><a href="../classes/AdminDocumentReady.html">AdminDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderBinder.html">AjaxLoaderBinder</a></li>
+            
+                <li><a href="../classes/AjaxLoaderDocumentReady.html">AjaxLoaderDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderVisibility.html">AjaxLoaderVisibility</a></li>
+            
+                <li><a href="../classes/AudioEditorComponents.html">AudioEditorComponents</a></li>
+            
+                <li><a href="../classes/AudioEditorCutters.html">AudioEditorCutters</a></li>
+            
+                <li><a href="../classes/AudioEditorDocumentReady.html">AudioEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/AudioEditorGalleries.html">AudioEditorGalleries</a></li>
+            
+                <li><a href="../classes/AudioEditorGeneral.html">AudioEditorGeneral</a></li>
+            
+                <li><a href="../classes/AudioEditorGraphics.html">AudioEditorGraphics</a></li>
+            
+                <li><a href="../classes/AudioEditorPreview.html">AudioEditorPreview</a></li>
+            
+                <li><a href="../classes/AudioEditorScrollpain.html">AudioEditorScrollpain</a></li>
+            
+                <li><a href="../classes/BrowserSupportMain.html">BrowserSupportMain</a></li>
+            
+                <li><a href="../classes/ButtonsAccessories.html">ButtonsAccessories</a></li>
+            
+                <li><a href="../classes/ButtonsDocumentReady.html">ButtonsDocumentReady</a></li>
+            
+                <li><a href="../classes/ButtonsLesson.html">ButtonsLesson</a></li>
+            
+                <li><a href="../classes/ButtonsMediaElement.html">ButtonsMediaElement</a></li>
+            
+                <li><a href="../classes/DashboardAccessories.html">DashboardAccessories</a></li>
+            
+                <li><a href="../classes/DashboardExpandedContents.html">DashboardExpandedContents</a></li>
+            
+                <li><a href="../classes/DashboardLessonDescriptions.html">DashboardLessonDescriptions</a></li>
+            
+                <li><a href="../classes/DashboardResizing.html">DashboardResizing</a></li>
+            
+                <li><a href="../classes/DialogsAccessories.html">DialogsAccessories</a></li>
+            
+                <li><a href="../classes/DialogsConfirmation.html">DialogsConfirmation</a></li>
+            
+                <li><a href="../classes/DialogsGalleries.html">DialogsGalleries</a></li>
+            
+                <li><a href="../classes/DialogsTimed.html">DialogsTimed</a></li>
+            
+                <li><a href="../classes/DialogsWithForm.html">DialogsWithForm</a></li>
+            
+                <li><a href="../classes/GalleriesAccessories.html">GalleriesAccessories</a></li>
+            
+                <li><a href="../classes/GalleriesDocumentReady.html">GalleriesDocumentReady</a></li>
+            
+                <li><a href="../classes/GalleriesInitializers.html">GalleriesInitializers</a></li>
+            
+                <li><a href="../classes/GeneralCentering.html">GeneralCentering</a></li>
+            
+                <li><a href="../classes/GeneralDocumentReady.html">GeneralDocumentReady</a></li>
+            
+                <li><a href="../classes/GeneralMiscellanea.html">GeneralMiscellanea</a></li>
+            
+                <li><a href="../classes/GeneralUrls.html">GeneralUrls</a></li>
+            
+                <li><a href="../classes/ImageEditorDocumentReady.html">ImageEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/ImageEditorGraphics.html">ImageEditorGraphics</a></li>
+            
+                <li><a href="../classes/ImageEditorImageScale.html">ImageEditorImageScale</a></li>
+            
+                <li><a href="../classes/ImageEditorTexts.html">ImageEditorTexts</a></li>
+            
+                <li><a href="../classes/JqueryBrowsersDetection.html">JqueryBrowsersDetection</a></li>
+            
+                <li><a href="../classes/JqueryPatchesBrowsers.html">JqueryPatchesBrowsers</a></li>
+            
+                <li><a href="../classes/LessonEditorCurrentSlide.html">LessonEditorCurrentSlide</a></li>
+            
+                <li><a href="../classes/LessonEditorDocumentReady.html">LessonEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonEditorForms.html">LessonEditorForms</a></li>
+            
+                <li><a href="../classes/LessonEditorGalleries.html">LessonEditorGalleries</a></li>
+            
+                <li><a href="../classes/LessonEditorImageResizing.html">LessonEditorImageResizing</a></li>
+            
+                <li><a href="../classes/LessonEditorJqueryAnimations.html">LessonEditorJqueryAnimations</a></li>
+            
+                <li><a href="../classes/LessonEditorSlideLoading.html">LessonEditorSlideLoading</a></li>
+            
+                <li><a href="../classes/LessonEditorSlidesNavigation.html">LessonEditorSlidesNavigation</a></li>
+            
+                <li><a href="../classes/LessonEditorTinyMCE.html">LessonEditorTinyMCE</a></li>
+            
+                <li><a href="../classes/LessonViewerDocumentReady.html">LessonViewerDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonViewerGeneral.html">LessonViewerGeneral</a></li>
+            
+                <li><a href="../classes/LessonViewerGraphics.html">LessonViewerGraphics</a></li>
+            
+                <li><a href="../classes/LessonViewerPlaylist.html">LessonViewerPlaylist</a></li>
+            
+                <li><a href="../classes/LessonViewerSlidesNavigation.html">LessonViewerSlidesNavigation</a></li>
+            
+                <li><a href="../classes/MediaElementEditorCache.html">MediaElementEditorCache</a></li>
+            
+                <li><a href="../classes/MediaElementEditorConversion.html">MediaElementEditorConversion</a></li>
+            
+                <li><a href="../classes/MediaElementEditorDocumentReady.html">MediaElementEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/MediaElementEditorForms.html">MediaElementEditorForms</a></li>
+            
+                <li><a href="../classes/MediaElementEditorHorizontalTimelines.html">MediaElementEditorHorizontalTimelines</a></li>
+            
+                <li><a href="../classes/NotificationsAccessories.html">NotificationsAccessories</a></li>
+            
+                <li><a href="../classes/NotificationsDocumentReady.html">NotificationsDocumentReady</a></li>
+            
+                <li><a href="../classes/NotificationsGraphics.html">NotificationsGraphics</a></li>
+            
+                <li><a href="../classes/PlayersAudioEditor.html">PlayersAudioEditor</a></li>
+            
+                <li><a href="../classes/PlayersCommon.html">PlayersCommon</a></li>
+            
+                <li><a href="../classes/PlayersDocumentReady.html">PlayersDocumentReady</a></li>
+            
+                <li><a href="../classes/PlayersGeneral.html">PlayersGeneral</a></li>
+            
+                <li><a href="../classes/PlayersVideoEditor.html">PlayersVideoEditor</a></li>
+            
+                <li><a href="../classes/ProfilePrelogin.html">ProfilePrelogin</a></li>
+            
+                <li><a href="../classes/ProfileUsers.html">ProfileUsers</a></li>
+            
+                <li><a href="../classes/SearchDocumentReady.html">SearchDocumentReady</a></li>
+            
+                <li><a href="../classes/TagsAccessories.html">TagsAccessories</a></li>
+            
+                <li><a href="../classes/TagsInitializers.html">TagsInitializers</a></li>
+            
+                <li><a href="../classes/UploaderDocumentReady.html">UploaderDocumentReady</a></li>
+            
+                <li><a href="../classes/UploaderGlobal.html">UploaderGlobal</a></li>
+            
+                <li><a href="../classes/UploaderLoadingBar.html">UploaderLoadingBar</a></li>
+            
+                <li><a href="../classes/VideoEditorAddComponents.html">VideoEditorAddComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorComponents.html">VideoEditorComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorCutters.html">VideoEditorCutters</a></li>
+            
+                <li><a href="../classes/VideoEditorDocumentReady.html">VideoEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/VideoEditorGalleries.html">VideoEditorGalleries</a></li>
+            
+                <li><a href="../classes/VideoEditorGeneral.html">VideoEditorGeneral</a></li>
+            
+                <li><a href="../classes/VideoEditorPreview.html">VideoEditorPreview</a></li>
+            
+                <li><a href="../classes/VideoEditorPreviewAccessories.html">VideoEditorPreviewAccessories</a></li>
+            
+                <li><a href="../classes/VideoEditorReplaceComponents.html">VideoEditorReplaceComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorScrollPain.html">VideoEditorScrollPain</a></li>
+            
+                <li><a href="../classes/VideoEditorTextComponentEditor.html">VideoEditorTextComponentEditor</a></li>
+            
+                <li><a href="../classes/VirtualClassroomDocumentReady.html">VirtualClassroomDocumentReady</a></li>
+            
+                <li><a href="../classes/VirtualClassroomJavaScriptAnimations.html">VirtualClassroomJavaScriptAnimations</a></li>
+            
+                <li><a href="../classes/VirtualClassroomMultipleLoading.html">VirtualClassroomMultipleLoading</a></li>
+            
+                <li><a href="../classes/VirtualClassroomSendLink.html">VirtualClassroomSendLink</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/admin.html">admin</a></li>
+            
+                <li><a href="../modules/ajax-loader.html">ajax-loader</a></li>
+            
+                <li><a href="../modules/audio-editor.html">audio-editor</a></li>
+            
+                <li><a href="../modules/browser-support.html">browser-support</a></li>
+            
+                <li><a href="../modules/buttons.html">buttons</a></li>
+            
+                <li><a href="../modules/dashboard.html">dashboard</a></li>
+            
+                <li><a href="../modules/dialogs.html">dialogs</a></li>
+            
+                <li><a href="../modules/galleries.html">galleries</a></li>
+            
+                <li><a href="../modules/general.html">general</a></li>
+            
+                <li><a href="../modules/image-editor.html">image-editor</a></li>
+            
+                <li><a href="../modules/jquery-browsers.html">jquery-browsers</a></li>
+            
+                <li><a href="../modules/jquery-patches.html">jquery-patches</a></li>
+            
+                <li><a href="../modules/lesson-editor.html">lesson-editor</a></li>
+            
+                <li><a href="../modules/lesson-viewer.html">lesson-viewer</a></li>
+            
+                <li><a href="../modules/media-element-editor.html">media-element-editor</a></li>
+            
+                <li><a href="../modules/notifications.html">notifications</a></li>
+            
+                <li><a href="../modules/players.html">players</a></li>
+            
+                <li><a href="../modules/profile.html">profile</a></li>
+            
+                <li><a href="../modules/search.html">search</a></li>
+            
+                <li><a href="../modules/tags.html">tags</a></li>
+            
+                <li><a href="../modules/uploader.html">uploader</a></li>
+            
+                <li><a href="../modules/video-editor.html">video-editor</a></li>
+            
+                <li><a href="../modules/virtual-classroom.html">virtual-classroom</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: app/assets/javascripts/lesson_viewer.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+The Lesson Viewer is the instrument to reporoduce single and multiple lessons (playlists). The Viewer provides the user of a screen containing the current slide with &lt;b&gt;two arrows&lt;/b&gt; to switch to the next one. If the lesson is being reproduced inside a playlist, it&#x27;s additionally available a &lt;b&gt;playlst menu&lt;/b&gt; (opened on the bottom of the current slide).
+&lt;br/&gt;&lt;br/&gt;
+The main methods of this module are {{#crossLink &quot;LessonViewerSlidesNavigation/slideToInLessonViewer:method&quot;}}{{/crossLink}} (moves to a given slide) and {{#crossLink &quot;LessonViewerPlaylist/switchLessonInPlaylistMenuLessonViewer:method&quot;}}{{/crossLink}} (moves to the first slide of a given lesson and updates the selected lesson in the menu). The first method can be used separately if there is no playlist, or together with the second one if there is one (they are called together inside {{#crossLink &quot;LessonViewerSlidesNavigation/slideToInLessonViewerWithLessonSwitch:method&quot;}}{{/crossLink}}).
+&lt;br/&gt;&lt;br/&gt;
+Additionally, {{#crossLink &quot;LessonViewerPlaylist/switchLessonInPlaylistMenuLessonViewer:method&quot;}}{{/crossLink}} can be provided of a callback that is passed to {{#crossLink &quot;LessonViewerPlaylist/selectComponentInLessonViewerPlaylistMenu:method&quot;}}{{/crossLink}} and executed after the animation of the scroll inside the lesson menu: the callback is used when the user selects a lesson directly from the menu, and {{#crossLink &quot;LessonViewerSlidesNavigation/slideToInLessonViewer:method&quot;}}{{/crossLink}} is executed to get to the cover of the selected lesson after that the menu has been closed.
+&lt;br/&gt;&lt;br/&gt;
+There are &lt;b&gt;three known bugs&lt;/b&gt; due to the bad quality of the plugin &lt;b&gt;JScrollPain&lt;/b&gt;:
+&lt;ul&gt;
+  &lt;li&gt;When the user passes from &lt;i&gt;the first slide of the third lesson&lt;/i&gt; to &lt;i&gt;the last slide of the second lesson&lt;/i&gt;, the scroll doesn&#x27;t follow the selection of the new lesson&lt;/li&gt;
+  &lt;li&gt;Same problem when the user passes from &lt;i&gt;the last slide of the last lesson&lt;/i&gt; to &lt;i&gt;the first slide of the first lesson&lt;/i&gt;&lt;/li&gt;
+  &lt;li&gt;If, after having opened &lt;b&gt;for the first time&lt;/b&gt; (and only for that time) the playlist menu, I click before two seconds on a lesson, the menu gets broken&lt;/li&gt;
+&lt;/ul&gt;
+@module lesson-viewer
+**/
+
+
+
+
+
+/**
+Initializer for functionalities of attached documents.
+@method lessonViewerDocumentReadyDocuments
+@for LessonViewerDocumentReady
+**/
+function lessonViewerDocumentReadyDocuments() {
+  $body.on(&#x27;click&#x27;, &#x27;._lesson_viewer_current_slide .attached_document_internal&#x27;, function() {
+    showDocumentsInLessonViewer();
+  });
+  $body.on(&#x27;mouseleave&#x27;, &#x27;._lesson_viewer_current_slide .attached_document_internal_expanded&#x27;, function() {
+    hideDocumentsInLessonViewer();
+  });
+}
+
+/**
+Initializer for functionalities of the playlist menu.
+@method lessonViewerDocumentReadyPlaylist
+@for LessonViewerDocumentReady
+**/
+function lessonViewerDocumentReadyPlaylist() {
+  selectComponentInLessonViewerPlaylistMenu($(&#x27;._playlist_menu_item&#x27;).first());
+  $body.on(&#x27;click&#x27;, &#x27;#carousel_container a&#x27;, function() {
+    var me = $(this);
+    if(!me.hasClass(&#x27;esciButton&#x27;) &amp;&amp; !me.hasClass(&#x27;_playlist_menu_item&#x27;) &amp;&amp; !me.hasClass(&#x27;_open_playlist&#x27;) &amp;&amp; !me.hasClass(&#x27;_close_playlist&#x27;)) {
+      closePlaylistMenuInLessonViewer(function() {});
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._playlist_menu_item&#x27;, function() {
+    var lesson_id = $(this).data(&#x27;lesson-id&#x27;);
+    switchLessonInPlaylistMenuLessonViewer(lesson_id, function() {
+      closePlaylistMenuInLessonViewer(function() {
+        slideToInLessonViewer($(&#x27;._cover_bookmark_for_lesson_viewer_&#x27; + lesson_id, false));
+      });
+    });
+  });
+  $body.on(&#x27;click&#x27;, &#x27;a._open_playlist&#x27;, function() {
+    if(!$(this).data(&#x27;loaded&#x27;) &amp;&amp; $(&#x27;._playlist_menu_item&#x27;).length &gt; 3) {
+      $(this).data(&#x27;loaded&#x27;, true);
+      $(&#x27;#playlist_menu&#x27;).jScrollPane({
+        autoReinitialise: true,
+        contentWidth: (($(&#x27;._playlist_menu_item&#x27;).length * 307) - 60)
+      });
+    }
+    stopMediaInLessonViewer();
+    openPlaylistMenuInLessonViewer();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;a._close_playlist&#x27;, function() {
+    closePlaylistMenuInLessonViewer(function() {});
+  });
+}
+
+/**
+Initializer for functionalities that must be separated in exported lessons.
+@method lessonViewerDocumentReadySeparated
+@for LessonViewerDocumentReady
+**/
+function lessonViewerDocumentReadySeparated() {
+  $body.on(&#x27;click&#x27;, &#x27;#open_export_lesson&#x27;, function() {
+    $(this).hide();
+    $(&#x27;#export_lesson&#x27;).show();
+  });
+  $body.on(&#x27;mouseleave&#x27;, &#x27;#export_lesson&#x27;, function(e) {
+    $(this).hide();
+    $(&#x27;#open_export_lesson&#x27;).show();
+  });
+  $body.on(&#x27;mouseleave&#x27;, &#x27;.playlistMenu&#x27;, function(e) {
+    closePlaylistMenuInLessonViewer(function() {});
+  });
+}
+
+/**
+Initializer for slides navigation.
+@method lessonViewerDocumentReadySlidesNavigation
+@for LessonViewerDocumentReady
+**/
+function lessonViewerDocumentReadySlidesNavigation() {
+  var scrolls = $(&#x27;#left_scroll, #right_scroll&#x27;);
+  $(document.documentElement).keyup(function(e) {
+    if(e.keyCode == 37) {
+      moveToAdhiacentSlideInLessonViewer(scrolls, goToPrevSlideInLessonViewer);
+    } else if(e.keyCode == 39) {
+      moveToAdhiacentSlideInLessonViewer(scrolls, goToNextSlideInLessonViewer);
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#left_scroll&#x27;, function(e) {
+    e.preventDefault();
+    moveToAdhiacentSlideInLessonViewer(scrolls, goToPrevSlideInLessonViewer);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#right_scroll&#x27;, function(e) {
+    e.preventDefault();
+    moveToAdhiacentSlideInLessonViewer(scrolls, goToNextSlideInLessonViewer);
+  });
+  $(&#x27;.lesson-viewer-layout&#x27;).on(&#x27;swiperight&#x27;, function() {
+    if(mustReactToSwipe()) {
+      moveToAdhiacentSlideInLessonViewer(scrolls, goToPrevSlideInLessonViewer);
+    }
+  });
+  $(&#x27;.lesson-viewer-layout&#x27;).on(&#x27;swipeleft&#x27;, function() {
+    if(mustReactToSwipe()) {
+      moveToAdhiacentSlideInLessonViewer(scrolls, goToNextSlideInLessonViewer);
+    }
+  });
+}
+
+/**
+Initializer for functionality of sharing the lesson in social networks.
+@method lessonViewerDocumentReadySocialNetworks
+@for LessonViewerDocumentReady
+**/
+function lessonViewerDocumentReadySocialNetworks() {
+  $body.on(&#x27;click&#x27;, &#x27;#open_social_networks&#x27;, function() {
+    $(this).hide();
+    $(&#x27;#social_networks&#x27;).show();
+  });
+  $body.on(&#x27;mouseleave&#x27;, &#x27;#social_networks&#x27;, function(e) {
+    $(this).hide();
+    $(&#x27;#open_social_networks&#x27;).show();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#social_networks .facebook&#x27;, function() {
+    $(&#x27;#social_networks&#x27;).hide();
+    $(&#x27;#open_social_networks&#x27;).show();
+    var fb_url = &#x27;https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=&#x27; + encodeURIComponent($(this).data(&#x27;url&#x27;));
+    fb_url += &#x27;&amp;p[summary]=&#x27; + encodeURIComponent($(this).data(&#x27;description&#x27;));
+    fb_url += &#x27;&amp;p[title]=&#x27; + encodeURIComponent($(&#x27;title&#x27;).html());
+    if($(this).data(&#x27;image&#x27;) != undefined) {
+      fb_url += &#x27;&amp;p[images][0]=&#x27; + encodeURIComponent($(this).data(&#x27;image&#x27;));
+    }
+    window.open(
+      fb_url,
+      &#x27;facebook-share-dialog&#x27;,
+      &#x27;width=626,height=436&#x27;
+    );
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#social_networks .twitter&#x27;, function() {
+    $(&#x27;#social_networks&#x27;).hide();
+    $(&#x27;#open_social_networks&#x27;).show();
+    var tw_url = &#x27;https://twitter.com/intent/tweet?original_referer=&#x27; + encodeURIComponent($(this).data(&#x27;url&#x27;));
+    tw_url += &#x27;&amp;text=&#x27; + encodeURIComponent($(&#x27;title&#x27;).html());
+    tw_url += &#x27;&amp;tw_p=tweetbutton&amp;url=&#x27; + encodeURIComponent($(this).data(&#x27;url&#x27;));
+    window.open(
+      tw_url,
+      &#x27;twitter-share-dialog&#x27;,
+      &#x27;width=626,height=436&#x27;
+    );
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#social_networks .google-plus&#x27;, function() {
+    $(&#x27;#social_networks&#x27;).hide();
+    $(&#x27;#open_social_networks&#x27;).show();
+    var gp_url = &#x27;https://plus.google.com/share?url=&#x27; + encodeURIComponent($(this).data(&#x27;url&#x27;));
+    window.open(
+      gp_url,
+      &#x27;google-plus-share-dialog&#x27;,
+      &#x27;width=626,height=436&#x27;
+    );
+  });
+}
+
+/**
+Used only in the exported lesson, to convert the src of Wiris images (this function is not called by the document ready in normal application.js).
+@method lessonViewerDocumentReadyWirisConvertSrc
+@for LessonViewerDocumentReady
+**/
+function lessonViewerDocumentReadyWirisConvertSrc() {
+  var $images = $.each( $(&#x27;img.Wirisformula&#x27;), function(i, el) {
+    var $el = $(el);
+    $el.attr( &#x27;src&#x27;, &#x27;math_images/&#x27;+UrlParser.parse($el.attr(&#x27;src&#x27;)).searchObj.formula );
+  });
+}
+
+
+
+
+
+/**
+Gets the HTML id of the current slide (marked with the class &lt;b&gt;lesson viewer current slide&lt;/b&gt;).
+@method getLessonViewerCurrentSlide
+@for LessonViewerGeneral
+@return {String} HTML id of the current slide
+**/
+function getLessonViewerCurrentSlide() {
+  return $(&#x27;#&#x27; + $(&#x27;._lesson_viewer_current_slide&#x27;).attr(&#x27;id&#x27;));
+}
+
+/**
+Hides the documents.
+@method hideDocumentsInLessonViewer
+@for LessonViewerGeneral
+**/
+function hideDocumentsInLessonViewer() {
+  $(&#x27;._lesson_viewer_current_slide .attached_document_internal&#x27;).show();
+  $(&#x27;._lesson_viewer_current_slide .attached_document_internal_expanded&#x27;).hide();
+}
+
+/**
+Initializes the positions, and selects the right lesson in the playlist menu.
+@method initializeLessonViewer
+@for LessonViewerGeneral
+@param layout_scope {String} the scope of the layout (lesson viewer, lesson archive, lesson scorm)
+**/
+function initializeLessonViewer(layout_scope) {
+  if($(&#x27;._playlist_menu_item&#x27;).length &lt;= 3) {
+    $(&#x27;#playlist_menu&#x27;).css(&#x27;overflow&#x27;, &#x27;hidden&#x27;);
+  }
+  var height = $window.height();
+  var margin_top = (height - 690) / 2;
+  if(margin_top &lt; 50) {
+    margin_top = 50;
+  }
+  $(&#x27;.&#x27; + layout_scope + &#x27;-layout .container&#x27;).css(&#x27;margin-top&#x27;, margin_top + &#x27;px&#x27;);
+  if(height &gt; 690) {
+    $(&#x27;.&#x27; + layout_scope + &#x27;-layout&#x27;).css(&#x27;overflow&#x27;, &#x27;hidden&#x27;);
+  } else {
+    $(&#x27;.&#x27; + layout_scope + &#x27;-layout&#x27;).css(&#x27;overflow&#x27;, &#x27;default&#x27;);
+  }
+  $body.on(&#x27;click&#x27;, &#x27;a.target_blank_mce&#x27;, function(e) {
+    e.preventDefault();
+    window.open($(this).attr(&#x27;href&#x27;), &#x27;_blank&#x27;).focus();
+  });
+}
+
+/**
+Shows the documents.
+@method showDocumentsInLessonViewer
+@for LessonViewerGeneral
+**/
+function showDocumentsInLessonViewer() {
+  var to_hide = $(&#x27;._lesson_viewer_current_slide .attached_document_internal&#x27;);
+  var to_show = $(&#x27;._lesson_viewer_current_slide .attached_document_internal_expanded&#x27;);
+  to_hide.hide();
+  to_show.show();
+  to_show.css(&#x27;left&#x27;, ((900 - to_show.outerWidth()) + &#x27;px&#x27;));
+}
+
+/**
+Stops media playing in current slide.
+@method stopMediaInLessonViewer
+@for LessonViewerGeneral
+**/
+function stopMediaInLessonViewer() {
+  var current_slide_id = $(&#x27;._lesson_viewer_current_slide&#x27;).attr(&#x27;id&#x27;);
+  stopMedia(&#x27;#&#x27; + current_slide_id + &#x27; audio&#x27;);
+  stopMedia(&#x27;#&#x27; + current_slide_id + &#x27; video&#x27;);
+  var media_audio = $(&#x27;#&#x27; + current_slide_id + &#x27; audio&#x27;);
+  var media_video = $(&#x27;#&#x27; + current_slide_id + &#x27; video&#x27;);
+  if(media_audio.length &gt; 0) {
+    setCurrentTimeToMedia(media_audio, 0);
+  } else if(media_video.length &gt; 0){
+    setCurrentTimeToMedia(media_video, 0);
+  }
+}
+
+
+
+
+
+/**
+Hides slides navigation arrows.
+@method hideArrowsInLessonViewer
+@for LessonViewerGraphics
+**/
+function hideArrowsInLessonViewer() {
+  $(&#x27;#right_scroll, #left_scroll&#x27;).hide();
+}
+
+/**
+Shows slides navigation arrows.
+@method showArrowsInLessonViewer
+@for LessonViewerGraphics
+**/
+function showArrowsInLessonViewer() {
+  $(&#x27;#right_scroll, #left_scroll&#x27;).show();
+}
+
+
+
+
+
+/**
+Closes the playlist menu and executes a callback.
+@method closePlaylistMenuInLessonViewer
+@for LessonViewerPlaylist
+@param callback {Function} to call after effect is complete
+**/
+function closePlaylistMenuInLessonViewer(callback) {
+  $(&#x27;.playlistMenu&#x27;).slideUp(&#x27;slow&#x27;, function() {
+    callback();
+    showArrowsInLessonViewer();
+    $(&#x27;a._open_playlist span&#x27;).show();
+    $(&#x27;a._close_playlist span&#x27;).hide();
+  });
+}
+
+/**
+Opposite of {{#crossLink &quot;LessonViewerPlaylist/closePlaylistMenuInLessonViewer:method&quot;}}{{/crossLink}}.
+@method openPlaylistMenuInLessonViewer
+@for LessonViewerPlaylist
+**/
+function openPlaylistMenuInLessonViewer() {
+  hideArrowsInLessonViewer();
+  $(&#x27;a._open_playlist span&#x27;).hide();
+  $(&#x27;a._close_playlist span&#x27;).show();
+  $(&#x27;.playlistMenu&#x27;).slideDown(&#x27;slow&#x27;);
+}
+
+/**
+Huge method that replaces missing functionalities of the bad plugin JScrollPain. The aim of this method is to select a lesson in the menu, adapt the size of the scroll pane, and if required scroll and execute a callback.
+@method selectComponentInLessonViewerPlaylistMenu
+@for LessonViewerPlaylist
+@param component {Object} selected lesson
+@param callback {Function} to call after function is complete (optional)
+**/
+function selectComponentInLessonViewerPlaylistMenu(component, callback) {
+  $(&#x27;._playlist_menu_item&#x27;).css(&#x27;margin&#x27;, &#x27;2px 60px 2px 0&#x27;).css(&#x27;border&#x27;, 0);
+  $(&#x27;._playlist_menu_item&#x27;).last().css(&#x27;margin-right&#x27;, 0);
+  $(&#x27;._playlist_menu_item._selected&#x27;).removeClass(&#x27;_selected&#x27;);
+  component.addClass(&#x27;_selected&#x27;);
+  var prev = component.prev();
+  var next = component.next();
+  if(prev.length == 0 &amp;&amp; next.length == 0) {
+    component.css(&#x27;margin-top&#x27;, 0);
+    component.css(&#x27;margin-bottom&#x27;, 0);
+    component.css(&#x27;border&#x27;, &#x27;2px solid white&#x27;);
+  } else if(prev.length == 0) {
+    component.css(&#x27;margin-top&#x27;, 0);
+    component.css(&#x27;margin-bottom&#x27;, 0);
+    component.css(&#x27;border&#x27;, &#x27;2px solid white&#x27;);
+    if(next.next().length == 0) {
+      component.css(&#x27;margin-right&#x27;, &#x27;56px&#x27;);
+    } else {
+      component.css(&#x27;margin-right&#x27;, &#x27;58px&#x27;);
+      next.css(&#x27;margin-right&#x27;, &#x27;58px&#x27;);
+    }
+  } else if(next.length == 0) {
+    component.css(&#x27;margin-top&#x27;, 0);
+    component.css(&#x27;margin-bottom&#x27;, 0);
+    component.css(&#x27;border&#x27;, &#x27;2px solid white&#x27;);
+    var prev_prev = prev.prev();
+    if(prev_prev.length == 0) {
+      prev.css(&#x27;margin-right&#x27;, &#x27;56px&#x27;);
+    } else {
+      prev.css(&#x27;margin-right&#x27;, &#x27;58px&#x27;);
+      prev_prev.css(&#x27;margin-right&#x27;, &#x27;58px&#x27;);
+    }
+  } else {
+    component.css(&#x27;margin-top&#x27;, 0);
+    component.css(&#x27;margin-bottom&#x27;, 0);
+    component.css(&#x27;margin-right&#x27;, &#x27;58px&#x27;);
+    component.css(&#x27;border&#x27;, &#x27;2px solid white&#x27;);
+    prev.css(&#x27;margin-right&#x27;, &#x27;58px&#x27;);
+  }
+  if($(&#x27;#playlist_menu&#x27;).data(&#x27;jsp&#x27;) != undefined) {
+    var flag = true;
+    var tot_prev_components = 0;
+    $(&#x27;._playlist_menu_item&#x27;).each(function() {
+      if(flag &amp;&amp; !$(this).hasClass(&#x27;_selected&#x27;)) {
+        tot_prev_components += 1;
+      } else {
+        flag = false;
+      }
+    });
+    if(tot_prev_components &gt; 1) {
+      if(tot_prev_components == $(&#x27;._playlist_menu_item&#x27;).length - 1) {
+        if(callback == undefined) {
+          $(&#x27;#playlist_menu&#x27;).data(&#x27;jsp&#x27;).scrollToPercentX(100);
+        } else {
+          $(&#x27;#playlist_menu&#x27;).jScrollPane().bind(&#x27;panescrollstop&#x27;, function() {
+            callback();
+            $(&#x27;#playlist_menu&#x27;).jScrollPane().unbind(&#x27;panescrollstop&#x27;);
+          });
+          $(&#x27;#playlist_menu&#x27;).data(&#x27;jsp&#x27;).scrollToPercentX(100, true);
+        }
+      } else {
+        if(callback == undefined) {
+          $(&#x27;#playlist_menu&#x27;).data(&#x27;jsp&#x27;).scrollToX(307 * (tot_prev_components - 1));
+        } else {
+          $(&#x27;#playlist_menu&#x27;).jScrollPane().bind(&#x27;panescrollstop&#x27;, function() {
+            callback();
+            $(&#x27;#playlist_menu&#x27;).jScrollPane().unbind(&#x27;panescrollstop&#x27;);
+          });
+          $(&#x27;#playlist_menu&#x27;).data(&#x27;jsp&#x27;).scrollToX(307 * (tot_prev_components - 1), true);
+        }
+      }
+    } else {
+      if(callback != undefined) {
+        callback();
+      }
+    }
+  } else {
+    if(callback != undefined) {
+      callback();
+    }
+  }
+}
+
+/**
+This method can be used in two ways:
+&lt;ul&gt;
+  &lt;li&gt;&lt;b&gt;with callback&lt;/b&gt;, if the user clicks on a lesson in the menu&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;without callback&lt;/b&gt;, if the user gets to a new lesson while navigating normally (he clicks only on &lt;i&gt;next slide&lt;/i&gt; and &lt;i&gt;prev slide&lt;/i&gt;, see {{#crossLink &quot;LessonViewerSlidesNavigation/slideToInLessonViewerWithLessonSwitch:method&quot;}}{{/crossLink}})&lt;/li&gt;
+&lt;/ul&gt;
+@method switchLessonInPlaylistMenuLessonViewer
+@for LessonViewerPlaylist
+@param lesson_id {Number} id in the database of the lesson, used to extract the HTML id
+@param callback {Function} callback after function is complete (optional)
+**/
+function switchLessonInPlaylistMenuLessonViewer(lesson_id, callback) {
+  if($(&#x27;._lesson_title_in_playlist&#x27;).data(&#x27;lesson-id&#x27;) != lesson_id) {
+    $(&#x27;._lesson_title_in_playlist&#x27;).hide();
+    $(&#x27;#lesson_viewer_playlist_title_&#x27; + lesson_id).show();
+    selectComponentInLessonViewerPlaylistMenu($(&#x27;#playlist_menu_item_&#x27; + lesson_id), callback);
+  }
+}
+
+
+
+
+
+/**
+Goes to next slide using {{#crossLink &quot;LessonViewerSlidesNavigation/slideToInLessonViewer:method&quot;}}{{/crossLink}}.
+@method goToNextSlideInLessonViewer
+@for LessonViewerSlidesNavigation
+@param callback {Function} callback after slide switch (it can&#x27;t be undefined, since this function is called only clicking on the arrows; anyway, nothing would prevent the use of this function with undefined callback)
+**/
+function goToNextSlideInLessonViewer(with_drop, callback) {
+  var next_slide = getLessonViewerCurrentSlide().next();
+  if(next_slide.length == 0) {
+    slideToInLessonViewerWithLessonSwitch($(&#x27;._slide_in_lesson_viewer&#x27;).first(), with_drop, true, callback);
+  } else {
+    slideToInLessonViewerWithLessonSwitch(next_slide, with_drop, true, callback);
+  }
+}
+
+/**
+Goes to previous slide using {{#crossLink &quot;LessonViewerSlidesNavigation/slideToInLessonViewer:method&quot;}}{{/crossLink}}.
+@method goToPrevSlideInLessonViewer
+@for LessonViewerSlidesNavigation
+@param callback {Function} callback after slide switch (it can&#x27;t be undefined, since this function is called only clicking on the arrows; anyway, nothing would prevent the use of this function with undefined callback)
+**/
+function goToPrevSlideInLessonViewer(with_drop, callback) {
+  var prev_slide = getLessonViewerCurrentSlide().prev();
+  if(prev_slide.length == 0) {
+    slideToInLessonViewerWithLessonSwitch($(&#x27;._slide_in_lesson_viewer&#x27;).last(), with_drop, false, callback);
+  } else {
+    slideToInLessonViewerWithLessonSwitch(prev_slide, with_drop, false, callback);
+  }
+}
+
+/**
+Loads the slide without making any ajax call.
+@method loadSlideInLessonViewer
+@for LessonViewerSlidesNavigation
+**/
+function loadSlideInLessonViewer(slide) {
+  var content = slide.find(&#x27;.slide-content&#x27;);
+  if(content.hasClass(&#x27;video1&#x27;) || content.hasClass(&#x27;video2&#x27;)) {
+    var video = content.find(&#x27;.video-container video&#x27;);
+    if(video.length &gt; 0) {
+      video.find(&#x27;source[type=&quot;video/webm&quot;]&#x27;).attr(&#x27;src&#x27;, video.data(&#x27;webm&#x27;));
+      video.find(&#x27;source[type=&quot;video/mp4&quot;]&#x27;).attr(&#x27;src&#x27;, video.data(&#x27;mp4&#x27;));
+      video.load();
+      initializeMedia(video.parents(&#x27;._instance_of_player&#x27;).attr(&#x27;id&#x27;), &#x27;video&#x27;);
+    }
+  } else if(content.hasClass(&#x27;audio&#x27;)) {
+    var audio = content.find(&#x27;.audio-container audio&#x27;);
+    if(audio.length &gt; 0) {
+      audio.find(&#x27;source[type=&quot;audio/ogg&quot;]&#x27;).attr(&#x27;src&#x27;, audio.data(&#x27;ogg&#x27;));
+      audio.find(&#x27;source[type=&quot;audio/m4a&quot;]&#x27;).attr(&#x27;src&#x27;, audio.data(&#x27;m4a&#x27;));
+      audio.load();
+      initializeMedia(audio.parents(&#x27;._instance_of_player&#x27;).attr(&#x27;id&#x27;), &#x27;audio&#x27;);
+    }
+  } else if(content.hasClass(&#x27;cover&#x27;) || content.hasClass(&#x27;image1&#x27;) || content.hasClass(&#x27;image2&#x27;) || content.hasClass(&#x27;image3&#x27;) || content.hasClass(&#x27;image4&#x27;)) {
+    content.find(&#x27;.image-container img&#x27;).each(function() {
+      var image = $(this);
+      image.attr(&#x27;src&#x27;, image.data(&#x27;url&#x27;));
+    });
+  }
+  slide.data(&#x27;loaded&#x27;, true);
+}
+
+/**
+Function to attach to the arrows
+@method moveToAdhiacentSlideInLessonViewer
+@for LessonViewerSlidesNavigation
+@param scrolls {Object} arrows which must be enabled
+@param movingFunction {function} function to be called to move
+**/
+function moveToAdhiacentSlideInLessonViewer(scrolls, movingFunction) {
+  if(!scrolls.first().hasClass(&#x27;disabled&#x27;)) {
+    scrolls.addClass(&#x27;disabled&#x27;);
+    hideDocumentsInLessonViewer();
+    movingFunction(false, function() {
+      scrolls.removeClass(&#x27;disabled&#x27;);
+    });
+  }
+}
+
+/**
+Goes to a given slide. If the new slide contains a media and the browser is not a mobile the media is automaticly played.
+@method slideToInLessonViewer
+@for LessonViewerSlidesNavigation
+@param to {Object} destination slide
+@param callback {Function} callback after slide switch (it can be undefined)
+**/
+function slideToInLessonViewer(to, with_drop, to_right, callback) {
+  stopMediaInLessonViewer();
+  var from = getLessonViewerCurrentSlide();
+  from.removeClass(&#x27;_lesson_viewer_current_slide&#x27;);
+  to.addClass(&#x27;_lesson_viewer_current_slide&#x27;);
+  var my_effect = &#x27;fade&#x27;;
+  var my_options = {};
+  if(with_drop) {
+    my_effect = &#x27;drop&#x27;;
+    my_options = {direction: &#x27;right&#x27;};
+    if(to_right) {
+      my_options = {direction: &#x27;left&#x27;};
+    }
+  }
+  from.hide(my_effect, my_options, 500, function() {
+    to.show();
+    var to_prev = to.prev();
+    if(to_prev.length == 0) {
+      to_prev = $(&#x27;._slide_in_lesson_viewer&#x27;).last();
+    }
+    var to_next = to.next();
+    if(to_next.length == 0) {
+      to_next = $(&#x27;._slide_in_lesson_viewer&#x27;).first();
+    }
+    if(!to_prev.data(&#x27;loaded&#x27;)) {
+      loadSlideInLessonViewer(to_prev);
+    }
+    if(!to.data(&#x27;loaded&#x27;)) {
+      loadSlideInLessonViewer(to);
+    }
+    if(!to_next.data(&#x27;loaded&#x27;)) {
+      loadSlideInLessonViewer(to_next);
+    }
+    var media = to.find(&#x27;._instance_of_player&#x27;);
+    var with_autoplay = mustAutoplayMediaInLessonViewer();
+    if(media.length &gt; 0 &amp;&amp; with_autoplay) {
+      media.find(&#x27;._media_player_play&#x27;).click();
+    }
+    if(callback != undefined) {
+      callback();
+    }
+  });
+}
+
+/**
+Goes to a slide (using {{#crossLink &quot;LessonViewerSlidesNavigation/slideToInLessonViewer:method&quot;}}{{/crossLink}}) and updates the lesson in playlist menu (using {{#crossLink &quot;LessonViewerPlaylist/switchLessonInPlaylistMenuLessonViewer:method&quot;}}{{/crossLink}} without callbacks).
+@method slideToInLessonViewerWithLessonSwitch
+@for LessonViewerSlidesNavigation
+@param component {Object} destination slide
+@param callback {Function} callback after slide switch (it can&#x27;t be undefined, since this function is called only clicking on the arrows; anyway, nothing would prevent the use of this function with undefined callback)
+**/
+function slideToInLessonViewerWithLessonSwitch(component, with_drop, to_right, callback) {
+  slideToInLessonViewer(component, with_drop, to_right, callback);
+  switchLessonInPlaylistMenuLessonViewer(component.data(&#x27;lesson-id&#x27;));
+}
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

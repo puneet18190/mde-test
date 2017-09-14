@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Video::Editing::Cmd::Transition</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Video::Editing::Cmd::Transition 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="Avconv.html">Media::Video::Editing::Cmd::Avconv</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../../files/lib/media/video/editing/cmd/transition_rb.html">lib/media/video/editing/cmd/transition.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>CLI for creating video transitions from input transition frames (command
+example: <code>avconv -r 25 -i ../transition-%d.jpg -c:v libx264 -q 1
+transition.r25.mp4</code>)</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-frame_rate">frame_rate</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Q</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-qa">qa</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(transitions, output, _frame_rate, format)
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/Transition.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/transition.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">transitions</span>, <span class="ruby-identifier">output</span>, <span class="ruby-identifier">_frame_rate</span>, <span class="ruby-identifier">format</span>)
+  <span class="ruby-ivar">@transitions</span>, <span class="ruby-ivar">@output</span>, <span class="ruby-ivar">@frame_rate</span>, <span class="ruby-ivar">@format</span> = <span class="ruby-identifier">transitions</span>, <span class="ruby-identifier">output</span>, <span class="ruby-identifier">_frame_rate</span>, <span class="ruby-identifier">format</span>
+  <span class="ruby-keyword">super</span> [<span class="ruby-ivar">@transitions</span>], <span class="ruby-ivar">@output</span>, <span class="ruby-identifier">format</span>
+  <span class="ruby-identifier">input_options</span>  [ <span class="ruby-identifier">frame_rate</span> ]
+  <span class="ruby-identifier">output_options</span> [ <span class="ruby-identifier">vcodec</span> ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-frame_rate">
+            
+              <b>frame_rate</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/Transition.html#method-i-frame_rate" name="method-i-frame_rate" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Frame rate</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-frame_rate_source')" id="l_method-i-frame_rate_source">show</a>
+                
+              </p>
+              <div id="method-i-frame_rate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/transition.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">frame_rate</span>
+  <span class="ruby-node">&quot;-r #{@frame_rate.to_s.shellescape}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-qa">
+            
+              <b>qa</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/Transition.html#method-i-qa" name="method-i-qa" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../../../Audio.html">Audio</a> quality (not set, unuseful)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-qa_source')" id="l_method-i-qa_source">show</a>
+                
+              </p>
+              <div id="method-i-qa_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/transition.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">qa</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

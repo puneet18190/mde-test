@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>PreloginController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            PreloginController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="ApplicationController.html">ApplicationController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/controllers/prelogin_controller_rb.html">app/controllers/prelogin_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-PreloginController-label-Description">Description</h3>
+
+<p>Contains the actions called while the user is not logged in</p>
+
+<h3 id="class-PreloginController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="User.html">User</a></p>
+</li><li>
+<p><a href="SchoolLevel.html">SchoolLevel</a></p>
+</li><li>
+<p><a href="Location.html">Location</a></p>
+</li><li>
+<p><a href="Subject.html">Subject</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-home">home</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-purchase_code">purchase_code</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-redirect_to_dashboard_if_logged_in">redirect_to_dashboard_if_logged_in</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-registration">registration</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-what_is">what_is</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-home">
+            
+              <b>home</b>()
+            
+            <a href="../classes/PreloginController.html#method-i-home" name="method-i-home" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-home-label-Description">Description</h3>
+
+<p>Home page of the application</p>
+
+<h3 id="method-i-home-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-home-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="PreloginController.html#method-i-redirect_to_dashboard_if_logged_in">#redirect_to_dashboard_if_logged_in</a></p>
+</li></ul>
+
+<h3 id="method-i-home-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-home_source')" id="l_method-i-home_source">show</a>
+                
+              </p>
+              <div id="method-i-home_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/prelogin_controller.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">home</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-purchase_code">
+            
+              <b>purchase_code</b>()
+            
+            <a href="../classes/PreloginController.html#method-i-purchase_code" name="method-i-purchase_code" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-purchase_code-label-Description">Description</h3>
+
+<p>Matches the purchase code in the sign_up form</p>
+
+<h3 id="method-i-purchase_code-label-Mode">Mode</h3>
+
+<p>Js</p>
+
+<h3 id="method-i-purchase_code-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="PreloginController.html#method-i-redirect_to_dashboard_if_logged_in">#redirect_to_dashboard_if_logged_in</a></p>
+</li></ul>
+
+<h3 id="method-i-purchase_code-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-purchase_code_source')" id="l_method-i-purchase_code_source">show</a>
+                
+              </p>
+              <div id="method-i-purchase_code_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/prelogin_controller.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">purchase_code</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;saas_registration_mode&#39;</span>]
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@load_locations</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:dont_load_locations</span>].<span class="ruby-identifier">blank?</span>
+  <span class="ruby-ivar">@purchase</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">find_by_token</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>])
+  <span class="ruby-ivar">@purchase</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@purchase</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">users</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">accounts_number</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@purchase</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">location</span>
+    <span class="ruby-ivar">@location_types</span> = <span class="ruby-constant">LOCATION_TYPES</span>
+    <span class="ruby-ivar">@forced_location</span> = <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">location</span>
+    <span class="ruby-ivar">@locations</span> = <span class="ruby-ivar">@forced_location</span>.<span class="ruby-identifier">select_with_selected</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-registration">
+            
+              <b>registration</b>()
+            
+            <a href="../classes/PreloginController.html#method-i-registration" name="method-i-registration" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-registration-label-Description">Description</h3>
+
+<p>Form to sign in</p>
+
+<h3 id="method-i-registration-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-registration-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="PreloginController.html#method-i-redirect_to_dashboard_if_logged_in">#redirect_to_dashboard_if_logged_in</a></p>
+</li></ul>
+
+<h3 id="method-i-registration-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-registration_source')" id="l_method-i-registration_source">show</a>
+                
+              </p>
+              <div id="method-i-registration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/prelogin_controller.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">registration</span>
+  <span class="ruby-ivar">@saas</span> = <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;saas_registration_mode&#39;</span>]
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">initialize_registration_form</span>
+  <span class="ruby-ivar">@errors</span> = {
+    <span class="ruby-value">:general</span>  =<span class="ruby-operator">&gt;</span> [],
+    <span class="ruby-value">:subjects</span> =<span class="ruby-operator">&gt;</span> [],
+    <span class="ruby-value">:policies</span> =<span class="ruby-operator">&gt;</span> [],
+    <span class="ruby-value">:purchase</span> =<span class="ruby-operator">&gt;</span> []
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-what_is">
+            
+              <b>what_is</b>()
+            
+            <a href="../classes/PreloginController.html#method-i-what_is" name="method-i-what_is" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-what_is-label-Description">Description</h3>
+
+<p>Section of the main page</p>
+
+<h3 id="method-i-what_is-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-what_is-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="PreloginController.html#method-i-redirect_to_dashboard_if_logged_in">#redirect_to_dashboard_if_logged_in</a></p>
+</li></ul>
+
+<h3 id="method-i-what_is-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-what_is_source')" id="l_method-i-what_is_source">show</a>
+                
+              </p>
+              <div id="method-i-what_is_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/prelogin_controller.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">what_is</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-redirect_to_dashboard_if_logged_in">
+            
+              <b>redirect_to_dashboard_if_logged_in</b>()
+            
+            <a href="../classes/PreloginController.html#method-i-redirect_to_dashboard_if_logged_in" name="method-i-redirect_to_dashboard_if_logged_in" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>If the user is logged in, redirects to <a
+href="DashboardController.html#method-i-index">DashboardController#index</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-redirect_to_dashboard_if_logged_in_source')" id="l_method-i-redirect_to_dashboard_if_logged_in_source">show</a>
+                
+              </p>
+              <div id="method-i-redirect_to_dashboard_if_logged_in_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/prelogin_controller.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">redirect_to_dashboard_if_logged_in</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">logged_in?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">dashboard_path</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

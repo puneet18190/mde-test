@@ -1,0 +1,33 @@
+<%
+  forced_margin ||= nil
+  if forced_margin.nil?
+    forced_margin = ''
+  else
+    forced_margin = "style=\"margin-bottom:#{(71 * forced_margin)}px\"".html_safe
+  end
+  disabled = (!media_element.image? && !media_element.converted?)
+  additional_class = ''
+  disabled_title = ''
+  if disabled
+    additional_class = '_disabled'.html_safe
+    disabled_title = "title=\"#{t("titles.not_available.#{media_element.sti_type.downcase}", :title => media_element.title)}\"".html_safe
+  end
+%>
+
+<div id="<%= destination %>_<%= media_element.id %>" class="boxViewCompactMediaElement <%= additional_class %> _media_element_item _media_element_item_id_<%= media_element.id %>" data-preview-loaded="false" data-used-in-private-lessons="<%= used_in_private_lessons %>" data-loading-mini-thumb="false" data-loaded-mini-thumb="false" <%= disabled_title %> <%= forced_margin %>>
+  <div class="contentInterno">
+    <div class="scritte-container">
+      <div class="mini-icon <%= media_element.sti_type.downcase %>"></div>
+      <div class="scritte">
+        <h3><%= media_element.sti_type_to_s %></h3>
+        <h4><%= media_element.title %></h4>
+      </div>
+    </div>
+    <p><%= media_element.status(true) %></p>
+    <%= render :partial => 'media_elements/action_buttons', :locals => {:media_element => media_element, :destination => destination, :additional_class => additional_class} %>
+  </div>
+  <%= render :partial => 'media_elements/popup', :locals => {:media_element => media_element, :locked => true} %>
+  <% if media_element.image? || media_element.converted %>
+    <%= render :partial => "media_elements/thumbnails/mini/#{media_element.sti_type.downcase}", :locals => {:item => media_element} %>
+  <% end %>
+</div>

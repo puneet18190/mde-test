@@ -1,0 +1,1 @@
+<%= render :partial => 'lesson_slides', :locals => {:slides => @slides, :with_exit => @with_exit, :back => @back, :with_icons => (!current_user || !current_user.trial? || current_user.trial? && @lesson.is_public)} %>

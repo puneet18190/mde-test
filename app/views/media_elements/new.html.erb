@@ -1,0 +1,16 @@
+<div class="header">
+  <div class="contenitore" style="width: 960px; margin: 0 auto; display: inline-block;" >
+    <div class="fltrt"><a href="/media_elements" class="esciButton" title="<%= t('titles.exit') %>"></a></div>
+  </div>
+</div>
+<div class="mediaSelectEditorButtonContainer">
+  <div class="contentTitle">
+    <h1><%= t('media_elements.editor.title', :desy => SETTINGS['application_name']) %></h1>
+    <h2><%= t('media_elements.editor.description') %><br/><br/><%= t('media_elements.editor.enjoy') %></h2>
+    <div class="contentSelectButton">
+      <%= link_to '', '/videos/new?back=%2Fmedia_elements', :class => 'video', :title => t('titles.videos.new') %>
+      <%= link_to '', '/images/galleries/image?back=%2Fmedia_elements', :class => 'image', :title => t('titles.images.new') %>
+      <%= link_to '', '/audios/new?back=%2Fmedia_elements', :class => 'audio', :title => t('titles.audios.new') %>
+    </div>
+  </div>
+</div>

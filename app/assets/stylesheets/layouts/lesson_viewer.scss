@@ -1,0 +1,263 @@
+@import 'variables';
+@import 'mixins';
+
+html.lesson-viewer-layout {
+  
+  @include lesson-viewer-general;
+  
+  .playlistMenu {
+    
+    display: none;
+    width: 860px;
+    padding: 20px 20px 10px 20px;
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    background-color: #141313;
+    
+    .playlistInnerMenu {
+      
+      padding: 0;
+      height: 166px;
+      width: auto;
+      margin: 0;
+      
+    }
+    
+    .playlistInnerMenuItem {
+      
+      margin: 2px 60px 2px 0;
+      float: left;
+      cursor: pointer;
+      width: 247px;
+      
+    }
+    
+    .jspHorizontalBar {
+      
+      margin-top: 5px;
+      
+    }
+    
+  }
+  
+  .scroll-pane {
+    
+    width: 100%;
+    height: 180px;
+    overflow: auto;
+    
+  }
+  
+  .horizontal-only {
+    
+    height: 180px;
+    
+  }
+  
+  .scrollCane {
+    
+    text-align: left;
+    height: 166px;
+    
+    .img_expanded {
+      
+      &:hover {
+        
+        background-color: #373737;
+        opacity: 0.85;
+        
+      }
+      
+    }
+    
+  }
+  
+  .playlist_footer {
+    
+    padding: 10px 0;
+    height: 20px;
+    display: inline-block;
+    width: 900px;
+    margin-top: 10px;
+    text-align: center;
+    
+    a._open_playlist, a._close_playlist {
+      
+      color: #9F9F9F;
+      font-size: 12px;
+      font-weight: bold;
+      
+      &:hover {
+        
+        color: white;
+        
+      }
+      
+    }
+    
+    ._lesson_title_in_playlist {
+      
+      color: #9F9F9F;
+      font-size: 12px;
+      font-weight: bold;
+      float: right;
+      text-align: center;
+      width: 650px;
+      margin-right: 100px;
+      display: none;
+      
+    }
+    
+  }
+  
+  #social_networks {
+    
+    @include nunito(1.063em);
+    padding: 20px;
+    width: 120px;
+    height: 176px;
+    background: transparent $assets-tendina-share_png no-repeat scroll 0 0;
+    position: absolute;
+    top: 422px;
+    left: 61px;
+    -webkit-box-shadow: 0px 6px 16px #434343;
+    box-shadow: 0px 6px 16px #434343;
+    color: #C1C0BC;
+    z-index: 2;
+    
+    a {
+      
+      color: #C1C0BC;
+      font-size: 0.750em;
+      text-transform: uppercase;
+      margin: 5px 0px;
+      padding: 13px 0px 15px 48px;
+      display: block;
+      
+    }
+    
+    .facebook {
+      
+      background: transparent $assets-logo-facebook_png no-repeat scroll 0 0;
+      
+      &:hover {
+        
+        background: transparent $assets-logo-facebook-on_png no-repeat scroll 0 0;
+        
+      }
+    }
+    
+    .twitter {
+      
+      background: $assets-logo-twitter_png no-repeat scroll 0 0 transparent;
+      
+      &:hover {
+        
+        background: $assets-logo-twitter-on_png no-repeat scroll 0 0 transparent;
+        
+      }
+      
+    }
+    
+    .google-plus {
+     
+      background: transparent $assets-logo-google-plus_png no-repeat scroll 0 0;
+      
+      &:hover {
+        
+        background: transparent $assets-logo-google-plus-on_png no-repeat scroll 0 0;
+        
+      }
+     
+    }
+    
+  }
+  
+  #open_social_networks {
+    
+    margin-top: 20px;
+    margin-left: 17px;
+    width: 18px;
+    height: 18px;
+    background: transparent $assets-icon-share_png no-repeat scroll 0 0;
+    float: left;
+    
+    &:hover {
+      
+      background: transparent $assets-icon-share-roll_png no-repeat scroll 0 0;
+      
+    }
+    
+  }
+  
+  #export_lesson {
+    
+    @include nunito(1.063em);
+    padding: 16px;
+    width: 180px;
+    height: 142px;
+    background: transparent $assets-tendina-offline_png no-repeat scroll 0 0;
+    position: absolute;
+    top: 465px;
+    left: 7px;
+    -webkit-box-shadow: 0px 6px 16px #434343;
+    box-shadow: 0px 6px 16px #434343;
+    color: #C1C0BC;
+    z-index: 2;
+    
+    p {
+      
+      margin-bottom: 14px;
+      text-align: center;
+      
+    }
+    
+    a.export_button {
+      
+      width: 140px;
+      margin-left: 20px;
+      height: 24px;
+      text-align: center;
+      padding-top: 6px;
+      color: #C1C0BC;
+      background-color: #1C1C1C;
+      cursor: pointer;
+      display: block;
+      
+      &.archive, &.ebook {
+        
+        margin-bottom: 6px;
+        
+      }
+      
+      &:hover {
+        
+        background-color: #C1C0BC;
+        color: #1C1C1C;
+        
+      }
+      
+    }
+    
+  }
+  
+  #open_export_lesson {
+    
+    margin-top: 20px;
+    margin-left: 16px;
+    margin-right: 20px;
+    width: 17px;
+    height: 20px;
+    background: transparent $assets-icon-offline_png no-repeat scroll 0 0;
+    float: left;
+    
+    &:hover {
+      
+      background: transparent $assets-icon-offline-roll_png no-repeat scroll 0 0;
+      
+    }
+    
+  }
+  
+}

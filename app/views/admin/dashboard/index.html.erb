@@ -1,0 +1,183 @@
+<h3><%= t('admin.dashboard.title') %></h3>
+<div class="row-fluid">
+  <div class="span6">
+    <div class="row-fluid">
+      <div class="span12 widget scope-cane">
+        <table class="table">
+          <thead>
+            <th><h4><%= t('admin.dashboard.general.title') %></h4></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= t('admin.dashboard.general.shared_lessons') %></td>
+              <td width="50"><span class="counter-label lessons"><%= format('%02d', @all_shared_lessons) %></span></td>
+            </tr>
+            <tr>
+              <td><%= t('admin.dashboard.general.shared_media_elements') %></td>
+              <td width="50"><span class="counter-label elements"><%= format('%02d', @all_shared_elements) %></span></td>
+            </tr>
+            <tr>
+              <td><%= t('admin.dashboard.general.total_users') %></td>
+              <td width="50"><span class="counter-label"><%= format('%02d', @all_users) %></span></td>
+            </tr>
+            <tr>
+              <table class="table">
+                <thead>
+                  <th><h4><%= t('admin.dashboard.likes.lessons') %></h4></th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <% @all_liked_lessons.each do |liked| %>
+                    <tr>
+                      <td><%= link_to liked.title, "/admin/lessons?utf8=%E2%9C%93&search[search_type]=lessons&search[ordering]=&search[desc]=&search[id]=#{liked.id}&search[title]=&search[subject_id]=&search[user]=&search[date_range_field]=&search[province]=0" %></td>
+                      <td width="50"><span class="counter-label lessons"><%= format('%02d', liked.likes_count) %></span></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </tr>
+            <tr>
+              <table class="table">
+                <thead>
+                  <th><h4><%= t('admin.dashboard.likes.users') %></h4></th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <% @all_users_like.each do |u| %>
+                    <tr>
+                      <td><%= link_to "#{u.name} #{u.surname}", admin_user_path(u.id) %></td>
+                      <td width="50"><span class="counter-label"><%= format('%02d', u.likes_count) %></span></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </tr>
+            <tr>
+              <table class="table" style="margin-bottom:0">
+                <thead>
+                  <th><h4><%= t('admin.dashboard.users.new') %></h4></th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  <% @users.each do |user| %>
+                    <tr>
+                      <td><%= link_to "#{user.name} #{user.surname}", admin_user_path(user) %></td>
+                      <td style="text-align:right"><span class="counter-label"><%= TimeConvert.to_string user.created_at %></span></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="span6">
+    <div class="row-fluid">
+      <div class="span12 widget">
+        <table class="table" style="margin-bottom:0">
+          <thead>
+            <th colspan="2"><h4><%= t('admin.dashboard.subjects') %></h4></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <% @subjects_chart[:data].each_with_index do |s, i| %>
+                  <blockquote class="legend" style="border-color: <%= @subjects_chart[:colors][i] %>">
+                    <div class="pull-left"><%= @subjects_chart[:texts][i] %></div>
+                    <div class="pull-right"><%= "#{s} %" %></div>
+                  </blockquote>
+                <% end %>
+              </td>
+              <td>
+                <% texts = "\"#{@subjects_chart[:texts].join("\", \"")}\"" %>
+                <span class="pie_subjects" data-text="[<%= texts %>]" data-diameter="250" class="fltrt"><%= @subjects_chart[:data].join(', ') %></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span6 widget">
+        <h4><%= t('admin.messages.reports.media_elements') %></h4>
+        <% if @elements_reports.any? %>
+          <% @elements_reports.each do |report| %>
+            <a href="/admin/media_elements?utf8=✓&search%5Bid%5D=<%= report.reportable_id %>#list-anchor">
+              <blockquote class="elements">
+                <div class="pull-right date-label elements">
+                  <%= TimeConvert.to_string report.created_at %>
+                </div>
+                <%= report.user.full_name %><br/>
+                <b><%= t('admin.messages.reports.item') %></b> <%= report.reportable.title %><br/>
+                <b><%= t('admin.messages.reports.report') %></b> <i><%= report.comment %></i>
+              </blockquote>
+            </a>
+          <% end %>
+        <% else %>
+          <%= t('admin.messages.reports.empty.media_elements') %>
+        <% end %>
+      </div>
+      <div class="span6 widget">
+        <h4><%= t('admin.messages.reports.lessons') %></h4>
+        <% if @lessons_reports.any? %>
+          <% @lessons_reports.each do |report| %>
+            <a href="/admin/lessons?utf8=✓&search%5Bid%5D=<%= report.reportable_id %>#list-anchor">
+              <blockquote class="lessons">
+                <div class="pull-right date-label lessons">
+                  <%= TimeConvert.to_string report.created_at %>
+                </div>
+                <%= report.user.full_name %><br/>
+                <b><%= t('admin.messages.reports.item') %></b> <%= report.reportable.title %><br/>
+                <b><%= t('admin.messages.reports.report') %></b> <i><%= report.comment %></i>
+              </blockquote>
+            </a>
+          <% end %>
+        <% else %>
+          <%= t('admin.messages.reports.empty.lessons') %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span12 widget">
+        <table class="table" style="margin-bottom:0">
+          <thead>
+            <th colspan="2"><h4><%= t('admin.dashboard.hard_disk.title') %></h4></th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <% @hard_disk_chart[:data].each_with_index do |s, i| %>
+                  <blockquote class="legend" style="border-color: <%= @hard_disk_chart[:colors][i] %>">
+                    <div class="pull-left"><%= @hard_disk_chart[:texts][i] %></div>
+                    <div class="pull-right"><%= "#{s} %" %></div>
+                  </blockquote>
+                <% end %>
+              </td>
+              <td>
+                <% texts = "\"#{@hard_disk_chart[:texts].join("\", \"")}\"" %>
+                <span class="pie_hard_disk" data-text="[<%= texts %>]" data-diameter="250" class="fltrt"><%= @hard_disk_chart[:data].join(',') %></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $.fn.peity.defaults.pie = {
+    colours: <%= @subjects_chart[:colors].to_json.html_safe %>,
+    diameter: 250
+  }
+  $('span.pie_subjects').peity('pie');
+  $.fn.peity.defaults.pie = {
+    colours: <%= @hard_disk_chart[:colors].to_json.html_safe %>,
+    diameter: 250
+  }
+  $('span.pie_hard_disk').peity('pie');
+</script>

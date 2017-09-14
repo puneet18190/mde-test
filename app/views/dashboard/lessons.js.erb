@@ -1,0 +1,33 @@
+<%
+  for_page = @for_row * 2
+  destination = ButtonDestinations::EXPANDED_LESSON
+%>
+
+var container = $('#dashboard_container');
+var margin = (container.width() - <%= @for_row %> * 300) / (<%= @for_row %> + 1);
+emptyAllPagesInDashboard('lessons');
+resetVisibilityOfAllPagesInDashboard('lessons', 1);
+<% @lessons.each_with_index do |l, index| %>
+  container.find('.space_lessons .page<%= ((index / for_page) + 1) %>').append("<%= j(render(:partial => 'lessons/view_single_expanded', :locals => {:lesson => l, :cover => @covers[l.id]})) %>");
+  $('#<%= destination %>_<%= l.id %>').css('margin-left', margin + 'px');
+  <% if index % for_page >= @for_row %>
+    $('#<%= destination %>_<%= l.id %>').css('margin-top', '30px');
+  <% end %>
+<% end %>
+
+container.find('.title_lessons .expand_icon.off, .title_lessons .expand_icon.disabled').data('moving', false);
+container.find('.title_lessons .expand_icon.on').data('moving', false);
+
+$(document).ready(function() {
+  <% if @lessons.length > for_page %>
+    initializeDashboardPagination('lessons', 1, <%= Rational(@lessons.length, for_page).ceil %>);
+  <% end %>
+});
+
+var current_url = $('#info_container').data('currenturl');
+if(current_url.indexOf('lessons_expanded') == -1) {
+  current_url = updateURLParameter(current_url, 'lessons_expanded', 1);
+} else {
+  current_url = removeURLParameter(current_url, 'lessons_expanded');
+}
+$('#info_container').data('currenturl', current_url);

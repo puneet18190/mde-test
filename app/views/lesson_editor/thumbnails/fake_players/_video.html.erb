@@ -1,0 +1,11 @@
+<div class="videoPlayer _instance_of_player">
+  <%= image_tag video.cover_url, :class => 'fake_video' %>
+  <a class="play"></a>
+  <div class="secondTime">00:00</div>
+  <div class="videoSlider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+    <a class="ui-slider-handle ui-state-default ui-corner-all" style="left:0%"></a>
+  </div>
+  <div class="secondTime"><%= seconds_to_time(video.min_duration) %></div>
+  <a class="fullScreen"></a>
+  <div class="sliderDisabler"></div>
+</div>

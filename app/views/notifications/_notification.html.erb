@@ -1,0 +1,12 @@
+<div id="notification_<%= notification.id %>" class="_single_notification <%= notification.seen ? 'current'.html_safe : '' %> <%= without_margin ? 'no-margin'.html_safe : '' %>" data-param="<%= notification.id %>">
+  <div class="notification_gatto_sx">
+    <p class="_notification_time_<%= notification.id %>">
+      <%= notification.time %>
+    </p>
+    <%= strip_tags notification.message.html_safe %>
+  </div>
+  <div class="notification_gatto_dx">
+    <div class="cancelTooltip _destroy_notification" data-param="<%= notification.id %>" title="<%= t('titles.notifications.remove') %>"></div>
+  </div>
+  <%= render :partial => 'notifications/template', :locals => {:notification => notification} %>
+</div>

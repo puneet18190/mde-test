@@ -1,0 +1,8 @@
+<% if @ok %>
+  $('._media_element_item_id_<%= @media_element_id %>').data('preview-loaded', true);
+  $('#dialog-media-element-<%= @media_element_id %>').replaceWith('<%= j render(:partial => "media_elements/popup", :locals => {:media_element => @media_element, :locked => false}) %>');
+  showMediaElementInfoPopUp(<%= @media_element_id %>);
+  <% if !@media_element.is_public %>
+    initTagsAutocomplete($('#dialog-media-element-<%= @media_element_id %> .wrapper .change-info .part2 ._tags_container .tags'), 'media_element');
+  <% end %>
+<% end %>

@@ -1,0 +1,19 @@
+<%
+  loaded            = true
+  audio             = slide.media_elements_at
+  url_type          = UrlTypes::EXPORT
+  media_viewer_type = MediaElement::ViewerTypes::SIMPLE
+  slide_text        = slide.text(math_images_path_relative_from_folder: math_images_archive_folder_name)
+-%>
+
+<h1 class="title"><%= slide.title.to_s.strip %></h1>
+<div class="audio">
+  <% if audio -%>
+    <% if audio.converted? -%>
+      <%= render partial: "shared/players/#{media_viewer_type}/audio", locals: { audio: audio, initialize_now: loaded, url_type: url_type, exporting_slide: !loaded } %>
+    <% else -%>
+      <p><%= t('titles.not_available.audio', :title => audio.title) %></p>
+    <% end -%>
+  <% end -%>
+</div>
+<div class="text"><%= slide_text %></div>

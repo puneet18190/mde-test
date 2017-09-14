@@ -1,0 +1,98 @@
+var black_list = new Array();
+<% already_reloaded = false %>
+<% @mes.each do |me| %>
+  <% if !already_reloaded %>
+    var my_thumb = $('#gallery_audio_<%= me[:media_element_id] %>, #gallery_video_<%= me[:media_element_id] %>');
+    var my_thumb_id = my_thumb.attr('id');
+    <% if !me[:ok] %>
+      <% already_reloaded = true %>
+      black_list.push(<%= me[:media_element_id] %>);
+      if(my_thumb.length > 0) {
+        if(my_thumb.hasClass('_video_gallery_thumb')) {
+          uploaderConversionChecker('novideo-false');
+          $('.videoInGalleryPopUp').each(function() {
+            if($(this).hasClass('ui-dialog-content')) {
+              $(this).dialog('destroy');
+            }
+          });
+          var gallery_scrollable = $('#video_gallery_content > div');
+          if(gallery_scrollable.data('jsp') != undefined) {
+            gallery_scrollable.data('jsp').destroy();
+          }
+          var container = $('#lesson_editor_video_gallery_container');
+          container.data('page', 1);
+          container.data('tot-pages', <%= @videos_tot_pages %>);
+          container.find('#video_gallery').replaceWith('<%= j(render :partial => "galleries/video", :locals => {:videos => @videos}) %>');
+          <% if @videos.count > 6 %>
+            initializeVideoGalleryInLessonEditor();
+          <% else %>
+            $('.video_gallery .scroll-pane').css('overflow', 'hidden');
+          <% end %>
+          $('._close_video_gallery').addClass('_close_video_gallery_in_lesson_editor');
+          $('._select_video_from_gallery').addClass('_add_video_to_slide');
+        } else {
+          uploaderConversionChecker('noaudio-false');
+          var gallery_scrollable = $('#audio_gallery_content > div');
+          if(gallery_scrollable.data('jsp') != undefined) {
+            gallery_scrollable.data('jsp').destroy();
+          }
+          var container = $('#lesson_editor_audio_gallery_container');
+          container.data('page', 1);
+          container.data('tot-pages', <%= @audios_tot_pages %>);
+          container.find('#audio_gallery').replaceWith('<%= j(render :partial => "galleries/audio", :locals => {:audios => @audios}) %>');
+          <% if @audios.count > 6 %>
+            initializeAudioGalleryInLessonEditor();
+          <% else %>
+            $('.audio_gallery .scroll-pane').css('overflow', 'hidden');
+          <% end %>
+          $('._close_audio_gallery').addClass('_close_audio_gallery_in_lesson_editor');
+          $('._select_audio_from_gallery').addClass('_add_audio_to_slide');
+        }
+      }
+    <% elsif me[:media_element].converted? %>
+      <% already_reloaded = true %>
+      black_list.push(<%= me[:media_element_id] %>);
+      <% if me[:media_element].sti_type == 'Video' %>
+        <%
+          locals = {
+            :video            => me[:media_element],
+            :index            => 1,
+            :count            => 6,
+            :force_margin_top => false
+          }
+          vc = current_user.video_editor_cache
+        %>
+        uploaderConversionChecker('video-<%= (!(vc && vc[:initial_video_id] == me[:media_element_id].to_i)).to_s %>', '<%= j me[:media_element].title %>');
+        if(my_thumb.length > 0) {
+          var to_be_replaced = '<%= j(render :partial => "galleries/thumbs/video", :locals => locals) %>';
+          var with_margin_bottom = my_thumb.hasClass('_with_margin_bottom');
+          var margin_top = my_thumb.css('margin-top');
+          var margin_bottom = my_thumb.css('margin-bottom');
+          my_thumb.replaceWith(to_be_replaced);
+          $('#' + my_thumb_id).css('margin-top', margin_top).css('margin-bottom', margin_bottom);
+          if(with_margin_bottom) {
+            $('#' + my_thumb_id).addClass('_with_margin_bottom');
+          }
+          $('#' + my_thumb_id + ' ._select_video_from_gallery').addClass('_add_video_to_slide');
+        }
+      <% else %>
+        <%
+          locals = {
+            :audio => me[:media_element],
+            :index => 1
+          }
+          ac = current_user.audio_editor_cache
+        %>
+        uploaderConversionChecker('audio-<%= (!(ac && ac[:initial_audio_id] == me[:media_element_id].to_i)).to_s %>', '<%= j me[:media_element].title %>');
+        if(my_thumb.length > 0) {
+          var to_be_replaced = '<%= j(render :partial => "galleries/thumbs/audio", :locals => locals) %>';
+          var margin_top = my_thumb.find('._compact').css('margin-top');
+          my_thumb.replaceWith(to_be_replaced);
+          $('#' + my_thumb_id + ' ._compact').css('margin-top', margin_top);
+          $('#' + my_thumb_id + ' ._select_audio_from_gallery').addClass('_add_audio_to_slide');
+        }
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+$('#info_container').data('media-elements-not-anymore-in-conversion', black_list);

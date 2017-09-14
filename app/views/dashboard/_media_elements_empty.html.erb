@@ -1,0 +1,15 @@
+<div class="dashboard-media-elements-empty-situation-container">
+  <a class="openLoader" data-type="media-element"></a>
+  <div class="prompts">
+    <div class="reason">
+      <% if emptied %>
+        <%= t('dashboard.empty.media_elements.title_emptied') %>
+      <% else %>
+        <%= t('dashboard.empty.media_elements.title') %>
+      <% end %>
+    </div>
+    <div class="big-prompt">
+      <%= t('dashboard.empty.media_elements.prompt') %>
+    </div>
+  </div>
+</div>

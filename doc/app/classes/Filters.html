@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Filters</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Filters 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/lib/autoload/filters_rb.html">lib/autoload/filters.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Keywords for filters of lessons and elements</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">ALL_LESSONS</td>
+            <td>=</td>
+            <td class="attr-value">&#39;all_lessons&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>All lessons without any filter</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">PRIVATE</td>
+            <td>=</td>
+            <td class="attr-value">&#39;private&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Select only private lessons</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">PUBLIC</td>
+            <td>=</td>
+            <td class="attr-value">&#39;public&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Select only public lessons</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">LINKED</td>
+            <td>=</td>
+            <td class="attr-value">&#39;linked&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Select only linked lessons</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">ONLY_MINE</td>
+            <td>=</td>
+            <td class="attr-value">&#39;only_mine&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Select only lessons created by me</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">NOT_MINE</td>
+            <td>=</td>
+            <td class="attr-value">&#39;not_mine&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Select only lessons not created by me</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">COPIED</td>
+            <td>=</td>
+            <td class="attr-value">&#39;copied&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Select only lessons just copied</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">ALL_MEDIA_ELEMENTS</td>
+            <td>=</td>
+            <td class="attr-value">&#39;all_media_elements&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>All elements without any filter</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">VIDEO</td>
+            <td>=</td>
+            <td class="attr-value">&#39;video&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Selects only elements of kind &#39;video&#39;</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">AUDIO</td>
+            <td>=</td>
+            <td class="attr-value">&#39;audio&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Selects only elements of kind &#39;audio&#39;</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">IMAGE</td>
+            <td>=</td>
+            <td class="attr-value">&#39;image&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Selects only elements of kind &#39;image&#39;</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">LESSONS_SET</td>
+            <td>=</td>
+            <td class="attr-value">[ALL_LESSONS, PRIVATE, PUBLIC, LINKED, ONLY_MINE, COPIED]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Set of filters available for the section &#39;lessons&#39;</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">MEDIA_ELEMENTS_SET</td>
+            <td>=</td>
+            <td class="attr-value">[ALL_MEDIA_ELEMENTS, VIDEO, AUDIO, IMAGE]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Set of filters available for the section &#39;elements&#39;</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">LESSONS_SEARCH_SET</td>
+            <td>=</td>
+            <td class="attr-value">[ALL_LESSONS, NOT_MINE, PUBLIC, ONLY_MINE]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Set of filters available for the search engine of lessons</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">MEDIA_ELEMENTS_SEARCH_SET</td>
+            <td>=</td>
+            <td class="attr-value">[ALL_MEDIA_ELEMENTS, VIDEO, AUDIO, IMAGE]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Set of filters available for the search engine of elements</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>    

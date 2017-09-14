@@ -1,0 +1,1493 @@
+@import 'variables';
+@import 'mixins';
+
+.slide-not-loaded {
+  
+  height: $slide-inner-height;
+  width: $slide-inner-width;
+  padding: $slide-inner-padding;
+  background-color: white;
+  -webkit-box-shadow: 0px 6px 16px #161515;
+  box-shadow: 0px 6px 16px #161515;
+  
+}
+
+.slide-content {
+
+  &.simple_player {
+    .audio {
+      line-height: 71px;
+      audio {
+        vertical-align: middle;
+        width: 100%;
+      }
+    }
+  }
+  
+  height: $slide-inner-height;
+  width: $slide-inner-width;
+  padding: $slide-inner-padding;
+  font-family: Arial,Verdana,sans-serif;
+  background-color: white;
+  
+  .attached_document_internal {
+    
+    @include svg-circle-icon-handler($assets-set-icone-editor_svg, 40px, 4, 12, 1, 3, 11, 1, 2, 11);
+    position: absolute;
+    top: 5px;
+    left: 855px;
+    z-index: 6;
+    
+  }
+  
+  .attached_document_internal_expanded {
+    
+    background: $assets-documents-fondo_png no-repeat top right;
+    background-color: #252323;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    padding: 20px 80px 7px 20px;
+    
+    .icon {
+      
+      float: left;
+      width: 35px;
+      height: 35px;
+      
+      img {
+        
+        width: 35px;
+        height: 35px;
+        
+      }
+      
+    }
+    
+    .title_and_download {
+      
+      float: left;
+      height: 45px;
+      margin-left: 10px;
+      margin-top: 3px;
+      
+      .title {
+        
+        color: white;
+        margin-bottom: 1px;
+        font-size: 13px;
+        
+      }
+      
+      .download {
+        
+        color: #6D6C6C;
+        font-size: 12px;
+        font-weight: bold;
+        
+        &:hover {
+          
+          text-decoration: underline;
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  &.normal-size {
+    
+    -webkit-box-shadow: 0px 6px 16px #161515;
+    box-shadow: 0px 6px 16px #161515;
+    
+  }
+  
+  &.small-size {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    .image-container .image.read-only {
+      
+      background-color: #F1F1F1;
+      
+    }
+    
+    .image-container .image .add, .audio-container .audio .add, .video-container .video .add {
+      
+      cursor: default;
+      
+    }
+    
+    &.text, &.image1, &.audio, &.video1 {
+      
+      .text-container {
+        
+        padding: $miniature-slide-text-read-only-padding;
+        border: $miniature-slide-text-read-only-border solid #EFEFEF;
+        
+      }
+      
+    }
+    
+    &.text, &.image1, &.audio, &.video1 {
+      
+      .title-container {
+        
+        .title.read-only {
+          
+          padding: $miniature-slide-title-padding;
+          border: $miniature-slide-title-border solid #EFEFEF;
+          
+        }
+        
+      }
+      
+    }
+    
+    &.title {
+      
+      .title-container {
+        
+        .title.read-only {
+          
+          padding: $miniature-title-slide-content-padding;
+          border: $miniature-title-slide-content-border solid #EFEFEF;
+          
+        }
+        
+      }
+      
+    }
+    
+    &.cover .image-container .image .add, &.image2 .image-container .image .add, &.image3 .image-container .image .add {
+      
+      @include svg-circle-icon-handler($assets-icone-piene_svg, $big-icon-dimension, 6, 1, 1, 2, 0, 1, 2, 0);
+      
+    }
+    
+    &.image1 .image-container .image .add {
+      
+      @include svg-circle-icon-handler($assets-icone-piene_svg, $small-icon-dimension, 6, 1, 1, 2, 0, 1, 2, 0);
+      
+    }
+    
+    &.image4 .image-container .image .add {
+      
+      @include svg-circle-icon-handler($assets-icone-piene_svg, $tiny-icon-dimension, 6, 1, 1, 2, 0, 1, 2, 0);
+      
+    }
+    
+    &.video1 .video-container .video .add {
+      
+      @include svg-circle-icon-handler($assets-icone-piene_svg, $small-icon-dimension, 6, 1, 1, 1, 0, 1, 1, 0);
+      
+    }
+    
+    &.video2 .video-container .video .add {
+      
+      @include svg-circle-icon-handler($assets-icone-piene_svg, $big-icon-dimension, 6, 1, 1, 1, 0, 1, 1, 0);
+      
+    }
+    
+    &.audio .audio-container {
+      
+      .audio.editable .mask, .audio.editable .empty-mask {
+        
+        .add {
+          
+          @include svg-circle-icon-handler($assets-icone-piene_svg, $audio-big-icon-dimension, 6, 1, 1, 0, 0, 1, 0, 0);
+          cursor: default;
+          
+        }
+        
+      }
+      
+    }
+    
+    &.video1 .video-container .fake_video {
+      
+      width: $slide-video-half-width;
+      height: $slide-video-player-content-full-height-with-title;
+      
+    }
+    
+    &.video2 .video-container .fake_video {
+      
+      width: $slide-video-full-width;
+      height: $slide-video-player-content-full-height;
+      
+    }
+    
+    &.video1, &.video2, &.audio {
+      
+      .video-container, .audio-container {
+        
+        a.play {
+          
+          background-position: 0 0;
+          opacity: 1;
+          cursor: default;
+          
+        }
+        
+        a.fullScreen {
+          
+          background-position: -7.2em 0;
+          opacity: 1;
+          cursor: default;
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  .item {
+    
+    float: left;
+    
+  }
+  
+  .visible {
+    
+    display: block;
+    
+  }
+  
+  .hidden {
+    
+    display: none;
+    
+  }
+  
+  .text-container.read-only {
+    
+    padding: $slide-text-read-only-padding;
+    border: $slide-text-read-only-border solid white;
+    overflow: hidden;
+    @include read-only-tiny-mce;
+    
+  }
+  
+  &.audio {
+    
+    .title-container {
+      
+      height: $slide-title-height;
+      margin-bottom: $slide-inner-padding;
+      
+      .title {
+        
+        @include slide-title-common;
+        
+        &.read-only {
+          
+          border-color: white;
+          
+        }
+        
+      }
+      
+    }
+    
+    .audio-container {
+      
+      width: $slide-inner-width;
+      height: $audio-placeholder-height;
+      margin-bottom: $slide-inner-padding;
+      position: relative;
+      
+      ._instance_of_player {
+        
+        width: $slide-inner-width;
+        height: $audio-placeholder-height;
+        
+        a.play, a.pause {
+          
+          height: 30px;
+          width: 30px;
+          margin: 18px 0 0 12px;
+          
+        }
+        
+        .secondTime {
+          
+          margin-top: 28px;
+          width: 85px;
+          font-size: 12px;
+          
+        }
+        
+        .audioSlider {
+          
+          width: 600px;
+          margin: 30px 0 0 0;
+          
+          .ui-slider-handle {
+            
+            top: -4px;
+            height: 12px;
+            width: 12px;
+            
+          }
+          
+        }
+        
+        .sliderDisabler {
+          
+          position: absolute;
+          top: 14px;
+          left: 78px;
+          width: 700px;
+          height: 40px;
+          
+        }
+        
+      }
+      
+      .audio {
+        
+        &.read-only {
+          
+          width: $slide-inner-width;
+          height: $audio-placeholder-height;
+          
+        }
+        
+        &.editable {
+          
+          .mask {
+            
+            width: $slide-inner-width;
+            height: $audio-placeholder-height;
+            overflow: hidden;
+            position: relative;
+            
+            .add {
+              
+              @include svg-circle-icon-handler($assets-icone-piene_svg, $audio-small-icon-dimension, 6, 1, 1, 0, 0, 1, 3, 0);
+              position: absolute;
+              cursor: pointer;
+              top: $audio-icon-top-position;
+              left: $audio-icon-left-position;
+              
+            }
+            
+            .title {
+              
+              position: absolute;
+              top: 48px;
+              width: 860px;
+              text-align: center;
+              height: 20px;
+              
+            }
+            
+          }
+          
+          .empty-mask {
+            
+            @include general-empty-mask;
+            width: $slide-inner-width;
+            height: $audio-placeholder-height;
+            position: relative;
+            
+            .add {
+              
+              @include svg-circle-icon-handler($assets-icone-piene_svg, $audio-big-icon-dimension, 6, 1, 1, 0, 0, 1, 3, 0);
+              position: absolute;
+              top: $audio-icon-top-position-empty;
+              left: $audio-icon-left-position-empty;
+              
+            }
+            
+            p {
+              
+              margin-top: $icon-label-margin-top-in-audio;
+              font-size: $icon-label-font-size-in-audio;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+    .text-container {
+      
+      height: $slide-text-height-for-audio;
+      width: $slide-text-full-width;
+      
+      textarea {
+        
+        width: $slide-text-content-full-width;
+        height: $slide-text-content-height-for-audio;
+        
+      }
+      
+      &.read-only {
+        
+        width: $slide-text-read-only-full-width;
+        height: $slide-text-read-only-height-for-audio;
+        
+      }
+      
+    }
+    
+  }
+  
+  &.cover {
+    
+    width: $slide-width;
+    height: $slide-height;
+    padding: 0;
+    
+    .image-container {
+      
+      height: $image-height-in-cover;
+      
+      .image {
+        
+        &.read-only {
+          
+          width: $slide-width;
+          height: $image-height-in-cover;
+          overflow: hidden;
+          position: relative;
+          
+          img {
+            
+            position: absolute;
+            
+          }
+          
+        }
+        
+        &.editable {
+          
+          .mask {
+            
+            width: $slide-width;
+            height: $image-height-in-cover;
+            background-color: #F1F1F1;
+            overflow: hidden;
+            
+            .alignable {
+              
+              position: relative;
+              width: $slide-width;
+              
+              img {
+                
+                cursor: $assets-google-open-hand, move;
+                
+              }
+              
+            }
+            
+            .add {
+              
+              top: $big-icon-top-position-in-full-cover;
+              opacity: 0.8;
+              
+            }
+            
+          }
+          
+          .empty-mask {
+            
+            @include general-empty-mask;
+            width: $slide-width;
+            height: $image-height-in-cover;
+            
+            p {
+              
+              margin-top: $icon-label-margin-top-in-cover;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      .add {
+        
+        @include svg-circle-icon-handler($assets-icone-piene_svg, $big-icon-dimension, 6, 1, 1, 2, 0, 1, 3, 0);
+        position: absolute;
+        top: $big-icon-top-position-in-empty-cover;
+        left: $big-icon-left-position-in-cover;
+        
+      }
+      
+    }
+    
+    .title-container {
+      
+      @include nunito-with-line-height($title-font-size-in-cover, $title-line-height-in-cover);
+      height: $title-inner-height-in-cover;
+      width: $title-inner-width-in-cover;
+      top: $title-top-offset-in-cover;
+      position: absolute;
+      padding-top: $title-left-and-top-padding-in-cover;
+      padding-left: $title-left-and-top-padding-in-cover;
+      background-color: $orange;
+      opacity: 0.95;
+      color: #fff;
+      font-weight: normal;
+      
+    }
+    
+    .footer-container {
+      
+      @include arial($footer-font-size-in-cover);
+      background-color: white;
+      color: #373737;
+      height: $footer-inner-height-in-cover;
+      width: $footer-inner-width-in-cover;
+      padding: $footer-vertical-padding-in-cover $footer-horizontal-padding-in-cover;
+      
+      .subject {
+        
+        float: left;
+        
+      }
+      
+      .author {
+        
+        float: right;
+        
+        .name {
+          
+          color: $orange;
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  &.image1 {
+    
+    .title-container {
+      
+      height: $slide-title-height;
+      margin-bottom: $slide-inner-padding;
+      
+      .title {
+        
+        @include slide-title-common;
+        
+        &.read-only {
+          
+          border-color: white;
+          
+        }
+        
+      }
+      
+    }
+    
+    .image-container {
+      
+      width: $slide-image-half-width;
+      height: $slide-image-full-height-with-title;
+      margin-right: $slide-inner-padding;
+      position: relative;
+      
+      .image {
+        
+        .caption {
+          
+          @include image-caption;
+          width: $image-caption-half-width;
+          
+        }
+        
+        &.read-only {
+          
+          width: $slide-image-half-width;
+          height: $slide-image-full-height-with-title;
+          overflow: hidden;
+          position: relative;
+          
+          img {
+            
+            position: absolute;
+            
+          }
+          
+        }
+        
+        &.editable {
+          
+          .mask {
+            
+            width: $slide-image-half-width;
+            height: $slide-image-full-height-with-title;
+            background-color: #F1F1F1;
+            overflow: hidden;
+            position: relative;
+            
+            .alignable {
+              
+              position: relative;
+              width: $slide-image-half-width;
+              
+              img {
+                
+                cursor: $assets-google-open-hand, move;
+                
+              }
+              
+            }
+            
+            .add {
+              
+              top: $small-icon-top-position-in-full-height-image-with-title;
+              opacity: 0.8;
+              
+            }
+            
+            .inscribe, .deinscribe {
+              
+              position: absolute;
+              cursor: pointer;
+              top: $inscribe-icon-top;
+              right: $inscribe-icon-right;
+              
+            }
+            
+            .inscribe {
+              
+              @include svg-circle-icon-handler($assets-icone-resize_svg, $inscribe-icon-dimension, 2, 1, 0.5, 0, 0, 1, 0, 0);
+              
+            }
+            
+            .deinscribe {
+              
+              @include svg-circle-icon-handler($assets-icone-resize_svg, $inscribe-icon-dimension, 2, 1, 0.5, 1, 0, 1, 1, 0);
+              
+            }
+            
+          }
+          
+          .empty-mask {
+            
+            @include general-empty-mask;
+            width: $slide-image-half-width;
+            height: $slide-image-full-height-with-title;
+            position: relative;
+            
+            p {
+              
+              margin-top: $icon-label-margin-top-in-full-height-image-with-title;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      .add {
+        
+        @include svg-circle-icon-handler($assets-icone-piene_svg, $small-icon-dimension, 6, 1, 1, 2, 0, 1, 3, 0);
+        position: absolute;
+        cursor: pointer;
+        top: $small-icon-top-position-in-full-height-image-with-title-empty;
+        left: $small-icon-left-position-in-half-width-image;
+        
+      }
+      
+    }
+    
+    .text-container {
+      
+      height: $slide-text-full-height;
+      width: $slide-text-half-width;
+      
+      textarea {
+        
+        width: $slide-text-content-half-width;
+        height: $slide-text-content-full-height;
+        
+      }
+      
+      &.read-only {
+        
+        width: $slide-text-read-only-half-width;
+        height: $slide-text-read-only-full-height;
+        
+      }
+      
+    }
+    
+  }
+  
+  &.image2 {
+    
+    .image-container {
+      
+      width: $slide-image-half-width;
+      height: $slide-image-full-height;
+      margin-right: $slide-inner-padding;
+      position: relative;
+      
+      .image {
+        
+        .caption {
+          
+          @include image-caption;
+          width: $image-caption-half-width;
+          
+        }
+        
+        &.read-only {
+          
+          width: $slide-image-half-width;
+          height: $slide-image-full-height;
+          overflow: hidden;
+          position: relative;
+          
+          img {
+            
+            position: absolute;
+            
+          }
+          
+        }
+        
+        &.editable {
+          
+          .mask {
+            
+            width: $slide-image-half-width;
+            height: $slide-image-full-height;
+            background-color: #F1F1F1;
+            overflow: hidden;
+            position: relative;
+            
+            .alignable {
+              
+              position: relative;
+              width: $slide-image-half-width;
+              
+              img {
+                
+                cursor: $assets-google-open-hand, move;
+                
+              }
+              
+            }
+            
+            .add {
+              
+              top: $big-icon-top-position-in-full-height-image;
+              opacity: 0.8;
+              
+            }
+            
+            .inscribe, .deinscribe {
+              
+              position: absolute;
+              cursor: pointer;
+              top: $inscribe-icon-top;
+              right: $inscribe-icon-right;
+              
+            }
+            
+            .inscribe {
+              
+              @include svg-circle-icon-handler($assets-icone-resize_svg, $inscribe-icon-dimension, 2, 1, 0.5, 0, 0, 1, 0, 0);
+              
+            }
+            
+            .deinscribe {
+              
+              @include svg-circle-icon-handler($assets-icone-resize_svg, $inscribe-icon-dimension, 2, 1, 0.5, 1, 0, 1, 1, 0);
+              
+            }
+            
+          }
+          
+          .empty-mask {
+            
+            @include general-empty-mask;
+            width: $slide-image-half-width;
+            height: $slide-image-full-height;
+            position: relative;
+            
+            p {
+              
+              margin-top: $icon-label-margin-top-in-full-height-image;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      .add {
+        
+        @include svg-circle-icon-handler($assets-icone-piene_svg, $big-icon-dimension, 6, 1, 1, 2, 0, 1, 3, 0);
+        position: absolute;
+        cursor: pointer;
+        top: $big-icon-top-position-in-full-height-image-empty;
+        left: $big-icon-left-position-in-half-width-image;
+        
+      }
+      
+    }
+    
+  }
+  
+  &.image3 {
+    
+    .image-container {
+      
+      width: $slide-image-full-width;
+      height: $slide-image-full-height;
+      position: relative;
+      
+      .image {
+        
+        .caption {
+          
+          @include image-caption;
+          width: $image-caption-full-width;
+          
+        }
+        
+        &.read-only {
+          
+          width: $slide-image-full-width;
+          height: $slide-image-full-height;
+          overflow: hidden;
+          position: relative;
+          
+          img {
+            
+            position: absolute;
+            
+          }
+          
+        }
+        
+        &.editable {
+          
+          .mask {
+            
+            width: $slide-image-full-width;
+            height: $slide-image-full-height;
+            background-color: #F1F1F1;
+            overflow: hidden;
+            position: relative;
+            
+            .alignable {
+              
+              position: relative;
+              width: $slide-image-full-width;
+              
+              img {
+                
+                cursor: $assets-google-open-hand, move;
+                
+              }
+              
+            }
+            
+            .add {
+              
+              top: $big-icon-top-position-in-full-height-image;
+              opacity: 0.8;
+              
+            }
+            
+            .inscribe, .deinscribe {
+              
+              position: absolute;
+              cursor: pointer;
+              top: $inscribe-icon-top;
+              right: $inscribe-icon-right;
+              
+            }
+            
+            .inscribe {
+              
+              @include svg-circle-icon-handler($assets-icone-resize_svg, $inscribe-icon-dimension, 2, 1, 0.5, 0, 0, 1, 0, 0);
+              
+            }
+            
+            .deinscribe {
+              
+              @include svg-circle-icon-handler($assets-icone-resize_svg, $inscribe-icon-dimension, 2, 1, 0.5, 1, 0, 1, 1, 0);
+              
+            }
+            
+          }
+          
+          .empty-mask {
+            
+            @include general-empty-mask;
+            width: $slide-image-full-width;
+            height: $slide-image-full-height;
+            position: relative;
+            
+            p {
+              
+              margin-top: $icon-label-margin-top-in-full-height-image;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      .add {
+        
+        @include svg-circle-icon-handler($assets-icone-piene_svg, $big-icon-dimension, 6, 1, 1, 2, 0, 1, 3, 0);
+        position: absolute;
+        cursor: pointer;
+        top: $big-icon-top-position-in-full-height-image-empty;
+        left: $big-icon-left-position-in-full-width-image;
+        
+      }
+      
+    }
+    
+  }
+  
+  &.image4 {
+    
+    .image-container {
+      
+      width: $slide-image-half-width;
+      height: $slide-image-half-height;
+      margin-right: $slide-inner-padding;
+      margin-bottom: $slide-inner-padding;
+      position: relative;
+      
+      .image {
+        
+        .caption {
+          
+          @include image-caption;
+          width: $image-caption-half-width;
+          
+        }
+        
+        &.read-only {
+          
+          width: $slide-image-half-width;
+          height: $slide-image-half-height;
+          overflow: hidden;
+          position: relative;
+          
+          img {
+            
+            position: absolute;
+            
+          }
+          
+        }
+        
+        &.editable {
+          
+          .mask {
+            
+            width: $slide-image-half-width;
+            height: $slide-image-half-height;
+            background-color: #F1F1F1;
+            overflow: hidden;
+            position: relative;
+            
+            .alignable {
+              
+              position: relative;
+              width: $slide-image-half-width;
+              
+              img {
+                
+                cursor: $assets-google-open-hand, move;
+                
+              }
+              
+            }
+            
+            .add {
+              
+              top: $tiny-icon-top-position-in-half-height-image;
+              opacity: 0.8;
+              
+            }
+            
+            .inscribe, .deinscribe {
+              
+              position: absolute;
+              cursor: pointer;
+              top: $inscribe-icon-top;
+              right: $inscribe-icon-right;
+              
+            }
+            
+            .inscribe {
+              
+              @include svg-circle-icon-handler($assets-icone-resize_svg, $inscribe-icon-dimension, 2, 1, 0.5, 0, 0, 1, 0, 0);
+              
+            }
+            
+            .deinscribe {
+              
+              @include svg-circle-icon-handler($assets-icone-resize_svg, $inscribe-icon-dimension, 2, 1, 0.5, 1, 0, 1, 1, 0);
+              
+            }
+            
+          }
+          
+          .empty-mask {
+            
+            @include general-empty-mask;
+            width: $slide-image-half-width;
+            height: $slide-image-half-height;
+            position: relative;
+            
+            p {
+              
+              margin-top: $icon-label-margin-top-in-half-height-image;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      .add {
+        
+        @include svg-circle-icon-handler($assets-icone-piene_svg, $tiny-icon-dimension, 6, 1, 1, 2, 0, 1, 3, 0);
+        position: absolute;
+        cursor: pointer;
+        top: $tiny-icon-top-position-in-half-height-image-empty;
+        left: $tiny-icon-left-position-in-half-width-image;
+        
+      }
+      
+    }
+    
+  }
+  
+  &.text {
+    
+    .title-container {
+      
+      height: $slide-title-height;
+      margin-bottom: $slide-inner-padding;
+      
+      .title {
+        
+        @include slide-title-common;
+        
+        &.read-only {
+          
+          border-color: white;
+          
+        }
+        
+      }
+      
+    }
+    
+    .text-container {
+      
+      height: $slide-text-full-height;
+      width: $slide-text-full-width;
+      
+      textarea {
+        
+        width: $slide-text-content-full-width;
+        height: $slide-text-content-full-height;
+        
+      }
+      
+      &.read-only {
+        
+        width: $slide-text-read-only-full-width;
+        height: $slide-text-read-only-full-height;
+        
+      }
+      
+    }
+    
+  }
+  
+  &.title {
+    
+    .title-container {
+      
+      width: $slide-inner-width;
+      height: $slide-inner-height;
+      
+      .title {
+        
+        @include nunito-with-line-height($title-slide-font-size, $title-slide-line-height);
+        width: $title-slide-content-width;
+        height: $title-slide-content-height;
+        padding: $title-slide-content-padding;
+        margin-top: $title-slide-content-margin-top;
+        border: $title-slide-content-border solid #EFEFEF;
+        text-align: center;
+        color: $orange;
+        background-color: white;
+        letter-spacing: -3px;
+        
+        &.read-only {
+          
+          border-color: white;
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  &.video1 {
+    
+    .title-container {
+      
+      height: $slide-title-height;
+      margin-bottom: $slide-inner-padding;
+      
+      .title {
+        
+        @include slide-title-common;
+        
+        &.read-only {
+          
+          border-color: white;
+          
+        }
+        
+      }
+      
+    }
+    
+    .video-container {
+      
+      width: $slide-video-half-width;
+      height: $slide-video-full-height-with-title;
+      margin-right: $slide-inner-padding;
+      position: relative;
+      
+      ._instance_of_player {
+        
+        width: $slide-video-half-width;
+        height: $slide-video-full-height-with-title;
+        
+        video {
+          
+          width: $slide-video-half-width;
+          height: $slide-video-player-content-full-height-with-title;
+          
+        }
+        
+        a.play, a.pause {
+          
+          height: 30px;
+          width: 30px;
+          margin: 2px 0 0 10px;
+          
+        }
+        
+        a.fullScreen {
+          
+          width: 30px;
+          height: 30px;
+          margin: 2px 10px 0 0;
+          
+        }
+        
+        .secondTime {
+          
+          margin-top: 11px;
+          width: 46px;
+          font-size: 11px;
+          
+        }
+        
+        .videoSlider {
+          
+          width: 230px;
+          margin: 13px 8px 0 8px;
+          
+          .ui-slider-handle {
+            
+            top: -4px;
+            height: 12px;
+            width: 12px;
+            
+          }
+          
+        }
+        
+        .sliderDisabler {
+          
+          position: absolute;
+          top: 242px;
+          left: 62px;
+          width: 296px;
+          height: 32px;
+          
+        }
+        
+      }
+      
+      .video {
+        
+        &.read-only {
+          
+          width: $slide-video-half-width;
+          height: $slide-video-full-height-with-title;
+          overflow: hidden;
+          
+        }
+        
+        &.editable {
+          
+          .mask {
+            
+            width: $slide-video-half-width;
+            height: $slide-video-full-height-with-title;
+            overflow: hidden;
+            position: relative;
+            
+            .alignable {
+              
+              position: relative;
+              width: $slide-video-half-width;
+              
+            }
+            
+            .add {
+              
+              top: $small-icon-top-position-in-full-height-video-with-title;
+              opacity: 0.8;
+              
+            }
+            
+          }
+          
+          .empty-mask {
+            
+            @include general-empty-mask;
+            width: $slide-video-half-width;
+            height: $slide-video-full-height-with-title-empty;
+            position: relative;
+            
+            p {
+              
+              margin-top: $icon-label-margin-top-in-full-height-video-with-title;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      .add {
+        
+        @include svg-circle-icon-handler($assets-icone-piene_svg, $small-icon-dimension, 6, 1, 1, 1, 0, 1, 3, 0);
+        position: absolute;
+        cursor: pointer;
+        top: $small-icon-top-position-in-full-height-video-with-title-empty;
+        left: $small-icon-left-position-in-half-width-video;
+        
+      }
+      
+    }
+    
+    .text-container {
+      
+      height: $slide-text-full-height;
+      width: $slide-text-half-width;
+      
+      textarea {
+        
+        width: $slide-text-content-half-width;
+        height: $slide-text-content-full-height;
+        
+      }
+      
+      &.read-only {
+        
+        width: $slide-text-read-only-half-width;
+        height: $slide-text-read-only-full-height;
+        
+      }
+      
+    }
+    
+  }
+  
+  &.video2 {
+    
+    .video-container {
+      
+      width: $slide-video-full-width;
+      height: $slide-video-full-height;
+      position: relative;
+      
+      ._instance_of_player {
+        
+        width: $slide-video-full-width;
+        height: $slide-video-full-height;
+        
+        video {
+          
+          width: $slide-video-full-width;
+          height: $slide-video-player-content-full-height;
+          
+        }
+        
+        a.play, a.pause {
+          
+          height: 30px;
+          width: 30px;
+          margin: 13px 0 0 10px;
+          
+        }
+        
+        a.fullScreen {
+          
+          width: 30px;
+          height: 30px;
+          margin: 13px 10px 0 0;
+          
+        }
+        
+        .secondTime {
+          
+          margin-top: 23px;
+          width: 85px;
+          font-size: 12px;
+          
+        }
+        
+        .videoSlider {
+          
+          width: 600px;
+          margin: 24px 0 0 0;
+          
+          .ui-slider-handle {
+            
+            top: -4px;
+            height: 12px;
+            width: 12px;
+            
+          }
+          
+        }
+        
+        .sliderDisabler {
+          
+          position: absolute;
+          top: 494px;
+          left: 78px;
+          width: 700px;
+          height: 40px;
+          
+        }
+        
+      }
+      
+      .video {
+        
+        &.read-only {
+          
+          width: $slide-video-full-width;
+          height: $slide-video-full-height;
+          overflow: hidden;
+          
+        }
+        
+        &.editable {
+          
+          .mask {
+            
+            width: $slide-video-full-width;
+            height: $slide-video-full-height;
+            overflow: hidden;
+            position: relative;
+            
+            .alignable {
+              
+              position: relative;
+              width: $slide-video-full-width;
+              
+            }
+            
+            .add {
+              
+              top: $big-icon-top-position-in-full-height-video;
+              opacity: 0.8;
+              
+            }
+            
+          }
+          
+          .empty-mask {
+            
+            @include general-empty-mask;
+            width: $slide-video-full-width;
+            height: $slide-video-full-height;
+            position: relative;
+            
+            p {
+              
+              margin-top: $icon-label-margin-top-in-full-height-video;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      .add {
+        
+        @include svg-circle-icon-handler($assets-icone-piene_svg, $big-icon-dimension, 6, 1, 1, 1, 0, 1, 3, 0);
+        position: absolute;
+        cursor: pointer;
+        top: $big-icon-top-position-in-full-height-video-empty;
+        left: $big-icon-left-position-in-full-width-video;
+        
+      }
+      
+    }
+    
+  }
+  
+}

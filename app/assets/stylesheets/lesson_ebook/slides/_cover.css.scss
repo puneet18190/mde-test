@@ -1,0 +1,65 @@
+$body-padding: 16px;
+
+html.cover-slide {
+
+body {
+  margin: 0;
+  padding: $body-padding;
+  min-width: 400px;
+  max-width: 900px;
+}
+
+.image, .subject, .title, .author {
+  width: 100%;
+}
+
+.image, .subject, .title {
+  margin-bottom: 1rem;
+}
+
+.image {
+  height: 560px;
+  background: none no-repeat scroll 0 0 transparent;
+}
+
+.title {
+  color: #F29400;
+  font-size: 5em;
+  font-weight: normal;
+  line-height: 100%;
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+$i: 931px;
+@while $i > 432 {
+  @media all and (width: $i) {
+    .image {
+      height: 560 * ( $i - ($body-padding * 2) ) / 900;
+    }
+  }
+  $i: $i - 1;
+}
+
+$i: $i - 1;
+@media all and (max-width: $i) {
+  .image {
+    height: 560 * ( $i - ($body-padding * 2) ) / 900;
+  }
+}
+
+/* Titolo più piccolo sotto i 500px
+ *
+ * È stato scelto 500px perchè iBook sull'iPad di Franco 
+ * è sopra i 500px quando in orientation landscape e sotto
+ * quando è in orientation portrait (entrambe le risoluzioni
+ * sono tra i 400px e i 600px)
+ *
+ */
+@media all and (max-width: 500px) {
+  .title {
+    font-size: 3em;
+  }
+}
+
+}

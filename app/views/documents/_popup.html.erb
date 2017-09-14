@@ -1,0 +1,55 @@
+<div id="dialog-document-<%= document.id %>" class="dialogDocument ornitorinco echidna pippofranco" style="display:none">
+  <div class="wrapper">
+    <div class="preview">
+      <div class="content">
+        <%= image_tag document.icon_url %>
+      </div>
+      <div class="description">
+        <h2><%= t('documents.caption') %></h2>
+        <h3><%= document.title %></h3>
+        <p><%= document.description %></p>
+        <a href="<%= document.url %>"><%= t('documents.download') %></a>
+        <h4><%= t('documents.human_size', :number => document.human_size).downcase %></h4>
+        <h4><%= t('documents.format', :type => document.extension).downcase %></h4>
+      </div>
+    </div>
+    <div class="change-info" style="display:none" data-title="<%= document.title %>" data-description="<%= document.description %>">
+      <%= form_tag document_path(document.id), :remote => true, :class => 'form-selector-class', :autocomplete => 'off' do %>
+        <div class="part1">
+          <div class="attachment">
+            <div class="icon"></div>
+          </div>
+          <div class="title_and_subtitle">
+            <h1>
+              <%= t('forms.change_info_document.title') %>
+            </h1>
+            <p>
+              <%= t('forms.change_info_document.description') %>
+            </p>
+          </div>
+        </div>
+        <div class="part2">
+          <div class="title_and_description">
+            <input type="hidden" value="" name="word" class="hidden_word">
+            <input class="title" type="text" value="<%= document.title %>" name="title"/>
+            <textarea class="description" name="description"><%= document.description %></textarea>
+          </div>
+        </div>
+        <div class="part3">
+          <a class="submit"><%= t('forms.change_info_document.done').downcase %></a>
+          <a class="close"><%= t('forms.change_info_document.cancel').downcase %></a>
+        </div>
+        <div class="errors_layer description" data-focus-selector=".part2 .description" data-form-error-selector=".part2 .description" data-focus-action="focus"></div>
+        <div class="errors_layer title" data-focus-selector=".part2 .title" data-form-error-selector=".part2 .title" data-focus-action="focus"></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="menu">
+    <div class="on-left">
+      <a class="change-info" title="<%= t('titles.buttons.documents.change_info') %>"></a>
+    </div>
+    <div class="on-right">
+      <a class="close" title="<%= t('titles.close') %>"></a>
+    </div>
+  </div>
+</div>

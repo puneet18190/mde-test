@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Admin::SettingsController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Admin::SettingsController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../AdminController.html">AdminController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/app/controllers/admin/settings_controller_rb.html">app/controllers/admin/settings_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Admin::SettingsController-label-Description">Description</h3>
+
+<p>Controller for minor tables, such as <code>tags</code> and
+<code>subjects</code>. See <a
+href="../AdminController.html">AdminController</a></p>
+
+<h3 id="class-Admin::SettingsController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="../Subject.html">Subject</a></p>
+</li><li>
+<p><a href="../SchoolLevel.html">SchoolLevel</a></p>
+</li><li>
+<p><a href="../AdminSearchForm.html">AdminSearchForm</a></p>
+</li><li>
+<p><a href="../Tag.html">Tag</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-create_location">create_location</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-delete_school_level">delete_school_level</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-delete_subject">delete_subject</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-delete_tag">delete_tag</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-lessons_for_tag">lessons_for_tag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-locations">locations</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-media_elements_for_tag">media_elements_for_tag</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-new_school_level">new_school_level</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-new_subject">new_subject</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-school_levels">school_levels</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-subjects">subjects</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-tags">tags</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-update_location">update_location</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-create_location">
+            
+              <b>create_location</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-create_location" name="method-i-create_location" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create_location-label-Description">Description</h3>
+
+<p>Creates a new location</p>
+
+<h3 id="method-i-create_location-label-Mode">Mode</h3>
+
+<p>JavaScript</p>
+
+<h3 id="method-i-create_location-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_location_source')" id="l_method-i-create_location_source">show</a>
+                
+              </p>
+              <div id="method-i-create_location_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_location</span>
+  <span class="ruby-identifier">settings</span> = <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;location_types&#39;</span>]
+  <span class="ruby-ivar">@location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">sti_type</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:sti_type</span>]
+  <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>]
+  <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">code</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:code</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">settings</span>[<span class="ruby-number">0</span>] <span class="ruby-operator">!=</span> <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">sti_type</span>
+    <span class="ruby-identifier">parent_location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:parent</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">parent_location</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">index</span> = <span class="ruby-number">0</span>
+      <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">index</span> = <span class="ruby-identifier">i</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">parent_location</span>.<span class="ruby-identifier">sti_type</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@ok</span> = (<span class="ruby-identifier">settings</span>[<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">sti_type</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">ancestry</span> = <span class="ruby-identifier">parent_location</span>.<span class="ruby-identifier">ancestry_with_me</span>.<span class="ruby-identifier">chop</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@ok</span> = <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">save</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete_school_level">
+            
+              <b>delete_school_level</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-delete_school_level" name="method-i-delete_school_level" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-delete_school_level-label-Description">Description</h3>
+
+<p>Action that deletes a school level; it&#39;s possible to do it only if the
+school level doesn&#39;t have associated users or lessons (see <a
+href="../SchoolLevel.html#method-i-is_deletable-3F">SchoolLevel#is_deletable?</a>)</p>
+
+<h3 id="method-i-delete_school_level-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-delete_school_level-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-delete_school_level_source')" id="l_method-i-delete_school_level_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_school_level_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">delete_school_level</span>
+  <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-identifier">level</span> = <span class="ruby-constant">SchoolLevel</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@id</span>)
+  <span class="ruby-identifier">level</span>.<span class="ruby-identifier">destroy</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">level</span>.<span class="ruby-identifier">is_deletable?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete_subject">
+            
+              <b>delete_subject</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-delete_subject" name="method-i-delete_subject" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-delete_subject-label-Description">Description</h3>
+
+<p>Action that deletes a subject; it&#39;s possible to do it only if the
+subject doesn&#39;t have associated users or lessons (see <a
+href="../Subject.html#method-i-is_deletable-3F">Subject#is_deletable?</a>)</p>
+
+<h3 id="method-i-delete_subject-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-delete_subject-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-delete_subject_source')" id="l_method-i-delete_subject_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_subject_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">delete_subject</span>
+  <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-identifier">subject</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@id</span>)
+  <span class="ruby-identifier">subject</span>.<span class="ruby-identifier">destroy</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">subject</span>.<span class="ruby-identifier">is_deletable?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete_tag">
+            
+              <b>delete_tag</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-delete_tag" name="method-i-delete_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-delete_tag-label-Description">Description</h3>
+
+<p>Action that deletes a tag; with the cascade destruction, all taggings are
+destroyed too (in this case it&#39;s not validated the minimum amount of
+tags)</p>
+
+<h3 id="method-i-delete_tag-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-delete_tag-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-delete_tag_source')" id="l_method-i-delete_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">delete_tag</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">correct_integer?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+    <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">tag</span> = <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-ivar">@id</span>
+    <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">destroy</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">tag</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:back_url</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-lessons_for_tag">
+            
+              <b>lessons_for_tag</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-lessons_for_tag" name="method-i-lessons_for_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-lessons_for_tag-label-Description">Description</h3>
+
+<p>&#39;Show&#39; action for all the lessons associated to a given tag</p>
+
+<h3 id="method-i-lessons_for_tag-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-lessons_for_tag-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-lessons_for_tag_source')" id="l_method-i-lessons_for_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-lessons_for_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">lessons_for_tag</span>
+  <span class="ruby-ivar">@tag</span> = <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@lessons</span> = <span class="ruby-ivar">@tag</span>.<span class="ruby-identifier">get_lessons</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>]).<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;lessons.*, (SELECT COUNT (*) FROM likes WHERE likes.lesson_id = lessons.id) AS likes_count&#39;</span>).<span class="ruby-identifier">preload</span>(<span class="ruby-value">:user</span>, <span class="ruby-value">:subject</span>, <span class="ruby-value">:taggings</span>, {<span class="ruby-value">:taggings</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:tag</span>})
+  <span class="ruby-identifier">covers</span> = <span class="ruby-constant">Slide</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:lesson_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@lessons</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:id</span>), <span class="ruby-value">:kind</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;cover&#39;</span>).<span class="ruby-identifier">preload</span>(<span class="ruby-value">:media_elements_slides</span>, {<span class="ruby-value">:media_elements_slides</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:media_element</span>})
+  <span class="ruby-ivar">@covers</span> = {}
+  <span class="ruby-identifier">covers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cov</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@covers</span>[<span class="ruby-identifier">cov</span>.<span class="ruby-identifier">lesson_id</span>] = <span class="ruby-identifier">cov</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-locations">
+            
+              <b>locations</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-locations" name="method-i-locations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-locations-label-Description">Description</h3>
+
+<p>&#39;Show&#39; action for locations</p>
+
+<h3 id="method-i-locations-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-locations-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-locations_source')" id="l_method-i-locations_source">show</a>
+                
+              </p>
+              <div id="method-i-locations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">locations</span>
+  <span class="ruby-ivar">@locations</span> = [{<span class="ruby-value">:selected</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>, <span class="ruby-value">:content</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Location</span>.<span class="ruby-identifier">roots</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)}]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:selected</span>]
+    <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:selected</span>]
+    <span class="ruby-ivar">@locations</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">select_with_selected</span>(<span class="ruby-keyword">true</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search_by_code_type</span>]
+    <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:sti_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search_by_code_type</span>], <span class="ruby-value">:code</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search_by_code</span>]).<span class="ruby-identifier">first</span>
+    <span class="ruby-ivar">@locations</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">select_with_selected</span>(<span class="ruby-keyword">true</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-media_elements_for_tag">
+            
+              <b>media_elements_for_tag</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-media_elements_for_tag" name="method-i-media_elements_for_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-media_elements_for_tag-label-Description">Description</h3>
+
+<p>&#39;Show&#39; action for all the elements associated to a given tag</p>
+
+<h3 id="method-i-media_elements_for_tag-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-media_elements_for_tag-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-media_elements_for_tag_source')" id="l_method-i-media_elements_for_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-media_elements_for_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">media_elements_for_tag</span>
+  <span class="ruby-ivar">@tag</span> = <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@media_elements</span> = <span class="ruby-ivar">@tag</span>.<span class="ruby-identifier">get_media_elements</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>]).<span class="ruby-identifier">preload</span>(<span class="ruby-value">:user</span>, <span class="ruby-value">:taggings</span>, {<span class="ruby-value">:taggings</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:tag</span>})
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-new_school_level">
+            
+              <b>new_school_level</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-new_school_level" name="method-i-new_school_level" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-new_school_level-label-Description">Description</h3>
+
+<p>Action that creates a new school level</p>
+
+<h3 id="method-i-new_school_level-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-new_school_level-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-new_school_level_source')" id="l_method-i-new_school_level_source">show</a>
+                
+              </p>
+              <div id="method-i-new_school_level_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">new_school_level</span>
+  <span class="ruby-constant">SchoolLevel</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>]
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-string">&#39;/admin/settings/school_levels&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-new_subject">
+            
+              <b>new_subject</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-new_subject" name="method-i-new_subject" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-new_subject-label-Description">Description</h3>
+
+<p>Action that creates a new subject</p>
+
+<h3 id="method-i-new_subject-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-new_subject-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-new_subject_source')" id="l_method-i-new_subject_source">show</a>
+                
+              </p>
+              <div id="method-i-new_subject_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">new_subject</span>
+  <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:description</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>]
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-string">&#39;/admin/settings/subjects&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-school_levels">
+            
+              <b>school_levels</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-school_levels" name="method-i-school_levels" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-school_levels-label-Description">Description</h3>
+
+<p>Main subpage to manage school levels</p>
+
+<h3 id="method-i-school_levels-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-school_levels-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-school_levels_source')" id="l_method-i-school_levels_source">show</a>
+                
+              </p>
+              <div id="method-i-school_levels_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">school_levels</span>
+  <span class="ruby-ivar">@school_levels</span> = <span class="ruby-constant">SchoolLevel</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;school_levels.*, ((SELECT COUNT (*) FROM users WHERE users.school_level_id = school_levels.id) + (SELECT COUNT (*) FROM lessons WHERE lessons.school_level_id = school_levels.id)) AS instances&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-subjects">
+            
+              <b>subjects</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-subjects" name="method-i-subjects" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-subjects-label-Description">Description</h3>
+
+<p>Main subpage to manage subjects</p>
+
+<h3 id="method-i-subjects-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-subjects-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-subjects_source')" id="l_method-i-subjects_source">show</a>
+                
+              </p>
+              <div id="method-i-subjects_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">subjects</span>
+  <span class="ruby-ivar">@subjects</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;subjects.*, ((SELECT COUNT (*) FROM users_subjects WHERE users_subjects.subject_id = subjects.id) + (SELECT COUNT (*) FROM lessons WHERE lessons.subject_id = subjects.id)) AS instances&#39;</span>).<span class="ruby-identifier">order</span>(<span class="ruby-value">:description</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-tags">
+            
+              <b>tags</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-tags" name="method-i-tags" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-tags-label-Description">Description</h3>
+
+<p>Main subpage to manage tags. If <a href=":search">params</a> is present, it
+is used <a href="../AdminSearchForm.html">AdminSearchForm</a> to perform
+the requested search.</p>
+
+<h3 id="method-i-tags-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-tags-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-tags_source')" id="l_method-i-tags_source">show</a>
+                
+              </p>
+              <div id="method-i-tags_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">tags</span>
+  <span class="ruby-identifier">tags</span> = <span class="ruby-constant">AdminSearchForm</span>.<span class="ruby-identifier">search_tags</span>((<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>] <span class="ruby-operator">:</span> {<span class="ruby-value">:ordering</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">2</span>, <span class="ruby-value">:desc</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;true&#39;</span>}))
+  <span class="ruby-ivar">@tags</span> = <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-update_location">
+            
+              <b>update_location</b>()
+            
+            <a href="../../classes/Admin/SettingsController.html#method-i-update_location" name="method-i-update_location" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-update_location-label-Description">Description</h3>
+
+<p>Updates a location</p>
+
+<h3 id="method-i-update_location-label-Mode">Mode</h3>
+
+<p>JavaScript</p>
+
+<h3 id="method-i-update_location-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-update_location_source')" id="l_method-i-update_location_source">show</a>
+                
+              </p>
+              <div id="method-i-update_location_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/settings_controller.rb, line 231</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">update_location</span>
+  <span class="ruby-ivar">@location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@location</span>
+    <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">code</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:code</span>]
+    <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>]
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

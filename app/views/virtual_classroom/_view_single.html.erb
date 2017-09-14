@@ -1,0 +1,13 @@
+<% lesson = virtual.lesson %>
+
+<div id="virtual_classroom_lesson_<%= lesson.id %>" class="boxViewSingleVCLesson _virtual_classroom_lesson" data-lesson-id="<%= lesson.id %>" data-in-playlist="<%= virtual.in_playlist? %>">
+  <div class="contentInterno">
+    <%= render :partial => 'lessons/thumbnail', :locals => {:lesson => lesson, :cover => cover} %>
+    <br class="clearfloat"/>
+    <div class="menuLessonVirtualClassroom">
+      <a class="_virtual_classroom_preview preview" data-lesson-id="<%= lesson.id %>" title="<%= t('titles.virtual_classroom.preview') %>"></a>
+      <a class="_send_lesson_link sendTo" data-lesson-id="<%= lesson.id %>" title="<%= t('titles.virtual_classroom.send_link') %>"></a>
+      <a class="_remove_lesson_from_inside_virtual_classroom remove" data-clickparam="<%= lesson.id %>" title="<%= t('titles.virtual_classroom.remove') %>"></a>
+    </div>
+  </div>
+</div>

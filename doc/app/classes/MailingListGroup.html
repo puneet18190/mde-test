@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>MailingListGroup</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            MailingListGroup 
+            
+                <span class="parent">&lt; 
+                    
+                    ActiveRecord::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/mailing_list_group_rb.html">app/models/mailing_list_group.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-MailingListGroup-label-Description">Description</h3>
+
+<p>ActiveRecord class that corresponds to the table
+<code>mailing_list_groups</code>.</p>
+
+<h3 id="class-MailingListGroup-label-Fields">Fields</h3>
+<ul><li>
+<p><em>user_id</em>: the reference to the <a href="User.html">User</a> owner
+of the group</p>
+</li><li>
+<p><em>name</em>: the name of the group</p>
+</li></ul>
+
+<h3 id="class-MailingListGroup-label-Associations">Associations</h3>
+<ul><li>
+<p><em>user</em>: reference to the <a href="User.html">User</a> owner of the
+group (<em>belongs_to</em>)</p>
+</li><li>
+<p><em>addresses</em>: reference to the associated addresses (see <a
+href="MailingListAddress.html">MailingListAddress</a>) (<em>has_many</em>)</p>
+</li></ul>
+
+<h3 id="class-MailingListGroup-label-Validations">Validations</h3>
+<ul><li>
+<p><em>presence</em> for <code>name</code></p>
+</li><li>
+<p><em>presence</em> with numericality and existence of associated record for
+<code>user_id</code></p>
+</li><li>
+<p><em>length</em> of <code>name</code>, maximum is 255</p>
+</li><li>
+<p><em>uniqueness</em> for <code>name</code></p>
+</li><li>
+<p><em>modifications</em> <em>not</em> <em>available</em> for
+<code>user_id</code>, if the record is not new</p>
+</li></ul>
+
+<h3 id="class-MailingListGroup-label-Callbacks">Callbacks</h3>
+
+<p>None</p>
+
+<h3 id="class-MailingListGroup-label-Database+callbacks">Database callbacks</h3>
+<ol><li>
+<p><em>cascade</em> <em>destruction</em> for the associated table <a
+href="MailingListAddress.html">MailingListAddress</a></p>
+</li></ol>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-init_validation">init_validation</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-validate_associations">validate_associations</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_impossible_changes">validate_impossible_changes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-init_validation">
+            
+              <b>init_validation</b>()
+            
+            <a href="../classes/MailingListGroup.html#method-i-init_validation" name="method-i-init_validation" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes validation objects (see <a
+href="Valid.html#method-c-get_association">Valid.get_association</a>)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-init_validation_source')" id="l_method-i-init_validation_source">show</a>
+                
+              </p>
+              <div id="method-i-init_validation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/mailing_list_group.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">init_validation</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span>(<span class="ruby-keyword">self</span>, <span class="ruby-value">:user_id</span>)
+  <span class="ruby-ivar">@mailing_list_group</span> = <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:id</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_associations">
+            
+              <b>validate_associations</b>()
+            
+            <a href="../classes/MailingListGroup.html#method-i-validate_associations" name="method-i-validate_associations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates the presence of all the associated objects</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_associations_source')" id="l_method-i-validate_associations_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_associations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/mailing_list_group.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_associations</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:user_id</span>, <span class="ruby-value">:doesnt_exist</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_impossible_changes">
+            
+              <b>validate_impossible_changes</b>()
+            
+            <a href="../classes/MailingListGroup.html#method-i-validate_impossible_changes" name="method-i-validate_impossible_changes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates that if the group is new record the field <code>user_id</code>
+can&#39;t be changed</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_impossible_changes_source')" id="l_method-i-validate_impossible_changes_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_impossible_changes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/mailing_list_group.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_impossible_changes</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:user_id</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@mailing_list_group</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_id</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,9 @@
+<% if @ok %>
+  <% if @errors %>
+    showFormErrors($('#dialog-document-<%= @document.id %>'), <%= @errors.to_json.html_safe %>);
+  <% else %>
+    closePopUp('dialog-document-<%= @document_id %>');
+    removeCompletelyDocumentPopup(<%= @document_id %>);
+    $('#document_<%= @document_id %>').replaceWith('<%= j render(:partial => "documents/view_single_compact", :locals => {:document => @document, :word => @word, :used_in_your_lessons => @document.used_in_your_lessons?}) %>');
+  <% end %>
+<% end %>

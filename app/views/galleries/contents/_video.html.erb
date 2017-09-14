@@ -1,0 +1,17 @@
+<div id="video_gallery_content" class="scrollVerde pseudo-ul">
+  <div class="scroll-pane">
+    <% if videos.empty? %>
+      <div class="emptyGalleryVideoEditor">
+        <p><%= t('galleries.empty.video') %></p>
+      </div>
+    <% else %>
+      <%
+        videos_count = videos.count
+        videos_count = ((videos_count % 3 == 0) ? (videos_count - 4) : ((videos_count / 3) * 3 - 1))
+      %>
+      <% videos.each_with_index do |video, index| %>
+        <%= render :partial => 'galleries/thumbs/video', :locals => {:video => video, :index => index, :count => videos_count, :force_margin_top => false} %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<%
+  image = slide.media_elements_at
+  slide_title = slide.title.blank? ? t('lesson_editor.placeholders.title') : slide.title
+%>
+
+<div class="slide-content image1 normal-size">
+  <%= form_tag save_slide_path(slide.lesson_id, slide.id), :method => :post, :remote => true, :id => "form-#{slide.id}", :autocomplete => 'off' do %>
+    
+    <div class="item title-container">
+      <%= text_field_tag :title, slide_title, :class => 'title _lesson_editor_placeholder', :data => {:placeholder => slide.title.blank?} %>
+    </div>
+    
+    <div class="item image-container">
+      <%= render :partial => 'lesson_editor/slides/parts/image', :locals => {:slide => slide, :position => 1, :image => image} %>
+    </div>
+    
+    <div class="item text-container">
+      <%= text_area_tag :text, (slide.text.blank? ? t('lesson_editor.placeholders.text') : slide.text.html_safe), :id => "ta-#{slide.id}", :class => 'tinymce _lesson_editor_placeholder', :data => {:placeholder => slide.text.blank?} %>
+    </div>
+    
+    <div class="inputs_for_documents" style="display:none">
+      <% i = 1 %>
+      <% documents_slides.each do |ds| %>
+        <input type="text" name="document_<%= i %>" value="<%= ds.document_id %>" />
+        <% i += 1 %>
+      <% end %>
+    </div>
+    
+    <div class="hidden_html_for_documents" style="display:none">
+      <% documents_slides.each_with_index do |ds, index| %>
+        <div id="document_<%= index + 1 %>_attached_in_slide_<%= slide.id %>">
+          <%= render :partial => 'galleries/thumbs/document', :locals => {:document => ds.document} %>
+        </div>
+      <% end %>
+    </div>
+    
+    <a class="attached_document_internal" style="display:<%= documents_slides.any? ? 'block' : 'none' %>" title="<%= t('titles.buttons.documents.attached', :num => documents_slides.length) %>"></a>
+    
+  <% end %>
+</div>
+
+
+<script>
+  initTinymce('ta-<%= slide.id %>');
+</script>

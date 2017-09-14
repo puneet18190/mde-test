@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Video::Editing::Cmd::M4aToWav</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Video::Editing::Cmd::M4aToWav 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="Avconv.html">Media::Video::Editing::Cmd::Avconv</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../../files/lib/media/video/editing/cmd/m4a_to_wav_rb.html">lib/media/video/editing/cmd/m4a_to_wav.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>CLI for converting a m4a file to wav</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-acodec">acodec</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-amap">amap</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-output_threads">output_threads</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Q</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-qv">qv</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-sn">sn</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(input_file, output_file)
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/M4aToWav.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/m4a_to_wav.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">input_file</span>, <span class="ruby-identifier">output_file</span>)
+  <span class="ruby-keyword">super</span>([<span class="ruby-identifier">input_file</span>], <span class="ruby-identifier">output_file</span>, <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-identifier">output_options</span> [ <span class="ruby-identifier">acodec</span>, <span class="ruby-identifier">amap</span> ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-acodec">
+            
+              <b>acodec</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/M4aToWav.html#method-i-acodec" name="method-i-acodec" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../../../Audio.html">Audio</a> codec</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-acodec_source')" id="l_method-i-acodec_source">show</a>
+                
+              </p>
+              <div id="method-i-acodec_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/m4a_to_wav.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">acodec</span>
+  <span class="ruby-string">&#39;-c:a pcm_s16le&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-amap">
+            
+              <b>amap</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/M4aToWav.html#method-i-amap" name="method-i-amap" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../../../Audio.html">Audio</a> map</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-amap_source')" id="l_method-i-amap_source">show</a>
+                
+              </p>
+              <div id="method-i-amap_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/m4a_to_wav.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">amap</span>
+  <span class="ruby-string">&#39;-map 0:a:0&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-output_threads">
+            
+              <b>output_threads</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/M4aToWav.html#method-i-output_threads" name="method-i-output_threads" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Output threads amount</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-output_threads_source')" id="l_method-i-output_threads_source">show</a>
+                
+              </p>
+              <div id="method-i-output_threads_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/m4a_to_wav.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">output_threads</span>
+  <span class="ruby-string">&#39;-threads auto&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-qv">
+            
+              <b>qv</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/M4aToWav.html#method-i-qv" name="method-i-qv" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../../../Video.html">Video</a> quality (not set, unuseful)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-qv_source')" id="l_method-i-qv_source">show</a>
+                
+              </p>
+              <div id="method-i-qv_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/m4a_to_wav.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">qv</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sn">
+            
+              <b>sn</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/M4aToWav.html#method-i-sn" name="method-i-sn" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Discarding subtitles (not set, unuseful)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-sn_source')" id="l_method-i-sn_source">show</a>
+                
+              </p>
+              <div id="method-i-sn_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/m4a_to_wav.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sn</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

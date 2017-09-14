@@ -1,0 +1,21 @@
+<%
+  url_type ||= nil
+  if audio
+    audio_class = '_instance_of_player'
+    m4a         = audio.m4a_url url_type
+    ogg         = audio.ogg_url url_type
+  else
+    audio_class = '_empty_audio_player'
+  end
+-%>
+
+<div class="<%= audio_class %>">
+  <% if audio -%>
+    <audio controls="controls">
+      <source src="<%= m4a %>" type="audio/x-m4a"/>
+      <source src="<%= ogg %>" type="audio/ogg"/>
+      <p><%= audio.title %></p>
+      <p><%= audio.description %></p>
+    </audio>
+  <% end -%>
+</div>

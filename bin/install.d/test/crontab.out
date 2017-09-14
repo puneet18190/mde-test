@@ -1,0 +1,6 @@
+
+
+# Begin Whenever generated tasks for: /home/testuser/www/desy/config/schedule.rb
+0 0 * * * /bin/bash -l -c 'cd /home/testuser/www/desy && PATH="$HOME/.rbenv/shims":"$HOME/.rbenv/bin":"$PATH" RAILS_ENV=production bundle exec rake cron:media_elements_folder_size_alert --silent >> /home/testuser/www/desy/log/cron.log 2>&1'
+
+# End Whenever generated tasks for: /home/testuser/www/desy/config/schedule.rb

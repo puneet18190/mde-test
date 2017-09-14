@@ -1,0 +1,89 @@
+<%
+  disabling = !@forced_location.nil?
+  forced_ancestors = (@forced_location.ancestors + [@forced_location]) if disabling
+%>
+
+<div class="griglia-contenuti">
+  <div class="profile-content">
+    <%= render :partial => 'users/title_bar', :locals => {:classes => ['current', '', '', '', '']} %>
+    <br class="clearfloat"/>
+    <div class="contentFormInProfile">
+      <header>
+        <h2><%= t('users.info.title') %></h2>
+        <p><%= t('users.info.description') %></p>
+      </header>
+      <%= form_tag user_path, :method => :put, :autocomplete => 'off' do %>
+        <div id="profile-general-edit" class="profile-element-container">
+          <div class="profile-element">
+            <%= t('users.info.attributes.name') %><br/>
+            <input type="text" value="<%= @user.name %>" name="name" class="<%= @user.errors.messages.has_key?(:name).to_s %>"/>
+          </div>
+          <div class="profile-element">
+            <%= t('users.info.attributes.surname') %><br/>
+            <input type="text" value="<%= @user.surname %>" name="surname" class="<%= @user.errors.messages.has_key?(:surname).to_s %>"/>
+          </div>
+          <div class="profile-element email">
+            <%= t('users.info.attributes.email') %><br/>
+            <input type="text" value="<%= @user.email %>" disabled="disabled"/>
+          </div>
+          <br class="clearfloat"/>
+          <div class="profile-element">
+            <%= t('users.info.attributes.new_password') %><br/>
+            <input type="password" name="password" class="<%= @user.errors.messages.has_key?(:password).to_s %>"/>
+          </div>
+          <div class="profile-element">
+            <%= t('users.info.attributes.new_password_confirmation') %><br/>
+            <input type="password" name="password_confirmation" class="<%= @user.errors.added?(:password_confirmation, :confirmation, :attribute => 'Password').to_s %>"/>
+          </div>
+          <br class="clearfloat"/>
+          <ul class="profile-errors">
+            <% @errors.each do |err| %>
+              <li><%= err %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div id="profile-locations-edit" class="profile-element-container">
+          <% @location_types.each_with_index do |location, index| %>
+            <div id="<%= location.downcase %>_id" class="profile-element">
+              <%
+                locals_for_location = {
+                  :empty      => (index > 0 && @locations[index - 1][:selected] != 0 && @locations[index][:content].empty?),
+                  :forced     => (disabling ? forced_ancestors[index] : nil),
+                  :is_last    => (index == @location_types.length - 1),
+                  :label      => Location.label_at(index),
+                  :label_plur => Location.label_at(index, true),
+                  :locations  => @locations[index][:content],
+                  :selected   => @locations[index][:selected],
+                  :type       => location.downcase
+                }
+              %>
+              <%= render :partial => 'users/locations_list', :locals => locals_for_location %>
+            </div>
+            <% disabling = false if disabling && @forced_location.sti_type == location %>
+          <% end %>
+          <% if @forced_location && @forced_location.sti_type == @location_types.last %>
+            <input type="hidden" value="<%= @forced_location.id %>" name="location[<%= @forced_location.sti_type.downcase %>]"/>
+          <% end %>
+        </div>
+        <div id="profile-school-level-edit" class="profile-element-container">
+          <div class="profile-element">
+            <%= t('users.info.attributes.school_level_id') %><br/>
+            <select id="user_school_level_id" name="school_level_id">
+              <% @school_levels.each do |sl| %>
+                <% if @user.school_level_id == sl.id %>
+                  <option value="<%= sl.id %>" selected="selected"><%= sl.description %></option>
+                <% else %>
+                  <option value="<%= sl.id %>"><%= sl.description %></option>
+                <% end %>
+              <% end %>
+            </select>
+          </div>
+          <br class="clearfloat"/>
+        </div>
+        <div class="form_submit">
+          <input type="submit" value="<%= t('users.info.save') %>"/>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

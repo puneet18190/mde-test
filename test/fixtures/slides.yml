@@ -1,0 +1,27 @@
+one:
+  id: 1
+  lesson_id: 1
+  position: 1
+  kind: 'cover'
+  title: 'tstring'
+
+two:
+  id: 2
+  lesson_id: 2
+  position: 1
+  kind: 'cover'
+  title: 'string'
+
+three:
+  id: 3
+  lesson_id: 2
+  position: 2
+  kind: 'audio'
+
+four:
+  id: 4
+  lesson_id: 2
+  position: 3
+  kind: 'video1'
+  title: 'Ciao'
+  text: 'beh... beh beh'

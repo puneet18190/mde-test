@@ -1,0 +1,3 @@
+APPEND_TO_ENV_PATH="/home/$username/.rbenv/shims":"/home/$username/.rbenv/bin"
+APP_PATH=$app_path
+RACK_ENV=production

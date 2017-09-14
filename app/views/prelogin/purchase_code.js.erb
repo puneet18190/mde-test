@@ -1,0 +1,49 @@
+<% if @purchase %>
+  $('#registration_purchase_id').removeClass('error');
+  $('#registration_ok').show();
+  <% if @forced_location %>
+    <% if @load_locations %>
+      $('#registration-locations .profile-element.locked').removeClass('locked');
+      $('#registration-locations .profile-element.locked-empty').removeClass('locked-empty');
+      $('#locations_disclaimer').removeClass('checked').removeAttr('checked');
+      $('._location_select_box').each(function() {
+        $('#' + $(this).attr('id')).selectbox('detach');
+      });
+      <%
+        disabling = true
+        forced_ancestors = (@forced_location.ancestors + [@forced_location])
+      %>
+      <% @location_types.each_with_index do |location, index| %>
+        <%
+          locals_for_location = {
+            :empty      => (index > 0 && @locations[index - 1][:selected] != 0 && @locations[index][:content].empty?),
+            :forced     => (disabling ? forced_ancestors[index] : nil),
+            :is_last    => (index == @location_types.length - 1),
+            :label      => Location.label_at(index),
+            :label_plur => Location.label_at(index, true),
+            :locations  => @locations[index][:content],
+            :selected   => @locations[index][:selected],
+            :type       => location.downcase
+          }
+        %>
+        $('#registration-locations #<%= location.downcase %>_id').html('<%= j(render :partial => "users/locations_list", :locals => locals_for_location) %>');
+        <% disabling = false if disabling && @forced_location.sti_type == location %>
+      <% end %>
+      $('._location_select_box').each(function() {
+        $('#' + $(this).attr('id')).selectbox();
+      });
+    <% end %>
+    <% if @forced_location.sti_type == @location_types.last %>
+      $('#outer_locations_disclaimer').hide();
+      $('#registration-locations').show().css('margin-bottom', '75px');
+      $('#hidden_location_in_registration').attr('name', 'locations[<%= @forced_location.sti_type.downcase %>]').val('<%= @forced_location.id %>');
+    <% end %>
+  <% end %>
+  $('#registration_purchase_id').removeAttr('name').attr('disabled', 'disabled').css('background-color', '#83A5C8');
+  $('#hidden_registration_purchase_id').attr('name', 'purchase_id').val('<%= @purchase.token %>')
+  $('#registration_trial').attr('disabled', 'disabled');
+  $('label[for="registration_trial"]').css('cursor', 'default').css('background-color', '#ACCFF2');
+<% else %>
+  $('#registration_purchase_id').addClass('error');
+  $('#registration_ok').hide();
+<% end %>

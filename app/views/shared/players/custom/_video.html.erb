@@ -1,0 +1,50 @@
+<%
+  url_type ||= nil
+  exporting_slide ||= false
+  if video
+    video_class     = '_instance_of_player'
+    webm            = video.webm_url url_type
+    mp4             = video.mp4_url url_type
+    duration        = video.min_duration
+    string_duration = seconds_to_time(duration)
+  else
+    video_class     = '_empty_video_player'
+    webm            = ''
+    mp4             = ''
+    duration        = ''
+    string_duration = ''
+  end
+%>
+
+<div id="instance_<%= @video_counter[0] %>_<%= @video_counter[1] %>_of_video_player" class="videoPlayer <%= video_class %>" data-media-type="video" data-initialized="false" data-duration="<%= duration %>">
+  <video data-mp4="<%= mp4 %>" data-webm="<%= webm %>">
+    <%
+      if exporting_slide
+        mp4 = ''
+        webm = ''
+      end
+    %>
+    <source src="<%= mp4 %>" type="video/mp4">
+    <source src="<%= webm %>" type="video/webm">
+    <div style="padding-top:150px; padding-bottom:120px; text-align:center"><h1><%= t('captions.dont_support_video') %></h1></div>
+  </video>
+  <a class="play _media_player_play" title="<%= t('titles.videos.play') %>"></a>
+  <a class="pause _media_player_pause" title="<%= t('titles.videos.pause') %>"></a>
+  <div class="_media_player_current_time secondTime">00:00</div>
+  <div class="videoSlider _media_player_slider"></div>
+  <div class="_media_player_total_time secondTime"><%= string_duration %></div>
+  <a class="fullScreen _video_full_screen" title="<%= t('titles.videos.fullscreen') %>"></a>
+  <div class="sliderDisabler _media_player_slider_disabler" style="display: none;"></div>
+</div>
+
+
+<% if video && initialize_now %>
+  <script>
+    initializeMedia('instance_<%= @video_counter[0] %>_<%= @video_counter[1] %>_of_video_player', 'video');
+  </script>
+<% end %>
+
+
+<%
+  @video_counter[1] += 1
+%>

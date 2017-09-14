@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>MailingListsController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            MailingListsController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="ApplicationController.html">ApplicationController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/controllers/mailing_lists_controller_rb.html">app/controllers/mailing_lists_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-MailingListsController-label-Description">Description</h3>
+
+<p>Contains the actions to handle mailing lists and addresses. All these
+actions can be called from <a
+href="UsersController.html#method-i-mailing_lists">UsersController#mailing_lists</a></p>
+
+<h3 id="class-MailingListsController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="User.html">User</a></p>
+</li><li>
+<p><a href="MailingListGroup.html">MailingListGroup</a></p>
+</li><li>
+<p><a href="MailingListAddress.html">MailingListAddress</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-create_address">create_address</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create_group">create_group</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-delete_address">delete_address</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-delete_group">delete_group</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-initialize_mailing_list_address">initialize_mailing_list_address</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_mailing_list_address_with_owner">initialize_mailing_list_address_with_owner</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_mailing_list_group">initialize_mailing_list_group</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_mailing_list_group_with_owner">initialize_mailing_list_group_with_owner</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-update_group">update_group</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-create_address">
+            
+              <b>create_address</b>()
+            
+            <a href="../classes/MailingListsController.html#method-i-create_address" name="method-i-create_address" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create_address-label-Description">Description</h3>
+
+<p>Creates a new address inside a given group</p>
+
+<h3 id="method-i-create_address-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-create_address-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p>MailingListController#initialize_mailing_list_group_with_owner</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_address_source')" id="l_method-i-create_address_source">show</a>
+                
+              </p>
+              <div id="method-i-create_address_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/mailing_lists_controller.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_address</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-ivar">@mailing_list_address</span> = <span class="ruby-constant">MailingListAddress</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-ivar">@mailing_list_address</span>.<span class="ruby-identifier">group_id</span> = <span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-ivar">@mailing_list_address</span>.<span class="ruby-identifier">heading</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:heading</span>]
+    <span class="ruby-ivar">@mailing_list_address</span>.<span class="ruby-identifier">email</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>]
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-ivar">@mailing_list_address</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;update_addresses&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create_group">
+            
+              <b>create_group</b>()
+            
+            <a href="../classes/MailingListsController.html#method-i-create_group" name="method-i-create_group" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create_group-label-Description">Description</h3>
+
+<p>Creates a new group</p>
+
+<h3 id="method-i-create_group-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_group_source')" id="l_method-i-create_group_source">show</a>
+                
+              </p>
+              <div id="method-i-create_group_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/mailing_lists_controller.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_group</span>
+  <span class="ruby-ivar">@mailing_list_group</span> = <span class="ruby-constant">MailingListGroup</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">user</span> = <span class="ruby-identifier">current_user</span>
+  <span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">new_mailing_list_name</span>
+  <span class="ruby-ivar">@ok</span> = <span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;update_list&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete_address">
+            
+              <b>delete_address</b>()
+            
+            <a href="../classes/MailingListsController.html#method-i-delete_address" name="method-i-delete_address" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-delete_address-label-Description">Description</h3>
+
+<p>Removes an address inside a group</p>
+
+<h3 id="method-i-delete_address-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-delete_address-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p>MailingListController#initialize_mailing_list_address_with_owner</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-delete_address_source')" id="l_method-i-delete_address_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_address_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/mailing_lists_controller.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">delete_address</span>
+  <span class="ruby-ivar">@mailing_list_address</span>.<span class="ruby-identifier">destroy</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;update_addresses&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-delete_group">
+            
+              <b>delete_group</b>()
+            
+            <a href="../classes/MailingListsController.html#method-i-delete_group" name="method-i-delete_group" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-delete_group-label-Description">Description</h3>
+
+<p>Removes a group</p>
+
+<h3 id="method-i-delete_group-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-delete_group-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p>MailingListController#initialize_mailing_list_group_with_owner</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-delete_group_source')" id="l_method-i-delete_group_source">show</a>
+                
+              </p>
+              <div id="method-i-delete_group_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/mailing_lists_controller.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">delete_group</span>
+  <span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">destroy</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;update_list&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-update_group">
+            
+              <b>update_group</b>()
+            
+            <a href="../classes/MailingListsController.html#method-i-update_group" name="method-i-update_group" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-update_group-label-Description">Description</h3>
+
+<p>Updates an existing group (it&#39;s possible to change the name)</p>
+
+<h3 id="method-i-update_group-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-update_group-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p>MailingListController#initialize_mailing_list_group_with_owner</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-update_group_source')" id="l_method-i-update_group_source">show</a>
+                
+              </p>
+              <div id="method-i-update_group_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/mailing_lists_controller.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">update_group</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>]
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-ivar">@mailing_list_group</span> = <span class="ruby-constant">MailingListGroup</span>.<span class="ruby-identifier">find</span> <span class="ruby-ivar">@mailing_list_group_id</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@ok</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_mailing_list_address">
+            
+              <b>initialize_mailing_list_address</b>()
+            
+            <a href="../classes/MailingListsController.html#method-i-initialize_mailing_list_address" name="method-i-initialize_mailing_list_address" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes mailing list address</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_mailing_list_address_source')" id="l_method-i-initialize_mailing_list_address_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_mailing_list_address_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/mailing_lists_controller.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_mailing_list_address</span>
+  <span class="ruby-ivar">@mailing_list_address_id</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:address_id</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:address_id</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-number">0</span>
+  <span class="ruby-ivar">@mailing_list_address</span> = <span class="ruby-constant">MailingListAddress</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-ivar">@mailing_list_address_id</span>
+  <span class="ruby-identifier">update_ok</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@mailing_list_address</span>.<span class="ruby-identifier">nil?</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_mailing_list_address_with_owner">
+            
+              <b>initialize_mailing_list_address_with_owner</b>()
+            
+            <a href="../classes/MailingListsController.html#method-i-initialize_mailing_list_address_with_owner" name="method-i-initialize_mailing_list_address_with_owner" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes mailing list address and checks that current_user is the owner
+of the corresponding group</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_mailing_list_address_with_owner_source')" id="l_method-i-initialize_mailing_list_address_with_owner_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_mailing_list_address_with_owner_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/mailing_lists_controller.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_mailing_list_address_with_owner</span>
+  <span class="ruby-identifier">initialize_mailing_list_address</span>
+  <span class="ruby-identifier">initialize_mailing_list_group</span>
+  <span class="ruby-identifier">update_ok</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@mailing_list_address</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@mailing_list_address</span>.<span class="ruby-identifier">group_id</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">user_id</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_mailing_list_group">
+            
+              <b>initialize_mailing_list_group</b>()
+            
+            <a href="../classes/MailingListsController.html#method-i-initialize_mailing_list_group" name="method-i-initialize_mailing_list_group" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes mailing list group</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_mailing_list_group_source')" id="l_method-i-initialize_mailing_list_group_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_mailing_list_group_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/mailing_lists_controller.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_mailing_list_group</span>
+  <span class="ruby-ivar">@mailing_list_group_id</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:group_id</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:group_id</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-number">0</span>
+  <span class="ruby-ivar">@mailing_list_group</span> = <span class="ruby-constant">MailingListGroup</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-ivar">@mailing_list_group_id</span>
+  <span class="ruby-identifier">update_ok</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">nil?</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_mailing_list_group_with_owner">
+            
+              <b>initialize_mailing_list_group_with_owner</b>()
+            
+            <a href="../classes/MailingListsController.html#method-i-initialize_mailing_list_group_with_owner" name="method-i-initialize_mailing_list_group_with_owner" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes mailing list group and checks that current_user is the owner</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_mailing_list_group_with_owner_source')" id="l_method-i-initialize_mailing_list_group_with_owner_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_mailing_list_group_with_owner_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/mailing_lists_controller.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_mailing_list_group_with_owner</span>
+  <span class="ruby-identifier">initialize_mailing_list_group</span>
+  <span class="ruby-identifier">update_ok</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@mailing_list_group</span>.<span class="ruby-identifier">user_id</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

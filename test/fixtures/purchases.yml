@@ -1,0 +1,20 @@
+one:
+  id: 1
+  name: 'Scuola Statale Pinco Pallino'
+  responsible: 'Pino Cammino'
+  phone_number: '0039/0678079087'
+  fax: '0099+19999199'
+  email: 'pino.cammino@pincopallino.it'
+  ssn_code: 'CMMPNI76B12H501N'
+  vat_code: '1231443534234235'
+  address: 'via del Corso 134'
+  postal_code: '00100'
+  city: 'Roma'
+  country: 'Italia'
+  location_id: 1
+  accounts_number: 10
+  includes_invoice: true
+  release_date: '2012-01-01 10:00:00'
+  start_date: '2012-01-01 11:00:00'
+  expiration_date: '2013-01-01 10:59:59'
+  token: '0000111122223333'

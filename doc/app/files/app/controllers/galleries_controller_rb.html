@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>galleries_controller.rb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            galleries_controller.rb
+        </h1>
+        <ul class="files">
+            <li>app/controllers/galleries_controller.rb</li>
+            <li>Last modified: 2014-04-10 16:21:38 +0200</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="label-Description">Description</h3>
+
+<p>List of actions to handle all the instances of galleries in the
+application. Since the gallery pagination is made with infinite scroll, for
+each gallery there is an action that extracts it first, and another one
+that gets a new block of elements. List of galleries for each section *
+lesson editor (see <a
+href="../../../classes/LessonEditorController.html">LessonEditorController</a>):
+* audio gallery  * <a
+href="../../../classes/GalleriesController.html#method-i-audio_for_lesson_editor">GalleriesController#audio_for_lesson_editor</a>
+* <a
+href="../../../classes/GalleriesController.html#method-i-audio_for_lesson_editor_new_block">GalleriesController#audio_for_lesson_editor_new_block</a>
+* image gallery  * <a
+href="../../../classes/GalleriesController.html#method-i-image_for_lesson_editor">GalleriesController#image_for_lesson_editor</a>
+* <a
+href="../../../classes/GalleriesController.html#method-i-image_for_lesson_editor_new_block">GalleriesController#image_for_lesson_editor_new_block</a>
+* video gallery  * <a
+href="../../../classes/GalleriesController.html#method-i-video_for_lesson_editor">GalleriesController#video_for_lesson_editor</a>
+* <a
+href="../../../classes/GalleriesController.html#method-i-video_for_lesson_editor_new_block">GalleriesController#video_for_lesson_editor_new_block</a>
+* image editor (see <a
+href="../../../classes/ImageEditorController.html">ImageEditorController</a>):
+* image gallery  * <a
+href="../../../classes/GalleriesController.html#method-i-image_for_image_editor">GalleriesController#image_for_image_editor</a>
+* <a
+href="../../../classes/GalleriesController.html#method-i-image_for_image_editor_new_block">GalleriesController#image_for_image_editor_new_block</a>
+* audio editor (see <a
+href="../../../classes/AudioEditorController.html">AudioEditorController</a>):
+* audio gallery  * <a
+href="../../../classes/GalleriesController.html#method-i-audio_for_audio_editor">GalleriesController#audio_for_audio_editor</a>
+* <a
+href="../../../classes/GalleriesController.html#method-i-audio_for_audio_editor_new_block">GalleriesController#audio_for_audio_editor_new_block</a>
+* video editor (see <a
+href="../../../classes/VideoEditorController.html">VideoEditorController</a>):
+* mixed gallery (video + image + texts)  * <a
+href="../../../classes/GalleriesController.html#method-i-mixed_for_video_editor">GalleriesController#mixed_for_video_editor</a>
+* <a
+href="../../../classes/GalleriesController.html#method-i-mixed_for_video_editor_video_new_block">GalleriesController#mixed_for_video_editor_video_new_block</a>
+* <a
+href="../../../classes/GalleriesController.html#method-i-mixed_for_video_editor_image_new_block">GalleriesController#mixed_for_video_editor_image_new_block</a>
+* audio gallery  * <a
+href="../../../classes/GalleriesController.html#method-i-audio_for_video_editor">GalleriesController#audio_for_video_editor</a>
+* <a
+href="../../../classes/GalleriesController.html#method-i-audio_for_video_editor_new_block">GalleriesController#audio_for_video_editor_new_block</a></p>
+
+<h3 id="label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="../../../classes/User.html">User</a></p>
+</li><li>
+<p><a href="../../../classes/Image.html">Image</a></p>
+</li><li>
+<p><a href="../../../classes/Audio.html">Audio</a></p>
+</li><li>
+<p><a href="../../../classes/Video.html">Video</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="../../../classes/GalleriesController.html">GalleriesController</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

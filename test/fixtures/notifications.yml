@@ -1,0 +1,22 @@
+one:
+  id: 1
+  user_id: 1
+  title: 'Aho'
+  message: 'Sei stato cacciato'
+  basement: 'Raccogli le tue cose e vattene'
+  seen: false
+
+two:
+  id: 2
+  user_id: 1
+  title: 'Caro utente'
+  message: 'Le tue lezioni non rispecchiano le direttive del partito. Attento...'
+  basement: 'Ti spezziamo le dita'
+  seen: false
+
+three:
+  id: 3
+  user_id: 2
+  title: 'Meglio a te che a me'
+  message: 'Hai caricato contenuti inappropriati, alla prossima ti cacciamo'
+  seen: false

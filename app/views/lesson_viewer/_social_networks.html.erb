@@ -1,0 +1,21 @@
+<%
+  data_fb = {
+    :url => lesson_viewer_url(lesson.id),
+    :description => lesson.description,
+    :image => cover_img.nil? ? nil : full_url(cover_img.media_element.thumb_url)
+  }
+  data_tw = {
+    :url => lesson_viewer_url(lesson.id)
+  }
+  data_gp = {
+    :url => lesson_viewer_url(lesson.id)
+  }
+%>
+
+<div id="social_networks" style="display:none">
+  <%= link_to 'Facebook', 'javascript:;', :class => 'facebook', :data => data_fb %>
+  <%= link_to 'Twitter', 'javascript:;', :class => 'twitter', :data => data_tw %>
+  <%= link_to 'Google+', 'javascript:;', :class => 'google-plus', :data => data_gp %>
+</div>
+
+<a id="open_social_networks" title="<%= t('titles.share') %>"></a>

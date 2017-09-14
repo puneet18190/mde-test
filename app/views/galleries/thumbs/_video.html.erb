@@ -1,0 +1,25 @@
+<%
+  disabled = !video.converted?
+  additional_class = disabled ? '_disabled'.html_safe : '_enabled'.html_safe
+  personal_margin = ''
+  classs = ''
+  personal_margin = "style=\"margin-top:1px\"".html_safe if index < 3 && !force_margin_top
+  if index > count
+    personal_margin = "style=\"margin-bottom:1px\"".html_safe
+    classs = '_with_margin_bottom'
+  end
+%>
+<div id="gallery_video_<%= video.id %>" class="_video_gallery_thumb <%= additional_class %> <%= classs %> pseudo-li" data-video-id="<%= video.id %>" <%= personal_margin %>>
+  <% if disabled %>
+    <a><%= image_tag video.placeholder_url(:gallery), :width => '250', :height => '140', :title => t('titles.not_available.video', :title => video.title) %></a>
+  <% else %>
+    <a><%= image_tag video.cover_url, :width => '250', :height => '140', :title => video.title %></a>
+    <div class="videoInGalleryPopUp" id="dialog-video-gallery-<%= video.id %>" data-video-id="<%= video.id %>">
+      <%= render :partial => "shared/players/custom/video", :locals => {:video => nil, :initialize_now => false} %>
+      <div class="caption">
+        <p><%= video.title %></p>
+      </div>
+      <a class="addButtonContent current _select_video_from_gallery video-<%= video.id %>" data-video-id="<%= video.id %>" data-mp4="<%= video.mp4_url %>" data-webm="<%= video.webm_url %>" data-duration="<%= video.min_duration %>" style="float:right"  title="<%= t('titles.galleries.add_video') %>"></a>
+    </div>
+  <% end %>
+</div>

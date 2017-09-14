@@ -1,0 +1,6 @@
+$('.tooltipForm:visible').parent().find('.report').click();
+<% if @resp %>
+  showOkPopUp('<%= j t("other_popup_messages.correct.report") %>');
+<% else %>
+  showErrorPopUp('<%= j @error %>');
+<% end %>

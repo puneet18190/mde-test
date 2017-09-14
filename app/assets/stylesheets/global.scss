@@ -1,0 +1,388 @@
+@import 'variables';
+@import 'mixins';
+
+* {
+  
+  outline: none;
+  
+}
+
+html, body {
+  
+  height: 100%;
+  margin: 0;
+  
+}
+
+body {
+  
+  @include arial(80%);
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  color: $black;
+  direction: ltr;
+  
+}
+
+input:-webkit-autofill {
+  
+  background-color: #888686 !important;
+  background-image: none;
+  color: rgb(0, 0, 0);
+  
+}
+
+form {
+  
+  padding: 0px;
+  margin: 0px;
+  
+}
+
+fieldset {
+  
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  
+}
+
+input {
+  
+  color: #939393;
+  padding: 0px 10px 0px 10px;
+  margin: 0px;
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+input[type="submit"] {
+  
+  font-size: 90%;
+  color: $black;
+  background-color: transparent;
+  
+}
+
+textarea {
+  
+  overflow: hidden;
+  resize: none;
+  border: none;
+  
+}
+
+input.text {
+  
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background-repeat: no-repeat;
+  font-size: 12px;
+  border: none;
+  width: 168px;
+  height: 29px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  margin-right: 10px;
+  box-shadow: 0 1px 2px rgba(50,50,50,0.2) inset;
+  
+}
+
+textarea.campoTesto {
+  
+  @include arial(10px);
+  margin: 10px 0 10px 0;
+  width: 343px;
+  height: 77px;
+  padding-top: 3px;
+  padding-left: 3px;
+  border: 1px solid #F0E5E5;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  margin-right: 10px;
+  
+}
+
+select {
+  
+  border: none;
+  overflow: hidden;
+  color: #BBBBBB;
+  background-color: #fff;
+  padding-left: 10px;
+  margin: 0px;
+  
+}
+
+table {
+  
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  
+  td {
+    
+    padding: 0px;
+    margin: 0px;
+    
+  }
+  
+}
+
+ul, ol, dl {
+  
+  padding: 0;
+  margin: 0;
+  
+}
+
+h1, h2, h3, h4, h5, h6 {
+  
+  margin: 0px;
+  padding-bottom: 1%;
+  color: $black;
+  font-weight: normal;
+  
+}
+
+a {
+  
+  color: #414958;
+  text-decoration: none;
+  cursor: pointer;
+  
+  &:hover, &:active, &:focus {
+    
+    text-decoration: none;
+    
+  }
+  
+  img {
+    
+    border: none;
+    
+  }
+  
+}
+
+hr {
+  
+  height: 1px;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  background-color: #F2F1F2;
+  
+}
+
+p {
+  
+  padding: 0px;
+  margin: 0px;
+  
+}
+
+.container {
+  
+  width: 100%;
+  background-color: #FFF;
+  margin: 0 auto;
+  
+}
+
+.fltrt {
+  
+  float: right;
+  
+}
+
+.fltlft {
+  
+  float: left;
+  margin-right: 8px;
+  
+}
+
+.clearfloat {
+  
+  clear: both;
+  height: 0;
+  font-size: 1px;
+  line-height: 0px;
+  
+}
+
+.text-centered {
+  
+  text-align: center;
+  
+}
+
+.global-footer {
+  
+  width: 100%;
+  height: 85px;
+  position: fixed;
+  bottom: 0;
+  z-index: 5000;
+  background-color: white;
+  color: #999;
+  font-size: 11px;
+  
+  .global-footer-content {
+    
+    height: 27px;
+    padding-right: 1%;
+    background-color: #373737;
+    
+    a.back-to-dashboard {
+      
+      margin-top: 8px;
+      float: right;
+      text-transform: uppercase;
+      color: #fff;
+      
+      &:hover {
+        
+        color: #DEDEDE;
+        
+      }
+      
+    }
+    
+    img.back-to-dashboard {
+      
+      float: right;
+      margin-left: 5px;
+      margin-top: 8px;
+      
+    }
+    
+  }
+  
+  .global-footer-logo {
+    
+    width: 98%;
+    height: 58px;
+    padding: 0 1%;
+    float: left;
+    
+    .partner {
+      
+      float: left;
+      padding: 10px;
+      
+    }
+    
+    .copyright {
+      
+      float: right;
+      padding-top: 25px;
+      
+    }
+    
+  }
+  
+}
+
+.tooltipForm {
+  
+  position: absolute;
+  float: right;
+  background-color: #FBFBFB;
+  border: 1px solid #C6C5C3;
+  color: #C0C0C0;
+  margin: 0;
+  width: 350px;
+  padding: 10px;
+  z-index: 10;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  
+  h3 {
+    
+    @include nunito(14px);
+    color: $black;
+    
+  }
+  
+  p {
+    
+    @include nunito(12px);
+    
+  }
+  
+  input._send {
+    
+    @include nunito(16px);
+    color: $black;
+    background-color: transparent;
+    cursor: pointer;
+    
+    &:hover {
+      
+      text-decoration: underline;
+      
+    }
+    
+  }
+  
+  .calloutForm {
+    
+    bottom: -8px;
+    z-index: 20;
+    position: absolute;
+    
+  }
+  
+  &.for-media_element {
+    
+    top: 186px;
+    left: 349px;
+    
+    .calloutForm {
+      
+      left: 339px;
+      
+    }
+    
+  }
+  
+  &.for-lesson {
+    
+    left: 280px;
+    bottom: 52px;
+    
+    .calloutForm {
+      
+      left: 3px;
+      
+    }
+    
+  }
+  
+}
+
+.callout {
+  
+  top: -10px;
+  @include call;
+  
+}
+
+.calloutTooltipArancione {
+  
+  top: 4px;
+  @include call;
+  
+}
+
+.scroll-pane {
+  
+  width: 100%;
+  height: 305px;
+  overflow: auto;
+  
+}

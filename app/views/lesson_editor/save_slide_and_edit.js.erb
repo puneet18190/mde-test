@@ -1,0 +1,5 @@
+<% if @ok %>
+  window.location = '/lessons/' + $('#info_container').data('lesson-id') + '/edit';
+<% else %>
+  redError();
+<% end %>

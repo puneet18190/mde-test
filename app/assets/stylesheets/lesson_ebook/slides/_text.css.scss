@@ -1,0 +1,28 @@
+$body-padding: 16px;
+
+html.text-slide {
+
+body {
+  padding: $body-padding;
+  min-width: 400px;
+  max-width: 900px;
+}
+
+.title {
+  color: #F29400;
+  font-size: 4em;
+  font-weight: normal;
+  line-height: 100%;
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+.text {
+  @extend %hyphenate;
+  text-align: justify;
+  img {
+    vertical-align: middle;
+  }
+}
+
+}

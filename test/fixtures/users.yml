@@ -1,0 +1,21 @@
+one:
+  id: 1
+  active: true
+  email: 'pluto@pippo.it'
+  name: 'ee'
+  surname: 'uu'
+  school_level_id: 1
+  location_id: 1
+  encrypted_password: '$2a$10$7wuLMfme2DuQ1QRW0mKF3eUMlKVoPbMOymEqI26udIjB2ZkfJrPiG'
+  confirmed: true
+
+two:
+  id: 2
+  active: true
+  email: 'plutos@pippo.it'
+  name: 'eef'
+  surname: 'fuu'
+  school_level_id: 2
+  location_id: 1
+  encrypted_password: '$2a$10$7wuLMfme2DuQ1QRW0mKF3eUMlKVoPbMOymEqI26udIjB2ZkfJrPiG'
+  confirmed: true

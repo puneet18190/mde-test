@@ -1,0 +1,100 @@
+@import 'variables';
+@import 'mixins';
+
+html.documents-controller {
+  
+  .documents-content {
+    
+    width: 100%;
+    
+    .boxViewSingleDocument {
+      
+      width: 99.4%;
+      margin-left: 0.3%;
+      padding: 0;
+      color: #C0C0C0;
+      margin-bottom: 15px;
+      background-color: #FBFAFB;
+      float: left;
+      box-shadow: 0px 3px 4px #D3D3D3;
+      -webkit-box-shadow: 0px 3px 4px #D3D3D3;
+      
+      h1 {
+        
+        @include nunito(110%);
+        color: $orange;
+        padding: 0px;
+        
+      }
+      
+      h2 {
+        
+        @include nunito(140%);
+        
+      }
+      
+      .contentInterno {
+        
+        float: left;
+        width: 100%;
+        padding: 9px 0 9px 0;
+        height: 38px;
+        
+        div {
+          
+          float: right;
+          
+        }
+        
+        h3 {
+          
+          color: #6D6C6C;
+          font-size: 100%;
+          padding-top: 7px;
+          padding-left: 10px;
+          float: left;
+          
+        }
+        
+        .documentsIcon {
+          
+          width: 45.35%;
+          float: left;
+          padding: 4px 0px 2px 0px;
+          display: inline-block;
+          margin-right: 1.8%;
+          margin-left: 18px;
+          
+          img {
+            
+            width: 30px;
+            height: 30px;
+            
+          }
+          
+        }
+        
+        .menuController {
+          
+          padding: 0px;
+          border-top: none;
+          background-color: transparent;
+          text-align: left;
+          
+        }
+        
+        p {
+          
+          padding-top: 0.6%;
+          text-align: left;
+          float: left;
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}

@@ -1,0 +1,369 @@
+@import 'variables';
+@import 'mixins';
+
+#notifications_main {
+  
+  text-align: left;
+  background-color: transparent;
+  position: relative;
+  bottom: 9px;
+  margin-left:10px;
+  
+  .hidden {
+    
+    display: none;
+    
+  }
+  
+  #expanded_notification, .tooltip, .tooltipArancione, .tooltipHelp {
+    
+    position: absolute;
+    
+  }
+  
+  #expanded_notification {
+    
+    z-index: 30;
+    border-radius: 3px 0px 0px 3px;
+    -webkit-border-radius: 3px 0px 0px 3px;
+    overflow: hidden;
+    width: 430px;
+    height: 285px;
+    background-color: #fff;
+    border-top: 1px solid #E8E8E8;
+    border-bottom: 1px solid #E8E8E8;
+    border-left: 1px solid #E8E8E8;
+    border-right: none;
+    color: $black;
+    top: 61px;
+    right: 303px;
+    
+    ul {
+      
+      padding-left: 2em;
+      
+    }
+    
+    .title {
+      
+      @include nunito(20px);
+      margin: 20px;
+      height: 20px;
+      letter-spacing: -1px;
+      font-weight: bold;
+      color: #2FAADC;
+      line-height: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      
+    }
+    
+    .time {
+      
+      padding: 0 20px 7px 20px;
+      height: 10px;
+      font-style: italic;
+      font-size: 11px;
+      font-weight: normal;
+      color: #2FAADC;
+      
+    }
+    
+    .content {
+      
+      font-weight: normal;
+      font-size: 13px;
+      padding: 0 20px 20px 20px;
+      height: 135px;
+      color: $black;
+      
+      .link {
+        
+        color: #2FAADC;
+        font-weight: bold;
+        padding: 0;
+        
+        &:hover {
+          
+          text-decoration: underline;
+          
+        }
+        
+      }
+      
+      .message {
+        
+        font-style: italic;
+        color: #5D5C5C;
+        
+      }
+      
+    }
+    
+    .variable {
+      color:#5D5C5C;
+      font-weight: bold;
+      
+    }
+    
+    .basement {
+      
+      margin-left: 20px;
+      padding: 12px 10px;
+      width: 370px;
+      height: 13px;
+      background-color: #FBFAFB;
+      
+      span {
+        
+        color: #5D5C5C;
+        float: left;
+        font-weight: bold;
+        font-size: 13px;
+        
+      }
+      
+      a.preview {
+        
+        @include svg-circle-icon-handler($assets-action-buttons_svg, 31px, 2, 10, 1, 0, 7, 1, 1, 7, right);
+        position: relative;
+        bottom: 15px;
+        
+      }
+      
+      a.trial {
+        
+        @include svg-circle-icon-handler($assets-simbolino_svg, 26px, 2, 1, 1, 0, 0, 1, 1, 0, right);
+        position: relative;
+        bottom: 12px;
+        
+      }
+      
+    }
+    
+  }
+  
+  .tooltip {
+    
+    z-index: 10;
+    height: 275px;
+    width: 281px;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #E8E8E8;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    top: 61px;
+    right: 11px;
+
+    
+    #notifications_list {
+      
+      height: 275px;
+      width: 281px;
+      
+      .empty_notifications {
+        
+        color: $black;
+        font-weight: bold;
+        width: 281px;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 13px;
+        
+      }
+      
+      ._single_notification {
+        
+        @include arial-with-line-height(12.8px, 15px);
+        height: 65px; /* width is 268 if there is a scrollbar, and 268 + 8 + 5 = 281 if there is not a scrollbar */
+        margin-top: 5px;
+        background-color: #C1E6F6;
+        background-image: $assets-arrow-tooltip-notice_png;
+        background-position: 3px center;
+        background-repeat: no-repeat;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        color: $black;
+        cursor: pointer;
+        font-weight: normal;
+        
+        &.current {
+          
+          background-color: #F5F5F5;
+          
+        }
+        
+        &.no-margin {
+          
+          margin-top: 0;
+          
+        }
+        
+        .notification_gatto_sx {
+          
+          width: 210px;
+          height: 45px;
+          margin-top: 10px;
+          margin-left: 20px;
+          overflow: hidden;
+          float: left;
+          
+          p {
+            
+            font-style: italic;
+            font-size: 11px;
+            color: #2FAADC;
+            
+          }
+          
+        }
+        
+        .notification_gatto_dx {
+          
+          width: 38px;
+          height: 65px;
+          float: right;
+          
+          .cancelTooltip {
+            
+            float: right;
+            width: 13px;
+            height: 13px;
+            margin-top: 2px;
+            margin-right: 2px;
+            background-image: $assets-cancel-tooltip-notice_png;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            cursor: pointer;
+            
+            &:hover {
+              
+              background-image: $assets-cancel-tooltip-notice-on_png;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      .jspVerticalBar {
+        
+        top: 0;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        
+        .jspTrack {
+          
+          border-radius: 3px;
+          -webkit-border-radius: 3px;
+          
+          .jspDrag {
+            
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  .tooltipArancione {
+    border-left:1px solid black;
+    border-right:1px solid black;
+    border-bottom:1px solid black;
+    z-index: 10;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    color: #fff;
+    background-color: #E10000;
+    padding: 2px 5px;
+    right: 40px;
+    
+  }
+  
+  #notifications_button {
+    
+    margin-right: 10px;
+    @include svg-circle-icon-handler($assets-icone-header_svg, 36px, 2, 3, 1, 0, 0, 1, 1, 0, right);
+    
+    &.current {
+      
+      @include svg-circle-icon-handler-without-hover($assets-icone-header_svg, 36px, 2, 3, 1, 1, 0, right);
+      
+    }
+    
+  }
+  
+  #help {
+    
+    margin-right: 0;
+    @include svg-circle-icon-handler($assets-icone-header_svg, 36px, 2, 3, 1, 0, 2, 1, 1, 2, right);
+    
+    &.current {
+      
+      @include svg-circle-icon-handler-without-hover($assets-icone-header_svg, 36px, 2, 3, 1, 1, 2, right);
+      
+    }
+    
+  }
+  
+  #profile_link {
+    
+    margin-right: 10px;
+    @include svg-circle-icon-handler($assets-icone-header_svg, 36px, 2, 3, 1, 0, 1, 1, 1, 1, right);
+    
+    &.current {
+      
+      @include svg-circle-icon-handler-without-hover($assets-icone-header_svg, 36px, 2, 3, 1, 1, 1, right);
+      
+    }
+    
+  }
+  
+  .tooltipHelp {
+    
+    font-weight: normal;
+    right: 0;
+    z-index: 10;
+    padding: 3px;
+    width: 960px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid #E8E8E8;
+    top: 61px;
+    
+    .callout {
+      
+      right: -42px;
+      
+    }
+    
+    strong {
+      
+      color: $orange;
+      font-size: 12.8px;
+      
+    }
+    
+    p {
+      
+      float: left;
+      width: 300px;
+      padding: 10px;
+      color: $black;
+      
+    }
+    
+  }
+  
+}

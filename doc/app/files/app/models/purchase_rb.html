@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>purchase.rb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            purchase.rb
+        </h1>
+        <ul class="files">
+            <li>app/models/purchase.rb</li>
+            <li>Last modified: 2014-04-10 16:21:39 +0200</li>
+        </ul>
+    </div>
+
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="label-Description">Description</h3>
+
+<p>ActiveRecord class that corresponds to the table <code>purchases</code>.</p>
+
+<h3 id="label-Fields">Fields</h3>
+<ul><li>
+<p><em>name</em>: name of the buyer</p>
+</li><li>
+<p><em>responsible</em>: name and surname of the person who is responsible for
+the transaction</p>
+</li><li>
+<p><em>phone_number</em>: phone number of the responsible</p>
+</li><li>
+<p><em>fax</em>: fax of the responsible</p>
+</li><li>
+<p><em>email</em>: official email of the buyer</p>
+</li><li>
+<p><em>ssn_code</em>: personal code</p>
+</li><li>
+<p><em>vat_code</em>: code of the company</p>
+</li><li>
+<p><em>address</em>: address of the buyer</p>
+</li><li>
+<p><em>postal_code</em>: postal code of the buyer</p>
+</li><li>
+<p><em>city</em>: city of the buyer</p>
+</li><li>
+<p><em>country</em>: country of the buyer</p>
+</li><li>
+<p><em>accounts_number</em>: how many accounts are associated to this purchase</p>
+</li><li>
+<p><em>includes_invoice</em>: if true, the purchae must be associated to an
+invoice (not implemented in the application)</p>
+</li><li>
+<p><em>release_date</em>: date of purchase</p>
+</li><li>
+<p><em>start_date</em>: date of beginning of the validity of the purchase</p>
+</li><li>
+<p><em>expiration_date</em>: expiration date of the purchase</p>
+</li><li>
+<p><em>location_id</em>: location which must be forced to the users who
+benefit this purchase</p>
+</li><li>
+<p><em>token</em>: token used to associate a user subscription to this
+purchase</p>
+</li></ul>
+
+<h3 id="label-Associations">Associations</h3>
+<ul><li>
+<p><em>users</em>: users associated to this purchase (see <a
+href="../../../classes/User.html">User</a>) (<em>has_many</em>)</p>
+</li><li>
+<p><em>location</em>: location to which all the user must belong (this is not
+inserted into a validation, not to overload the model, but just in the
+methods for the frontend) (<em>belongs_to</em>, it can be nil)</p>
+</li></ul>
+
+<h3 id="label-Validations">Validations</h3>
+<ul><li>
+<p><em>presence</em> of <code>name</code>, <code>responsible</code>,
+<code>email</code>, <code>accounts_number</code>,
+<code>release_date</code>, <code>start_date</code>,
+<code>expiration_date</code></p>
+</li><li>
+<p><em>numericality</em> greater than 0 for <code>accounts_number</code></p>
+</li><li>
+<p><em>numericality</em> greater than 0 and allow_nil and eventually presence
+of associated object for <code>location_id</code></p>
+</li><li>
+<p><em>length</em> of <code>name</code>, <code>responsible</code>,
+<code>phone_number</code>, <code>fax</code>, <code>email</code>,
+<code>ssn_code</code>, <code>vat_code</code>, <code>address</code>,
+<code>postal_code</code>, <code>city</code>, <code>country</code> (maximum
+255)</p>
+</li><li>
+<p><em>inclusion</em> of <code>includes_invoice</code> in [true, false]</p>
+</li><li>
+<p><em>correctness</em> of <code>email</code> as an e-mail address</p>
+</li><li>
+<p><em>format</em> of dates <code>release_date</code>,
+<code>start_date</code>, <code>expiration_date</code></p>
+</li><li>
+<p><em>presence</em> of at least one between <code>vat_code</code> and
+<code>ssn_code</code></p>
+</li><li>
+<p><em>modifications</em> <em>not</em> <em>available</em> for
+<code>token</code></p>
+</li><li>
+<p><em>decrease</em> <em>not</em> <em>available</em> for
+<code>accounts_number</code></p>
+</li><li>
+<p><em>uniqueness</em> ok <code>token</code></p>
+</li></ul>
+
+<h3 id="label-Callbacks">Callbacks</h3>
+<ol><li>
+<p><em>before_create</em> creates a random encoded string and writes it in
+<code>token</code></p>
+</li></ol>
+
+<h3 id="label-Database+callbacks">Database callbacks</h3>
+
+<p>None</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="../../../classes/Purchase.html">Purchase</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+              </div>
+
+    </div>
+  </body>
+</html>

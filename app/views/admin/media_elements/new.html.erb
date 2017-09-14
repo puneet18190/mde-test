@@ -1,0 +1,41 @@
+<%
+  title_max = t('forms.placeholders.title', :num => t('language_parameters.media_element.length_title').to_s)
+  description_max = t('forms.placeholders.description', :num => t('language_parameters.media_element.length_description').to_s)
+  tags_max = t('forms.placeholders.tags', :items => SETTINGS['min_tags_for_item'].to_s, :num => SETTINGS['max_tag_length'].to_s)
+%>
+
+<div class="row-fluid">
+  <div class="span3">
+    <h3><%= t('admin.media_elements.new.title')%></h3>
+    <%= form_tag '/admin/media_elements/quick_upload', :method => :post, :id => 'admin-media-elements-quick-upload-form', :multipart => true do %>
+      <label for="title"><%= title_max %></label>
+      <%= text_field_tag 'title', '' %><br/>
+      <label for="description"><%= description_max %></label>
+      <%= text_area_tag 'description', '' %><br/>
+      <label for="tags"><%= tags_max %></label>
+      <%= text_area_tag 'tags', '', :class => 'lower' %><br/>
+      <label for="file"><%= t('admin.media_elements.new.file_to_upload') %></label> <%= file_field_tag 'media', :id => 'qume_file', multiple: true %><br/>
+      <%= submit_tag '', :class => 'btn _new_element_form_submit lower', :style => 'display:none' %>
+    <% end %>
+    <blockquote id="hint_not_for_ie">
+      <%= t('admin.media_elements.new.upload_hint') %>
+    </blockquote>
+  </div>
+  <div class="span9 new_elements_well">
+    <div class="row-fluid">
+      <h3><%= t('admin.media_elements.new.content_title') %></h3>
+      <div id="new_elements_preview" class="well">
+        <% if @files.empty? %>
+          <div id="empty_files_in_admin_media_element_uploader">
+            <%= t('admin.media_elements.empty_files') %>
+          </div>
+        <% else %>
+          <% @files.each do |file| %>
+            <%= render :partial => 'media_element_upload', :locals => {:file => file, :colspan => 4} %>
+          <% end %>
+        <% end %>
+        <div class="clearfloat"></div>
+      </div>
+    </div>
+  </div>
+</div>

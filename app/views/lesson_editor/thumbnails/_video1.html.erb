@@ -1,0 +1,34 @@
+<%
+  video = slide.media_elements_at
+%>
+
+
+<div class="slide-content video1 small-size">
+  
+  <div class="item title-container">
+    <input class="title read-only" type="text" value="<%= slide.title.blank? ? t('lesson_editor.placeholders.title') : slide.title %>" disabled="disabled"/>
+  </div>
+  
+  <div class="item video-container">
+    <% if video %>
+      <div class="video read-only">
+        <%= render :partial => 'lesson_editor/thumbnails/fake_players/video', :locals => {:video => video} %>
+      </div>
+    <% else %>
+      <div class="video editable">
+        <div class="empty-mask visible">
+          <a class="add" data-position="1"></a>
+          <br/>
+          <p class="lower"><%= t('lesson_editor.choose_video') %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="item text-container read-only">
+    <%= slide.text.blank? ? t('lesson_editor.placeholders.text') : slide.text.html_safe %>
+  </div>
+  
+  <a class="attached_document_internal" style="display:<%= slide.documents_slides.any? ? 'block' : 'none' %>"></a>
+  
+</div>

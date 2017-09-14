@@ -1,0 +1,10 @@
+<div id="found_media_elements">
+  <% if media_elements.empty? %>
+    <%= render :partial => 'search/media_elements/empty', :locals => {:word => word} %>
+  <% else %>
+    <% media_elements.each_with_index do |me, index| %>
+      <% forced_margin = (index == media_elements.length - 1) ? (@for_page - media_elements.length) : nil %>
+      <%= render :partial => 'media_elements/view_single_compact', :locals => {:media_element => me, :destination => ButtonDestinations::FOUND_MEDIA_ELEMENT, :used_in_private_lessons => (me.instances.to_i > 0), :forced_margin => forced_margin} %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,24 @@
+<% if @ok %>
+  <% if @errors %>
+    showFormErrors($('#dialog-media-element-<%= @media_element.id %>'), <%= @errors.to_json.html_safe %>);
+  <% else %>
+    <% used_in_private_lessons = @media_element.media_elements_slides.any? %>
+    closePopUp("dialog-media-element-<%= @media_element_id %>");
+    removeCompletelyMediaElementPopup(<%= @media_element_id %>);
+    var big_selector = '#media_element_menu_buttons_<%= @media_element_id %> ._Image_button_destroy,';
+    big_selector += ' #media_element_menu_buttons_<%= @media_element_id %> ._Audio_button_destroy,';
+    big_selector += ' #media_element_menu_buttons_<%= @media_element_id %> ._Video_button_destroy,';
+    big_selector += ' #media_element_menu_buttons_<%= @media_element_id %> ._Image_button_remove,';
+    big_selector += ' #media_element_menu_buttons_<%= @media_element_id %> ._Audio_button_remove,';
+    big_selector += ' #media_element_menu_buttons_<%= @media_element_id %> ._Video_button_remove';
+    var destination = $(big_selector).data('destination');
+    if(destination == '<%= ButtonDestinations::EXPANDED_MEDIA_ELEMENT %>') {
+      $('#' + destination + '_<%= @media_element_id %>').replaceWith('<%= j render(:partial => "media_elements/view_single_expanded", :locals => {:media_element => @media_element, :destination => ButtonDestinations::EXPANDED_MEDIA_ELEMENT, :used_in_private_lessons => used_in_private_lessons}) %>');
+      resizeExpandedMediaElements($('#info_container').data('in-space'));
+    } else if(destination == '<%= ButtonDestinations::COMPACT_MEDIA_ELEMENT %>') {
+      $('#' + destination + '_<%= @media_element_id %>').replaceWith('<%= j render(:partial => "media_elements/view_single_compact", :locals => {:media_element => @media_element, :destination => ButtonDestinations::COMPACT_MEDIA_ELEMENT, :used_in_private_lessons => used_in_private_lessons}) %>');
+    } else if(destination == '<%= ButtonDestinations::FOUND_MEDIA_ELEMENT %>') {
+      $('#' + destination + '_<%= @media_element_id %>').replaceWith('<%= j render(:partial => "media_elements/view_single_compact", :locals => {:media_element => @media_element, :destination => ButtonDestinations::FOUND_MEDIA_ELEMENT, :used_in_private_lessons => used_in_private_lessons}) %>');
+    }
+  <% end %>
+<% end %>

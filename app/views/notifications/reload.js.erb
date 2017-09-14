@@ -1,0 +1,18 @@
+if($('#tooltip_arancione').data('number') < <%= @new_notifications %>) {
+  var old_help = $('#tooltip_help').html();
+  $('#notifications_main').replaceWith('<%= j(render :partial => "notifications/main", :locals => {:notifications => @notifications, :news => @new_notifications, :offset => @offset_notifications, :tot => @tot_notifications, :where => ""}) %>');
+  $('#notifications_list').jScrollPane({
+    autoReinitialise: true
+  });
+  initializeScrollAtBottomNewBlockNotification();
+  $('#tooltip_arancione').show();
+  $('#notifications_button').addClass('current');
+  $('#tooltip_help').html(old_help);
+} else {
+  <% @notifications.each do |n| %>
+    var notification = $('#notification_<%= n.id %>');
+    if(notification.length > 0) {
+      $('._notification_time_<%= n.id %>').html('<%= j n.time %>');
+    }
+  <% end %>
+}

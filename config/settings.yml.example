@@ -1,0 +1,136 @@
+# Name of the application
+application_name: 'DESY'
+# Full name of the application
+application_full_name: 'DESY - Digital Education System'
+# extended name of the application
+application_extended_name: 'Digital Education System'
+# Copyright of the application (it's displayed in the HTML footer)
+application_copyright: '©2014 DESY. All rights reserved'
+application:
+  # Whether to use SSL or not (only for production environment)
+  force_ssl: false
+  # Url options used for any url
+  default_url_options:
+    :protocol: 'http'
+    :host: 'www.example.com'
+    :port:
+  # Rails Mailing parameters (see guides.rubyonrails.org/action_mailer_basics.html for details about available settings)
+  smtp:
+    :address: 'smtp.example.com'
+  # The sender of the mail sent by the application
+  email: 'noreply@example.com'
+  maintainer:
+    # The recipients of the emails related to maintenance tasks (errors, administration tasks) sent by the application
+    emails: ['maintainer@example.com']
+  # Email used in Contact Us link
+  contact_us_email: 'info@example.com'
+# Types of the locations related to Desy
+# The order is important: it determines the parent->child relation
+# The last location is the one associated the the user
+location_types: ['Province', 'City', 'County', 'School']
+# Email of the only super admin user
+super_admin: 'desy@example.com'
+# More emails to grant admin privileges to: IMPORTANT, these emails must be configured ONLY AFTER the corresponding user has registered and confirmed.
+grant_admin_privileges: ['email1@example.com', 'email2@example.com', 'email3@example.com']
+# Minimum length of a tag (in characters)
+min_tag_length: 1
+# Maximu length of a tag (in characters)
+max_tag_length: 25
+# Minimum amount of tags for an item (lesson or media element)
+min_tags_for_item: 4
+# Maximum amount of tags for an item (lesson or media element)
+max_tags_for_item: 30
+# Minimum amount of characters needed to activate js autocomplete
+min_characters_to_search_tags: 2
+# Amount of tags to be shown in js autocomplete
+how_many_tags_for_block_in_autocomplete: 20
+# Amount of tags shown in the search engine
+tags_limit_in_search_engine: 20
+# Available languages: the first one is default
+languages:
+- :en
+- :it
+- :cn
+# Seconds necessary to fade out a dialog
+seconds_for_timeout_dialogs: 2500
+# Seconds between each ajax call that saves the cache in Video Editor and Audio Editor
+seconds_for_saving_cache: 60000
+# Number of notifications loaded together (pagination of notifications done with infinite scroll)
+notifications_loaded_together: 8
+# Maximum number of slides in a lesson
+max_number_slides_in_a_lesson: 99
+# Pagination of lessons in Virtual Classroom
+lessons_for_page_in_virtual_classroom: 10
+# Number of lessons in the playlist
+lessons_in_playlist: 20
+# Number of lessons for page in the multiple lessons loader (pagination made with infinite scroll)
+lessons_in_quick_loader: 18
+# Pagination for image gallery (pagination made with infinite scroll)
+images_for_page_in_gallery: 42
+# Pagination for video gallery (pagination made with infinite scroll)
+videos_for_page_in_gallery: 18
+# Pagination for audio gallery (pagination made with infinite scroll)
+audios_for_page_in_gallery: 12
+# Pagination for document gallery (pagination made with infinite scroll)
+documents_for_page_in_gallery: 12
+# Pagination for sections in admin
+admin_general_pagination: 20
+# Application colors with codes, keywords and positions
+colors:
+  red:
+    pos: 3
+    code: '#B51726'
+  green:
+    pos: 6
+    code: '#41A62A'
+  orange:
+    pos: 4
+    code: '#F29400'
+  light_blue:
+    pos: 5
+    code: '#2EAADC'
+  white:
+    pos: 2
+    code: '#F2F2F2'
+  black:
+    pos: 1
+    code: '#373737'
+# Random colors used in graphs
+graph_colors: ['#ec008c', '#b1538b', '#2e3192', '#696bcd', '#a8a9e2', '#d0d1e4', '#9c9c9c', '#6a6a6c', '#434345', '#f7941d', '#ffcb05', '#f2d772', '#eee4bd', '#00a651', '#1deb81', '#2a6d4a', '#58595b', '#b0b0b0', '#d8dff1', '#acc2ff']
+# Configurable registration policies (the names correspond to keys in the translation file)
+user_registration_policies: ['policy_1', 'policy_2']
+# Minimum length for the users' password
+minimum_password_length: 8
+# Maximum length for the users' password (if nil there is no maximum limitation)
+maximum_password_length:
+# Maximum size of a media element (in megabytes)
+max_media_size: 50
+# Maximum size of a document (in megabytes)
+max_document_size: 50
+# Maximum size of the media elements folder (in gigabytes)
+maximum_media_elements_folder_size: 20
+# Maximum size of the documents folder (in gigabytes)
+maximum_documents_folder_size: 20
+# Cookie key
+cookie_key: '_desy_session'
+# Session timeout (in hours)
+session_timeout: 48
+# The maximum number of documents allowed in a slide
+max_documents_in_slide: 3
+# Enables media debugging routes and controllers /audios_test => media_elements#audios_test
+#                                                /videos_test => media_elements#videos_test
+media_test: false
+# Enables payments and trial for new users, according to the business model 'platform as a service (PaaS)'
+saas_registration_mode: false
+# Duration (in days) of the trial in paas
+saas_trial_duration: 30
+# Prefix added to temporary files and folders names
+tempfiles_prefix: 'desy'
+# Person who manages the business of purchases
+purchase_administrator: 'purchases@example.com'
+# Cathegories of subjects (optional)
+subject_cathegories: [["Scienze", [1, 2, 3]], ["Letterature", [4, 5, 6]]]
+# Application ebooks identifier
+ebooks_package_id: DESYLesson
+# Show/hide partner logo in the prelogin footer
+show_partner_logo: true

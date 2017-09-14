@@ -1,0 +1,246 @@
+/* PARTE 1: variabili sparse con lo stesso nome e suddivise per foglio di stile */
+
+$players-button-size: 2.4em;
+$virtual-classroom-button-size: 4em;
+
+
+
+/* PARTE 2: variabili di colore */
+
+$orange: #F29400;
+$green: #41A62A;
+$blue: #2EAADC;
+$black: #5D5C5C;
+
+
+
+/* PARTE 3: variabili per le slides */
+
+/* larghezza standard della slide */
+$slide-width: 900px;
+/* altezza standard della slide */
+$slide-height: 590px;
+/* padding interno che separa tutte le componenti della slide */
+$slide-inner-padding: 20px;
+/* larghezza interna della slide: larghezza esterna meno due volte il padding */
+$slide-inner-width: $slide-width - $slide-inner-padding - $slide-inner-padding;
+/* altezza interna della slide: altezza esterna meno due volte il padding */
+$slide-inner-height: $slide-height - $slide-inner-padding - $slide-inner-padding;
+/* altezza complessiva del footer della copertina (la copertina è l'unica slide senza padding interno) */
+$footer-height-in-cover: 30px;
+/* altezza dell'immagine di sfondo della copertina: altezza slide meno altezza footer */
+$image-height-in-cover: $slide-height - $footer-height-in-cover;
+/* altezza del titolo nella copertina (che va in sovraimpressione sopra l'immagine di sfondo) */
+$title-height-in-cover: 130px;
+/* padding per centrare il titolo della copertina nell'apposito contenitore (padding da applicare a left e top) */
+$title-left-and-top-padding-in-cover: 20px;
+/* altezza interna del titolo, uguale ad altezza globale meno una volta il padding interno (è applicato solo a left) */
+$title-inner-height-in-cover: $title-height-in-cover - $title-left-and-top-padding-in-cover;
+/* larghezza interna del titolo, uguale a larghezza della slide meno una volta il padding interno (è applicato solo a left) */
+$title-inner-width-in-cover: $slide-width - $title-left-and-top-padding-in-cover;
+/* posizionamento del titolo all'interno della slide: deve essere aderente al footer, pertanto è uguale ad altezza immagine meno altezza titolo */
+$title-top-offset-in-cover: $image-height-in-cover - $title-height-in-cover;
+/* line-height del titolo nella copertina */
+$title-line-height-in-cover: 50px;
+/* font-size del titolo nella copertina */
+$title-font-size-in-cover: 50px;
+/* padding verticale del footer della copertina */
+$footer-vertical-padding-in-cover: 7px;
+/* padding orizzontale del footer della copertina */
+$footer-horizontal-padding-in-cover: 7px;
+/* altezza interna del footer della copertina: altezza del footer meno due volte padding verticale */
+$footer-inner-height-in-cover: $footer-height-in-cover - $footer-vertical-padding-in-cover - $footer-vertical-padding-in-cover;
+/* larghezza interna del footer della copertina: larghezza della slide meno due volte padding orizzontale */
+$footer-inner-width-in-cover: $slide-width - $footer-horizontal-padding-in-cover - $footer-horizontal-padding-in-cover;
+/* font size del footer nella copertina */
+$footer-font-size-in-cover: 13px;
+/* altezza del titolo generale (presente in slides di tipo 'audio', 'image1', 'text', 'video1') */
+$slide-title-height: 110px;
+/* bordo del titolo */
+$slide-title-border: 1px;
+/* padding del titolo */
+$slide-title-padding: 10px;
+/* altezza interna del titolo: altezza globale meno due volte il bordo meno due volte il padding verticale */
+$slide-title-inner-height: $slide-title-height - (2 * $slide-title-border) - (2 * $slide-title-padding);
+/* larghezza interna del titolo: larghezza interna della slide meno due volte il bordo meno due volte il padding normale */
+$slide-title-inner-width: $slide-inner-width - (2 * $slide-title-border) - (2 * $slide-title-padding);
+/* line-height del titolo (sempre uguale) */
+$slide-title-line-height: 88px;
+/* font-size del titolo (sempre uguale) */
+$slide-title-font-size: 48px;
+/* larghezza in full slide di un campo testo: larghezza slide meno due volte il padding interno (coincide con la larghezza interna della slide) */
+$slide-text-full-width: $slide-inner-width;
+/* altezza in full-slide di un campo testo: altezza interna della slide meno altgezza titolo meno padding interno che le separa */
+$slide-text-full-height: $slide-inner-height - $slide-title-height - $slide-inner-padding;
+/* larghezza in half-slide di un campo testo */
+$slide-text-half-width: ($slide-inner-width - $slide-inner-padding) / 2;
+/* padding di un campo testo in read-only, che sopperisce a un margin interno di 8px di tinyMCE */
+$slide-text-read-only-padding: 8px;
+/* border di un campo testo in read-only, che sopperisce al bordo di 1px sempre di tinyMCE */
+$slide-text-read-only-border: 1px;
+/* altezza read-only per full slide text: altezza full-slide meno due volte il padding read-only e border read-only */
+$slide-text-read-only-full-height: $slide-text-full-height - (2 * $slide-text-read-only-padding) - (2 * $slide-text-read-only-border);
+/* larghezza read-only per full slide text: larghezza full-slide meno due volte il padding read-only e border read-only */
+$slide-text-read-only-full-width: $slide-text-full-width - (2 * $slide-text-read-only-padding) - (2 * $slide-text-read-only-border);
+/* larghezza read-only per half slide text: larghezza half-slide meno due volte il padding read-only e border read-only */
+$slide-text-read-only-half-width: $slide-text-half-width - (2 * $slide-text-read-only-padding) - (2 * $slide-text-read-only-border);
+/* altezza del placeholder audio in una slide di tipo 'audio' */
+$audio-placeholder-height: 71px;
+/* altezza in di un campo testo nella slide di tipo 'audio': altezza in full slide meno altezza placeholder audio meno padding interno che le separa */
+$slide-text-height-for-audio: $slide-text-full-height - $audio-placeholder-height - $slide-inner-padding;
+/* larghezza della textarea piena: tolgo i bordi - importante, leggi nei commenti di desySkin/ui.css il motivo per cui qui non calcolo i bordi, deve rimanere allineato */
+$slide-text-content-full-width: $slide-text-full-width;
+/* altezza della textarea piena: tolgo i bordi */
+$slide-text-content-full-height: $slide-text-full-height - (2 * $slide-text-read-only-border);
+/* larghezza della textarea a metà: tolgo i bordi - importante, leggi nei commenti di desySkin/ui.css il motivo per cui qui non calcolo i bordi, deve rimanere allineato */
+$slide-text-content-half-width: $slide-text-half-width;
+/* altezza della textarea in slide audio: tolgo i bordi */
+$slide-text-content-height-for-audio: $slide-text-height-for-audio - (2 * $slide-text-read-only-border);
+/* altezza read-only in di un campo testo nella slide di tipo 'audio': altezza di riferimento meno due volte padding read-only */
+$slide-text-read-only-height-for-audio: $slide-text-height-for-audio - (2 * $slide-text-read-only-padding) - (2 * $slide-text-read-only-border);
+/* dimensioni dell'icona grande (usata per video e immagini) */
+$big-icon-dimension: 130px;
+/* dimensioni dell'icona piccola (usata per video e immagini) */
+$small-icon-dimension: 100px;
+/* dimensioni dell'icona minuscola (usata solo per image4) */
+$tiny-icon-dimension: 80px;
+/* posizione top nella copertina piena dell'icona (in questo case immagine): altezza immagine (senza considerare titolo) meno altezza icona diviso 2 */
+$big-icon-top-position-in-full-cover: ($image-height-in-cover - $big-icon-dimension) / 2;
+/* posizione top nella copertina vuota dell'icona: altezza immagine meno altezza titolo meno altezza icona diviso 2, tutto meno 10px per lasciare spazio alla label */
+$big-icon-top-position-in-empty-cover: (($image-height-in-cover - $title-height-in-cover - $big-icon-dimension) / 2) - 10px;
+/* posizione left nella copertina dell'icona (uguale se piena o vuota): larghezza immagine (uguale a larghezza slide) meno larghezza icona diviso 2 */
+$big-icon-left-position-in-cover: ($slide-width - $big-icon-dimension) / 2;
+/* larghezza piena dell'immagine: come la larghezza interna della slide */
+$slide-image-full-width: $slide-inner-width;
+/* larghezza a metà slide dell'immagine: larghezza interna meno il padding interno diviso due */
+$slide-image-half-width: ($slide-inner-width - $slide-inner-padding) / 2;
+/* altezza piena dell'immagine: come l'altezza interna della slide */
+$slide-image-full-height: $slide-inner-height;
+/* altezza a metà slide dell'immagine: altezza interna meno il padding interno diviso due */
+$slide-image-half-height: ($slide-inner-height - $slide-inner-padding) / 2;
+/* altezza a piena con titolo dell'immagine: altezza interna meno altezza titolo meno padding interno */
+$slide-image-full-height-with-title: $slide-inner-height - $slide-title-height - $slide-inner-padding;
+/* posizione top dell'icona immagine in altezza piena: altezza corrispondente immagine meno dimensione icona diviso 2 */
+$big-icon-top-position-in-full-height-image: ($slide-image-full-height - $big-icon-dimension) / 2;
+/* posizione left dell'icona immagine in larghezza piena: larghezza corrispondente immagine meno dimensione icona diviso 2 */
+$big-icon-left-position-in-full-width-image: ($slide-image-full-width - $big-icon-dimension) / 2;
+/* posizione left dell'icona immagine in metà larghezza: larghezza corrispondente immagine meno dimensione icona diviso 2 */
+$big-icon-left-position-in-half-width-image: ($slide-image-half-width - $big-icon-dimension) / 2;
+/* posizione top dell'icona minuscola (image4) immagine in metà altezza: altezza corrispondente immagine meno dimensione icona diviso 2 */
+$tiny-icon-top-position-in-half-height-image: ($slide-image-half-height - $tiny-icon-dimension) / 2;
+/* posizione left dell'icona piccola immagine in metà larghezza: larghezza corrispondente immagine meno dimensione icona diviso 2 */
+$small-icon-left-position-in-half-width-image: ($slide-image-half-width - $small-icon-dimension) / 2;
+/* posizione top dell'icona piccola immagine in altezza piena con titolo: altezza corrispondente immagine meno dimensione icona diviso 2 */
+$small-icon-top-position-in-full-height-image-with-title: ($slide-image-full-height-with-title - $small-icon-dimension) / 2;
+/* posizione left dell'icona minuscola (image4) immagine in metà larghezza: larghezza corrispondente immagine meno dimensione icona diviso 2 */
+$tiny-icon-left-position-in-half-width-image: ($slide-image-half-width - $tiny-icon-dimension) / 2;
+/* posizione top dell'icona immagine (vuota) in altezza piena: altezza corrispondente immagine meno dimensione icona diviso 2 meno 15 per la label */
+$big-icon-top-position-in-full-height-image-empty: (($slide-image-full-height - $big-icon-dimension) / 2) - 15px;
+/* posizione top dell'icona minuscola (image4) immagine (vuota) in metà altezza: altezza corrispondente immagine meno dimensione icona diviso 2 meno 15 per la label */
+$tiny-icon-top-position-in-half-height-image-empty: (($slide-image-half-height - $tiny-icon-dimension) / 2) - 13px;
+/* posizione top dell'icona piccola immagine (vuota) in altezza piena con titolo: altezza corrispondente immagine meno dimensione icona diviso 2 meno 15 per la label */
+$small-icon-top-position-in-full-height-image-with-title-empty: (($slide-image-full-height-with-title - $small-icon-dimension) / 2) - 15px;
+/* font-size della label dell'icona aggiungi nuova immagine nella copertina */
+$icon-label-font-size: 16px;
+/* posizione della label dell'icona aggiungi nuova immagine nella copertina */
+$icon-label-margin-top-in-cover: 280px;
+/* posizione della label dell'icona aggiungi nuova immagine nella slide altezza piena */
+$icon-label-margin-top-in-full-height-image: 330px;
+/* posizione della label dell'icona aggiungi nuova immagine nella slide metà altezza */
+$icon-label-margin-top-in-half-height-image: 170px;
+/* posizione della label dell'icona aggiungi nuova immagine nella slide altezza piena con titolo */
+$icon-label-margin-top-in-full-height-image-with-title: 255px;
+/* font size della caption */
+$image-caption-font-size: 13px;
+/* line height della caption */
+$image-caption-line-height: 35px;
+/* altezza della caption */
+$image-caption-height: 35px;
+/* padding laterale della caption */
+$image-caption-horizontal-padding: 5px;
+/* metà larghezza caption: metà larghezza immagine meno due volte padding orizzontale */
+$image-caption-half-width: $slide-image-half-width - (2 * $image-caption-horizontal-padding);
+/* larghezza piena caption: larghezza piena immagine meno due volte padding orizzontale */
+$image-caption-full-width: $slide-image-full-width - (2 * $image-caption-horizontal-padding);
+/* video a larghezza piena: stesso calcolo di immagine */
+$slide-video-full-width: $slide-image-full-width;
+/* video a metà larghezza: stesso calcolo di immagine */
+$slide-video-half-width: $slide-image-half-width;
+/* video ad altezza piena: stesso calcolo di immagine */
+$slide-video-full-height: $slide-image-full-height;
+/* video ad altezza piena con titolo: stesso calcolo di immagine */
+$slide-video-full-height-with-title: 281px;
+/* video ad altezza piena con titolo con un video caricato (è più basso perché deve rimanere in proporzione) */
+$slide-video-full-height-with-title-empty: $slide-image-full-height-with-title;
+/* posizione top dell'icona video in altezza piena: altezza corrispondente video meno dimensione icona diviso 2 */
+$big-icon-top-position-in-full-height-video: ($slide-video-full-height - $big-icon-dimension) / 2;
+/* posizione left dell'icona video in larghezza piena: larghezza corrispondente video meno dimensione icona diviso 2 */
+$big-icon-left-position-in-full-width-video: ($slide-video-full-width - $big-icon-dimension) / 2;
+/* posizione left dell'icona piccola video in metà larghezza: larghezza corrispondente video meno dimensione icona diviso 2 */
+$small-icon-left-position-in-half-width-video: ($slide-video-half-width - $small-icon-dimension) / 2;
+/* posizione top dell'icona piccola video in altezza piena con titolo: altezza corrispondente video meno dimensione icona diviso 2 */
+$small-icon-top-position-in-full-height-video-with-title: ($slide-video-full-height-with-title - $small-icon-dimension) / 2;
+/* posizione top dell'icona video (vuota) in altezza piena: altezza corrispondente video meno dimensione icona diviso 2 meno 15 per la label */
+$big-icon-top-position-in-full-height-video-empty: (($slide-video-full-height - $big-icon-dimension) / 2) - 15px;
+/* posizione top dell'icona piccola video (vuota) in altezza piena con titolo: altezza corrispondente video meno dimensione icona diviso 2 meno 15 per la label */
+$small-icon-top-position-in-full-height-video-with-title-empty: (($slide-video-full-height-with-title-empty - $small-icon-dimension) / 2) - 15px;
+/* posizione della label dell'icona aggiungi nuovo video nella slide altezza piena */
+$icon-label-margin-top-in-full-height-video: $icon-label-margin-top-in-full-height-image;
+/* posizione della label dell'icona aggiungi nuovo video nella slide altezza piena con titolo */
+$icon-label-margin-top-in-full-height-video-with-title: $icon-label-margin-top-in-full-height-image-with-title;
+/* altezza del footer del player video piccolo */
+$slide-video-player-footer-height-small: 44px;
+/* altezza del footer del player video grande */
+$slide-video-player-footer-height-big: 66px;
+/* altezza contenuto video player altezza piena (si esclude il footer) */
+$slide-video-player-content-full-height: $slide-video-full-height - $slide-video-player-footer-height-big;
+/* altezza contenuto video player altezza piena con titolo (si esclude il footer) */
+$slide-video-player-content-full-height-with-title: $slide-video-full-height-with-title - $slide-video-player-footer-height-small;
+/* dimensione icona audio piccola (nell'audio pieno) */
+$audio-small-icon-dimension: 30px;
+/* dimensione icona audio grande (nell'audio vuoto) */
+$audio-big-icon-dimension: 35px;
+/* posizione top icona audio: altezza placeholder meno dimensione icona piccola diviso due */
+$audio-icon-top-position: ($audio-placeholder-height - $audio-small-icon-dimension) / 2;
+/* quando l'audio è pieno l'icona è posizionata alla destra: slide width meno dimensione icona piccola meno un tot a scelta (margine destra) */
+$audio-icon-left-position: $slide-inner-width - $audio-small-icon-dimension - 15px;
+/* posizione top icona audio vuoto: altezza placeholder meno dimensione icona grande diviso due meno un pezzettino */
+$audio-icon-top-position-empty: (($audio-placeholder-height - $audio-big-icon-dimension) / 2) - 8px;
+/* quando è empty è al centro, icona audio posizione left */
+$audio-icon-left-position-empty: ($slide-inner-width - $audio-big-icon-dimension) / 2;
+/* posizione top label audio vuoto */
+$icon-label-margin-top-in-audio: 34px;
+/* label icona audio è piccola */
+$icon-label-font-size-in-audio: 10px;
+/* bordo del contenuto della slide titolo */
+$title-slide-content-border: 1px;
+/* font-size del titolo */
+$title-slide-font-size: 60px;
+/* line-height del titolo: uguale a font-size */
+$title-slide-line-height: 65px;
+/* padding del contenuto del titolo */
+$title-slide-content-padding: 20px;
+/* altezza contenuto titolo: line height */
+$title-slide-content-height: $title-slide-line-height * 3;
+/* larghezza  contenuto titolo: laghezza interna slide meno due volte padding meno due volte bordo */
+$title-slide-content-width: $slide-inner-width - (2 * $title-slide-content-padding) - (2 * $title-slide-content-border);
+/* margin top contenuto titolo: altezza interna slide meno altezza contenuto titolo meno due volte bordo meno due volte padding diviso due */
+$title-slide-content-margin-top: ($slide-inner-height - $title-slide-content-height - (2 * $title-slide-content-border) - (2 * $title-slide-content-padding)) / 2;
+/* bordo del titolo per la miniatura */
+$miniature-slide-title-border: 4px;
+/* padding del titolo per la miniatura */
+$miniature-slide-title-padding: 7px;
+/* bordo del contenuto della slide titolo */
+$miniature-title-slide-content-border: 4px;
+/* padding del contenuto del titolo */
+$miniature-title-slide-content-padding: 17px;
+/* border di un campo testo in read-only, che sopperisce al bordo di 1px sempre di tinyMCE */
+$miniature-slide-text-read-only-border: 4px;
+/* padding di un campo testo in read-only, che sopperisce a un margin interno di 8px di tinyMCE */
+$miniature-slide-text-read-only-padding: 5px;
+/* distanza dall'alto dell'icona di inscribe */
+$inscribe-icon-top: 10px;
+/* distanza dalla destra dell'icona di inscribe */
+$inscribe-icon-right: $inscribe-icon-top;
+/* dimensione dell'icona di inscribe */
+$inscribe-icon-dimension: 50px;

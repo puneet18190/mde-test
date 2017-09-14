@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Report 
+            
+                <span class="parent">&lt; 
+                    
+                    ActiveRecord::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/report_rb.html">app/models/report.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Report-label-Description">Description</h3>
+
+<p>ActiveRecord class that corresponds to the table <code>reports</code>: this
+table contains reports of inappropriate content sent by users about lessons
+or media elements.</p>
+
+<h3 id="class-Report-label-Fields">Fields</h3>
+<ul><li>
+<p><em>reportable_id</em>: id of the item (lesson or media element) the report
+is about</p>
+</li><li>
+<p><em>reportable_type</em>: contains the string description of the classes <a
+href="Lesson.html">Lesson</a> or <a
+href="MediaElement.html">MediaElement</a> (the type is an enum defined in
+postgrsql)</p>
+</li><li>
+<p><em>user_id</em>: id of the <a href="User.html">User</a> who sent the
+report</p>
+</li><li>
+<p><em>comment</em>: text message associated to the report</p>
+</li></ul>
+
+<h3 id="class-Report-label-Associations">Associations</h3>
+<ul><li>
+<p><em>user</em>: <a href="User.html">User</a> who sent the report
+(<em>belongs_to</em>)</p>
+</li><li>
+<p><em>reportable</em>: <a href="Lesson.html">Lesson</a> or <a
+href="MediaElement.html">MediaElement</a> reported (polymorphic
+association) (<em>belongs_to</em>)</p>
+</li></ul>
+
+<h3 id="class-Report-label-Validations">Validations</h3>
+<ul><li>
+<p><em>presence</em> with numericality and existence of associated record for
+<code>user_id</code> and <code>reportable_id</code></p>
+</li><li>
+<p><em>presence</em> of <code>content</code></p>
+</li><li>
+<p><em>inclusion</em> of <code>reportable_type</code> between &#39;Lesson&#39;
+and &#39;MediaElement&#39;</p>
+</li><li>
+<p><em>uniqueness</em> of the triple [<code>user_id</code>,
+<code>reportable_type</code>, <code>reportable_id</code>] <strong>only if
+<code>reportable_type</code> is correct</strong></p>
+</li><li>
+<p><em>modifications</em> <em>not</em> <em>available</em> for the four fields,
+if the record is not new</p>
+</li></ul>
+
+<h3 id="class-Report-label-Callbacks">Callbacks</h3>
+
+<p>None</p>
+
+<h3 id="class-Report-label-Database+callbacks">Database callbacks</h3>
+
+<p>None</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-accept">accept</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-decline">decline</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-good_reportable_type">good_reportable_type</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-init_validation">init_validation</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-validate_associations">validate_associations</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_impossible_changes">validate_impossible_changes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-accept">
+            
+              <b>accept</b>()
+            
+            <a href="../classes/Report.html#method-i-accept" name="method-i-accept" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-accept-label-Description">Description</h3>
+
+<p>The report is accepted as valid: hence the associated <a
+href="Lesson.html">Lesson</a> or <a
+href="MediaElement.html">MediaElement</a> is destroyed, together with the
+report itself (used in <a
+href="Admin/ReportsController.html#method-i-accept">Admin::ReportsController#accept</a>).</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-accept_source')" id="l_method-i-accept_source">show</a>
+                
+              </p>
+              <div id="method-i-accept_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/report.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">accept</span>
+  <span class="ruby-identifier">to_be_destroyed</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reportable</span>
+  <span class="ruby-identifier">to_be_destroyed</span>.<span class="ruby-identifier">destroyable_even_if_public</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reportable_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;MediaElement&#39;</span>
+  <span class="ruby-identifier">to_be_destroyed</span>.<span class="ruby-identifier">destroy</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">destroy</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-decline">
+            
+              <b>decline</b>()
+            
+            <a href="../classes/Report.html#method-i-decline" name="method-i-decline" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-decline-label-Description">Description</h3>
+
+<p>The report is not accepted as valid: hence the associated <a
+href="Lesson.html">Lesson</a> or <a
+href="MediaElement.html">MediaElement</a> is not destroyed. The report is
+destroyed in any case (used in <a
+href="Admin/ReportsController.html#method-i-decline">Admin::ReportsController#decline</a>).</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-decline_source')" id="l_method-i-decline_source">show</a>
+                
+              </p>
+              <div id="method-i-decline_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/report.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">decline</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">destroy</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-good_reportable_type">
+            
+              <b>good_reportable_type</b>()
+            
+            <a href="../classes/Report.html#method-i-good_reportable_type" name="method-i-good_reportable_type" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Checks if the format of <code>reportable_type</code> is correct</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-good_reportable_type_source')" id="l_method-i-good_reportable_type_source">show</a>
+                
+              </p>
+              <div id="method-i-good_reportable_type_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/report.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">good_reportable_type</span>
+  [<span class="ruby-string">&#39;Lesson&#39;</span>, <span class="ruby-string">&#39;MediaElement&#39;</span>].<span class="ruby-identifier">include?</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reportable_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-init_validation">
+            
+              <b>init_validation</b>()
+            
+            <a href="../classes/Report.html#method-i-init_validation" name="method-i-init_validation" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes validation objects (see <a
+href="Valid.html#method-c-get_association">Valid.get_association</a>)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-init_validation_source')" id="l_method-i-init_validation_source">show</a>
+                
+              </p>
+              <div id="method-i-init_validation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/report.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">init_validation</span>
+  <span class="ruby-ivar">@report</span> = <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:id</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:user_id</span>
+  <span class="ruby-ivar">@lesson</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reportable_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Lesson&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span>(<span class="ruby-keyword">self</span>, <span class="ruby-value">:reportable_id</span>, <span class="ruby-constant">Lesson</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@media_element</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reportable_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;MediaElement&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span>(<span class="ruby-keyword">self</span>, <span class="ruby-value">:reportable_id</span>, <span class="ruby-constant">MediaElement</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_associations">
+            
+              <b>validate_associations</b>()
+            
+            <a href="../classes/Report.html#method-i-validate_associations" name="method-i-validate_associations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates the presence of all the associated objects</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_associations_source')" id="l_method-i-validate_associations_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_associations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/report.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_associations</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:user_id</span>, <span class="ruby-value">:doesnt_exist</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:reportable_id</span>, <span class="ruby-value">:lesson_doesnt_exist</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reportable_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Lesson&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:reportable_id</span>, <span class="ruby-value">:media_element_doesnt_exist</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reportable_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;MediaElement&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@media_element</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_impossible_changes">
+            
+              <b>validate_impossible_changes</b>()
+            
+            <a href="../classes/Report.html#method-i-validate_impossible_changes" name="method-i-validate_impossible_changes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>If the report is not a new record, it validates that no field can be
+changed</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_impossible_changes_source')" id="l_method-i-validate_impossible_changes_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_impossible_changes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/report.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_impossible_changes</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@report</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:user_id</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@report</span>.<span class="ruby-identifier">user_id</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:reportable_id</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reportable_id</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@report</span>.<span class="ruby-identifier">reportable_id</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:reportable_type</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">reportable_type</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@report</span>.<span class="ruby-identifier">reportable_type</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:comment</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">comment</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@report</span>.<span class="ruby-identifier">comment</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

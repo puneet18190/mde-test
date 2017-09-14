@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:epub="http://www.idpf.org/2007/ops"
+      class="<%= slide.kind.downcase %>-slide">
+  <head>
+    <title><%= slide_title(slide) %></title>
+    <link rel="stylesheet" type="text/css" href="assets/application.css"/>
+  </head>
+  <body>
+    <%= render partial: "OEBPS/slides/#{slide.kind.downcase}.xhtml", locals: { lesson: lesson, slide: slide } %>
+  </body>
+</html>

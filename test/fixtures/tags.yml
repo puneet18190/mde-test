@@ -1,0 +1,27 @@
+one:
+  id: 1
+  word: 'gatto'
+
+two:
+  id: 2
+  word: 'cane'
+
+three:
+  id: 3
+  word: 'elefante'
+
+four:
+  id: 4
+  word: 'squalo'
+
+five:
+  id: 5
+  word: 'pappagallo'
+
+six:
+  id: 6
+  word: 'ornitorinco'
+
+seven:
+  id: 7
+  word: 'panda'

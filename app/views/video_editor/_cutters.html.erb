@@ -1,0 +1,9 @@
+<div id="video_editor_cutters">
+  
+  <% cont = 1 %>
+  <% parameters[:components].each do |c| %>
+    <%= render :partial => "video_editor/cutters/#{c[:type]}", :locals => {:component => c, :identifier => cont, :empty => false} %>
+    <% cont += 1 %>
+  <% end %>
+  
+</div>

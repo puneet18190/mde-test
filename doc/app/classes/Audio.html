@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Audio</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Audio 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="MediaElement.html">MediaElement</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/audio_rb.html">app/models/audio.rb</a></li>
+            
+            <li><a href="../files/app/models/media_element_rb.html">app/models/media_element.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Audio-label-Description">Description</h3>
+
+<p>This class inherits from <a href="MediaElement.html">MediaElement</a>, and
+contains the specific methods needed for media elements of type
+<code>audio</code>. For methods shared by elements of type
+<code>audio</code> and <code>video</code>, see <a
+href="Media/Shared.html">Media::Shared</a>.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-m4a_duration">m4a_duration</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-m4a_duration-3D">m4a_duration=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-m4a_url">m4a_url</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-min_duration">min_duration</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-ogg_duration">ogg_duration</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-ogg_duration-3D">ogg_duration=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-ogg_url">ogg_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-placeholder_url">placeholder_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-thumb_url">thumb_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Media/Shared.html">
+              Media::Shared
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="UrlTypes.html">
+              UrlTypes
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">UPLOADER</td>
+            <td>=</td>
+            <td class="attr-value">Media::Audio::Uploader</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Instance of specific uploader for an audio</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">EXTENSION_WHITE_LIST</td>
+            <td>=</td>
+            <td class="attr-value">UPLOADER::EXTENSION_WHITE_LIST</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>List of accepted extensions</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">CACHE_RESTORE_PATH</td>
+            <td>=</td>
+            <td class="attr-value">&#39;/audios/cache/restore&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Path for restoring the audio editor cache</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">THUMB_URL</td>
+            <td>=</td>
+            <td class="attr-value">&#39;/assets/simbolo-audio.svg&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Url of the thumb to be used in the section &#39;elements&#39;</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">EBOOK_FORMATS</td>
+            <td>=</td>
+            <td class="attr-value">UPLOADER::FORMATS + UPLOADER::VERSION_FORMATS.keys - [:thumb]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-m4a_duration">
+            
+              <b>m4a_duration</b>()
+            
+            <a href="../classes/Audio.html#method-i-m4a_duration" name="method-i-m4a_duration" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-m4a_duration-label-Description">Description</h3>
+
+<p>Returns the float duration in seconds of the m4a track;</p>
+
+<h3 id="method-i-m4a_duration-label-Returns">Returns</h3>
+
+<p>A float.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-m4a_duration_source')" id="l_method-i-m4a_duration_source">show</a>
+                
+              </p>
+              <div id="method-i-m4a_duration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/audio.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">m4a_duration</span>
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">m4a_duration</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-m4a_duration-3D">
+            
+              <b>m4a_duration=</b>(m4a_duration)
+            
+            <a href="../classes/Audio.html#method-i-m4a_duration-3D" name="method-i-m4a_duration-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-m4a_duration-3D-label-Description">Description</h3>
+
+<p>Sets the float duration in seconds of the m4a track;</p>
+
+<h3 id="method-i-m4a_duration-3D-label-Args">Args</h3>
+<ul><li>
+<p><em>m4a_duration</em>: the duration to be set</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-m4a_duration-3D_source')" id="l_method-i-m4a_duration-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-m4a_duration-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/audio.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">m4a_duration=</span>(<span class="ruby-identifier">m4a_duration</span>)
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">m4a_duration</span> = <span class="ruby-identifier">m4a_duration</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-m4a_url">
+            
+              <b>m4a_url</b>(url_type = nil)
+            
+            <a href="../classes/Audio.html#method-i-m4a_url" name="method-i-m4a_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-m4a_url-label-Description">Description</h3>
+
+<p>Returns the url for the audio in format <code>m4a</code></p>
+
+<h3 id="method-i-m4a_url-label-Returns">Returns</h3>
+
+<p>An url.</p>
+
+<h3 id="method-i-m4a_url-label-Usage">Usage</h3>
+
+<p>&lt;audio&gt;  &lt;source src=“&lt;%= audio.m4a_url %&gt;”
+type=“audio/mp4”&gt;  &lt;/audio&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-m4a_url_source')" id="l_method-i-m4a_url_source">show</a>
+                
+              </p>
+              <div id="method-i-m4a_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/audio.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">m4a_url</span>(<span class="ruby-identifier">url_type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">converted</span>
+
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">media</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:url</span>, <span class="ruby-value">:m4a</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">url</span>
+
+  <span class="ruby-identifier">url_by_url_type</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">url_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-min_duration">
+            
+              <b>min_duration</b>()
+            
+            <a href="../classes/Audio.html#method-i-min_duration" name="method-i-min_duration" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-min_duration-label-Description">Description</h3>
+
+<p>Returns the lower integer approximation of the minimum between
+<code>ogg_duration</code> and <code>m4a_duration</code>. This is necessary
+to insert in the html players an integer duration in seconds that can be
+used without risks.</p>
+
+<h3 id="method-i-min_duration-label-Returns">Returns</h3>
+
+<p>An integer.</p>
+
+<h3 id="method-i-min_duration-label-Usage">Usage</h3>
+
+<p>&lt;div class=“audioPlayer _instance_of_player” data-media-type=“audio”
+data-initialized=“false” data-duration=“&lt;%= audio.min_duration
+%&gt;”&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-min_duration_source')" id="l_method-i-min_duration_source">show</a>
+                
+              </p>
+              <div id="method-i-min_duration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/audio.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">min_duration</span>
+  [<span class="ruby-identifier">m4a_duration</span>, <span class="ruby-identifier">ogg_duration</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_i</span>).<span class="ruby-identifier">min</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ogg_duration">
+            
+              <b>ogg_duration</b>()
+            
+            <a href="../classes/Audio.html#method-i-ogg_duration" name="method-i-ogg_duration" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-ogg_duration-label-Description">Description</h3>
+
+<p>Returns the float duration in seconds of the ogg track;</p>
+
+<h3 id="method-i-ogg_duration-label-Returns">Returns</h3>
+
+<p>A float.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ogg_duration_source')" id="l_method-i-ogg_duration_source">show</a>
+                
+              </p>
+              <div id="method-i-ogg_duration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/audio.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">ogg_duration</span>
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">ogg_duration</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ogg_duration-3D">
+            
+              <b>ogg_duration=</b>(ogg_duration)
+            
+            <a href="../classes/Audio.html#method-i-ogg_duration-3D" name="method-i-ogg_duration-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-ogg_duration-3D-label-Description">Description</h3>
+
+<p>Sets the float duration in seconds of the ogg track;</p>
+
+<h3 id="method-i-ogg_duration-3D-label-Args">Args</h3>
+<ul><li>
+<p><em>ogg_duration</em>: the duration to be set</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ogg_duration-3D_source')" id="l_method-i-ogg_duration-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-ogg_duration-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/audio.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">ogg_duration=</span>(<span class="ruby-identifier">ogg_duration</span>)
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">ogg_duration</span> = <span class="ruby-identifier">ogg_duration</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ogg_url">
+            
+              <b>ogg_url</b>(url_type = nil)
+            
+            <a href="../classes/Audio.html#method-i-ogg_url" name="method-i-ogg_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-ogg_url-label-Description">Description</h3>
+
+<p>Returns the url for the audio in format <code>ogg</code></p>
+
+<h3 id="method-i-ogg_url-label-Returns">Returns</h3>
+
+<p>An url.</p>
+
+<h3 id="method-i-ogg_url-label-Usage">Usage</h3>
+
+<p>&lt;audio&gt;  &lt;source src=“&lt;%= audio.ogg_url %&gt;”
+type=“audio/ogg”&gt;  &lt;/audio&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ogg_url_source')" id="l_method-i-ogg_url_source">show</a>
+                
+              </p>
+              <div id="method-i-ogg_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/audio.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">ogg_url</span>(<span class="ruby-identifier">url_type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">converted</span>
+
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">media</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:url</span>, <span class="ruby-value">:ogg</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">url</span>
+
+  <span class="ruby-identifier">url_by_url_type</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">url_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-placeholder_url">
+            
+              <b>placeholder_url</b>(type, url_type = nil)
+            
+            <a href="../classes/Audio.html#method-i-placeholder_url" name="method-i-placeholder_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-placeholder_url-label-Description">Description</h3>
+
+<p>Returns the url of the placeholder used in case the audio is being
+converted (an animated gif).</p>
+
+<h3 id="method-i-placeholder_url-label-Args">Args</h3>
+<ul><li>
+<p><em>type</em>: the type of placeholder required: it can be</p>
+</li><li>
+<p><code>:thumb</code>: used in the expanded media element</p>
+</li><li>
+<p><code>:lesson_viewer</code>: used in the lesson viewer</p>
+</li></ul>
+
+<h3 id="method-i-placeholder_url-label-Returns">Returns</h3>
+
+<p>An url.</p>
+
+<h3 id="method-i-placeholder_url-label-Usage">Usage</h3>
+
+<p>&lt;% if audio.converted? %&gt;  &lt;%= render :partial =&gt;
+&#39;shared/players/custom/audio&#39;, :locals =&gt; {:audio =&gt; audio}
+%&gt;  &lt;% else %&gt;  &lt;%= image_tag
+audio.placeholder_url(:lesson_viewer) %&gt;  &lt;% end %&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-placeholder_url_source')" id="l_method-i-placeholder_url_source">show</a>
+                
+              </p>
+              <div id="method-i-placeholder_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/audio.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">placeholder_url</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">url_type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;/assets/placeholders/audio_#{type}.gif&quot;</span>
+  
+  <span class="ruby-identifier">url_by_url_type</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">url_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-thumb_url">
+            
+              <b>thumb_url</b>(url_type = nil)
+            
+            <a href="../classes/Audio.html#method-i-thumb_url" name="method-i-thumb_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-thumb_url-label-Description">Description</h3>
+
+<p>Returns the url of the thumb image used in the section “elements” (a
+musical note on gray bottom). If the audio is not converted, returns the
+animated gif from <a
+href="Audio.html#method-i-placeholder_url">#placeholder_url</a> with
+<code>type</code>=<code>thumb</code>.</p>
+
+<h3 id="method-i-thumb_url-label-Returns">Returns</h3>
+
+<p>An url.</p>
+
+<h3 id="method-i-thumb_url-label-Usage">Usage</h3>
+
+<p>&lt;%= image_tag audio.thumb_url %&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-thumb_url_source')" id="l_method-i-thumb_url_source">show</a>
+                
+              </p>
+              <div id="method-i-thumb_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/audio.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">thumb_url</span>(<span class="ruby-identifier">url_type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">converted</span> <span class="ruby-operator">?</span> <span class="ruby-constant">THUMB_URL</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">placeholder_url</span>(<span class="ruby-value">:thumb</span>, <span class="ruby-identifier">url_type</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

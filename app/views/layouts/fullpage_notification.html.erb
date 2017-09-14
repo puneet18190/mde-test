@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html class="fullpage-notification-layout <%= controller_html_class %> <%= action_html_class %>">
+  <head><%= render :partial => 'layouts/application/head' %></head>
+  <body>
+    <%= render :partial => 'shared/popups' %>
+    <div class="container">
+      <%= render partial: 'layouts/flash', locals: { flash: flash } %>
+      <%= yield %>
+    </div>
+  </body>
+  
+</html>

@@ -1,0 +1,12 @@
+<div id="tooltip_content" class="tooltip hidden" data-offset="<%= offset %>" data-tot-number="<%= tot %>">
+  <%= image_tag('freccia_tooltip.png', :class => 'callout') %>
+  <div id="notifications_list" class="scroll-pane">
+    <% if notifications.empty? %>
+      <%= render :partial => 'notifications/empty' %>
+    <% else %>
+      <% notifications.each_with_index do |n, index| %>
+        <%= render :partial => 'notifications/notification', :locals => {:notification => n, :without_margin => (index == 0)} %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

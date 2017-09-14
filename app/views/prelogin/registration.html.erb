@@ -1,0 +1,36 @@
+<%
+  locals_for_registration_form = {
+    :forced_location => @forced_location,
+    :locations       => @locations,
+    :location_types  => @location_types,
+    :errors          => @errors,
+    :purchase_id     => @purchase_id,
+    :saas            => @saas,
+    :school_levels   => @school_levels,
+    :subject_ids     => @subject_ids,
+    :subjects        => @subjects,
+    :trial           => @trial,
+    :user            => @user
+  }
+%>
+
+<div class="header">
+  <div class="headerMenu">
+    <ul>
+      <li><%= link_to t('prelogin.main_page.menu_link'), root_path %></li>
+      <li><%= link_to t('prelogin.what_is.menu_link', :desy => SETTINGS['application_name']), what_is_path %></li>
+      <li><%= contact_us_link %></li>
+    </ul>
+    <%= render :partial => '/prelogin/login', :locals => {:from_sign_up => true} %>
+  </div>
+</div>
+<br class="clearfloat"/>
+<div style="padding-top:53px; height:95px">
+  <%= image_tag 'logo_prelogin.png' %>
+</div> 
+<br class="clearfloat"/>
+<div class="containerText">
+  <h1><%= t('registration.title') %></h1>
+  <h2 class="subtitle"><%= t('registration.subtitle', :desy => SETTINGS['application_name']) %></h2>
+  <%= render :partial => 'prelogin/registration_form', :locals => locals_for_registration_form %>
+</div>

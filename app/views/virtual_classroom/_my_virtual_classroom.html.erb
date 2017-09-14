@@ -1,0 +1,9 @@
+<div id="my_virtual_classroom">
+  <% if lessons.empty? %>
+    <%= render :partial => 'virtual_classroom/empty' %>
+  <% else %>
+    <% lessons.each do |l| %>
+      <%= render :partial => 'virtual_classroom/view_single', :locals => {:virtual => l, :cover => covers[l.lesson_id]} %>
+    <% end %>
+  <% end %>
+</div>

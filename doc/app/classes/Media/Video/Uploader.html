@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Video::Uploader</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Video::Uploader 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../Uploader.html">Media::Uploader</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/media/video/uploader_rb.html">lib/media/video/uploader.rb</a></li>
+            
+            <li><a href="../../../files/lib/media/video/uploader/validation_rb.html">lib/media/video/uploader/validation.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="../Video.html">Video</a> uploading class; descendant of <a
+href="../Uploader.html">Media::Uploader</a></p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">MODULE</span>
+          <a href="Uploader/Validation.html">Media::Video::Uploader::Validation</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cover_output_path">cover_output_path</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-extract_cover">extract_cover</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extract_thumb">extract_thumb</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extract_versions">extract_versions</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-thumb_output_path">thumb_output_path</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Uploader/Validation.html">
+              Media::Video::Uploader::Validation
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="../../EnvRelativePath.html">
+              EnvRelativePath
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">PUBLIC_RELATIVE_FOLDER</td>
+            <td>=</td>
+            <td class="attr-value">env_relative_path File.join(PUBLIC_RELATIVE_MEDIA_ELEMENTS_FOLDER, &#39;videos&#39;)</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Path to videos folder relative to Rails public folder (for web URLs)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">FOLDER</td>
+            <td>=</td>
+            <td class="attr-value">File.join Rails.public_pathname, PUBLIC_RELATIVE_FOLDER</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Absolute path to videos folder</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">EXTENSION_WHITE_LIST</td>
+            <td>=</td>
+            <td class="attr-value">%w(avi divx flv h264 mkv mov mp4 mpe mpeg mpg ogm ogv webm wmv xvid)</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Allowed uploaded video extensions</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">EXTENSION_WHITE_LIST_WITH_DOT</td>
+            <td>=</td>
+            <td class="attr-value">EXTENSION_WHITE_LIST.map{ |ext| &quot;.#{ext}&quot; }</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Allowed uploaded video extensions with dots</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">MIN_DURATION</td>
+            <td>=</td>
+            <td class="attr-value">1</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Minimum allowed uploaded video duration</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">DURATION_THRESHOLD</td>
+            <td>=</td>
+            <td class="attr-value">CONFIG.duration_threshold</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Maximum difference between two generated formats of the same video</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">FORMATS</td>
+            <td>=</td>
+            <td class="attr-value">FORMATS</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p><a href="../Video.html">Video</a> ouput formats</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">ALLOWED_KEYS</td>
+            <td>=</td>
+            <td class="attr-value">[:filename] + FORMATS</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Allowed keys when initializing a new <a
+href="Uploader.html">Media::Video::Uploader</a> instance with an hash as
+value</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">VERSION_FORMATS</td>
+            <td>=</td>
+            <td class="attr-value">VERSION_FORMATS</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Output versions formats (thumb, cover…)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">CONVERSION_CLASS</td>
+            <td>=</td>
+            <td class="attr-value">Editing::Conversion</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Ruby class responsible of the conversion process</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-cover_output_path">
+            
+              <b>cover_output_path</b>()
+            
+            <a href="../../../classes/Media/Video/Uploader.html#method-i-cover_output_path" name="method-i-cover_output_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Cover file output path</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cover_output_path_source')" id="l_method-i-cover_output_path_source">show</a>
+                
+              </p>
+              <div id="method-i-cover_output_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/uploader.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cover_output_path</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">output_folder</span>, <span class="ruby-constant">COVER_FORMAT</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">processed_original_filename_without_extension</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_cover">
+            
+              <b>extract_cover</b>(input, output, duration)
+            
+            <a href="../../../classes/Media/Video/Uploader.html#method-i-extract_cover" name="method-i-extract_cover" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Generate the additional cover versions</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extract_cover_source')" id="l_method-i-extract_cover_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_cover_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/uploader.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extract_cover</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">output</span>, <span class="ruby-identifier">duration</span>)
+  <span class="ruby-identifier">seek</span> = <span class="ruby-identifier">duration</span> <span class="ruby-operator">/</span> <span class="ruby-number">2</span>
+  <span class="ruby-constant">Editing</span><span class="ruby-operator">::</span><span class="ruby-constant">Cmd</span><span class="ruby-operator">::</span><span class="ruby-constant">ExtractFrame</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">output</span>, <span class="ruby-identifier">seek</span>).<span class="ruby-identifier">run!</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">StandardError</span>, <span class="ruby-string">&#39;unable to create cover&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_thumb">
+            
+              <b>extract_thumb</b>(input, output, width, height)
+            
+            <a href="../../../classes/Media/Video/Uploader.html#method-i-extract_thumb" name="method-i-extract_thumb" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Generate the additional thumb versions</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extract_thumb_source')" id="l_method-i-extract_thumb_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_thumb_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/uploader.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extract_thumb</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">output</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+  <span class="ruby-constant">Image</span><span class="ruby-operator">::</span><span class="ruby-constant">Editing</span><span class="ruby-operator">::</span><span class="ruby-constant">ResizeToFill</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">output</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>).<span class="ruby-identifier">run</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_versions">
+            
+              <b>extract_versions</b>(infos)
+            
+            <a href="../../../classes/Media/Video/Uploader.html#method-i-extract_versions" name="method-i-extract_versions" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Generate the additional versions; it copies the files if their input paths
+have been provided before</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extract_versions_source')" id="l_method-i-extract_versions_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_versions_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/uploader.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extract_versions</span>(<span class="ruby-identifier">infos</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">version_input_paths?</span>
+    <span class="ruby-identifier">version_input_paths</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">version</span>, <span class="ruby-identifier">input</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span> <span class="ruby-identifier">input</span>, <span class="ruby-identifier">send</span>(<span class="ruby-value">:&quot;#{version}_output_path&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">extract_cover</span> <span class="ruby-ivar">@converted_files</span>[<span class="ruby-value">:mp4</span>], <span class="ruby-identifier">cover_output_path</span>, <span class="ruby-identifier">infos</span>[<span class="ruby-value">:mp4</span>].<span class="ruby-identifier">duration</span>
+    <span class="ruby-identifier">extract_thumb</span> <span class="ruby-identifier">cover_output_path</span>, <span class="ruby-identifier">thumb_output_path</span>, <span class="ruby-operator">*</span><span class="ruby-constant">THUMB_SIZES</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-thumb_output_path">
+            
+              <b>thumb_output_path</b>()
+            
+            <a href="../../../classes/Media/Video/Uploader.html#method-i-thumb_output_path" name="method-i-thumb_output_path" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Thumb file output path</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-thumb_output_path_source')" id="l_method-i-thumb_output_path_source">show</a>
+                
+              </p>
+              <div id="method-i-thumb_output_path_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/uploader.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">thumb_output_path</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">output_folder</span>, <span class="ruby-constant">THUMB_FORMAT</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">processed_original_filename_without_extension</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

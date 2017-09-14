@@ -1,0 +1,14 @@
+<div class="lessonNotificationPopUp" id="lesson-notification" style="display:none" data-message-placeholder="<%= t('lessons.notify_modifications.placeholder', :max => t('language_parameters.notification.message_length_for_public_lesson_modification')) %>" data-lesson-id="">
+  <div class="notificationWrapper">
+    <h2><%= t('lessons.notify_modifications.title') %></h2>
+    <p><%= t('lessons.notify_modifications.description', :desy => SETTINGS['application_name']) %></p>
+    <form data-remote="true" method="post">
+      <%= text_area_tag 'details', '', :id => 'lesson_notify_modification_details' %>
+      <%= hidden_field_tag 'details_placeholder', '', :id => 'lesson_notify_modification_details_placeholder' %>
+      <br class="clearfloat"/>
+      <%= submit_tag t('lessons.notify_modifications.do'), :class => '_yes' %>
+      <a class="_no"><%= t('lessons.notify_modifications.cancel') %></a>
+    </form>
+    <div class="_lesson_notification_cover img_expanded"></div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<%
+  url_type           ||= nil
+  image                = slide.media_elements_at
+  slide_text_options ||= {}
+  slide_text           = slide.text(slide_text_options)
+  unless defined? show_documents then show_documents = true end
+-%>
+
+<div class="slide-content image1 normal-size">
+  
+  <div class="item title-container">
+    <input class="title read-only" type="text" value="<%= slide.title %>" disabled="disabled"/>
+  </div>
+  
+  <div class="item image-container">
+    <div class="image read-only">
+      <% if image %>
+        <%
+          image_height = image.resize_height(slide.kind)
+          image_width = image.resize_width(slide.kind)
+          url = image.media_element.url(url_type)
+          effective_url = loaded ? "src=\"#{h url}\"".html_safe : ''
+        %>
+        <% if image.is_horizontal?(slide.kind) %>
+          <% if image.inscribed %>
+            <img style="top:<%= image.alignment %>px; height:<%= image_height %>px" data-url="<%= url %>" alt="<%= image.media_element.title %>" <%= effective_url %>/>
+          <% else %>
+            <img style="left:<%= image.alignment %>px; width:<%= image_width %>px" data-url="<%= url %>" alt="<%= image.media_element.title %>" <%= effective_url %>/>
+          <% end %>
+        <% else %>
+          <% if image.inscribed %>
+            <img style="left:<%= image.alignment %>px; width:<%= image_width %>px" data-url="<%= url %>" alt="<%= image.media_element.title %>" <%= effective_url %>/>
+          <% else %>
+            <img style="top:<%= image.alignment %>px; height:<%= image_height %>px" data-url="<%= url %>" alt="<%= image.media_element.title %>" <%= effective_url %>/>
+          <% end %>
+        <% end %>
+        <% if image.caption.present? %>
+          <input class="caption" type="text" value="<%= image.caption %>" disabled="disabled"/>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="item text-container read-only">
+    <%= slide_text.html_safe if slide_text %>
+  </div>
+  
+  <% if show_documents && slide.documents_slides.present? %>
+    <%= render :partial => 'lesson_viewer/documents', :locals => {:documents_slides => slide.documents_slides, :url_type => url_type} %>
+  <% end %>
+  
+</div>

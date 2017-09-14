@@ -1,0 +1,10 @@
+<div id="export_lesson" style="display:none">
+  <p>
+    <%= t('lesson_viewer.export_lesson.caption') %>
+  </p>
+  <%= link_to t('lesson_viewer.export_lesson.buttons.archive'), lesson_archive_path(lesson.id, :token => lesson.token), :class => 'export_button upper archive' %>
+  <%= link_to t('lesson_viewer.export_lesson.buttons.ebook'), lesson_ebook_path(lesson.id, :token => lesson.token), :class => 'export_button upper ebook' %>
+  <%= link_to t('lesson_viewer.export_lesson.buttons.scorm'), lesson_scorm_path(lesson.id, :token => lesson.token), :class => 'export_button upper scorm' %>
+</div>
+
+<a id="open_export_lesson" title="<%= t('titles.export_lesson') %>"></a>

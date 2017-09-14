@@ -1,0 +1,10 @@
+<% if @reset_form %>
+  window.location.href = '/admin/messages/new_notification';
+<% else %>
+  <% if @users_count > 0 %>
+    $('._filter_and_send').removeClass('disabled');
+  <% else %>
+    $('._filter_and_send').addClass('disabled');
+  <% end %>
+  $('#alert').html("<%= t('admin.messages.notifications.users_selected', :user_count => @users_count) %>");
+<% end %>

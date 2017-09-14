@@ -1,0 +1,4 @@
+<% lessons_tot = vc_lessons.length %>
+<% vc_lessons.each_with_index do |vc_lesson, index| %>
+  <span id="lesson_viewer_playlist_title_<%= vc_lesson.lesson_id %>" class="_lesson_title_in_playlist" style="display:<%= index == 0 ? 'block'.html_safe : 'none'.html_safe %>"><%= index + 1 %> / <%= lessons_tot %> - <%= vc_lesson.lesson.title %> (<%= vc_lesson.lesson.subject.description %>)</span>
+<% end %>

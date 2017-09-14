@@ -1,0 +1,20 @@
+<a class="attached_document_internal" title="<%= t('titles.buttons.documents.attached_view') %>"></a>
+<div class="attached_document_internal_expanded" style="display:none">
+  <% documents_slides.each_with_index do |ds, index| %>
+    <% document = ds.document %>
+    <div class="icon">
+      <img alt="<%= document.extension %>" title="<%= document.icon_title %>" src="<%= document.icon_url(url_type) %>">
+    </div>
+    <div class="title_and_download upper">
+      <div class="title">
+        <%= document.title %>
+      </div>
+      <a class="download" href="<%= document.url(url_type) %>">
+        <%= t('documents.download') %>
+      </a>
+    </div>
+    <% if index <= 1 %>
+      <br class="clearfloat" />
+    <% end %>
+  <% end %>
+</div>

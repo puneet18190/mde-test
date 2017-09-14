@@ -1,0 +1,11 @@
+<% lesson = virtual.lesson %>
+
+<div id="lesson_in_playlist_container_<%= lesson.id %>" class="lista <%= without_margin ? 'no-margin'.html_safe : '' %>" data-position="<%= virtual.position %>" data-lesson-id="<%= lesson.id %>">
+  <div class="contatore"><%= virtual.position %></div> 
+  <div id="lesson_in_playlist_<%= lesson.id %>" class="description _lesson_in_playlist" data-lesson-id="<%= lesson.id %>">
+    <div class="title"><h1><%= lesson.title %></h1></div>
+    <div class="lessonType"><h2><%= lesson.subject.description %></h2></div>
+    <!-- se si vogliono cambiare le classi del div seguente, lasciare sempre per prima '_remove_lesson_from_playlist' -->
+    <div class="_remove_lesson_from_playlist exitButton" style="display:none" data-clickparam="<%= lesson.id %>" title="<%= t('titles.virtual_classroom.remove_from_playlist') %>">&nbsp;</div>
+  </div>
+</div>

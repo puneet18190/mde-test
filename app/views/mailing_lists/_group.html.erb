@@ -1,0 +1,20 @@
+<h3 id="accordion_group_<%= group.id %>">
+  <%= link_to t('users.mailing_list.delete'), "/mailing_lists/#{group.id}/delete", {:method => :delete, :remote => true, :class => 'delete_group _delete_mailing_list_group'} %>
+  <a class="selector"></a>
+  <span class="group-title" contenteditable="true" data-param="<%= group.id %>"><%= group.name ? group.name : t('users.mailing_list.label', :number => group.id.to_s).html_safe %></span>
+  <div style="clear:both"></div>
+</h3>
+
+<div>
+  <%= form_tag({:controller => "mailing_lists", :action => "create_address", :group_id => group.id}, {:remote => true, :class => 'new_email'}) do %>
+    <p><%= t('users.mailing_list.add_address') %></p>
+    <input class="_input_in_mailing_list" data-placeholder="true" type="text" name="heading" value="<%= t('users.mailing_list.placeholders.name') %>" id="name"/>
+    <input class="_input_in_mailing_list" data-placeholder="true" type="text" name="email" value="<%= t('users.mailing_list.placeholders.email') %>" id="email"/>
+    <input type="submit" value=""/>
+  <% end %>
+  <table width="100%" id="mailing_list_group_<%= group.id %>">
+    <tbody>
+      <%= render :partial => 'mailing_lists/address', :locals => {:group => group} %>
+    </tbody>
+  </table>
+</div>

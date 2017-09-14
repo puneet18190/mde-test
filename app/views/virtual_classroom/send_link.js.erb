@@ -1,0 +1,5 @@
+<% if @ok %>
+  showOkPopUp('<%= j t("other_popup_messages.send_lesson_link.ok", :success => @emails.length, :total => @original_emails_number) %>');
+<% else %>
+  showErrorPopUp('<%= j t("other_popup_messages.send_lesson_link.error") %>');
+<% end %>

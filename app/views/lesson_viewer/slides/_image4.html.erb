@@ -1,0 +1,125 @@
+<%
+  url_type ||= nil
+  image1, image2, image3, image4 = slide.media_elements_at
+%>
+
+
+<div class="slide-content image4 normal-size">
+  
+  <div class="item image-container">
+    <div class="image read-only">
+      <% if image1 %>
+        <%
+          image_height1 = image1.resize_height(slide.kind)
+          image_width1 = image1.resize_width(slide.kind)
+          url1 = image1.media_element.url(url_type)
+          effective_url1 = loaded ? "src=\"#{h url1}\"".html_safe : ''
+        %>
+        <% if image1.is_horizontal?(slide.kind) %>
+          <% if image1.inscribed %>
+            <img style="top:<%= image1.alignment %>px; height:<%= image_height1 %>px" data-url="<%= url1 %>" alt="<%= image1.media_element.title %>" <%= effective_url1 %>/>
+          <% else %>
+            <img style="left:<%= image1.alignment %>px; width:<%= image_width1 %>px" data-url="<%= url1 %>" alt="<%= image1.media_element.title %>" <%= effective_url1 %>/>
+          <% end %>
+        <% else %>
+          <% if image1.inscribed %>
+            <img style="left:<%= image1.alignment %>px; width:<%= image_width1 %>px" data-url="<%= url1 %>" alt="<%= image1.media_element.title %>" <%= effective_url1 %>/>
+          <% else %>
+            <img style="top:<%= image1.alignment %>px; height:<%= image_height1 %>px" data-url="<%= url1 %>" alt="<%= image1.media_element.title %>" <%= effective_url1 %>/>
+          <% end %>
+        <% end %>
+        <% if image1.caption.present? %>
+          <input class="caption" type="text" value="<%= image1.caption %>" disabled="disabled"/>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="item image-container" style="margin-right:0">
+    <div class="image read-only">
+      <% if image2 %>
+        <%
+          image_height2 = image2.resize_height(slide.kind)
+          image_width2 = image2.resize_width(slide.kind)
+          url2 = image2.media_element.url(url_type)
+          effective_url2 = loaded ? "src=\"#{h url2}\"".html_safe : ''
+        %>
+        <% if image2.is_horizontal?(slide.kind) %>
+          <% if image2.inscribed %>
+            <img style="top:<%= image2.alignment %>px; height:<%= image_height2 %>px" data-url="<%= url2 %>" alt="<%= image2.media_element.title %>" <%= effective_url2 %>/>
+          <% else %>
+            <img style="left:<%= image2.alignment %>px; width:<%= image_width2 %>px" data-url="<%= url2 %>" alt="<%= image2.media_element.title %>" <%= effective_url2 %>/>
+          <% end %>
+        <% else %>
+          <% if image2.inscribed %>
+            <img style="left:<%= image2.alignment %>px; width:<%= image_width2 %>px" data-url="<%= url2 %>" alt="<%= image2.media_element.title %>" <%= effective_url2 %>/>
+          <% else %>
+            <img style="top:<%= image2.alignment %>px; height:<%= image_height2 %>px" data-url="<%= url2 %>" alt="<%= image2.media_element.title %>" <%= effective_url2 %>/>
+          <% end %>
+        <% end %>
+        <% if !image2.caption.blank? %>
+          <input class="caption" type="text" value="<%= image2.caption %>" disabled="disabled"/>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="item image-container" style="margin-bottom:0">
+    <div class="image read-only">
+      <% if image3 %>
+        <%
+          image_height3 = image3.resize_height(slide.kind)
+          image_width3 = image3.resize_width(slide.kind)
+          url3 = image3.media_element.url(url_type)
+          effective_url3 = loaded ? "src=\"#{h url3}\"".html_safe : ''
+        %>
+        <% if image3.is_horizontal?(slide.kind) %>
+          <% if image3.inscribed %>
+            <img style="top:<%= image3.alignment %>px; height:<%= image_height3 %>px" data-url="<%= url3 %>" alt="<%= image3.media_element.title %>" <%= effective_url3 %>/>
+          <% else %>
+            <img style="left:<%= image3.alignment %>px; width:<%= image_width3 %>px" data-url="<%= url3 %>" alt="<%= image3.media_element.title %>" <%= effective_url3 %>/>
+          <% end %>
+        <% else %>
+          <% if image3.inscribed %>
+            <img style="left:<%= image3.alignment %>px; width:<%= image_width3 %>px" data-url="<%= url3 %>" alt="<%= image3.media_element.title %>" <%= effective_url3 %>/>
+          <% else %>
+            <img style="top:<%= image3.alignment %>px; height:<%= image_height3 %>px" data-url="<%= url3 %>" alt="<%= image3.media_element.title %>" <%= effective_url3 %>/>
+          <% end %>
+        <% end %>
+        <% if image3.caption.present? %>
+          <input class="caption" type="text" value="<%= image3.caption %>" disabled="disabled"/>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="item image-container" style="margin-right:0; margin-bottom:0">
+    <div class="image read-only">
+      <% if image4 %>
+        <%
+          image_height4 = image4.resize_height(slide.kind)
+          image_width4 = image4.resize_width(slide.kind)
+          url4 = image4.media_element.url(url_type)
+          effective_url4 = loaded ? "src=\"#{h url4}\"".html_safe : ''
+        %>
+        <% if image4.is_horizontal?(slide.kind) %>
+          <% if image4.inscribed %>
+            <img style="top:<%= image4.alignment %>px; height:<%= image_height4 %>px" data-url="<%= url4 %>" alt="<%= image4.media_element.title %>" <%= effective_url4 %>/>
+          <% else %>
+            <img style="left:<%= image4.alignment %>px; width:<%= image_width4 %>px" data-url="<%= url4 %>" alt="<%= image4.media_element.title %>" <%= effective_url4 %>/>
+          <% end %>
+        <% else %>
+          <% if image4.inscribed %>
+            <img style="left:<%= image4.alignment %>px; width:<%= image_width4 %>px" data-url="<%= url4 %>" alt="<%= image4.media_element.title %>" <%= effective_url4 %>/>
+          <% else %>
+            <img style="top:<%= image4.alignment %>px; height:<%= image_height4 %>px" data-url="<%= url4 %>" alt="<%= image4.media_element.title %>" <%= effective_url4 %>/>
+          <% end %>
+        <% end %>
+        <% if image4.caption.present? %>
+          <input class="caption" type="text" value="<%= image4.caption %>" disabled="disabled"/>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
+</div>

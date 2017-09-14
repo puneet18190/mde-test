@@ -1,0 +1,71 @@
+<%
+  
+  locals_lessons = {
+    :subjects => @subjects,
+    :school_levels => @school_levels,
+    :word => @word,
+    :active => @did_you_search && @search_item == 'lessons',
+    :pointed => @search_item == 'lessons',
+    :results => {
+      :records => @lessons,
+      :amount => @lessons_amount,
+      :covers => @covers,
+      :tags => @tags,
+      :specific_tag => @specific_tag
+    }
+  }
+  
+  locals_media_elements = {
+    :word => @word,
+    :active => @did_you_search && @search_item == 'media_elements',
+    :pointed => @search_item == 'media_elements',
+    :results => {
+      :records => @media_elements,
+      :amount => @media_elements_amount,
+      :tags => @tags,
+      :specific_tag => @specific_tag
+    }
+  }
+  
+%>
+
+
+<div class="gray-bar advancedSearch">
+  <div class="cols fltlft">
+    <%= image_tag 'ico_advanced_search.png', :align => 'left', :style => 'padding-top:5px; padding-right: 10px' %><%= t('search.label') %><h1><%= t('search.title') %></h1>
+  </div>
+  <div class="cols fltrt" style="width:auto">
+    <p><%= t('search.description_title') %><br/><%= t('search.description') %></p>
+  </div>
+</div>
+
+<br class="clearfloat"/>
+
+<div class="griglia-contenuti">
+  <div class="advanced-search-content fixed-compact-height">
+    <div class="cols search-switch">
+      <table>
+        <tr>
+          <%= render :partial => 'search/item_selector', :locals => {:item => 'lessons', :active => (@search_item == 'lessons')} %>
+          <%= render :partial => 'search/item_selector', :locals => {:item => 'media_elements', :active => (@search_item == 'media_elements')} %>
+        </tr>
+      </table>
+    </div>
+    <%= render :partial => 'search/lessons/main', :locals => locals_lessons %>
+    <%= render :partial => 'search/media_elements/main', :locals => locals_media_elements %>
+    <div id="info_container" style="display:none" data-currenturl="<%= request.url.gsub('&amp;', '&') %>"></div>
+    <br class="clearfloat"/>
+    <% if @did_you_search && ((@search_item == 'media_elements' && @media_elements.any?) || (@search_item == 'lessons') && @lessons.any?) %>
+      <%= render :partial => 'shared/pagination', :locals => {:page => @page, :pages_amount => @pages_amount} %>
+    <% end %>
+  </div>
+</div>
+
+
+<script>
+  $(document).ready(function() {
+    $('#info_container').data('media-elements-not-anymore-in-conversion', new Array());
+    var list = new Array();
+    mediaElementLoaderConversionOverview(list, 5000);
+  });
+</script>

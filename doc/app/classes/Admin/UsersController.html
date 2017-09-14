@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Admin::UsersController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Admin::UsersController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../AdminController.html">AdminController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/app/controllers/admin/users_controller_rb.html">app/controllers/admin/users_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Admin::UsersController-label-Description">Description</h3>
+
+<p>Controller for users in the administration section (see <a
+href="../AdminController.html">AdminController</a>).</p>
+
+<h3 id="class-Admin::UsersController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="../AdminSearchForm.html">AdminSearchForm</a></p>
+</li><li>
+<p><a href="../Location.html">Location</a></p>
+</li><li>
+<p><a href="../User.html">User</a></p>
+</li><li>
+<p><a href="../Lesson.html">Lesson</a></p>
+</li><li>
+<p><a href="../MediaElement.html">MediaElement</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-activate">activate</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-ban">ban</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-destroy">destroy</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-find_locations">find_locations</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get_full_names">get_full_names</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-index">index</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-reconfirm">reconfirm</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-set_status">set_status</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-show">show</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-activate">
+            
+              <b>activate</b>()
+            
+            <a href="../../classes/Admin/UsersController.html#method-i-activate" name="method-i-activate" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-activate-label-Description">Description</h3>
+
+<p>Sets the field <code>active</code> of <a href="../User.html">User</a> to
+<code>true</code> (used only in <a
+href="UsersController.html#method-i-show">#show</a>)</p>
+
+<h3 id="method-i-activate-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-activate-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-activate_source')" id="l_method-i-activate_source">show</a>
+                
+              </p>
+              <div id="method-i-activate_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/users_controller.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">activate</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">active</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admin_user_path</span>(<span class="ruby-ivar">@user</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ban">
+            
+              <b>ban</b>()
+            
+            <a href="../../classes/Admin/UsersController.html#method-i-ban" name="method-i-ban" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-ban-label-Description">Description</h3>
+
+<p>Sets the field <code>active</code> of <a href="../User.html">User</a> to
+<code>false</code> (used only in <a
+href="UsersController.html#method-i-show">#show</a>)</p>
+
+<h3 id="method-i-ban-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-ban-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ban_source')" id="l_method-i-ban_source">show</a>
+                
+              </p>
+              <div id="method-i-ban_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/users_controller.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">ban</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">active</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">admin_user_path</span>(<span class="ruby-ivar">@user</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-destroy">
+            
+              <b>destroy</b>()
+            
+            <a href="../../classes/Admin/UsersController.html#method-i-destroy" name="method-i-destroy" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-destroy-label-Description">Description</h3>
+
+<p>Action to destroy a user and remove its contact from the database (see <a
+href="../User.html#method-i-destroy_with_dependencies">User#destroy_with_dependencies</a>)</p>
+
+<h3 id="method-i-destroy-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-destroy-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-destroy_source')" id="l_method-i-destroy_source">show</a>
+                
+              </p>
+              <div id="method-i-destroy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/users_controller.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">destroy</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">destroy_with_dependencies</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-find_locations">
+            
+              <b>find_locations</b>()
+            
+            <a href="../../classes/Admin/UsersController.html#method-i-find_locations" name="method-i-find_locations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-find_locations-label-Description">Description</h3>
+
+<p>Used for location filling all over the administration section (to be
+distinguished by <a
+href="UsersController.html#method-i-find_locations">#find_locations</a>,
+which is used in the rest of the application)</p>
+
+<h3 id="method-i-find_locations-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-find_locations-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-find_locations_source')" id="l_method-i-find_locations_source">show</a>
+                
+              </p>
+              <div id="method-i-find_locations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/users_controller.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">find_locations</span>
+  <span class="ruby-identifier">parent</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-ivar">@locations</span> = <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> [] <span class="ruby-operator">:</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_full_names">
+            
+              <b>get_full_names</b>()
+            
+            <a href="../../classes/Admin/UsersController.html#method-i-get_full_names" name="method-i-get_full_names" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-get_full_names-label-Description">Description</h3>
+
+<p>Used for autocomplete in the search forms all over the administration
+section</p>
+
+<h3 id="method-i-get_full_names-label-Mode">Mode</h3>
+
+<p>Json</p>
+
+<h3 id="method-i-get_full_names-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_full_names_source')" id="l_method-i-get_full_names_source">show</a>
+                
+              </p>
+              <div id="method-i-get_full_names_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/users_controller.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_full_names</span>
+  <span class="ruby-ivar">@users</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">get_full_names</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:term</span>])
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@users</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-index">
+            
+              <b>index</b>()
+            
+            <a href="../../classes/Admin/UsersController.html#method-i-index" name="method-i-index" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-index-label-Description">Description</h3>
+
+<p>Main page with the list of users. If <a href=":search">params</a> is
+present, it is used <a href="../AdminSearchForm.html">AdminSearchForm</a>
+to perform the requested search.</p>
+
+<h3 id="method-i-index-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-index-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-index_source')" id="l_method-i-index_source">show</a>
+                
+              </p>
+              <div id="method-i-index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/users_controller.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">index</span>
+  <span class="ruby-identifier">users</span> = <span class="ruby-constant">AdminSearchForm</span>.<span class="ruby-identifier">search_users</span>((<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>] <span class="ruby-operator">:</span> {<span class="ruby-value">:ordering</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>, <span class="ruby-value">:desc</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;true&#39;</span>}))
+  <span class="ruby-ivar">@users</span> = <span class="ruby-identifier">users</span>.<span class="ruby-identifier">preload</span>(<span class="ruby-value">:location</span>, <span class="ruby-value">:school_level</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
+  <span class="ruby-ivar">@locations</span> = [<span class="ruby-constant">Location</span>.<span class="ruby-identifier">roots</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
+    <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">get_from_chain_params</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
+    <span class="ruby-ivar">@locations</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">select_without_selected</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reconfirm">
+            
+              <b>reconfirm</b>()
+            
+            <a href="../../classes/Admin/UsersController.html#method-i-reconfirm" name="method-i-reconfirm" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-reconfirm-label-Description">Description</h3>
+
+<p>Sends again the email confirmation to an unconfirmed user.</p>
+
+<h3 id="method-i-reconfirm-label-Mode">Mode</h3>
+
+<p>Js</p>
+
+<h3 id="method-i-reconfirm-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-reconfirm_source')" id="l_method-i-reconfirm_source">show</a>
+                
+              </p>
+              <div id="method-i-reconfirm_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/users_controller.rb, line 187</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reconfirm</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">account_confirmation</span>(<span class="ruby-ivar">@user</span>).<span class="ruby-identifier">deliver</span>
+  <span class="ruby-ivar">@message</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;admin.users.actions.reconfirm_sent&#39;</span>, <span class="ruby-value">:email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">email</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-set_status">
+            
+              <b>set_status</b>()
+            
+            <a href="../../classes/Admin/UsersController.html#method-i-set_status" name="method-i-set_status" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-set_status-label-Description">Description</h3>
+
+<p>To switch the status of a user form &#39;banned&#39; to &#39;active&#39;
+and viceversa: used only in the main list of users
+(Admin::UsersController#index)</p>
+
+<h3 id="method-i-set_status-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-set_status-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-set_status_source')" id="l_method-i-set_status_source">show</a>
+                
+              </p>
+              <div id="method-i-set_status_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/users_controller.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">set_status</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">active</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:active</span>]
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-show">
+            
+              <b>show</b>()
+            
+            <a href="../../classes/Admin/UsersController.html#method-i-show" name="method-i-show" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-show-label-Description">Description</h3>
+
+<p>&#39;Show&#39; action for a single user. It contains personal statistics.</p>
+
+<h3 id="method-i-show-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-show-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-show_source')" id="l_method-i-show_source">show</a>
+                
+              </p>
+              <div id="method-i-show_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/users_controller.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">show</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">user</span> = <span class="ruby-ivar">@user</span>
+  <span class="ruby-ivar">@user_lessons</span>        = <span class="ruby-constant">Lesson</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;lessons.*, (SELECT COUNT (*) FROM likes WHERE likes.lesson_id = lessons.id) AS likes_count&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">preload</span>(<span class="ruby-value">:subject</span>, <span class="ruby-value">:user</span>, <span class="ruby-value">:taggings</span>, {<span class="ruby-value">:taggings</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:tag</span>}).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;updated_at DESC&#39;</span>).<span class="ruby-identifier">limit</span>(<span class="ruby-number">10</span>)
+  <span class="ruby-identifier">user_lessons_covers</span>  = <span class="ruby-constant">Slide</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:lesson_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@user_lessons</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:id</span>), <span class="ruby-value">:kind</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;cover&#39;</span>).<span class="ruby-identifier">preload</span>(<span class="ruby-value">:media_elements_slides</span>, {<span class="ruby-value">:media_elements_slides</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:media_element</span>})
+  <span class="ruby-ivar">@user_lessons_covers</span> = {}
+  <span class="ruby-identifier">user_lessons_covers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cov</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@user_lessons_covers</span>[<span class="ruby-identifier">cov</span>.<span class="ruby-identifier">lesson_id</span>] = <span class="ruby-identifier">cov</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@user_elements</span>       = <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;updated_at DESC&#39;</span>).<span class="ruby-identifier">preload</span>(<span class="ruby-value">:user</span>, <span class="ruby-value">:taggings</span>, {<span class="ruby-value">:taggings</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:tag</span>}).<span class="ruby-identifier">limit</span>(<span class="ruby-number">10</span>)
+  <span class="ruby-ivar">@my_created_lessons</span>  = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">my_created_lessons</span>
+  <span class="ruby-ivar">@my_created_elements</span> = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">my_created_elements</span>
+  <span class="ruby-ivar">@my_copied_lessons</span>   = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">my_copied_lessons</span>
+  <span class="ruby-ivar">@my_liked_lessons</span>    = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">my_liked_lessons</span>(<span class="ruby-number">3</span>)
+  <span class="ruby-ivar">@my_likes_count</span>      = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">my_likes_count</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Video::Editing::Parameters</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Media::Video::Editing::Parameters 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/media/video/editing/parameters_rb.html">lib/media/video/editing/parameters.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Module that contains parameters converter for the video editor (see <a
+href="../../Video.html">Video</a>, <a
+href="../../../VideoEditorController.html">VideoEditorController</a>)</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-convert_parameters">convert_parameters</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-convert_to_primitive_parameters">convert_to_primitive_parameters</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-extract_image_component">extract_image_component</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extract_text_component">extract_text_component</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extract_video_component">extract_video_component</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get_media_element_from_hash">get_media_element_from_hash</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-total_prototype_time">total_prototype_time</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">VIDEO_COMPONENT</td>
+            <td>=</td>
+            <td class="attr-value">&#39;video&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Keyword for a video component</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">TEXT_COMPONENT</td>
+            <td>=</td>
+            <td class="attr-value">&#39;text&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Keyword for a text component</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">IMAGE_COMPONENT</td>
+            <td>=</td>
+            <td class="attr-value">&#39;image&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Keyword for an image component</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">COMPONENTS</td>
+            <td>=</td>
+            <td class="attr-value">[VIDEO_COMPONENT, TEXT_COMPONENT, IMAGE_COMPONENT]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>List of keywords of possible video components</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-convert_parameters">
+            
+              <b>convert_parameters</b>(hash, user_id)
+            
+            <a href="../../../../classes/Media/Video/Editing/Parameters.html#method-i-convert_parameters" name="method-i-convert_parameters" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-convert_parameters-label-Description">Description</h3>
+
+<p>Validates and converts the parameters. See the code for further details
+about the validations achieved. The product is in the following format: *
+two initial parameters, &#39;initial_video&#39; and &#39;audio_track&#39; *
+then an ordered array of components:  * each component is a hash, with a
+key called :type  * if the type is &#39;video&#39;, there is an object of
+kind VIDEO associated to the key :video  * if the type is &#39;image&#39;,
+there is an object of kind IMAGE associated to the key :image</p>
+
+<h3 id="method-i-convert_parameters-label-Usage">Usage</h3>
+
+<p>{  :initial_video =&gt; OBJECT OF TYPE VIDEO or NIL,  :audio_track =&gt;
+OBJECT OF TYPE AUDIO or NIL,  :components =&gt; [ { :type =&gt;
+Video::VIDEO_COMPONENT, :video =&gt; OBJECT OF TYPE VIDEO, :from =&gt; 12,
+:to =&gt; 24 }, { :type =&gt; Video::TEXT_COMPONENT, :content =&gt;
+&#39;Titolo titolo titolo&#39;, :duration =&gt; 14, :background_color =&gt;
+&#39;red&#39;, :text_color =&gt; &#39;white&#39; }, { :type =&gt;
+Video::IMAGE_COMPONENT, :image =&gt; OBJECT OF TYPE IMAGE, :duration =&gt;
+2 } ]  }</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-convert_parameters_source')" id="l_method-i-convert_parameters_source">show</a>
+                
+              </p>
+              <div id="method-i-convert_parameters_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/parameters.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">convert_parameters</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">user_id</span>)
+  
+  <span class="ruby-comment"># check if initial video and audio track are correctly declared (they can be nil or integer)</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">hash</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:initial_video_id</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">hash</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:audio_id</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">hash</span>[<span class="ruby-value">:initial_video_id</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">hash</span>[<span class="ruby-value">:initial_video_id</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">hash</span>[<span class="ruby-value">:audio_id</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">hash</span>[<span class="ruby-value">:audio_id</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+  
+  <span class="ruby-comment"># initialize empty hash</span>
+  <span class="ruby-identifier">resp_hash</span> = <span class="ruby-constant">HashWithIndifferentAccess</span>.<span class="ruby-identifier">new</span>
+  
+  <span class="ruby-comment"># if initial video is present, I validate that it exists and is accessible from the user</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:initial_video_id</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">initial_video</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">initial_video</span> = <span class="ruby-identifier">get_media_element_from_hash</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-value">:initial_video_id</span>, <span class="ruby-identifier">user_id</span>, <span class="ruby-string">&#39;Video&#39;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">initial_video</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">initial_video</span>.<span class="ruby-identifier">is_public</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># insert initial video (which is nil if the video does not overwrite any previous one)</span>
+  <span class="ruby-identifier">resp_hash</span>[<span class="ruby-value">:initial_video</span>] = <span class="ruby-identifier">initial_video</span>
+  
+  <span class="ruby-comment"># if audio track is present, I validate that it exists and is accessible from the user</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:audio_id</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">audio_track</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">audio_track</span> = <span class="ruby-identifier">get_media_element_from_hash</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-value">:audio_id</span>, <span class="ruby-identifier">user_id</span>, <span class="ruby-string">&#39;Audio&#39;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">audio_track</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># insert audio track (which is nil if the user wants to keep the original audio of each component)</span>
+  <span class="ruby-identifier">resp_hash</span>[<span class="ruby-value">:audio_track</span>] = <span class="ruby-identifier">audio_track</span>
+  
+  <span class="ruby-comment"># there must be a list of components</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">hash</span>[<span class="ruby-value">:components</span>].<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:components</span>].<span class="ruby-identifier">empty?</span>
+  
+  <span class="ruby-comment"># initialize empty components</span>
+  <span class="ruby-identifier">resp_hash</span>[<span class="ruby-value">:components</span>] = []
+  
+  <span class="ruby-comment"># for each component I validate it and add it to the HASH</span>
+  <span class="ruby-identifier">hash</span>[<span class="ruby-value">:components</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">p</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-constant">COMPONENTS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">p</span>[<span class="ruby-value">:type</span>])
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">p</span>[<span class="ruby-value">:type</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">VIDEO_COMPONENT</span>
+        <span class="ruby-identifier">c</span> = <span class="ruby-identifier">extract_video_component</span>(<span class="ruby-identifier">p</span>, <span class="ruby-identifier">user_id</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">resp_hash</span>[<span class="ruby-value">:components</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">TEXT_COMPONENT</span>
+        <span class="ruby-identifier">c</span> = <span class="ruby-identifier">extract_text_component</span>(<span class="ruby-identifier">p</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">resp_hash</span>[<span class="ruby-value">:components</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">IMAGE_COMPONENT</span>
+        <span class="ruby-identifier">c</span> = <span class="ruby-identifier">extract_image_component</span>(<span class="ruby-identifier">p</span>, <span class="ruby-identifier">user_id</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">resp_hash</span>[<span class="ruby-value">:components</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">resp_hash</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-convert_to_primitive_parameters">
+            
+              <b>convert_to_primitive_parameters</b>(hash, user_id)
+            
+            <a href="../../../../classes/Media/Video/Editing/Parameters.html#method-i-convert_to_primitive_parameters" name="method-i-convert_to_primitive_parameters" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>This method uses <a
+href="Parameters.html#method-i-convert_parameters">#convert_parameters</a>
+to validate the parameters, and then converts them into a primitive hash
+that contains only IDs instead than objects: now the parameters are ready
+to be passed to the editor</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-convert_to_primitive_parameters_source')" id="l_method-i-convert_to_primitive_parameters_source">show</a>
+                
+              </p>
+              <div id="method-i-convert_to_primitive_parameters_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/parameters.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">convert_to_primitive_parameters</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">user_id</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">convert_parameters</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">user_id</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">resp</span>[<span class="ruby-value">:initial_video</span>] = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:initial_video</span>].<span class="ruby-identifier">id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">resp</span>[<span class="ruby-value">:initial_video</span>]
+  <span class="ruby-identifier">resp</span>[<span class="ruby-value">:audio_track</span>] = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:audio_track</span>].<span class="ruby-identifier">id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">resp</span>[<span class="ruby-value">:audio_track</span>]
+  <span class="ruby-identifier">resp</span>[<span class="ruby-value">:components</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">component</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">component</span>[<span class="ruby-value">:video</span>] = <span class="ruby-identifier">component</span>[<span class="ruby-value">:video</span>].<span class="ruby-identifier">id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:video</span>]
+    <span class="ruby-identifier">component</span>[<span class="ruby-value">:image</span>] = <span class="ruby-identifier">component</span>[<span class="ruby-value">:image</span>].<span class="ruby-identifier">id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:image</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">==</span> <span class="ruby-constant">TEXT_COMPONENT</span>
+      <span class="ruby-identifier">component</span>[<span class="ruby-value">:content</span>] = <span class="ruby-identifier">component</span>[<span class="ruby-value">:content</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;&lt;br/&gt;&#39;</span>, <span class="ruby-string">&quot;\n&quot;</span>)
+      <span class="ruby-identifier">component</span>[<span class="ruby-value">:background_color</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;colors&#39;</span>][<span class="ruby-identifier">component</span>[<span class="ruby-value">:background_color</span>]][<span class="ruby-string">&#39;code&#39;</span>]
+      <span class="ruby-identifier">component</span>[<span class="ruby-value">:text_color</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;colors&#39;</span>][<span class="ruby-identifier">component</span>[<span class="ruby-value">:text_color</span>]][<span class="ruby-string">&#39;code&#39;</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_image_component">
+            
+              <b>extract_image_component</b>(component, user_id)
+            
+            <a href="../../../../classes/Media/Video/Editing/Parameters.html#method-i-extract_image_component" name="method-i-extract_image_component" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Using <a
+href="Parameters.html#method-i-get_media_element_from_hash">#get_media_element_from_hash</a>,
+it validates that the image exists and is accessible from the user, then
+that <code>duration</code> is correct</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extract_image_component_source')" id="l_method-i-extract_image_component_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_image_component_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/parameters.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extract_image_component</span>(<span class="ruby-identifier">component</span>, <span class="ruby-identifier">user_id</span>)
+  <span class="ruby-identifier">image</span> = <span class="ruby-identifier">get_media_element_from_hash</span>(<span class="ruby-identifier">component</span>, <span class="ruby-value">:image_id</span>, <span class="ruby-identifier">user_id</span>, <span class="ruby-string">&#39;Image&#39;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">component</span>[<span class="ruby-value">:duration</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:duration</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-number">1</span>
+  {
+    <span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">IMAGE_COMPONENT</span>,
+    <span class="ruby-value">:image</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">image</span>,
+    <span class="ruby-value">:duration</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:duration</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_text_component">
+            
+              <b>extract_text_component</b>(component)
+            
+            <a href="../../../../classes/Media/Video/Editing/Parameters.html#method-i-extract_text_component" name="method-i-extract_text_component" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>It validates that <code>content</code>, <code>colors</code> and
+<code>duration</code> are all correct</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extract_text_component_source')" id="l_method-i-extract_text_component_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_text_component_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/parameters.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extract_text_component</span>(<span class="ruby-identifier">component</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">component</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:content</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">component</span>[<span class="ruby-value">:duration</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:duration</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-number">1</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-operator">::</span><span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;colors&#39;</span>].<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">component</span>[<span class="ruby-value">:background_color</span>]) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-operator">::</span><span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;colors&#39;</span>].<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">component</span>[<span class="ruby-value">:text_color</span>])
+  {
+    <span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">TEXT_COMPONENT</span>,
+    <span class="ruby-value">:content</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:content</span>].<span class="ruby-identifier">to_s</span>,
+    <span class="ruby-value">:duration</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:duration</span>],
+    <span class="ruby-value">:background_color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:background_color</span>],
+    <span class="ruby-value">:text_color</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:text_color</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_video_component">
+            
+              <b>extract_video_component</b>(component, user_id)
+            
+            <a href="../../../../classes/Media/Video/Editing/Parameters.html#method-i-extract_video_component" name="method-i-extract_video_component" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Using <a
+href="Parameters.html#method-i-get_media_element_from_hash">#get_media_element_from_hash</a>,
+it validates that the video exists and is accessible from the user, then
+that <code>from</code> and <code>to</code> are correct</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extract_video_component_source')" id="l_method-i-extract_video_component_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_video_component_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/parameters.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extract_video_component</span>(<span class="ruby-identifier">component</span>, <span class="ruby-identifier">user_id</span>)
+  <span class="ruby-identifier">video</span> = <span class="ruby-identifier">get_media_element_from_hash</span>(<span class="ruby-identifier">component</span>, <span class="ruby-value">:video_id</span>, <span class="ruby-identifier">user_id</span>, <span class="ruby-string">&#39;Video&#39;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">video</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">component</span>[<span class="ruby-value">:from</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">component</span>[<span class="ruby-value">:to</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:from</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-number">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:to</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">video</span>.<span class="ruby-identifier">min_duration</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:from</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:to</span>]
+  {
+    <span class="ruby-value">:type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">VIDEO_COMPONENT</span>,
+    <span class="ruby-value">:video</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">video</span>,
+    <span class="ruby-value">:from</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:from</span>],
+    <span class="ruby-value">:to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:to</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_media_element_from_hash">
+            
+              <b>get_media_element_from_hash</b>(hash, key, user_id, my_sti_type)
+            
+            <a href="../../../../classes/Media/Video/Editing/Parameters.html#method-i-get_media_element_from_hash" name="method-i-get_media_element_from_hash" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Used in <a
+href="Parameters.html#method-i-extract_video_component">#extract_video_component</a>,
+<a
+href="Parameters.html#method-i-extract_image_component">#extract_image_component</a>,
+<a
+href="Parameters.html#method-i-extract_text_component">#extract_text_component</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_media_element_from_hash_source')" id="l_method-i-get_media_element_from_hash_source">show</a>
+                
+              </p>
+              <div id="method-i-get_media_element_from_hash_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/parameters.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_media_element_from_hash</span>(<span class="ruby-identifier">hash</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">my_sti_type</span>)
+  <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">key</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">extract</span>(<span class="ruby-identifier">hash</span>[<span class="ruby-identifier">key</span>], <span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">my_sti_type</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-total_prototype_time">
+            
+              <b>total_prototype_time</b>(hash)
+            
+            <a href="../../../../classes/Media/Video/Editing/Parameters.html#method-i-total_prototype_time" name="method-i-total_prototype_time" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>This method doesn&#39;t check that the parameters are valid; it takes as
+input either the basic hash or the full one, and calculates the total time</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-total_prototype_time_source')" id="l_method-i-total_prototype_time_source">show</a>
+                
+              </p>
+              <div id="method-i-total_prototype_time_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/parameters.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">total_prototype_time</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-number">0</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">hash</span>[<span class="ruby-value">:components</span>].<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Array</span>)
+  <span class="ruby-identifier">sum</span> = <span class="ruby-number">0</span>
+  <span class="ruby-identifier">hash</span>[<span class="ruby-value">:components</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">component</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:type</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">VIDEO_COMPONENT</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-number">0</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">component</span>[<span class="ruby-value">:to</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>) <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">component</span>[<span class="ruby-value">:from</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+        <span class="ruby-identifier">sum</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:to</span>]
+        <span class="ruby-identifier">sum</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:from</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">IMAGE_COMPONENT</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-number">0</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">component</span>[<span class="ruby-value">:duration</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+        <span class="ruby-identifier">sum</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:duration</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">TEXT_COMPONENT</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-number">0</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">component</span>[<span class="ruby-value">:duration</span>].<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>)
+        <span class="ruby-identifier">sum</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">component</span>[<span class="ruby-value">:duration</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-number">0</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>[<span class="ruby-value">:components</span>].<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">sum</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">hash</span>[<span class="ruby-value">:components</span>].<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">sum</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

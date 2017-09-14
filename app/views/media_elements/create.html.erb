@@ -1,0 +1,7 @@
+<script>
+  window.onload = function() {
+    top.uploadDone('#load-media-element', <%= @errors ? @errors.to_json.html_safe : 'undefined' %>, function() {
+       top.window.location = '/media_elements';
+    });
+  }
+</script>

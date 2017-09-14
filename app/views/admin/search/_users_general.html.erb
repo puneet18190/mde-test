@@ -1,0 +1,53 @@
+<div class="control-group heading">
+  <label><h5><%= t('admin.search.users.title') %></h5></label>
+</div>
+<div class="control-group">
+  <label for="id"><%= t('admin.search.users.fields.id') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[id]', params ? params[:id] : '', :class => 'input-mini', :placeholder => t('admin.search.users.fields.id') %>
+  </div>
+</div>
+<div class="control-group">
+  <label><%= t('admin.search.users.fields.name') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[user]', params ? params[:user] : '', :class => 'input-medium', :placeholder => t('admin.search.users.fields.name') %>
+  </div>
+</div>
+<div class="control-group">
+  <label for="subject"><%= t('admin.search.users.fields.subject') %></label>
+  <div class="controls">
+    <select id="search_subject_id" name="search[subject_id]">
+      <option value=''><%= t('admin.search.users.fields.select_subject')%></option>
+      <% Subject.all.each do |subject| %>
+        <% if params.present? && (params[:subject_id].to_i == subject.id.to_i) %>
+          <option value="<%= subject.id %>" selected="selected"><%= subject.description %></option>
+        <% else %>
+          <option value="<%= subject.id %>"><%= subject.description %></option>
+        <% end %>
+      <% end %>
+    </select>
+  </div>
+</div>
+<div class="control-group">
+  <label for="school_level_id"><%= t('admin.search.users.fields.school_level') %></label>
+  <div class="controls">
+    <select id="school_level" name="search[school_level_id]">
+      <option value=''><%= t('admin.search.users.fields.select_school_level') %></option>
+      <% SchoolLevel.all.each do |level| %>
+        <% if params.present? && (params[:school_level_id].to_i == level.id.to_i) %>
+          <option value="<%= level.id %>" selected="selected"><%= level.description %></option>
+        <% else %>
+          <option value="<%= level.id %>"><%= level.description %></option>
+        <% end %>
+      <% end %>
+    </select>
+  </div>
+</div>
+<% if current_user.super_admin? %>
+  <div class="control-group">
+    <label for="purchase_id"><%= t('admin.search.users.fields.purchase_id') %></label>
+    <div class="controls">
+      <%= text_field_tag 'search[purchase_id]', params ? params[:purchase_id] : '', :class => 'input-medium', :placeholder => t('admin.search.users.fields.purchase_id') %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,5 @@
+<% if @ok %>
+  $('#notification_<%= @notification_id %>').addClass('current');
+  $('#tooltip_arancione').html('<%= @new_notifications %>');
+  $('#tooltip_arancione').data('number', <%= @new_notifications %>);
+<% end %>

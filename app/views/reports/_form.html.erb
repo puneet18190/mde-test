@@ -1,0 +1,23 @@
+<% type = item.class.to_s == 'Lesson' ? 'lesson' : 'media_element' %>
+<span id="<%= type %>_report_form_<%= item.id %>" class="tooltipForm for-<%= type %> _report_form_content" style="display:none">
+  <%= image_tag 'freccia_tooltip_form.png', :class => 'calloutForm' %>
+  <h3><%= t('reports.description') %></h3>
+  <p><%= t('reports.placeholder') %></p>
+  <%= form_tag "/reports/#{type}", :remote => true do %>
+    <input type="hidden" value="<%= item.id %>" name="<%= type %>_id"/>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <textarea class="campoTesto" name="content"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <input class="_send" type="submit" value="<%= t('reports.commit') %>" name="commit"/>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+</span>

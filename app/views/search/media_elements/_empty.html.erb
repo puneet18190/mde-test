@@ -1,0 +1,7 @@
+<div class="emptyFilter">
+  <% if word.blank? %>
+    <h1><%= t('search.media_elements.empty_filter') %></h1>
+  <% else %>
+    <h1><%= t('search.media_elements.empty_word', :word => word).html_safe %></h1>
+  <% end %>
+</div>

@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Logging::InstanceMethods</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Media::Logging::InstanceMethods 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../files/lib/media/logging_rb.html">lib/media/logging.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-create_log_folder">create_log_folder</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-log_folder">log_folder</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-logs">logs</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-stderr_log">stderr_log</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-stdout_log">stdout_log</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-thread_relative_log_folder">thread_relative_log_folder</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-thread_relative_log_folder-3D">thread_relative_log_folder=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-thread_relative_log_folder_name">thread_relative_log_folder_name</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-create_log_folder">
+            
+              <b>create_log_folder</b>(folder_name = nil)
+            
+            <a href="../../../classes/Media/Logging/InstanceMethods.html#method-i-create_log_folder" name="method-i-create_log_folder" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Create the instance log folder (calling <a
+href="InstanceMethods.html#method-i-log_folder">#log_folder</a>)</p>
+
+<h3 id="method-i-create_log_folder-label-Args">Args</h3>
+<ul><li>
+<p><em>folder_name</em>: it is passed to the <a
+href="InstanceMethods.html#method-i-log_folder">#log_folder</a> call</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_log_folder_source')" id="l_method-i-create_log_folder_source">show</a>
+                
+              </p>
+              <div id="method-i-create_log_folder_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/logging.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_log_folder</span>(<span class="ruby-identifier">folder_name</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">thread_relative_log_folder</span> = <span class="ruby-identifier">log_folder</span>(<span class="ruby-identifier">folder_name</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">thread_relative_log_folder</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-log_folder">
+            
+              <b>log_folder</b>(folder_name = nil)
+            
+            <a href="../../../classes/Media/Logging/InstanceMethods.html#method-i-log_folder" name="method-i-log_folder" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>instance-/thread-relative/custom named log folder which will be located
+inside the class log folder</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-log_folder_source')" id="l_method-i-log_folder_source">show</a>
+                
+              </p>
+              <div id="method-i-log_folder_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/logging.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">log_folder</span>(<span class="ruby-identifier">folder_name</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@log_folder</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">thread_relative_log_folder</span> <span class="ruby-operator">||</span> (
+    <span class="ruby-identifier">folder_name</span> <span class="ruby-operator">||=</span> <span class="ruby-node">&quot;#{Time.now.utc.strftime(&quot;%Y-%m-%d_%H-%M-%S&quot;)}_#{::Thread.current.object_id}&quot;</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">log_folder</span>, <span class="ruby-identifier">folder_name</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-logs">
+            
+              <b>logs</b>(prefix = nil)
+            
+            <a href="../../../classes/Media/Logging/InstanceMethods.html#method-i-logs" name="method-i-logs" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>stdout and stderr logs ready for be passed to a <a
+href="../Cmd.html#method-i-run">Media::Cmd#run</a>; <code>prefix</code>
+will be passed to <a
+href="InstanceMethods.html#method-i-stdout_log">#stdout_log</a> and <a
+href="InstanceMethods.html#method-i-stderr_log">#stderr_log</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-logs_source')" id="l_method-i-logs_source">show</a>
+                
+              </p>
+              <div id="method-i-logs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/logging.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">logs</span>(<span class="ruby-identifier">prefix</span> = <span class="ruby-keyword">nil</span>)
+  [<span class="ruby-node">%W(#{stdout_log(prefix)} a)</span>, <span class="ruby-node">%W(#{stderr_log(prefix)} a)</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-stderr_log">
+            
+              <b>stderr_log</b>(prefix = nil)
+            
+            <a href="../../../classes/Media/Logging/InstanceMethods.html#method-i-stderr_log" name="method-i-stderr_log" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>instance stderr log file; it takes optionally a <code>prefix</code> which
+will be prefixed to the filename</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-stderr_log_source')" id="l_method-i-stderr_log_source">show</a>
+                
+              </p>
+              <div id="method-i-stderr_log_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/logging.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">stderr_log</span>(<span class="ruby-identifier">prefix</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">log_folder</span>, (<span class="ruby-identifier">prefix</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;#{prefix}.#{STDERR_LOG}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-constant">STDERR_LOG</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-stdout_log">
+            
+              <b>stdout_log</b>(prefix = nil)
+            
+            <a href="../../../classes/Media/Logging/InstanceMethods.html#method-i-stdout_log" name="method-i-stdout_log" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>instance stdout log file; it takes optionally a <code>prefix</code> which
+will be prefixed to the filename</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-stdout_log_source')" id="l_method-i-stdout_log_source">show</a>
+                
+              </p>
+              <div id="method-i-stdout_log_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/logging.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">stdout_log</span>(<span class="ruby-identifier">prefix</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">log_folder</span>, (<span class="ruby-identifier">prefix</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;#{prefix}.#{STDOUT_LOG}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-constant">STDOUT_LOG</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-thread_relative_log_folder">
+            
+              <b>thread_relative_log_folder</b>()
+            
+            <a href="../../../classes/Media/Logging/InstanceMethods.html#method-i-thread_relative_log_folder" name="method-i-thread_relative_log_folder" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>thread-relative log folder getter</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-thread_relative_log_folder_source')" id="l_method-i-thread_relative_log_folder_source">show</a>
+                
+              </p>
+              <div id="method-i-thread_relative_log_folder_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/logging.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">thread_relative_log_folder</span>
+  <span class="ruby-identifier">instance_variable_get</span> <span class="ruby-identifier">thread_relative_log_folder_name</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-thread_relative_log_folder-3D">
+            
+              <b>thread_relative_log_folder=</b>(thread_relative_log_folder)
+            
+            <a href="../../../classes/Media/Logging/InstanceMethods.html#method-i-thread_relative_log_folder-3D" name="method-i-thread_relative_log_folder-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>thread-relative log folder setter</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-thread_relative_log_folder-3D_source')" id="l_method-i-thread_relative_log_folder-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-thread_relative_log_folder-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/logging.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">thread_relative_log_folder=</span>(<span class="ruby-identifier">thread_relative_log_folder</span>)
+  <span class="ruby-identifier">instance_variable_set</span> <span class="ruby-identifier">thread_relative_log_folder_name</span>, <span class="ruby-identifier">thread_relative_log_folder</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-thread_relative_log_folder_name">
+            
+              <b>thread_relative_log_folder_name</b>()
+            
+            <a href="../../../classes/Media/Logging/InstanceMethods.html#method-i-thread_relative_log_folder_name" name="method-i-thread_relative_log_folder_name" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>thread-relative log folder name</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-thread_relative_log_folder_name_source')" id="l_method-i-thread_relative_log_folder_name_source">show</a>
+                
+              </p>
+              <div id="method-i-thread_relative_log_folder_name_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/logging.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">thread_relative_log_folder_name</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">main</span>
+    <span class="ruby-value">:@log_folder</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">:&quot;@log_folder_for_thread_#{Thread.current.object_id}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

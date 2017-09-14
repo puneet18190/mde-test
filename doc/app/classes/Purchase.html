@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Purchase</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Purchase 
+            
+                <span class="parent">&lt; 
+                    
+                    ActiveRecord::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/purchase_rb.html">app/models/purchase.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Purchase-label-Description">Description</h3>
+
+<p>ActiveRecord class that corresponds to the table <code>purchases</code>.</p>
+
+<h3 id="class-Purchase-label-Fields">Fields</h3>
+<ul><li>
+<p><em>name</em>: name of the buyer</p>
+</li><li>
+<p><em>responsible</em>: name and surname of the person who is responsible for
+the transaction</p>
+</li><li>
+<p><em>phone_number</em>: phone number of the responsible</p>
+</li><li>
+<p><em>fax</em>: fax of the responsible</p>
+</li><li>
+<p><em>email</em>: official email of the buyer</p>
+</li><li>
+<p><em>ssn_code</em>: personal code</p>
+</li><li>
+<p><em>vat_code</em>: code of the company</p>
+</li><li>
+<p><em>address</em>: address of the buyer</p>
+</li><li>
+<p><em>postal_code</em>: postal code of the buyer</p>
+</li><li>
+<p><em>city</em>: city of the buyer</p>
+</li><li>
+<p><em>country</em>: country of the buyer</p>
+</li><li>
+<p><em>accounts_number</em>: how many accounts are associated to this purchase</p>
+</li><li>
+<p><em>includes_invoice</em>: if true, the purchae must be associated to an
+invoice (not implemented in the application)</p>
+</li><li>
+<p><em>release_date</em>: date of purchase</p>
+</li><li>
+<p><em>start_date</em>: date of beginning of the validity of the purchase</p>
+</li><li>
+<p><em>expiration_date</em>: expiration date of the purchase</p>
+</li><li>
+<p><em>location_id</em>: location which must be forced to the users who
+benefit this purchase</p>
+</li><li>
+<p><em>token</em>: token used to associate a user subscription to this
+purchase</p>
+</li></ul>
+
+<h3 id="class-Purchase-label-Associations">Associations</h3>
+<ul><li>
+<p><em>users</em>: users associated to this purchase (see <a
+href="User.html">User</a>) (<em>has_many</em>)</p>
+</li><li>
+<p><em>location</em>: location to which all the user must belong (this is not
+inserted into a validation, not to overload the model, but just in the
+methods for the frontend) (<em>belongs_to</em>, it can be nil)</p>
+</li></ul>
+
+<h3 id="class-Purchase-label-Validations">Validations</h3>
+<ul><li>
+<p><em>presence</em> of <code>name</code>, <code>responsible</code>,
+<code>email</code>, <code>accounts_number</code>,
+<code>release_date</code>, <code>start_date</code>,
+<code>expiration_date</code></p>
+</li><li>
+<p><em>numericality</em> greater than 0 for <code>accounts_number</code></p>
+</li><li>
+<p><em>numericality</em> greater than 0 and allow_nil and eventually presence
+of associated object for <code>location_id</code></p>
+</li><li>
+<p><em>length</em> of <code>name</code>, <code>responsible</code>,
+<code>phone_number</code>, <code>fax</code>, <code>email</code>,
+<code>ssn_code</code>, <code>vat_code</code>, <code>address</code>,
+<code>postal_code</code>, <code>city</code>, <code>country</code> (maximum
+255)</p>
+</li><li>
+<p><em>inclusion</em> of <code>includes_invoice</code> in [true, false]</p>
+</li><li>
+<p><em>correctness</em> of <code>email</code> as an e-mail address</p>
+</li><li>
+<p><em>format</em> of dates <code>release_date</code>,
+<code>start_date</code>, <code>expiration_date</code></p>
+</li><li>
+<p><em>presence</em> of at least one between <code>vat_code</code> and
+<code>ssn_code</code></p>
+</li><li>
+<p><em>modifications</em> <em>not</em> <em>available</em> for
+<code>token</code></p>
+</li><li>
+<p><em>decrease</em> <em>not</em> <em>available</em> for
+<code>accounts_number</code></p>
+</li><li>
+<p><em>uniqueness</em> ok <code>token</code></p>
+</li></ul>
+
+<h3 id="class-Purchase-label-Callbacks">Callbacks</h3>
+<ol><li>
+<p><em>before_create</em> creates a random encoded string and writes it in
+<code>token</code></p>
+</li></ol>
+
+<h3 id="class-Purchase-label-Database+callbacks">Database callbacks</h3>
+
+<p>None</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-address_to_s">address_to_s</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-create_token">create_token</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-expired-3F">expired?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-generate_token">generate_token</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-init_validation">init_validation</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-location_to_s">location_to_s</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-validate_associations">validate_associations</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_codes">validate_codes</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_dates">validate_dates</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_email">validate_email</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_impossible_changes">validate_impossible_changes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">ATTR_ACCESSIBLE</td>
+            <td>=</td>
+            <td class="attr-value">[ :accounts_number, :address, :city, :country, :email, 
+:expiration_date, :fax, :includes_invoice, :location_id, 
+:name, :phone_number, :postal_code, :release_date, 
+:responsible, :ssn_code, :start_date, :vat_code ]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>List of attributes which are accessible for mass assignment</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-address_to_s">
+            
+              <b>address_to_s</b>()
+            
+            <a href="../classes/Purchase.html#method-i-address_to_s" name="method-i-address_to_s" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-address_to_s-label-Description">Description</h3>
+
+<p>Used in the front end, it returns a resume of the address depending on the
+field filled up</p>
+
+<h3 id="method-i-address_to_s-label-Returns">Returns</h3>
+
+<p>A string</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-address_to_s_source')" id="l_method-i-address_to_s_source">show</a>
+                
+              </p>
+              <div id="method-i-address_to_s_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/purchase.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">address_to_s</span>
+  <span class="ruby-identifier">resp</span> = ([<span class="ruby-keyword">self</span>.<span class="ruby-identifier">address</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">postal_code</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">city</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">country</span>].<span class="ruby-identifier">reject</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">blank?</span>}).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-expired-3F">
+            
+              <b>expired?</b>()
+            
+            <a href="../classes/Purchase.html#method-i-expired-3F" name="method-i-expired-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-expired-3F-label-Description">Description</h3>
+
+<p>Checks if the actual time is greater than expiration_date</p>
+
+<h3 id="method-i-expired-3F-label-Returns">Returns</h3>
+
+<p>A boolean</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-expired-3F_source')" id="l_method-i-expired-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-expired-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/purchase.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">expired?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">expiration_date</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-location_to_s">
+            
+              <b>location_to_s</b>()
+            
+            <a href="../classes/Purchase.html#method-i-location_to_s" name="method-i-location_to_s" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-location_to_s-label-Description">Description</h3>
+
+<p>Method used in the front end that returns the resume of the location</p>
+
+<h3 id="method-i-location_to_s-label-Returns">Returns</h3>
+
+<p>A string</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-location_to_s_source')" id="l_method-i-location_to_s_source">show</a>
+                
+              </p>
+              <div id="method-i-location_to_s_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/purchase.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">location_to_s</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;admin.purchases.links.empty_location&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">location_id</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-identifier">my_location</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">location</span>
+  <span class="ruby-identifier">locations</span> = []
+  <span class="ruby-identifier">first</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">current_location</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">location</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;-&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_location</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-operator">!</span><span class="ruby-identifier">current_location</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">locations</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current_location</span>
+    <span class="ruby-identifier">current_location</span> = <span class="ruby-identifier">current_location</span>.<span class="ruby-identifier">parent</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">locations</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">first</span>
+      <span class="ruby-identifier">resp</span> = <span class="ruby-node">&quot;#{l.name}&quot;</span>
+      <span class="ruby-identifier">first</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">resp</span> = <span class="ruby-node">&quot;#{resp} - #{l.name}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-create_token">
+            
+              <b>create_token</b>()
+            
+            <a href="../classes/Purchase.html#method-i-create_token" name="method-i-create_token" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Callback that creates a random secure token and sets is as the
+<code>token</code> of the purchase</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_token_source')" id="l_method-i-create_token_source">show</a>
+                
+              </p>
+              <div id="method-i-create_token_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/purchase.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create_token</span>
+  <span class="ruby-identifier">my_token</span> = <span class="ruby-identifier">generate_token</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">my_token</span>).<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">my_token</span> = <span class="ruby-identifier">generate_token</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">token</span> = <span class="ruby-identifier">my_token</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-generate_token">
+            
+              <b>generate_token</b>()
+            
+            <a href="../classes/Purchase.html#method-i-generate_token" name="method-i-generate_token" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Token generator</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-generate_token_source')" id="l_method-i-generate_token_source">show</a>
+                
+              </p>
+              <div id="method-i-generate_token_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/purchase.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">generate_token</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">random_number</span>(<span class="ruby-number">10000000000000000</span>).<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">16</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-node">&quot;0#{resp}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-init_validation">
+            
+              <b>init_validation</b>()
+            
+            <a href="../classes/Purchase.html#method-i-init_validation" name="method-i-init_validation" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes the objects needed for the validation</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-init_validation_source')" id="l_method-i-init_validation_source">show</a>
+                
+              </p>
+              <div id="method-i-init_validation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/purchase.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">init_validation</span>
+  <span class="ruby-ivar">@purchase</span> = <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:id</span>
+  <span class="ruby-ivar">@location</span> = <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:location_id</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_associations">
+            
+              <b>validate_associations</b>()
+            
+            <a href="../classes/Purchase.html#method-i-validate_associations" name="method-i-validate_associations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates the presence of associated elements</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_associations_source')" id="l_method-i-validate_associations_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_associations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/purchase.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_associations</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span> <span class="ruby-value">:location_id</span>, <span class="ruby-value">:doesnt_exist</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">location_id</span>.<span class="ruby-identifier">present?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_codes">
+            
+              <b>validate_codes</b>()
+            
+            <a href="../classes/Purchase.html#method-i-validate_codes" name="method-i-validate_codes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates that at least one between vat_code and ssn_code is present</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_codes_source')" id="l_method-i-validate_codes_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_codes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/purchase.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_codes</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span> <span class="ruby-value">:base</span>, <span class="ruby-value">:missing_both_codes</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">vat_code</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ssn_code</span>.<span class="ruby-identifier">blank?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_dates">
+            
+              <b>validate_dates</b>()
+            
+            <a href="../classes/Purchase.html#method-i-validate_dates" name="method-i-validate_dates" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates the correct format of the dates</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_dates_source')" id="l_method-i-validate_dates_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_dates_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/purchase.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_dates</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:release_date</span>, <span class="ruby-value">:is_not_a_date</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">release_date</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Time</span>)
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:start_date</span>, <span class="ruby-value">:is_not_a_date</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_date</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Time</span>)
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:expiration_date</span>, <span class="ruby-value">:is_not_a_date</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">expiration_date</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Time</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_email">
+            
+              <b>validate_email</b>()
+            
+            <a href="../classes/Purchase.html#method-i-validate_email" name="method-i-validate_email" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates the correct format of the email (see <a
+href="Valid.html#method-c-email-3F">Valid.email?</a>)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_email_source')" id="l_method-i-validate_email_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_email_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/purchase.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_email</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">email</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:email</span>, <span class="ruby-value">:not_a_valid_email</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Valid</span>.<span class="ruby-identifier">email?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">email</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_impossible_changes">
+            
+              <b>validate_impossible_changes</b>()
+            
+            <a href="../classes/Purchase.html#method-i-validate_impossible_changes" name="method-i-validate_impossible_changes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates that if the purchase is not new record the field
+<code>accounts_number</code> cannot be changed</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_impossible_changes_source')" id="l_method-i-validate_impossible_changes_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_impossible_changes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/purchase.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_impossible_changes</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@purchase</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:accounts_number</span>, <span class="ruby-value">:cant_be_decreased</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">accounts_number</span> <span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">accounts_number</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:token</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">token</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">token</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

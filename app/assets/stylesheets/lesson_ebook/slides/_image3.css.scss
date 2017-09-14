@@ -1,0 +1,56 @@
+$body-padding: 16px;
+
+html.image3-slide {
+
+&, body {
+  width: calc(100% - #{$body-padding});
+  height: calc(100% - #{$body-padding});
+}
+
+body {
+  margin: 0;
+  display: table;
+  padding: $body-padding;
+  min-width: 400px;
+  max-width: calc(960px + #{$body-padding*2});
+}
+
+.vertical_align {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.image {
+  margin: 0;
+}
+
+.image div {
+  max-width: 860px;
+  width: 100%;
+  height: 550px;
+  background: none no-repeat scroll 0 0 transparent;
+}
+
+.image figcaption {
+  font-size: 0.75em;
+  font-style: italic;
+  margin-top: 0.5em;
+}
+
+$i: 891px;
+@while $i > 432 {
+  @media all and (width: $i) {
+    .image div {
+      height: 550 * ($i - 32) / 860;
+    }
+  }
+  $i: $i - 1;
+}
+
+@media all and (max-width: $i) {
+  .image div {
+    height: 550 * ($i - 32) / 860;
+  }
+}
+
+}

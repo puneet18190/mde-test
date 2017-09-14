@@ -1,0 +1,43 @@
+var black_list = new Array();
+<% already_reloaded = false %>
+<% @mes.each do |me| %>
+  <% if !already_reloaded %>
+    var id = <%= me[:media_element_id] %>;
+    var item = $('#expanded_media_element_' + id + ', #compact_media_element_' + id + ', #found_media_element_' + id);
+    <% if !me[:ok] %>
+      <% already_reloaded = true %>
+      black_list.push(<%= me[:media_element_id] %>);
+      if(item.length > 0) {
+        var destination = item.attr('id').split('_')[0] + '_media_element';
+        var current_url = $('#info_container').data('currenturl');
+        var redirect_url = addDeleteItemToCurrentUrl(current_url, (destination + '_' + id));
+        $.ajax({
+          type: 'post',
+          dataType: 'json',
+          url: '/media_elements/' + id + '/destroy/fake?destination=' + destination,
+          success: function() {
+            $.ajax({
+              type: 'get',
+              url: redirect_url
+            });
+          }
+        });
+      }
+    <% elsif me[:media_element].converted? %>
+      <% used_in_private_lessons = me[:media_element].media_elements_slides.any? %>
+      black_list.push(<%= me[:media_element_id] %>);
+      if(item.length > 0) {
+        var destination = item.attr('id').split('_')[0] + '_media_element';
+        if(destination == '<%= ButtonDestinations::EXPANDED_MEDIA_ELEMENT %>') {
+          item.replaceWith('<%= j(render :partial => "media_elements/view_single_expanded", :locals => {:media_element => me[:media_element], :destination => ButtonDestinations::EXPANDED_MEDIA_ELEMENT, :used_in_private_lessons => used_in_private_lessons}) %>');
+          resizeExpandedMediaElements($('#info_container').data('in-space'));
+        } else if(destination == '<%= ButtonDestinations::COMPACT_MEDIA_ELEMENT %>') {
+          item.replaceWith('<%= j(render :partial => "media_elements/view_single_compact", :locals => {:media_element => me[:media_element], :destination => ButtonDestinations::COMPACT_MEDIA_ELEMENT, :used_in_private_lessons => used_in_private_lessons}) %>');
+        } else if(destination == '<%= ButtonDestinations::FOUND_MEDIA_ELEMENT %>') {
+          item.replaceWith('<%= j(render :partial => "media_elements/view_single_compact", :locals => {:media_element => me[:media_element], :destination => ButtonDestinations::FOUND_MEDIA_ELEMENT, :used_in_private_lessons => used_in_private_lessons}) %>');
+        }
+      }
+    <% end %>
+  <% end %>
+<% end %>
+$('#info_container').data('media-elements-not-anymore-in-conversion', black_list);

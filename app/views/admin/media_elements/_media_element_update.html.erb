@@ -1,0 +1,26 @@
+<div id="element_<%= element.id %>" class="element-update-form span<%= colspan %> img-polaroid adminExpandedMediaElement">
+  <form class="_quick_load_creation_form">
+    <% if element.video? %>
+      <div style="position:relative">
+        <div style="width: 200px; text-align: center; position: relative; display: inline-block;">
+          <%= image_tag element.thumb_url, :style => 'margin-bottom:0' %>
+          <%= image_tag 'bullet_video2.png', :style => 'position:absolute; width:200px; height:200px; left:0' %>
+        </div>
+      </div>
+    <% else %>
+      <%= image_tag element.thumb_url %>
+    <% end %>
+    <br/><%= text_field_tag 'title', element.title, :class => '_form_input' %>
+    <br/><%= text_area_tag 'description', element.description, :class => '_form_input' %>
+    <br/><%= text_area_tag 'tags', element.visive_tags, :class => '_form_input' %><br/>
+    <button class="_publish_private_admin_element btn btn-small btn-warning" type="button" data-param="<%= element.id %>">
+      <%= t('admin.media_elements.actions.publish') %>
+    </button>
+    <button class="_update_private_admin_element btn btn-small" type="button" data-param="<%= element.id %>">
+      <%= t('admin.media_elements.actions.update') %>
+    </button>
+    <a class="btn btn-small btn-danger" type="button" data-method="delete" data-confirm="<%= t('admin.media_elements.delete_confirm') %>" href="/admin/media_elements/<%= element.id %>?back_url=<%= manipulate_url(:page => 1) %>">
+      <%= t('admin.media_elements.actions.delete') %>
+    </a>
+  </form>
+</div>

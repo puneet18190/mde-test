@@ -1,0 +1,4 @@
+<% slide_text = slide.text(math_images_path_relative_from_folder: math_images_archive_folder_name) -%>
+
+<h1 class="title"><%= slide.title.to_s.strip %></h1>
+<div class="text"><%= slide_text.html_safe if slide_text %></div>

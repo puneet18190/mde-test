@@ -1,0 +1,37 @@
+<%
+  from_sign_up ||= nil
+%>
+
+<div class="login">
+   <div class="buttonRegistration">
+    <%= link_to t('prelogin.sign_up.menu_link'), sign_up_path, :class => (from_sign_up ? 'current' : '') %>
+  </div>
+  <div class="button">
+    <a class="_show_login_form_container"><%= t('registration.login.title') %></a>
+  </div>
+  <div id="login_form_container" class="tooltippe">
+    <%= image_tag 'freccia_tooltip_up.png', :class => 'callout' %>
+    <%= form_tag users_sessions_path, id: 'new_users_session_form' do %>
+      <%= hidden_field_tag :redirect_to, params[:redirect_to] %>
+      <table>
+        <tr>
+          <td class="lower"><%= t('registration.login.email') %></td>
+        </tr>
+        <tr>
+          <td><%= text_field_tag :email, '', :class => 'text' %></td>
+        </tr>
+        <tr>
+          <td class="lower"><%= t('registration.login.password') %></td>
+        </tr>
+        <tr>
+          <td><%= password_field_tag :password, '', :class => 'text' %></td>
+        </tr>
+      </table>
+      <%= submit_tag t('registration.login.done') %>
+    <% end %>
+    <p><%= link_to t('registration.problems_with_password'), user_request_reset_password_path %></p>
+    <% if SETTINGS['saas_registration_mode'] %>
+      <p><%= link_to t('registration.upgrade_trial'), user_request_upgrade_trial_path %></p>
+    <% end %>
+  </div>
+</div>

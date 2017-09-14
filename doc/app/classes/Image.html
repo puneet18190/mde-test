@@ -1,0 +1,1582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Image</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Image 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="MediaElement.html">MediaElement</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/image_rb.html">app/models/image.rb</a></li>
+            
+            <li><a href="../files/app/models/media_element_rb.html">app/models/media_element.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Image-label-Description">Description</h3>
+
+<p>This class inherits from <a href="MediaElement.html">MediaElement</a>, and
+contains the specific methods needed for media elements of type
+<code>image</code>.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add_text">add_text</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-background_position">background_position</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-crop">crop</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-current_editing_image">current_editing_image</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-editing_url">editing_url</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-enter_edit_mode">enter_edit_mode</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extension">extension</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-height">height</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-height-3D">height=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-in_edit_mode-3F">in_edit_mode?</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-is_horizontal-3F">is_horizontal?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-leave_edit_mode">leave_edit_mode</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-prev_editing_image">prev_editing_image</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-resize_height">resize_height</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-resize_width">resize_width</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-save_editing_prev">save_editing_prev</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-set_converted_to_true">set_converted_to_true</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-set_width_and_height">set_width_and_height</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-size">size</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-thumb_url">thumb_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-undo">undo</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-url">url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-width">width</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-width-3D">width=</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="UrlTypes.html">
+              UrlTypes
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">EXTENSION_WHITE_LIST</td>
+            <td>=</td>
+            <td class="attr-value">ImageUploader::EXTENSION_WHITE_LIST</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>List of accepted extensions for an image</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">EXTENSIONS_GLOB</td>
+            <td>=</td>
+            <td class="attr-value">&quot;*.{#{EXTENSION_WHITE_LIST.join(&#39;,&#39;)}}&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Glob for find images using <code>Dir.glob</code></p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">EBOOK_FORMATS</td>
+            <td>=</td>
+            <td class="attr-value">[nil]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">CONTAINER_SIZE_BY_KIND</td>
+            <td>=</td>
+            <td class="attr-value">{ Slide::COVER              =&gt; [900, 560] ,
+Slide::IMAGE1             =&gt; [420, 420] ,
+Slide::IMAGE2             =&gt; [420, 550] ,
+Slide::IMAGE3             =&gt; [860, 550] ,
+Slide::IMAGE4             =&gt; [420, 265] ,
+&#39;video_component&#39;         =&gt; [156, 88 ] ,
+&#39;video_component_preview&#39; =&gt; [640, 360] }</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Container size</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">CONTAINER_WIDTHS_BY_KIND</td>
+            <td>=</td>
+            <td class="attr-value">Hash[ CONTAINER_SIZE_BY_KIND.map{ |k, (w, _)| [ k, w ] } ]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">CONTAINER_HEIGHTS_BY_KIND</td>
+            <td>=</td>
+            <td class="attr-value">Hash[ CONTAINER_SIZE_BY_KIND.map{ |k, (_, h)| [ k, h ] } ]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">CONTAINER_RATIOS_BY_KIND</td>
+            <td>=</td>
+            <td class="attr-value">Hash[ CONTAINER_SIZE_BY_KIND.map{ |k, (w, h)| [ k, Rational(w, h) ] } ]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>edit_mode</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add_text">
+            
+              <b>add_text</b>(texts)
+            
+            <a href="../classes/Image.html#method-i-add_text" name="method-i-add_text" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-add_text-label-Description">Description</h3>
+
+<p>Adds multiple texts in the temporary image. Used in <a
+href="ImageEditorController.html#method-i-add_text">ImageEditorController#add_text</a></p>
+
+<h3 id="method-i-add_text-label-Arguments">Arguments</h3>
+<ul><li>
+<p><em>texts</em>: an array of hashes, one for each text added. Each hash has
+the keys</p>
+</li><li>
+<p><code>font_size</code>: the font size</p>
+</li><li>
+<p><code>coord_x</code>: horizontal coordinates of the top left corner of the
+text</p>
+</li><li>
+<p><code>coord_y</code>: vertical coordinates of the top left corner of the
+text</p>
+</li><li>
+<p><code>color</code>: hexagonal color of the text</p>
+</li></ul>
+
+<h3 id="method-i-add_text-label-Returns">Returns</h3>
+
+<p>A boolean.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_text_source')" id="l_method-i-add_text_source">show</a>
+                
+              </p>
+              <div id="method-i-add_text_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add_text</span>(<span class="ruby-identifier">texts</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">in_edit_mode?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">save_editing_prev</span>
+  <span class="ruby-identifier">img</span> = <span class="ruby-constant">MiniMagick</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">open</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">current_editing_image</span>
+  <span class="ruby-identifier">texts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">font_size</span> = <span class="ruby-constant">Media</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span><span class="ruby-operator">::</span><span class="ruby-constant">Editing</span>.<span class="ruby-identifier">ratio_value</span> <span class="ruby-identifier">img</span>[<span class="ruby-value">:width</span>], <span class="ruby-identifier">img</span>[<span class="ruby-value">:height</span>], <span class="ruby-identifier">t</span>[<span class="ruby-value">:font_size</span>]
+    <span class="ruby-identifier">coord_x</span> = <span class="ruby-constant">Media</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span><span class="ruby-operator">::</span><span class="ruby-constant">Editing</span>.<span class="ruby-identifier">ratio_value</span> <span class="ruby-identifier">img</span>[<span class="ruby-value">:width</span>], <span class="ruby-identifier">img</span>[<span class="ruby-value">:height</span>], <span class="ruby-identifier">t</span>[<span class="ruby-value">:coord_x</span>]
+    <span class="ruby-identifier">coord_y</span> = <span class="ruby-constant">Media</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span><span class="ruby-operator">::</span><span class="ruby-constant">Editing</span>.<span class="ruby-identifier">ratio_value</span> <span class="ruby-identifier">img</span>[<span class="ruby-value">:width</span>], <span class="ruby-identifier">img</span>[<span class="ruby-value">:height</span>], <span class="ruby-identifier">t</span>[<span class="ruby-value">:coord_y</span>]
+    <span class="ruby-identifier">tmp_file</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">config</span>.<span class="ruby-identifier">tempfiles_prefix</span>.<span class="ruby-identifier">call</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">tmp_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">t</span>[<span class="ruby-value">:text</span>])
+      <span class="ruby-identifier">tmp_file</span>.<span class="ruby-identifier">close</span>
+      <span class="ruby-constant">Media</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span><span class="ruby-operator">::</span><span class="ruby-constant">Editing</span><span class="ruby-operator">::</span><span class="ruby-constant">AddTextToImage</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">current_editing_image</span>, <span class="ruby-identifier">t</span>[<span class="ruby-value">:color</span>], <span class="ruby-identifier">font_size</span>, <span class="ruby-identifier">coord_x</span>, <span class="ruby-identifier">coord_y</span>, <span class="ruby-identifier">tmp_file</span>).<span class="ruby-identifier">run!</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-identifier">tmp_file</span>.<span class="ruby-identifier">unlink</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-background_position">
+            
+              <b>background_position</b>(kind, alignment)
+            
+            <a href="../classes/Image.html#method-i-background_position" name="method-i-background_position" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-background_position-label-Description">Description</h3>
+
+<p>Elaborates the CSS background-position property in order to position the
+image when used as background of a HTML element. The returned property is
+in percentage so it can be used regardless of the container size.</p>
+
+<p>Calcolo background-position immagine orizzontale e spalmata</p>
+
+<p>o offset dell&#39;immagine  hc altezza del contenitore  hi altezza
+dell&#39;immagine  s centro di posizione  x valore di background-position
+in percentuale</p>
+
+<pre><code>        immagine</code></pre>
+
+<p>─ ┌──────────────────┐ ─  │ │<br>  │ │<br>  o │ │<br>  │ │<br>  │ │<br>  │
+│<br>  │ contenitore │<br>  ─ ┢━━━━━━━━━━━━━━━━━━┪ ─  ┃ ┃<br>  ┃ ┃ hc hi  ┃
+┃<br>  s ─ ┃ ┃<br>  ┡━━━━━━━━━━━━━━━━━━┩ ─  │ │<br>  └──────────────────┘ ─</p>
+
+<p>o va da 0 a hi - hc  il centro di posizione va da 0 a hc  dunque x : o = hc
+: (hi - hc)  x = o * hc / (hi - hc)  adesso mi serve il rapporto di x / hc
+moltiplicato per 100 per ottenere la percentuale  x / hc * 100 = o * hc *
+100 / ((hi - hc) * hc) = o * 100 / (hi - hc)</p>
+
+<p>Calcolo background-position immagine verticale e iscritta</p>
+
+<p>o offset dell&#39;immagine  wc larghezza del contenitore  wi larghezza
+dell&#39;immagine iscritta  s centro di posizione  x valore di
+background-position in percentuale</p>
+
+<pre><code>  │                wc                  │
+
+              │  wi   │
+
+  ┌───────────┲━━━━━━━┱────────────────┐
+  │           ┃       ┃                │
+  │           ┃       ┃                │
+  │           ┃       ┃ immagine       │ contenitore
+  │           ┃       ┃                │
+  │           ┃       ┃                │
+  │           ┃       ┃                │
+  └───────────┺━━━━━━━┹────────────────┘
+                 │
+  │     o     │  s</code></pre>
+
+<p>o va da 0 a wc - wi  il centro di posizione va da 0 a wc  dunque x : o = wc
+: (wc - wi)  x = o * wc / (wc - wi)  adesso mi serve il rapporto di x / wc
+moltiplicato per 100 per ottenere la percentuale  x / wc * 100 = o * wc *
+100 / ((wc - wi) * wc) = o * 100 / (wc - wi)</p>
+
+<h3 id="method-i-background_position-label-Returns">Returns</h3>
+
+<p>A value compliant to background-position</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-background_position_source')" id="l_method-i-background_position_source">show</a>
+                
+              </p>
+              <div id="method-i-background_position_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">background_position</span>(<span class="ruby-identifier">kind</span>, <span class="ruby-identifier">alignment</span>)
+  <span class="ruby-identifier">w_h</span>    = [<span class="ruby-string">&#39;0&#39;</span>, <span class="ruby-string">&#39;0&#39;</span>]
+  <span class="ruby-identifier">offset</span> = <span class="ruby-identifier">alignment</span>.<span class="ruby-identifier">abs</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">w_h</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">offset</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+
+  <span class="ruby-identifier">resize</span>, <span class="ruby-identifier">i</span>      = <span class="ruby-identifier">is_horizontal?</span>(<span class="ruby-identifier">kind</span>) <span class="ruby-operator">?</span> [<span class="ruby-identifier">resize_width</span>(<span class="ruby-identifier">kind</span>), <span class="ruby-number">0</span>] <span class="ruby-operator">:</span> [<span class="ruby-identifier">resize_height</span>(<span class="ruby-identifier">kind</span>), <span class="ruby-number">1</span>]
+  <span class="ruby-identifier">container_size</span> = <span class="ruby-constant">CONTAINER_SIZE_BY_KIND</span>[<span class="ruby-identifier">kind</span>][<span class="ruby-identifier">i</span>]
+  <span class="ruby-identifier">difference</span>     = <span class="ruby-identifier">resize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">container_size</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">resize</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">container_size</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">container_size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">resize</span>
+
+  <span class="ruby-identifier">v</span>      = (<span class="ruby-identifier">offset</span> <span class="ruby-operator">*</span> <span class="ruby-number">100.0</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">difference</span>).<span class="ruby-identifier">round</span> <span class="ruby-number">5</span>
+  <span class="ruby-identifier">w_h</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-node">&quot;#{v}%&quot;</span>
+
+  <span class="ruby-identifier">w_h</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-crop">
+            
+              <b>crop</b>(x1, y1, x2, y2)
+            
+            <a href="../classes/Image.html#method-i-crop" name="method-i-crop" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-crop-label-Description">Description</h3>
+
+<p>Crops the temporary image. Used in <a
+href="ImageEditorController.html#method-i-crop">ImageEditorController#crop</a></p>
+
+<h3 id="method-i-crop-label-Arguments">Arguments</h3>
+<ul><li>
+<p><em>x1</em>: horizontal coordinate of the top left corner of the crop</p>
+</li><li>
+<p><em>y1</em>: vertical coordinate of the top left corner of the crop</p>
+</li><li>
+<p><em>x2</em>: horizontal coordinate of the bottom right corner of the crop</p>
+</li><li>
+<p><em>y2</em>: vertical coordinate of the bottom right corner of the crop</p>
+</li></ul>
+
+<h3 id="method-i-crop-label-Returns">Returns</h3>
+
+<p>A boolean.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-crop_source')" id="l_method-i-crop_source">show</a>
+                
+              </p>
+              <div id="method-i-crop_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 392</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">crop</span>(<span class="ruby-identifier">x1</span>, <span class="ruby-identifier">y1</span>, <span class="ruby-identifier">x2</span>, <span class="ruby-identifier">y2</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">in_edit_mode?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">save_editing_prev</span>
+  <span class="ruby-constant">Media</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span><span class="ruby-operator">::</span><span class="ruby-constant">Editing</span><span class="ruby-operator">::</span><span class="ruby-constant">Crop</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">current_editing_image</span>, <span class="ruby-identifier">current_editing_image</span>, <span class="ruby-identifier">x1</span>, <span class="ruby-identifier">y1</span>, <span class="ruby-identifier">x2</span>, <span class="ruby-identifier">y2</span>).<span class="ruby-identifier">run</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-current_editing_image">
+            
+              <b>current_editing_image</b>()
+            
+            <a href="../classes/Image.html#method-i-current_editing_image" name="method-i-current_editing_image" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-current_editing_image-label-Description">Description</h3>
+
+<p>Returns the path of the current step conserved in image editor.</p>
+
+<h3 id="method-i-current_editing_image-label-Returns">Returns</h3>
+
+<p>A path.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-current_editing_image_source')" id="l_method-i-current_editing_image_source">show</a>
+                
+              </p>
+              <div id="method-i-current_editing_image_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">current_editing_image</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">in_edit_mode?</span>
+  <span class="ruby-node">&quot;#{self.media.folder}/editing/user_#{@edit_mode}/tmp.#{self.media.file.extension}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-editing_url">
+            
+              <b>editing_url</b>()
+            
+            <a href="../classes/Image.html#method-i-editing_url" name="method-i-editing_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-editing_url-label-Description">Description</h3>
+
+<p>Returns the url of the folder where it&#39;s conserved the temporary image
+during editing.</p>
+
+<h3 id="method-i-editing_url-label-Returns">Returns</h3>
+
+<p>An url.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-editing_url_source')" id="l_method-i-editing_url_source">show</a>
+                
+              </p>
+              <div id="method-i-editing_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">editing_url</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">in_edit_mode?</span>
+  <span class="ruby-identifier">file_name</span> = <span class="ruby-node">&quot;/#{url.split(&#39;/&#39;).last}&quot;</span>
+  <span class="ruby-node">&quot;#{url.gsub(file_name, &#39;&#39;)}/editing/user_#{@edit_mode}/tmp.#{self.media.file.extension}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-enter_edit_mode">
+            
+              <b>enter_edit_mode</b>(user_id)
+            
+            <a href="../classes/Image.html#method-i-enter_edit_mode" name="method-i-enter_edit_mode" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-enter_edit_mode-label-Description">Description</h3>
+
+<p>The image enters in <em>edit</em> <em>mode</em> for a particular user (who
+is not necessarily the creator of the image, this is checked in the
+controller). Used in <a
+href="ImageEditorController.html">ImageEditorController</a>.</p>
+
+<h3 id="method-i-enter_edit_mode-label-Arguments">Arguments</h3>
+<ul><li>
+<p><em>user_id</em>: id of the user who is editing the image</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-enter_edit_mode_source')" id="l_method-i-enter_edit_mode_source">show</a>
+                
+              </p>
+              <div id="method-i-enter_edit_mode_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">enter_edit_mode</span>(<span class="ruby-identifier">user_id</span>)
+  <span class="ruby-ivar">@edit_mode</span> = <span class="ruby-identifier">user_id</span>
+  <span class="ruby-identifier">ed_dir</span> = <span class="ruby-node">&quot;#{self.media.folder}/editing/user_#{@edit_mode}&quot;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">ed_dir</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">ed_dir</span>)
+  <span class="ruby-identifier">curr_path</span> = <span class="ruby-identifier">current_editing_image</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">media</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">curr_path</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">curr_path</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extension">
+            
+              <b>extension</b>()
+            
+            <a href="../classes/Image.html#method-i-extension" name="method-i-extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="Image.html">Image</a> file extension (without dot)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extension_source')" id="l_method-i-extension_source">show</a>
+                
+              </p>
+              <div id="method-i-extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 399</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extension</span>
+  <span class="ruby-identifier">media</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:file</span>).<span class="ruby-identifier">try</span>(<span class="ruby-value">:extension</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-height">
+            
+              <b>height</b>()
+            
+            <a href="../classes/Image.html#method-i-height" name="method-i-height" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-height-label-Description">Description</h3>
+
+<p>Returns the height in pixels.</p>
+
+<h3 id="method-i-height-label-Returns">Returns</h3>
+
+<p>A float.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-height_source')" id="l_method-i-height_source">show</a>
+                
+              </p>
+              <div id="method-i-height_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">height</span>
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">height</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-in_edit_mode-3F">
+            
+              <b>in_edit_mode?</b>()
+            
+            <a href="../classes/Image.html#method-i-in_edit_mode-3F" name="method-i-in_edit_mode-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-in_edit_mode-3F-label-Description">Description</h3>
+
+<p>Used to check if the image is in <em>edit</em> <em>mode</em>: the image
+enters in edit mode when the image editor is opened, this implies that a
+temporary folder is automaticly created to contain the progressive steps of
+the editing. This method is useful to deny the access to specific methods
+if the image is not in editing.</p>
+
+<h3 id="method-i-in_edit_mode-3F-label-Returns">Returns</h3>
+
+<p>A boolean.</p>
+
+<h3 id="method-i-in_edit_mode-3F-label-Usage">Usage</h3>
+
+<p>return &#39;&#39; if !self.in_edit_mode?</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-in_edit_mode-3F_source')" id="l_method-i-in_edit_mode-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-in_edit_mode-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 258</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">in_edit_mode?</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@edit_mode</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-is_horizontal-3F">
+            
+              <b>is_horizontal?</b>(kind)
+            
+            <a href="../classes/Image.html#method-i-is_horizontal-3F" name="method-i-is_horizontal-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Used to give an orientation on images</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-is_horizontal-3F_source')" id="l_method-i-is_horizontal-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-is_horizontal-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">is_horizontal?</span>(<span class="ruby-identifier">kind</span>)
+  ( <span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">height</span>.<span class="ruby-identifier">to_f</span> ) <span class="ruby-operator">&gt;=</span> <span class="ruby-constant">CONTAINER_RATIOS_BY_KIND</span>[<span class="ruby-identifier">kind</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-leave_edit_mode">
+            
+              <b>leave_edit_mode</b>(user_id)
+            
+            <a href="../classes/Image.html#method-i-leave_edit_mode" name="method-i-leave_edit_mode" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-leave_edit_mode-label-Description">Description</h3>
+
+<p>The image leaves the <em>edit</em> <em>mode</em> for a particular user.
+Used in <a
+href="ImageEditorController.html#method-i-edit">ImageEditorController#edit</a>.</p>
+
+<h3 id="method-i-leave_edit_mode-label-Arguments">Arguments</h3>
+<ul><li>
+<p><em>user_id</em>: id of the user who is editing the image</p>
+</li></ul>
+
+<h3 id="method-i-leave_edit_mode-label-Returns">Returns</h3>
+
+<p>True if the user was in editing mode, false otherwise.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-leave_edit_mode_source')" id="l_method-i-leave_edit_mode_source">show</a>
+                
+              </p>
+              <div id="method-i-leave_edit_mode_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">leave_edit_mode</span>(<span class="ruby-identifier">user_id</span>)
+  <span class="ruby-identifier">ed_dir</span> = <span class="ruby-node">&quot;#{self.media.folder}/editing/user_#{user_id}&quot;</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span>(<span class="ruby-identifier">ed_dir</span>)
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@edit_mode</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-prev_editing_image">
+            
+              <b>prev_editing_image</b>()
+            
+            <a href="../classes/Image.html#method-i-prev_editing_image" name="method-i-prev_editing_image" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-prev_editing_image-label-Description">Description</h3>
+
+<p>Returns the path of the previous step conserved in image editor: this
+replaces the current step if the user clicks on &#39;undo&#39;</p>
+
+<h3 id="method-i-prev_editing_image-label-Returns">Returns</h3>
+
+<p>A path.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-prev_editing_image_source')" id="l_method-i-prev_editing_image_source">show</a>
+                
+              </p>
+              <div id="method-i-prev_editing_image_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">prev_editing_image</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">in_edit_mode?</span>
+  <span class="ruby-node">&quot;#{self.media.folder}/editing/user_#{@edit_mode}/prev.#{self.media.file.extension}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-resize_height">
+            
+              <b>resize_height</b>(kind)
+            
+            <a href="../classes/Image.html#method-i-resize_height" name="method-i-resize_height" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Resizes the height of an image</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-resize_height_source')" id="l_method-i-resize_height_source">show</a>
+                
+              </p>
+              <div id="method-i-resize_height_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">resize_height</span>(<span class="ruby-identifier">kind</span>)
+  ( <span class="ruby-identifier">height</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-constant">CONTAINER_WIDTHS_BY_KIND</span>[<span class="ruby-identifier">kind</span>] <span class="ruby-operator">/</span> <span class="ruby-identifier">width</span> ).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-resize_width">
+            
+              <b>resize_width</b>(kind)
+            
+            <a href="../classes/Image.html#method-i-resize_width" name="method-i-resize_width" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Resizes the width of an image</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-resize_width_source')" id="l_method-i-resize_width_source">show</a>
+                
+              </p>
+              <div id="method-i-resize_width_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">resize_width</span>(<span class="ruby-identifier">kind</span>)
+  ( <span class="ruby-identifier">width</span>.<span class="ruby-identifier">to_f</span>  <span class="ruby-operator">*</span> <span class="ruby-constant">CONTAINER_HEIGHTS_BY_KIND</span>[<span class="ruby-identifier">kind</span>] <span class="ruby-operator">/</span> <span class="ruby-identifier">height</span> ).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-save_editing_prev">
+            
+              <b>save_editing_prev</b>()
+            
+            <a href="../classes/Image.html#method-i-save_editing_prev" name="method-i-save_editing_prev" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-save_editing_prev-label-Description">Description</h3>
+
+<p>Copies the current temporary image into the previous temporary image.</p>
+
+<h3 id="method-i-save_editing_prev-label-Returns">Returns</h3>
+
+<p>A boolean.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-save_editing_prev_source')" id="l_method-i-save_editing_prev_source">show</a>
+                
+              </p>
+              <div id="method-i-save_editing_prev_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">save_editing_prev</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">in_edit_mode?</span>
+  <span class="ruby-identifier">prev_path</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prev_editing_image</span>
+  <span class="ruby-identifier">curr_path</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">current_editing_image</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm</span>(<span class="ruby-identifier">prev_path</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">prev_path</span>)
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">curr_path</span>, <span class="ruby-identifier">prev_path</span>)
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-size">
+            
+              <b>size</b>()
+            
+            <a href="../classes/Image.html#method-i-size" name="method-i-size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="Image.html">Image</a> file size</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-size_source')" id="l_method-i-size_source">show</a>
+                
+              </p>
+              <div id="method-i-size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 404</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">size</span>
+  <span class="ruby-identifier">media</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:size</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-thumb_url">
+            
+              <b>thumb_url</b>()
+            
+            <a href="../classes/Image.html#method-i-thumb_url" name="method-i-thumb_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-thumb_url-label-Description">Description</h3>
+
+<p>Returns the url of the 200x200 thumb of the attached image.</p>
+
+<h3 id="method-i-thumb_url-label-Returns">Returns</h3>
+
+<p>An url</p>
+
+<h3 id="method-i-thumb_url-label-Usage">Usage</h3>
+
+<p>&lt;%= image_tag image.thumb_url %&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-thumb_url_source')" id="l_method-i-thumb_url_source">show</a>
+                
+              </p>
+              <div id="method-i-thumb_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">thumb_url</span>
+  <span class="ruby-identifier">media</span>.<span class="ruby-identifier">thumb</span>.<span class="ruby-identifier">url</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-undo">
+            
+              <b>undo</b>()
+            
+            <a href="../classes/Image.html#method-i-undo" name="method-i-undo" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-undo-label-Description">Description</h3>
+
+<p>Copies the previous temporary image into the current temporary image. Used
+in <a
+href="ImageEditorController.html#method-i-undo">ImageEditorController#undo</a>.</p>
+
+<h3 id="method-i-undo-label-Returns">Returns</h3>
+
+<p>A boolean.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-undo_source')" id="l_method-i-undo_source">show</a>
+                
+              </p>
+              <div id="method-i-undo_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 331</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">undo</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">in_edit_mode?</span>
+  <span class="ruby-identifier">prev_path</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prev_editing_image</span>
+  <span class="ruby-identifier">curr_path</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">current_editing_image</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-identifier">prev_path</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm</span>(<span class="ruby-identifier">curr_path</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span>(<span class="ruby-identifier">prev_path</span>, <span class="ruby-identifier">curr_path</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm</span>(<span class="ruby-identifier">prev_path</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-url">
+            
+              <b>url</b>(url_type = nil)
+            
+            <a href="../classes/Image.html#method-i-url" name="method-i-url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-url-label-Description">Description</h3>
+
+<p>Returns the url of the attached image.</p>
+
+<h3 id="method-i-url-label-Returns">Returns</h3>
+
+<p>An url</p>
+
+<h3 id="method-i-url-label-Usage">Usage</h3>
+
+<p>&lt;%= image_tag image.url %&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-url_source')" id="l_method-i-url_source">show</a>
+                
+              </p>
+              <div id="method-i-url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">url</span>(<span class="ruby-identifier">url_type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">media</span>.<span class="ruby-identifier">url</span>
+
+  <span class="ruby-identifier">url_by_url_type</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">url_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-width">
+            
+              <b>width</b>()
+            
+            <a href="../classes/Image.html#method-i-width" name="method-i-width" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-width-label-Description">Description</h3>
+
+<p>Returns the width in pixels.</p>
+
+<h3 id="method-i-width-label-Returns">Returns</h3>
+
+<p>A float.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-width_source')" id="l_method-i-width_source">show</a>
+                
+              </p>
+              <div id="method-i-width_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">width</span>
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">width</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-height-3D">
+            
+              <b>height=</b>(height)
+            
+            <a href="../classes/Image.html#method-i-height-3D" name="method-i-height-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the <code>height</code> in <code>metadata</code></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-height-3D_source')" id="l_method-i-height-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-height-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 416</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">height=</span>(<span class="ruby-identifier">height</span>)
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">height</span> = <span class="ruby-identifier">height</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-set_converted_to_true">
+            
+              <b>set_converted_to_true</b>()
+            
+            <a href="../classes/Image.html#method-i-set_converted_to_true" name="method-i-set_converted_to_true" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets <code>converted</code> to true</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-set_converted_to_true_source')" id="l_method-i-set_converted_to_true_source">show</a>
+                
+              </p>
+              <div id="method-i-set_converted_to_true_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 427</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">set_converted_to_true</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">converted</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-set_width_and_height">
+            
+              <b>set_width_and_height</b>()
+            
+            <a href="../classes/Image.html#method-i-set_width_and_height" name="method-i-set_width_and_height" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets <code>width</code> and <code>height</code> according to the data
+contained in <code>media</code></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-set_width_and_height_source')" id="l_method-i-set_width_and_height_source">show</a>
+                
+              </p>
+              <div id="method-i-set_width_and_height_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 421</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">set_width_and_height</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">width</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">height</span> = <span class="ruby-identifier">media</span>.<span class="ruby-identifier">width</span>, <span class="ruby-identifier">media</span>.<span class="ruby-identifier">height</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-width-3D">
+            
+              <b>width=</b>(width)
+            
+            <a href="../classes/Image.html#method-i-width-3D" name="method-i-width-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the <code>width</code> in <code>metadata</code></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-width-3D_source')" id="l_method-i-width-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-width-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/image.rb, line 411</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">width=</span>(<span class="ruby-identifier">width</span>)
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">width</span> = <span class="ruby-identifier">width</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

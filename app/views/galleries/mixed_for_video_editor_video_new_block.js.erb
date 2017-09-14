@@ -1,0 +1,13 @@
+$('#video_editor_mixed_gallery_container ._video_gallery_thumb._with_margin_bottom').css('margin-bottom', '0').removeClass('_with_margin_bottom');
+var temporary_invisible_div = '<div class="_temporary" style="display:none">';
+<%
+  videos_count = @videos.count
+  videos_count = ((videos_count % 3 == 0) ? (videos_count - 4) : ((videos_count / 3) * 3 - 1))
+%>
+<% @videos.each_with_index do |video, index| %>
+  $('#video_editor_mixed_gallery_container #video_gallery_content .jspPane').append('<%= j(render(:partial => "galleries/thumbs/video", :locals => {:video => video, :index => index, :count => videos_count, :force_margin_top => true})) %>');
+  var mini_video = '<%= j(render(:partial => "video_editor/components/thumbs/video", :locals => {:video => video})) %>';
+  $('#dialog-video-gallery-<%= video.id %>').append(temporary_invisible_div + mini_video + '</div>');
+<% end %>
+$('#video_editor_mixed_gallery_container').data('video-page', <%= @page %>);
+$('._select_video_from_gallery').addClass('_add_video_component_to_video_editor');

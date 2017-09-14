@@ -1,0 +1,18 @@
+<%
+  div_id = empty ? '' : "id=\"video_component_#{identifier}_cutter\""
+  duration = empty ? 0 : component[:duration]
+%>
+
+<div class="contentCutterTextImage _video_component_cutter _mini_cutter" style="display:none" <%= div_id.html_safe %>>
+  <div class="cutter">
+    <div class="elementoTime">
+      <div class="tempo _duration_selector">
+        <p><%= t('video_editor.cutters.time') %></p>
+        <input class="numberTime" maxlength="<%= t('language_parameters.video_editor.length_duration') %>"/>
+        <p class="lower"><%= t('captions.seconds_shortened') %></p>
+      </div>
+    </div>
+    <a class="done _media_player_done_other_component_in_video_editor_preview upper"><%= t('video_editor.cutters.done') %></a>
+  </div>
+  <p style="padding-left:10px"><%= t('video_editor.cutters.old_time') %> <span class="_old"><%= empty ? '' : seconds_to_time(component[:duration]) %></span></p>
+</div>

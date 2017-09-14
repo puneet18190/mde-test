@@ -1,0 +1,13 @@
+<div id="lessons_tag_details">
+  <% tags.each do |t| %>
+    <a id="clickable_tag_<%= t.id %>" class="_clickable_tag_for_lessons" data-param="<%= t.id %>" title="<%= t('titles.tags.filter_by') %>"><%= t.word %></a>
+  <% end %>
+</div>
+
+<% if !specific_tag.nil? %>
+  <script>
+    $(document).ready(function() {
+      $('#clickable_tag_<%= specific_tag.id %>').addClass('current').attr('title', '<%= j t("titles.tags.cancel_filter") %>');
+    });
+  </script>
+<% end %>

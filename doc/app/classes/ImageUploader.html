@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ImageUploader</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            ImageUploader 
+            
+                <span class="parent">&lt; 
+                    
+                    CarrierWave::Uploader::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/uploaders/image_uploader_rb.html">app/uploaders/image_uploader.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cache_dir">cache_dir</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-extension_white_list">extension_white_list</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-filename">filename</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-folder">folder</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-folder_size">folder_size</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-height">height</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-image">image</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-original_extension">original_extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-original_filename_without_extension">original_filename_without_extension</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-paths">paths</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-remove_folder-21">remove_folder!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-store_dir">store_dir</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-width">width</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            CarrierWave::MiniMagick
+          
+        </li>
+      
+        <li>
+          
+            <a href="EnvRelativePath.html">
+              EnvRelativePath
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">STORE_DIR</td>
+            <td>=</td>
+            <td class="attr-value">env_relative_path &quot;media_elements/images&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">FOLDER</td>
+            <td>=</td>
+            <td class="attr-value">Rails.public_pathname.join(STORE_DIR).to_s</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">EXTENSION_WHITE_LIST</td>
+            <td>=</td>
+            <td class="attr-value">%w(jpg jpeg png)</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-folder_size">
+            
+              <b>folder_size</b>()
+            
+            <a href="../classes/ImageUploader.html#method-c-folder_size" name="method-c-folder_size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-folder_size_source')" id="l_method-c-folder_size_source">show</a>
+                
+              </p>
+              <div id="method-c-folder_size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">folder_size</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-number">0</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-constant">FOLDER</span>
+  <span class="ruby-constant">Find</span>.<span class="ruby-identifier">find</span>(<span class="ruby-constant">FOLDER</span>).<span class="ruby-identifier">sum</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-identifier">f</span>).<span class="ruby-identifier">size</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-remove_folder-21">
+            
+              <b>remove_folder!</b>()
+            
+            <a href="../classes/ImageUploader.html#method-c-remove_folder-21" name="method-c-remove_folder-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-remove_folder-21_source')" id="l_method-c-remove_folder-21_source">show</a>
+                
+              </p>
+              <div id="method-c-remove_folder-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">remove_folder!</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-constant">FOLDER</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-cache_dir">
+            
+              <b>cache_dir</b>()
+            
+            <a href="../classes/ImageUploader.html#method-i-cache_dir" name="method-i-cache_dir" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cache_dir_source')" id="l_method-i-cache_dir_source">show</a>
+                
+              </p>
+              <div id="method-i-cache_dir_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cache_dir</span>
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">join</span> <span class="ruby-string">&#39;tmp/media_elements/images&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extension_white_list">
+            
+              <b>extension_white_list</b>()
+            
+            <a href="../classes/ImageUploader.html#method-i-extension_white_list" name="method-i-extension_white_list" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Add a white list of extensions which are allowed to be uploaded. For images
+you might use something like this:</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extension_white_list_source')" id="l_method-i-extension_white_list_source">show</a>
+                
+              </p>
+              <div id="method-i-extension_white_list_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extension_white_list</span>
+  <span class="ruby-constant">EXTENSION_WHITE_LIST</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-filename">
+            
+              <b>filename</b>()
+            
+            <a href="../classes/ImageUploader.html#method-i-filename" name="method-i-filename" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Override the filename of the uploaded files: Avoid using model.id or
+version_name here, see uploader/store.rb for details.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-filename_source')" id="l_method-i-filename_source">show</a>
+                
+              </p>
+              <div id="method-i-filename_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">filename</span>
+  <span class="ruby-node">&quot;#{original_filename_without_extension.parameterize}_#{model.filename_token}#{original_extension}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">original_filename</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-folder">
+            
+              <b>folder</b>()
+            
+            <a href="../classes/ImageUploader.html#method-i-folder" name="method-i-folder" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-folder_source')" id="l_method-i-folder_source">show</a>
+                
+              </p>
+              <div id="method-i-folder_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">folder</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span> <span class="ruby-identifier">path</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-height">
+            
+              <b>height</b>()
+            
+            <a href="../classes/ImageUploader.html#method-i-height" name="method-i-height" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-height_source')" id="l_method-i-height_source">show</a>
+                
+              </p>
+              <div id="method-i-height_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">height</span>
+  <span class="ruby-identifier">image</span>[<span class="ruby-value">:height</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-image">
+            
+              <b>image</b>()
+            
+            <a href="../classes/ImageUploader.html#method-i-image" name="method-i-image" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-image_source')" id="l_method-i-image_source">show</a>
+                
+              </p>
+              <div id="method-i-image_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">image</span>
+  <span class="ruby-ivar">@image</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">MiniMagick</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">path</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-original_extension">
+            
+              <b>original_extension</b>()
+            
+            <a href="../classes/ImageUploader.html#method-i-original_extension" name="method-i-original_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-original_extension_source')" id="l_method-i-original_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-original_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">original_extension</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">original_filename</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">original_filename</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-original_filename_without_extension">
+            
+              <b>original_filename_without_extension</b>()
+            
+            <a href="../classes/ImageUploader.html#method-i-original_filename_without_extension" name="method-i-original_filename_without_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-original_filename_without_extension_source')" id="l_method-i-original_filename_without_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-original_filename_without_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">original_filename_without_extension</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">original_filename</span>, <span class="ruby-identifier">original_extension</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">original_filename</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-paths">
+            
+              <b>paths</b>()
+            
+            <a href="../classes/ImageUploader.html#method-i-paths" name="method-i-paths" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-paths_source')" id="l_method-i-paths_source">show</a>
+                
+              </p>
+              <div id="method-i-paths_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">paths</span>
+  { <span class="ruby-identifier">main</span><span class="ruby-operator">:</span> <span class="ruby-identifier">file</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">thumb</span><span class="ruby-operator">:</span> <span class="ruby-identifier">thumb</span>.<span class="ruby-identifier">file</span>.<span class="ruby-identifier">path</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-store_dir">
+            
+              <b>store_dir</b>()
+            
+            <a href="../classes/ImageUploader.html#method-i-store_dir" name="method-i-store_dir" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Override the directory where uploaded files will be stored. This is a
+sensible default for uploaders that are meant to be mounted:</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-store_dir_source')" id="l_method-i-store_dir_source">show</a>
+                
+              </p>
+              <div id="method-i-store_dir_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">store_dir</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">STORE_DIR</span>, <span class="ruby-node">&quot;#{model.id}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-width">
+            
+              <b>width</b>()
+            
+            <a href="../classes/ImageUploader.html#method-i-width" name="method-i-width" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-width_source')" id="l_method-i-width_source">show</a>
+                
+              </p>
+              <div id="method-i-width_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/image_uploader.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">width</span>
+  <span class="ruby-identifier">image</span>[<span class="ruby-value">:width</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

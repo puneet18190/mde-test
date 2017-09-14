@@ -1,0 +1,12 @@
+<div id="image_gallery" class="image_gallery image-kind">
+  <div class="gallery-header">
+    <h3 class="pull-left"><%= t('galleries.images.select') %></h3>
+    <a class="icon"></a>
+  </div>
+  <%= render :partial => 'galleries/contents/image', :locals => {:images => images} %>
+  <div class="gallery-footer">
+    <div class="pull-right">
+      <a class="_close_image_gallery exitGallery" title="<%= t('titles.galleries.close') %>"></a>
+    </div>
+  </div>
+</div>

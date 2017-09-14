@@ -1,0 +1,7 @@
+<div class="contentLessonNotAvailable">
+  <div class="contentTitle">
+    <h1><%= t('lesson_viewer.export_lesson.not_available.title', :lesson => @lesson.title) %></h1>
+    <h2><%= t('lesson_viewer.export_lesson.not_available.description') %></h2><br/><br/>
+    <%= link_to t('lesson_viewer.export_lesson.not_available.back'), lesson_viewer_path(@lesson.id) %>
+  </div>
+</div>

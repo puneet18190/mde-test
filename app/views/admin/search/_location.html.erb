@@ -1,0 +1,24 @@
+<div class="control-group heading">
+  <label><h5><%= t('admin.search.locations.title').upcase %></h5></label>
+</div>
+
+
+<% SETTINGS['location_types'].each_with_index do |location, index| %>
+  
+  <%
+    param = nil
+    param = params["#{location.downcase}"] if params
+  %>
+  
+  <div class="control-group">
+    <label for="locations_list_<%= index %>">
+      <%= Location.label_at(index) %>
+    </label>
+    <div class="controls">
+      <select id="locations_list_<%= index %>" class="_select_locations_admin" name="search[<%= location.downcase %>]" data-is-last="<%= index == SETTINGS['location_types'].length - 1 %>">
+        <%= render :partial => 'admin/users/locations_list', :locals => {:locations => locations[index].to_a, :param => param} %>
+      </select>
+    </div>
+  </div>
+  
+<% end %>

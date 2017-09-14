@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>app/assets/javascripts/lesson_editor.js - DESY</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="DESY"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdminAutocomplete.html">AdminAutocomplete</a></li>
+            
+                <li><a href="../classes/AdminBrowserSupport.html">AdminBrowserSupport</a></li>
+            
+                <li><a href="../classes/AdminCollapsed.html">AdminCollapsed</a></li>
+            
+                <li><a href="../classes/AdminDocumentReady.html">AdminDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderBinder.html">AjaxLoaderBinder</a></li>
+            
+                <li><a href="../classes/AjaxLoaderDocumentReady.html">AjaxLoaderDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderVisibility.html">AjaxLoaderVisibility</a></li>
+            
+                <li><a href="../classes/AudioEditorComponents.html">AudioEditorComponents</a></li>
+            
+                <li><a href="../classes/AudioEditorCutters.html">AudioEditorCutters</a></li>
+            
+                <li><a href="../classes/AudioEditorDocumentReady.html">AudioEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/AudioEditorGalleries.html">AudioEditorGalleries</a></li>
+            
+                <li><a href="../classes/AudioEditorGeneral.html">AudioEditorGeneral</a></li>
+            
+                <li><a href="../classes/AudioEditorGraphics.html">AudioEditorGraphics</a></li>
+            
+                <li><a href="../classes/AudioEditorPreview.html">AudioEditorPreview</a></li>
+            
+                <li><a href="../classes/AudioEditorScrollpain.html">AudioEditorScrollpain</a></li>
+            
+                <li><a href="../classes/BrowserSupportMain.html">BrowserSupportMain</a></li>
+            
+                <li><a href="../classes/ButtonsAccessories.html">ButtonsAccessories</a></li>
+            
+                <li><a href="../classes/ButtonsDocumentReady.html">ButtonsDocumentReady</a></li>
+            
+                <li><a href="../classes/ButtonsLesson.html">ButtonsLesson</a></li>
+            
+                <li><a href="../classes/ButtonsMediaElement.html">ButtonsMediaElement</a></li>
+            
+                <li><a href="../classes/DashboardAccessories.html">DashboardAccessories</a></li>
+            
+                <li><a href="../classes/DashboardExpandedContents.html">DashboardExpandedContents</a></li>
+            
+                <li><a href="../classes/DashboardLessonDescriptions.html">DashboardLessonDescriptions</a></li>
+            
+                <li><a href="../classes/DashboardResizing.html">DashboardResizing</a></li>
+            
+                <li><a href="../classes/DialogsAccessories.html">DialogsAccessories</a></li>
+            
+                <li><a href="../classes/DialogsConfirmation.html">DialogsConfirmation</a></li>
+            
+                <li><a href="../classes/DialogsGalleries.html">DialogsGalleries</a></li>
+            
+                <li><a href="../classes/DialogsTimed.html">DialogsTimed</a></li>
+            
+                <li><a href="../classes/DialogsWithForm.html">DialogsWithForm</a></li>
+            
+                <li><a href="../classes/GalleriesAccessories.html">GalleriesAccessories</a></li>
+            
+                <li><a href="../classes/GalleriesDocumentReady.html">GalleriesDocumentReady</a></li>
+            
+                <li><a href="../classes/GalleriesInitializers.html">GalleriesInitializers</a></li>
+            
+                <li><a href="../classes/GeneralCentering.html">GeneralCentering</a></li>
+            
+                <li><a href="../classes/GeneralDocumentReady.html">GeneralDocumentReady</a></li>
+            
+                <li><a href="../classes/GeneralMiscellanea.html">GeneralMiscellanea</a></li>
+            
+                <li><a href="../classes/GeneralUrls.html">GeneralUrls</a></li>
+            
+                <li><a href="../classes/ImageEditorDocumentReady.html">ImageEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/ImageEditorGraphics.html">ImageEditorGraphics</a></li>
+            
+                <li><a href="../classes/ImageEditorImageScale.html">ImageEditorImageScale</a></li>
+            
+                <li><a href="../classes/ImageEditorTexts.html">ImageEditorTexts</a></li>
+            
+                <li><a href="../classes/JqueryBrowsersDetection.html">JqueryBrowsersDetection</a></li>
+            
+                <li><a href="../classes/JqueryPatchesBrowsers.html">JqueryPatchesBrowsers</a></li>
+            
+                <li><a href="../classes/LessonEditorCurrentSlide.html">LessonEditorCurrentSlide</a></li>
+            
+                <li><a href="../classes/LessonEditorDocumentReady.html">LessonEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonEditorForms.html">LessonEditorForms</a></li>
+            
+                <li><a href="../classes/LessonEditorGalleries.html">LessonEditorGalleries</a></li>
+            
+                <li><a href="../classes/LessonEditorImageResizing.html">LessonEditorImageResizing</a></li>
+            
+                <li><a href="../classes/LessonEditorJqueryAnimations.html">LessonEditorJqueryAnimations</a></li>
+            
+                <li><a href="../classes/LessonEditorSlideLoading.html">LessonEditorSlideLoading</a></li>
+            
+                <li><a href="../classes/LessonEditorSlidesNavigation.html">LessonEditorSlidesNavigation</a></li>
+            
+                <li><a href="../classes/LessonEditorTinyMCE.html">LessonEditorTinyMCE</a></li>
+            
+                <li><a href="../classes/LessonViewerDocumentReady.html">LessonViewerDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonViewerGeneral.html">LessonViewerGeneral</a></li>
+            
+                <li><a href="../classes/LessonViewerGraphics.html">LessonViewerGraphics</a></li>
+            
+                <li><a href="../classes/LessonViewerPlaylist.html">LessonViewerPlaylist</a></li>
+            
+                <li><a href="../classes/LessonViewerSlidesNavigation.html">LessonViewerSlidesNavigation</a></li>
+            
+                <li><a href="../classes/MediaElementEditorCache.html">MediaElementEditorCache</a></li>
+            
+                <li><a href="../classes/MediaElementEditorConversion.html">MediaElementEditorConversion</a></li>
+            
+                <li><a href="../classes/MediaElementEditorDocumentReady.html">MediaElementEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/MediaElementEditorForms.html">MediaElementEditorForms</a></li>
+            
+                <li><a href="../classes/MediaElementEditorHorizontalTimelines.html">MediaElementEditorHorizontalTimelines</a></li>
+            
+                <li><a href="../classes/NotificationsAccessories.html">NotificationsAccessories</a></li>
+            
+                <li><a href="../classes/NotificationsDocumentReady.html">NotificationsDocumentReady</a></li>
+            
+                <li><a href="../classes/NotificationsGraphics.html">NotificationsGraphics</a></li>
+            
+                <li><a href="../classes/PlayersAudioEditor.html">PlayersAudioEditor</a></li>
+            
+                <li><a href="../classes/PlayersCommon.html">PlayersCommon</a></li>
+            
+                <li><a href="../classes/PlayersDocumentReady.html">PlayersDocumentReady</a></li>
+            
+                <li><a href="../classes/PlayersGeneral.html">PlayersGeneral</a></li>
+            
+                <li><a href="../classes/PlayersVideoEditor.html">PlayersVideoEditor</a></li>
+            
+                <li><a href="../classes/ProfilePrelogin.html">ProfilePrelogin</a></li>
+            
+                <li><a href="../classes/ProfileUsers.html">ProfileUsers</a></li>
+            
+                <li><a href="../classes/SearchDocumentReady.html">SearchDocumentReady</a></li>
+            
+                <li><a href="../classes/TagsAccessories.html">TagsAccessories</a></li>
+            
+                <li><a href="../classes/TagsInitializers.html">TagsInitializers</a></li>
+            
+                <li><a href="../classes/UploaderDocumentReady.html">UploaderDocumentReady</a></li>
+            
+                <li><a href="../classes/UploaderGlobal.html">UploaderGlobal</a></li>
+            
+                <li><a href="../classes/UploaderLoadingBar.html">UploaderLoadingBar</a></li>
+            
+                <li><a href="../classes/VideoEditorAddComponents.html">VideoEditorAddComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorComponents.html">VideoEditorComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorCutters.html">VideoEditorCutters</a></li>
+            
+                <li><a href="../classes/VideoEditorDocumentReady.html">VideoEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/VideoEditorGalleries.html">VideoEditorGalleries</a></li>
+            
+                <li><a href="../classes/VideoEditorGeneral.html">VideoEditorGeneral</a></li>
+            
+                <li><a href="../classes/VideoEditorPreview.html">VideoEditorPreview</a></li>
+            
+                <li><a href="../classes/VideoEditorPreviewAccessories.html">VideoEditorPreviewAccessories</a></li>
+            
+                <li><a href="../classes/VideoEditorReplaceComponents.html">VideoEditorReplaceComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorScrollPain.html">VideoEditorScrollPain</a></li>
+            
+                <li><a href="../classes/VideoEditorTextComponentEditor.html">VideoEditorTextComponentEditor</a></li>
+            
+                <li><a href="../classes/VirtualClassroomDocumentReady.html">VirtualClassroomDocumentReady</a></li>
+            
+                <li><a href="../classes/VirtualClassroomJavaScriptAnimations.html">VirtualClassroomJavaScriptAnimations</a></li>
+            
+                <li><a href="../classes/VirtualClassroomMultipleLoading.html">VirtualClassroomMultipleLoading</a></li>
+            
+                <li><a href="../classes/VirtualClassroomSendLink.html">VirtualClassroomSendLink</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/admin.html">admin</a></li>
+            
+                <li><a href="../modules/ajax-loader.html">ajax-loader</a></li>
+            
+                <li><a href="../modules/audio-editor.html">audio-editor</a></li>
+            
+                <li><a href="../modules/browser-support.html">browser-support</a></li>
+            
+                <li><a href="../modules/buttons.html">buttons</a></li>
+            
+                <li><a href="../modules/dashboard.html">dashboard</a></li>
+            
+                <li><a href="../modules/dialogs.html">dialogs</a></li>
+            
+                <li><a href="../modules/galleries.html">galleries</a></li>
+            
+                <li><a href="../modules/general.html">general</a></li>
+            
+                <li><a href="../modules/image-editor.html">image-editor</a></li>
+            
+                <li><a href="../modules/jquery-browsers.html">jquery-browsers</a></li>
+            
+                <li><a href="../modules/jquery-patches.html">jquery-patches</a></li>
+            
+                <li><a href="../modules/lesson-editor.html">lesson-editor</a></li>
+            
+                <li><a href="../modules/lesson-viewer.html">lesson-viewer</a></li>
+            
+                <li><a href="../modules/media-element-editor.html">media-element-editor</a></li>
+            
+                <li><a href="../modules/notifications.html">notifications</a></li>
+            
+                <li><a href="../modules/players.html">players</a></li>
+            
+                <li><a href="../modules/profile.html">profile</a></li>
+            
+                <li><a href="../modules/search.html">search</a></li>
+            
+                <li><a href="../modules/tags.html">tags</a></li>
+            
+                <li><a href="../modules/uploader.html">uploader</a></li>
+            
+                <li><a href="../modules/video-editor.html">video-editor</a></li>
+            
+                <li><a href="../modules/virtual-classroom.html">virtual-classroom</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: app/assets/javascripts/lesson_editor.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+The Lesson Editor is used to add and edit slides to a private lesson.
+&lt;br/&gt;&lt;br/&gt;
+When opening the Editor on a lesson, all its slides are appended to a queue, of which it&#x27;s visible only the portion that surrounds the &lt;b&gt;current slide&lt;/b&gt; (the width of such a portion depends on the screen resolution, see {{#crossLink &quot;LessonEditorSlidesNavigation/initLessonEditorPositions:method&quot;}}{{/crossLink}} and {{#crossLink &quot;LessonEditorDocumentReady/lessonEditorDocumentReadyResize:method&quot;}}{{/crossLink}}). The current slide is illuminated and editable, whereas the adhiacent slides are covered by a layer with opacity that prevents the user from editing them: if the user clicks on this layer, the application takes the slide below it as new current slide and moves it to the center of the screen (see {{#crossLink &quot;LessonEditorDocumentReady/lessonEditorDocumentReadySlidesNavigator:method&quot;}}{{/crossLink}} and the methods in {{#crossLink &quot;LessonEditorSlidesNavigation&quot;}}{{/crossLink}}): only after this operation, the user can edit that particular slide. To avoid overloading when there are many slides containing media, the slides are instanced all together but their content is loaded only when the user moves to them (see the methods in {{#crossLink &quot;LessonEditorSlideLoading&quot;}}{{/crossLink}}).
+&lt;br/&gt;&lt;br/&gt;
+On the right side of each slide the user finds a list of &lt;b&gt;buttons&lt;/b&gt; (initialized in {{#crossLink &quot;LessonEditorDocumentReady/lessonEditorDocumentReadySlideButtons:method&quot;}}{{/crossLink}}): each button corresponds either to an action that can be performed on the slide, either to an action that can be performed to the whole lesson (for instance, save and exit, or edit title description and tags).
+&lt;br/&gt;&lt;br/&gt;
+The &lt;b&gt;tool to navigate the slides&lt;/b&gt; is located on the top of the editor: each small square represents a slide (with its position), and passing with the mouse over it the Editor shows a miniature of the corresponding slide (these functionalities are initialized in {{#crossLink &quot;LessonEditorDocumentReady/lessonEditorDocumentReadySlidesNavigator:method&quot;}}{{/crossLink}}). Clicking on a slide miniature, the application moves to that slide using the function {{#crossLink &quot;LessonEditorSlidesNavigation/slideTo:method&quot;}}{{/crossLink}}. The slides can be sorted dragging with the mouse (using the JQueryUi plugin, initialized in {{#crossLink &quot;LessonEditorDocumentReady/lessonEditorDocumentReadyJqueryAnimations:method&quot;}}{{/crossLink}} and {{#crossLink &quot;LessonEditorJqueryAnimations/initializeSortableNavs:method&quot;}}{{/crossLink}}).
+&lt;br/&gt;&lt;br/&gt;
+Inside the Editor, there are two operations that require hiding and replacement of the queue of slides: &lt;b&gt;adding a media element to a slide&lt;/b&gt; and &lt;b&gt;choosing a new slide&lt;/b&gt;. In both these operations, an HTML div is extracted from the main template (where it was hidden), and put in the place of the current slide, hiding the rest of the slides queue, buttons, and slides navigation (operations performed by {{#crossLink &quot;LessonEditorCurrentSlide/hideEverythingOutCurrentSlide:method&quot;}}{{/crossLink}}). For the galleries, the extracted div must be filled by an action called via Ajax (see the module {{#crossLinkModule &quot;galleries&quot;}}{{/crossLinkModule}}), whereas the div with the list of available slides is already loaded with the Editor (see {{#crossLink &quot;LessonEditorDocumentReady/lessonEditorDocumentReadyNewSlideChoice:method&quot;}}{{/crossLink}}).
+&lt;br/&gt;&lt;br/&gt;
+To add a media element to a slide, the user picks it from its specific gallery: when he clicks on the button &#x27;plus&#x27;, the system calls the corresponding subfunction in {{#crossLink &quot;LessonEditorDocumentReady/lessonEditorDocumentReadyAddMediaElement:method&quot;}}{{/crossLink}}. To avoid troubles due to the replacement of JQuery plugins, video and audio tags, etc, this method always replaces the sources of &lt;b&gt;audio&lt;/b&gt; and &lt;b&gt;video&lt;/b&gt; tags and calls &lt;i&gt;load()&lt;/i&gt;.
+&lt;br/&gt;&lt;br/&gt;
+If the element added is of type &lt;b&gt;image&lt;/b&gt;, the user may drag it inside the slide, using {{#crossLink &quot;LessonEditorJqueryAnimations/makeDraggable:method&quot;}}{{/crossLink}}. A set of methods (in the class {{#crossLink &quot;LessonEditorImageResizing&quot;}}{{/crossLink}}) is available to resize the image and the alignment chosen by the user; more specificly, the method {{#crossLink &quot;LessonEditorImageResizing/isHorizontalMask:method&quot;}}{{/crossLink}} is used to understand, depending on the type of slide and on the proportions of the image, if the image is &lt;b&gt;vertical&lt;/b&gt; (and then the user can drag it vertically) or &lt;b&gt;horizontal&lt;/b&gt; (the user can drag it horizontally).
+&lt;br/&gt;&lt;br/&gt;
+Each slide contains a form linked to the action that updates it, there is no global saving for the whole lesson. The slide is automaticly saved (using the method {{#crossLink &quot;LessonEditorForms/saveCurrentSlide:method&quot;}}{{/crossLink}}) &lt;i&gt;before moving to another slide&lt;/i&gt;, &lt;i&gt;before showing the options to add a new slide&lt;/i&gt;, and &lt;i&gt;before changing position of a slide&lt;/i&gt;. The same function is called by the user when he clicks on the button &#x27;save&#x27; on the right of each slide; the buttons &lt;b&gt;save and exit&lt;/b&gt; and &lt;b&gt;edit general info&lt;/b&gt; are also linked to slide saving, but in this case it&#x27;s performed with a callback (see again the buttons initialization in {{#crossLink &quot;LessonEditorDocumentReady/lessonEditorDocumentReadySlideButtons:method&quot;}}{{/crossLink}}).
+&lt;br/&gt;&lt;br/&gt;
+The text slides are provided of &lt;b&gt;TinyMCE&lt;/b&gt; text editor, initialized in the methods of {{#crossLink &quot;LessonEditorTinyMCE&quot;}}{{/crossLink}}.
+@module lesson-editor
+**/
+
+
+
+
+
+/**
+Hides buttons, adhiacent slides and slide navigation (used before {{#crossLink &quot;LessonEditorDocumentReady/lessonEditorDocumentReadyNewSlideChoice:method&quot;}}{{/crossLink}} and {{#crossLink &quot;LessonEditorGalleries/showGalleryInLessonEditor:method&quot;}}{{/crossLink}}).
+@method hideEverythingOutCurrentSlide
+@for LessonEditorCurrentSlide
+**/
+function hideEverythingOutCurrentSlide() {
+  var current_slide = $(&#x27;li._lesson_editor_current_slide&#x27;);
+  $(&#x27;#heading&#x27;).children().hide();
+  $(&#x27;._add_new_slide_options_in_last_position&#x27;).hide();
+  $(&#x27;._not_current_slide&#x27;).removeClass(&#x27;_not_current_slide&#x27;).addClass(&#x27;_not_current_slide_disabled&#x27;);
+  current_slide.find(&#x27;.buttons a:not(._hide_add_slide)&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+}
+
+/**
+Hides the template for selection of new slides.
+@method hideNewSlideChoice
+@for LessonEditorCurrentSlide
+**/
+function hideNewSlideChoice() {
+  var current_slide = $(&#x27;li._lesson_editor_current_slide&#x27;);
+  current_slide.find(&#x27;div.slide-content&#x27;).addClass(current_slide.data(&#x27;kind&#x27;));
+  current_slide.find(&#x27;.box.new_slide&#x27;).remove();
+  if(!current_slide.find(&#x27;.slide-content&#x27;).hasClass(&#x27;cover&#x27;)) {
+    current_slide.find(&#x27;.slide-content&#x27;).css(&#x27;padding&#x27;, &#x27;20px&#x27;);
+  }
+  current_slide.find(&#x27;._hide_add_new_slide_options&#x27;).removeAttr(&#x27;class&#x27;).addClass(&#x27;addButtonOrange _add_new_slide_options&#x27;);
+  var new_title = current_slide.find(&#x27;._add_new_slide_options&#x27;).data(&#x27;title&#x27;);
+  current_slide.find(&#x27;._add_new_slide_options&#x27;).removeAttr(&#x27;title&#x27;).attr(&#x27;title&#x27;, new_title);
+  showEverythingOutCurrentSlide();
+}
+
+/**
+Opposite of {{#crossLink &quot;LessonEditorCurrentSlide/hideEverythingOutCurrentSlide:method&quot;}}{{/crossLink}}.
+@method showEverythingOutCurrentSlide
+@for LessonEditorCurrentSlide
+**/
+function showEverythingOutCurrentSlide() {
+  var current_slide = $(&#x27;li._lesson_editor_current_slide&#x27;);
+  $(&#x27;#heading&#x27;).children().show();
+  $(&#x27;._add_new_slide_options_in_last_position&#x27;).show();
+  $(&#x27;._not_current_slide_disabled&#x27;).addClass(&#x27;_not_current_slide&#x27;).removeClass(&#x27;_not_current_slide_disabled&#x27;);
+  current_slide.find(&#x27;.buttons a&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+}
+
+/**
+Shows the template for selection of new slides.
+@method showNewSlideOptions
+@for LessonEditorCurrentSlide
+**/
+function showNewSlideOptions() {
+  stopMediaInCurrentSlide();
+  var current_slide_content = $(&#x27;li._lesson_editor_current_slide .slide-content&#x27;);
+  if(!current_slide_content.hasClass(&#x27;cover&#x27;)) {
+    current_slide_content.css(&#x27;padding&#x27;, &#x27;0&#x27;);
+  }
+  var html_to_be_replaced = $(&#x27;#new_slide_option_list&#x27;).html();
+  current_slide_content.prepend(html_to_be_replaced);
+  current_slide_content.siblings(&#x27;.buttons&#x27;).find(&#x27;._add_new_slide_options&#x27;).removeAttr(&#x27;class&#x27;).addClass(&#x27;minusButtonOrange _hide_add_slide _hide_add_new_slide_options&#x27;);
+  var new_title = current_slide_content.siblings(&#x27;.buttons&#x27;).find(&#x27;._hide_add_new_slide_options&#x27;).data(&#x27;other-title&#x27;);
+  current_slide_content.siblings(&#x27;.buttons&#x27;).find(&#x27;._hide_add_new_slide_options&#x27;).removeAttr(&#x27;title&#x27;).attr(&#x27;title&#x27;, new_title);
+  hideEverythingOutCurrentSlide();
+}
+
+/**
+Stop video and audio playing into the current slide (used before changing slide with {{#crossLink &quot;LessonEditorSlidesNavigation/slideTo:method&quot;}}{{/crossLink}}).
+@method stopMediaInCurrentSlide
+@for LessonEditorCurrentSlide
+**/
+function stopMediaInCurrentSlide() {
+  var current_slide_id = $(&#x27;li._lesson_editor_current_slide&#x27;).attr(&#x27;id&#x27;);
+  stopMedia(&#x27;#&#x27; + current_slide_id + &#x27; audio&#x27;);
+  stopMedia(&#x27;#&#x27; + current_slide_id + &#x27; video&#x27;);
+}
+
+/**
+Switches the titles of disabled and enabled buttons when the user reaches the maximum number of allowed slides.
+@method switchDisabledMaximumSlideNumberLessonEditor
+@for LessonEditorCurrentSlide
+**/
+function switchDisabledMaximumSlideNumberLessonEditor() {
+  var title_disabled = $(&#x27;._add_new_slide_options&#x27;).attr(&#x27;title&#x27;);
+  var title_disabled_last_position = $(&#x27;._add_new_slide_options_in_last_position&#x27;).attr(&#x27;title&#x27;);
+  $(&#x27;._add_new_slide_options&#x27;).attr(&#x27;title&#x27;, $(&#x27;._add_new_slide_options&#x27;).data(&#x27;disabled-title&#x27;));
+  $(&#x27;._add_new_slide_options_in_last_position&#x27;).attr(&#x27;title&#x27;, $(&#x27;._add_new_slide_options_in_last_position&#x27;).data(&#x27;disabled-title&#x27;));
+  $(&#x27;._add_new_slide_options&#x27;).data(&#x27;disabled-title&#x27;, title_disabled);
+  $(&#x27;._add_new_slide_options_in_last_position&#x27;).data(&#x27;disabled-title&#x27;, title_disabled_last_position);
+}
+
+
+
+
+
+/**
+General initialization of Lesson Editor.
+@method lessonEditorDocumentReady
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReady() {
+  lessonEditorDocumentReadyJqueryAnimations();
+  lessonEditorDocumentReadyResize();
+  lessonEditorDocumentReadySlidesNavigator();
+  lessonEditorDocumentReadySlideButtons();
+  lessonEditorDocumentReadyNewSlideChoice();
+  lessonEditorDocumentReadyGalleries();
+  lessonEditorDocumentReadyAddMediaElement();
+  lessonEditorDocumentReadyReplaceMediaElement();
+  lessonEditorDocumentReadyTextFields();
+  lessonEditorDocumentReadyInitializeImageInscription();
+  lessonEditorDocumentReadyUploaderInGallery();
+}
+
+/**
+Initializer of the three functionalities to add an element (image, audio, video).
+@method lessonEditorDocumentReadyAddMediaElement
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReadyAddMediaElement() {
+  $body.on(&#x27;click&#x27;, &#x27;._add_image_to_slide&#x27;, function(e) {
+    e.preventDefault();
+    var current_slide = $(&#x27;li._lesson_editor_current_slide&#x27;);
+    var image_id = $(this).data(&#x27;image-id&#x27;);
+    var image_url = $(this).data(&#x27;url&#x27;);
+    var image_width = $(this).data(&#x27;width&#x27;);
+    var image_height = $(this).data(&#x27;height&#x27;);
+    var current_kind = current_slide.data(&#x27;kind&#x27;)
+    closePopUp(&#x27;dialog-image-gallery-&#x27; + image_id);
+    removeGalleryInLessonEditor(&#x27;image&#x27;);
+    var position = $(&#x27;#info_container&#x27;).data(&#x27;current-media-element-position&#x27;);
+    var place_id = &#x27;media_element_&#x27; + position + &#x27;_in_slide_&#x27; + current_slide.data(&#x27;slide-id&#x27;);
+    $(&#x27;#&#x27; + place_id + &#x27; .image-id&#x27;).val(image_id);
+    $(&#x27;#&#x27; + place_id + &#x27; .inscribed&#x27;).val(&#x27;false&#x27;);
+    var inscribe_toggle_icon = $(&#x27;#&#x27; + place_id + &#x27; .deinscribe, #&#x27; + place_id + &#x27; .inscribe&#x27;);
+    var new_title = inscribe_toggle_icon.data(&#x27;inscribe-title&#x27;);
+    inscribe_toggle_icon.attr(&#x27;title&#x27;, new_title).removeClass(&#x27;deinscribe&#x27;).addClass(&#x27;inscribe&#x27;);
+    $(&#x27;#&#x27; + place_id).data(&#x27;width&#x27;, image_width).data(&#x27;height&#x27;, image_height);
+    var full_place = $(&#x27;#&#x27; + place_id + &#x27; .mask&#x27;);
+    if(!full_place.is(&#x27;:visible&#x27;)) {
+      full_place.show();
+      $(&#x27;#&#x27; + place_id + &#x27; .empty-mask&#x27;).hide();
+    }
+    var old_mask = &#x27;horizontal&#x27;;
+    var new_mask = &#x27;vertical&#x27;;
+    var old_orientation = &#x27;width&#x27;;
+    var orientation = &#x27;height&#x27;;
+    var orientation_val = resizeHeight(image_width, image_height, current_kind);
+    var align_val = (getVerticalStandardSizeOfSlideImage(current_kind) - orientation_val) / 2;
+    var this_align_side = &#x27;top&#x27;;
+    var other_align_side = &#x27;left&#x27;;
+    if(isHorizontalMask(image_width, image_height, current_kind)) {
+      old_mask = &#x27;vertical&#x27;;
+      new_mask = &#x27;horizontal&#x27;;
+      old_orientation = &#x27;height&#x27;;
+      orientation = &#x27;width&#x27;;
+      orientation_val = resizeWidth(image_width, image_height, current_kind);
+      align_val = (getHorizontalStandardSizeOfSlideImage(current_kind) - orientation_val) / 2;
+      this_align_side = &#x27;left&#x27;;
+      other_align_side = &#x27;top&#x27;;
+    }
+    $(&#x27;#&#x27; + place_id + &#x27; .align&#x27;).val(align_val);
+    full_place.addClass(new_mask).removeClass(old_mask);
+    var img_tag = $(&#x27;#&#x27; + place_id + &#x27; .mask img&#x27;);
+    img_tag.attr(&#x27;src&#x27;, image_url);
+    img_tag.parent().css(this_align_side, align_val);
+    img_tag.parent().css(other_align_side, 0);
+    img_tag.removeAttr(old_orientation);
+    img_tag.attr(orientation, orientation_val);
+    makeDraggable(place_id);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._add_video_to_slide&#x27;, function(e) {
+    e.preventDefault();
+    var video_id = $(this).data(&#x27;video-id&#x27;);
+    closePopUp(&#x27;dialog-video-gallery-&#x27; + video_id);
+    removeGalleryInLessonEditor(&#x27;video&#x27;);
+    var current_slide = $(&#x27;li._lesson_editor_current_slide&#x27;);
+    var position = $(&#x27;#info_container&#x27;).data(&#x27;current-media-element-position&#x27;);
+    var place_id = &#x27;media_element_&#x27; + position + &#x27;_in_slide_&#x27; + current_slide.data(&#x27;slide-id&#x27;);
+    $(&#x27;#&#x27; + place_id + &#x27; .video-id&#x27;).val(video_id);
+    $(&#x27;#&#x27; + place_id + &#x27; .mask .add&#x27;).hide();
+    var video_mp4 = $(this).data(&#x27;mp4&#x27;);
+    var video_webm = $(this).data(&#x27;webm&#x27;);
+    var duration = $(this).data(&#x27;duration&#x27;);
+    var full_place = $(&#x27;#&#x27; + place_id + &#x27; .mask&#x27;);
+    if(!full_place.is(&#x27;:visible&#x27;)) {
+      full_place.show();
+      $(&#x27;#&#x27; + place_id + &#x27; .empty-mask&#x27;).hide();
+    }
+    $(&#x27;#&#x27; + place_id + &#x27; .mask source[type=&quot;video/mp4&quot;]&#x27;).attr(&#x27;src&#x27;, video_mp4);
+    $(&#x27;#&#x27; + place_id + &#x27; .mask source[type=&quot;video/webm&quot;]&#x27;).attr(&#x27;src&#x27;, video_webm);
+    $(&#x27;#&#x27; + place_id + &#x27; video&#x27;).load();
+    $(&#x27;#&#x27; + place_id + &#x27; ._media_player_total_time&#x27;).html(secondsToDateString(duration));
+    var video_player = $(&#x27;#&#x27; + place_id + &#x27; ._empty_video_player, #&#x27; + place_id + &#x27; ._instance_of_player&#x27;);
+    if(video_player.data(&#x27;initialized&#x27;)) {
+      video_player.data(&#x27;duration&#x27;, duration);
+      $(&#x27;#&#x27; + video_player.attr(&#x27;id&#x27;) + &#x27; ._media_player_slider&#x27;).slider(&#x27;option&#x27;, &#x27;max&#x27;, duration);
+    } else {
+      video_player.removeClass(&#x27;_empty_video_player&#x27;).addClass(&#x27;_instance_of_player&#x27;);
+      video_player.data(&#x27;duration&#x27;, duration);
+      initializeMedia(video_player.attr(&#x27;id&#x27;), &#x27;video&#x27;);
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._add_audio_to_slide&#x27;, function(e) {
+    e.preventDefault();
+    var audio_id = $(this).data(&#x27;audio-id&#x27;);
+    var new_audio_title = $(&#x27;#gallery_audio_&#x27; + audio_id+&#x27; .titleTrack&#x27;).text();
+    $(&#x27;#gallery_audio_&#x27; + audio_id).removeClass(&#x27;_audio_expanded_in_gallery&#x27;);
+    stopMedia(&#x27;#gallery_audio_&#x27; + audio_id + &#x27; audio&#x27;);
+    $(&#x27;#gallery_audio_&#x27; + audio_id + &#x27; ._expanded&#x27;).hide();
+    removeGalleryInLessonEditor(&#x27;audio&#x27;);
+    var current_slide = $(&#x27;li._lesson_editor_current_slide&#x27;);
+    var position = $(&#x27;#info_container&#x27;).data(&#x27;current-media-element-position&#x27;);
+    var place_id = &#x27;media_element_&#x27; + position + &#x27;_in_slide_&#x27; + current_slide.data(&#x27;slide-id&#x27;);
+    $(&#x27;#&#x27; + place_id + &#x27; .audio-id&#x27;).val(audio_id);
+    var audio_m4a = $(this).data(&#x27;m4a&#x27;);
+    var audio_ogg = $(this).data(&#x27;ogg&#x27;);
+    var duration = $(this).data(&#x27;duration&#x27;);
+    var full_place = $(&#x27;#&#x27; + place_id + &#x27; .mask&#x27;);
+    if(!full_place.is(&#x27;:visible&#x27;)) {
+      full_place.show();
+      $(&#x27;#&#x27; + place_id + &#x27; .empty-mask&#x27;).hide();
+    }
+    $(&#x27;#&#x27; + place_id + &#x27; .mask source[type=&quot;audio/mp4&quot;]&#x27;).attr(&#x27;src&#x27;, audio_m4a);
+    $(&#x27;#&#x27; + place_id + &#x27; .mask source[type=&quot;audio/ogg&quot;]&#x27;).attr(&#x27;src&#x27;, audio_ogg);
+    $(&#x27;#&#x27; + place_id + &#x27; audio&#x27;).load();
+    $(&#x27;#&#x27; + place_id + &#x27; ._media_player_total_time&#x27;).html(secondsToDateString(duration));
+    $(&#x27;#&#x27; + place_id + &#x27; .mask .title&#x27;).text(new_audio_title);
+    var audio_player = $(&#x27;#&#x27; + place_id + &#x27; ._empty_audio_player, #&#x27; + place_id + &#x27; ._instance_of_player&#x27;);
+    if(audio_player.data(&#x27;initialized&#x27;)) {
+      audio_player.data(&#x27;duration&#x27;, duration);
+      $(&#x27;#&#x27; + audio_player.attr(&#x27;id&#x27;) + &#x27; ._media_player_slider&#x27;).slider(&#x27;option&#x27;, &#x27;max&#x27;, duration);
+    } else {
+      audio_player.removeClass(&#x27;_empty_audio_player&#x27;).addClass(&#x27;_instance_of_player&#x27;);
+      audio_player.data(&#x27;duration&#x27;, duration);
+      initializeMedia(audio_player.attr(&#x27;id&#x27;), &#x27;audio&#x27;);
+    }
+  });
+}
+
+/**
+Initializer for galleries.
+@method lessonEditorDocumentReadyGalleries
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReadyGalleries() {
+  $body.on(&#x27;click&#x27;, &#x27;.slide-content .image.editable .add&#x27;, function() {
+    if(!$(this).parents(&#x27;.slide-content&#x27;).hasClass(&#x27;small-size&#x27;)) {
+      showGalleryInLessonEditor(this, &#x27;image&#x27;);
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.slide-content .audio.editable .add&#x27;, function() {
+    if(!$(this).parents(&#x27;.slide-content&#x27;).hasClass(&#x27;small-size&#x27;)) {
+      stopMediaInCurrentSlide();
+      showGalleryInLessonEditor(this, &#x27;audio&#x27;);
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.slide-content .video.editable .add&#x27;, function() {
+    if(!$(this).parents(&#x27;.slide-content&#x27;).hasClass(&#x27;small-size&#x27;)) {
+      stopMediaInCurrentSlide();
+      showGalleryInLessonEditor(this, &#x27;video&#x27;);
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._close_image_gallery_in_lesson_editor&#x27;, function(e) {
+    e.preventDefault();
+    removeGalleryInLessonEditor(&#x27;image&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._close_video_gallery_in_lesson_editor&#x27;, function(e) {
+    e.preventDefault();
+    removeGalleryInLessonEditor(&#x27;video&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._close_audio_gallery_in_lesson_editor&#x27;, function(e) {
+    e.preventDefault();
+    var current_playing_audio = $(&#x27;._audio_expanded_in_gallery&#x27;);
+    if(current_playing_audio.length != 0) {
+      current_playing_audio.removeClass(&#x27;_audio_expanded_in_gallery&#x27;);
+      stopMedia(&#x27;#&#x27; + current_playing_audio.attr(&#x27;id&#x27;) + &#x27; audio&#x27;);
+      $(&#x27;#&#x27; + current_playing_audio.attr(&#x27;id&#x27;) + &#x27; ._expanded&#x27;).hide();
+    }
+    removeGalleryInLessonEditor(&#x27;audio&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#lesson_editor_document_gallery_container #document_gallery .footerButtons .cancel&#x27;, function() {
+    removeGalleryInLessonEditor(&#x27;document&#x27;);
+    loadDocumentGalleryForSlideInLessonEditor($(&#x27;#lesson_editor_document_gallery_container&#x27;).data(&#x27;slide-id&#x27;));
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#lesson_editor_document_gallery_container #document_gallery .footerButtons .attach&#x27;, function() {
+    removeGalleryInLessonEditor(&#x27;document&#x27;);
+    unLoadDocumentGalleryContent($(&#x27;#lesson_editor_document_gallery_container&#x27;).data(&#x27;slide-id&#x27;));
+    var num_docs = $(&#x27;.document_attached .documentInGallery&#x27;).length;
+    if(num_docs == 0) {
+      $(&#x27;li._lesson_editor_current_slide .attached_document_internal&#x27;).hide();
+    } else {
+      var my_title = $(&#x27;#lesson_editor_document_gallery_container&#x27;).data(&#x27;title-&#x27; + num_docs + &#x27;-doc&#x27;);
+      $(&#x27;li._lesson_editor_current_slide .attached_document_internal&#x27;).attr(&#x27;title&#x27;, my_title).show();
+    }
+    saveCurrentSlide(&#x27;&#x27;, false);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#lesson_editor_document_gallery_container .documentInGalleryExternal .documentInGallery:not(&quot;.disabled&quot;) .add_remove&#x27;, function() {
+    var document_id = $(this).data(&#x27;document-id&#x27;);
+    var target = $(&#x27;.attachedExternal .document_attached.not_full&#x27;).first();
+    var new_content = $(&#x27;&lt;div&gt;&#x27; + $(&#x27;#gallery_document_&#x27; + document_id).html() + &#x27;&lt;/div&gt;&#x27;);
+    new_content.find(&#x27;.to_be_removed&#x27;).each(function() {
+      $(this).replaceWith($(this).find(&#x27;u&#x27;).html());
+    });
+    target.html(new_content.html());
+    target.removeClass(&#x27;not_full&#x27;);
+    $(&#x27;#inputs_for_documents&#x27;).append(&#x27;&lt;input type=&quot;text&quot; name=&quot;&#x27; + target.attr(&#x27;id&#x27;).replace(&#x27;_attached&#x27;, &#x27;&#x27;) + &#x27;&quot; value=&quot;&#x27; + document_id + &#x27;&quot; /&gt;&#x27;);
+    updateEffectsInsideDocumentGallery();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#lesson_editor_document_gallery_container .document_attached .documentInGallery .add_remove&#x27;, function() {
+    var target = $(this).parents(&#x27;.document_attached&#x27;);
+    target.html($(&#x27;#&#x27; + target.attr(&#x27;id&#x27;) + &#x27;_empty&#x27;).html());
+    target.addClass(&#x27;not_full&#x27;);
+    $(&#x27;#inputs_for_documents input[name=&quot;&#x27; + target.attr(&#x27;id&#x27;).replace(&#x27;_attached&#x27;, &#x27;&#x27;) + &#x27;&quot;]&#x27;).remove();
+    updateEffectsInsideDocumentGallery();
+  });
+  $body.on(&#x27;keydown&#x27;, &#x27;#lesson_editor_document_gallery_container #document_gallery_filter&#x27;, function(e) {
+    if(e.which == 13) {
+      e.preventDefault();
+    } else if(e.which != 39 &amp;&amp; e.which != 37) {
+      var loader = $(&#x27;#lesson_editor_document_gallery_container .documentsFooter ._loader&#x27;);
+      var letters = $(this).data(&#x27;letters&#x27;);
+      letters += 1;
+      $(this).data(&#x27;letters&#x27;, letters);
+      loader.show();
+      setTimeout(function() {
+        var input = $(&#x27;#lesson_editor_document_gallery_container #document_gallery_filter&#x27;);
+        if(input.data(&#x27;letters&#x27;) == letters) {
+          loader.hide();
+          $.get(&#x27;/lessons/galleries/document/filter?word=&#x27; + input.val());
+        }
+      }, 1500);
+    }
+  });
+  $body.on(&#x27;mouseover&#x27;, &#x27;.barzeretti&#x27;, function() {
+    var father = $(this).parent();
+    if(!father.find(&#x27;.documentInGallery&#x27;).hasClass(&#x27;disabled&#x27;)) {
+      father.find(&#x27;.documentInGallery&#x27;).data(&#x27;rollovered&#x27;, true);
+      setTimeout(function() {
+        if(father.find(&#x27;.documentInGallery&#x27;).data(&#x27;rollovered&#x27;)) {
+          showPopuppina(father.attr(&#x27;id&#x27;));
+        }
+      }, 500);
+    }
+  });
+  $body.on(&#x27;mouseout&#x27;, &#x27;.barzeretti&#x27;, function() {
+    var father = $(this).parent();
+    father.find(&#x27;.documentInGallery&#x27;).data(&#x27;rollovered&#x27;, false);
+    hidePopuppina(father.attr(&#x27;id&#x27;));
+  });
+}
+
+/**
+Initializer for dynamics of inscriptions and deinscriptions of images (it uses {{#crossLink &quot;LessonEditorJqueryAnimations/lessonEditorInscribeImage:method&quot;}}{{/crossLink}} and {{#crossLink &quot;LessonEditorJqueryAnimations/lessonEditorDeinscribeImage:method&quot;}}{{/crossLink}}).
+@method lessonEditorDocumentReadyInitializeImageInscription
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReadyInitializeImageInscription() {
+  $body.on(&#x27;click&#x27;, &#x27;.slide-content .image.editable .inscribe&#x27;, function() {
+    lessonEditorInscribeImage($(this).parents(&#x27;.image.editable&#x27;).attr(&#x27;id&#x27;));
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.slide-content .image.editable .deinscribe&#x27;, function() {
+    lessonEditorDeinscribeImage($(this).parents(&#x27;.image.editable&#x27;).attr(&#x27;id&#x27;));
+  });
+}
+
+/**
+Initializer for JQueryUi animations defined in the class {{#crossLink &quot;LessonEditorJqueryAnimations&quot;}}{{/crossLink}}.
+@method lessonEditorDocumentReadyJqueryAnimations
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReadyJqueryAnimations() {
+  $(&#x27;.slide-content .image.editable&#x27;).each(function() {
+    makeDraggable($(this).attr(&#x27;id&#x27;));
+  });
+  initializeSortableNavs();
+  $(&#x27;#nav_list_menu&#x27;).jScrollPane({
+    autoReinitialise: false
+  });
+  $(&#x27;#lesson_subject&#x27;).selectbox();
+  initLessonEditorPositions();
+}
+
+/**
+Initializer for the template that contains the list of possible slides to be added.
+@method lessonEditorDocumentReadyNewSlideChoice
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReadyNewSlideChoice() {
+  $body.on(&#x27;click&#x27;, &#x27;._add_new_slide&#x27;, function() {
+    hideNewSlideChoice();
+    var slide = $(&#x27;li._lesson_editor_current_slide&#x27;);
+    slide.prepend(&#x27;&lt;layer class=&quot;_not_current_slide_disabled&quot;&gt;&lt;/layer&gt;&#x27;);
+    var kind = $(this).data(&#x27;kind&#x27;);
+    var lesson_id = $(&#x27;#info_container&#x27;).data(&#x27;lesson-id&#x27;);
+    var slide_id = slide.data(&#x27;slide-id&#x27;);
+    $.ajax({
+      type: &#x27;post&#x27;,
+      url: &#x27;/lessons/&#x27; + lesson_id + &#x27;/slides/&#x27; + slide_id + &#x27;/kind/&#x27; + kind + &#x27;/create/&#x27;
+    });
+  });
+}
+
+/**
+Initializer for the mouseover and mouseout to replace a media element already added.
+@method lessonEditorDocumentReadyReplaceMediaElement
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReadyReplaceMediaElement() {
+  $body.on(&#x27;mouseover&#x27;, &#x27;.slide-content .image.editable .mask&#x27;, function() {
+    if($(this).find(&#x27;.alignable&#x27;).data(&#x27;rolloverable&#x27;)) {
+      $(this).find(&#x27;.add&#x27;).show();
+      $(this).find(&#x27;.inscribe, .deinscribe&#x27;).show();
+    }
+  });
+  $body.on(&#x27;mouseout&#x27;, &#x27;.slide-content .image.editable .mask&#x27;, function() {
+    if($(this).find(&#x27;.alignable&#x27;).data(&#x27;rolloverable&#x27;)) {
+      $(this).find(&#x27;.add&#x27;).hide();
+      $(this).find(&#x27;.inscribe, .deinscribe&#x27;).hide();
+    }
+  });
+  $body.on(&#x27;mouseover&#x27;, &#x27;.slide-content .video.editable .mask video&#x27;, function(e) {
+    var position = $(this).offset();
+    var top = position.top + 59;
+    var right = position.left + 291;
+    var bottom = position.top + 222;
+    var left = position.left + 129;
+    if($(this).width() &gt; 420) {
+      top = position.top + 179;
+      right = position.left + 526;
+      bottom = position.top + 371;
+      left = position.left + 334;
+    }
+    if(left &lt;= e.clientX &amp;&amp; e.clientX &lt;= right &amp;&amp; top &lt;= e.clientY &amp;&amp; e.clientY &lt;= bottom) {
+      return;
+    }
+    var granpa = $(this).parents(&#x27;.mask&#x27;);
+    if(granpa.find(&#x27;.alignable&#x27;).data(&#x27;rolloverable&#x27;)) {
+      granpa.find(&#x27;.add&#x27;).show();
+    }
+  });
+  $body.on(&#x27;mouseout&#x27;, &#x27;.slide-content .video.editable .mask video&#x27;, function(e) {
+    var position = $(this).offset();
+    var top = position.top + 59;
+    var right = position.left + 291;
+    var bottom = position.top + 222;
+    var left = position.left + 129;
+    if($(this).width() &gt; 420) {
+      top = position.top + 179;
+      right = position.left + 526;
+      bottom = position.top + 371;
+      left = position.left + 334;
+    }
+    if(left &lt;= e.clientX &amp;&amp; e.clientX &lt;= right &amp;&amp; top &lt;= e.clientY &amp;&amp; e.clientY &lt;= bottom) {
+      return;
+    }
+    var granpa = $(this).parents(&#x27;.mask&#x27;);
+    if(granpa.find(&#x27;.alignable&#x27;).data(&#x27;rolloverable&#x27;)) {
+      granpa.find(&#x27;.add&#x27;).hide();
+    }
+  });
+}
+
+/**
+Initializer for window resize.
+@method lessonEditorDocumentReadyResize
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReadyResize() {
+  $(&#x27;.lesson-editor-layout ul#slides&#x27;).css(&#x27;margin-top&#x27;, ((($window.height() - 590) / 2) - 40) + &#x27;px&#x27;);
+  $(&#x27;.lesson-editor-layout ul#slides.new&#x27;).css(&#x27;margin-top&#x27;, ((($window.height() - 590) / 2)) + &#x27;px&#x27;);
+  $window.resize(function() {
+    $(&#x27;.lesson-editor-layout ul#slides&#x27;).css(&#x27;margin-top&#x27;, ((($window.height() - 590) / 2) - 40) + &#x27;px&#x27;);
+    $(&#x27;.lesson-editor-layout ul#slides.new&#x27;).css(&#x27;margin-top&#x27;, ((($window.height() - 590) / 2)) + &#x27;px&#x27;);
+    if(parseInt($window.outerWidth()) &gt; 1000) {
+      $(&#x27;ul#slides li:first&#x27;).css(&#x27;margin-left&#x27;, (($window.width() - 900) / 2) + &#x27;px&#x27;);
+      $(&#x27;ul#slides.new li:first&#x27;).css(&#x27;margin-left&#x27;, (($window.width() - 900) / 2) + &#x27;px&#x27;);
+    }
+    $(&#x27;#footer&#x27;).css(&#x27;top&#x27;, ($window.height() - 44) + &#x27;px&#x27;).css(&#x27;width&#x27;, $window.width() + &#x27;px&#x27;);
+    var open_gallery = $(&#x27;.lesson_editor_gallery_container:visible&#x27;);
+    if(open_gallery.length &gt; 0) {
+      centerThis(open_gallery);
+    }
+  });
+}
+
+/**
+Initializer for the buttons on the right side of each slide.
+@method lessonEditorDocumentReadySlideButtons
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReadySlideButtons() {
+  $body.on(&#x27;click&#x27;, &#x27;._hide_add_new_slide_options&#x27;, function() {
+    hideNewSlideChoice();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._save_slide&#x27;, function(e) {
+    saveCurrentSlide(&#x27;&#x27;, false);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._save_slide_and_exit&#x27;, function() {
+    saveCurrentSlide(&#x27;_and_exit&#x27;, true);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._save_slide_and_edit&#x27;, function() {
+    saveCurrentSlide(&#x27;_and_edit&#x27;, true);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._add_new_slide_options&#x27;, function() {
+    if(!$(this).hasClass(&#x27;disabled&#x27;)) {
+      saveCurrentSlide(&#x27;&#x27;, false);
+      showNewSlideOptions();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._delete_slide&#x27;, function() {
+    var title = $captions.data(&#x27;confirm-delete-slide-title&#x27;);
+    var confirm = $captions.data(&#x27;confirm-delete-slide-confirm&#x27;);
+    var yes = $captions.data(&#x27;confirm-delete-slide-yes&#x27;);
+    var no = $captions.data(&#x27;confirm-delete-slide-no&#x27;);
+    showConfirmPopUp(title, confirm, yes, no, function() {
+      closePopUp(&#x27;dialog-confirm&#x27;);
+      stopMediaInCurrentSlide();
+      var slide = $(&#x27;li._lesson_editor_current_slide&#x27;);
+      slide.prepend(&#x27;&lt;layer class=&quot;_not_current_slide_disabled&quot;&gt;&lt;/layer&gt;&#x27;);
+      $.ajax({
+        type: &#x27;post&#x27;,
+        url: &#x27;/lessons/&#x27; + $(&#x27;#info_container&#x27;).data(&#x27;lesson-id&#x27;) + &#x27;/slides/&#x27; + slide.data(&#x27;slide-id&#x27;) + &#x27;/delete&#x27;
+      });
+    }, function() {
+      closePopUp(&#x27;dialog-confirm&#x27;);
+    });
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._attach_document, li._lesson_editor_current_slide .attached_document_internal&#x27;, function() {
+    stopMediaInCurrentSlide();
+    showDocumentGalleryInLessonEditor();
+  });
+}
+
+/**
+Initializer for the scroll and all the actions of the slide navigator (see the class {{#crossLink &quot;LessonEditorSlidesNavigation&quot;}}{{/crossLink}}).
+@method lessonEditorDocumentReadySlidesNavigator
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReadySlidesNavigator() {
+  $body.on(&#x27;mouseover&#x27;, &#x27;#slide-numbers li.navNumbers:not(._add_new_slide_options_in_last_position)&#x27;, function(e) {
+    var tip = $(this);
+    var this_tooltip = tip.children(&#x27;.slide-tooltip&#x27;);
+    if(e.pageX &lt; ($window.width() / 2)) {
+      this_tooltip.show();
+    } else {
+      this_tooltip.addClass(&#x27;slide-tooltip-to-left&#x27;);
+      tip.children(&#x27;.slide-tooltip-to-left&#x27;).show();
+    }
+  });
+  $body.on(&#x27;mouseout&#x27;, &#x27;#slide-numbers li.navNumbers:not(._add_new_slide_options_in_last_position)&#x27;, function(e) {
+    var this_tooltip = $(this).children(&#x27;.slide-tooltip&#x27;);
+    this_tooltip.removeClass(&#x27;slide-tooltip-to-left&#x27;);
+    this_tooltip.hide();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._slide_nav:not(._lesson_editor_current_slide_nav)&#x27;, function(e) {
+    e.preventDefault();
+    stopMediaInCurrentSlide();
+    saveCurrentSlide(&#x27;&#x27;, false);
+    slideTo($(this).data(&#x27;slide-id&#x27;));
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._not_current_slide&#x27;, function(e) {
+    e.preventDefault();
+    saveCurrentSlide(&#x27;&#x27;, false);
+    stopMediaInCurrentSlide();
+    slideTo($(this).parent().data(&#x27;slide-id&#x27;));
+    scrollPaneUpdate(this);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._add_new_slide_options_in_last_position&#x27;, function() {
+    if(!$(this).hasClass(&#x27;disabled&#x27;)) {
+      saveCurrentSlide(&#x27;&#x27;, false);
+      var last_slide_id = $(&quot;#slide-numbers li.navNumbers:last&quot;).find(&#x27;a&#x27;).data(&#x27;slide-id&#x27;);
+      $(&#x27;#nav_list_menu&#x27;).data(&#x27;jsp&#x27;).scrollToPercentX(100, true);
+      if($(&#x27;#slide_in_lesson_editor_&#x27; + last_slide_id).hasClass(&#x27;_lesson_editor_current_slide&#x27;)) {
+        showNewSlideOptions();
+      } else {
+        slideTo(&#x27;&#x27; + last_slide_id, showNewSlideOptions);
+      }
+    }
+  });
+}
+
+/**
+Initializer for the placeholders of text inputs throughout the Lesson Editor.
+@method lessonEditorDocumentReadyTextFields
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReadyTextFields() {
+  $body.on(&#x27;focus&#x27;, &#x27;._lesson_editor_placeholder&#x27;, function() {
+    if($(this).data(&#x27;placeholder&#x27;)) {
+      $(this).val(&#x27;&#x27;);
+      $(this).data(&#x27;placeholder&#x27;, false);
+    }
+  });
+  $body.on(&#x27;focus&#x27;, &#x27;.lessonForm .part2 .title&#x27;, function() {
+    var container = $(this).parents(&#x27;.lessonForm&#x27;);
+    var placeholder = container.find(&#x27;.title_placeholder&#x27;);
+    if(placeholder.val() == &#x27;&#x27;) {
+      $(this).val(&#x27;&#x27;);
+      placeholder.val(&#x27;0&#x27;);
+    }
+  });
+  $body.on(&#x27;focus&#x27;, &#x27;.lessonForm .part2 .description&#x27;, function() {
+    var container = $(this).parents(&#x27;.lessonForm&#x27;);
+    var placeholder = container.find(&#x27;.description_placeholder&#x27;);
+    if(placeholder.val() == &#x27;&#x27;) {
+      $(this).val(&#x27;&#x27;);
+      placeholder.val(&#x27;0&#x27;);
+    }
+  });
+  $body.on(&#x27;keydown&#x27;, &#x27;.lessonForm .part2 .title, .lessonForm .part2 .description&#x27;, function() {
+    $(this).removeClass(&#x27;form_error&#x27;);
+  });
+  $body.on(&#x27;keydown&#x27;, &#x27;.lessonForm .part2 ._tags_container .tags&#x27;, function() {
+    $(this).parents(&#x27;._tags_container&#x27;).removeClass(&#x27;form_error&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.lessonForm .part3 .submit&#x27;, function() {
+    var container = $(this).parents(&#x27;.lessonForm&#x27;);
+    container.find(&#x27;form&#x27;).submit();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.lessonForm .errors_layer&#x27;, function() {
+    var myself = $(this);
+    var container = myself.parents(&#x27;.lessonForm&#x27;);
+    myself.hide();
+    container.find(myself.data(&#x27;focus-selector&#x27;)).trigger(myself.data(&#x27;focus-action&#x27;));
+  });
+  $body.on(&#x27;change&#x27;, &#x27;.lessonForm .part2 #lesson_subject&#x27;, function() {
+    var myself = $(this);
+    if(myself.val() != &#x27;&#x27;) {
+      myself.find(&#x27;.delete_me&#x27;).remove();
+      myself.selectbox(&#x27;detach&#x27;);
+      myself.selectbox();
+    }
+  });
+}
+
+/**
+Initializer for specific media elements or documents uploader inside the Lesson Editor.
+@method lessonEditorDocumentReadyUploaderInGallery
+@for LessonEditorDocumentReady
+**/
+function lessonEditorDocumentReadyUploaderInGallery() {
+  $body.on(&#x27;change&#x27;, &#x27;.loadInGallery .part1 .attachment input.file&#x27;, function() {
+    var container = $(this).parents(&#x27;.loadInGallery&#x27;);
+    var file_name = $(this).val().replace(&quot;C:\\fakepath\\&quot;, &#x27;&#x27;);
+    if(file_name.replace(/^[\s\t]+/, &#x27;&#x27;) != &#x27;&#x27;) {
+      if(file_name.length &gt; 20) {
+        file_name = file_name.substring(0, 20) + &#x27;...&#x27;;
+      }
+      container.find(&#x27;.part1 .attachment .media&#x27;).val(file_name).removeClass(&#x27;form_error&#x27;);
+    } else {
+      container.find(&#x27;.part1 .attachment .media&#x27;).val(container.data(&#x27;placeholder-media&#x27;)).removeClass(&#x27;form_error&#x27;);
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.gallery_upload_container a&#x27;, function() {
+    var myself = $(this);
+    var my_father = myself.parent();
+    var popup = my_father.prev();
+    myself.hide();
+    my_father.next().hide();
+    popup.find(&#x27;.part2 .title_and_description .title&#x27;).val(popup.data(&#x27;placeholder-title&#x27;));
+    popup.find(&#x27;.part2 .title_and_description .description&#x27;).val(popup.data(&#x27;placeholder-description&#x27;));
+    popup.find(&#x27;.part2 .title_and_description .title_placeholder&#x27;).val(&#x27;&#x27;);
+    popup.find(&#x27;.part2 .title_and_description .description_placeholder&#x27;).val(&#x27;&#x27;);
+    popup.find(&#x27;.part2 .tags_loader .tags_value&#x27;).val(&#x27;&#x27;);
+    popup.find(&#x27;.part2 .tags_loader ._tags_container span&#x27;).remove();
+    popup.find(&#x27;.part2 .tags_loader ._tags_container ._placeholder&#x27;).show();
+    popup.find(&#x27;._tags_container .tags&#x27;).show();
+    popup.find(&#x27;.part1 .attachment .media&#x27;).val(popup.data(&#x27;placeholder-media&#x27;));
+    popup.find(&#x27;.part1 .attachment label input&#x27;).val(&#x27;&#x27;);
+    popup.find(&#x27;.form_error&#x27;).removeClass(&#x27;form_error&#x27;);
+    popup.find(&#x27;.errors_layer&#x27;).hide();
+    popup.find(&#x27;.full_folder&#x27;).hide();
+    popup.show();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;a.document_quick_upload_hint&#x27;, function() {
+    var my_father = $(&#x27;#document_gallery&#x27;);
+    var popup = my_father.prev();
+    my_father.hide();
+    popup.find(&#x27;.part2 .title_and_description .title&#x27;).val(popup.data(&#x27;placeholder-title&#x27;));
+    popup.find(&#x27;.part2 .title_and_description .description&#x27;).val(popup.data(&#x27;placeholder-description&#x27;));
+    popup.find(&#x27;.part2 .title_and_description .title_placeholder&#x27;).val(&#x27;&#x27;);
+    popup.find(&#x27;.part2 .title_and_description .description_placeholder&#x27;).val(&#x27;&#x27;);
+    popup.find(&#x27;.part1 .attachment .media&#x27;).val(popup.data(&#x27;placeholder-media&#x27;));
+    popup.find(&#x27;.part1 .attachment label input&#x27;).val(&#x27;&#x27;);
+    popup.find(&#x27;.form_error&#x27;).removeClass(&#x27;form_error&#x27;);
+    popup.find(&#x27;.errors_layer&#x27;).hide();
+    popup.find(&#x27;.full_folder&#x27;).hide();
+    popup.show();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.loadInGallery.stegosauro .part3 .close&#x27;, function() {
+    if(!$(this).hasClass(&#x27;disabled&#x27;)) {
+      var father = $(this).parents(&#x27;.loadInGallery&#x27;);
+      father.hide();
+      father.next().find(&#x27;a&#x27;).show();
+      father.next().next().show();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.loadInGallery.document .part3 .close&#x27;, function() {
+    if(!$(this).hasClass(&#x27;disabled&#x27;)) {
+      var father = $(this).parents(&#x27;.loadInGallery&#x27;);
+      father.hide();
+      father.next().show();
+    }
+  });
+  $body.on(&#x27;focus&#x27;, &#x27;.loadInGallery .part2 .title_and_description .description&#x27;, function() {
+    var placeholder = $(this).parent().find(&#x27;.description_placeholder&#x27;);
+    if(placeholder.val() == &#x27;&#x27;) {
+      $(this).val(&#x27;&#x27;);
+      placeholder.val(&#x27;0&#x27;);
+    }
+  });
+  $body.on(&#x27;focus&#x27;, &#x27;.loadInGallery .part2 .title_and_description .title&#x27;, function() {
+    var placeholder = $(this).parent().find(&#x27;.title_placeholder&#x27;);
+    if(placeholder.val() == &#x27;&#x27;) {
+      $(this).val(&#x27;&#x27;);
+      placeholder.val(&#x27;0&#x27;);
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.loadInGallery .part3 .submit&#x27;, function(e) {
+    if(!$(this).hasClass(&#x27;disabled&#x27;)) {
+      var container = $(this).parents(&#x27;.loadInGallery&#x27;);
+      if(container.attr(&#x27;id&#x27;) == &#x27;load-gallery-document&#x27;) {
+        disableUploadForm(container, $captions.data(&#x27;dont-leave-page-upload-document&#x27;));
+      } else {
+        disableUploadForm(container, $captions.data(&#x27;dont-leave-page-upload-media-element&#x27;));
+      }
+      recursionUploadingBar(container, 0);
+      setTimeout(function() {
+        container.find(&#x27;form&#x27;).submit();
+      }, 1500);
+    } else {
+      e.preventDefault();
+    }
+  });
+  $body.on(&#x27;submit&#x27;, &#x27;.loadInGallery form&#x27;, function() {
+    var container = $(this).parents(&#x27;.loadInGallery&#x27;);
+    document.getElementById($(this).attr(&#x27;id&#x27;)).target = &#x27;upload_target&#x27;;
+    document.getElementById(&#x27;upload_target&#x27;).onload = function() {
+      uploadFileTooLarge(container);
+    }
+  });
+  $body.on(&#x27;keydown&#x27;, &#x27;.loadInGallery .part2 .title, .loadInGallery .part2 .description&#x27;, function() {
+    $(this).removeClass(&#x27;form_error&#x27;);
+  });
+  $body.on(&#x27;keydown&#x27;, &#x27;.loadInGallery .part2 .tags&#x27;, function() {
+    $(this).parent().removeClass(&#x27;form_error&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.loadInGallery .errors_layer&#x27;, function() {
+    var myself = $(this);
+    var container = myself.parents(&#x27;.loadInGallery&#x27;);
+    if(!myself.hasClass(&#x27;media&#x27;)) {
+      myself.hide();
+      container.find(myself.data(&#x27;focus-selector&#x27;)).trigger(myself.data(&#x27;focus-action&#x27;));
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.loadInGallery .part1 .attachment label&#x27;, function() {
+    $(&#x27;.loadInGallery .errors_layer.media&#x27;).hide();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.loadInGallery .full_folder .back_to_gallery&#x27;, function() {
+    var father = $(this).parents(&#x27;.loadInGallery&#x27;);
+    father.find(&#x27;.part3 .close&#x27;).click();
+    father.find(&#x27;form&#x27;).show();
+    father.find(&#x27;·full_folder&#x27;).hide();
+  });
+}
+
+
+
+
+
+/**
+Save current slide. It sends tinyMCE editor content to form data to be serialized, it handles form placeholders.
+@method saveCurrentSlide
+@for LessonEditorForms
+@param action_suffix {String} action suffix to be appended after &#x27;save&#x27; (it can be &#x27;save_and_edit&#x27; or &#x27;save_and_exit&#x27;, or just &#x27;save&#x27;, see also {{#crossLink &quot;LessonEditorDocumentReady/lessonEditorDocumentReadySlideButtons:merthod&quot;}}{{/crossLink}})
+@param with_loader {Boolean} if true shows the loader while calling ajax
+**/
+function saveCurrentSlide(action_suffix, with_loader) {
+  tinyMCE.triggerSave();
+  var temporary = [];
+  var temp_counter = 0;
+  var current_slide = $(&#x27;._lesson_editor_current_slide&#x27;);
+  var current_slide_form = current_slide.find(&#x27;form&#x27;);
+  var math_inputs_class = &#x27;_math_image&#x27;;
+  var editor = tinyMCE.get( &#x27;ta-&#x27; + current_slide.data(&#x27;slideId&#x27;) );
+  if (editor) {
+    current_slide_form.find(&#x27;.&#x27; + math_inputs_class).remove();
+    $(editor.getBody()).find(&#x27;img.Wirisformula&#x27;).each(function(i, el) {
+      var formula = UrlParser.parse( $(el).attr(&#x27;src&#x27;) ).searchObj.formula;
+      var input = $( &#x27;&lt;input type=&quot;hidden&quot; name=&quot;math_images[]&quot; /&gt;&#x27;, { &#x27;class&#x27;: math_inputs_class } ).val( formula );
+      current_slide_form.append(input);
+    });
+  }
+  current_slide.find(&#x27;._lesson_editor_placeholder&#x27;).each(function() {
+    if($(this).data(&#x27;placeholder&#x27;)) {
+      temporary[temp_counter] = $(this).val();
+      temp_counter++;
+      $(this).val(&#x27;&#x27;);
+    }
+  });
+  if(with_loader) {
+    $.ajax({
+       type: &#x27;post&#x27;,
+      url: current_slide_form.attr(&#x27;action&#x27;) + action_suffix,
+       timeout: 5000,
+      data: current_slide_form.serialize()
+     });
+  } else {
+    unbindLoader();
+    $.ajax({
+      type: &#x27;post&#x27;,
+      url: current_slide_form.attr(&#x27;action&#x27;) + action_suffix,
+      timeout: 5000,
+      data: current_slide_form.serialize()
+    }).always(bindLoader);
+  }
+  temp_counter = 0;
+  current_slide.find(&#x27;._lesson_editor_placeholder&#x27;).each(function() {
+    if($(this).data(&#x27;placeholder&#x27;)) {
+      $(this).val(temporary[temp_counter]);
+      temp_counter++;
+    }
+  });
+}
+
+
+
+
+
+/**
+Hides the small popup containing the description of a document inside the document gallery.
+@method hidePopuppina
+@for LessonEditorGalleries
+@param id {String} HTML id of the document
+**/
+function hidePopuppina(id) {
+  $(&#x27;#&#x27; + id + &#x27; .popuppina, #&#x27; + id + &#x27; .popuppina-tri&#x27;).hide();
+}
+
+/**
+Loads the documents from the slide to the gallery.
+@method loadDocumentGalleryContent
+@for LessonEditorGalleries
+@param slide_id {Number} the id of the slide
+**/
+function loadDocumentGalleryContent(slide_id) {
+  $(&#x27;#inputs_for_documents&#x27;).html($(&#x27;#slide_in_lesson_editor_&#x27; + slide_id + &#x27; .inputs_for_documents&#x27;).html());
+  for(var i = 1; i &lt; 4; i++) {
+    var doc = $(&#x27;#document_&#x27; + i + &#x27;_attached_in_slide_&#x27; + slide_id);
+    if(doc.length &gt; 0) {
+      $(&#x27;#document_&#x27; + i + &#x27;_attached&#x27;).html(doc.html()).removeClass(&#x27;not_full&#x27;);
+    } else {
+      $(&#x27;#document_&#x27; + i + &#x27;_attached&#x27;).html($(&#x27;#document_&#x27; + i + &#x27;_attached_empty&#x27;).html()).addClass(&#x27;not_full&#x27;);
+    }
+  }
+}
+
+/**
+Loads the specific gallery for documents relative to a slide. The gallery is supposed to have already been loaded previously, by {{#crossLink &quot;LessonEditorGalleries/showDocumentGalleryInLessonEditor:method&quot;}}{{/crossLink}}
+@method loadDocumentGalleryForSlideInLessonEditor
+@for LessonEditorGalleries
+@param slide_id {Number} the id of the slide
+**/
+function loadDocumentGalleryForSlideInLessonEditor(slide_id) {
+  loadDocumentGalleryContent(slide_id);
+  updateEffectsInsideDocumentGallery();
+  $(&#x27;#lesson_editor_document_gallery_container&#x27;).data(&#x27;slide-id&#x27;, slide_id);
+}
+
+/**
+Handles correct uploading process in the Lesson Editor (correct in the sense that the file is not too large and could correctly be received by the web server).
+@method reloadGalleryInLessonEditor
+@for LessonEditorGalleries
+@param selector {String} HTML selector for the specific uploader (audio, video, image or document)
+@param type {String} &#x27;image&#x27;, &#x27;audio&#x27;, &#x27;video&#x27;, or &#x27;document&#x27;
+@param gallery {String} the HTML content to be replaced into the gallery, if the uploading was successful
+@param pages {Number} number of pages of the newly loaded gallery
+@param count {Number} number of elements inside the gallery
+@param item_id {Number} id of the newly loaded item (used only for documents)
+**/
+function reloadGalleryInLessonEditor(selector, type, gallery, pages, count, item_id) {
+  var container = $(selector);
+  if(type != &#x27;audio&#x27; &amp;&amp; type != &#x27;document&#x27;) {
+    var dialogs_selector = (type == &#x27;image&#x27;) ? &#x27;.imageInGalleryPopUp&#x27; : &#x27;.videoInGalleryPopUp&#x27;
+    $(dialogs_selector).each(function() {
+      if($(this).hasClass(&#x27;ui-dialog-content&#x27;)) {
+        $(this).dialog(&#x27;destroy&#x27;);
+      }
+    });
+  }
+  var gallery_scrollable = (type == &#x27;document&#x27;) ? $(&#x27;.for-scroll-pain&#x27;) : $(&#x27;#&#x27; + type + &#x27;_gallery_content &gt; div&#x27;);
+  if(gallery_scrollable.data(&#x27;jsp&#x27;) != undefined) {
+    gallery_scrollable.data(&#x27;jsp&#x27;).destroy();
+  }
+  var container = $(&#x27;#lesson_editor_&#x27; + type + &#x27;_gallery_container&#x27;);
+  container.data(&#x27;page&#x27;, 1);
+  container.data(&#x27;tot-pages&#x27;, pages);
+  if(type == &#x27;document&#x27;) {
+    container.find(&#x27;#document_gallery .documentsExternal&#x27;).replaceWith(gallery);
+    $(&#x27;#document_gallery_filter&#x27;).val(&#x27;&#x27;);
+    if(count &gt; 6) {
+      initializeDocumentGalleryInLessonEditor();
+    }
+    container.find(&#x27;#document_gallery&#x27;).data(&#x27;empty&#x27;, false)
+    $(&#x27;#gallery_document_&#x27; + item_id + &#x27; .add_remove&#x27;).click();
+  } else {
+    container.find(&#x27;#&#x27; + type + &#x27;_gallery&#x27;).replaceWith(gallery);
+    $(&#x27;._close_&#x27; + type + &#x27;_gallery&#x27;).addClass(&#x27;_close_&#x27; + type + &#x27;_gallery_in_lesson_editor&#x27;);
+    $(&#x27;._select_&#x27; + type + &#x27;_from_gallery&#x27;).addClass(&#x27;_add_&#x27; + type + &#x27;_to_slide&#x27;);
+    if(type == &#x27;audio&#x27;) {
+      if(count &gt; 6) {
+        initializeAudioGalleryInLessonEditor();
+      } else {
+        $(&#x27;.audio_gallery .scroll-pane&#x27;).css(&#x27;overflow&#x27;, &#x27;hidden&#x27;);
+      }
+    }
+    if(type == &#x27;image&#x27;) {
+      if(count &gt; 21) {
+        initializeImageGalleryInLessonEditor();
+      } else {
+        $(&#x27;.image_gallery .scroll-pane&#x27;).css(&#x27;overflow&#x27;, &#x27;hidden&#x27;);
+      }
+    }
+    if(type == &#x27;video&#x27;) {
+      if(count &gt; 6) {
+        initializeVideoGalleryInLessonEditor();
+      } else {
+        $(&#x27;.video_gallery .scroll-pane&#x27;).css(&#x27;overflow&#x27;, &#x27;hidden&#x27;);
+      }
+    }
+  }
+  container.find(&#x27;.part3 .close&#x27;).click();
+  container.find(&#x27;.loading-square&#x27;).hide();
+}
+
+/**
+Hides media gallery for selected type.
+@method removeGalleryInLessonEditor
+@for LessonEditorGalleries
+@param sti_type {String} gallery type
+**/
+function removeGalleryInLessonEditor(sti_type) {
+  $(&#x27;#lesson_editor_&#x27; + sti_type + &#x27;_gallery_container&#x27;).hide();
+  $(&#x27;li._lesson_editor_current_slide .slide-content&#x27;).children().show();
+  showEverythingOutCurrentSlide();
+}
+
+/**
+Resets the filter of documents in the gallery.
+@method resetDocumentGalleryFilter
+@for LessonEditorGalleries
+@param callback {Function} to be called after ajax
+@param otherwise {Function} to be called if there is no filter to reset
+**/
+function resetDocumentGalleryFilter(callback, otherwise) {
+  var input = $(&#x27;#lesson_editor_document_gallery_container #document_gallery_filter&#x27;);
+  if(input.val() != &#x27;&#x27;) {
+    input.val(&#x27;&#x27;);
+    input.data(&#x27;letters&#x27;, 0);
+    $.ajax({
+      type: &#x27;get&#x27;,
+      url: &#x27;/lessons/galleries/document/filter?word=&#x27;,
+      complete: function() {
+        if(callback != undefined) {
+          callback();
+        }
+      }
+    });
+  } else {
+    if(callback != undefined) {
+      callback();
+    }
+    if(otherwise != undefined) {
+      otherwise();
+    }
+  }
+}
+
+/**
+Shows document gallery.
+@method showDocumentGalleryInLessonEditor
+@for LessonEditorGalleries
+**/
+function showDocumentGalleryInLessonEditor() {
+  var current_slide = $(&#x27;li._lesson_editor_current_slide&#x27;);
+  current_slide.prepend(&#x27;&lt;layer class=&quot;_not_current_slide_disabled&quot;&gt;&lt;/layer&gt;&#x27;);
+  hideEverythingOutCurrentSlide();
+  var gallery_container = $(&#x27;#lesson_editor_document_gallery_container&#x27;);
+  if(gallery_container.data(&#x27;loaded&#x27;)) {
+    if(gallery_container.data(&#x27;slide-id&#x27;) != current_slide.data(&#x27;slide-id&#x27;)) {
+      var slide_id = current_slide.data(&#x27;slide-id&#x27;);
+      loadDocumentGalleryContent(slide_id);
+      $(&#x27;#lesson_editor_document_gallery_container&#x27;).data(&#x27;slide-id&#x27;, slide_id);
+      resetDocumentGalleryFilter(function() {
+        gallery_container.show();
+        centerThis(gallery_container);
+        $(&#x27;li._lesson_editor_current_slide .slide-content&#x27;).children().hide();
+        current_slide.find(&#x27;layer&#x27;).remove();
+      }, updateEffectsInsideDocumentGallery);
+    } else {
+      resetDocumentGalleryFilter(function() {
+        gallery_container.show();
+        centerThis(gallery_container);
+        $(&#x27;li._lesson_editor_current_slide .slide-content&#x27;).children().hide();
+        current_slide.find(&#x27;layer&#x27;).remove();
+      });
+    }
+  } else {
+    $.ajax({
+      type: &#x27;get&#x27;,
+      url: &#x27;/lessons/galleries/document&#x27;
+    });
+  }
+}
+
+/**
+Shows media gallery for selected type.
+@method showGalleryInLessonEditor
+@for LessonEditorGalleries
+@param obj {String} HTML selector for the button that opens the gallery (used to extract the position of the current slide)
+@param sty_type {String} gallery type
+**/
+function showGalleryInLessonEditor(obj, sti_type) {
+  $(&#x27;#info_container&#x27;).data(&#x27;current-media-element-position&#x27;, $(obj).data(&#x27;position&#x27;));
+  var current_slide = $(&#x27;li._lesson_editor_current_slide&#x27;);
+  current_slide.prepend(&#x27;&lt;layer class=&quot;_not_current_slide_disabled&quot;&gt;&lt;/layer&gt;&#x27;);
+  hideEverythingOutCurrentSlide();
+  var gallery_container = $(&#x27;#lesson_editor_&#x27; + sti_type + &#x27;_gallery_container&#x27;);
+  if(gallery_container.data(&#x27;loaded&#x27;)) {
+    gallery_container.show();
+    centerThis(gallery_container);
+    $(&#x27;li._lesson_editor_current_slide .slide-content&#x27;).children().hide();
+    current_slide.find(&#x27;layer&#x27;).remove();
+  } else {
+    $.ajax({
+      type: &#x27;get&#x27;,
+      url: &#x27;/lessons/galleries/&#x27; + sti_type
+    });
+  }
+}
+
+/**
+Shows the small popup containing the description of a document inside the document gallery.
+@method showPopuppina
+@for LessonEditorGalleries
+@param id {String} HTML id of the document
+**/
+function showPopuppina(id) {
+  var container = $(&#x27;#lesson_editor_document_gallery_container&#x27;);
+  var parent = $(&#x27;#&#x27; + id);
+  var offset = parent.position();
+  var document = parent.find(&#x27;.documentInGallery&#x27;);
+  var popuppina = document.find(&#x27;.popuppina&#x27;);
+  var triangolo = document.find(&#x27;.popuppina-tri&#x27;);
+  if(parent.hasClass(&#x27;document_attached&#x27;)) {
+    popuppina.css(&#x27;top&#x27;, ((offset.top + 44) + &#x27;px&#x27;)).show(&#x27;fade&#x27;, {}, 300);
+    triangolo.css(&#x27;-webkit-transform&#x27;, (&#x27;rotate(180deg)&#x27;));
+    triangolo.css(&#x27;-moz-transform&#x27;, (&#x27;rotate(180deg)&#x27;));
+    triangolo.css(&#x27;-o-transform&#x27;, (&#x27;rotate(180deg)&#x27;));
+    triangolo.css(&#x27;-ms-transform&#x27;, (&#x27;rotate(180deg)&#x27;));
+    triangolo.css(&#x27;top&#x27;, ((offset.top + 34) + &#x27;px&#x27;)).css(&#x27;left&#x27;, ((offset.left + 24) + &#x27;px&#x27;)).show(&#x27;fade&#x27;, {}, 300);
+  } else {
+    var top_distance = offset.top;
+    if(container.find(&#x27;.for-scroll-pain&#x27;).hasClass(&#x27;jspScrollable&#x27;)) {
+      top_distance -= container.find(&#x27;.for-scroll-pain&#x27;).data(&#x27;jsp&#x27;).getContentPositionY();
+    } else {
+      top_distance -= 205.75;
+    }
+    if(top_distance &lt; (popuppina.height() + 5)) {
+      var to_top = 5;
+      if(parent.prev().length == 0) {
+        to_top = 0;
+      }
+      popuppina.css(&#x27;top&#x27;, ((offset.top + 44 + to_top) + &#x27;px&#x27;)).show(&#x27;fade&#x27;, {}, 300);
+      triangolo.css(&#x27;-webkit-transform&#x27;, (&#x27;rotate(180deg)&#x27;));
+      triangolo.css(&#x27;-moz-transform&#x27;, (&#x27;rotate(180deg)&#x27;));
+      triangolo.css(&#x27;-o-transform&#x27;, (&#x27;rotate(180deg)&#x27;));
+      triangolo.css(&#x27;-ms-transform&#x27;, (&#x27;rotate(180deg)&#x27;));
+      triangolo.css(&#x27;top&#x27;, ((offset.top + 34 + to_top) + &#x27;px&#x27;)).css(&#x27;left&#x27;, ((offset.left + 24) + &#x27;px&#x27;)).show(&#x27;fade&#x27;, {}, 300);
+    } else {
+      popuppina.css(&#x27;top&#x27;, ((offset.top - popuppina.height() - 5) + &#x27;px&#x27;)).show(&#x27;fade&#x27;, {}, 300);
+      triangolo.css(&#x27;-webkit-transform&#x27;, (&#x27;rotate(0deg)&#x27;));
+      triangolo.css(&#x27;-moz-transform&#x27;, (&#x27;rotate(0deg)&#x27;));
+      triangolo.css(&#x27;-o-transform&#x27;, (&#x27;rotate(0deg)&#x27;));
+      triangolo.css(&#x27;-ms-transform&#x27;, (&#x27;rotate(0deg)&#x27;));
+      triangolo.css(&#x27;top&#x27;, ((offset.top + 5) + &#x27;px&#x27;)).css(&#x27;left&#x27;, ((offset.left + 24) + &#x27;px&#x27;)).show(&#x27;fade&#x27;, {}, 300);
+    }
+  }
+}
+
+/**
+Unloads the documents to the slide.
+@method unLoadDocumentGalleryContent
+@for LessonEditorGalleries
+@param slide_id {Number} the id of the slide
+**/
+function unLoadDocumentGalleryContent(slide_id) {
+  $(&#x27;#slide_in_lesson_editor_&#x27; + slide_id + &#x27; .inputs_for_documents&#x27;).html($(&#x27;#inputs_for_documents&#x27;).html());
+  $(&#x27;#document_1_attached_in_slide_&#x27; + slide_id + &#x27;, #document_2_attached_in_slide_&#x27; + slide_id + &#x27;, #document_3_attached_in_slide_&#x27; + slide_id).remove();
+  for(var i = 1; i &lt; 4; i++) {
+    var doc = $(&#x27;#document_&#x27; + i + &#x27;_attached&#x27;);
+    if(!doc.hasClass(&#x27;not_full&#x27;)) {
+      var new_content = &#x27;&lt;div id=&quot;document_&#x27; + i + &#x27;_attached_in_slide_&#x27; + slide_id + &#x27;&quot;&gt;&#x27; + doc.html() + &#x27;&lt;/div&gt;&#x27;;
+      $(&#x27;#slide_in_lesson_editor_&#x27; + slide_id + &#x27; .hidden_html_for_documents&#x27;).append(new_content)
+    }
+  }
+}
+
+/**
+Updates the faded documents and the gallery is locked if three documents are loaded.
+@method updateEffectsInsideDocumentGallery
+@for LessonEditorGalleries
+**/
+function updateEffectsInsideDocumentGallery() {
+  var inputs = $(&#x27;#inputs_for_documents input&#x27;);
+  var ids = new Array();
+  inputs.each(function() {
+    ids.push($(this).val());
+  });
+  $(&#x27;.documentsExternal .documentInGallery.disabled&#x27;).removeClass(&#x27;disabled&#x27;);
+  for(var i = 0; i &lt; ids.length; i++) {
+    $(&#x27;#gallery_document_&#x27; + ids[i] + &#x27; .documentInGallery&#x27;).addClass(&#x27;disabled&#x27;);
+  }
+  if(!$(&#x27;#lesson_editor_document_gallery_container #document_gallery&#x27;).data(&#x27;empty&#x27;)) {
+    if(inputs.length == 3) {
+      $(&#x27;.documentsExternal .for-scroll-pain&#x27;).hide();
+      $(&#x27;.documentsExternal #empty_document_gallery&#x27;).show();
+      $(&#x27;.documentsFooter .triangolo, .documentsFooter .footerLeft&#x27;).hide();
+    } else {
+      $(&#x27;.documentsExternal .for-scroll-pain&#x27;).show();
+      $(&#x27;.documentsExternal #empty_document_gallery&#x27;).hide();
+      $(&#x27;.documentsFooter .triangolo, .documentsFooter .footerLeft&#x27;).show();
+    }
+  }
+  var container = $(&#x27;#lesson_editor_document_gallery_container&#x27;);
+  $(&#x27;.document_attached .documentInGallery .add_remove&#x27;).attr(&#x27;title&#x27;, container.data(&#x27;title-remove&#x27;));
+  $(&#x27;.documentInGalleryExternal .documentInGallery:not(.disabled) .add_remove&#x27;).attr(&#x27;title&#x27;, container.data(&#x27;title-add&#x27;));
+  $(&#x27;.documentInGalleryExternal .documentInGallery.disabled .add_remove&#x27;).attr(&#x27;title&#x27;, &#x27;&#x27;);
+}
+
+
+
+
+
+/**
+Returns the width of the image space for the kind of slide.
+@method getHorizontalStandardSizeOfSlideImage
+@for LessonEditorImageResizing
+@param kind {String} type image into slide, accepts values: cover, image1, image2, image3, image4
+@return {Number} width of the image space for this kind of slide
+**/
+function getHorizontalStandardSizeOfSlideImage(kind) {
+  switch(kind) {
+    case &#x27;cover&#x27;: slideWidth = 900;
+    break;
+    case &#x27;image1&#x27;: slideWidth = 420;
+    break;
+    case &#x27;image2&#x27;: slideWidth = 420;
+    break;
+    case &#x27;image3&#x27;: slideWidth = 860;
+    break;
+    case &#x27;image4&#x27;: slideWidth = 420;
+    break;
+    default: slideWidth = 900;
+  }
+  return slideWidth;
+}
+
+/**
+Returns the height of the image space for the kind of slide.
+@method getVerticalStandardSizeOfSlideImage
+@for LessonEditorImageResizing
+@param kind {String} type image into slide, accepts values: cover, image1, image2, image3, image4
+@return {Number} height of the image space for this kind of slide
+**/
+function getVerticalStandardSizeOfSlideImage(kind) {
+  switch(kind) {
+    case &#x27;cover&#x27;: slideHeight = 560;
+    break;
+    case &#x27;image1&#x27;: slideHeight = 420;
+    break;
+    case &#x27;image2&#x27;: slideHeight = 550;
+    break;
+    case &#x27;image3&#x27;: slideHeight = 550;
+    break;
+    case &#x27;image4&#x27;: slideHeight = 265;
+    break;
+    default: slideHeight = 590;
+  }
+  return slideHeight;
+}
+
+/**
+Check if image ratio is bigger then kind ratio.
+@method isHorizontalMask
+@for LessonEditorImageResizing
+@param width {Number} width of the image
+@param height {Number} height of the image
+@param kind {String} type image into slide, accepts values: cover, image1, image2, image3, image4
+@return {Boolean} true if the image is horizontal, false if vertical
+**/
+function isHorizontalMask(width, height, kind) {
+  var ratio = width / height;
+  var slideRatio = 0;
+  switch(kind) {
+    case &#x27;cover&#x27;: slideRatio = 1.6;
+    break;
+    case &#x27;image1&#x27;: slideRatio = 1;
+    break;
+    case &#x27;image2&#x27;: slideRatio = 0.75;
+    break;
+    case &#x27;image3&#x27;: slideRatio = 1.55;
+    break;
+    case &#x27;image4&#x27;: slideRatio = 1.55;
+    break;
+    default: slideRatio = 1.5;
+  }
+  return (ratio &gt;= slideRatio);
+}
+
+/**
+Gets scaled height to slide images.
+@method resizeHeight
+@for LessonEditorImageResizing
+@param image_width {Number} width of the image
+@param image_height {Number} height of the image
+@param kind {String} type image into slide, accepts values: cover, image1, image2, image3, image4
+@return {Number} scaled height
+**/
+function resizeHeight(width, height, kind) {
+  return parseInt((height * getHorizontalStandardSizeOfSlideImage(kind)) / width) + 1;
+}
+
+/**
+Gets scaled width to slide images.
+@method resizeWidth
+@for LessonEditorImageResizing
+@param width {Number} width of the image
+@param height {Number} height of the image
+@param kind {String} type image into slide, accepts values: cover, image1, image2, image3, image4
+@return {Number} scaled width
+**/
+function resizeWidth(width, height, kind) {
+  return parseInt((width * getVerticalStandardSizeOfSlideImage(kind)) / height) + 1;
+}
+
+
+
+
+
+/**
+Inizializes jQueryUI &lt;b&gt;sortable&lt;/b&gt; function on top navigation numbers, so that they can be sorted (see also {{#crossLink &quot;LessonEditorDocumentReady/lessonEditorDocumentReadySlidesNavigator:method&quot;}}{{/crossLink}} and {{#crossLink &quot;LessonEditorSlidesNavigation&quot;}}{{/crossLink}}).
+@method initializeSortableNavs
+@for LessonEditorJqueryAnimations
+**/
+function initializeSortableNavs() {
+  $(&#x27;#heading, #heading .scroll-pane&#x27;).css(&#x27;width&#x27;, (parseInt($window.outerWidth()) - 50) + &#x27;px&#x27;);
+  var slides_numbers = $(&#x27;#slide-numbers&#x27;);
+  var slides_amount = slides_numbers.find(&#x27;li.navNumbers&#x27;).length;
+  slides_numbers.css(&#x27;width&#x27;, &#x27;&#x27; + ((parseInt(slides_amount + 1) * 32) - 28) + &#x27;px&#x27;);
+  var add_last_button = $(&#x27;._add_new_slide_options_in_last_position&#x27;);
+  if(parseInt(slides_numbers.css(&#x27;width&#x27;)) &lt; (parseInt($window.outerWidth()) - 100)) {
+    add_last_button.css(&#x27;left&#x27;, &#x27;&#x27; + (slides_numbers.find(&#x27;li.navNumbers&#x27;).last().position().left + 40) + &#x27;px&#x27;);
+  }
+  slides_numbers.sortable({
+    items: &#x27;._slide_nav_sortable&#x27;,
+    axis: &#x27;x&#x27;,
+    stop: function(event, ui) {
+      var previous = ui.item.prev();
+      var new_position = 0;
+      var old_position = parseInt(ui.item.find(&#x27;a._slide_nav&#x27;).html());
+      if(parseInt(previous.find(&#x27;a._slide_nav&#x27;).html()) == 1) {
+        new_position = 2;
+      } else {
+        var previous_item_position = parseInt(previous.find(&#x27;a._slide_nav&#x27;).html());
+        if(old_position &gt; previous_item_position) {
+          new_position = previous_item_position + 1;
+        } else {
+          new_position = previous_item_position;
+        }
+      }
+      saveCurrentSlide(&#x27;&#x27;, false);
+      if(old_position != new_position) {
+        stopMediaInCurrentSlide();
+        $.ajax({
+          type: &#x27;post&#x27;,
+          url: &#x27;/lessons/&#x27; + $(&#x27;#info_container&#x27;).data(&#x27;lesson-id&#x27;) + &#x27;/slides/&#x27; + ui.item.find(&#x27;a._slide_nav&#x27;).data(&#x27;slide-id&#x27;) + &#x27;/move/&#x27; + new_position
+        });
+      } else {
+        slideTo(ui.item.find(&#x27;a._slide_nav&#x27;).data(&#x27;slide-id&#x27;));
+      }
+    }
+  });
+}
+
+/**
+Method that deinscribes the image.
+@method lessonEditorDeinscribeImage
+@for LessonEditorJqueryAnimations
+@param place_id {String} HTML id for the container to make draggable
+**/
+function lessonEditorDeinscribeImage(place_id) {
+  var place = $(&#x27;#&#x27; + place_id);
+  var full_place = place.find(&#x27;.mask&#x27;);
+  var alignable = full_place.find(&#x27;.alignable&#x27;);
+  var image = alignable.find(&#x27;img&#x27;);
+  var kind = $(&#x27;li._lesson_editor_current_slide&#x27;).data(&#x27;kind&#x27;);
+  if(!full_place.is(&#x27;:visible&#x27;) || kind == &#x27;cover&#x27;) {
+    return;
+  }
+  $(&#x27;#&#x27; + place_id + &#x27; .inscribed&#x27;).val(&#x27;false&#x27;);
+  var new_title = $(&#x27;#&#x27; + place_id + &#x27; .deinscribe&#x27;).data(&#x27;inscribe-title&#x27;);
+  $(&#x27;#&#x27; + place_id + &#x27; .deinscribe&#x27;).attr(&#x27;title&#x27;, new_title).removeClass(&#x27;deinscribe&#x27;).addClass(&#x27;inscribe&#x27;);
+  var align_val;
+  var this_align_side;
+  var other_align_side;
+  var orientation_val;
+  if(full_place.hasClass(&#x27;vertical&#x27;)) {
+    orientation_val = resizeHeight(place.data(&#x27;width&#x27;), place.data(&#x27;height&#x27;), kind);
+    align_val = (getVerticalStandardSizeOfSlideImage(kind) - orientation_val) / 2;
+    this_align_side = &#x27;top&#x27;;
+    other_align_side = &#x27;left&#x27;;
+    image.removeAttr(&#x27;width&#x27;).attr(&#x27;height&#x27;, orientation_val);
+  } else {
+    orientation_val = resizeWidth(place.data(&#x27;width&#x27;), place.data(&#x27;height&#x27;), kind);
+    align_val = (getHorizontalStandardSizeOfSlideImage(kind) - orientation_val) / 2;
+    this_align_side = &#x27;left&#x27;;
+    other_align_side = &#x27;top&#x27;;
+    image.removeAttr(&#x27;height&#x27;).attr(&#x27;width&#x27;, orientation_val);
+  }
+  alignable.css(this_align_side, align_val).css(other_align_side, 0);
+  $(&#x27;#&#x27; + place_id + &#x27; .align&#x27;).val(align_val);
+  alignable.draggable(&#x27;destroy&#x27;);
+  makeDraggable(place_id);
+}
+
+/**
+Method that inscribes the image.
+@method lessonEditorInscribeImage
+@for LessonEditorJqueryAnimations
+@param place_id {String} HTML id for the container to make draggable
+**/
+function lessonEditorInscribeImage(place_id) {
+  var place = $(&#x27;#&#x27; + place_id);
+  var full_place = place.find(&#x27;.mask&#x27;);
+  var alignable = full_place.find(&#x27;.alignable&#x27;);
+  var image = alignable.find(&#x27;img&#x27;);
+  var kind = $(&#x27;li._lesson_editor_current_slide&#x27;).data(&#x27;kind&#x27;);
+  if(!full_place.is(&#x27;:visible&#x27;) || kind == &#x27;cover&#x27;) {
+    return;
+  }
+  $(&#x27;#&#x27; + place_id + &#x27; .inscribed&#x27;).val(&#x27;true&#x27;);
+  var new_title = $(&#x27;#&#x27; + place_id + &#x27; .inscribe&#x27;).data(&#x27;deinscribe-title&#x27;);
+  $(&#x27;#&#x27; + place_id + &#x27; .inscribe&#x27;).attr(&#x27;title&#x27;, new_title).removeClass(&#x27;inscribe&#x27;).addClass(&#x27;deinscribe&#x27;);
+  var align_val;
+  var this_align_side;
+  var other_align_side;
+  var orientation_val;
+  if(full_place.hasClass(&#x27;vertical&#x27;)) {
+    orientation_val = resizeWidth(place.data(&#x27;width&#x27;), place.data(&#x27;height&#x27;), kind);
+    align_val = (getHorizontalStandardSizeOfSlideImage(kind) - orientation_val) / 2;
+    this_align_side = &#x27;left&#x27;;
+    other_align_side = &#x27;top&#x27;;
+    image.removeAttr(&#x27;height&#x27;).attr(&#x27;width&#x27;, orientation_val);
+  } else {
+    orientation_val = resizeHeight(place.data(&#x27;width&#x27;), place.data(&#x27;height&#x27;), kind);
+    align_val = (getVerticalStandardSizeOfSlideImage(kind) - orientation_val) / 2;
+    this_align_side = &#x27;top&#x27;;
+    other_align_side = &#x27;left&#x27;;
+    image.removeAttr(&#x27;width&#x27;).attr(&#x27;height&#x27;, orientation_val);
+  }
+  alignable.css(this_align_side, align_val).css(other_align_side, 0);
+  $(&#x27;#&#x27; + place_id + &#x27; .align&#x27;).val(align_val);
+  alignable.draggable(&#x27;destroy&#x27;);
+  makeDraggable(place_id);
+}
+
+/**
+Inizializes jQueryUI &lt;b&gt;draggable&lt;/b&gt; function on slide image containers.
+@method makeDraggable
+@for LessonEditorJqueryAnimations
+@param place_id {String} HTML id for the container to make draggable
+**/
+function makeDraggable(place_id) {
+  var full_place = $(&#x27;#&#x27; + place_id + &#x27; .mask&#x27;);
+  if(!full_place.is(&#x27;:visible&#x27;)) {
+    return;
+  }
+  var image = $(&#x27;#&#x27; + place_id + &#x27; .mask img&#x27;);
+  var inscribed = (full_place.find(&#x27;.deinscribe&#x27;).length &gt; 0);
+  var side;
+  var limit_max;
+  var limit_min;
+  if(full_place.hasClass(&#x27;vertical&#x27;)) {
+    if(inscribed) {
+      side = &#x27;left&#x27;;
+      limit_min = 0;
+      limit_max = full_place.width() - image.width();
+    } else {
+      side = &#x27;top&#x27;;
+      limit_min = full_place.height() - image.height();
+      limit_max = 0;
+    }
+  } else {
+    if(inscribed) {
+      side = &#x27;top&#x27;;
+      limit_min = 0;
+      limit_max = full_place.height() - image.height();
+    } else {
+      side = &#x27;left&#x27;;
+      limit_min = full_place.width() - image.width();
+      limit_max = 0;
+    }
+  }
+  $(&#x27;#&#x27; + place_id + &#x27; .mask .alignable&#x27;).draggable({
+    axis: ((side == &#x27;top&#x27;) ? &#x27;y&#x27; : &#x27;x&#x27;),
+    cursor: &#x27;move&#x27;,
+    start: function() {
+      $(&#x27;#&#x27; + place_id + &#x27; .mask img&#x27;).css(&#x27;cursor&#x27;, &#x27;move&#x27;);
+      $(&#x27;#&#x27; + place_id + &#x27; .alignable&#x27;).data(&#x27;rolloverable&#x27;, false);
+      $(&#x27;#&#x27; + place_id + &#x27; span&#x27;).hide();
+    },
+    stop: function() {
+      $(&#x27;#&#x27; + place_id + &#x27; .mask img&#x27;).css(&#x27;cursor&#x27;, &#x27;url(https://mail.google.com/mail/images/2/openhand.cur), move&#x27;);
+      $(&#x27;#&#x27; + place_id + &#x27; .alignable&#x27;).data(&#x27;rolloverable&#x27;, true);
+      $(&#x27;#&#x27; + place_id + &#x27; span&#x27;).show();
+      var myself = $(this);
+      var offset;
+      if(side == &#x27;top&#x27;) {
+        offset = myself.position().top;
+        if(offset &lt; limit_min) {
+          offset = limit_min;
+          myself.animate({
+            top: limit_min
+          }, 100);
+        }
+        if(offset &gt; limit_max) {
+          offset = limit_max;
+          myself.animate({
+            top: limit_max
+          }, 100);
+        }
+      } else {
+        offset = myself.position().left;
+        if(offset &lt; limit_min) {
+          offset = limit_min;
+          myself.animate({
+            left: limit_min
+          }, 100);
+        }
+        if(offset &gt; limit_max) {
+          offset = limit_max;
+          myself.animate({
+            left: limit_max
+          }, 100);
+        }
+      }
+      $(&#x27;#&#x27; + place_id + &#x27; .align&#x27;).val(offset);
+    }
+  });
+}
+
+
+
+
+
+/**
+Asynchronously loads current slide, previous and following.
+@method loadSlideAndAdhiacentInLessonEditor
+@for LessonEditorSlideLoading
+@param slide_id {Number} id in the database of the current slide, used to extract the HTML id
+**/
+function loadSlideAndAdhiacentInLessonEditor(slide_id) {
+  var slide = $(&#x27;#slide_in_lesson_editor_&#x27; + slide_id);
+  loadSlideInLessonEditor(slide);
+  loadSlideInLessonEditor(slide.prev());
+  loadSlideInLessonEditor(slide.next());
+}
+
+/**
+Asynchronous slide loading. It checks if the slide has been loaded or not.
+@method loadSlideInLessonEditor
+@for LessonEditorSlideLoading
+@param slide {Object} slide to be loaded
+**/
+function loadSlideInLessonEditor(slide) {
+  if(slide.length &gt; 0 &amp;&amp; !slide.data(&#x27;loaded&#x27;)) {
+    $.ajax({
+      type: &#x27;get&#x27;,
+      url: &#x27;/lessons/&#x27; + $(&#x27;#info_container&#x27;).data(&#x27;lesson-id&#x27;) + &#x27;/slides/&#x27; + slide.data(&#x27;slide-id&#x27;) + &#x27;/load&#x27;
+    });
+  }
+}
+
+
+
+
+
+/**
+Initialize slides position to center.
+@method initLessonEditorPositions
+@for LessonEditorSlidesNavigation
+**/
+function initLessonEditorPositions() {
+  var outer_width = parseInt($window.outerWidth());
+  var outer_height = parseInt($window.outerHeight());
+  $(&#x27;#main&#x27;).css(&#x27;width&#x27;, outer_width);
+  $(&#x27;ul#slides&#x27;).css(&#x27;width&#x27;, (($(&#x27;ul#slides li&#x27;).length + 2) * 1000));
+  $(&#x27;ul#slides&#x27;).css(&#x27;top&#x27;, ((outer_height / 2) - 295) + &#x27;px&#x27;);
+  $(&#x27;ul#slides.new&#x27;).css(&#x27;top&#x27;, ((outer_height / 2) - 335) + &#x27;px&#x27;);
+  $(&#x27;#footer&#x27;).css(&#x27;top&#x27;, (outer_height - 44) + &#x27;px&#x27;).css(&#x27;width&#x27;, outer_width + &#x27;px&#x27;);
+  if(outer_width &gt; 1000) {
+    $(&#x27;ul#slides li:first&#x27;).css(&#x27;margin-left&#x27;, ((outer_width - 900) / 2) + &#x27;px&#x27;);
+    $(&#x27;ul#slides.new li:first&#x27;).css(&#x27;margin-left&#x27;, ((outer_width - 900) / 2) + &#x27;px&#x27;);
+  }
+}
+
+/**
+Re-initialize slides position to center after ajax events.
+@method reInitializeSlidePositionsInLessonEditor
+@for LessonEditorSlidesNavigation
+**/
+function reInitializeSlidePositionsInLessonEditor() {
+  $(&#x27;ul#slides&#x27;).css(&#x27;width&#x27;, (($(&#x27;ul#slides li&#x27;).length + 2) * 1000));
+  $(&#x27;ul#slides li&#x27;).each(function(index){
+    $(this).data(&#x27;position&#x27;, (index + 1));
+  });
+}
+
+/**
+Scrolls navigation scrollPane ({{#crossLink &quot;LessonEditorSlidesNavigation&quot;}}{{/crossLink}}) when moving to another slide.
+@method scrollPaneUpdate
+@for LessonEditorSlidesNavigation
+@param trigger_element {String} HTML selector for the element which triggers the scroll
+@return {Boolean} false, probably to stop further actions
+**/
+function scrollPaneUpdate(trigger_element) {
+  var not_current = $(trigger_element);
+  if($(&#x27;.slides.active&#x27;).data(&#x27;position&#x27;) &lt; not_current.parent(&#x27;li&#x27;).data(&#x27;position&#x27;)) {
+    $(&#x27;#nav_list_menu&#x27;).data(&#x27;jsp&#x27;).scrollByX(30);
+  } else {
+    $(&#x27;#nav_list_menu&#x27;).data(&#x27;jsp&#x27;).scrollByX(-30);
+  }
+  return false;
+}
+
+/**
+Moves to a slide, update current slide in top navigation.
+@method slideTo
+@for LessonEditorSlidesNavigation
+@param slide_id {Number} id in the database of the slide, used to extract the HTML id
+@param callback {Object} callback function, to be executed after the slide (for instance, this function is used to call {{#crossLink &quot;LessonEditorCurrentSlide/showNewSlideOptions:method&quot;}}{{/crossLink}})
+**/
+function slideTo(slide_id, callback) {
+  var tiny_tool = $(&#x27;#ta-&#x27; + $(&#x27;li._lesson_editor_current_slide&#x27;).data(&#x27;slide-id&#x27;) + &#x27;_external&#x27;);
+  if(tiny_tool.length &gt; 0) {
+    tiny_tool.hide();
+  }
+  loadSlideAndAdhiacentInLessonEditor(slide_id);
+  var slide = $(&#x27;#slide_in_lesson_editor_&#x27; + slide_id);
+  var position = slide.data(&#x27;position&#x27;);
+  if (position == 1) {
+    marginReset = 0;
+  } else {
+    marginReset = (-((position - 1) * 1010)) + &#x27;px&#x27;;
+  }
+  $(&#x27;ul#slides&#x27;).animate({
+    marginLeft: marginReset
+  }, 1500, function() {
+    if(typeof(callback) != &#x27;undefined&#x27;) {
+      callback();
+    }
+  });
+  $(&#x27;ul#slides li&#x27;).animate({
+    opacity: 0.4,
+  }, 150, function() {
+    $(this).find(&#x27;.buttons&#x27;).fadeOut();
+    if($(this).find(&#x27;layer&#x27;).length == 0) {
+      $(this).prepend(&#x27;&lt;layer class=&quot;_not_current_slide&quot;&gt;&lt;/layer&gt;&#x27;);
+    } else {
+      if($(this).find(&#x27;layer._not_current_slide_disabled&#x27;).length &gt; 0) {
+        $(this).find(&#x27;layer._not_current_slide_disabled&#x27;).removeClass(&#x27;_not_current_slide_disabled&#x27;).addClass(&#x27;_not_current_slide&#x27;);
+      }
+    }
+    $(&#x27;a._lesson_editor_current_slide_nav&#x27;).removeClass(&#x27;_lesson_editor_current_slide_nav active&#x27;);
+    $(&#x27;#slide_in_nav_lesson_editor_&#x27; + slide_id).addClass(&#x27;_lesson_editor_current_slide_nav active&#x27;);
+  });
+  $(&#x27;ul#slides li:eq(&#x27; + (position - 1) + &#x27;)&#x27;).animate({
+    opacity: 1,
+  }, 500, function() {
+    $(this).find(&#x27;.buttons&#x27;).fadeIn();
+    $(this).find(&#x27;layer&#x27;).remove();
+    $(&#x27;li._lesson_editor_current_slide&#x27;).removeClass(&#x27;_lesson_editor_current_slide active&#x27;);
+    $(&#x27;#slide_in_lesson_editor_&#x27; + slide_id).addClass(&#x27;_lesson_editor_current_slide active&#x27;);
+  });
+}
+
+
+
+
+
+/**
+TinyMCE callback to clean spans containing classes for font size: these classes are attached to the first ol, ul, p
+@method cleanTinyMCESpanTagsFontSize
+@for LessonEditorTinyMCE
+@param editor {Object} tinyMCE instance
+**/
+function cleanTinyMCESpanTagsFontSize(editor) {
+  var spans = $(editor.getBody()).find(&#x27;span.size1, span.size2, span.size3, span.size4, span.size5, span.size6&#x27;);
+  var sizes = [&#x27;size1&#x27;, &#x27;size2&#x27;, &#x27;size3&#x27;, &#x27;size4&#x27;, &#x27;size5&#x27;, &#x27;size6&#x27;];
+  var sizes_class = sizes.join(&#x27; &#x27;);
+  if(spans.length &gt; 0) {
+    spans.each(function() {
+      var my_sizes = $(this).attr(&#x27;class&#x27;).split(&#x27; &#x27;).filter(function(i) {
+        return sizes.indexOf(i) &gt; -1;
+      }).join(&#x27; &#x27;);
+      $(this).removeClass(my_sizes);
+      $(this).parents(&#x27;.mceContentBody ul, .mceContentBody ol, .mceContentBody p&#x27;).removeClass(sizes_class).addClass(my_sizes);
+    });
+  }
+}
+
+/**
+Initialize tinyMCE editor for a single textarea.
+@method initTinymce
+@for LessonEditorTinyMCE
+@param tiny_id {String} HTML id of the tinyMCE textarea
+**/
+function initTinymce(tiny_id) {
+  var plugins = &#x27;pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,&#x27;;
+  plugins += &#x27;insertdatetime,preview,media,searchreplace,print,paste,directionality,fullscreen,&#x27;;
+  plugins += &#x27;noneditable,visualchars,nonbreaking,xhtmlxtras,template,tiny_mce_wiris&#x27;;
+  var buttons = &#x27;fontsizeselect,forecolor,justifyleft,justifycenter,justifyright,justifyfull,&#x27;;
+  buttons += &#x27;bold,italic,underline,numlist,bullist,link,unlink,charmap,tiny_mce_wiris_formulaEditor&#x27;;
+  tinyMCE.init({
+    mode: &#x27;exact&#x27;,
+    elements: tiny_id,
+    element_format: &#x27;xhtml&#x27;,
+    theme: &#x27;advanced&#x27;,
+    editor_selector: &#x27;tinymce&#x27;,
+    skin: &#x27;desy&#x27;,
+    plugins: plugins,
+    custom_shortcuts: false,
+    paste_preprocess: function(pl, o) {
+      o.content = stripTagsForCutAndPaste(o.content, &#x27;&#x27;);
+    },
+    theme_advanced_buttons1: buttons,
+    theme_advanced_toolbar_location: &#x27;external&#x27;,
+    theme_advanced_toolbar_align: &#x27;left&#x27;,
+    theme_advanced_statusbar_location: false,
+    theme_advanced_resizing: true,
+    theme_advanced_font_sizes: &#x27;13px=.size1,17px=.size2,21px=.size3,25px=.size4,29px=.size5,35px=.size6&#x27;,
+    setup: function(ed) {
+      ed.onInit.add(function(ed, e) {
+        $(&#x27;#&#x27; + tiny_id + &#x27;_ifr&#x27;).attr(&#x27;scrolling&#x27;, &#x27;no&#x27;);
+      });
+      ed.onNodeChange.add(function(ed, cm, e) {
+        cleanTinyMCESpanTagsFontSize(ed);
+        $(ed.getBody()).find(&#x27;a&#x27;).addClass(&#x27;target_blank_mce&#x27;);
+      });
+      ed.onKeyUp.add(function(ed, e) {
+        handleTinyMCEOveflow(ed, tiny_id);
+      });
+      ed.onClick.add(function(ed, e) {
+        var textarea = $(&#x27;#&#x27; + tiny_id);
+        if(textarea.data(&#x27;placeholder&#x27;)) {
+          ed.setContent(&#x27;&#x27;);
+          textarea.data(&#x27;placeholder&#x27;, false);
+        }
+      });
+    }
+  });
+}
+
+/**
+TinyMCE callback to show warning when texearea content exceeds the available space. Adds a red border to the textarea.This function is used in tinyMCE setup ({{#crossLink &quot;LessonEditorTinyMCE/initTinymce:method&quot;}}{{/crossLink}}).
+@method handleTinyMCEOveflow
+@for LessonEditorTinyMCE
+@param inst {Object} tinyMCE instance
+@param tiny_id {Number} HTML id of the tinyMCE textarea
+**/
+function handleTinyMCEOveflow(inst, tiny_id) {
+  var maxH = 420;
+  if($(&#x27;textarea#&#x27; + tiny_id).parents(&#x27;.slide-content.audio&#x27;).length &gt; 0) {
+    maxH = 329;
+  }
+  if(inst.getBody().scrollHeight &gt; maxH) {
+    $(&#x27;#&#x27; + tiny_id + &#x27;_tbl&#x27;).css(&#x27;border-left&#x27;, &#x27;1px solid red&#x27;).css(&#x27;border-right&#x27;, &#x27;1px solid red&#x27;);
+    $(&#x27;#&#x27; + tiny_id + &#x27;_tbl tr.mceFirst td&#x27;).css(&#x27;border-top&#x27;, &#x27;1px solid red&#x27;);
+    $(&#x27;#&#x27; + tiny_id + &#x27;_tbl tr.mceLast td&#x27;).css(&#x27;border-bottom&#x27;, &#x27;1px solid red&#x27;);
+  } else {
+    $(&#x27;#&#x27; + tiny_id + &#x27;_tbl&#x27;).css(&#x27;border-left&#x27;, &#x27;1px solid #EFEFEF&#x27;).css(&#x27;border-right&#x27;, &#x27;1px solid #EFEFEF&#x27;);
+    $(&#x27;#&#x27; + tiny_id + &#x27;_tbl tr.mceFirst td&#x27;).css(&#x27;border-top&#x27;, &#x27;1px solid #EFEFEF&#x27;);
+    $(&#x27;#&#x27; + tiny_id + &#x27;_tbl tr.mceLast td&#x27;).css(&#x27;border-bottom&#x27;, &#x27;1px solid #EFEFEF&#x27;);
+  }
+}
+
+/**
+Function to strip tags in a text pasted inside TinyMCE.
+@method stripTagsForCutAndPaste
+@for LessonEditorTinyMCE
+@param str {String} string to be stripped
+@param allowed_tags {Array} allowed HTML tags
+**/
+function stripTagsForCutAndPaste(str, allowed_tags) {
+  var key = &#x27;&#x27;, allowed = false;
+  var matches = [];
+  var allowed_array = [];
+  var allowed_tag = &#x27;&#x27;;
+  var i = 0;
+  var k = &#x27;&#x27;;
+  var html = &#x27;&#x27;;
+  var replacer = function (search, replace, str) {
+    return str.split(search).join(replace);
+  };
+  if (allowed_tags) {
+    allowed_array = allowed_tags.match(/([a-zA-Z0-9]+)/gi);
+  }
+  str += &#x27;&#x27;;
+  matches = str.match(/(&lt;\/?[\S][^&gt;]*&gt;)/gi);
+  for(key in matches) {
+    if(isNaN(key)) {
+      continue;
+    }
+    html = matches[key].toString();
+    allowed = false;
+    for(k in allowed_array) {
+      allowed_tag = allowed_array[k];
+      i = -1;
+      if(i != 0) {
+        i = html.toLowerCase().indexOf(&#x27;&lt;&#x27; + allowed_tag + &#x27;&gt;&#x27;);
+      }
+      if(i != 0) {
+        i = html.toLowerCase().indexOf(&#x27;&lt;&#x27; + allowed_tag + &#x27; &#x27;);
+      }
+      if(i != 0) {
+        i = html.toLowerCase().indexOf(&#x27;&lt;/&#x27; + allowed_tag);
+      }
+      if(i == 0) {
+        allowed = true;
+        break;
+      }
+    }
+    if(!allowed) {
+      str = replacer(html, &#x27;&#x27;, str);
+    }
+  }
+  return str;
+}
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

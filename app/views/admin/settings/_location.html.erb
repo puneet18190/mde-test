@@ -1,0 +1,25 @@
+<% l = location %>
+<tr id="admin_location_<%= l.id %>" class="<%= selected ? 'on' : 'off' %>">
+  <td>
+    <%= l.id %>
+  </td>
+  <td>
+    <input class="name_write" type="text" style="display:none" value="<%= l.name %>"/>
+    <span class="name_readonly"><%= l.name %></span>
+  </td>
+  <td>
+    <input class="code_write" type="text" style="display:none" value="<%= l.code %>"/>
+    <span class="code_readonly"><%= l.code.present? ? l.code : 'null' %></span>
+  </td>
+  <td>
+    <a class="edit_admin_location" data-location-id="<%= l.id %>">
+      <%= t('admin.settings.locations.edit') %>
+    </a>
+    <a class="edit_admin_location_done" data-location-id="<%= l.id %>" style="display:none">
+      <%= t('admin.settings.locations.update') %>
+    </a>
+  </td>
+  <td>
+    <%= link_to t('admin.settings.locations.expand'), "/admin/settings/locations?selected=#{l.id}" %>
+  </td>
+</tr>

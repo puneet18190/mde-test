@@ -1,0 +1,1001 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdminSearchForm</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            AdminSearchForm 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/admin_search_form_rb.html">app/models/admin_search_form.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-AdminSearchForm-label-Description">Description</h3>
+
+<p>This class contains the list of search methods used in the administrator.
+Unlike the methods used in the application&#39;s search engine (see <a
+href="User.html#method-i-search_lessons">User#search_lessons</a>, <a
+href="User.html#method-i-search_media_elements">User#search_media_elements</a>),
+these search methods are not optimized and indicized.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-search_documents">search_documents</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-search_lessons">search_lessons</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-search_media_elements">search_media_elements</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-search_notifications_users">search_notifications_users</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-search_purchases">search_purchases</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-search_tags">search_tags</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-search_users">search_users</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">RECENCIES</td>
+            <td>=</td>
+            <td class="attr-value">[1.day, 1.week, 1.month, 1.year]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>List of possible values for the parameter &#39;recency&#39;</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">ORDERINGS</td>
+            <td>=</td>
+            <td class="attr-value">{
+:media_elements =&gt; [
+&#39;media_elements.id %{ord}&#39;,
+&#39;media_elements.title %{ord}&#39;,
+&#39;media_elements.sti_type %{ord}&#39;,
+&#39;users.surname %{ord}, users.name %{ord}&#39;,
+&#39;media_elements.created_at %{ord}&#39;,
+&#39;media_elements.updated_at %{ord}&#39;,
+&#39;media_elements.is_public %{ord}&#39;
+],
+:lessons =&gt; [
+&#39;lessons.id %{ord}&#39;,
+&#39;lessons.title %{ord}&#39;,
+&#39;subjects.description %{ord}&#39;,
+&#39;users.surname %{ord}, users.name %{ord}&#39;,
+&#39;lessons.created_at %{ord}&#39;,
+&#39;lessons.updated_at %{ord}&#39;
+],
+:users =&gt; [
+&#39;users.id %{ord}&#39;,
+&#39;users.email %{ord}&#39;,
+&#39;users.name %{ord}&#39;,
+&#39;users.surname %{ord}&#39;,
+&#39;school_levels.description %{ord}&#39;,
+&#39;locations.name %{ord}&#39;,
+&#39;locations.ancestry %{ord}&#39;,
+&#39;users.created_at %{ord}&#39;
+],
+:tags =&gt; [
+&#39;id %{ord}&#39;,
+&#39;word %{ord}&#39;,
+&#39;created_at %{ord}&#39;,
+&#39;lessons_count %{ord}&#39;,
+&#39;media_elements_count %{ord}&#39;
+],
+:documents =&gt; [
+&#39;documents.id %{ord}&#39;,
+&#39;documents.title %{ord}&#39;,
+&#39;users.surname %{ord}, users.name %{ord}&#39;,
+&#39;documents.created_at %{ord}&#39;,
+&#39;documents.updated_at %{ord}&#39;
+],
+:purchases =&gt; [
+&#39;id %{ord}&#39;,
+&#39;name %{ord}&#39;,
+&#39;responsible %{ord}&#39;,
+&#39;email %{ord}&#39;,
+&#39;ssn_code %{ord}&#39;,
+&#39;vat_code %{ord}&#39;,
+&#39;postal_code %{ord}&#39;,
+&#39;city %{ord}&#39;,
+&#39;country %{ord}&#39;,
+&#39;accounts_number %{ord}&#39;,
+&#39;release_date %{ord}&#39;,
+&#39;start_date %{ord}&#39;,
+&#39;expiration_date %{ord}&#39;
+]
+}</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Hash of possible orderings, one for each method.</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-search_documents">
+            
+              <b>search_documents</b>(params)
+            
+            <a href="../classes/AdminSearchForm.html#method-c-search_documents" name="method-c-search_documents" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-search_documents-label-Description">Description</h3>
+
+<p>Search for documents: used in <a
+href="Admin/DocumentsController.html">Admin::DocumentsController</a></p>
+
+<h3 id="method-c-search_documents-label-Args">Args</h3>
+<ul><li>
+<p><em>params</em>: url subparams, under the scope of the keyword
+&#39;search&#39;: the options are</p>
+</li><li>
+<p><code>id</code>: if present the methods filters by id</p>
+</li><li>
+<p><code>title</code>: if present the methods filters by title</p>
+</li><li>
+<p><code>date_range_field</code>: if present, it specifies which date field is
+used to filter by date (<code>created_at</code> or <code>updated_at</code>)</p>
+</li><li>
+<p><code>from</code>: if the parameter <code>date_range_field</code> is
+present, this parameter specifies the left border of the date range</p>
+</li><li>
+<p><code>to</code>: if the parameter <code>date_range_field</code> is present,
+this parameter specifies the right border of the date range</p>
+</li><li>
+<p><code>user</code>: if present the methods filters by user name (the keyword
+is matched against <code>name</code>, <code>surname</code> and
+<code>email</code>)</p>
+</li><li>
+<p><code>location_id</code>: if present the methods filters by location of the
+user (see settings.yml for the possible names of this parameter)</p>
+</li><li>
+<p><code>ordering</code>: if present the methods sorts the results: the
+content of this parameter is a code, used to extract the required ordering
+from the constant <a href="AdminSearchForm.html#ORDERINGS">ORDERINGS</a></p>
+</li><li>
+<p><code>desc</code>: for default the ordering is <code>ASC</code>, if this
+parameter is present it&#39;s turned to <code>DESC</code></p>
+</li></ul>
+
+<h3 id="method-c-search_documents-label-Returns">Returns</h3>
+
+<p>An array, not paginated yet, of records of type <a
+href="Document.html">Document</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-search_documents_source')" id="l_method-c-search_documents_source">show</a>
+                
+              </p>
+              <div id="method-c-search_documents_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/admin_search_form.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">search_documents</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-constant">Document</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;documents.*, users.name AS users_name, users.surname AS users_surname&#39;</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:user</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:documents</span>][<span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">to_i</span>]
+    <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:documents</span>][<span class="ruby-number">0</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:desc</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;true&#39;</span>
+      <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;DESC&#39;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;ASC&#39;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">order</span>(<span class="ruby-identifier">ord</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:documents</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]}) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;title ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:title]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:date_range_field</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:from</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:to</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">date_range</span> = (<span class="ruby-constant">Date</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:from</span>], <span class="ruby-string">&#39;%d-%m-%Y&#39;</span>).<span class="ruby-identifier">beginning_of_day</span>)<span class="ruby-operator">..</span>(<span class="ruby-constant">Date</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:to</span>], <span class="ruby-string">&#39;%d-%m-%Y&#39;</span>).<span class="ruby-identifier">end_of_day</span>)
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:documents</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:&quot;#{params[:date_range_field]}&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date_range</span>})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;users.name ILIKE ? OR users.surname ILIKE ? OR email ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">get_from_chain_params</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">depth</span> <span class="ruby-operator">==</span> <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;location_types&#39;</span>].<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:users</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:location_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">id</span>})
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:user</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:location</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">ancestry</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;ancestry LIKE ? OR ancestry = ?&#39;</span>, <span class="ruby-node">&quot;#{location.ancestry_with_me}%&quot;</span>, <span class="ruby-identifier">location</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;ancestry LIKE ?&#39;</span>, <span class="ruby-node">&quot;#{location.ancestry_with_me}%&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-search_lessons">
+            
+              <b>search_lessons</b>(params)
+            
+            <a href="../classes/AdminSearchForm.html#method-c-search_lessons" name="method-c-search_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-search_lessons-label-Description">Description</h3>
+
+<p>Search for lessons: used in <a
+href="Admin/LessonsController.html">Admin::LessonsController</a></p>
+
+<h3 id="method-c-search_lessons-label-Args">Args</h3>
+<ul><li>
+<p><em>params</em>: url subparams, under the scope of the keyword
+&#39;search&#39;: the options are</p>
+</li><li>
+<p><code>id</code>: if present the methods filters by id</p>
+</li><li>
+<p><code>title</code>: if present the methods filters by title</p>
+</li><li>
+<p><code>subject_id</code>: if present the methods filters by subject</p>
+</li><li>
+<p><code>date_range_field</code>: if present, it specifies which date field is
+used to filter by date (<code>created_at</code> or <code>updated_at</code>)</p>
+</li><li>
+<p><code>from</code>: if the parameter <code>date_range_field</code> is
+present, this parameter specifies the left border of the date range</p>
+</li><li>
+<p><code>to</code>: if the parameter <code>date_range_field</code> is present,
+this parameter specifies the right border of the date range</p>
+</li><li>
+<p><code>user</code>: if present the methods filters by user name (the keyword
+is matched against <code>name</code>, <code>surname</code> and
+<code>email</code>)</p>
+</li><li>
+<p><code>location_id</code>: if present the methods filters by location of the
+user (see settings.yml for the possible names of this parameter)</p>
+</li><li>
+<p><code>ordering</code>: if present the methods sorts the results: the
+content of this parameter is a code, used to extract the required ordering
+from the constant <a href="AdminSearchForm.html#ORDERINGS">ORDERINGS</a></p>
+</li><li>
+<p><code>desc</code>: for default the ordering is <code>ASC</code>, if this
+parameter is present it&#39;s turned to <code>DESC</code></p>
+</li></ul>
+
+<h3 id="method-c-search_lessons-label-Returns">Returns</h3>
+
+<p>An array, not paginated yet, of records of type <a
+href="Lesson.html">Lesson</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-search_lessons_source')" id="l_method-c-search_lessons_source">show</a>
+                
+              </p>
+              <div id="method-c-search_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/admin_search_form.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">search_lessons</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-constant">Lesson</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;lessons.*, (SELECT COUNT (*) FROM likes WHERE likes.lesson_id = lessons.id) AS likes_count&#39;</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:user</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:lessons</span>][<span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">to_i</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-number">6</span>
+      <span class="ruby-identifier">desc</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:desc</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;true&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;DESC&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;ASC&#39;</span>
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">order</span>(<span class="ruby-node">&quot;likes_count #{desc}&quot;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-number">2</span>
+        <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:subject</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:lessons</span>][<span class="ruby-number">0</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:desc</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;true&#39;</span>
+        <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;DESC&#39;</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;ASC&#39;</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">order</span>(<span class="ruby-identifier">ord</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:lessons</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]}) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;title ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:title]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:subject_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:subject_id</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:subject_id</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:date_range_field</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:from</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:to</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">date_range</span> = (<span class="ruby-constant">Date</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:from</span>], <span class="ruby-string">&#39;%d-%m-%Y&#39;</span>).<span class="ruby-identifier">beginning_of_day</span>)<span class="ruby-operator">..</span>(<span class="ruby-constant">Date</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:to</span>], <span class="ruby-string">&#39;%d-%m-%Y&#39;</span>).<span class="ruby-identifier">end_of_day</span>)
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:lessons</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:&quot;#{params[:date_range_field]}&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date_range</span>})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;users.name ILIKE ? OR users.surname ILIKE ? OR email ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">get_from_chain_params</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">depth</span> <span class="ruby-operator">==</span> <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;location_types&#39;</span>].<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:users</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:location_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">id</span>})
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:user</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:location</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">ancestry</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;ancestry LIKE ? OR ancestry = ?&#39;</span>, <span class="ruby-node">&quot;#{location.ancestry_with_me}%&quot;</span>, <span class="ruby-identifier">location</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;ancestry LIKE ?&#39;</span>, <span class="ruby-node">&quot;#{location.ancestry_with_me}%&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-search_media_elements">
+            
+              <b>search_media_elements</b>(params)
+            
+            <a href="../classes/AdminSearchForm.html#method-c-search_media_elements" name="method-c-search_media_elements" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-search_media_elements-label-Description">Description</h3>
+
+<p>Search for media elements: used in <a
+href="Admin/MediaElementsController.html">Admin::MediaElementsController</a></p>
+
+<h3 id="method-c-search_media_elements-label-Args">Args</h3>
+<ul><li>
+<p><em>params</em>: url subparams, under the scope of the keyword
+&#39;search&#39;: the options are</p>
+</li><li>
+<p><code>id</code>: if present the methods filters by id</p>
+</li><li>
+<p><code>title</code>: if present the methods filters by title</p>
+</li><li>
+<p><code>sti_type</code>: if present the methods filters by media type (audio,
+image or video)</p>
+</li><li>
+<p><code>date_range_field</code>: if present, it specifies which date field is
+used to filter by date (<code>created_at</code> or <code>updated_at</code>)</p>
+</li><li>
+<p><code>from</code>: if the parameter <code>date_range_field</code> is
+present, this parameter specifies the left border of the date range</p>
+</li><li>
+<p><code>to</code>: if the parameter <code>date_range_field</code> is present,
+this parameter specifies the right border of the date range</p>
+</li><li>
+<p><code>user</code>: if present the methods filters by user name (the keyword
+is matched against <code>name</code>, <code>surname</code> and
+<code>email</code>)</p>
+</li><li>
+<p><code>location_id</code>: if present the methods filters by location of the
+user (see settings.yml for the possible names of this parameter)</p>
+</li><li>
+<p><code>ordering</code>: if present the methods sorts the results: the
+content of this parameter is a code, used to extract the required ordering
+from the constant <a href="AdminSearchForm.html#ORDERINGS">ORDERINGS</a></p>
+</li><li>
+<p><code>desc</code>: for default the ordering is <code>ASC</code>, if this
+parameter is present it&#39;s turned to <code>DESC</code></p>
+</li></ul>
+
+<h3 id="method-c-search_media_elements-label-Returns">Returns</h3>
+
+<p>An array, not paginated yet, of records of type <a
+href="MediaElement.html">MediaElement</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-search_media_elements_source')" id="l_method-c-search_media_elements_source">show</a>
+                
+              </p>
+              <div id="method-c-search_media_elements_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/admin_search_form.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">search_media_elements</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:converted</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:media_elements</span>][<span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">to_i</span>]
+    <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:media_elements</span>][<span class="ruby-number">0</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:desc</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;true&#39;</span>
+      <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;DESC&#39;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;ASC&#39;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">order</span>(<span class="ruby-identifier">ord</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:media_elements</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]}) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;title ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:title]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:sti_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:sti_type</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:sti_type</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:date_range_field</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:from</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:to</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">date_range</span> = (<span class="ruby-constant">Date</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:from</span>], <span class="ruby-string">&#39;%d-%m-%Y&#39;</span>).<span class="ruby-identifier">beginning_of_day</span>)<span class="ruby-operator">..</span>(<span class="ruby-constant">Date</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:to</span>], <span class="ruby-string">&#39;%d-%m-%Y&#39;</span>).<span class="ruby-identifier">end_of_day</span>)
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:media_elements</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:&quot;#{params[:date_range_field]}&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date_range</span>})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">with_joins</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;location_types&#39;</span>].<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">downcase</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">with_joins</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">type</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">type</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">with_joins</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:user</span>)
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;users.name ILIKE ? OR users.surname ILIKE ? OR email ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">get_from_chain_params</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">depth</span> <span class="ruby-operator">==</span> <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;location_types&#39;</span>].<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>
+        <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:users</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:location_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">id</span>})
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:user</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:location</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">ancestry</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;ancestry LIKE ? OR ancestry = ?&#39;</span>, <span class="ruby-node">&quot;#{location.ancestry_with_me}%&quot;</span>, <span class="ruby-identifier">location</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;ancestry LIKE ?&#39;</span>, <span class="ruby-node">&quot;#{location.ancestry_with_me}%&quot;</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-search_notifications_users">
+            
+              <b>search_notifications_users</b>(params, count_only=false)
+            
+            <a href="../classes/AdminSearchForm.html#method-c-search_notifications_users" name="method-c-search_notifications_users" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-search_notifications_users-label-Description">Description</h3>
+
+<p>Search for users who are going to receive a massive notification: this
+method is used to update asynchronously the form to send a massive
+notification from the administrator. Used in <a
+href="Admin/MessagesController.html">Admin::MessagesController</a></p>
+
+<h3 id="method-c-search_notifications_users-label-Args">Args</h3>
+<ul><li>
+<p><em>params</em>: url subparams, under the scope of the keyword
+&#39;search&#39;: the options are</p>
+</li><li>
+<p><code>id</code>: if present the methods filters by id</p>
+</li><li>
+<p><code>user</code>: if present the keyword is matched against
+<code>name</code>, <code>surname</code> and <code>email</code> and the
+result is filtered</p>
+</li><li>
+<p><code>school_level_id</code>: if present the methods filters by
+school_level</p>
+</li><li>
+<p><code>recency</code>: if present, it filters by <code>created_at</code>
+greater than one year ago, one month ago, a week ago, or a day ago</p>
+</li><li>
+<p><code>subject_id</code>: if present, the method filters by subject_id,
+using the relation <a href="UsersSubject.html">UsersSubject</a></p>
+</li><li>
+<p><code>location_id</code>: if present the methods filters by location of the
+user (see settings.yml for the possible names of this parameter)</p>
+</li><li>
+<p><code>user_ids</code>: list of users added manually to the list of
+recipients</p>
+</li><li>
+<p><em>count_only</em>: if set to <code>true</code>, the method returns only
+the number of users; if not otherwise specified, it&#39;s set to
+<code>false</code></p>
+</li></ul>
+
+<h3 id="method-c-search_notifications_users-label-Returns">Returns</h3>
+
+<p>Depending on the value of <code>count_only</code>, either the number of
+records found, or a not paginated array of records of kind <a
+href="User.html">User</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-search_notifications_users_source')" id="l_method-c-search_notifications_users_source">show</a>
+                
+              </p>
+              <div id="method-c-search_notifications_users_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/admin_search_form.rb, line 429</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">search_notifications_users</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">count_only</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">scoped</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:school_level_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:school_level_id</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:school_level_id</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;users.created_at &gt;= ?&#39;</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:recency</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:recency</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">with_locations</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;location_types&#39;</span>].<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">downcase</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">with_locations</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">type</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">type</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">with_locations</span>
+    <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">get_from_chain_params</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">depth</span> <span class="ruby-operator">==</span> <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;location_types&#39;</span>].<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>
+        <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:users</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:location_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">id</span>})
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">ancestry</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;ancestry LIKE ? OR ancestry = ?&#39;</span>, <span class="ruby-node">&quot;#{location.ancestry_with_me}%&quot;</span>, <span class="ruby-identifier">location</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;ancestry LIKE ?&#39;</span>, <span class="ruby-node">&quot;#{location.ancestry_with_me}%&quot;</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:subject_id</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:users_subjects</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:subject_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:subject_id</span>]})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:users_ids</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>([<span class="ruby-identifier">resp</span>.<span class="ruby-identifier">wheres</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_sql</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; AND &#39;</span>), <span class="ruby-node">&quot;users.id IN (#{params[:users_ids]})&quot;</span>].<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">present?</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; OR &#39;</span>) )
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:location</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">wheres</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:users_ids</span>].<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">empty</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:subject_id</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:users_subjects</span>).<span class="ruby-identifier">group</span>(<span class="ruby-string">&#39;users.id&#39;</span>)
+    <span class="ruby-identifier">count_resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">count</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">count_resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">count_only</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">empty</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-number">0</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">count_resp</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">empty</span>
+      <span class="ruby-keyword">return</span> []
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">resp</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-search_purchases">
+            
+              <b>search_purchases</b>(params)
+            
+            <a href="../classes/AdminSearchForm.html#method-c-search_purchases" name="method-c-search_purchases" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-search_purchases-label-Description">Description</h3>
+
+<p>Search for purchases: used in <a
+href="Admin/PurchasesController.html">Admin::PurchasesController</a></p>
+
+<h3 id="method-c-search_purchases-label-Args">Args</h3>
+<ul><li>
+<p><em>params</em>: url subparams, under the scope of the keyword
+&#39;search&#39;: the options are</p>
+</li><li>
+<p><code>id</code>: if present the methods filters by id</p>
+</li><li>
+<p><code>ssn_code</code>: if present the methods filters by ssn_code with an
+like on both sides</p>
+</li><li>
+<p><code>vat_code</code>: if present the methods filters by vat_code with an
+like on both sides</p>
+</li><li>
+<p><code>name</code>: if present the methods filters by name with an like on
+both sides</p>
+</li><li>
+<p><code>responsible</code>: if present the methods filters by responsible
+with an like on both sides</p>
+</li><li>
+<p><code>email</code>: if present the methods filters by email with an like on
+both sides</p>
+</li></ul>
+
+<h3 id="method-c-search_purchases-label-Returns">Returns</h3>
+
+<p>An array, not paginated yet, of records of type <a
+href="Document.html">Document</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-search_purchases_source')" id="l_method-c-search_purchases_source">show</a>
+                
+              </p>
+              <div id="method-c-search_purchases_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/admin_search_form.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">search_purchases</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-constant">Purchase</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:purchases</span>][<span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">to_i</span>]
+    <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:purchases</span>][<span class="ruby-number">0</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:desc</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;true&#39;</span>
+      <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;DESC&#39;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;ASC&#39;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">order</span>(<span class="ruby-identifier">ord</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;ssn_code ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:ssn_code]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ssn_code</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;vat_code ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:vat_code]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:vat_code</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;name ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:name]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;responsible ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:responsible]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:responsible</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;email ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:email]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-search_tags">
+            
+              <b>search_tags</b>(params)
+            
+            <a href="../classes/AdminSearchForm.html#method-c-search_tags" name="method-c-search_tags" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-search_tags-label-Description">Description</h3>
+
+<p>Search for tags: used in <a
+href="Admin/SettingsController.html">Admin::SettingsController</a></p>
+
+<h3 id="method-c-search_tags-label-Args">Args</h3>
+<ul><li>
+<p><em>params</em>: url subparams, under the scope of the keyword
+&#39;search&#39;: the options are</p>
+</li><li>
+<p><code>id</code>: if present the methods filters by id</p>
+</li><li>
+<p><code>recency</code>: if present, it filters by <code>created_at</code>
+greater than one year ago, one month ago, a week ago, or a day ago</p>
+</li><li>
+<p><code>word</code>: it present, it matches the keyword with the tag content,
+and filters the result</p>
+</li><li>
+<p><code>ordering</code>: if present the methods sorts the results: the
+content of this parameter is a code, used to extract the required ordering
+from the constant <a href="AdminSearchForm.html#ORDERINGS">ORDERINGS</a></p>
+</li><li>
+<p><code>desc</code>: for default the ordering is <code>ASC</code>, if this
+parameter is present it&#39;s turned to <code>DESC</code></p>
+</li></ul>
+
+<h3 id="method-c-search_tags-label-Returns">Returns</h3>
+
+<p>An array, not paginated yet, of objects of type <a href="Tag.html">Tag</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-search_tags_source')" id="l_method-c-search_tags_source">show</a>
+                
+              </p>
+              <div id="method-c-search_tags_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/admin_search_form.rb, line 391</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">search_tags</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&quot;id, word, created_at, (SELECT COUNT (*) FROM taggings WHERE taggings.tag_id = tags.id AND taggings.taggable_type = &#39;MediaElement&#39;) AS media_elements_count, (SELECT COUNT (*) FROM taggings WHERE taggings.tag_id = tags.id AND taggings.taggable_type = &#39;Lesson&#39;) AS lessons_count&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:tags</span>][<span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">to_i</span>]
+    <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:tags</span>][<span class="ruby-number">0</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:desc</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;true&#39;</span>
+      <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;DESC&#39;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;ASC&#39;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">order</span>(<span class="ruby-identifier">ord</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;word ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:word]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:word</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;created_at &gt;= ?&#39;</span>, <span class="ruby-constant">RECENCIES</span>[<span class="ruby-identifier">params</span>[<span class="ruby-value">:recency</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>].<span class="ruby-identifier">ago</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:recency</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-search_users">
+            
+              <b>search_users</b>(params)
+            
+            <a href="../classes/AdminSearchForm.html#method-c-search_users" name="method-c-search_users" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-search_users-label-Description">Description</h3>
+
+<p>Search for users: used in <a
+href="Admin/UsersController.html">Admin::UsersController</a></p>
+
+<h3 id="method-c-search_users-label-Args">Args</h3>
+<ul><li>
+<p><em>params</em>: url subparams, under the scope of the keyword
+&#39;search&#39;: the options are</p>
+</li><li>
+<p><code>id</code>: if present the methods filters by id</p>
+</li><li>
+<p><code>user</code>: if present the keyword is matched against
+<code>name</code>, <code>surname</code> and <code>email</code> and the
+result is filtered</p>
+</li><li>
+<p><code>school_level_id</code>: if present the methods filters by
+school_level</p>
+</li><li>
+<p><code>date_range_field</code>: if present, it specifies which date field is
+used to filter by date (<code>created_at</code> or <code>updated_at</code>)</p>
+</li><li>
+<p><code>from</code>: if the parameter <code>date_range_field</code> is
+present, this parameter specifies the left border of the date range</p>
+</li><li>
+<p><code>to</code>: if the parameter <code>date_range_field</code> is present,
+this parameter specifies the right border of the date range</p>
+</li><li>
+<p><code>subject_id</code>: if present, the method filters by subject_id,
+using the relation <a href="UsersSubject.html">UsersSubject</a></p>
+</li><li>
+<p><code>location_id</code>: if present the methods filters by location of the
+user (see settings.yml for the possible names of this parameter)</p>
+</li><li>
+<p><code>ordering</code>: if present the methods sorts the results: the
+content of this parameter is a code, used to extract the required ordering
+from the constant <a href="AdminSearchForm.html#ORDERINGS">ORDERINGS</a></p>
+</li><li>
+<p><code>desc</code>: for default the ordering is <code>ASC</code>, if this
+parameter is present it&#39;s turned to <code>DESC</code></p>
+</li></ul>
+
+<h3 id="method-c-search_users-label-Returns">Returns</h3>
+
+<p>An array, not paginated yet, of records of type <a
+href="User.html">User</a>.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-search_users_source')" id="l_method-c-search_users_source">show</a>
+                
+              </p>
+              <div id="method-c-search_users_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/admin_search_form.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">search_users</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-constant">User</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:users</span>][<span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">to_i</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">==</span> <span class="ruby-number">4</span>
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:school_level</span>)
+    <span class="ruby-keyword">elsif</span> [<span class="ruby-number">5</span>, <span class="ruby-number">6</span>].<span class="ruby-identifier">include?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ordering</span>].<span class="ruby-identifier">to_i</span>
+      <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:location</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ord</span> = <span class="ruby-constant">ORDERINGS</span>[<span class="ruby-value">:users</span>][<span class="ruby-number">0</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:desc</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;true&#39;</span>
+      <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;DESC&#39;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ord</span> = <span class="ruby-identifier">ord</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;%{ord}&#39;</span>, <span class="ruby-string">&#39;ASC&#39;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">order</span>(<span class="ruby-identifier">ord</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:users</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]}) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:users</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:purchase_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:purchase_id</span>]}) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:purchase_id</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;users.name ILIKE ? OR surname ILIKE ? OR email ILIKE ?&#39;</span>, <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span> , <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span>, <span class="ruby-node">&quot;%#{params[:user]}%&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:user</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:school_level_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:school_level_id</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:school_level_id</span>].<span class="ruby-identifier">present?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:date_range_field</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:from</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:to</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">date_range</span> = (<span class="ruby-constant">Date</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:from</span>], <span class="ruby-string">&#39;%d-%m-%Y&#39;</span>).<span class="ruby-identifier">beginning_of_day</span>)<span class="ruby-operator">..</span>(<span class="ruby-constant">Date</span>.<span class="ruby-identifier">strptime</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:to</span>], <span class="ruby-string">&#39;%d-%m-%Y&#39;</span>).<span class="ruby-identifier">end_of_day</span>)
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:users</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:&quot;#{params[:date_range_field]}&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">date_range</span>})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:subject_id</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:users_subjects</span>).<span class="ruby-identifier">group</span>(<span class="ruby-string">&#39;users.id&#39;</span>)
+    <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:users_subjects</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:subject_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:subject_id</span>]})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">with_locations</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;location_types&#39;</span>].<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span> <span class="ruby-identifier">type</span>.<span class="ruby-identifier">downcase</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">with_locations</span> = <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">type</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-identifier">type</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">with_locations</span>
+    <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">get_from_chain_params</span>(<span class="ruby-identifier">params</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">depth</span> <span class="ruby-operator">==</span> <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;location_types&#39;</span>].<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>
+        <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:users</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:location_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">id</span>})
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:location</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">ancestry</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;ancestry LIKE ? OR ancestry = ?&#39;</span>, <span class="ruby-node">&quot;#{location.ancestry_with_me}%&quot;</span>, <span class="ruby-identifier">location</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;ancestry LIKE ?&#39;</span>, <span class="ruby-node">&quot;#{location.ancestry_with_me}%&quot;</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                        </div>
+
+    </div>
+  </body>
+</html>    

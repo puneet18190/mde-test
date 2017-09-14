@@ -1,0 +1,64 @@
+<%
+  resize = ''
+  alignment = ''
+  url = ''
+  original_width = ''
+  original_height = ''
+  if image
+    original_width = image.media_element.width
+    original_height = image.media_element.height
+    width = image.resize_width(slide.kind)
+    height = image.resize_height(slide.kind)
+    url = image.media_element.url
+    orientation = 'vertical'
+    alignment = "top:#{image.alignment}px"
+    resize = "height=\"#{height}\""
+    if image.inscribed
+      alignment = "left:#{image.alignment}px"
+      resize = "width=\"#{width}\""
+    end
+    if image.is_horizontal?(slide.kind)
+      orientation = 'horizontal'
+      alignment = "left:#{image.alignment}px"
+      resize = "width=\"#{width}\""
+      if image.inscribed
+        alignment = "top:#{image.alignment}px"
+        resize = "height=\"#{height}\""
+      end
+    end
+  end
+%>
+
+
+<div id="media_element_<%= position %>_in_slide_<%= slide.id %>" class="image editable" data-width="<%= original_width %>" data-height="<%= original_height %>">
+  
+  <% if image %>
+    <input class="align" type="hidden" value="<%= image.alignment.to_s %>" name="media_element_align_<%= position %>" autocomplete="off"/>
+    <input class="inscribed" type="hidden" value="<%= image.inscribed.to_s %>" name="media_element_inscribed_<%= position %>" autocomplete="off"/>
+    <input class="image-id" type="hidden" value="<%= image.media_element_id %>" name="media_element_<%= position %>" autocomplete="off"/>
+  <% else %>
+    <input class="align" type="hidden" value="0" name="media_element_align_<%= position %>" autocomplete="off"/>
+    <input class="inscribed" type="hidden" value="false" name="media_element_inscribed_<%= position %>" autocomplete="off"/>
+    <input class="image-id" type="hidden" value="" name="media_element_<%= position %>" autocomplete="off"/>
+  <% end %>
+  
+  <div class="mask <%= orientation %> <%= image.nil? ? 'hidden' : 'visible' %>">
+    <div class="alignable" style="<%= alignment %>" data-rolloverable="true">
+      <img src="<%= url %>" <%= resize.html_safe %>/>
+    </div>
+    <span class="add hidden" data-position="<%= position %>" title="<%= t('titles.lesson_editor.change_image') %>"></span>
+    <% if image && image.inscribed %>
+      <span class="deinscribe hidden" data-position="<%= position %>" title="<%= t('titles.lesson_editor.deinscribe_image') %>" data-inscribe-title="<%= t('titles.lesson_editor.inscribe_image') %>" data-deinscribe-title="<%= t('titles.lesson_editor.deinscribe_image') %>"></span>
+    <% else %>
+      <span class="inscribe hidden" data-position="<%= position %>" title="<%= t('titles.lesson_editor.inscribe_image') %>" data-inscribe-title="<%= t('titles.lesson_editor.inscribe_image') %>" data-deinscribe-title="<%= t('titles.lesson_editor.deinscribe_image') %>"></span>
+    <% end %>
+    <%= text_field_tag "caption_#{position}", ((image.nil? || image.caption.blank?) ? t('lesson_editor.placeholders.image_caption') : image.caption), :class => 'caption _lesson_editor_placeholder', :data => {:placeholder => (image.nil? || image.caption.blank?)} %>
+  </div>
+  
+  <div class="empty-mask <%= image.nil? ? 'visible' : 'hidden' %>">
+    <a class="add" data-position="<%= position %>"></a>
+    <br/>
+    <p class="lower"><%= t('lesson_editor.choose_image') %></p>
+  </div>
+  
+</div>

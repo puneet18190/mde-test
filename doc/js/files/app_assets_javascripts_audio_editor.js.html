@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>app/assets/javascripts/audio_editor.js - DESY</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="DESY"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdminAutocomplete.html">AdminAutocomplete</a></li>
+            
+                <li><a href="../classes/AdminBrowserSupport.html">AdminBrowserSupport</a></li>
+            
+                <li><a href="../classes/AdminCollapsed.html">AdminCollapsed</a></li>
+            
+                <li><a href="../classes/AdminDocumentReady.html">AdminDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderBinder.html">AjaxLoaderBinder</a></li>
+            
+                <li><a href="../classes/AjaxLoaderDocumentReady.html">AjaxLoaderDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderVisibility.html">AjaxLoaderVisibility</a></li>
+            
+                <li><a href="../classes/AudioEditorComponents.html">AudioEditorComponents</a></li>
+            
+                <li><a href="../classes/AudioEditorCutters.html">AudioEditorCutters</a></li>
+            
+                <li><a href="../classes/AudioEditorDocumentReady.html">AudioEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/AudioEditorGalleries.html">AudioEditorGalleries</a></li>
+            
+                <li><a href="../classes/AudioEditorGeneral.html">AudioEditorGeneral</a></li>
+            
+                <li><a href="../classes/AudioEditorGraphics.html">AudioEditorGraphics</a></li>
+            
+                <li><a href="../classes/AudioEditorPreview.html">AudioEditorPreview</a></li>
+            
+                <li><a href="../classes/AudioEditorScrollpain.html">AudioEditorScrollpain</a></li>
+            
+                <li><a href="../classes/BrowserSupportMain.html">BrowserSupportMain</a></li>
+            
+                <li><a href="../classes/ButtonsAccessories.html">ButtonsAccessories</a></li>
+            
+                <li><a href="../classes/ButtonsDocumentReady.html">ButtonsDocumentReady</a></li>
+            
+                <li><a href="../classes/ButtonsLesson.html">ButtonsLesson</a></li>
+            
+                <li><a href="../classes/ButtonsMediaElement.html">ButtonsMediaElement</a></li>
+            
+                <li><a href="../classes/DashboardAccessories.html">DashboardAccessories</a></li>
+            
+                <li><a href="../classes/DashboardExpandedContents.html">DashboardExpandedContents</a></li>
+            
+                <li><a href="../classes/DashboardLessonDescriptions.html">DashboardLessonDescriptions</a></li>
+            
+                <li><a href="../classes/DashboardResizing.html">DashboardResizing</a></li>
+            
+                <li><a href="../classes/DialogsAccessories.html">DialogsAccessories</a></li>
+            
+                <li><a href="../classes/DialogsConfirmation.html">DialogsConfirmation</a></li>
+            
+                <li><a href="../classes/DialogsGalleries.html">DialogsGalleries</a></li>
+            
+                <li><a href="../classes/DialogsTimed.html">DialogsTimed</a></li>
+            
+                <li><a href="../classes/DialogsWithForm.html">DialogsWithForm</a></li>
+            
+                <li><a href="../classes/GalleriesAccessories.html">GalleriesAccessories</a></li>
+            
+                <li><a href="../classes/GalleriesDocumentReady.html">GalleriesDocumentReady</a></li>
+            
+                <li><a href="../classes/GalleriesInitializers.html">GalleriesInitializers</a></li>
+            
+                <li><a href="../classes/GeneralCentering.html">GeneralCentering</a></li>
+            
+                <li><a href="../classes/GeneralDocumentReady.html">GeneralDocumentReady</a></li>
+            
+                <li><a href="../classes/GeneralMiscellanea.html">GeneralMiscellanea</a></li>
+            
+                <li><a href="../classes/GeneralUrls.html">GeneralUrls</a></li>
+            
+                <li><a href="../classes/ImageEditorDocumentReady.html">ImageEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/ImageEditorGraphics.html">ImageEditorGraphics</a></li>
+            
+                <li><a href="../classes/ImageEditorImageScale.html">ImageEditorImageScale</a></li>
+            
+                <li><a href="../classes/ImageEditorTexts.html">ImageEditorTexts</a></li>
+            
+                <li><a href="../classes/JqueryBrowsersDetection.html">JqueryBrowsersDetection</a></li>
+            
+                <li><a href="../classes/JqueryPatchesBrowsers.html">JqueryPatchesBrowsers</a></li>
+            
+                <li><a href="../classes/LessonEditorCurrentSlide.html">LessonEditorCurrentSlide</a></li>
+            
+                <li><a href="../classes/LessonEditorDocumentReady.html">LessonEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonEditorForms.html">LessonEditorForms</a></li>
+            
+                <li><a href="../classes/LessonEditorGalleries.html">LessonEditorGalleries</a></li>
+            
+                <li><a href="../classes/LessonEditorImageResizing.html">LessonEditorImageResizing</a></li>
+            
+                <li><a href="../classes/LessonEditorJqueryAnimations.html">LessonEditorJqueryAnimations</a></li>
+            
+                <li><a href="../classes/LessonEditorSlideLoading.html">LessonEditorSlideLoading</a></li>
+            
+                <li><a href="../classes/LessonEditorSlidesNavigation.html">LessonEditorSlidesNavigation</a></li>
+            
+                <li><a href="../classes/LessonEditorTinyMCE.html">LessonEditorTinyMCE</a></li>
+            
+                <li><a href="../classes/LessonViewerDocumentReady.html">LessonViewerDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonViewerGeneral.html">LessonViewerGeneral</a></li>
+            
+                <li><a href="../classes/LessonViewerGraphics.html">LessonViewerGraphics</a></li>
+            
+                <li><a href="../classes/LessonViewerPlaylist.html">LessonViewerPlaylist</a></li>
+            
+                <li><a href="../classes/LessonViewerSlidesNavigation.html">LessonViewerSlidesNavigation</a></li>
+            
+                <li><a href="../classes/MediaElementEditorCache.html">MediaElementEditorCache</a></li>
+            
+                <li><a href="../classes/MediaElementEditorConversion.html">MediaElementEditorConversion</a></li>
+            
+                <li><a href="../classes/MediaElementEditorDocumentReady.html">MediaElementEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/MediaElementEditorForms.html">MediaElementEditorForms</a></li>
+            
+                <li><a href="../classes/MediaElementEditorHorizontalTimelines.html">MediaElementEditorHorizontalTimelines</a></li>
+            
+                <li><a href="../classes/NotificationsAccessories.html">NotificationsAccessories</a></li>
+            
+                <li><a href="../classes/NotificationsDocumentReady.html">NotificationsDocumentReady</a></li>
+            
+                <li><a href="../classes/NotificationsGraphics.html">NotificationsGraphics</a></li>
+            
+                <li><a href="../classes/PlayersAudioEditor.html">PlayersAudioEditor</a></li>
+            
+                <li><a href="../classes/PlayersCommon.html">PlayersCommon</a></li>
+            
+                <li><a href="../classes/PlayersDocumentReady.html">PlayersDocumentReady</a></li>
+            
+                <li><a href="../classes/PlayersGeneral.html">PlayersGeneral</a></li>
+            
+                <li><a href="../classes/PlayersVideoEditor.html">PlayersVideoEditor</a></li>
+            
+                <li><a href="../classes/ProfilePrelogin.html">ProfilePrelogin</a></li>
+            
+                <li><a href="../classes/ProfileUsers.html">ProfileUsers</a></li>
+            
+                <li><a href="../classes/SearchDocumentReady.html">SearchDocumentReady</a></li>
+            
+                <li><a href="../classes/TagsAccessories.html">TagsAccessories</a></li>
+            
+                <li><a href="../classes/TagsInitializers.html">TagsInitializers</a></li>
+            
+                <li><a href="../classes/UploaderDocumentReady.html">UploaderDocumentReady</a></li>
+            
+                <li><a href="../classes/UploaderGlobal.html">UploaderGlobal</a></li>
+            
+                <li><a href="../classes/UploaderLoadingBar.html">UploaderLoadingBar</a></li>
+            
+                <li><a href="../classes/VideoEditorAddComponents.html">VideoEditorAddComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorComponents.html">VideoEditorComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorCutters.html">VideoEditorCutters</a></li>
+            
+                <li><a href="../classes/VideoEditorDocumentReady.html">VideoEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/VideoEditorGalleries.html">VideoEditorGalleries</a></li>
+            
+                <li><a href="../classes/VideoEditorGeneral.html">VideoEditorGeneral</a></li>
+            
+                <li><a href="../classes/VideoEditorPreview.html">VideoEditorPreview</a></li>
+            
+                <li><a href="../classes/VideoEditorPreviewAccessories.html">VideoEditorPreviewAccessories</a></li>
+            
+                <li><a href="../classes/VideoEditorReplaceComponents.html">VideoEditorReplaceComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorScrollPain.html">VideoEditorScrollPain</a></li>
+            
+                <li><a href="../classes/VideoEditorTextComponentEditor.html">VideoEditorTextComponentEditor</a></li>
+            
+                <li><a href="../classes/VirtualClassroomDocumentReady.html">VirtualClassroomDocumentReady</a></li>
+            
+                <li><a href="../classes/VirtualClassroomJavaScriptAnimations.html">VirtualClassroomJavaScriptAnimations</a></li>
+            
+                <li><a href="../classes/VirtualClassroomMultipleLoading.html">VirtualClassroomMultipleLoading</a></li>
+            
+                <li><a href="../classes/VirtualClassroomSendLink.html">VirtualClassroomSendLink</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/admin.html">admin</a></li>
+            
+                <li><a href="../modules/ajax-loader.html">ajax-loader</a></li>
+            
+                <li><a href="../modules/audio-editor.html">audio-editor</a></li>
+            
+                <li><a href="../modules/browser-support.html">browser-support</a></li>
+            
+                <li><a href="../modules/buttons.html">buttons</a></li>
+            
+                <li><a href="../modules/dashboard.html">dashboard</a></li>
+            
+                <li><a href="../modules/dialogs.html">dialogs</a></li>
+            
+                <li><a href="../modules/galleries.html">galleries</a></li>
+            
+                <li><a href="../modules/general.html">general</a></li>
+            
+                <li><a href="../modules/image-editor.html">image-editor</a></li>
+            
+                <li><a href="../modules/jquery-browsers.html">jquery-browsers</a></li>
+            
+                <li><a href="../modules/jquery-patches.html">jquery-patches</a></li>
+            
+                <li><a href="../modules/lesson-editor.html">lesson-editor</a></li>
+            
+                <li><a href="../modules/lesson-viewer.html">lesson-viewer</a></li>
+            
+                <li><a href="../modules/media-element-editor.html">media-element-editor</a></li>
+            
+                <li><a href="../modules/notifications.html">notifications</a></li>
+            
+                <li><a href="../modules/players.html">players</a></li>
+            
+                <li><a href="../modules/profile.html">profile</a></li>
+            
+                <li><a href="../modules/search.html">search</a></li>
+            
+                <li><a href="../modules/tags.html">tags</a></li>
+            
+                <li><a href="../modules/uploader.html">uploader</a></li>
+            
+                <li><a href="../modules/video-editor.html">video-editor</a></li>
+            
+                <li><a href="../modules/virtual-classroom.html">virtual-classroom</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: app/assets/javascripts/audio_editor.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+This module contains javascript functions used to animate the Audio Editor. The editing of an audio consists in cutting and connecting together different elements of type audio (referred to as &lt;b&gt;audio components&lt;/b&gt;): each component has a unique &lt;b&gt;identifier&lt;/b&gt;, to be distinguished by the ID in the database of the corresponding audio.
+&lt;br/&gt;&lt;br/&gt;
+Each audio component contains a &lt;b&gt;cutter&lt;/b&gt; (used to select a portion of the original audio), the standard player controls, and a &lt;b&gt;sorting handle&lt;/b&gt;. To use the controls of a component, first it must be &lt;b&gt;selected&lt;/b&gt; (using the function {{#crossLink &quot;AudioEditorComponents/selectAudioEditorComponent:method&quot;}}{{/crossLink}}): if a component is not selected, it&#x27;s shown with opacity and without the player controls. The functionality of sorting components is handled in {{#crossLink &quot;AudioEditorDocumentReady/audioEditorDocumentReadyGeneral:method&quot;}}{{/crossLink}}; the functionalities of player commands, together with the most important functionalities of the cutter, are located in the module {{#crossLinkModule &quot;players&quot;}}{{/crossLinkModule}} (class {{#crossLink &quot;PlayersAudioEditor&quot;}}{{/crossLink}}); the only functionalities of the cutter located in this module are found in the class {{#crossLink &quot;AudioEditorCutters&quot;}}{{/crossLink}} and in the method {{#crossLink &quot;AudioEditorDocumentReady/audioEditorDocumentReadyCutters:method&quot;}}{{/crossLink}} (functionality of precision arrows).
+&lt;br/&gt;&lt;br/&gt;
+On the top of the right column are positioned the time durations (updated with {{#crossLink &quot;AudioEditorComponents/changeDurationAudioEditorComponent:method&quot;}}{{/crossLink}}), ad the button &#x27;plus&#x27; used to open the audio gallery (see the class {{#crossLink &quot;AudioEditorGalleries&quot;}}{{/crossLink}} and the method {{#crossLink &quot;AudioEditorDocumentReady/audioEditorDocumentReadyGeneral:method&quot;}}{{/crossLink}}).
+&lt;br/&gt;&lt;br/&gt;
+On the bottom of the right column are positioned the controls for the &lt;b&gt;global preview&lt;/b&gt; (which plays all the components globally). Similarly to the module {{#crossLinkModule &quot;video-editor&quot;}}{{/crossLinkModule}}, before playing the global preview the system must enter in &lt;b&gt;preview mode&lt;/b&gt;: the difference is that in the Audio Editor this mode is switched automatically by the system, whereas in the Video Editor it&#x27;s the user who decides to enter and leave the preview mode. To enter in preview mode we use the method {{#crossLink &quot;AudioEditorPreview/enterAudioEditorPreviewMode:method&quot;}}{{/crossLink}}, which calls {{#crossLink &quot;AudioEditorPreview/switchAudioComponentsToPreviewMode:method&quot;}}{{/crossLink}} or each component. A component in preview mode can be &lt;b&gt;selected&lt;/b&gt; (using a differente method respect to the normal component selection: see {{#crossLink &quot;AudioEditorPreview/selectAudioEditorComponentInPreviewMode:method&quot;}}{{/crossLink}}). Each component in the global preview is played using the method {{#crossLink &quot;AudioEditorPreview/startAudioEditorPreview:method&quot;}}{{/crossLink}} (to which we pass the component to start with); the main part of the functionality of passing from a component to the next one during the global preview is handled in the module {{#crossLinkModule &quot;players&quot;}}{{/crossLinkModule}} (more specificly, in the method {{#crossLink &quot;PlayersAudioEditor/initializeActionOfMediaTimeUpdaterInAudioEditor:method&quot;}}{{/crossLink}}.
+&lt;br/&gt;&lt;br/&gt;
+As for the other Element Editors ({{#crossLinkModule &quot;image-editor&quot;}}{{/crossLinkModule}}, {{#crossLinkModule &quot;video-editor&quot;}}{{/crossLinkModule}}) the core of the process of committing changes is handled in the module {{#crossLinkModule &quot;media-element-editor&quot;}}{{/crossLinkModule}} (more specificly in the class {{#crossLink &quot;MediaElementEditorForms&quot;}}{{/crossLink}}); the part of this functionality specific for the Audio Editor is handled in {{#crossLink &quot;MediaElementEditorDocumentReady/mediaElementEditorDocumentReady:method&quot;}}{{/crossLink}}.
+@module audio-editor
+**/
+
+
+
+
+
+/**
+This function adds a new audio component to the timeline: it extracts the empty audio component hidden in the template, replaces in it the values of the new audio component, and appends it right after the selected component. If there are no selected components, the new one is appended at the end of the timeline.
+@method addComponentInAudioEditor
+@for AudioEditorComponents
+@param audio_id {Number} the ID of the audio in the database
+@param ogg {String} the path of the attached audio in format ogg
+@param m4a {String} the path of the attached audio in format mp4
+@param duration {Number} the integer duration of the audio
+@param title {String} the title of the audio extracted from the database
+**/
+function addComponentInAudioEditor(audio_id, ogg, m4a, duration, title) {
+  var next_position = $(&#x27;#info_container&#x27;).data(&#x27;last-component-id&#x27;) + 1;
+  var selected_component = $(&#x27;._audio_editor_component._selected&#x27;);
+  $(&#x27;#info_container&#x27;).data(&#x27;last-component-id&#x27;, next_position);
+  var empty_component = $($(&#x27;#empty_component_for_audio_editor&#x27;).html());
+  empty_component.attr(&#x27;id&#x27;, (&#x27;audio_component_&#x27; + next_position));
+  empty_component.find(&#x27;source[type=&quot;audio/ogg&quot;]&#x27;).attr(&#x27;src&#x27;, ogg);
+  empty_component.find(&#x27;source[type=&quot;audio/mp4&quot;]&#x27;).attr(&#x27;src&#x27;, m4a);
+  empty_component.data(&#x27;duration&#x27;, 0);
+  empty_component.data(&#x27;from&#x27;, 0);
+  empty_component.data(&#x27;to&#x27;, duration);
+  empty_component.data(&#x27;max-to&#x27;, duration);
+  empty_component.find(&#x27;._title&#x27;).html(title);
+  empty_component.removeClass(&#x27;_audio_editor_empty_component&#x27;).addClass(&#x27;_audio_editor_component&#x27;);
+  empty_component.find(&#x27;._current_time&#x27;).html(secondsToDateString(0));
+  empty_component.find(&#x27;._total_length&#x27;).html(secondsToDateString(duration));
+  empty_component.find(&#x27;._cutter_from&#x27;).html(secondsToDateString(0));
+  empty_component.find(&#x27;._cutter_to&#x27;).html(secondsToDateString(duration));
+  var to_be_appended = fillAudioEditorSingleParameter(&#x27;audio_id&#x27;, next_position, audio_id);
+  to_be_appended += fillAudioEditorSingleParameter(&#x27;from&#x27;, next_position, 0);
+  to_be_appended += fillAudioEditorSingleParameter(&#x27;to&#x27;, next_position, duration);
+  to_be_appended += fillAudioEditorSingleParameter(&#x27;position&#x27;, next_position, next_position);
+  if(selected_component.length == 0) {
+    $(&#x27;#audio_editor_timeline .jspPane&#x27;).append(empty_component);
+  } else {
+    selected_component.after(empty_component);
+  }
+  empty_component.append(to_be_appended);
+  empty_component.find(&#x27;audio&#x27;).load();
+  initializeAudioEditorCutter(next_position);
+  reloadAudioEditorComponentPositions(empty_component);
+  changeDurationAudioEditorComponent(empty_component, duration);
+  if(selected_component.length == 0) {
+    resizeLastComponentInAudioEditor();
+  }
+  if($(&#x27;._audio_editor_component&#x27;).length == 1) {
+    enableCommitAndPreviewInAudioEditor();
+  }
+  setTimeout(function() {
+    scrollToFirstSelectedAudioEditorComponent();
+    selectAudioEditorComponent(empty_component);
+    empty_component.find(&#x27;._title&#x27;).effect(&#x27;highlight&#x27;, {color: &#x27;#41A62A&#x27;}, 1000);
+  }, 500);
+}
+
+/**
+This function changes the duration of a component, and updates the global durations.
+@method changeDurationAudioEditorComponent
+@for AudioEditorComponents
+@param component {Object} the component
+@param new_duration {Number} the new duration
+**/
+function changeDurationAudioEditorComponent(component, new_duration) {
+  var old_duration = component.data(&#x27;duration&#x27;);
+  var total_length = $(&#x27;#info_container&#x27;).data(&#x27;total-length&#x27;);
+  total_length -= old_duration;
+  total_length += new_duration;
+  component.data(&#x27;duration&#x27;, new_duration);
+  $(&#x27;#info_container&#x27;).data(&#x27;total-length&#x27;, total_length);
+  $(&#x27;#visual_audio_editor_total_length&#x27;).html(secondsToDateString(total_length));
+}
+
+/**
+Function that deselects all the audio components.
+@method deselectAllAudioEditorComponents
+@for AudioEditorComponents
+**/
+function deselectAllAudioEditorComponents() {
+  var selected_component = $(&#x27;._audio_editor_component._selected&#x27;);
+  if(selected_component.length &gt; 0) {
+    var pause = selected_component.find(&#x27;._media_player_pause_in_audio_editor_preview&#x27;);
+    if(pause.is(&#x27;:visible&#x27;)) {
+      pause.click();
+    }
+    deselectAllAudioEditorCursors(getAudioComponentIdentifier(selected_component));
+  }
+  $(&#x27;._audio_editor_component._selected ._content&#x27;).removeClass(&#x27;current&#x27;);
+  $(&#x27;._audio_editor_component._selected ._box_ghost&#x27;).show();
+  $(&#x27;._audio_editor_component._selected ._sort_handle&#x27;).removeClass(&#x27;current&#x27;);
+  $(&#x27;._audio_editor_component._selected ._player_content&#x27;).css(&#x27;opacity&#x27;, 0.2);
+  $(&#x27;.msie ._audio_editor_component._selected ._double_slider .ui-slider-range&#x27;).css(&#x27;opacity&#x27;, 0.4);
+  $(&#x27;._audio_editor_component._selected ._controls&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+  $(&#x27;._audio_editor_component._selected&#x27;).removeClass(&#x27;_selected&#x27;);
+}
+
+/**
+Function that creates a single input field to be inserted in the empty audio component during the process of construction of a new one (similar to {{#crossLink &quot;VideoEditorComponents/fillVideoEditorSingleParameter:method&quot;}}{{/crossLink}}; used in {{#crossLink &quot;AudioEditorComponents/addComponentInAudioEditor:method&quot;}}{{/crossLink}}).
+@method fillAudioEditorSingleParameter
+@for AudioEditorComponents
+@param input {String} the specific input to be filled (for example, &lt;i&gt;audio_id&lt;/i&gt;, &lt;i&gt;from&lt;/i&gt;, or &lt;i&gt;to&lt;/i&gt;)
+@param identifier {Number} the identifier of the component
+@param value {String} the HTML value to be assigned to the input
+@return {String} the resulting input written in HTML
+**/
+function fillAudioEditorSingleParameter(input, identifier, value) {
+  return &#x27;&lt;input id=&quot;&#x27; + input + &#x27;_&#x27; + identifier + &#x27;&quot; class=&quot;_audio_component_input_&#x27; + input + &#x27;&quot; type=&quot;hidden&quot; value=&quot;&#x27; + value + &#x27;&quot; name=&quot;&#x27; + input + &#x27;_&#x27; + identifier + &#x27;&quot;/&gt;&#x27;;
+}
+
+/**
+An HTML5 audio is loaded only when necessary: this function extracts from the data the sources of the audio, and loads it (unless the component had already been loaded previously)
+@method loadAudioComponentIfNotLoadedYet
+@for AudioEditorComponents
+@param component {Object} the component to load
+**/
+function loadAudioComponentIfNotLoadedYet(component) {
+  if(!component.data(&#x27;loaded&#x27;)) {
+    var m4a = component.data(&#x27;m4a&#x27;);
+    var ogg = component.data(&#x27;ogg&#x27;);
+    component.find(&#x27;source[type=&quot;audio/mp4&quot;]&#x27;).attr(&#x27;src&#x27;, m4a);
+    component.find(&#x27;source[type=&quot;audio/ogg&quot;]&#x27;).attr(&#x27;src&#x27;, ogg);
+    component.find(&#x27;audio&#x27;).load();
+    component.data(&#x27;loaded&#x27;, true);
+  }
+}
+
+/**
+Reloads the correct positions of the components after sorting them.
+@method reloadAudioEditorComponentPositions
+@for AudioEditorComponents
+**/
+function reloadAudioEditorComponentPositions() {
+  var components = $(&#x27;._audio_editor_component&#x27;);
+  components.each(function(index) {
+    $(this).data(&#x27;position&#x27;, (index + 1));
+    $(this).find(&#x27;._audio_component_input_position&#x27;).val(index + 1);
+    $(this).find(&#x27;._audio_component_icon&#x27;).html(index + 1);
+  });
+}
+
+/**
+Removes a component from the timeline.
+@method removeAudioEditorComponent
+@for AudioEditorComponents
+@param component {Object} the component to be removed
+**/
+function removeAudioEditorComponent(component) {
+  if(component.hasClass(&#x27;_selected&#x27;)) {
+    component.find(&#x27;._media_player_pause_in_audio_editor_preview&#x27;).click();
+  }
+  component.hide(&#x27;fade&#x27;, {}, 500, function() {
+    changeDurationAudioEditorComponent(component, 0);
+    $(this).remove();
+    reloadAudioEditorComponentPositions();
+    if($(&#x27;._audio_editor_component&#x27;).length == 0) {
+      disableCommitAndPreviewInAudioEditor();
+    }
+    resizeLastComponentInAudioEditor();
+  });
+}
+
+/**
+This function removes the margin bottom from the last component in the timeline: this is necessary to handle with precision the JScrollPain (see {{#crossLink &quot;AudioEditorScrollpain&quot;}}{{/crossLink}}).
+@method resizeLastComponentInAudioEditor
+@for AudioEditorComponents
+**/
+function resizeLastComponentInAudioEditor() {
+  $(&#x27;._audio_editor_component._last&#x27;).last().removeClass(&#x27;_last&#x27;)
+  $(&#x27;._audio_editor_component&#x27;).last().addClass(&#x27;_last&#x27;);
+}
+
+/**
+Function that selects an audio component.
+@method selectAudioEditorComponent
+@for AudioEditorComponents
+@param component {Object} the component to be selected
+**/
+function selectAudioEditorComponent(component) {
+  loadAudioComponentIfNotLoadedYet(component);
+  deselectAllAudioEditorComponents();
+  component.addClass(&#x27;_selected&#x27;);
+  component.find(&#x27;._content&#x27;).addClass(&#x27;current&#x27;);
+  component.find(&#x27;._box_ghost&#x27;).hide();
+  component.find(&#x27;._sort_handle&#x27;).addClass(&#x27;current&#x27;);
+  component.find(&#x27;._player_content&#x27;).css(&#x27;opacity&#x27;, 1);
+  if( $html.hasClass(&#x27;msie&#x27;) ) {
+    component.find(&#x27;._double_slider .ui-slider-range&#x27;).css(&#x27;opacity&#x27;, 1);
+  }
+  component.find(&#x27;._controls&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+  selectAudioEditorCursor(getAudioComponentIdentifier(component));
+}
+
+
+
+
+
+/**
+Changes the value of the left margin of an audio component, and updates its duration using {{#crossLink &quot;AudioEditorComponents/changeDurationAudioEditorComponent:method&quot;}}{{/crossLink}}.
+@method cutAudioComponentLeftSide
+@for AudioEditorCutters
+@param identifier {Number} the unique identifier of the component
+@param pos {Number} the new position of the left margin of the component (input &lt;i&gt;from&lt;/i&gt;)
+**/
+function cutAudioComponentLeftSide(identifier, pos) {
+  var component = $(&#x27;#audio_component_&#x27; + identifier);
+  var new_duration = component.data(&#x27;to&#x27;) - pos;
+  component.data(&#x27;from&#x27;, pos);
+  component.find(&#x27;._cutter_from&#x27;).html(secondsToDateString(pos));
+  component.find(&#x27;._audio_component_input_from&#x27;).val(pos);
+  changeDurationAudioEditorComponent(component, new_duration);
+}
+
+/**
+Changes the value of the right margin of an audio component, and updates its duration using {{#crossLink &quot;AudioEditorComponents/changeDurationAudioEditorComponent:method&quot;}}{{/crossLink}}.
+@method cutAudioComponentRightSide
+@for AudioEditorCutters
+@param identifier {Number} the unique identifier of the component
+@param pos {Number} the new position of the right margin of the component (input &lt;i&gt;to&lt;/i&gt;)
+**/
+function cutAudioComponentRightSide(identifier, pos) {
+  var component = $(&#x27;#audio_component_&#x27; + identifier);
+  var new_duration = pos - component.data(&#x27;from&#x27;);
+  component.data(&#x27;to&#x27;, pos);
+  component.find(&#x27;._cutter_to&#x27;).html(secondsToDateString(pos));
+  component.find(&#x27;._audio_component_input_to&#x27;).val(pos);
+  changeDurationAudioEditorComponent(component, new_duration);
+}
+
+/**
+Deselects all the cursors in a component.
+@method deselectAllAudioEditorCursors
+@for AudioEditorCutters
+@param id {Number} the unique identifier of the component
+**/
+function deselectAllAudioEditorCursors(id) {
+  $(&#x27;#audio_component_&#x27; + id + &#x27; .ui-slider-handle&#x27;).removeClass(&#x27;selected&#x27;);
+  $(&#x27;#audio_component_&#x27; + id + &#x27; ._cutter_from, #audio_component_&#x27; + id + &#x27; ._cutter_to, #audio_component_&#x27; + id + &#x27; ._current_time&#x27;).removeClass(&#x27;selected&#x27;);
+}
+
+/**
+Selects the central cursor of an audio component.
+@method selectAudioEditorCursor
+@for AudioEditorCutters
+@param id {Number} the unique identifier of the component
+**/
+function selectAudioEditorCursor(id) {
+  deselectAllAudioEditorCursors(id);
+  $(&#x27;#audio_component_&#x27; + id + &#x27; ._media_player_slider .ui-slider-handle&#x27;).addClass(&#x27;selected&#x27;);
+  $(&#x27;#audio_component_&#x27; + id + &#x27; ._current_time&#x27;).addClass(&#x27;selected&#x27;);
+}
+
+/**
+Selects the left handle of an audio component.
+@method selectAudioEditorLeftHandle
+@for AudioEditorCutters
+@param id {Number} the unique identifier of the component
+**/
+function selectAudioEditorLeftHandle(id) {
+  deselectAllAudioEditorCursors(id);
+  $(&#x27;#audio_component_&#x27; + id + &#x27; ._double_slider .ui-slider-handle&#x27;).first().addClass(&#x27;selected&#x27;);
+  $(&#x27;#audio_component_&#x27; + id + &#x27; ._cutter_from&#x27;).addClass(&#x27;selected&#x27;);
+}
+
+/**
+Selects the right handle of an audio component.
+@method selectAudioEditorRightHandle
+@for AudioEditorCutters
+@param id {Number} the unique identifier of the component
+**/
+function selectAudioEditorRightHandle(id) {
+  deselectAllAudioEditorCursors(id);
+  $($(&#x27;#audio_component_&#x27; + id + &#x27; ._double_slider .ui-slider-handle&#x27;)[1]).addClass(&#x27;selected&#x27;);
+  $(&#x27;#audio_component_&#x27; + id + &#x27; ._cutter_to&#x27;).addClass(&#x27;selected&#x27;);
+}
+
+
+
+
+
+/**
+Initializes the whole Audio Editor, calling all the subinitializers
+@method audioEditorDocumentReady
+@for AudioEditorDocumentReady
+**/
+function audioEditorDocumentReady() {
+  audioEditorDocumentReadyPreview();
+  audioEditorDocumentReadyCutters();
+  audioEditorDocumentReadyGeneral();
+}
+
+/**
+Initializer for the precision arrows in the cutters. For the other functionalities related to cutters, see {{#crossLink &quot;PlayersAudioEditor&quot;}}{{/crossLink}}.
+@method audioEditorDocumentReadyCutters
+@for AudioEditorDocumentReady
+**/
+function audioEditorDocumentReadyCutters() {
+  $body.on(&#x27;click&#x27;, &#x27;._audio_editor_component ._precision_arrow_left&#x27;, function() {
+    var component = $(this).parents(&#x27;._audio_editor_component&#x27;);
+    var identifier = getAudioComponentIdentifier(component);
+    var single_slider = component.find(&#x27;._media_player_slider&#x27;);
+    var double_slider = component.find(&#x27;._double_slider&#x27;);
+    if(single_slider.find(&#x27;.ui-slider-handle&#x27;).hasClass(&#x27;selected&#x27;)) {
+      var resp = single_slider.slider(&#x27;value&#x27;);
+      if(resp &gt; 0 &amp;&amp; resp &gt; double_slider.slider(&#x27;values&#x27;, 0)) {
+        selectAudioComponentCutterHandle(component, resp - 1);
+      }
+    } else if(double_slider.find(&#x27;.ui-slider-handle&#x27;).first().hasClass(&#x27;selected&#x27;)) {
+      var resp = double_slider.slider(&#x27;values&#x27;, 0);
+      if(resp &gt; 0) {
+        double_slider.slider(&#x27;values&#x27;, 0, resp - 1);
+        cutAudioComponentLeftSide(identifier, resp - 1);
+      }
+    } else {
+      var resp = double_slider.slider(&#x27;values&#x27;, 1);
+      if(resp &gt; double_slider.slider(&#x27;values&#x27;, 0) + 1) {
+        if(single_slider.slider(&#x27;value&#x27;) == resp) {
+          selectAudioComponentCutterHandle(component, resp - 1);
+        }
+        double_slider.slider(&#x27;values&#x27;, 1, resp - 1);
+        cutAudioComponentRightSide(identifier, resp - 1);
+      }
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._audio_editor_component ._precision_arrow_right&#x27;, function() {
+    var component = $(this).parents(&#x27;._audio_editor_component&#x27;);
+    var identifier = getAudioComponentIdentifier(component);
+    var duration = component.data(&#x27;max-to&#x27;);
+    var single_slider = component.find(&#x27;._media_player_slider&#x27;);
+    var double_slider = component.find(&#x27;._double_slider&#x27;);
+    if(single_slider.find(&#x27;.ui-slider-handle&#x27;).hasClass(&#x27;selected&#x27;)) {
+      var resp = single_slider.slider(&#x27;value&#x27;);
+      if(resp &lt; duration &amp;&amp; resp &lt; double_slider.slider(&#x27;values&#x27;, 1)) {
+        selectAudioComponentCutterHandle(component, resp + 1);
+      }
+    } else if(double_slider.find(&#x27;.ui-slider-handle&#x27;).first().hasClass(&#x27;selected&#x27;)) {
+      var resp = double_slider.slider(&#x27;values&#x27;, 0);
+      if(resp &lt; double_slider.slider(&#x27;values&#x27;, 1) - 1) {
+        if(single_slider.slider(&#x27;value&#x27;) == resp) {
+          selectAudioComponentCutterHandle(component, resp + 1);
+        }
+        double_slider.slider(&#x27;values&#x27;, 0, resp + 1);
+        cutAudioComponentLeftSide(identifier, resp + 1);
+      }
+    } else {
+      var resp = double_slider.slider(&#x27;values&#x27;, 1);
+      if(resp &lt; duration) {
+        double_slider.slider(&#x27;values&#x27;, 1, resp + 1);
+        cutAudioComponentRightSide(identifier, resp + 1);
+      }
+    }
+  });
+}
+
+/**
+Initializes the JQueryUi animations (sorting components), and all the effects of selection of components (see {{#crossLink &quot;AudioEditorComponents/selectAudioEditorComponent:method&quot;}}{{/crossLink}} and similar methods).
+@method audioEditorDocumentReadyGeneral
+@for AudioEditorDocumentReady
+**/
+function audioEditorDocumentReadyGeneral() {
+  if($.browser === &#x27;msie&#x27;) {
+    $(&#x27;._audio_editor_component ._double_slider .ui-slider-range&#x27;).css(&#x27;opacity&#x27;, 0.4);
+  }
+  $body.on(&#x27;click&#x27;, &#x27;._close_audio_gallery_in_audio_editor&#x27;, function() {
+    closeGalleryInAudioEditor();
+    var expanded_audio = $(&#x27;._audio_expanded_in_gallery&#x27;);
+    if(expanded_audio.length &gt; 0) {
+      expanded_audio.removeClass(&#x27;_audio_expanded_in_gallery&#x27;);
+      var audio_id = expanded_audio.attr(&#x27;id&#x27;);
+      stopMedia(&#x27;#&#x27; + audio_id + &#x27; audio&#x27;);
+      $(&#x27;#&#x27; + audio_id + &#x27; ._expanded&#x27;).hide();
+    }
+  });
+  $body.on(&#x27;mouseover&#x27;, &#x27;._audio_editor_component ._box_ghost&#x27;, function() {
+    $(this).parent().find(&#x27;._sort_handle&#x27;).addClass(&#x27;current&#x27;);
+  });
+  $body.on(&#x27;mouseout&#x27;, &#x27;._audio_editor_component ._box_ghost&#x27;, function(e) {
+    if($(this).is(&#x27;:visible&#x27;) &amp;&amp; !$(e.relatedTarget).hasClass(&#x27;_remove&#x27;)) {
+      $(this).parent().find(&#x27;._sort_handle&#x27;).removeClass(&#x27;current&#x27;);
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._audio_editor_component ._sort_handle&#x27;, function() {
+    selectAudioEditorComponent($(this).parent().parent());
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._audio_editor_component ._box_ghost&#x27;, function() {
+    selectAudioEditorComponent($(this).parent());
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._audio_editor_component ._remove&#x27;, function() {
+    removeAudioEditorComponent($(this).parent());
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#add_new_audio_component_in_audio_editor&#x27;, function() {
+    if(!$(&#x27;#add_new_audio_component_in_audio_editor&#x27;).hasClass(&#x27;disabled&#x27;)) {
+      var selected_component = $(&#x27;._audio_editor_component._selected&#x27;);
+      if(selected_component.length &gt; 0) {
+        selected_component.find(&#x27;._media_player_pause_in_audio_editor_preview&#x27;).click();
+      }
+      if($(&#x27;#audio_editor_gallery_container&#x27;).data(&#x27;loaded&#x27;)) {
+        showGalleryInAudioEditor();
+      } else {
+        $.ajax({
+          type: &#x27;get&#x27;,
+          url: &#x27;/audios/galleries/audio&#x27;
+        });
+      }
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._add_audio_component_to_audio_editor&#x27;, function() {
+    stopMedia(&#x27;._audio_expanded_in_gallery audio&#x27;);
+    $(&#x27;._audio_expanded_in_gallery ._expanded&#x27;).hide();
+    $(&#x27;._audio_expanded_in_gallery&#x27;).removeClass(&#x27;_audio_expanded_in_gallery&#x27;);
+    var audio_id = $(this).data(&#x27;audio-id&#x27;);
+    closeGalleryInAudioEditor();
+    stopMedia(&#x27;#gallery_audio_&#x27; + audio_id + &#x27; audio&#x27;);
+    $(&#x27;#gallery_audio_&#x27; + audio_id + &#x27; ._expanded&#x27;).hide();
+    addComponentInAudioEditor(audio_id, $(this).data(&#x27;ogg&#x27;), $(this).data(&#x27;m4a&#x27;), $(this).data(&#x27;duration&#x27;), $(this).data(&#x27;title&#x27;));
+  });
+  resizeLastComponentInAudioEditor();
+  $(&#x27;#audio_editor_timeline&#x27;).jScrollPane({
+    autoReinitialise: true
+  });
+  $(&#x27;#audio_editor_timeline .jspPane&#x27;).sortable({
+    scroll: true,
+    handle: &#x27;._sort_handle&#x27;,
+    axis: &#x27;y&#x27;,
+    cursor: &#x27;move&#x27;,
+    start: function(event, ui) {
+      selectAudioEditorComponent($(ui.item));
+    },
+    stop: function(event, ui) {
+      var my_item = $(ui.item);
+      resizeLastComponentInAudioEditor();
+      var boolean1 = (my_item.next().length == 0);
+      var boolean2 = (my_item.data(&#x27;position&#x27;) != $(&#x27;._audio_editor_component&#x27;).length);
+      var boolean3 = (my_item.next().data(&#x27;position&#x27;) != (my_item.data(&#x27;position&#x27;) + 1));
+      if(boolean1 &amp;&amp; boolean2 || !boolean1 &amp;&amp; boolean3) {
+        reloadAudioEditorComponentPositions();
+        $(&#x27;._audio_editor_component ._title&#x27;).effect(&#x27;highlight&#x27;, {color: &#x27;#41A62A&#x27;}, 1000);
+      }
+    }
+  });
+  if( $html.hasClass(&#x27;msie&#x27;) ) {
+    $(&#x27;._audio_editor_component ._double_slider .ui-slider-range&#x27;).css(&#x27;opacity&#x27;, 0.4);
+  }
+}
+
+/**
+Initializes the functionalities of the preview (see also {{#crossLink &quot;AudioEditorPreview&quot;}}{{/crossLink}}).
+@method audioEditorDocumentReadyPreview
+@for AudioEditorDocumentReady
+**/
+function audioEditorDocumentReadyPreview() {
+  $body.on(&#x27;click&#x27;, &#x27;#start_audio_editor_preview&#x27;, function() {
+    if(!$(this).hasClass(&#x27;disabled&#x27;)) {
+      enterAudioEditorPreviewMode();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#rewind_audio_editor_preview&#x27;, function() {
+    if(!$(this).hasClass(&#x27;disabled&#x27;)) {
+      var selected_component = $(&#x27;._audio_editor_component&#x27;).first();
+      selectAudioEditorComponent(selected_component);
+      disableCommitAndPreviewInAudioEditor();
+      scrollToFirstSelectedAudioEditorComponent(function() {
+        enableCommitAndPreviewInAudioEditor();
+        var from = selected_component.data(&#x27;from&#x27;);
+        selected_component.find(&#x27;._media_player_slider&#x27;).slider(&#x27;value&#x27;, from);
+        selected_component.find(&#x27;._current_time&#x27;).html(secondsToDateString(from));
+        setCurrentTimeToMedia(selected_component.find(&#x27;audio&#x27;), selected_component.find(&#x27;._media_player_slider&#x27;).slider(&#x27;value&#x27;));
+      });
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#stop_audio_editor_preview&#x27;, function() {
+    leaveAudioEditorPreviewMode();
+  });
+}
+
+
+
+
+
+/**
+Sets the correct position of the gallery: used while showing and closing the audio gallery (see respectively {{#crossLink &quot;AudioEditorGalleries/showGalleryInAudioEditor:method&quot;}}{{/crossLink}} and {{#crossLink &quot;AudioEditorGalleries/closeGalleryInAudioEditor:method&quot;}}{{/crossLink}}.
+@method calculateNewPositionGalleriesInAudioEditor
+@for AudioEditorGalleries
+**/
+function calculateNewPositionGalleriesInAudioEditor() {
+  $(&#x27;#audio_editor_gallery_container&#x27;).css(&#x27;left&#x27;, (($window.width() - 940) / 2) + &#x27;px&#x27;);
+}
+
+/**
+Closes the gallery.
+@method closeGalleryInAudioEditor
+@for AudioEditorGalleries
+**/
+function closeGalleryInAudioEditor() {
+  $(&#x27;._audio_editor_bottom_bar&#x27;).show();
+  $(&#x27;#audio_editor_gallery_container&#x27;).hide(&#x27;fade&#x27;, {}, 250, function() {
+    setBackAllZIndexesInAudioEditor();
+  });
+}
+
+/**
+Shows the gallery.
+@method showGalleryInAudioEditor
+@for AudioEditorGalleries
+**/
+function showGalleryInAudioEditor() {
+  $(&#x27;._audio_editor_bottom_bar&#x27;).hide();
+  $(&#x27;#audio_editor_gallery_container&#x27;).show();
+  setToZeroAllZIndexesInAudioEditor();
+  calculateNewPositionGalleriesInAudioEditor();
+}
+
+
+
+
+
+/**
+Extracts the unique identifier of a component using its HTML id.
+@method getAudioComponentIdentifier
+@for AudioEditorGeneral
+@param component {Object} the component from which we want to extract the identifier
+@return {Number} the identifier
+**/
+function getAudioComponentIdentifier(component) {
+  var id = component.attr(&#x27;id&#x27;).split(&#x27;_&#x27;);
+  return id[id.length - 1];
+}
+
+
+
+
+
+/**
+Disables the buttons &lt;i&gt;commit&lt;/i&gt; and &lt;i&gt;prewiev&lt;/i&gt;.
+@method disableCommitAndPreviewInAudioEditor
+@for AudioEditorGraphics
+**/
+function disableCommitAndPreviewInAudioEditor() {
+  $(&#x27;#empty_audio_editor&#x27;).show();
+  $(&#x27;._commit_media_element_editor&#x27;).hide();
+  $(&#x27;#start_audio_editor_preview&#x27;).addClass(&#x27;disabled&#x27;);
+  $(&#x27;#rewind_audio_editor_preview&#x27;).addClass(&#x27;disabled&#x27;);
+}
+
+/**
+Enables the buttons &lt;i&gt;commit&lt;/i&gt; and &lt;i&gt;preview&lt;/i&gt;.
+@method enableCommitAndPreviewInAudioEditor
+@for AudioEditorGraphics
+**/
+function enableCommitAndPreviewInAudioEditor() {
+  $(&#x27;#empty_audio_editor&#x27;).hide();
+  $(&#x27;._commit_media_element_editor&#x27;).show();
+  $(&#x27;#start_audio_editor_preview&#x27;).removeClass(&#x27;disabled&#x27;);
+  $(&#x27;#rewind_audio_editor_preview&#x27;).removeClass(&#x27;disabled&#x27;);
+}
+
+/**
+Function that sets the correct value to all the z-indexes: there are in total three hidden layers for each component, one global, plus two sliders in each cutter, and each of them needs its specific z-index. Used at any time the components are hidden and need to be shown (for instance {{#crossLink &quot;AudioEditorGalleries/showGalleryInAudioEditor:method&quot;}}{{/crossLink}}).
+@method setBackAllZIndexesInAudioEditor
+@for AudioEditorGraphics
+**/
+function setBackAllZIndexesInAudioEditor() {
+  $(&#x27;._audio_editor_component ._remove&#x27;).css(&#x27;z-index&#x27;, 101);
+  $(&#x27;._audio_editor_component ._box_ghost&#x27;).css(&#x27;z-index&#x27;, 100);
+  $(&#x27;._audio_editor_component ._media_player_slider_disabler&#x27;).css(&#x27;z-index&#x27;, 99);
+  $(&#x27;._audio_editor_component ._double_slider&#x27;).css(&#x27;z-index&#x27;, 98);
+  $(&#x27;._audio_editor_component ._under_double_slider&#x27;).css(&#x27;z-index&#x27;, 97);
+  $(&#x27;._audio_editor_component ._media_player_slider&#x27;).css(&#x27;z-index&#x27;, 96);
+}
+
+/**
+Function that sets to zero the value to all the z-indexes: there are in total three hidden layers for each component, one global, plus two sliders in each cutter, and each of them needs its specific z-index. Used at any time the components are shown and need to be hidden (for instance {{#crossLink &quot;AudioEditorGalleries/closeGalleryInAudioEditor:method&quot;}}{{/crossLink}}).
+@method setToZeroAllZIndexesInAudioEditor
+@for AudioEditorGraphics
+**/
+function setToZeroAllZIndexesInAudioEditor() {
+  $(&#x27;._audio_editor_component ._remove&#x27;).css(&#x27;z-index&#x27;, 0);
+  $(&#x27;._audio_editor_component ._box_ghost&#x27;).css(&#x27;z-index&#x27;, 0);
+  $(&#x27;._audio_editor_component ._media_player_slider_disabler&#x27;).css(&#x27;z-index&#x27;, 0);
+  $(&#x27;._audio_editor_component ._double_slider&#x27;).css(&#x27;z-index&#x27;, 0);
+  $(&#x27;._audio_editor_component ._under_double_slider&#x27;).css(&#x27;z-index&#x27;, 0);
+  $(&#x27;._audio_editor_component ._media_player_slider&#x27;).css(&#x27;z-index&#x27;, 0);
+}
+
+
+
+
+
+/**
+Deselects all the components in preview mode (it corresponds to {{#crossLink &quot;AudioEditorComponents/deselectAllAudioEditorComponents:method&quot;}}{{/crossLink}}).
+@method deselectAllAudioEditorComponentsInPreviewMode
+@for AudioEditorPreview
+**/
+function deselectAllAudioEditorComponentsInPreviewMode() {
+  $(&#x27;._audio_editor_component ._audio_component_icon&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+  $(&#x27;._audio_editor_component&#x27;).each(function() {
+    deselectAllAudioEditorCursors(getAudioComponentIdentifier($(this)));
+  });
+  $(&#x27;._audio_editor_component ._media_player_slider .ui-slider-handle&#x27;).hide();
+  $(&#x27;._audio_editor_component&#x27;).css(&#x27;opacity&#x27;, 0.2);
+  $(&#x27;._audio_editor_component ._content&#x27;).removeClass(&#x27;current&#x27;);
+  $(&#x27;._audio_editor_component&#x27;).removeClass(&#x27;_selected&#x27;);
+}
+
+/**
+Function that sets all the graphical details that characterize the preview mode. It automatically calls the function {{#crossLink &quot;AudioEditorPreview/startAudioEditorPreview:method&quot;}}{{/crossLink}}, passing it as parameter the selected component, or the first one if there is no selected component.
+@method enterAudioEditorPreviewMode
+@for AudioEditorPreview
+**/
+function enterAudioEditorPreviewMode() {
+  $(&#x27;#info_container&#x27;).data(&#x27;in-preview&#x27;, true);
+  $(&#x27;#audio_editor_box_ghost&#x27;).show();
+  $(&#x27;._commit_media_element_editor&#x27;).hide();
+  $(&#x27;#add_new_audio_component_in_audio_editor&#x27;).addClass(&#x27;disabled&#x27;);
+  $(&#x27;#start_audio_editor_preview&#x27;).addClass(&#x27;disabled&#x27;);
+  $(&#x27;#rewind_audio_editor_preview&#x27;).addClass(&#x27;disabled&#x27;);
+  scrollToFirstSelectedAudioEditorComponent(function() {
+    $(&#x27;#audio_editor_timeline .jspVerticalBar&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+    var current_global_preview_time = getAudioEditorGlobalPreviewTime();
+    $(&#x27;#info_container&#x27;).data(&#x27;current-preview-time&#x27;, current_global_preview_time);
+    var selected_component = $(&#x27;._audio_editor_component._selected&#x27;);
+    if(selected_component.length == 0) {
+      selected_component = $(&#x27;._audio_editor_component&#x27;).first();
+    }
+    selected_component = $(&#x27;#&#x27; + selected_component.attr(&#x27;id&#x27;));
+    deselectAllAudioEditorComponents();
+    switchAudioComponentsToPreviewMode();
+    $(&#x27;#visual_audio_editor_current_time&#x27;).show();
+    $(&#x27;#visual_audio_editor_current_time&#x27;).html(secondsToDateString(current_global_preview_time));
+    $(&#x27;#start_audio_editor_preview&#x27;).hide();
+    $(&#x27;#start_audio_editor_preview&#x27;).removeClass(&#x27;disabled&#x27;);
+    $(&#x27;#stop_audio_editor_preview&#x27;).show();
+    $(&#x27;#visual_audio_editor_total_length&#x27;).css(&#x27;color&#x27;, &#x27;#787575&#x27;);
+    $(&#x27;#visual_audio_editor_current_time&#x27;).css(&#x27;color&#x27;, &#x27;white&#x27;);
+    if(current_global_preview_time == 0) {
+      var first_component_from = selected_component.data(&#x27;from&#x27;);
+      selected_component.find(&#x27;._media_player_slider&#x27;).slider(&#x27;value&#x27;, first_component_from);
+      selected_component.find(&#x27;._current_time&#x27;).html(secondsToDateString(first_component_from));
+    }
+    loadAudioComponentIfNotLoadedYet(selected_component);
+    setCurrentTimeToMedia(selected_component.find(&#x27;audio&#x27;), selected_component.find(&#x27;._media_player_slider&#x27;).slider(&#x27;value&#x27;));
+    startAudioEditorPreview(selected_component);
+  });
+}
+
+/**
+Gets the current time in the global preview, using the information relative to the selected component and the position of the cursor inside its cutter.
+@method getAudioEditorGlobalPreviewTime
+@for AudioEditorPreview
+**/
+function getAudioEditorGlobalPreviewTime() {
+  var selected_component = $(&#x27;._audio_editor_component._selected&#x27;);
+  if(selected_component.length == 0) {
+    return 0;
+  } else {
+    var flag = true;
+    var tot = 0;
+    $(&#x27;._audio_editor_component&#x27;).each(function() {
+      if($(this).hasClass(&#x27;_selected&#x27;)) {
+        flag = false;
+        tot += ($(this).find(&#x27;._media_player_slider&#x27;).slider(&#x27;value&#x27;) - $(this).data(&#x27;from&#x27;));
+      } else if(flag) {
+        tot += $(this).data(&#x27;duration&#x27;);
+      }
+    });
+    return tot;
+  }
+}
+
+/**
+Increases of one second the global preview timer.
+@method increaseAudioEditorPreviewTimer
+@for AudioEditorPreview
+**/
+function increaseAudioEditorPreviewTimer() {
+  var data_container = $(&#x27;#info_container&#x27;);
+  var global_time = data_container.data(&#x27;current-preview-time&#x27;);
+  $(&#x27;#visual_audio_editor_current_time&#x27;).html(secondsToDateString(global_time + 1));
+  data_container.data(&#x27;current-preview-time&#x27;, global_time + 1);
+}
+
+/**
+Function that sets back to the regular value all the graphical details that characterize the preview mode.
+@method leaveAudioEditorPreviewMode
+@for AudioEditorPreview
+@param forced_component {Object} the component that must be selected after leaving the preview mode: if not specified, the function selects the first component.
+**/
+function leaveAudioEditorPreviewMode(forced_component) {
+  var selected_component = $(&#x27;#&#x27; + $(&#x27;._audio_editor_component._selected&#x27;).attr(&#x27;id&#x27;));
+  selected_component.find(&#x27;audio&#x27;)[0].pause();
+  deselectAllAudioEditorComponentsInPreviewMode();
+  switchBackAudioComponentsFromPreviewMode();
+  $(&#x27;#info_container&#x27;).data(&#x27;current-preview-time&#x27;, 0);
+  $(&#x27;#visual_audio_editor_current_time&#x27;).html(secondsToDateString(0));
+  $(&#x27;#visual_audio_editor_current_time&#x27;).css(&#x27;color&#x27;, &#x27;#787575&#x27;);
+  $(&#x27;#visual_audio_editor_total_length&#x27;).css(&#x27;color&#x27;, &#x27;white&#x27;);
+  $(&#x27;#visual_audio_editor_current_time&#x27;).hide();
+  $(&#x27;._commit_media_element_editor&#x27;).show();
+  $(&#x27;#add_new_audio_component_in_audio_editor&#x27;).removeClass(&#x27;disabled&#x27;);
+  $(&#x27;#start_audio_editor_preview&#x27;).show();
+  $(&#x27;#stop_audio_editor_preview&#x27;).hide();
+  $(&#x27;#rewind_audio_editor_preview&#x27;).removeClass(&#x27;disabled&#x27;);
+  $(&#x27;#audio_editor_timeline .jspVerticalBar&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+  if(forced_component != undefined) {
+    scrollToFirstSelectedAudioEditorComponent(function() {
+      selectAudioEditorComponent($(&#x27;#&#x27; + forced_component));
+    });
+  } else {
+    selectAudioEditorComponent(selected_component);
+  }
+  $(&#x27;#audio_editor_box_ghost&#x27;).hide();
+  $(&#x27;#info_container&#x27;).data(&#x27;in-preview&#x27;, false);
+}
+
+/**
+Selects a component in preview mode (it corresponds to {{#crossLink &quot;AudioEditorComponents/selectAudioEditorComponent:method&quot;}}{{/crossLink}}).
+@method selectAudioEditorComponentInPreviewMode
+@for AudioEditorPreview
+@param component {Object} the component to be selected
+**/
+function selectAudioEditorComponentInPreviewMode(component) {
+  component.addClass(&#x27;_selected&#x27;);
+  component.find(&#x27;._content&#x27;).addClass(&#x27;current&#x27;);
+  component.css(&#x27;opacity&#x27;, 1);
+  component.find(&#x27;._audio_component_icon&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+  component.find(&#x27;._media_player_slider .ui-slider-handle&#x27;).show();
+  selectAudioEditorCursor(getAudioComponentIdentifier(component));
+}
+
+/**
+Starts the preview from a given component.
+@method startAudioEditorPreview
+@for AudioEditorPreview
+@param component {Object} the component from which the preview starts.
+**/
+function startAudioEditorPreview(component) {
+  selectAudioEditorComponentInPreviewMode(component);
+  followPreviewComponentsWithVerticalScrollInAudioEditor();
+  var audio = component.find(&#x27;audio&#x27;);
+  if(audio[0].error) {
+    showLoadingMediaErrorPopup(audio[0].error.code, &#x27;audio&#x27;);
+    $(&#x27;#stop_audio_editor_preview&#x27;).click();
+  } else {
+    audio[0].play();
+  }
+}
+
+/**
+Switches all the components in preview mode.
+@method switchAudioComponentsToPreviewMode
+@for AudioEditorPreview
+**/
+function switchAudioComponentsToPreviewMode() {
+  $(&#x27;._audio_editor_component ._player_content&#x27;).css(&#x27;opacity&#x27;, 1);
+  $(&#x27;.msie ._audio_editor_component ._double_slider .ui-slider-range&#x27;).css(&#x27;opacity&#x27;, 1);
+  $(&#x27;._audio_editor_component&#x27;).css(&#x27;opacity&#x27;, 0.2);
+  $(&#x27;._audio_editor_component ._remove&#x27;).hide();
+  $(&#x27;._audio_editor_component ._media_player_slider .ui-slider-handle&#x27;).hide();
+  $(&#x27;._audio_editor_component ._audio_component_icon&#x27;).css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+}
+
+/**
+Switches all the components back to regular mode.
+@method switchBackAudioComponentsFromPreviewMode
+@for AudioEditorPreview
+**/
+function switchBackAudioComponentsFromPreviewMode() {
+  $(&#x27;._audio_editor_component&#x27;).css(&#x27;opacity&#x27;, 1);
+  $(&#x27;._audio_editor_component ._player_content&#x27;).css(&#x27;opacity&#x27;, 0.2);
+  $(&#x27;.msie ._audio_editor_component ._double_slider .ui-slider-range&#x27;).css(&#x27;opacity&#x27;, 0.4);
+  $(&#x27;._audio_editor_component ._remove&#x27;).show();
+  $(&#x27;._audio_editor_component ._media_player_slider .ui-slider-handle&#x27;).show();
+  $(&#x27;._audio_editor_component ._audio_component_icon&#x27;).css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+}
+
+
+
+
+
+/**
+Function used to keep updated the position of the scroll with the current component played in the global preview. It checks a condition and then uses {{#crossLink &quot;AudioEditorScrollpain/scrollToFirstSelectedAudioEditorComponent:method&quot;}}{{/crossLink}}.
+@method followPreviewComponentsWithVerticalScrollInAudioEditor
+@for AudioEditorScrollpain
+**/
+function followPreviewComponentsWithVerticalScrollInAudioEditor() {
+  if($(&#x27;._audio_editor_component._selected&#x27;).data(&#x27;position&#x27;) - parseInt($(&#x27;#audio_editor_timeline&#x27;).data(&#x27;jsp&#x27;).getContentPositionY() / 113) == 4) {
+    scrollToFirstSelectedAudioEditorComponent();
+  }
+}
+
+/**
+Hand made function that simply scrolls to a component and executes a callback. This function needed to be written since the original JScrollPain doesn&#x27;t provide it (!).
+@method scrollToFirstSelectedAudioEditorComponent
+@for AudioEditorScrollpain
+@param callback {Function} the callback to be executed after scrolling
+**/
+function scrollToFirstSelectedAudioEditorComponent(callback) {
+  var selected_component = $(&#x27;._audio_editor_component._selected&#x27;);
+  var scroll_pain = $(&#x27;#audio_editor_timeline&#x27;);
+  if(scroll_pain.find(&#x27;.jspVerticalBar&#x27;).length == 0) {
+    if(callback != undefined) {
+      callback();
+    }
+    return;
+  }
+  if(selected_component.length == 0) {
+    if($(&#x27;#info_container&#x27;).data(&#x27;in-preview&#x27;)) {
+      if(scroll_pain.data(&#x27;jsp&#x27;).getPercentScrolledY() != 0) {
+        if(callback != undefined) {
+          scroll_pain.jScrollPane().bind(&#x27;panescrollstop&#x27;, function() {
+            callback();
+            scroll_pain.jScrollPane().unbind(&#x27;panescrollstop&#x27;);
+          });
+        }
+        scroll_pain.data(&#x27;jsp&#x27;).scrollToPercentY(0, true);
+      } else if(callback != undefined) {
+        callback();
+      }
+    } else {
+      if(scroll_pain.data(&#x27;jsp&#x27;).getPercentScrolledY() != 1) {
+        if(callback != undefined) {
+          scroll_pain.jScrollPane().bind(&#x27;panescrollstop&#x27;, function() {
+            callback();
+            scroll_pain.jScrollPane().unbind(&#x27;panescrollstop&#x27;);
+          });
+        }
+        scroll_pain.data(&#x27;jsp&#x27;).scrollToPercentY(100, true);
+      } else if(callback != undefined) {
+        callback();
+      }
+    }
+  } else {
+    var scroll_target = (selected_component.data(&#x27;position&#x27;) - 1) * 113;
+    if(scroll_pain.data(&#x27;jsp&#x27;).getContentPositionY() != scroll_target) {
+      if(callback != undefined) {
+        scroll_pain.jScrollPane().bind(&#x27;panescrollstop&#x27;, function() {
+          callback();
+          scroll_pain.jScrollPane().unbind(&#x27;panescrollstop&#x27;);
+        });
+      }
+      scroll_pain.data(&#x27;jsp&#x27;).scrollToY(scroll_target, true);
+    } else if(callback != undefined) {
+      callback();
+    }
+  }
+}
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

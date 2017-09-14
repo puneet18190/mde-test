@@ -1,0 +1,107 @@
+<div class="row-fluid">
+  <div class="span12">
+    <h3><%= t('admin.messages.notifications.title') %></h3>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <%= form_tag '/admin/messages/filter_users', :id => 'filter-users', :remote => true do %>
+      <div class="hero-unit">
+        <% if @errors.present? %>
+          <div class="row-fluid">
+            <div class="span12 alter alter-error">
+              <%= @errors %>
+            </div>
+          </div>
+        <% end %>
+        <div class="row-fluid">
+          <div class="span4">
+            <div class="row-fluid">
+              <div class="span12 pagination-centered">
+                <h4><%= t('admin.messages.notifications.filter_users') %></h4>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span12">
+                  <%= render :partial => 'admin/search/notifications_filter', :locals => {:params => params[:search]} %><br/>
+                  <%= render :partial => 'admin/search/location', :locals => {:locations => @locations, :params => params[:search]} %>
+                  <% if @users.present? %>
+                    <%= hidden_field_tag 'search[users_ids]', @users.map(&:id).join(',') %>
+                  <% else %>
+                    <%= hidden_field_tag 'search[users_ids]' %>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="span1"></div>
+          <div class="span7">
+            <div class="row-fluid">
+              <div class="span6">
+                <div class="control-group">
+                  <h4><%= t('admin.messages.notifications.add_recipients') %></h4>
+                  <div class="controls recipients_input">
+                    <%= text_field_tag :recipients, '', :placeholder => t('admin.messages.notifications.recipients_placeholder'), :class => 'input-xlarge', :id => 'contact-recipients' %>
+                  </div>
+                </div>
+              </div>
+              <div class="span6">
+                <label class="checkbox everyone">
+                  <%= check_box_tag :all_users %> <%= t('admin.messages.notifications.send_everyone') %>
+                </label>
+              </div>
+              <div id="log" class="span12">
+                <% if @users %>
+                  <%= render :partial => 'recipients', :locals => {:users => @users} %>
+                <% end %>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span12">
+                <div class="control-group">
+                  <h4><%= t('admin.messages.notifications.form.title') %></h4>
+                  <div class="controls">
+                    <%= text_field_tag :title, '', :placeholder => t('admin.messages.notifications.form.title_placeholder') %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span12">
+                <div class="control-group">
+                  <h4><%= t('admin.messages.notifications.form.message') %></h4>
+                  <div class="controls">
+                    <%= text_area_tag :message, '', :placeholder => t('admin.messages.notifications.form.message_placeholder'), :rows => '10', :class => 'input-xxlarge' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <div class="span12">
+                <div class="control-group">
+                  <h4><%= t('admin.messages.notifications.form.basement') %></h4>
+                  <div class="controls">
+                    <%= text_area_tag :basement, '', :placeholder => t('admin.messages.notifications.form.basement_placeholder'), :rows => '10', :class => 'input-xxlarge' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-actions">
+              <div class="row-fluid">
+                <div class="span3">
+                  <%= hidden_field_tag :send_message %>
+                  <button type="submit" class="btn _filter_and_send disabled"><%= t('admin.messages.notifications.send') %></button>
+                </div>
+                <div id="alert" class="span9 pagination-centered _users_count_label" data-all-selected="<%= t('admin.messages.notifications.all_users_selected') %>" data-zero-selected="<%= t('admin.messages.notifications.users_selected', :user_count => '0') %>">
+                  <%= t('admin.messages.notifications.users_selected', :user_count => @users ? @users.length : 0) %>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<%= render :partial => 'media_elements/new_form_popup' %>
+<%= render :partial => 'shared/upload_target' %>
+<div class="gray-bar">
+  <a class="navlist-item b-media_element lower openLoader" data-type="media-element"><%= t('media_elements.load_new') %></a>
+  <%= link_to t('media_elements.editor.menu_link'), new_media_elements_editor_path, :class => 'navlist-item b-media_element lower' %>
+  <%= render :partial => 'shared/search' %>
+</div>
+<br class="clearfloat"/>
+<div class="griglia-contenuti">
+  <div class="elements-content fixed-expanded-height">
+    <%= render :partial => 'media_elements/title_bar', :locals => {:filter => @filter, :display => @display} %>
+    <%= render :partial => 'media_elements/my_media_elements', :locals => {:media_elements => @media_elements, :filter => @filter, :display => @display} %>
+    <div id="info_container" style="display:none" data-currenturl="<%= request.url %>" data-in-space="0"></div>
+    <br class="clearfloat"/>
+    <% if @media_elements.any? %>
+      <%= render :partial => 'shared/pagination', :locals => {:page => @page, :pages_amount => @pages_amount} %>
+    <% end %>
+  </div>
+</div>
+<script>
+  $(document).ready(function() {
+    $('#info_container').data('media-elements-not-anymore-in-conversion', new Array());
+    var list = new Array();
+    mediaElementLoaderConversionOverview(list, 5000);
+  });
+</script>

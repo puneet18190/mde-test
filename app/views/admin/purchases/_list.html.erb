@@ -1,0 +1,105 @@
+<% if purchases.present? %>
+  <table id="purchases-list" class="table table-striped table-hover table-bordered table-rounded">
+    <thead>
+      <tr>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.id'), :ordering => 0} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.name'), :ordering => 1} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.responsible'), :ordering => 2} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.phone_number'), :ordering => nil} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.fax'), :ordering => nil} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.email'), :ordering => 3} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.ssn_code'), :ordering => 4} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.vat_code'), :ordering => 5} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.address'), :ordering => nil} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.postal_code'), :ordering => 6} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.city'), :ordering => 7} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.country'), :ordering => 8} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.location_id'), :ordering => nil} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.accounts_number'), :ordering => 9} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.includes_invoice'), :ordering => nil} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.release_date'), :ordering => 10} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.start_date'), :ordering => 11} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.purchases.fields.expiration_date'), :ordering => 12} %>
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <a name="list-anchor"></a>
+      <% purchases.each do |purchase| %>
+        <tr class="collapse <%= purchase.expired? ? 'expired' : '' %>" id="<%= purchase.id %>">
+          <td><%= purchase.id %></td>
+          <td><%= purchase.name %></td>
+          <td><%= purchase.responsible %></td>
+          <td><%= purchase.phone_number %></td>
+          <td><%= purchase.fax %></td>
+          <td><%= purchase.email %></td>
+          <td><%= purchase.ssn_code %></td>
+          <td><%= purchase.vat_code %></td>
+          <td><%= purchase.address %></td>
+          <td><%= purchase.postal_code %></td>
+          <td><%= purchase.city %></td>
+          <td><%= purchase.country %></td>
+          <td><%= purchase.location.nil? ? t('admin.purchases.links.empty_location') : (link_to purchase.location.name, "/admin/settings/locations?selected=#{purchase.location_id}") %></td>
+          <td><%= link_to "#{purchase.users.count} / #{purchase.accounts_number}", "/admin/users?search[purchase_id]=#{purchase.id}" %></td>
+          <td><%= purchase.includes_invoice.to_s %></td>
+          <td><%= TimeConvert.to_string purchase.release_date %></td>
+          <td><%= TimeConvert.to_string purchase.start_date %></td>
+          <td><%= TimeConvert.to_string purchase.expiration_date %></td>
+          <td>
+            <a href="/admin/purchases/<%= purchase.id %>/links/form"><%= t('admin.purchases.actions.links') %></a>
+          </td>
+          <td>
+            <a href="/admin/purchases/<%= purchase.id %>/edit"><%= t('admin.purchases.actions.edit') %></a>
+          </td>
+          <td>
+            <% if !purchase.expired? %>
+              <a href="/admin/purchases/new?renew=<%= purchase.id %>"><%= t('admin.purchases.actions.renew') %></a>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="widget">
+    <%= t('admin.purchases.empty') %>
+  </div>
+<% end %>

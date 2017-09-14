@@ -1,0 +1,49 @@
+<%
+  url_type ||= nil
+  exporting_slide ||= false
+  if audio
+    audio_class = '_instance_of_player'
+    ogg = audio.ogg_url url_type
+    m4a = audio.m4a_url url_type
+    duration = audio.min_duration
+    string_duration = seconds_to_time(duration)
+  else
+    audio_class = '_empty_audio_player'
+    ogg = ''
+    m4a = ''
+    duration = ''
+    string_duration = ''
+  end
+%>
+
+<div id="instance_<%= @audio_counter[0] %>_<%= @audio_counter[1] %>_of_audio_player" class="audioPlayer <%= audio_class %>" data-media-type="audio" data-initialized="false" data-duration="<%= duration %>">
+  <audio data-m4a="<%= m4a %>" data-ogg="<%= ogg %>">
+    <%
+      if exporting_slide
+        m4a = ''
+        ogg = ''
+      end
+    %>
+    <source src="<%= m4a %>" type="audio/m4a">
+    <source src="<%= ogg %>" type="audio/ogg">
+    <%= t('captions.dont_support_audio') %>
+  </audio>
+  <a class="play _media_player_play" title="<%= t('titles.audios.play') %>"></a>
+  <a class="pause _media_player_pause" title="<%= t('titles.audios.pause') %>"></a>
+  <div class="_media_player_current_time secondTime">00:00</div>
+  <div class="audioSlider _media_player_slider"></div>
+  <div class="_media_player_total_time secondTime"><%= string_duration %></div>
+  <div class="sliderDisabler _media_player_slider_disabler" style="display: none;"></div>
+</div>
+
+
+<% if audio && initialize_now %>
+  <script>
+    initializeMedia('instance_<%= @audio_counter[0] %>_<%= @audio_counter[1] %>_of_audio_player', 'audio');
+  </script>
+<% end %>
+
+
+<%
+  @audio_counter[1] += 1
+%>

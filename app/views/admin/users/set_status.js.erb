@@ -1,0 +1,5 @@
+<% if @user.active %>
+  $('#user_<%= @user.id %>_status').html('<a href="" class="icon-ban-circle action _active_status ban" data-param="<%= @user.id %>" title="<%= j t("admin.users.actions.ban") %>"></a>');
+<% else %>
+  $('#user_<%= @user.id %>_status').html('<a href="" class="icon-ok action _active_status activate" data-param="<%= @user.id %>" title="<%= j t("admin.users.actions.activate") %>"></a>');
+<% end %>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<package xmlns="http://www.idpf.org/2007/opf"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         version="3.0"
+         unique-identifier="<%= package_id %>">
+
+   <metadata>
+    <dc:identifier id="<%= package_id %>">urn:uuid:<%= lesson.uuid %></dc:identifier>
+    <dc:title><%= lesson.title %></dc:title>
+    <dc:language><%= I18n.default_locale %></dc:language>
+    <dc:creator><%= lesson.user.full_name %></dc:creator>
+    <dc:date><%= dc_date lesson %></dc:date>
+    <dc:description><%= lesson.description %></dc:description>
+    <dc:publisher><%= SETTINGS['application_name'] %></dc:publisher>
+    <dc:rights><%= SETTINGS['application_copyright'] %></dc:rights>
+    <dc:subject><%= lesson.subject %></dc:subject>
+    <meta property="dcterms:modified"><%= dcterms_modified lesson %></meta>
+  </metadata>
+
+  <manifest>
+    <item id="epub-css"
+          media-type="text/css"
+          href="<%= stylesheet_path %>"/>
+
+    <item id="toc"
+          properties="nav"
+          media-type="application/xhtml+xml"
+          href="toc.xhtml"/>
+
+    <% slides.each do |r| -%>
+      <item id="<%= slide_item_id(r) %>"
+            href="<%= slide_path(r) %>"
+            media-type="application/xhtml+xml"/>
+    <% end -%>
+
+    <% lesson.media_elements.each do |r| -%>
+      <% r.ebook_resources_formats.each do |format| -%>
+        <% attributes = media_element_item_attributes(r, lesson, format) -%>
+        <item id="<%= attributes[:id] %>"
+              <% if properties = attributes[:properties] -%>properties="<%= properties %>"<% end -%>
+              href="<%= attributes[:href] %>"
+              media-type="<%= attributes[:media_type] %>"/>
+      <% end -%>
+    <% end -%>
+
+    <% math_images.each_with_index do |math_image, i| -%>
+        <item id="<%= math_image_item_id(i) %>"
+              href="<%= math_image_item_href(math_image) %>"
+              media-type="image/png"/>
+    <% end -%>
+  </manifest>
+
+   <spine>
+    <itemref idref="toc"/>
+    <% slides.each do |r| -%>
+      <itemref idref="<%= slide_item_id(r) %>"/>
+    <% end -%>
+  </spine>
+
+</package>

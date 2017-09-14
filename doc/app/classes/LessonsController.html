@@ -1,0 +1,1114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>LessonsController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            LessonsController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="ApplicationController.html">ApplicationController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/controllers/lessons_controller_rb.html">app/controllers/lessons_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-LessonsController-label-Description">Description</h3>
+
+<p>Controller for all the actions related to lessons and their buttons. The
+only two action buttons excluded here are <a
+href="VirtualClassroomController.html#method-i-add_lesson">VirtualClassroomController#add_lesson</a>
+and <a
+href="VirtualClassroomController.html#method-i-remove_lesson">VirtualClassroomController#remove_lesson</a>.
+All over this controller we use the constant keywords defined in <a
+href="ButtonDestinations.html">ButtonDestinations</a>, namely: 1.
+<em>found_lesson</em> (or simply <em>found</em>) for a lesson seen in a
+results list of the search engine 2. <em>compact_lesson</em> (or simply
+<em>compact</em>) for a lesson seen in the compact mode 3.
+<em>expanded_lesson</em> (or simply <em>expanded</em>) for a lesson seen in
+expanded mode (this happens only in the dashboard, see <a
+href="DashboardController.html">DashboardController</a>)</p>
+
+<h3 id="class-LessonsController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="Lesson.html">Lesson</a></p>
+</li><li>
+<p><a href="User.html">User</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-add">add</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-check_available_for_user">check_available_for_user</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-copy">copy</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-destroy">destroy</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-dislike">dislike</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-dont_notify_modification">dont_notify_modification</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get_own_lessons">get_own_lessons</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-index">index</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_paginator">initialize_paginator</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-like">like</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-notify_modification">notify_modification</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-publish">publish</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-remove">remove</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-unpublish">unpublish</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">FOR_PAGE</td>
+            <td>=</td>
+            <td class="attr-value">8</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Number of compact lessons for each page</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-add">
+            
+              <b>add</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-add" name="method-i-add" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-add-label-Description">Description</h3>
+
+<p>Adds a link of this lesson to your section. * <em>found</em>: reloads the
+lesson in compact mode * <em>compact</em>: <em>[this action doesn&#39;t
+occur]</em> * <em>expanded</em>: removes the lesson and reloads the whole
+page</p>
+
+<h3 id="method-i-add-label-Mode">Mode</h3>
+
+<p>Ajax + Json</p>
+
+<h3 id="method-i-add-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson">ApplicationController#initialize_lesson</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_destination">ApplicationController#initialize_lesson_destination</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-add_source')" id="l_method-i-add_source">show</a>
+                
+              </p>
+              <div id="method-i-add_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">add</span>
+  <span class="ruby-ivar">@ok_msg</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;other_popup_messages.correct.add.lesson&#39;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">bookmark</span>(<span class="ruby-string">&#39;Lesson&#39;</span>, <span class="ruby-ivar">@lesson_id</span>)
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.bookmark.problem_creating_for_lesson&#39;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.bookmark.problem_creating_for_lesson&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@destination</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ButtonDestinations</span><span class="ruby-operator">::</span><span class="ruby-constant">FOUND_LESSON</span>
+    <span class="ruby-identifier">prepare_lesson_for_js</span>
+    <span class="ruby-ivar">@ok_msg</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_compact.js&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:ok</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@ok</span>, <span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-ivar">@ok</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@ok_msg</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@error</span>)}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-copy">
+            
+              <b>copy</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-copy" name="method-i-copy" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-copy-label-Description">Description</h3>
+
+<p>Creates a copy of this lesson, and opens a popup asking you if you want to
+edit immediately the new lesson or reload the page</p>
+
+<h3 id="method-i-copy-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-copy-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="LessonsController.html#method-i-check_available_for_user">#check_available_for_user</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson">ApplicationController#initialize_lesson</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_destination">ApplicationController#initialize_lesson_destination</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-copy_source')" id="l_method-i-copy_source">show</a>
+                
+              </p>
+              <div id="method-i-copy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">copy</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-ivar">@new_lesson</span> = <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">copy</span>(<span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@new_lesson</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">get_base_error</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.lesson.problem_copying&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-destroy">
+            
+              <b>destroy</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-destroy" name="method-i-destroy" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-destroy-label-Description">Description</h3>
+
+<p>Deletes definitively a lesson. * <em>found</em>: removes the lesson and
+reloads the whole page * <em>compact</em>: removes the lesson and reloads
+the whole page * <em>expanded</em>: <em>[this action doesn&#39;t
+occur]</em></p>
+
+<h3 id="method-i-destroy-label-Mode">Mode</h3>
+
+<p>Json</p>
+
+<h3 id="method-i-destroy-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_with_owner">ApplicationController#initialize_lesson_with_owner</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_destination">ApplicationController#initialize_lesson_destination</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-destroy_source')" id="l_method-i-destroy_source">show</a>
+                
+              </p>
+              <div id="method-i-destroy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">destroy</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">destroy_with_notifications</span>
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">get_base_error</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.lesson.problem_destroying&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:ok</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@ok</span>, <span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@error</span>}
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-dislike">
+            
+              <b>dislike</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-dislike" name="method-i-dislike" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-dislike-label-Description">Description</h3>
+
+<p>Removes your &#39;I like it&#39; from the lesson * <em>found</em>: reloads
+the lesson in compact mode * <em>compact</em>: reloads the lesson in
+compact mode * <em>expanded</em>: reloads the lesson in expanded mode</p>
+
+<h3 id="method-i-dislike-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-dislike-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson">ApplicationController#initialize_lesson</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_destination">ApplicationController#initialize_lesson_destination</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-dislike_source')" id="l_method-i-dislike_source">show</a>
+                
+              </p>
+              <div id="method-i-dislike_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">dislike</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">dislike</span>(<span class="ruby-ivar">@lesson_id</span>)
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.like.problem_destroying&#39;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.like.problem_destroying&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">prepare_lesson_for_js</span>
+  <span class="ruby-keyword">if</span> [<span class="ruby-constant">ButtonDestinations</span><span class="ruby-operator">::</span><span class="ruby-constant">FOUND_LESSON</span>, <span class="ruby-constant">ButtonDestinations</span><span class="ruby-operator">::</span><span class="ruby-constant">COMPACT_LESSON</span>].<span class="ruby-identifier">include?</span> <span class="ruby-ivar">@destination</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_compact.js&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_expanded.js&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-dont_notify_modification">
+            
+              <b>dont_notify_modification</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-dont_notify_modification" name="method-i-dont_notify_modification" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-dont_notify_modification-label-Description">Description</h3>
+
+<p>Doesn&#39;t send any notification and sets the lesson as <em>notified</em>
+(using <a
+href="Lesson.html#method-i-dont_notify_changes">Lesson#dont_notify_changes</a>)</p>
+
+<h3 id="method-i-dont_notify_modification-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-dont_notify_modification-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_with_owner">ApplicationController#initialize_lesson_with_owner</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-dont_notify_modification_source')" id="l_method-i-dont_notify_modification_source">show</a>
+                
+              </p>
+              <div id="method-i-dont_notify_modification_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 347</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">dont_notify_modification</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">dont_notify_changes</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-index">
+            
+              <b>index</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-index" name="method-i-index" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-index-label-Description">Description</h3>
+
+<p>Main page of the section &#39;lessons&#39;. When it&#39;s called via ajax
+it&#39;s because of the application of filters, paginations, or after an
+operation that changed the number of items in the page.</p>
+
+<h3 id="method-i-index-label-Mode">Mode</h3>
+
+<p>Html + Ajax</p>
+
+<h3 id="method-i-index-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_layout">ApplicationController#initialize_layout</a></p>
+</li><li>
+<p><a
+href="LessonsController.html#method-i-initialize_paginator">#initialize_paginator</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-index_source')" id="l_method-i-index_source">show</a>
+                
+              </p>
+              <div id="method-i-index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">index</span>
+  <span class="ruby-identifier">get_own_lessons</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@page</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+    <span class="ruby-ivar">@page</span> = <span class="ruby-ivar">@pages_amount</span>
+    <span class="ruby-identifier">get_own_lessons</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render_js_or_html_index</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-like">
+            
+              <b>like</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-like" name="method-i-like" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-like-label-Description">Description</h3>
+
+<p>Records a &#39;I like it&#39; on the lesson * <em>found</em>: reloads the
+lesson in compact mode * <em>compact</em>: reloads the lesson in compact
+mode * <em>expanded</em>: reloads the lesson in expanded mode</p>
+
+<h3 id="method-i-like-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-like-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson">ApplicationController#initialize_lesson</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_destination">ApplicationController#initialize_lesson_destination</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-like_source')" id="l_method-i-like_source">show</a>
+                
+              </p>
+              <div id="method-i-like_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">like</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">like</span>(<span class="ruby-ivar">@lesson_id</span>)
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.like.problem_creating&#39;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.like.problem_creating&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">prepare_lesson_for_js</span>
+  <span class="ruby-keyword">if</span> [<span class="ruby-constant">ButtonDestinations</span><span class="ruby-operator">::</span><span class="ruby-constant">FOUND_LESSON</span>, <span class="ruby-constant">ButtonDestinations</span><span class="ruby-operator">::</span><span class="ruby-constant">COMPACT_LESSON</span>].<span class="ruby-identifier">include?</span> <span class="ruby-ivar">@destination</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_compact.js&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_expanded.js&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-notify_modification">
+            
+              <b>notify_modification</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-notify_modification" name="method-i-notify_modification" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-notify_modification-label-Description">Description</h3>
+
+<p>Sends a notification about the details of the modification and sets the
+lesson as <em>notified</em> (using <a
+href="Lesson.html#method-i-notify_changes">Lesson#notify_changes</a>)</p>
+
+<h3 id="method-i-notify_modification-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-notify_modification-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_with_owner">ApplicationController#initialize_lesson_with_owner</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-notify_modification_source')" id="l_method-i-notify_modification_source">show</a>
+                
+              </p>
+              <div id="method-i-notify_modification_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 328</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">notify_modification</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">msg</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:details_placeholder</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:details</span>]
+    <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">notify_changes</span> <span class="ruby-identifier">msg</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-publish">
+            
+              <b>publish</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-publish" name="method-i-publish" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-publish-label-Description">Description</h3>
+
+<p>Calls <a href="Lesson.html#method-i-publish">Lesson#publish</a> on the
+lesson. * <em>found</em>: reloads the lesson in compact mode *
+<em>compact</em>: reloads the lesson in compact mode * <em>expanded</em>:
+<em>[this action doesn&#39;t occur]</em></p>
+
+<h3 id="method-i-publish-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-publish-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="LessonsController.html#method-i-check_available_for_user">#check_available_for_user</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_with_owner">ApplicationController#initialize_lesson_with_owner</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_destination">ApplicationController#initialize_lesson_destination</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-publish_source')" id="l_method-i-publish_source">show</a>
+                
+              </p>
+              <div id="method-i-publish_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 218</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">publish</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">trial?</span>
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;registration.trial_limitations_messages.cant_publish_lesson&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@ok_msg</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;other_popup_messages.correct.publish&#39;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">publish</span>
+        <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-ivar">@error</span> = <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">get_base_error</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.lesson.problem_publishing&#39;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">prepare_lesson_for_js</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> [<span class="ruby-constant">ButtonDestinations</span><span class="ruby-operator">::</span><span class="ruby-constant">FOUND_LESSON</span>, <span class="ruby-constant">ButtonDestinations</span><span class="ruby-operator">::</span><span class="ruby-constant">COMPACT_LESSON</span>].<span class="ruby-identifier">include?</span> <span class="ruby-ivar">@destination</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_compact.js&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_expanded.js&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-remove">
+            
+              <b>remove</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-remove" name="method-i-remove" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-remove-label-Description">Description</h3>
+
+<p>Removes the link of this lesson from your section. * <em>found</em>:
+reloads the lesson in compact mode * <em>compact</em>: removes the lesson
+and reloads the whole page * <em>expanded</em>: <em>[this action
+doesn&#39;t occur]</em></p>
+
+<h3 id="method-i-remove-label-Mode">Mode</h3>
+
+<p>Ajax + Json</p>
+
+<h3 id="method-i-remove-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson">ApplicationController#initialize_lesson</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_destination">ApplicationController#initialize_lesson_destination</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-remove_source')" id="l_method-i-remove_source">show</a>
+                
+              </p>
+              <div id="method-i-remove_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">remove</span>
+  <span class="ruby-ivar">@ok_msg</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;other_popup_messages.correct.remove.lesson&#39;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">bookmark</span> = <span class="ruby-constant">Bookmark</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:bookmarkable_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Lesson&#39;</span>, <span class="ruby-value">:bookmarkable_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@lesson_id</span>).<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">bookmark</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.bookmark.problem_destroying_for_lesson&#39;</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">bookmark</span>.<span class="ruby-identifier">destroy</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">Bookmark</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:bookmarkable_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Lesson&#39;</span>, <span class="ruby-value">:bookmarkable_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@lesson_id</span>).<span class="ruby-identifier">any?</span>
+        <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.bookmark.problem_destroying_for_lesson&#39;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.bookmark.problem_destroying_for_lesson&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@destination</span> <span class="ruby-operator">==</span> <span class="ruby-constant">ButtonDestinations</span><span class="ruby-operator">::</span><span class="ruby-constant">FOUND_LESSON</span>
+    <span class="ruby-identifier">prepare_lesson_for_js</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_compact.js&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:json</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:ok</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@ok</span>, <span class="ruby-value">:msg</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-ivar">@ok</span> <span class="ruby-operator">?</span> <span class="ruby-ivar">@ok_msg</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@error</span>)}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-unpublish">
+            
+              <b>unpublish</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-unpublish" name="method-i-unpublish" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-unpublish-label-Description">Description</h3>
+
+<p>Calls <a href="Lesson.html#method-i-unpublish">Lesson#unpublish</a> on the
+lesson. * <em>found</em>: reloads the lesson in compact mode *
+<em>compact</em>: reloads the lesson in compact mode * <em>expanded</em>:
+<em>[this action doesn&#39;t occur]</em></p>
+
+<h3 id="method-i-unpublish-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-unpublish-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_with_owner">ApplicationController#initialize_lesson_with_owner</a></p>
+</li><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_lesson_destination">ApplicationController#initialize_lesson_destination</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-unpublish_source')" id="l_method-i-unpublish_source">show</a>
+                
+              </p>
+              <div id="method-i-unpublish_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">unpublish</span>
+  <span class="ruby-ivar">@ok_msg</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;other_popup_messages.correct.unpublish&#39;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">unpublish</span>
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@error</span> = <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">get_base_error</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;activerecord.errors.models.lesson.problem_unpublishing&#39;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">prepare_lesson_for_js</span>
+  <span class="ruby-keyword">if</span> [<span class="ruby-constant">ButtonDestinations</span><span class="ruby-operator">::</span><span class="ruby-constant">FOUND_LESSON</span>, <span class="ruby-constant">ButtonDestinations</span><span class="ruby-operator">::</span><span class="ruby-constant">COMPACT_LESSON</span>].<span class="ruby-identifier">include?</span> <span class="ruby-ivar">@destination</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_compact.js&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;lessons/reload_expanded.js&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-check_available_for_user">
+            
+              <b>check_available_for_user</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-check_available_for_user" name="method-i-check_available_for_user" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Checks if the lesson is available (it doesn&#39;t contain any audio or
+video in conversion)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-check_available_for_user_source')" id="l_method-i-check_available_for_user_source">show</a>
+                
+              </p>
+              <div id="method-i-check_available_for_user_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 357</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">check_available_for_user</span>
+  <span class="ruby-identifier">l</span> = <span class="ruby-constant">Lesson</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:lesson_id</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">l</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">l</span>.<span class="ruby-identifier">available?</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-value">:nothing</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_own_lessons">
+            
+              <b>get_own_lessons</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-get_own_lessons" name="method-i-get_own_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets the lessons using <a
+href="User.html#method-i-own_lessons">User#own_lessons</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_own_lessons_source')" id="l_method-i-get_own_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-get_own_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 366</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_own_lessons</span>
+  <span class="ruby-identifier">current_user_own_lessons</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">own_lessons</span>(<span class="ruby-ivar">@page</span>, <span class="ruby-ivar">@for_page</span>, <span class="ruby-ivar">@filter</span>)
+  <span class="ruby-ivar">@lessons</span> = <span class="ruby-identifier">current_user_own_lessons</span>[<span class="ruby-value">:records</span>]
+  <span class="ruby-ivar">@pages_amount</span> = <span class="ruby-identifier">current_user_own_lessons</span>[<span class="ruby-value">:pages_amount</span>]
+  <span class="ruby-ivar">@covers</span> = <span class="ruby-identifier">current_user_own_lessons</span>[<span class="ruby-value">:covers</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_paginator">
+            
+              <b>initialize_paginator</b>()
+            
+            <a href="../classes/LessonsController.html#method-i-initialize_paginator" name="method-i-initialize_paginator" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes pagination parameters and filters</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_paginator_source')" id="l_method-i-initialize_paginator_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_paginator_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/lessons_controller.rb, line 374</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_paginator</span>
+  <span class="ruby-ivar">@page</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-number">1</span>
+  <span class="ruby-ivar">@for_page</span> = <span class="ruby-constant">FOR_PAGE</span>
+  <span class="ruby-ivar">@filter</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:filter</span>]
+  <span class="ruby-ivar">@filter</span> = <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">ALL_LESSONS</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">LESSONS_SET</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@filter</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

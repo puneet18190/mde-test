@@ -1,0 +1,26 @@
+<div class="gray-bar">
+  <%= link_to t('lessons.create_new'), '/lessons/new', :class => 'navlist-item b-lesson lower' %>
+  <%= render :partial => 'shared/search' %>
+</div>
+<br class="clearfloat"/>
+<div class="griglia-contenuti">
+  <div class="lessons-content fixed-compact-height">
+    <div id="lessons_title_bar" class="title-bar">
+      <h1 class="lower"><%= t('captions.lessons') %></h1>
+      <div class="filter">
+        <h2><%= t('captions.show') %></h2>
+        <select id="filter_lessons">
+          <% Filters::LESSONS_SET.each do |f| %>
+            <option value="<%= f %>" <%= (@filter == f) ? "selected=\"selected\"".html_safe : '' %>><%= Lesson.filter(f) %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+    <%= render :partial => 'lessons/my_lessons', :locals => {:lessons => @lessons, :filter => @filter, :covers => @covers} %>
+    <div id="info_container" style="display:none" data-currenturl="<%= request.url %>"></div>
+    <br class="clearfloat"/>
+    <% if @lessons.present? %>
+      <%= render :partial => 'shared/pagination', :locals => {:page => @page, :pages_amount => @pages_amount} %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="griglia-contenuti">
+  <div class="profile-content">
+    <%= render :partial => 'users/title_bar', :locals => {:classes => ['', '', '', 'current', '']} %>
+    <br class="clearfloat"/>
+    <div class="contentFormInProfile">
+      <header>
+        <h2><%= t('users.statistics.title') %></h2>
+        <p><%= t('users.statistics.description', :desy => SETTINGS['application_name']) %></p>
+      </header>
+      <div class="stats">
+        <h2><%= t('users.statistics.personal.title') %></h2>
+        <ul class="col fltlft">
+          <li class="lesson_stat">
+            <span class="fltlft"><%= t('users.statistics.personal.lessons_created') %></span><div><%= @my_created_lessons %></div>
+          </li>
+          <li class="lesson_stat">
+            <span class="fltlft"><%= t('users.statistics.personal.lessons_copied_by') %></span><div><%=@my_copied_lessons%></div>
+          </li>
+          <li class="lesson_stat"><span class="fltlft"><%= t('users.statistics.personal.lessons_more_likes') %></span>
+            <ul>
+              <% @my_liked_lessons.each do |liked| %>
+                <li><span><%= liked.title %></span><div><%= liked.likes_count %></div></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+        <ul class="col fltrt">
+          <li class="element_stat"><span><%= t('users.statistics.personal.media_elements_loaded') %></span><div><%= @my_created_elements %></div></li>
+          <li class="lesson_stat"><span><%= t('users.statistics.personal.likes') %></span><div><%= @my_likes_count %></div></li>
+          <li class="lesson_stat"><span><%= t('users.statistics.personal.links') %></span><div><%= @my_linked_lessons_count %></div></li>
+        </ul>
+        <br style="clear:both" />
+      </div>
+    
+      <div class="stats">
+        <h2><%= t('users.statistics.general.title') %></h2>
+        <ul class="col fltlft">
+          <li class="lesson_stat"><span><%= t('users.statistics.general.lessons_shared') %></span><div><%= @all_shared_lessons %></div></li>
+          <li class="element_stat"><span><%= t('users.statistics.general.media_elements_shared') %></span><div><%= @all_shared_elements %></div></li>
+          <li class="generic_stat"><span><%= t('users.statistics.general.total_users') %></span><div><%= @all_users %></div></li>
+          <li class="lesson_stat"><span><%= t('users.statistics.general.lessons_more_likes') %></span>
+            <ul>
+              <% @all_liked_lessons.each do |liked| %>
+                <li><span><%= liked.title %></span><div><%= liked.likes_count %></div></li>
+              <% end %>
+            </ul>
+          </li>
+          <li class="generic_stat"><span><%= t('users.statistics.general.users_more_likes') %></span>
+            <ul>
+              <% @all_users_like.each do |u| %>
+                <li><span><%= u.name %> <%= u.surname %></span><div><%= u.likes_count %></div></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+        <ul class="col fltrt">
+          <li class="element_stat chart">
+            <%= t('users.statistics.general.percentual_lessons_subject.title') %>
+            <br style="clear:both" />
+            <table id="subjects-stats" width="100%" class="fltlft">
+              <tr>
+                <th><%= t('users.statistics.general.percentual_lessons_subject.color') %></th>
+                <th><%= t('users.statistics.general.percentual_lessons_subject.subject') %></th>
+                <th><%= t('users.statistics.general.percentual_lessons_subject.value') %></th>
+              </tr>
+              <% @subjects_chart[:data].each_with_index do |s, i| %>
+                <tr>
+                  <td width="10%" border="1" style="background-color:<%= @subjects_chart[:colors][i] %>"></td>
+                  <td width="70%"><%= @subjects_chart[:texts][i] %></td>
+                  <td width="20%"><%= "#{s} %" %></td>
+                </tr>
+              <% end %>
+            </table>
+            <% texts = "\"#{@subjects_chart[:texts].join("\", \"")}\"" %>
+            <span class="pie" data-text="[<%= texts %>]" data-diameter="250" class="fltrt"><%= @subjects_chart[:data].join(', ') %></span>
+            <br style="clear:both" />
+          </li>
+        </ul>
+        <br style="clear:both" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $.fn.peity.defaults.pie = {
+    colours: <%= Subject.chart_colors.to_json.html_safe %>,
+    diameter: 250
+  }
+  $('span.pie').peity('pie');
+</script>

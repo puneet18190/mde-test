@@ -1,0 +1,13 @@
+<div class="slide-content text small-size">
+  
+  <div class="item title-container">
+    <input class="title read-only" type="text" value="<%= slide.title.blank? ? t('lesson_editor.placeholders.title') : slide.title %>" disabled="disabled"/>
+  </div>
+  
+  <div class="item text-container read-only">
+    <%= slide.text.blank? ? t('lesson_editor.placeholders.text') : slide.text.html_safe %>
+  </div>
+  
+  <a class="attached_document_internal" style="display:<%= slide.documents_slides.any? ? 'block' : 'none' %>"></a>
+  
+</div>

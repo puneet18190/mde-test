@@ -1,0 +1,183 @@
+@import 'variables';
+@import 'mixins';
+
+html.prelogin-layout .header {
+  
+  padding: 0px;
+  font-family: 'Nunito', sans-serif;
+  float: left;
+  
+  .headerMenu {
+    
+    padding: 5px 0px 4px 3px;
+    background-color: #fff;
+    float: left;
+    width: 947px;
+    
+    ul {
+      
+      margin: 0;
+      float: left;
+      padding-top: 7px;
+      
+      li {
+        
+        display: inline;
+        list-style-type: none;
+        padding-right: 20px;
+        
+      }
+    }
+    
+    a {
+      
+      color: #777779;
+      
+      &:hover {
+        
+        color: #FDB525;
+        
+      }
+      
+      &.current {
+        
+        color: #FDB525;
+        
+      }
+      
+    }
+    
+  }
+  
+  .login {
+    
+    float: right;
+    color: rgb(136, 134, 134);
+    font-size: 95%;
+    width: 18%;
+    
+    p {
+      
+      padding-top: 8px;
+      
+    }
+    
+    input[type="submit"] {
+      
+      font-size: 100%;
+      padding: 0;
+      margin: 0;
+      color: $orange;
+      background-color: transparent;
+      cursor: pointer;
+      
+    }
+    
+    .button a {
+      
+      float: right;
+      padding: 4px 15px 4px 15px;
+      background-color: #4BAB36;
+      text-align: center;
+      font-size: 120%;
+      color: #fff;
+      
+      &:hover {
+        
+        background-color:#282828;
+        
+      }
+      
+    }
+    
+    .buttonRegistration a {
+      
+      float: left;
+      padding: 4px 15px 4px 15px;
+      background-color: #9BC3EB;
+      text-align: center;
+      font-size: 120%;
+      color: #fff;
+      
+      &:hover, &.current  {
+        
+        background-color: #83A5C8;
+        
+      }
+      
+    }
+    
+    .tooltippe {
+      
+      border: none;
+      top: 40px;
+      right: 20px;
+      width: 196px;
+      background-color: #2F2E2E;
+      padding: 15px 20px 15px 20px;
+      display: none;
+      position: absolute;
+      z-index: 10;
+      margin: 0px;
+      border-radius: 3px;
+      -webkit-border-radius: 3px;
+      
+      a {
+        
+        color: $orange;
+        font-size: 100%;
+        
+      }
+      
+      p {
+        
+        font-size: 80%;
+        
+        a {
+          
+          color: #fff;
+          
+          &:hover {
+            
+            text-decoration: underline;
+            
+          }
+          
+        }
+        
+      }
+      
+      .text {
+        
+        border: 1px solid #424141;
+        width: 184px;
+        height: 29px;
+        background-color: #2E2C2D;
+        border-radius: 6px;
+        -webkit-border-radius: 4px;
+        margin-right: 0px;
+        margin-top: 5px;
+        color: #fff;
+        padding: 0px;
+        margin-bottom: 10px;
+        padding-left: 10px;
+        font-size: 120%;
+        box-shadow: none;
+        
+      }
+      
+      .callout {
+        
+        top: -8px;
+        z-index: 20;
+        position: absolute;
+        border: 0;
+        right: 30px;
+        
+      }
+      
+    }
+    
+  }
+  
+}

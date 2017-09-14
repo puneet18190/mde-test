@@ -1,0 +1,15 @@
+var container = $('#lesson_editor_document_gallery_container');
+var current_slide = $('li._lesson_editor_current_slide');
+container.html("<%= j(render :partial => 'galleries/wrappers/document', :locals => {:documents => @documents}) %>");
+container.show();
+$('li._lesson_editor_current_slide .slide-content').children().hide();
+centerThis('#lesson_editor_document_gallery_container');
+current_slide.find('layer').remove();
+container.data('loaded', true);
+container.data('slide-id', current_slide.data('slide-id'));
+container.data('page', 1);
+container.data('tot-pages', <%= @tot_pages %>);
+<% if @documents.count > 6 %>
+  initializeDocumentGalleryInLessonEditor();
+<% end %>
+loadDocumentGalleryForSlideInLessonEditor(current_slide.data('slide-id'));

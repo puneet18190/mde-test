@@ -1,0 +1,12 @@
+<%
+  images = slide.media_elements_at
+%>
+
+<div class="vertical_align">
+  <% images.each_with_index do |image, i| -%>
+    <figure class="<%= image_figure_classes image, 'image', "image#{i}" %>">
+      <div style="<%= image_style image %>"></div>
+      <figcaption><%= image.caption if image %></figcaption>
+    </figure>
+  <% end -%>
+</div>

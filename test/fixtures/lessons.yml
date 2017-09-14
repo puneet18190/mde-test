@@ -1,0 +1,23 @@
+one:
+  id: 1
+  user_id: 1
+  school_level_id: 1
+  subject_id: 1
+  title: 'tstring'
+  description: 'text'
+  is_public: false
+  copied_not_modified: false
+  token: 'qwertyuiopqwertyuiop'
+  updated_at: '2012-01-01 20:00:00'
+
+two:
+  id: 2
+  user_id: 2
+  school_level_id: 1
+  subject_id: 3
+  title: 'string'
+  description: 'text'
+  is_public: true
+  copied_not_modified: false
+  token: 'qwertyuiopqwertyuiop'
+  updated_at: '2012-01-01 19:00:00'

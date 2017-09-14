@@ -1,0 +1,20 @@
+<div class="header">
+  <div class="contenitore">
+  <h1 class="fltlft upper"><%= t('image_editor.label') %></h1>
+    <div id="image_editor_title" class="testo fltlft">
+      <% if (image.nil? || is_public) %>
+        <span class="_untitled">
+          <%= t('media_elements.editor.new_untitled') %>
+        </span>
+      <% else %>
+        <span class="_titled">
+          <%= image.title %>
+        </span>
+        <span class="_untitled" style="display:none">
+          <%= t('media_elements.editor.new_untitled') %>
+        </span>
+      <% end %>
+    </div>
+    <%= link_to '', my_media_elements_path, :class => 'esciButton _exit_url', :title => t('titles.exit_without_saving') %>
+  </div>
+</div>

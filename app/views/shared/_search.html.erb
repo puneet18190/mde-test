@@ -1,0 +1,20 @@
+<div class="boxCerca">
+  <form id="search_general" class="search-form" method="get" action="/search">
+    <table>
+      <tr>
+        <td style="width:210px">
+          <input type="text" name="word" value="<%= t('search.long_label', :desy => SETTINGS['application_name']) %>" class="text" id="general_tag_reader_for_search" style="color:#999"/>
+          <%= hidden_field_tag 'word_placeholder', '', :id => 'general_tag_kind_for_search' %>
+        </td>
+        <td>
+          <select name="item" id="which_item_to_search">
+            <option value="lessons" <%= @where != 'media_elements' ? "selected=\"selected\"".html_safe : '' %>><%= t('captions.lessons') %></option>
+            <option value="media_elements" <%= @where == 'media_elements' ? "selected=\"selected\"".html_safe : '' %>><%= t('captions.media_elements') %></option>
+          </select>
+        </td>
+        <td><a id="search_general_submit" class="cerca current"  title="<%= t('titles.search') %>">&nbsp;</a></td>
+      </tr>
+    </table>
+  </form>
+  <%= link_to t('search.label'), "#{search_items_path}?item=#{@where}", :class =>'advanced' %>
+</div>

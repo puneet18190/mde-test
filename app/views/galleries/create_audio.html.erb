@@ -1,0 +1,12 @@
+<script>
+  window.onload = function() {
+    <% if @errors %>
+      top.uploadDone('#load-gallery-audio', <%= @errors.to_json.html_safe %>);
+    <% else %>
+      var html_content = "<%= j(render :partial => 'galleries/audio', :locals => {:audios => @audios}) %>";
+      top.uploadDone('#load-gallery-audio', undefined, function() {
+        top.reloadGalleryInLessonEditor('#load-gallery-audio', 'audio', html_content, <%= @tot_pages %>, <%= @audios.count %>);
+      });
+    <% end %>
+  }
+</script>

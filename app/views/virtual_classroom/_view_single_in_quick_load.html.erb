@@ -1,0 +1,20 @@
+<%
+  cover ||= nil
+  style = ''
+  if [0, 1, 2].include?(index)
+    if index % 3 == 2
+      style = 'margin-top:0; margin-right:0'
+    else
+      style = 'margin-top:0'
+    end
+  elsif index % 3 == 2
+    style = 'margin-right:0'
+  end
+%>
+
+<div id="virtual_classroom_quick_loaded_lesson_<%= lesson.id %>" class="boxViewSingleVCLesson _virtual_classroom_quick_loaded_lesson" data-available="<%= lesson.virtuals_count.to_i == 0 && !lesson.copied_not_modified %>" style="<%= style.html_safe %>">
+  <%= hidden_field_tag "virtual_classroom_quick_loaded_lesson_name_#{lesson.id}", '0' %>
+  <div  class="contentInterno" style="height:auto">
+    <%= render :partial => 'lessons/thumbnail', :locals => {:lesson => lesson, :cover => cover} %>
+  </div>
+</div>

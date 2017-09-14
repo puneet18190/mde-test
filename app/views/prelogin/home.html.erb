@@ -1,0 +1,28 @@
+<div class="header">
+  <div class="headerMenu">
+  <ul>
+    <li><%= link_to t('prelogin.main_page.menu_link'), root_path, :class => 'current' %></li>
+    <li><%= link_to t('prelogin.what_is.menu_link', :desy => SETTINGS['application_name']), what_is_path %></li>
+    <li><%= contact_us_link %></li>
+  </ul>
+   <%= render :partial => '/prelogin/login' %>
+  </div>
+</div>
+<br class="clearfloat"/>
+<div class="contentVideoHomePrelogin">
+  <%= image_tag 'bg_video_prelogin.jpg' %>
+</div>
+
+<div class="containerText">
+  <div class="fltlft" style="width:47%">
+    <%= image_tag "logo_prelogin.png" %>
+  </div>
+  <div class="fltrt" style="width:40%">
+    <h1><%= t('prelogin.main_page.title', :desy => SETTINGS['application_name']) %></h1>
+    <p><%= t('prelogin.main_page.description', :desy => SETTINGS['application_name']).html_safe %></p>
+    <% if SETTINGS['saas_registration_mode'] %>
+      <p><a class="tryTrial" href="/sign_up?trial=1"><%= t('prelogin.main_page.trial') %></a></p>
+    <% end %>
+  </div>
+</div>
+<br class="clearfloat"/>

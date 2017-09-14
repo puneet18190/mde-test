@@ -1,0 +1,546 @@
+@import 'variables';
+@import 'mixins';
+
+.ui-button {
+  
+  @include nunito(100%);
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  margin-right: .1em;
+  cursor: pointer;
+  text-align: center;
+  zoom: 1;
+  overflow: visible;
+  border: none;
+  background-color: $orange;
+  color: #fff;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  z-index: 999;
+  
+}
+
+.ui-dialog-titlebar {
+  
+  padding: .4em 1em;
+  position: relative;
+  display: none;
+}
+
+.ui-dialog .ui-dialog-content {
+  
+  &.timedPopUp, &.confirmPopUp, &.lessonNotificationPopUp {
+    
+    width: auto;
+    overflow: hidden;
+    box-shadow: 1px 1px 1px #B4B4B4;
+    -webkit-box-shadow: 1px 1px 1px #B4B4B4;
+    font-family: 'Nunito', sans-serif;
+    background-color: rgba(248,248,248,0.9);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    z-index: 101;
+    text-align: left;
+    
+  }
+  
+}
+
+.lessonNotificationPopUp {
+  
+  .notificationWrapper {
+    
+    padding: 20px;
+    font-size: 12px;
+    
+    form {
+      
+      float: left;
+      
+      textarea {
+        
+        @include arial(12px);
+        background-color: #fff;
+        margin-bottom: 25px;
+        padding: 10px;
+        width: 323px;
+        height: 78px;
+        border-radius: 4px 4px 4px 4px;
+        box-shadow: -1px -1px 1px 0 rgba(210, 210, 210, 0.6), -1px -1px 1px rgba(252, 252, 252, 0.8) inset;
+        color: #999999;
+        clear: both;
+        
+      }
+      
+      input[type="submit"] {
+        
+        @include nunito(12px);
+        cursor: pointer;
+        background-color: $black;
+        color: white;
+        padding: 10px;
+        white-space: normal;
+        
+      }
+      
+    }
+    
+    p {
+      
+      padding-bottom: 30px;
+      
+    }
+    
+    .img_expanded {
+      
+      float: right;
+      
+    }
+    
+    a {
+      
+      background-color: $black;
+      color: white;
+      padding: 11px 10px;
+      
+    }
+    
+  }
+  
+}
+
+.virtual_classroom-layout {
+  
+  .virtualClassroomSentLessonLinkPopUp {
+    
+    overflow: hidden;
+    box-shadow: 0px 5px 15px #454343;
+    -webkit-box-shadow: 0px 5px 15px #454343;
+    background-color: #F5F5F5;
+    color: $black;
+    
+    &.ui-dialog-content.ui-widget-content {
+      
+      padding: 0;
+      
+    }
+    
+    .top_side {
+      
+      float: left;
+      margin-left: 20px;
+      margin-top: 15px;
+      width: 655px;
+      height: 82px;
+      font-family: 'Nunito', sans-serif;
+      
+      h1 {
+        
+        padding: 0;
+        
+      }
+      
+      p {
+        
+        padding-left: 5px;
+        padding-top: 5px;
+        
+      }
+      
+    }
+    
+    .left_side {
+      
+      float: left;
+      margin-left: 20px;
+      width: 354px;
+      height: 293px;
+      padding-right: 24px;
+      border-right: 1px solid #D2D2D2;
+      
+      .virtual_classroom_send_link_mails_box_container {
+        
+        width: 354px;
+        height: 84px;
+        
+        #virtual_classroom_send_link_mails_box {
+          
+          border-radius: 4px 4px 4px 4px;
+          box-shadow: -1px -1px 1px 0 rgba(210, 210, 210, 0.6), -1px -1px 1px rgba(252, 252, 252, 0.8) inset;
+          color: #999999;
+          background-color: white;
+          width: 354px;
+          height: 84px;
+          
+          .jspContainer .jspVerticalBar {
+            
+            top: 0;
+            
+            .jspTrack {
+              
+              background-color: #B3B1B1;
+              
+              .jspDrag {
+                
+                background: $blue;
+                
+              }
+              
+            }
+            
+          }
+          
+          ._email {
+            
+            float: left;
+            height: 20px;
+            width: auto;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 6px;
+            
+            &.first_line {
+              
+              margin-top: 6px;
+              
+            }
+            
+            ._remove {
+              
+              width: 15px;
+              height: 15px;
+              display: block;
+              float: left;
+              background-repeat: no-repeat;
+              margin: 0px 0px 0px 5px;
+              color: #373737;
+              background-image: $assets-azzurro_png;
+              
+              &:hover {
+                
+                background-image: $assets-bianca_png;
+                
+              }
+              
+            }
+            
+            ._text {
+              
+              height: 20px;
+              float: left;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      .virtual_classroom_emails_selector_container {
+        
+        width: 354px;
+        height: 30px;
+        margin-top: 15px;
+        
+        input {
+          
+          @include nunito(12px);
+          width: 300px;
+          height: 10px;
+          float: left;
+          background-color: #fff;
+          padding: 10px;
+          border-radius: 4px 4px 4px 4px;
+          box-shadow: -1px -1px 1px 0 rgba(210, 210, 210, 0.6), -1px -1px 1px rgba(252, 252, 252, 0.8) inset;
+          color: #999999;
+          
+        }
+        
+        a {
+          
+          margin-left: 3px;
+          @include svg-circle-icon-handler($assets-icone-player_svg, 30px, 5, 4, 0.1, 4, 1, 0.4, 4, 1);
+          
+        }
+        
+      }
+      
+      .boxSelectMailingList {
+        
+        width: 354px;
+        height: 30px;
+        margin-top: 15px;
+        
+        .sbHolder {
+          
+          @include nunito(12px);
+          width: 354px;
+          height: 30px;
+          padding: 0;
+          box-shadow: -1px -1px 1px 0 rgba(210, 210, 210, 0.6), -1px -1px 1px rgba(252, 252, 252, 0.8) inset;
+          
+          .sbSelector {
+            
+            width: 354px;
+            color: #999999;
+            height: 30px;
+            line-height: 30px;
+            box-shadow: none;
+            
+          }
+          
+          .sbOptions {
+            
+            width: 354px;
+            
+            a {
+              
+              color: #999999;
+              
+            }
+            
+            a.sbFocus {
+              
+              background-color: #F5F5F5;
+              color: #999999;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      .write_message_for_send_link {
+        
+        width: 354px;
+        height: 104px;
+        margin-top: 15px;
+        
+        textarea {
+          
+          @include nunito-with-line-height(12px, 10px);
+          width: 334px;
+          height: 84px;
+          background-color: #fff;
+          padding: 10px;
+          border-radius: 4px 4px 4px 4px;
+          box-shadow: -1px -1px 1px 0 rgba(210, 210, 210, 0.6), -1px -1px 1px rgba(252, 252, 252, 0.8) inset;
+          color: #999999;
+          
+        }
+        
+      }
+      
+    }
+    
+    .right_side {
+      
+      float: left;
+      width: 247px;
+      height: 293px;
+      padding-left: 24px;
+      
+      .up_up_up {
+        
+        width: 247px;
+        height: 258px;
+        
+      }
+      
+      .down_down_down {
+        
+        width: 247px;
+        height: 35px;
+        
+        a {
+          
+          text-transform: lowercase;
+          color: white;
+          
+          &.muttonForm {
+            
+            @include nunito-with-line-height(18px, 35px);
+            background-color: $black;
+            padding: 0 30px;
+            display: block;
+            float: right;
+            
+            &._no {
+              
+              margin-left: 20px;
+              
+            }
+            
+            &:hover {
+              
+              background-color: #B3B1B1;
+              border: none;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+    
+    top: 7em;
+    left: 12em;
+    
+  }
+  
+}
+
+.timedPopUp img, .confirmPopUp img {
+  
+  float: left;
+  margin-right: 5%;
+  
+}
+
+.timedPopUp h1 {
+  
+  font-size: 190%;
+  color: $black;
+  margin-top: 38px;
+  line-height: 1em;
+  
+}
+
+.confirmPopUp h1 {
+  
+  font-size: 170%;
+  color: $black;
+  margin-top: 10px;
+  line-height: 1em;
+  
+}
+
+.confirmPopUp p {
+  
+  line-height: 1em;
+  color: $black;
+  
+}
+
+.timedPopUp a, .confirmPopUp a {
+  
+  color: #72B863;
+  text-transform: uppercase;
+  
+}
+
+.imageInGalleryPopUp.ui-dialog-content.ui-widget-content {
+  
+  background-color: #48484A;
+  padding: 10px;
+  
+  img {
+    
+    max-height: 420px;
+    max-width: 420px;
+    background-color: rgba(255,255,255,1);
+    
+  }
+  
+  .caption {
+    
+    color: #8C8A8C;
+    text-align: left;
+    padding: 10px;
+    display: block;
+    float: left;
+    width: 198px;
+    
+  }
+  
+  .elementoTime {
+    
+    width: 50%;
+    
+  }
+  
+}
+
+.videoInGalleryPopUp.ui-dialog-content.ui-widget-content {
+  
+  background-color: #48484A;
+  padding: 10px;
+  overflow: hidden;
+  
+  .caption {
+    
+    color: #8C8A8C;
+    text-align: left;
+    padding: 10px;
+    float: left;
+    
+    p {
+      
+      padding-top: 7px;
+      
+    }
+    
+  }
+  
+  video {
+    
+    width: 427px;
+    height: 240px;
+    
+  }
+  
+}
+
+.imageInGalleryPopUp.ui-dialog-content, .videoInGalleryPopUp.ui-dialog-content {
+  
+  .ui-slider-handle {
+    
+    margin-left: 0;
+    
+  }
+  
+  .videoSlider {
+    
+    width: 64%;
+    
+  }
+  
+}
+
+.dialog_opaco {
+  
+  opacity: 0.9;
+  background-color: #000;
+  z-index: 11;
+  
+}
+
+.originalSize {
+  
+  font-size: 10px;
+  color: #fff;
+  
+}
+
+.restoreCacheMediaElementEditorPopUp {
+  
+  z-index: 999;
+  
+}
+
+.schiacciato {
+  
+  padding: 0em 2em 0em 2em;
+  
+}

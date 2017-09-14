@@ -1,0 +1,50 @@
+<%
+  cover ||= nil
+  cover = lesson.cover if cover.nil?
+  image_cover = cover.media_elements_slides.first
+  image = image_cover.nil? ? nil : image_cover.media_element
+  destination = ButtonDestinations::EXPANDED_LESSON
+%>
+<div id="<%= destination %>_<%= lesson.id %>" class="lesson_in_dashboard">
+  <div class="lesson_dashboard_hover_sensitive">
+    <div class="lesson_dashboard_thumb">
+      <% if image %>
+        <% image_alignment = image_cover.alignment / 3.214 %>
+        <% if image_cover.is_horizontal?('cover') %>
+          <%= image_tag image.url, :style => "left:#{image_alignment}px; height:175px" %>
+        <% else %>
+          <%= image_tag image.url, :style => "top:#{image_alignment}px; width:280px" %>
+        <% end %>
+      <% end %>
+      <div class="text">
+        <%= lesson.title %>
+      </div>
+    </div>
+    <div class="literature_container" data-moving="false" data-delaying="false">
+      <div class="subject">
+        <%= lesson.subject.description %>
+      </div>
+      <div class="title">
+        <%= lesson.title %>
+      </div>
+      <div class="description" style="display:none">
+        <%= lesson.description %>
+      </div>
+    </div>
+  </div>
+  <div class="lesson_dashboard_buttons">
+    <div class="author_and_creation">
+      <div class="author">
+        <%= t('lessons.created_by', :author => "#{lesson.user.name} #{lesson.user.surname}") %>
+      </div>
+      <div class="creation">
+        <%= t('lessons.published_at', :published_time => TimeConvert.time_difference_to_s(Time.zone.now - lesson.updated_at).downcase).html_safe %>
+      </div>
+    </div>
+    <div class="buttoncitos">
+      <% lesson.buttons.each do |b| %>
+        <%= render :partial => "shared/buttons/#{b}", :locals => {:item => lesson, :destination => destination} %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<dependency identifierref="common"/>
+<% if [Slide::AUDIO, Slide::IMAGE1, Slide::TEXT, Slide::VIDEO1].include?(slide.kind) %>
+  <dependency identifierref="tinyMCE"/>
+<% end %>
+<% if [Slide::AUDIO, Slide::VIDEO1, Slide::VIDEO2].include?(slide.kind) %>
+  <dependency identifierref="players"/>
+<% end %>
+<% if slide.documents_slides.any? %>
+  <dependency identifierref="documents"/>
+<% end %>

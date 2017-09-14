@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>AdminHelper</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            AdminHelper 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/helpers/admin_helper_rb.html">app/helpers/admin_helper.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Helper methods for administration section</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-page_items_counter">page_items_counter</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-page_items_counter">
+            
+              <b>page_items_counter</b>(items)
+            
+            <a href="../classes/AdminHelper.html#method-i-page_items_counter" name="method-i-page_items_counter" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Counter used in pagination</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-page_items_counter_source')" id="l_method-i-page_items_counter_source">show</a>
+                
+              </p>
+              <div id="method-i-page_items_counter_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/admin_helper.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">page_items_counter</span>(<span class="ruby-identifier">items</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">from</span> = <span class="ruby-number">1</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;admin_general_pagination&#39;</span>]
+      <span class="ruby-identifier">to</span> = <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;admin_general_pagination&#39;</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">to</span> = <span class="ruby-identifier">items</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>]
+      <span class="ruby-identifier">from</span> = (<span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;admin_general_pagination&#39;</span>] <span class="ruby-operator">*</span> (<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>)) <span class="ruby-operator">+</span> <span class="ruby-number">1</span>
+      <span class="ruby-keyword">if</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">num_pages</span>.<span class="ruby-identifier">to_i</span>)
+        <span class="ruby-identifier">to</span> = <span class="ruby-identifier">to</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>].<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">to</span> = <span class="ruby-identifier">items</span>.<span class="ruby-identifier">total_count</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">label</span> = <span class="ruby-node">&quot;admin.#{items.first.class.name.pluralize.downcase}.name&quot;</span>
+    <span class="ruby-identifier">label</span> = <span class="ruby-string">&#39;admin.media_elements.name&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">MediaElement</span><span class="ruby-operator">::</span><span class="ruby-constant">STI_TYPES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">items</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">label</span> = <span class="ruby-string">&#39;admin.purchases.name&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Purchase</span>
+    <span class="ruby-identifier">label</span> = <span class="ruby-string">&#39;admin.settings.tags.name&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Tag</span>
+    <span class="ruby-identifier">label</span> = <span class="ruby-string">&#39;admin.messages.reports.name&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">items</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Report</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;#{from} - #{to} #{t(&#39;views.pagination.of_range&#39;)} #{items.total_count} #{t(label)}&quot;</span>.<span class="ruby-identifier">downcase</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

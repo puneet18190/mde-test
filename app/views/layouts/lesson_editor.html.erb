@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="lesson-editor-layout <%= controller_html_class %> <%= action_html_class %>">
+  
+  <head><%= render :partial => 'layouts/application/head' %></head>
+  
+  <body>
+    <%= render :partial => 'shared/browser_support_script' %>
+    <%= render :partial => 'shared/popups' %>
+    <%= render :partial => 'shared/loading' %>
+    <div class="lesson-editor-container">
+      <div class="content">
+        <%= yield :nav %>
+        <%= yield %>
+      </div>
+      <div id="footer">
+        <div id="lesson-title">
+          <%= image_tag 'lesson-editor-logo-footer.png' %>
+          <p><%= @lesson.title if @lesson %></p>
+        </div>
+        <p id="error-footer-disclaimer">
+        </p>
+      </div>
+    </div>
+  </body>
+  
+</html>

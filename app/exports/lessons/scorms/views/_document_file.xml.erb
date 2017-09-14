@@ -1,0 +1,17 @@
+<file href="<%= document.url(UrlTypes::SCORM) %>">
+  <metadata>
+    <lom>
+      <general>
+        <identifier>
+          <catalog>URI</catalog>
+          <entry><%= document.url(UrlTypes::FULL_URL) %></entry>
+        </identifier>
+      </general>
+      <technical>
+        <format>document/<%= document.extension %></format>
+        <size><%= document.size %></size>
+        <location><%= document.url(UrlTypes::FULL_URL) %></location>
+      </technical>
+    </lom>
+  </metadata>
+</file>

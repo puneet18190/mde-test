@@ -1,0 +1,32 @@
+<%
+  my_current_url = my_virtual_classroom_path
+%>
+
+var dialog = $('#dialog-virtual-classroom-quick-select');
+dialog.data('loaded', true);
+
+<% if @loaded == @load_lessons.length %>
+  dialog.data('loaded-correctly', true);
+  var msg = '<%= j t("other_popup_messages.virtual_classroom_lessons.loaded_ok") %>';
+<% else %>
+  dialog.data('loaded-correctly', false);
+  var msg = '<%= j t("other_popup_messages.virtual_classroom_lessons.loaded_error", :number => (@load_lessons.length - @loaded)) %>';
+<% end %>
+
+dialog.data('loaded-msg', msg);
+
+
+$('#my_virtual_classroom').replaceWith('<%= j(render(:partial => "virtual_classroom/my_virtual_classroom", :locals => {:lessons => @lessons, :covers => @covers})) %>');
+<% if @lessons.any? %>
+  $('#virtual_classroom_pagination').replaceWith("<%= j(render(:partial => 'virtual_classroom/pagination', :locals => {:page => @page, :pages_amount => @pages_amount, :force_index_url => my_virtual_classroom_path})) %>");
+  $('#empty_virtual_classroom').removeClass('disabled');
+  $('.playListContainer').css('margin-top', '20px');
+<% else %>
+  $('#virtual_classroom_pagination').html('');
+  $('.playListContainer').css('margin-top', '-50px');
+<% end %>
+initializeVirtualClassroom();
+
+$('.dialog_opaco').removeClass('dialog_opaco');
+$('.ui-widget-overlay').css('opacity', 0);
+closePopUp('dialog-virtual-classroom-quick-select');

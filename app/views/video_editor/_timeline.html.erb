@@ -1,0 +1,17 @@
+<div class="scrollVerde" style="position:relative">
+  <div id="video_editor_box_ghost" class="boxGhost" style="display:none;"></div>
+  <div class="scroll-pane horizontal-only" id="media_elements_list_in_video_editor">
+    <div id="video_editor_timeline" class="scrollGatto" style="width:<%= (186 * parameters[:components].length) + 160 %>px">
+      
+      <% cont = 1 %>
+      <% parameters[:components].each do |p| %>
+        <% p[:last] = (cont == parameters[:components].length) %>
+        <%= render :partial => "video_editor/components/#{p[:type]}", :locals => {:component => p, :position => cont, :empty => false} %>
+        <% cont += 1 %>
+      <% end %>
+      
+      <%= render :partial => 'video_editor/add_component', :locals => {:parameters => @parameters, :position => cont} %>
+      
+    </div>
+  </div>
+</div>

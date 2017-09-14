@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>ApplicationHelper</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            ApplicationHelper 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/helpers/application_helper_rb.html">app/helpers/application_helper.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Global helpers</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-action_html_class">action_html_class</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-contact_us_link">contact_us_link</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-controller_html_class">controller_html_class</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-documents_type_color">documents_type_color</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-full_url">full_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get_recursive_array_from_params">get_recursive_array_from_params</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-ie">ie</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>J</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-jsd">jsd</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-manipulate_url">manipulate_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-seconds_to_time">seconds_to_time</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-title_tag">title_tag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-two_digits_number">two_digits_number</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-url_by_url_type">url_by_url_type</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-action_html_class">
+            
+              <b>action_html_class</b>()
+            
+            <a href="../classes/ApplicationHelper.html#method-i-action_html_class" name="method-i-action_html_class" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets the html class to scope css (action).</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-action_html_class_source')" id="l_method-i-action_html_class_source">show</a>
+                
+              </p>
+              <div id="method-i-action_html_class_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">action_html_class</span>
+  <span class="ruby-node">&quot;#{h action_name}-action&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-contact_us_link">
+            
+              <b>contact_us_link</b>()
+            
+            <a href="../classes/ApplicationHelper.html#method-i-contact_us_link" name="method-i-contact_us_link" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-contact_us_link_source')" id="l_method-i-contact_us_link_source">show</a>
+                
+              </p>
+              <div id="method-i-contact_us_link_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">contact_us_link</span>
+  <span class="ruby-identifier">mail_to</span> <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;application&#39;</span>][<span class="ruby-string">&#39;contact_us_email&#39;</span>], <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;prelogin.contact_us.menu_link&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-controller_html_class">
+            
+              <b>controller_html_class</b>()
+            
+            <a href="../classes/ApplicationHelper.html#method-i-controller_html_class" name="method-i-controller_html_class" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets the html class to scope css (controller).</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-controller_html_class_source')" id="l_method-i-controller_html_class_source">show</a>
+                
+              </p>
+              <div id="method-i-controller_html_class_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">controller_html_class</span>
+  <span class="ruby-node">&quot;#{h controller_path}-controller&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-documents_type_color">
+            
+              <b>documents_type_color</b>(document)
+            
+            <a href="../classes/ApplicationHelper.html#method-i-documents_type_color" name="method-i-documents_type_color" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets the color of description popup into the document gallery</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-documents_type_color_source')" id="l_method-i-documents_type_color_source">show</a>
+                
+              </p>
+              <div id="method-i-documents_type_color_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">documents_type_color</span>(<span class="ruby-identifier">document</span>)
+  <span class="ruby-constant">Document</span><span class="ruby-operator">::</span><span class="ruby-constant">COLORS_BY_TYPE</span>[<span class="ruby-identifier">document</span>.<span class="ruby-identifier">type</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ie">
+            
+              <b>ie</b>(x)
+            
+            <a href="../classes/ApplicationHelper.html#method-i-ie" name="method-i-ie" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>It stands for “interpolation escape”</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ie_source')" id="l_method-i-ie_source">show</a>
+                
+              </p>
+              <div id="method-i-ie_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">ie</span>(<span class="ruby-identifier">x</span>)
+  <span class="ruby-identifier">strip_tags</span>(<span class="ruby-identifier">x</span>).<span class="ruby-identifier">html_safe</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-jsd">
+            
+              <b>jsd</b>(object)
+            
+            <a href="../classes/ApplicationHelper.html#method-i-jsd" name="method-i-jsd" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-jsd_source')" id="l_method-i-jsd_source">show</a>
+                
+              </p>
+              <div id="method-i-jsd_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">jsd</span>(<span class="ruby-identifier">object</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-manipulate_url">
+            
+              <b>manipulate_url</b>(options = {})
+            
+            <a href="../classes/ApplicationHelper.html#method-i-manipulate_url" name="method-i-manipulate_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Manipulates the url, adding or removing parameters.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-manipulate_url_source')" id="l_method-i-manipulate_url_source">show</a>
+                
+              </p>
+              <div id="method-i-manipulate_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">manipulate_url</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">params_to_remove</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:remove_query_param</span>]
+  <span class="ruby-identifier">page</span>             = <span class="ruby-identifier">options</span>[<span class="ruby-value">:page</span>]
+  <span class="ruby-identifier">l_d_exp</span>          = <span class="ruby-identifier">options</span>[<span class="ruby-value">:l_d_exp</span>]
+  <span class="ruby-identifier">me_d_exp</span>         = <span class="ruby-identifier">options</span>[<span class="ruby-value">:me_d_exp</span>]
+  <span class="ruby-identifier">escape</span>           = <span class="ruby-identifier">options</span>[<span class="ruby-value">:escape</span>]
+  <span class="ruby-identifier">path</span>             = <span class="ruby-identifier">options</span>[<span class="ruby-value">:path</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">path</span>
+  <span class="ruby-identifier">query_params</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">query_parameters</span>.<span class="ruby-identifier">deep_dup</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params_to_remove</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">query_params</span>.<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">params_to_remove</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">param</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">query_params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">param</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">query_params</span>[<span class="ruby-value">:page</span>] = <span class="ruby-identifier">page</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">page</span>
+  <span class="ruby-identifier">query_params</span>[<span class="ruby-value">:lessons_expanded</span>] = <span class="ruby-identifier">l_d_exp</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">l_d_exp</span>
+  <span class="ruby-identifier">query_params</span>[<span class="ruby-value">:media_elements_expanded</span>] = <span class="ruby-identifier">me_d_exp</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">me_d_exp</span>
+  <span class="ruby-identifier">query_string</span> = <span class="ruby-identifier">get_recursive_array_from_params</span>(<span class="ruby-identifier">query_params</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;&amp;&#39;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">path</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">query_string</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-identifier">url</span> = <span class="ruby-node">&quot;#{path}?#{query_string}&quot;</span>
+  <span class="ruby-identifier">url</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">url</span>)
+  <span class="ruby-identifier">escape</span> <span class="ruby-operator">?</span> <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">url</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">url</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-seconds_to_time">
+            
+              <b>seconds_to_time</b>(seconds)
+            
+            <a href="../classes/ApplicationHelper.html#method-i-seconds_to_time" name="method-i-seconds_to_time" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Extracts the time from seconds.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-seconds_to_time_source')" id="l_method-i-seconds_to_time_source">show</a>
+                
+              </p>
+              <div id="method-i-seconds_to_time_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">seconds_to_time</span>(<span class="ruby-identifier">seconds</span>)
+  <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">seconds</span>).<span class="ruby-identifier">utc</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-identifier">seconds</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-number">3600</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;%T&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;%M:%S&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-two_digits_number">
+            
+              <b>two_digits_number</b>(x)
+            
+            <a href="../classes/ApplicationHelper.html#method-i-two_digits_number" name="method-i-two_digits_number" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Renders a two digits number even in the case the number is only one-digit.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-two_digits_number_source')" id="l_method-i-two_digits_number_source">show</a>
+                
+              </p>
+              <div id="method-i-two_digits_number_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">two_digits_number</span>(<span class="ruby-identifier">x</span>)
+  <span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;</span> <span class="ruby-number">10</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;0#{x}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-full_url">
+            
+              <b>full_url</b>(path)
+            
+            <a href="../classes/ApplicationHelper.html#method-i-full_url" name="method-i-full_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The parameter <code>path</code> must be an absolute path.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-full_url_source')" id="l_method-i-full_url_source">show</a>
+                
+              </p>
+              <div id="method-i-full_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">full_url</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span> <span class="ruby-identifier">path</span>
+  <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">scheme</span>, <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">host</span>, <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">scheme</span>, <span class="ruby-identifier">request</span>.<span class="ruby-identifier">host</span>, (<span class="ruby-identifier">request</span>.<span class="ruby-identifier">port</span> <span class="ruby-operator">==</span> <span class="ruby-number">80</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">port</span>)
+  <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_recursive_array_from_params">
+            
+              <b>get_recursive_array_from_params</b>(params)
+            
+            <a href="../classes/ApplicationHelper.html#method-i-get_recursive_array_from_params" name="method-i-get_recursive_array_from_params" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Submethod of <a
+href="ApplicationHelper.html#method-i-manipulate_url">manipulate_url</a>,
+that takes into consideration nested url parameters.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_recursive_array_from_params_source')" id="l_method-i-get_recursive_array_from_params_source">show</a>
+                
+              </p>
+              <div id="method-i-get_recursive_array_from_params_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_recursive_array_from_params</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">params</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">params</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>)
+  <span class="ruby-identifier">resp</span> = []
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">rec_ar</span> = <span class="ruby-identifier">get_recursive_array_from_params</span>(<span class="ruby-identifier">v</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">rec_ar</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Array</span>)
+      <span class="ruby-identifier">rec_ar</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">r</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">r</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\]/</span>).<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{k}[#{r.gsub(&#39;=&#39;, &#39;]=&#39;)}&quot;</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">temp_string</span> = <span class="ruby-identifier">r</span>[(<span class="ruby-identifier">r</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\[/</span>) <span class="ruby-operator">+</span> <span class="ruby-number">1</span>, <span class="ruby-identifier">r</span>.<span class="ruby-identifier">length</span>]
+          <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{k}[#{r[0, (r =~ /\[/)]}][#{temp_string}&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{k}=#{rec_ar}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-title_tag">
+            
+              <b>title_tag</b>(slides = nil)
+            
+            <a href="../classes/ApplicationHelper.html#method-i-title_tag" name="method-i-title_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Method to create the title of the html tab.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-title_tag_source')" id="l_method-i-title_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-title_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">title_tag</span>(<span class="ruby-identifier">slides</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">controller</span>, <span class="ruby-identifier">desy</span> = <span class="ruby-identifier">controller_path</span>, <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;application_name&#39;</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;captions.titles.admin&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">start_with?</span> <span class="ruby-string">&#39;admin/&#39;</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">controller</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;documents&#39;</span>
+    <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;captions.titles.documents&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;lessons&#39;</span>, <span class="ruby-string">&#39;lesson_editor&#39;</span>
+    <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;captions.titles.lessons&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;audio_editor&#39;</span>, <span class="ruby-string">&#39;image_editor&#39;</span>, <span class="ruby-string">&#39;video_editor&#39;</span>, <span class="ruby-string">&#39;media_elements&#39;</span>
+    <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;captions.titles.media_elements&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;users&#39;</span>
+    <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;captions.titles.profile&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;virtual_classroom&#39;</span>
+    <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;captions.titles.virtual_classroom&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;lesson_viewer&#39;</span>, <span class="ruby-string">&#39;lesson_export&#39;</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">action_name</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;index&#39;</span>, <span class="ruby-string">&#39;archive&#39;</span>
+      <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;captions.titles.single_lesson&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>, <span class="ruby-value">:lesson</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">slides</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">lesson</span>.<span class="ruby-identifier">title</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;captions.titles.virtual_classroom&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;captions.titles.default&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-url_by_url_type">
+            
+              <b>url_by_url_type</b>(url, url_type)
+            
+            <a href="../classes/ApplicationHelper.html#method-i-url_by_url_type" name="method-i-url_by_url_type" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Url by url type.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-url_by_url_type_source')" id="l_method-i-url_by_url_type_source">show</a>
+                
+              </p>
+              <div id="method-i-url_by_url_type_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">url_by_url_type</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">url_type</span>)
+  <span class="ruby-constant">UrlTypes</span>.<span class="ruby-identifier">url_by_url_type</span> <span class="ruby-identifier">url</span> ,<span class="ruby-identifier">url_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

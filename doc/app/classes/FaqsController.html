@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>FaqsController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            FaqsController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="ApplicationController.html">ApplicationController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/controllers/faqs_controller_rb.html">app/controllers/faqs_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-FaqsController-label-Description">Description</h3>
+
+<p>Contains the FAQS, organized into cathegories</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-index">index</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-lessons">lessons</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-media_elements">media_elements</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-profile">profile</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-render_not_found">render_not_found</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-virtual_classroom">virtual_classroom</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-index">
+            
+              <b>index</b>()
+            
+            <a href="../classes/FaqsController.html#method-i-index" name="method-i-index" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Index of all the FAQS</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-index_source')" id="l_method-i-index_source">show</a>
+                
+              </p>
+              <div id="method-i-index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/faqs_controller.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">index</span>
+  <span class="ruby-ivar">@lessons_faqs</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;faqs.lessons.contents&#39;</span>)
+  <span class="ruby-ivar">@media_elements_faqs</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;faqs.media_elements.contents&#39;</span>)
+  <span class="ruby-ivar">@virtual_classroom_faqs</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;faqs.virtual_classroom.contents&#39;</span>)
+  <span class="ruby-ivar">@profile_faqs</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;faqs.profile.contents&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-lessons">
+            
+              <b>lessons</b>()
+            
+            <a href="../classes/FaqsController.html#method-i-lessons" name="method-i-lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>A FAQ about lessons</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-lessons_source')" id="l_method-i-lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/faqs_controller.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">lessons</span>
+  <span class="ruby-ivar">@answer</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;faqs.lessons.contents&#39;</span>)[<span class="ruby-identifier">params</span>[<span class="ruby-value">:num</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:num</span>]) <span class="ruby-operator">||</span> <span class="ruby-ivar">@answer</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">render_not_found</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-media_elements">
+            
+              <b>media_elements</b>()
+            
+            <a href="../classes/FaqsController.html#method-i-media_elements" name="method-i-media_elements" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>A FAQ about media elements</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-media_elements_source')" id="l_method-i-media_elements_source">show</a>
+                
+              </p>
+              <div id="method-i-media_elements_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/faqs_controller.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">media_elements</span>
+  <span class="ruby-ivar">@answer</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;faqs.media_elements.contents&#39;</span>)[<span class="ruby-identifier">params</span>[<span class="ruby-value">:num</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:num</span>]) <span class="ruby-operator">||</span> <span class="ruby-ivar">@answer</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">render_not_found</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-profile">
+            
+              <b>profile</b>()
+            
+            <a href="../classes/FaqsController.html#method-i-profile" name="method-i-profile" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>A FAQ about user&#39;s profile</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-profile_source')" id="l_method-i-profile_source">show</a>
+                
+              </p>
+              <div id="method-i-profile_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/faqs_controller.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">profile</span>
+  <span class="ruby-ivar">@answer</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;faqs.profile.contents&#39;</span>)[<span class="ruby-identifier">params</span>[<span class="ruby-value">:num</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:num</span>]) <span class="ruby-operator">||</span> <span class="ruby-ivar">@answer</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">render_not_found</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-virtual_classroom">
+            
+              <b>virtual_classroom</b>()
+            
+            <a href="../classes/FaqsController.html#method-i-virtual_classroom" name="method-i-virtual_classroom" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>A FAQ about the Virtual Classroom</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-virtual_classroom_source')" id="l_method-i-virtual_classroom_source">show</a>
+                
+              </p>
+              <div id="method-i-virtual_classroom_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/faqs_controller.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">virtual_classroom</span>
+  <span class="ruby-ivar">@answer</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;faqs.virtual_classroom.contents&#39;</span>)[<span class="ruby-identifier">params</span>[<span class="ruby-value">:num</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:num</span>]) <span class="ruby-operator">||</span> <span class="ruby-ivar">@answer</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">render_not_found</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-render_not_found">
+            
+              <b>render_not_found</b>()
+            
+            <a href="../classes/FaqsController.html#method-i-render_not_found" name="method-i-render_not_found" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Renders not found page</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-render_not_found_source')" id="l_method-i-render_not_found_source">show</a>
+                
+              </p>
+              <div id="method-i-render_not_found_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/faqs_controller.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">render_not_found</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;404 Not found&#39;</span>, <span class="ruby-value">:status</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:not_found</span>, <span class="ruby-identifier">layout</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

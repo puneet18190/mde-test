@@ -1,0 +1,30 @@
+<div class="header">
+  <div class="headerMenu">
+    <ul>
+      <li><%= link_to t('prelogin.main_page.menu_link'), root_path %></li>
+      <li><%= link_to t('prelogin.what_is.menu_link', :desy => SETTINGS['application_name']), what_is_path, :class => 'current' %></li>
+      <li><%= contact_us_link %></li>
+    </ul>
+    <%= render :partial => '/prelogin/login' %>
+  </div>
+</div>
+
+<br class="clearfloat"/>
+<div style="padding-top:53px">
+  <%= image_tag "logo_prelogin.png" %>
+</div> 
+<div class="containerText">
+  <h1><%= t('prelogin.what_is.title', :desy => SETTINGS['application_name']).html_safe %></h1>
+  <h3><%= t('prelogin.what_is.subtitle', :desy => SETTINGS['application_name']).html_safe %></h3>
+  <div class="colS fltlft">
+    <%= t('prelogin.what_is.description', :desy => SETTINGS['application_name']).html_safe %>
+  </div>
+  <div class="colS fltrt">
+    <ul>
+      <li><%= t('prelogin.what_is.right_column.caption3', :desy => SETTINGS['application_name']).html_safe %></li>
+      <li><%= t('prelogin.what_is.right_column.caption2', :desy => SETTINGS['application_name']).html_safe %></li>
+      <li><%= t('prelogin.what_is.right_column.caption1', :desy => SETTINGS['application_name']).html_safe %></li>
+    </ul>
+  </div>
+  <br class="clearfloat"/>
+</div>

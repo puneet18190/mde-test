@@ -1,0 +1,20 @@
+$body-padding: 16px;
+
+html.title-slide {
+
+body {
+  padding: $body-padding;
+  min-width: 400px;
+  max-width: 900px;
+}
+
+.title {
+  color: #F29400;
+  font-size: 5em;
+  line-height: 100%;
+  font-weight: normal;
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+}

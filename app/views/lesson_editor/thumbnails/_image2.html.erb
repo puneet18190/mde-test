@@ -1,0 +1,70 @@
+<%
+  image1, image2 = slide.media_elements_at
+  image_height1 = image1.resize_height(slide.kind) if !image1.nil?
+  image_width1 = image1.resize_width(slide.kind) if !image1.nil?
+  image_height2 = image2.resize_height(slide.kind) if !image2.nil?
+  image_width2 = image2.resize_width(slide.kind) if !image2.nil?
+%>
+
+
+<div class="slide-content image2 small-size">
+  
+  <div class="image-container item">
+    <% if image1 %>
+      <div class="image read-only">
+        <% if image1.is_horizontal?(slide.kind) %>
+          <% if image1.inscribed %>
+            <%= image_tag image1.media_element.url, :style => "top:#{image1.alignment}px; height:#{image_height1}px" %>
+          <% else %>
+            <%= image_tag image1.media_element.url, :style => "left:#{image1.alignment}px; width:#{image_width1}px" %>
+          <% end %>
+        <% else %>
+          <% if image1.inscribed %>
+            <%= image_tag image1.media_element.url, :style => "left:#{image1.alignment}px; width:#{image_width1}px" %>
+          <% else %>
+            <%= image_tag image1.media_element.url, :style => "top:#{image1.alignment}px; height:#{image_height1}px" %>
+          <% end %>
+        <% end %>
+        <input class="caption" type="text" value="<%= image1.caption.blank? ? t('lesson_editor.placeholders.image_caption') : image1.caption %>" disabled="disabled"/>
+      </div>
+    <% else %>
+      <div class="image editable">
+        <div class="empty-mask">
+          <a class="add"></a>
+          <br/>
+          <p class="lower"><%= t('lesson_editor.choose_image') %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="image-container item" style="margin-right:0">
+    <% if image2 %>
+      <div class="image read-only">
+        <% if image2.is_horizontal?(slide.kind) %>
+          <% if image2.inscribed %>
+            <%= image_tag image2.media_element.url, :style => "top:#{image2.alignment}px; height:#{image_height2}px" %>
+          <% else %>
+            <%= image_tag image2.media_element.url, :style => "left:#{image2.alignment}px; width:#{image_width2}px" %>
+          <% end %>
+        <% else %>
+          <% if image2.inscribed %>
+            <%= image_tag image2.media_element.url, :style => "left:#{image2.alignment}px; width:#{image_width2}px" %>
+          <% else %>
+            <%= image_tag image2.media_element.url, :style => "top:#{image2.alignment}px; height:#{image_height2}px" %>
+          <% end %>
+        <% end %>
+        <input class="caption" type="text" value="<%= image2.caption.blank? ? t('lesson_editor.placeholders.image_caption') : image2.caption %>" disabled="disabled"/>
+      </div>
+    <% else %>
+      <div class="image editable">
+        <div class="empty-mask">
+          <a class="add"></a>
+          <br/>
+          <p class="lower"><%= t('lesson_editor.choose_image') %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+</div>

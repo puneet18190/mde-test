@@ -1,0 +1,21 @@
+<div class="control-group heading">
+  <label><h5><%= t('admin.search.documents.title') %></h5></label>
+</div>
+<div class="control-group">
+  <label for="id"><%= t('admin.search.documents.fields.id') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[id]', params ? params[:id] : '', :class => 'input-small', :placeholder => t('admin.search.documents.fields.id') %>
+  </div>
+</div>
+<div class="control-group">
+  <label><%= t('admin.search.documents.fields.title') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[title]', params ? params[:title] : '', :class => 'input-medium', :placeholder => t('admin.search.documents.fields.title') %>
+  </div>
+</div>
+<div class="control-group">
+  <label for="search_user"><%= t('admin.search.documents.fields.user') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[user]',  params ? params[:user] : '', :class => 'input-medium', :placeholder => t('admin.search.documents.fields.user') %>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+#!/bin/bash
+
+function fail () {
+  echo '' 1>&2
+  echo 'Aborting' 1>&2
+  exit 1
+}
+
+function main () {
+  set -e
+
+  trap fail EXIT
+
+  local distro_scripts_dir="$(dirname "$0")"/install.d
+
+  local supported_distros=()
+  for distro_script in "$distro_scripts_dir"/*; do
+    [ -f "$distro_script" ] && supported_distros=( "${supported_distros[@]}" "$(basename "$distro_script")" )
+  done
+  
+  if ! which lsb_release > /dev/null; then
+    echo "DeSY installation script" 1>&2
+    echo 1>&2
+    echo "  lsb_release command not found; could not determine the system distro" 1>&2
+    exit 1
+  fi
+
+  set +e
+  local distro_info=`lsb_release --description --short 2> /dev/null | tr '[:upper:]' '[:lower:]'`
+  set -e
+
+  local distro=''
+  for supported_distro in "${supported_distros[@]}"; do
+    if [[ "$distro_info" == *"$supported_distro"* ]]; then
+      distro="$supported_distro"
+      break
+    fi
+  done
+
+  if [ -z "$distro" ]; then
+    local joined_supported_distros=$(printf ", %s" "${supported_distros[@]}")
+    joined_supported_distros=${joined_supported_distros:2}
+    echo "DeSY installation script" 1>&2
+    echo 1>&2
+    echo "  distro not found or unsupported; supported distros are: ${joined_supported_distros}" 1>&2
+    exit 1
+  fi
+
+  source "$distro_scripts_dir"/"$distro"
+
+  distro_install "$@"
+}
+
+main "$@"

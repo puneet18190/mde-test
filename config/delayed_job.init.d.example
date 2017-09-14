@@ -1,0 +1,344 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: delayed_job
+# Required-Start:    $all
+# Required-Stop:     $local_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts the delayed_job instances
+# Description:       starts the delayed_job server instances using start-stop-daemon
+#
+### END INIT INFO
+
+# Author: https://github.com/mdesantis
+# URL:    https://gist.github.com/mdesantis/5143648
+#
+# This is /etc/init.d/delayed_job (without .sh)
+# init.d script for single or multiple delayed_job installations. 
+#
+# This configures delayed_job for your Rails app.
+#
+# Its aim is to support delayedjob for every Ruby version manager (rvm, rbenv, chruby...), 
+# given the executable bin/delayed_job or script/delayed_job . If it does not, let me know it and I will update this script.
+#
+# If you have issues with this script, let me know it commenting to this gist:
+#
+#   https://gist.github.com/mdesantis/5143648
+#
+# Configuration
+# 
+# The configuration files of this script must be located in /etc/delayed_job .
+# Expects at least one config file.
+#
+# It is required to specify a configuration file for every delayed_job master instance.
+#
+# You can disable configuration files appending '.disabled' to their filenames.
+#
+#
+# A sample: /etc/delayed_job/delayed_job:cool_app
+#
+#   APP_USER=delayed_job
+#   APP_NAME=cool_app
+#   APP_PATH=/path/to/cool_app
+#   APPEND_TO_ENV_PATH=''
+#   ADDITIONAL_ENV_VARS='RBENV_VERSION=2.1.0'
+#   DELAYED_JOB=/home/delayed_job/.rvm/bin/delayed_job_rails_wrapper
+#   RAILS_ENV=development
+#   PID_DIR=/path/to/cool_app/shared/pids
+#
+# You can skip APP_USER and APP_NAME declarations; their values will be inferred by the 
+# configuration file name. Also the other variables can be skipped; their values will be setted
+# depending on APP_USER and APP_NAME (see below for details)
+#
+#
+# Other samples:
+#
+# RVM:
+#
+#   DELAYED_JOB=/home/delayed_job/.rvm/bin/delayed_job_wrapper
+#
+# rbenv:
+#
+#   APPEND_TO_ENV_PATH="/home/mau/.rbenv/shims":"/home/mau/.rbenv/bin"
+#
+# chruby:
+#
+#   You should create a delayed_job_wrapper with
+#
+#   #!/bin/sh
+#   source /usr/local/share/chruby/chruby.sh && \
+#   chruby <ruby_version> && \
+#   /path/to/script/delayed_job "$@"
+#
+#   `chmod +x /path/to/delayed_job_wrapper` and in the configuration file:
+#
+#   DELAYED_JOB=/path/to/delayed_job_wrapper
+#
+#
+# Inside the configuration file you can set the following variables (defaults are applied when not 
+# specified):
+#
+#   APP_USER             The user which runs the delayed_job server process
+#     defaults to        the part before the colon (:) of the configuration file name
+#
+#   APP_GROUP            The group which runs the delayed_job server process
+#     defaults to        <APP_USER>
+#  
+#   APP_NAME             The application name
+#     defaults to        the part after the colon (:) of the configuration file name
+#  
+#   APP_PATH             The path to the application
+#     defaults to        /home/<APP_USER>/www/<APP_NAME>
+#  
+#   APPEND_TO_ENV_PATH   A list of paths which will be appended to the user path variable
+#                        at the delayed_job start
+#     defaults to        /home/<APP_USER>/.rbenv/shims:/home/<APP_USER>/.rbenv/bin (yes, I use rbenv)
+#  
+#   ADDITIONAL_ENV_VARS  Additional enviroment variables in the format
+#                        "VAR1=value1 VAR2=value2"
+#     defaults to        ''
+#  
+#   DELAYED_JOB          The path to the delayed_job binary.
+#     defaults to        <APP_PATH>/scripts/delayed_job
+#  
+#   RAILS_ENV            The value which delayed_job will use as environment
+#     defaults to        production
+#  
+#   PID_DIR              The path to the delayed_job PID directory
+#     defaults to        <APP_PATH>/tmp/pids
+#
+#   WORKERS              The amount of the workers spawned by delayed_job
+#     defaults to        2
+#
+#   MONITOR              If not false, sets the "--monitor" option, which spawns a new delayed_job process if one dies
+#     defaults to        true
+#
+# The colon (:) was chosen as user/app_name separator because it is an invalid character
+# for UNIX usernames.
+#
+#
+# Usage
+#
+# If you call this script without any config parameters, it will attempt to run the
+# init command for all your delayed_job configurations listed in /etc/delayed_job/* .
+#
+# /etc/init.d/delayed_job start # starts all delayed_job configurations
+#
+# If you specify a particular config, it will only operate on that one
+#
+# /etc/init.d/delayed_job start my_app
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+. /lib/init/vars.sh
+
+. /lib/lsb/init-functions
+
+delayed_job_log_end_msg () {
+  log_end_msg $1
+}
+
+delayed_job_log_daemon_msg () {
+  log_daemon_msg $1 "$APP_DESC"
+}
+
+set_start_stop_daemon_args () {
+  local action args
+
+  action=$1
+  shift 1
+  args="$@"
+
+  set -- "$action" --quiet --user "$APP_USER" --chuid "$APP_USER:$APP_GROUP" --pidfile "$PIDFILE"
+
+  if [ "$action" = --status ]; then
+    START_STOP_DAEMON_ARGS="$@"
+    return 0
+  fi
+
+  set -- $@ --exec /usr/bin/env PATH="$APPEND_TO_ENV_PATH":"$PATH" $ADDITIONAL_ENV_VARS    \
+    RAILS_ENV="$RAILS_ENV" "$DELAYED_JOB" -- --number_of_workers="$WORKERS" $MONITOR $args
+  START_STOP_DAEMON_ARGS="$@"
+
+  return 0
+}
+ 
+do_start () {
+  set_start_stop_daemon_args --status
+  start-stop-daemon $START_STOP_DAEMON_ARGS && return 1
+
+  set_start_stop_daemon_args --start start
+  start-stop-daemon $START_STOP_DAEMON_ARGS || return 2
+}
+
+do_stop () {
+  local retval
+
+  set_start_stop_daemon_args --status
+  
+  start-stop-daemon $START_STOP_DAEMON_ARGS && retval=0 || retval=1
+
+  set_start_stop_daemon_args --start stop
+  start-stop-daemon $START_STOP_DAEMON_ARGS > /dev/null || return 2
+
+  return $retval
+}
+
+do_reload () {
+  set_start_stop_daemon_args --start reload
+  start-stop-daemon $START_STOP_DAEMON_ARGS > /dev/null || return 2
+
+  return 0
+}
+
+do_restart () {
+  set_start_stop_daemon_args --start restart
+  start-stop-daemon $START_STOP_DAEMON_ARGS > /dev/null || return 2
+
+  return 0
+}
+
+cmd () {
+  case "$1" in
+    start)
+    delayed_job_log_daemon_msg "Starting"
+    do_start
+    case "$?" in
+      0|1) delayed_job_log_end_msg 0 ;;
+      *) delayed_job_log_end_msg 1 ;;
+    esac
+    ;;
+
+    stop)
+    delayed_job_log_daemon_msg "Stopping"
+    do_stop
+    case "$?" in
+      0|1) delayed_job_log_end_msg 0 ;;
+      2) delayed_job_log_end_msg 1 ;;
+    esac
+    ;;
+
+    reload|force-reload)
+    delayed_job_log_daemon_msg "Reloading"
+    do_reload
+    log_end_msg $?
+    ;;
+
+    restart)
+    delayed_job_log_daemon_msg "Restarting"
+    do_restart
+    log_end_msg $?
+    ;;
+
+    status)
+    status_of_proc -p $PIDFILE "$DELAYED_JOB" "$APP_DESC"
+    ;;
+
+    *)
+    echo "Usage: $0 <start|stop|reload|force-reload|restart|status>" >&2
+    exit 3
+    ;;
+  esac
+}
+
+unset_variables () {
+  unset APP_USER
+  unset APP_GROUP
+  unset APP_NAME
+  unset APP_PATH
+  unset APPEND_TO_ENV_PATH
+  unset ADDITIONAL_ENV_VARS
+  unset BUNDLE_EXEC
+  unset DELAYED_JOB
+  unset RAILS_ENV
+  unset PID_DIR
+  unset WORKERS
+  unset MONITOR
+}
+
+# Read settings or composing default values
+setup () {
+  CONFIG=$1
+
+  [ -z "$APP_USER" ] && APP_USER=`basename $1 | cut -f 1 -d :`
+
+  [ -z "$APP_GROUP" ] && APP_GROUP="$APP_USER"
+
+  [ -z "$APP_NAME" ] && APP_NAME=`basename $1 | cut -f 2- -d :`
+  
+  # Displayed inside messages
+  APP_DESC="Delayed job - $APP_NAME"
+  
+  [ -z "$APP_PATH" ] && APP_PATH="/home/$APP_USER/www/$APP_NAME"
+
+  # Check whether the application directory exists
+  if [ ! -d "$APP_PATH" ]; then
+    log_failure_msg "$APP_DESC: $APP_PATH is not a valid directory"
+    return 1
+  fi
+
+  [ -z "$APPEND_TO_ENV_PATH" ] && APPEND_TO_ENV_PATH=''
+
+  [ -z "$ADDITIONAL_ENV_VARS" ] && ADDITIONAL_ENV_VARS=''
+
+  if [ -z "$DELAYED_JOB" ]; then
+    if [ -f "$APP_PATH/bin/delayed_job" ]; then
+      DELAYED_JOB="$APP_PATH/bin/delayed_job"
+    else
+      DELAYED_JOB="$APP_PATH/script/delayed_job"
+    fi
+  fi
+
+  [ -z "$RAILS_ENV" ] && RAILS_ENV="production"
+
+  [ -z "$PID_DIR" ] && PID_DIR="$APP_PATH/tmp/pids"
+
+  [ -z "$WORKERS" ] && WORKERS="2"
+
+  [ "$MONITOR" != false ] && MONITOR="--monitor" || MONITOR="" 
+
+  # If workers number is > 1, delayed_job creates a PID_FILE for every worker, naming them
+  # as delayed_job.<worker_index>.pid . Since we use PIDFILE just to check whether delayed_job 
+  # is started or not, we can use the normal pidfile when the worker is 1, and the pidfile with zero-index
+  # in the other cases.
+  [ "$WORKERS" = 1 ] && PIDFILE="$PID_DIR/delayed_job.pid" || PIDFILE="$PID_DIR/delayed_job.0.pid"
+
+  return 0
+}
+
+# Either run the start/stop/reload/etc command for every config under /etc/delayed_job
+# or just do it for a specific one
+
+# $1 contains the start/stop/etc command
+# $2 if it exists, should be the specific config we want to act on
+
+if [ $2 ]; then
+  # Check whether the conf file is disabled
+  
+  if ! echo "$2" | grep -qv '\.disabled$'; then
+    echo "$2 is disabled. Rename it in order to use it."
+    exit 1
+  fi
+
+  set -e
+  . /etc/delayed_job/$2
+  setup "/etc/delayed_job/$2"
+  set +e
+  cmd $1
+else
+  FAILURE=0
+  for CONFIG in `find /etc/delayed_job -type f -print0 | grep -zv '\.disabled$' | sed "s/\x00/\n/g"`; do
+    # clean variables from prev configs
+    unset_variables
+
+    . $CONFIG && setup $CONFIG
+    if [ "$?" != 0 ]; then
+      FAILURE=3
+      continue
+    fi
+
+    # run the start/stop/etc command
+    cmd $1 || FAILURE=3
+  done
+  exit $FAILURE
+fi

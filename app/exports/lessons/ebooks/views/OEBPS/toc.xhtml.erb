@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <title><%= lesson.title %> - Indice</title>
+  </head>
+  <body>
+    <div>
+      <h1><%= lesson.title %></h1>
+      <nav epub:type="toc" id="toc">
+        <h1>Indice</h1>
+        <ol>
+          <% slides.each do |r| -%>
+            <li><a href="<%= slide_path(r) %>"><%= slide_title(r) %></a></li>
+          <% end -%>
+        </ol>
+      </nav>
+    </div>
+  </body>
+</html>

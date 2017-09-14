@@ -1,0 +1,14 @@
+<% counter = 0 %>
+<% slides.each do |slide| %>
+  <%
+    class_slide = "#{slide.kind} slides"
+    div_covering = ''
+    if slide.cover? && with_current
+      class_slide = "#{class_slide} active _lesson_editor_current_slide"
+    else
+      div_covering = '<layer class="_not_current_slide"></layer>'
+    end
+  %>
+  <%= render :partial => 'lesson_editor/slide_wrapper', :locals => {:class_slide => class_slide, :div_covering => div_covering, :slide => slide, :loaded => ([0, 1].include? counter), :first_time => true, :documents_slides => documents_slides[counter]} %>
+  <% counter += 1 %>
+<% end %>

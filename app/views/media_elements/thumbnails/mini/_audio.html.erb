@@ -1,0 +1,7 @@
+<div id="mini_thumb_media_element_<%= item.id %>" class="mini_thumb audio">
+  <%= image_tag item.thumb_url, :width => '200px' %>
+  <audio data-m4a="<%= item.m4a_url %>" data-ogg="<%= item.ogg_url %>" data-loaded="false">
+    <source src="" type="audio/m4a">
+    <source src="" type="audio/ogg">
+  </audio>
+</div>

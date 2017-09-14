@@ -1,0 +1,701 @@
+@import 'variables';
+@import 'mixins';
+
+.profile-content {
+  
+  width: 100%;
+  font-size: 85%;
+  
+  .sbHolderDeselect {
+    
+    width: 217px;
+    height: 25px;
+    margin: 0px 16px 10px 0;
+    padding: 10px 0 0 10px;
+    background-color: #E9ECEE;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #939393;
+    box-shadow: 0 1px 2px rgba(50, 50, 50, 0.2) inset;
+    font-size: 13px;
+    
+  }
+  
+}
+
+.contentFormInProfile {
+  
+  width: 100%;
+  
+  header {
+    
+    padding: 10px 0 0 20px;
+    
+  }
+  
+  form {
+    
+    margin-top: 20px;
+    
+  }
+  
+  h2 {
+    
+    @include nunito(25px);
+    color:  #7D7D7D;
+    text-transform: lowercase;
+    text-shadow: #ccc 1px 1px 0px;
+    
+  }
+  
+  .profile-element-container {
+    
+    float: left;
+    border: 1px solid #EFEFEF;
+    color: #999;
+    padding: 35px;
+    margin: 0 0 20px 0;
+    width: calc(100% - 72px);
+    
+    .profile-element {
+      
+      @include nunito(100%);
+      float: left;
+      width: 236px;
+      margin-right: 80px;
+      padding-bottom: 30px;
+      
+      input {
+        
+        @include nunito(13px);
+        background-color: #F5F5F5;
+        color: #7D7D7D;
+        margin-right: 0px;
+        width: 216px;
+        height: 29px;
+        box-shadow: 0 1px 2px rgba(50, 50, 50, 0.2) inset;
+        padding: 4px 10px 4px 10px;
+        border-radius: 4px;
+        
+        &.true {
+          
+          border: 2px solid red;
+          padding: 2px 8px 2px 8px;
+          
+        }
+        
+      }
+      
+    }
+    
+    &#profile-general-edit {
+      
+      .profile-element {
+        
+        &.email {
+          
+          input {
+            
+            color: #ccc;
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+    &#profile-locations-edit {
+      
+      padding-bottom: 5px;
+      
+      .profile-element {
+        
+        input {
+          
+          color: #7D7D7D;
+          
+          &.empty-locations {
+            
+            color: #ccc;
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+    &#profile-subjects-edit {
+      
+      .profile-subject-cathegory-container {
+        
+        float: left;
+        width: 100%;
+        padding: 0;
+        border-bottom: 1px solid #EFEFEF;
+        margin-bottom: 20px;
+        
+        &.no-border {
+          
+          border: 0;
+          margin-bottom: -10px; /* 30px of margin-bottom minus 20px of regular margin. this style is not temporary nor unstable, please don't delete it! */
+          
+        }
+        
+        .profile-subject-cathegory-label {
+          
+          color: #7D7D7D;
+          font-size: 16px;
+          padding: 10px 0px;
+          
+        }
+        
+        .profile-element {
+          
+          @include nunito(16px);
+          border-radius: 5px;
+          -webkit-border-radius: 5px;
+          padding: 8px;
+          width: 211px;
+          float: left;
+          margin-right: 5%;
+          margin-bottom: 30px;
+          display: block;
+          color: #7D7D7D;
+          position: relative;
+          
+          input {
+            
+            display: none;
+            
+          }
+          
+          input:checked + label, label {
+            
+            background-color: #F5F5F5;
+            box-shadow: 0 1px 1px rgba(50,50,50,0.5) inset;
+            border-radius: 10px;
+            padding: 20px;
+            float: left;
+            width: auto;
+            cursor: pointer;
+            
+          }
+          
+          input:checked + label:after {
+            
+            color: $green;
+            cursor: pointer;
+            content: '\2714';
+            font-size: 28px;
+            top: 9px;
+            left: 18px;
+            position: absolute;
+            
+          }
+          
+          span {
+            
+            float: left;
+            padding: 10px;
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+    &#profile-school-level-edit {
+      
+      .profile-element {
+        
+        padding: 0;
+        
+      }
+      
+    }
+    
+    .profile-errors {
+      
+      min-height: 30px;
+      margin-left: 0;
+      list-style: none;
+      
+      li {
+        
+        padding: 8px  20px;
+        background-image: $assets-puntoesclamativo_png;
+        background-repeat: no-repeat;
+        background-position: 0 .5em;
+        
+      }
+      
+    }
+    
+    .sbHolder {
+      
+      @include nunito(13px);
+      color: #7D7D7D;
+      width: 236px;
+      background-color: #F5F5F5;
+      
+      .sbToggle {
+        
+        top: 8px;
+        right: 5px;
+        
+      }
+      
+      .sbOptions {
+        
+        @include nunito(13px);
+        color: #7D7D7D;
+        width: 235px;
+        
+        a {
+          
+          color: #999;
+          
+          &.sbFocus {
+            
+            color: #fff;
+            
+          }
+          
+        }
+        
+      }
+      
+      .sbSelector {
+        
+        @include nunito(13px);
+        color: #7D7D7D;
+        width: 236px;
+        height: 37px;
+        
+      }
+      
+    }
+    
+  }
+  
+  .form_submit {
+    
+    padding-left: 20px;
+    
+    input {
+      
+      background-color: #555;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 10px 30px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      cursor: pointer;
+      
+      &:hover {
+        
+        background-color: #999;
+        
+      }
+      
+      &.current, &:hover.current {
+        
+        color: #ccc;
+        background-color: #999;
+        
+      }
+      
+    }
+    
+  }
+  
+}
+
+#mailing_lists {
+  
+  border: 1px solid #E2E2E2;
+  padding: 10px 20px 20px;
+  margin-top: 20px;
+  
+  #add_new_group {
+    
+    height: 60px;
+    display: block;
+    
+    a {
+      
+      @include svg-circle-icon-handler($assets-set-icone-editor_svg, 50px, 4, 12, 0.3, 2, 1, 0.5, 2, 1);
+      margin-bottom: 20px;
+      
+    }
+    
+    span {
+      
+      @include nunito(14px);
+      padding: 15px 0 0 60px;
+      display: block;
+      
+    }
+    
+  }
+  
+  #mailing_lists_accordion {
+    
+    div {
+      
+      margin: 0;
+      padding: 0;
+      
+      table, table tbody, table tbody tr {
+        
+        width: 100%;
+        
+      }
+      
+      table tbody tr td {
+        
+        border: 1px solid #EFEFEF;
+        text-align: center;
+        font-weight: bold;
+        
+        &.index {
+          
+          width: 5%;
+          font-size: 10px;
+          
+        }
+        
+        &.name, &.email {
+          
+          text-align: left;
+          padding: 0 10px;
+          width: 35%;
+          
+        }
+        
+        &.email {
+          
+          color: $blue;
+          width: 60%;
+          
+          a {
+            
+            @include svg-circle-icon-handler($assets-set-icone-editor_svg, 20px, 4, 12, 0.3, 2, 0, 0.5, 2, 0, right);
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+    h3 {
+      
+      @include nunito(20px);
+      padding: 15px 20px;
+      margin-top: 10px;
+      width: auto;
+      color: white;
+      background-color: #7D7D7D;
+      
+      .group-title {
+        
+        max-width: 50%;
+        float: left;
+        overflow: hidden;
+        white-space: nowrap;
+        border-radius: 10px;
+        padding: 0 10px;
+        
+      }
+      
+      a.selector {
+        
+        @include svg-circle-icon-handler-without-hover($assets-set-icone-editor_svg, 25px, 4, 12, 0.5, 0, 5);
+        margin-right: 10px;
+        
+      }
+      
+      &.ui-accordion-header-active a.selector {
+        
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        
+      }
+      
+      a.delete_group {
+        
+        float: right;
+        font-size: 12px;
+        font-weight: normal;
+        color: white;
+        padding-top: 5px;
+        
+        &:hover {
+          
+          color: #ccc;
+          
+        }
+        
+      }
+      
+    }
+    
+    form.new_email {
+      
+      background-color: #A4A4A4;
+      margin: 0;
+      padding: 0;
+      width: auto;
+      height: 45px;
+      
+      p {
+        
+        float: left;
+        width: 200px;
+        margin: 15px 10px 15px 25px;
+        padding: 0;
+        color: white;
+        font-size: 10px;
+        text-transform: uppercase;
+        
+      }
+      
+      input {
+        
+        margin: 0;
+        padding: 0;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 10px 10px 0 0;
+        width: 190px;
+        font-size: 10px;
+        float: left;
+        
+      }
+      
+      input[type=submit] {
+        
+        @include svg-circle-icon-handler($assets-set-icone-editor_svg, 25px, 4, 12, 0.5, 0, 1, 0.3, 0, 1);
+        background-color: transparent;
+        
+      }
+      
+    }
+    
+  }
+  
+}
+
+.stats {
+  
+  background-color: #F5F5F5;
+  padding: 20px 30px;
+  margin-top: 20px;
+  
+  ul {
+    
+    width: 45%;
+    list-style: none;
+    margin: 0 20px 0 0;
+    
+    li {
+      
+      width: 100%;
+      min-height: 20px;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #fff;
+      border-bottom: 2px solid #E2E2E2;
+      
+      span {
+        
+        text-transform: uppercase;
+        float: left;
+        padding-top: 2px;
+        
+      }
+      
+      div {
+        
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        float: right;
+        width: 50px;
+        
+      }
+      
+      &.lesson_stat {
+        
+        div, ul li span {
+          
+          color: $orange;
+          
+        }
+        
+      }
+      
+      &.element_stat {
+        
+        div {
+          
+          color: $green;
+          
+        }
+        
+        &.chart {
+          
+          table {
+            
+            margin-top: 20px;
+            
+            th {
+              
+              text-transform: uppercase;
+              text-align: center;
+              
+            }
+            
+            td {
+              
+              border: 2px solid #fff;
+              text-align: center;
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      ul {
+        
+        width: auto;
+        clear: both;
+        margin: 0;
+        padding-top: 5px;
+        
+        li {
+          
+          padding: 5px 0 0;
+          min-height: 0;
+          border: none;
+          
+          span {
+            
+            text-transform: none;
+            
+          }
+          
+          div {
+            
+            font-size: 15px;
+            color: #7D7D7D !important;
+            
+          }
+          
+          span {
+            
+            font-size: 13px;
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  #subjects-stats {
+    
+    border-collapse: collapse;
+    width: 50%;
+    float: left;
+    
+    td {
+     
+     padding: 10px 0 10px 0;
+     
+    }
+    
+    p {
+      
+      padding-left: 15px;
+      padding-bottom: 5px;
+      
+    }
+    
+  }
+  
+}
+
+.contentStats {
+  
+  background-color: #F5F5F5;
+  padding: 20px 8px 8px 8px;
+  float: right;
+  width: 305px;
+  
+  h2 {
+    
+    @include nunito(120%);
+    color: $black;
+    padding: 5px 10px;
+    background-color: #fff;
+    
+  }
+  
+  .dati {
+    
+    padding: 10px;
+    color: $black;
+    
+    p {
+      
+      padding-bottom: 10px;
+      
+    }
+    
+  }
+  
+  p {
+    
+    padding: 10px 0 10px 0;
+    
+  }
+  
+  table {
+    
+    border-collapse: collapse;
+    
+  }
+  
+  table, th, td {
+    
+    @include nunito(95%);
+    border: 1px solid #E0E0E0;
+    color: #7D7D7D;
+    
+    h3 {
+      
+      padding: 5px 20px;
+      
+    }
+    
+  }
+  
+}

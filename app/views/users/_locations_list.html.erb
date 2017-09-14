@@ -1,0 +1,15 @@
+<%= label %><br/>
+<% if locations.empty? %>
+  <% if empty %>
+    <input type="text" class="empty-locations" value="<%= t('locations.empty', :location => label_plur.downcase) %>" disabled="disabled"/>
+  <% else %>
+    <input type="text" class="empty-locations" value="<%= label %>" disabled="disabled"/>
+  <% end %>
+<% elsif forced %>
+  <input type="text" value="<%= forced.name %>" disabled="disabled" data-selected="<%= selected %>"/>
+<% else %>
+  <select id="selecting_<%= type %>_id" class="_location_select_box" data-is-last="<%= is_last %>" name="location[<%= type %>]">
+    <option value="0"><%= t("locations.placeholder.#{locations.first.gender}", :location => label.downcase) %></option>
+    <%= options_from_collection_for_select(locations, 'id', 'name', selected.to_i) %>
+  </select>
+<% end %>

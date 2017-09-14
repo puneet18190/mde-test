@@ -1,0 +1,133 @@
+upstream $username_$appname {
+  # fail_timeout=0 means we always retry an upstream even if it failed
+  # to return a good HTTP response (in case the Unicorn master nukes a
+  # single worker for timing out).
+
+  # for UNIX domain socket setups:
+  server unix:/tmp/$username.$appname.production.sock fail_timeout=0;
+}
+
+server {
+  listen 80;
+  server_name $servername;
+
+  # path for static files
+  root $path_to_application/public;
+  
+  # Prefer to serve static files directly from nginx to avoid unnecessary
+  # data copies from the application server.
+  #
+  # try_files directive appeared in in nginx 0.7.27 and has stabilized
+  # over time.  Older versions of nginx (e.g. 0.6.x) requires
+  # "if (!-f $request_filename)" which was less efficient:
+  # http://bogomips.org/unicorn.git/tree/examples/nginx.conf?id=v3.3.1#n127
+  try_files $uri/index.html $uri.html $uri @app;
+
+  # gzip types
+  gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript
+             image/gif image/jpeg image/png image/svg+xml;
+
+  # maximum accepted body size of a client request
+  client_max_body_size 50m;
+
+  # WIRIS PHP
+  location ~ ^/assets/tinymce/plugins/tiny_mce_wiris/integration/(.*\.php)$ {
+    alias $path_to_application/vendor/assets/javascripts/tinymce/plugins/tiny_mce_wiris/integration;
+    
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    # # NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+    #
+    # # With php5-cgi alone:
+    # fastcgi_pass 127.0.0.1:9000;
+    # # With php5-fpm:
+    fastcgi_pass unix:/var/run/php5-fpm.sock;
+    fastcgi_index index.php;
+    include fastcgi_params;
+
+    # Changes due to the alias declaration
+    fastcgi_param SCRIPT_FILENAME $document_root/$1;
+    fastcgi_param SCRIPT_NAME /$1;
+
+    # Trying to intercept FastCGI 404
+    fastcgi_intercept_errors on;
+  }
+
+  # WIRIS deny access to folders used by PHP itself
+  location ~ ^/assets/tinymce/plugins/tiny_mce_wiris/(configuration\.ini|VERSION|((formulas|cache)/.*))$ {
+    deny all;
+  }
+
+  # Assets: max expiration cache and serve gzip static files (.gz)
+  location /assets/ {
+    expires max;
+    add_header Cache-Control public;
+    add_header ETag "";
+    gzip_static on;
+    break;
+  }
+
+  # Media elements: max expiration cache
+  location ~ ^/media_elements/(videos|audios|images)/ {
+    expires max;
+    add_header Cache-Control public;
+    add_header ETag "";
+    break;
+  }
+
+  # Documents: max expiration cache
+  #            always served as attachments
+  location ~ ^/documents/(|(development|test)/)[0-9]+/(.+)$ {
+    expires max;
+    add_header Cache-Control public;
+    add_header ETag "";
+    set $filename $3;
+    add_header Content-Disposition "attachment;filename=$filename";
+    break;
+  }
+
+  # Rails app
+  location @app {
+    # an HTTP header important enough to have its own Wikipedia entry:
+    #   http://en.wikipedia.org/wiki/X-Forwarded-For
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+    # pass the Host: header from the client right along so redirects
+    # can be set properly within the Rack application
+    proxy_set_header Host $http_host;
+
+    # we don't want nginx trying to do something clever with
+    # redirects, we set the Host: header above already.
+    proxy_redirect off;
+
+    proxy_pass http://$username_$appname;
+
+    # intercept upstream errors: we manage them using error_page
+    proxy_intercept_errors on;
+  }
+
+  # Rails error pages
+  error_page 404 /404.html;
+  location = /404.html {
+    root $path_to_application/public;
+    internal;
+  }
+  
+  error_page 413 /413.html;
+  location = /413.html {
+    root $path_to_application/public;
+    internal;
+  }
+  
+  error_page 500 502 504 /500.html;
+    location = /500.html {
+    root $path_to_application/public;
+    internal;
+  }
+
+  error_page 503 /503.html;
+    location = /503.html {
+    root $path_to_application/public;
+    internal;
+  }
+  
+}

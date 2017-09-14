@@ -1,0 +1,9 @@
+<%
+  div_id = empty ? '' : "id=\"video_component_#{identifier}_preview\""
+  background_color_class = empty ? 'background_color_white' : "background_color_#{component[:background_color]}"
+  text_color_class = empty ? 'color_black' : "color_#{component[:text_color]}"
+%>
+
+<div data-loaded="true" class="boxContentMediaElementText _video_component_preview <%= background_color_class.html_safe %>" style="display:none" <%= div_id.html_safe %>>
+  <p class="<%= text_color_class.html_safe %>"><%= empty ? '' : component[:content].html_safe %></p>
+</div>

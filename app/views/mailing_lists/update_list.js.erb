@@ -1,0 +1,8 @@
+<% if @ok %>
+  $('#list').html('<%= j(render :partial => "mailing_lists/list") %>');
+  <% if @mailing_list_group.present? %>
+    $('h3#accordion_group_' + <%= @mailing_list_group.id %>).click();
+  <% end %>
+<% else %>
+  showErrorPopUp($('#popup_captions_container').data('mailing-list-general-error'));
+<% end %>

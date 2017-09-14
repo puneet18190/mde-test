@@ -1,0 +1,14 @@
+<div class="header">
+  <div class="contenitore">
+    <h1 class="fltlft upper"><%= t("video_editor.label") %></h1>
+    <div id="video_editor_title" class="testo fltlft">
+      <% if parameters[:initial_video].nil? %>
+        <span class="_untitled"><%= t('media_elements.editor.new_untitled') %></span>
+      <% else %>
+        <span class="_untitled" style="display:none"><%= t('media_elements.editor.new_untitled') %></span>
+        <span class="_titled"><%= parameters[:initial_video].title %></span>
+      <% end %>
+    </div>
+    <div class="fltrt"><a class="esciButton _exit_media_element_editor" title="<%= t('titles.exit_without_saving') %>" data-type="video"></a></div>
+  </div>
+</div>

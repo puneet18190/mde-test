@@ -1,0 +1,7 @@
+<% @documents.each do |document| %>
+  var html_to_append = '<div id="gallery_document_<%= document.id %>" class="documentInGalleryExternal">';
+  html_to_append += '<%= j(render(:partial => "galleries/thumbs/document", :locals => {:document => document, :word => @word})) %></div>';
+  $('#lesson_editor_document_gallery_container #document_gallery .for-scroll-pain .jspPane').append(html_to_append);
+<% end %>
+$('#lesson_editor_document_gallery_container').data('page', <%= @page %>);
+updateEffectsInsideDocumentGallery();

@@ -1,0 +1,24 @@
+<%
+  video = slide.media_elements_at
+%>
+
+
+<div class="slide-content video2 small-size">
+  
+  <div class="item video-container">
+    <% if video %>
+      <div class="video read-only">
+        <%= render :partial => 'lesson_editor/thumbnails/fake_players/video', :locals => {:video => video} %>
+      </div>
+    <% else %>
+      <div class="video editable">
+        <div class="empty-mask visible">
+          <a class="add" data-position="1"></a>
+          <br/>
+          <p class="lower"><%= t('lesson_editor.choose_video') %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+</div>

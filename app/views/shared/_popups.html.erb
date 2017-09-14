@@ -1,0 +1,99 @@
+<%
+  data_captions = ''
+  data_captions = "#{data_captions}data-publish-confirm=\"#{t('popups.publish.confirm').html_safe}\""
+  data_captions = "#{data_captions} data-publish-yes=\"#{t('popups.publish.do').html_safe}\""
+  data_captions = "#{data_captions} data-publish-no=\"#{t('popups.publish.cancel').html_safe}\""
+  data_captions = "#{data_captions} data-publish-title=\"#{t('popups.publish.title')}\""
+  data_captions = "#{data_captions} data-unpublish-confirm=\"#{t('popups.unpublish.confirm').html_safe}\""
+  data_captions = "#{data_captions} data-unpublish-yes=\"#{t('popups.unpublish.do').html_safe}\""
+  data_captions = "#{data_captions} data-unpublish-no=\"#{t('popups.unpublish.cancel').html_safe}\""
+  data_captions = "#{data_captions} data-unpublish-title=\"#{t('popups.unpublish.title')}\""
+  data_captions = "#{data_captions} data-destroy-lesson-confirm=\"#{t('popups.destroy.lesson.confirm').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-lesson-title=\"#{t('popups.destroy.lesson.title').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-lesson-yes=\"#{t('popups.destroy.lesson.do').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-lesson-no=\"#{t('popups.destroy.lesson.cancel').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-media-element-confirm=\"#{t('popups.destroy.media_element.confirm').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-media-element-confirm-bis=\"#{t('popups.destroy.media_element.confirm_bis').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-media-element-title=\"#{t('popups.destroy.media_element.title').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-media-element-yes=\"#{t('popups.destroy.media_element.do').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-media-element-no=\"#{t('popups.destroy.media_element.cancel').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-document-confirm=\"#{t('popups.destroy.document.confirm').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-document-confirm-bis=\"#{t('popups.destroy.document.confirm_bis').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-document-title=\"#{t('popups.destroy.document.title').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-document-yes=\"#{t('popups.destroy.document.do').html_safe}\""
+  data_captions = "#{data_captions} data-destroy-document-no=\"#{t('popups.destroy.document.cancel').html_safe}\""
+  data_captions = "#{data_captions} data-invalid-component-duration-in-video-editor=\"#{t('other_popup_messages.video_editor.invalid_component_duration').html_safe}\""
+  data_captions = "#{data_captions} data-empty-text-component-in-video-editor=\"#{t('other_popup_messages.video_editor.empty_text_component')}\""
+  data_captions = "#{data_captions} data-restore-cache-media-element-editor-message=\"#{t('popups.restore_cache_media_element_editor.message').html_safe}\""
+  data_captions = "#{data_captions} data-restore-cache-media-element-editor-yes=\"#{t('popups.restore_cache_media_element_editor.do').html_safe}\""
+  data_captions = "#{data_captions} data-restore-cache-media-element-editor-no=\"#{t('popups.restore_cache_media_element_editor.cancel').html_safe}\""
+  data_captions = "#{data_captions} data-exit-video-editor-title=\"#{t('popups.exit_video_editor.title').html_safe}\""
+  data_captions = "#{data_captions} data-exit-video-editor-confirm=\"#{t('popups.exit_video_editor.confirm').html_safe}\""
+  data_captions = "#{data_captions} data-exit-video-editor-yes=\"#{t('popups.exit_video_editor.do').html_safe}\""
+  data_captions = "#{data_captions} data-exit-video-editor-no=\"#{t('popups.exit_video_editor.cancel').html_safe}\""
+  data_captions = "#{data_captions} data-exit-audio-editor-title=\"#{t('popups.exit_audio_editor.title').html_safe}\""
+  data_captions = "#{data_captions} data-exit-audio-editor-confirm=\"#{t('popups.exit_audio_editor.confirm').html_safe}\""
+  data_captions = "#{data_captions} data-exit-audio-editor-yes=\"#{t('popups.exit_audio_editor.do').html_safe}\""
+  data_captions = "#{data_captions} data-exit-audio-editor-no=\"#{t('popups.exit_audio_editor.cancel').html_safe}\""
+  data_captions = "#{data_captions} data-save-media-element-editor-title=\"#{t('popups.save_media_element_editor.title')}\""
+  data_captions = "#{data_captions} data-save-media-element-editor-confirm=\"#{t('popups.save_media_element_editor.confirm')}\""
+  data_captions = "#{data_captions} data-save-media-element-editor-yes=\"#{t('popups.save_media_element_editor.do')}\""
+  data_captions = "#{data_captions} data-save-media-element-editor-no=\"#{t('popups.save_media_element_editor.cancel')}\""
+  data_captions = "#{data_captions} data-overwrite-media-element-editor-title=\"#{t('popups.overwrite_media_element_editor.title')}\""
+  data_captions = "#{data_captions} data-overwrite-media-element-editor-confirm=\"#{t('popups.overwrite_media_element_editor.confirm')}\""
+  data_captions = "#{data_captions} data-overwrite-media-element-editor-yes=\"#{t('popups.overwrite_media_element_editor.do')}\""
+  data_captions = "#{data_captions} data-overwrite-media-element-editor-no=\"#{t('popups.overwrite_media_element_editor.cancel')}\""
+  data_captions = "#{data_captions} data-mailing-list-general-error=\"#{t('other_popup_messages.mailing_list.error')}\""
+  data_captions = "#{data_captions} data-empty-virtual-classroom-playlist-title=\"#{t('popups.empty_playlist.title')}\""
+  data_captions = "#{data_captions} data-empty-virtual-classroom-playlist-confirm=\"#{t('popups.empty_playlist.confirm')}\""
+  data_captions = "#{data_captions} data-empty-virtual-classroom-playlist-yes=\"#{t('popups.empty_playlist.do')}\""
+  data_captions = "#{data_captions} data-empty-virtual-classroom-playlist-no=\"#{t('popups.empty_playlist.cancel')}\""
+  data_captions = "#{data_captions} data-empty-virtual-classroom-title=\"#{t('popups.empty_virtual_classroom.title')}\""
+  data_captions = "#{data_captions} data-empty-virtual-classroom-confirm=\"#{t('popups.empty_virtual_classroom.confirm')}\""
+  data_captions = "#{data_captions} data-empty-virtual-classroom-yes=\"#{t('popups.empty_virtual_classroom.do')}\""
+  data_captions = "#{data_captions} data-empty-virtual-classroom-no=\"#{t('popups.empty_virtual_classroom.cancel')}\""
+  data_captions = "#{data_captions} data-title-unpublish=\"#{t('titles.buttons.unpublish')}\""
+  data_captions = "#{data_captions} data-title-lesson-modification-not-notified=\"#{t('titles.buttons.lesson_modification_not_notified')}\""
+  data_captions = "#{data_captions} data-title-pagination-left=\"#{t('titles.pagination.prev')}\""
+  data_captions = "#{data_captions} data-title-pagination-right=\"#{t('titles.pagination.next')}\""
+  data_captions = "#{data_captions} data-media-error-audio=\"#{t('other_popup_messages.media_loading_errors.audio')}\""
+  data_captions = "#{data_captions} data-media-error-video=\"#{t('other_popup_messages.media_loading_errors.video')}\""
+  data_captions = "#{data_captions} data-media-error-code-1=\"The fetching process for the media resource was aborted by the user\""
+  data_captions = "#{data_captions} data-media-error-code-2=\"A network error has caused the user agent to stop fetching the media resource\""
+  data_captions = "#{data_captions} data-media-error-code-3=\"An error has occurred in the decoding of the media resource\""
+  data_captions = "#{data_captions} data-media-error-code-4=\"The media resource specified by src was not usable\""
+  data_captions = "#{data_captions} data-trial-user-lock-virtual-classroom-send-link=\"#{t('registration.trial_limitations_messages.cant_send_link')}\""
+  data_captions = "#{data_captions} data-confirm-delete-slide-title=\"#{t('popups.confirm_delete_slide.title')}\""
+  data_captions = "#{data_captions} data-confirm-delete-slide-confirm=\"#{t('popups.confirm_delete_slide.confirm')}\""
+  data_captions = "#{data_captions} data-confirm-delete-slide-yes=\"#{t('popups.confirm_delete_slide.do')}\""
+  data_captions = "#{data_captions} data-confirm-delete-slide-no=\"#{t('popups.confirm_delete_slide.cancel')}\""
+  data_captions = "#{data_captions} data-dont-leave-page-upload-document=\"#{t('forms.error_captions.dont_leave_page.document')}\""
+  data_captions = "#{data_captions} data-dont-leave-page-upload-media-element=\"#{t('forms.error_captions.dont_leave_page.media_element')}\""
+  data_captions = "#{data_captions} data-lesson-editor-conversion-audio-true=\"#{t('lesson_editor.conversion.correct.audio')}\""
+  data_captions = "#{data_captions} data-lesson-editor-conversion-audio-false=\"#{t('lesson_editor.conversion.error.audio')}\""
+  data_captions = "#{data_captions} data-lesson-editor-conversion-video-true=\"#{t('lesson_editor.conversion.correct.video')}\""
+  data_captions = "#{data_captions} data-lesson-editor-conversion-video-false=\"#{t('lesson_editor.conversion.error.video')}\""
+  data_captions = "#{data_captions} data-lesson-editor-conversion-noaudio-false=\"#{t('lesson_editor.conversion.error.audio_general')}\""
+  data_captions = "#{data_captions} data-lesson-editor-conversion-novideo-false=\"#{t('lesson_editor.conversion.error.video_general')}\""
+  data_captions = "#{data_captions} data-temporary-msg=\"\""
+%>
+
+<%
+  data_parameters = ''
+  data_parameters = "#{data_parameters}data-timeout=\"#{SETTINGS['seconds_for_timeout_dialogs'].to_json}\""
+  data_parameters = "#{data_parameters} data-cache-time=\"#{SETTINGS['seconds_for_saving_cache'].to_json}\""
+  data_parameters = "#{data_parameters} data-min-length-search-tags=\"#{SETTINGS['min_characters_to_search_tags'].to_json}\""
+  data_parameters = "#{data_parameters} data-min-tag-length=\"#{SETTINGS['min_tag_length'].to_json}\""
+%>
+
+<div class="timedPopUp" id="dialog-error" style="display:none"></div>
+
+<div class="timedPopUp" id="dialog-ok" style="display:none"></div>
+
+<div class="confirmPopUp" id="dialog-confirm" style="display:none"></div>
+
+<div class="restoreCacheMediaElementEditorPopUp" id="dialog-restore-cache-media-element-editor" style="display:none"></div>
+
+<div id="popup_captions_container" style="display:none" <%= data_captions.html_safe %> ></div>
+
+<div id="popup_parameters_container" style="display:none" <%= data_parameters.html_safe %> ></div>

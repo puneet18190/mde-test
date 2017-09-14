@@ -1,0 +1,9 @@
+<td>
+  <% if active %>
+    <input id="which_item_to_search_switch_<%= item %>" type="radio" name="switch" value="<%= item %>" class="regular-radio _which_item_to_search_switch" checked="checked"/>
+  <% else %>
+    <input id="which_item_to_search_switch_<%= item %>" type="radio" name="switch" value="<%= item %>" class="regular-radio _which_item_to_search_switch"/>
+  <% end %>
+  <label for="which_item_to_search_switch_<%= item %>"></label>
+</td>
+<td><%= t("captions.#{item}") %></td>

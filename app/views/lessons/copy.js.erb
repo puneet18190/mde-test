@@ -1,0 +1,18 @@
+<% if @ok %>
+  
+  showConfirmPopUp('<%= j t("popups.after_copy.title") %>', '<%= j t("popups.after_copy.confirm") %>', '<%= j t("popups.after_copy.go_to_editor") %>', '<%= j t("popups.after_copy.stay_in_page") %>', function() {
+    window.location = '/lessons/<%= @new_lesson.id %>/slides/edit'
+  }, function() {
+    closePopUp('dialog-confirm');
+    var redirect_url = $('#info_container').data('currenturl');
+    $.ajax({
+      type: 'get',
+      url: redirect_url
+    });
+  });
+  
+<% else %>
+  
+  showErrorPopUp('<%= j @error %>');
+  
+<% end %>

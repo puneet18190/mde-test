@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Statistics</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Statistics 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/lib/autoload/statistics_rb.html">lib/autoload/statistics.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Module of methods that return statistics, used in <a
+href="UsersController.html#method-i-statistics">UsersController#statistics</a>,
+<a
+href="Admin/DashboardController.html#method-i-index">Admin::DashboardController#index</a>
+and <a
+href="Admin/UsersController.html#method-i-show">Admin::UsersController#show</a></p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-all_liked_lessons">all_liked_lessons</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-all_shared_elements">all_shared_elements</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-all_shared_lessons">all_shared_lessons</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-all_users">all_users</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-all_users_like">all_users_like</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-hard_disk_chart">hard_disk_chart</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-my_copied_lessons">my_copied_lessons</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-my_created_elements">my_created_elements</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-my_created_lessons">my_created_lessons</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-my_liked_lessons">my_liked_lessons</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-my_likes_count">my_likes_count</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-my_linked_lessons_count">my_linked_lessons_count</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-percentage">percentage</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-subjects">subjects</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-subjects_chart">subjects_chart</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [RW]
+            </td>
+            <td class='attr-name'>user</td>
+            <td class='attr-desc'><p>The user necessary to scope all personal statistics</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-all_liked_lessons">
+            
+              <b>all_liked_lessons</b>(first_n)
+            
+            <a href="../classes/Statistics.html#method-i-all_liked_lessons" name="method-i-all_liked_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The first n lessons liked by users in all the application</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-all_liked_lessons_source')" id="l_method-i-all_liked_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-all_liked_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">all_liked_lessons</span>(<span class="ruby-identifier">first_n</span>)
+  <span class="ruby-constant">Lesson</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;id, title, (SELECT COUNT (*) FROM likes WHERE likes.lesson_id = lessons.id) AS likes_count&#39;</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;likes_count DESC, updated_at DESC&#39;</span>).<span class="ruby-identifier">limit</span>(<span class="ruby-identifier">first_n</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-all_shared_elements">
+            
+              <b>all_shared_elements</b>()
+            
+            <a href="../classes/Statistics.html#method-i-all_shared_elements" name="method-i-all_shared_elements" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The number of shared media elements in the application</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-all_shared_elements_source')" id="l_method-i-all_shared_elements_source">show</a>
+                
+              </p>
+              <div id="method-i-all_shared_elements_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">all_shared_elements</span>
+  <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:is_public</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-all_shared_lessons">
+            
+              <b>all_shared_lessons</b>()
+            
+            <a href="../classes/Statistics.html#method-i-all_shared_lessons" name="method-i-all_shared_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The number of shared lessons in the application</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-all_shared_lessons_source')" id="l_method-i-all_shared_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-all_shared_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">all_shared_lessons</span>
+  <span class="ruby-constant">Lesson</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:is_public</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-all_users">
+            
+              <b>all_users</b>()
+            
+            <a href="../classes/Statistics.html#method-i-all_users" name="method-i-all_users" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The number of users in the application</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-all_users_source')" id="l_method-i-all_users_source">show</a>
+                
+              </p>
+              <div id="method-i-all_users_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">all_users</span>
+  <span class="ruby-constant">User</span>.<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-all_users_like">
+            
+              <b>all_users_like</b>(first_n)
+            
+            <a href="../classes/Statistics.html#method-i-all_users_like" name="method-i-all_users_like" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The first n users who received more likes</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-all_users_like_source')" id="l_method-i-all_users_like_source">show</a>
+                
+              </p>
+              <div id="method-i-all_users_like_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">all_users_like</span>(<span class="ruby-identifier">first_n</span>)
+  <span class="ruby-constant">Like</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:lesson</span>, <span class="ruby-value">:lesson</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:user</span>).<span class="ruby-identifier">group</span>(<span class="ruby-string">&#39;users.id&#39;</span>).<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;users.id, users.name, users.surname, COUNT(*) AS likes_count&#39;</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;likes_count DESC, users.created_at DESC&#39;</span>).<span class="ruby-identifier">limit</span>(<span class="ruby-identifier">first_n</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-hard_disk_chart">
+            
+              <b>hard_disk_chart</b>()
+            
+            <a href="../classes/Statistics.html#method-i-hard_disk_chart" name="method-i-hard_disk_chart" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Chart representing the size occupation of the folder
+&#39;public/media_elements&#39;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-hard_disk_chart_source')" id="l_method-i-hard_disk_chart_source">show</a>
+                
+              </p>
+              <div id="method-i-hard_disk_chart_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">hard_disk_chart</span>
+  <span class="ruby-identifier">resp</span> = []
+  <span class="ruby-identifier">max</span> = <span class="ruby-constant">Media</span><span class="ruby-operator">::</span><span class="ruby-constant">Uploader</span><span class="ruby-operator">::</span><span class="ruby-constant">MAXIMUM_MEDIA_ELEMENTS_FOLDER_SIZE</span>
+  <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">percentage</span>(<span class="ruby-constant">Media</span><span class="ruby-operator">::</span><span class="ruby-constant">Video</span><span class="ruby-operator">::</span><span class="ruby-constant">Uploader</span>.<span class="ruby-identifier">folder_size</span>, <span class="ruby-identifier">max</span>)
+  <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">percentage</span>(<span class="ruby-constant">Media</span><span class="ruby-operator">::</span><span class="ruby-constant">Audio</span><span class="ruby-operator">::</span><span class="ruby-constant">Uploader</span>.<span class="ruby-identifier">folder_size</span>, <span class="ruby-identifier">max</span>)
+  <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">percentage</span>(<span class="ruby-constant">ImageUploader</span>.<span class="ruby-identifier">folder_size</span>, <span class="ruby-identifier">max</span>)
+  <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">percentage</span>(<span class="ruby-identifier">max</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Media</span><span class="ruby-operator">::</span><span class="ruby-constant">Video</span><span class="ruby-operator">::</span><span class="ruby-constant">Uploader</span>.<span class="ruby-identifier">folder_size</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Media</span><span class="ruby-operator">::</span><span class="ruby-constant">Audio</span><span class="ruby-operator">::</span><span class="ruby-constant">Uploader</span>.<span class="ruby-identifier">folder_size</span> <span class="ruby-operator">-</span> <span class="ruby-constant">ImageUploader</span>.<span class="ruby-identifier">folder_size</span>, <span class="ruby-identifier">max</span>)
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-my_copied_lessons">
+            
+              <b>my_copied_lessons</b>()
+            
+            <a href="../classes/Statistics.html#method-i-my_copied_lessons" name="method-i-my_copied_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Lessons created by the current user, and copied by other users</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-my_copied_lessons_source')" id="l_method-i-my_copied_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-my_copied_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">my_copied_lessons</span>
+  <span class="ruby-constant">Lesson</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-string">&#39;INNER JOIN lessons AS parent_lessons ON (parent_lessons.id = lessons.parent_id)&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;lessons.user_id != ? AND parent_lessons.user_id = ?&#39;</span>, <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-my_created_elements">
+            
+              <b>my_created_elements</b>()
+            
+            <a href="../classes/Statistics.html#method-i-my_created_elements" name="method-i-my_created_elements" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="Media.html">Media</a> Elements loaded or created by the current
+user (including the public ones, that might not be anymore in the
+user&#39;s section)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-my_created_elements_source')" id="l_method-i-my_created_elements_source">show</a>
+                
+              </p>
+              <div id="method-i-my_created_elements_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">my_created_elements</span>
+  <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-my_created_lessons">
+            
+              <b>my_created_lessons</b>()
+            
+            <a href="../classes/Statistics.html#method-i-my_created_lessons" name="method-i-my_created_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Lessons created by the current user (not including the lessons he copied
+and still not modified)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-my_created_lessons_source')" id="l_method-i-my_created_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-my_created_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">my_created_lessons</span>
+  <span class="ruby-constant">Lesson</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:copied_not_modified</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>).<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-my_liked_lessons">
+            
+              <b>my_liked_lessons</b>(first_n)
+            
+            <a href="../classes/Statistics.html#method-i-my_liked_lessons" name="method-i-my_liked_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The first n lessons of the current user, ordered by the number of likes
+received</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-my_liked_lessons_source')" id="l_method-i-my_liked_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-my_liked_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">my_liked_lessons</span>(<span class="ruby-identifier">first_n</span>)
+  <span class="ruby-constant">Lesson</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;id, title, (SELECT COUNT (*) FROM likes WHERE likes.lesson_id = lessons.id) AS likes_count&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;likes_count DESC, updated_at DESC&#39;</span>).<span class="ruby-identifier">limit</span>(<span class="ruby-identifier">first_n</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-my_likes_count">
+            
+              <b>my_likes_count</b>()
+            
+            <a href="../classes/Statistics.html#method-i-my_likes_count" name="method-i-my_likes_count" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>The total amount of likes received by lessons created by the current user</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-my_likes_count_source')" id="l_method-i-my_likes_count_source">show</a>
+                
+              </p>
+              <div id="method-i-my_likes_count_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">my_likes_count</span>
+  <span class="ruby-constant">Like</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:lesson</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:lessons</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>}).<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-my_linked_lessons_count">
+            
+              <b>my_linked_lessons_count</b>()
+            
+            <a href="../classes/Statistics.html#method-i-my_linked_lessons_count" name="method-i-my_linked_lessons_count" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Number of bookmarks on my lessons</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-my_linked_lessons_count_source')" id="l_method-i-my_linked_lessons_count_source">show</a>
+                
+              </p>
+              <div id="method-i-my_linked_lessons_count_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">my_linked_lessons_count</span>
+  <span class="ruby-constant">Bookmark</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-string">&quot;INNER JOIN lessons ON (bookmarks.bookmarkable_type = &#39;Lesson&#39; AND bookmarks.bookmarkable_id = lessons.id)&quot;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:lessons</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>}).<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-subjects">
+            
+              <b>subjects</b>()
+            
+            <a href="../classes/Statistics.html#method-i-subjects" name="method-i-subjects" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Descriptions for <a
+href="Statistics.html#method-i-subjects_chart">#subjects_chart</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-subjects_source')" id="l_method-i-subjects_source">show</a>
+                
+              </p>
+              <div id="method-i-subjects_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">subjects</span>
+  <span class="ruby-identifier">resp</span> = []
+  <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:lessons</span>).<span class="ruby-identifier">group</span>(<span class="ruby-string">&#39;subjects.id&#39;</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;subjects.description ASC&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">description</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-subjects_chart">
+            
+              <b>subjects_chart</b>()
+            
+            <a href="../classes/Statistics.html#method-i-subjects_chart" name="method-i-subjects_chart" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Chart representing the distribution of subjects among lessons</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-subjects_chart_source')" id="l_method-i-subjects_chart_source">show</a>
+                
+              </p>
+              <div id="method-i-subjects_chart_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">subjects_chart</span>
+  <span class="ruby-identifier">tot</span> = <span class="ruby-constant">Lesson</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-identifier">resp</span> = []
+  <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:lessons</span>).<span class="ruby-identifier">group</span>(<span class="ruby-string">&#39;subjects.id&#39;</span>).<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;subjects.description ASC&#39;</span>).<span class="ruby-identifier">count</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">id</span>, <span class="ruby-identifier">num</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">percentage</span>(<span class="ruby-identifier">num</span>, <span class="ruby-identifier">tot</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-percentage">
+            
+              <b>percentage</b>(val, tot)
+            
+            <a href="../classes/Statistics.html#method-i-percentage" name="method-i-percentage" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Submethod for chart percentages</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-percentage_source')" id="l_method-i-percentage_source">show</a>
+                
+              </p>
+              <div id="method-i-percentage_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/statistics.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">percentage</span>(<span class="ruby-identifier">val</span>, <span class="ruby-identifier">tot</span>)
+  <span class="ruby-identifier">res</span> = (<span class="ruby-identifier">val</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-number">100</span>) <span class="ruby-operator">/</span> <span class="ruby-identifier">tot</span>.<span class="ruby-identifier">to_f</span>
+  <span class="ruby-identifier">res</span>.<span class="ruby-identifier">round</span>(<span class="ruby-number">2</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

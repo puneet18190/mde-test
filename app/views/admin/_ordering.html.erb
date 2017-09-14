@@ -1,0 +1,7 @@
+<div class="pull-left list-heading"><%= name %></div>
+<div class="pull-right">
+  <% if !ordering.nil? %>
+    <a href="#" data-ordering="<%= ordering %>" data-desc="false"><i class="icon-chevron-up"></i></a><br/>
+    <a href="#" data-ordering="<%= ordering %>" data-desc="true"><i class="icon-chevron-down"></i></a>
+  <% end %>
+</div>

@@ -1,0 +1,73 @@
+<%= render :partial => 'audio_editor/header', :locals => {:parameters => @parameters} %>
+
+<div id="audio_editor" class="mediaEditorAudioContainer">
+  
+  <%= render :partial => 'audio_editor/lateral_controls', :locals => {:parameters => @parameters, :total_length => @total_length} %>
+  
+  <%= form_tag audio_editor_save_cache_path, :id => 'audio_editor_form', :remote => true, :autocomplete => 'off' do %>
+    <%= render :partial => 'media_elements/info_form_in_editor/new', :locals => {:type => MediaElement::AUDIO_TYPE.downcase, :edited => @edited_audio} %>
+    <% if @parameters[:initial_audio] %>
+      <%= render :partial => 'media_elements/info_form_in_editor/edit', :locals => {:media_element => @parameters[:initial_audio]} %>
+    <% end %>
+    <% if @parameters[:initial_audio] %>
+      <%= hidden_field_tag 'initial_audio_id', @parameters[:initial_audio].id, :id => 'initial_audio_in_audio_editor_input' %>
+    <% end %>
+    
+    <div id="audio_editor_box_ghost" style="display:none"></div>
+    <div id="empty_audio_editor" style="display:<%= @parameters[:components].empty? ? 'block'.html_safe : 'none'.html_safe %>">
+      <div class="emptyAudioEditor">
+        <p><%= t('audio_editor.empty') %></p>
+      </div> 
+    </div>
+    <%= render :partial => 'audio_editor/timeline', :locals => {:components => @parameters[:components]} %>
+    
+  <% end %>
+  
+  <div class="goToNextStep hideMe _audio_editor_bottom_bar">
+    <div class="fltrt">
+      <a class="_commit_media_element_editor nextButton <%= @parameters[:initial_audio].nil? ? '' : '_with_choice'.html_safe %>" title="<%= t('titles.audio_editor.commit') %>" style="display:<%= @parameters[:components].empty? ? 'none'.html_safe : 'block'.html_safe %>" data-type="audio">
+      </a>
+    </div>
+  </div>
+  
+</div>
+
+
+<div id="empty_component_for_audio_editor" style="display:none">
+  <%= render :partial => "audio_editor/component", :locals => {:component => {}, :identifier => 1, :empty => true} %>
+</div>
+
+<div id="audio_editor_gallery_container" class="mediaElementGalleryContainer" style="display:none" data-loaded="false" data-page="0" data-tot-pages="0"></div>
+
+<div id="info_container" data-last-component-id="<%= @parameters[:components].count %>" data-total-length="<%= @total_length %>" data-save-cache="false" data-cache-enabled-first-time="true" data-used-in-private-lessons="<%= @used_in_private_lessons %>" data-in-preview="false" data-current-preview-time="0" data-force-kevin-luck-autoreinitialise="true" style="display:none"></div>
+
+
+<script>
+  $(document).ready(function() {
+    <% if @cache.nil? %>
+      setTimeout(function() {
+        if($('#info_container').data('cache-enabled-first-time')) {
+          startCacheLoop();
+        }
+      }, $('#popup_parameters_container').data('cache-time'));
+    <% else %>
+      showRestoreCacheMediaElementEditorPopUp(function() {
+        window.location.href = '/audios/cache/restore'
+      }, function() {
+        closePopUp('dialog-restore-cache-media-element-editor');
+        unbindLoader();
+        $.ajax({
+          type: 'post',
+          url: '/audios/cache/empty',
+          success: function() {
+            setTimeout(function() {
+              if($('#info_container').data('cache-enabled-first-time')) {
+                startCacheLoop();
+              }
+            }, $('#popup_parameters_container').data('cache-time'));
+          }
+        }).always(bindLoader);
+      });
+    <% end %>
+  });
+</script>

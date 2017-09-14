@@ -1,0 +1,26 @@
+<%
+  forced_margin ||= nil
+  if forced_margin.nil?
+    forced_margin = ''
+  else
+    forced_margin = "style=\"margin-bottom:#{(71 * forced_margin)}px\"".html_safe
+  end
+  my_title = html_escape document.title
+  my_title.gsub! /(#{Regexp.quote word})/i, '<b><u>\1</u></b>' if word.present?
+  my_title = my_title.html_safe
+%>
+
+<div id="document_<%= document.id %>" class="boxViewSingleDocument" <%= forced_margin %>>
+  <div class="contentInterno">
+    <div class="documentsIcon">
+      <%= image_tag document.icon_url, :class=> 'fltlft', :title => document.icon_title %>
+      <h3><%= my_title %></h3>
+    </div>
+     <p class="upper"><%= document.size_and_extension %></p>
+    <div class="menuController buttons">
+      <a title="<%= t('titles.buttons.documents.preview') %>" data-document-id="<%= document.id %>" class="preview"></a>
+      <a title="<%= t('titles.buttons.documents.destroy') %>" data-used-in-your-lessons="<%= used_in_your_lessons %>" data-document-id="<%= document.id %>" class="destroy"></a>
+    </div>
+  </div>
+  <%= render :partial => 'documents/popup', :locals => {:document => document} %>
+</div>

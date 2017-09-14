@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Dumpable</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Dumpable 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/lib/dumpable_rb.html">lib/dumpable.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Provides a methods to convert exceptions and hashes to dumpable objects,
+filtering the associated objects that are not <code>marshal_dump</code>able</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+    <!-- Namespace -->
+    <div class="sectiontitle">Namespace</div>
+    <ul>
+      
+        <li>
+          <span class="type">CLASS</span>
+          <a href="Dumpable/NoMethodError.html">Dumpable::NoMethodError</a>
+        </li>
+      
+    </ul>
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-exception">exception</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-hash">hash</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-exception">
+            
+              <b>exception</b>(e)
+            
+            <a href="../classes/Dumpable.html#method-c-exception" name="method-c-exception" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>converts an exception to a dumpable one (if it isn&#39;t)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-exception_source')" id="l_method-c-exception_source">show</a>
+                
+              </p>
+              <div id="method-c-exception_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/dumpable.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">exception</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">NoMethodError</span>
+    <span class="ruby-constant">NoMethodError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">e</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">ActionView</span><span class="ruby-operator">::</span><span class="ruby-constant">Template</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">original_exception</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">NoMethodError</span>
+      <span class="ruby-identifier">template</span>      = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@template</span>)
+      <span class="ruby-comment"># @assigns can contain active record relations and things that</span>
+      <span class="ruby-comment"># can break the YAML dumping, so we reset it</span>
+      <span class="ruby-identifier">assigns</span>       = <span class="ruby-string">&#39;&#39;</span>
+      <span class="ruby-identifier">sub_templates</span> = <span class="ruby-identifier">e</span>.<span class="ruby-identifier">instance_variable_get</span>(<span class="ruby-value">:@sub_templates</span>)
+      <span class="ruby-identifier">e</span> = <span class="ruby-constant">ActionView</span><span class="ruby-operator">::</span><span class="ruby-constant">Template</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">template</span>, <span class="ruby-identifier">assigns</span>, <span class="ruby-constant">NoMethodError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">original_exception</span>))
+      <span class="ruby-identifier">e</span>.<span class="ruby-identifier">instance_variable_set</span> <span class="ruby-value">:@sub_templates</span>, <span class="ruby-identifier">sub_templates</span>
+      <span class="ruby-identifier">e</span>
+    <span class="ruby-keyword">else</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-hash">
+            
+              <b>hash</b>(hash)
+            
+            <a href="../classes/Dumpable.html#method-c-hash" name="method-c-hash" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>converts an hash to a dumpable version of it XXX It&#39;s recursive thus
+prone to a +stack level too deep+ error :-/ this is not Haskell!  (it
+shouldn&#39;t be a problem since it should be used only for “short chain”
+hashes)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-hash_source')" id="l_method-c-hash_source">show</a>
+                
+              </p>
+              <div id="method-c-hash_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/dumpable.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">hash</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-constant">Hash</span>[ <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    [ <span class="ruby-identifier">k</span>,
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">v</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+        <span class="ruby-identifier">hash</span>(<span class="ruby-identifier">v</span>)
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">RemoteIp</span><span class="ruby-operator">::</span><span class="ruby-constant">GetIp</span>
+        <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">v</span>)
+          <span class="ruby-identifier">v</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">TypeError</span>
+          <span class="ruby-identifier">v</span>.<span class="ruby-identifier">inspect</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span> ]
+  <span class="ruby-keyword">end</span> ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                        </div>
+
+    </div>
+  </body>
+</html>    

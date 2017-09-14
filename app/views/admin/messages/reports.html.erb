@@ -1,0 +1,105 @@
+<div class="row-fluid">
+  <div class="span12">
+    <h3><%= t('admin.messages.reports.title') %></h3>
+  </div>
+</div>
+<div class="row-fluid reports">
+  <div class="span6 widget">
+    <h3><%= t('admin.messages.reports.media_elements') %></h3>
+    <% if @elements_reports.present? %>
+      <div class="row-fluid">
+        <div class="span3">
+          <ul class="nav nav-pills"></ul>
+        </div>
+        <div class="span6" style="text-align:center">
+          <%= paginate @elements_reports, :param_name => :elements_page %>
+        </div>
+        <div class="span3">
+          <div class="pull-right">
+            <span class="label"><%= page_items_counter(@elements_reports) %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% if @elements_reports.any? %>
+      <% @elements_reports.each do |report| %>
+        <a href="/admin/media_elements?utf8=✓&from_reporting=<%= report.id %>&search%5Bid%5D=<%= report.reportable_id %>">
+          <blockquote class="elements">
+            <div class="pull-right date-label elements">
+              <%= TimeConvert.to_string report.created_at %>
+            </div>
+            <%= report.user.full_name %><br/>
+            <b><%= t('admin.messages.reports.item') %></b> <%= report.reportable.title %><br/>
+            <b><%= t('admin.messages.reports.report') %></b> <i><%= report.comment %></i>
+          </blockquote>
+        </a>
+      <% end %>
+    <% else %>
+      <%= t('admin.messages.reports.empty.media_elements') %>
+    <% end %>
+    <% if @elements_reports.present? %>
+      <div class="row-fluid">
+        <div class="span3">
+          <ul class="nav nav-pills"></ul>
+        </div>
+        <div class="span6" style="text-align:center">
+          <%= paginate @elements_reports, :param_name => :elements_page %>
+        </div>
+        <div class="span3">
+          <div class="pull-right">
+            <span class="label"><%= page_items_counter(@elements_reports) %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="span6 widget">
+    <h3><%= t('admin.messages.reports.lessons') %></h3>
+    <% if @lessons_reports.present? %>
+      <div class="row-fluid">
+        <div class="span3">
+          <ul class="nav nav-pills"></ul>
+        </div>
+        <div class="span6" style="text-align:center">
+          <%= paginate @lessons_reports, :param_name => :lessons_page %>
+        </div>
+        <div class="span3">
+          <div class="pull-right">
+            <span class="label"><%= page_items_counter(@lessons_reports) %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% if @lessons_reports.any? %>
+      <% @lessons_reports.each do |report| %>
+        <a href="/admin/lessons?utf8=✓&from_reporting=<%= report.id %>&search%5Bid%5D=<%= report.reportable_id %>">
+          <blockquote class="lessons">
+            <div class="pull-right date-label lessons">
+              <%= TimeConvert.to_string report.created_at %>
+            </div>
+            <%= report.user.full_name %><br/>
+            <b><%= t('admin.messages.reports.item') %></b> <%= report.reportable.title %><br/>
+            <b><%= t('admin.messages.reports.report') %></b> <i><%= report.comment %></i>
+          </blockquote>
+        </a>
+      <% end %>
+    <% else %>
+      <%= t('admin.messages.reports.empty.lessons') %>
+    <% end %>
+    <% if @lessons_reports.present? %>
+      <div class="row-fluid">
+        <div class="span3">
+          <ul class="nav nav-pills"></ul>
+        </div>
+        <div class="span6" style="text-align:center">
+          <%= paginate @lessons_reports, :param_name => :lessons_page %>
+        </div>
+        <div class="span3">
+          <div class="pull-right">
+            <span class="label"><%= page_items_counter(@lessons_reports) %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

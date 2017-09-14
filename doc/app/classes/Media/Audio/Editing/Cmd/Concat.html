@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Audio::Editing::Cmd::Concat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Audio::Editing::Cmd::Concat 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="Sox.html">Media::Audio::Editing::Cmd::Sox</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../../files/lib/media/audio/editing/cmd/concat_rb.html">lib/media/audio/editing/cmd/concat.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>CLI for <a href="../Concat.html">Media::Audio::Editing::Concat</a>
+processings, joins the audios producing one audio output</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cmd-21">cmd!</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-cmd_entry">cmd_entry</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-sox_input">sox_input</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-sox_output">sox_output</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-sox_pad">sox_pad</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-unsupported_format-3F">unsupported_format?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">UNSUPPORTED_FORMATS</td>
+            <td>=</td>
+            <td class="attr-value">[:m4a]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Extensions not supported by sox</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(audios_with_paddings, output, format = nil)
+            
+            <a href="../../../../../classes/Media/Audio/Editing/Cmd/Concat.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Instances a new <a
+href="Concat.html">Media::Audio::Editing::Cmd::Concat</a> object</p>
+
+<h3 id="method-c-new-label-Arguments">Arguments</h3>
+<ul><li>
+<p><em>audios_with_paddings</em>: audios with their possible relative paddings</p>
+</li><li>
+<p><em>output</em>: output path with the extension</p>
+</li><li>
+<p><em>format</em>: input files format</p>
+</li></ul>
+
+<h3 id="method-c-new-label-Examples">Examples</h3>
+
+<p>Media::Audio::Editing::Cmd.new([ [&#39;concat 0.wav&#39;, [1.234, 5.678] ],
+[&#39;concat 1.wav&#39;, [8.765, 4.321] ] ], &#39;output.wav&#39;) 
+Media::Audio::Editing::Cmd.new([ [&#39;concat 0.m4a&#39;, [1.234, 5.678] ],
+[&#39;concat 1.m4a&#39;, [8.765, 4.321] ] ], &#39;output.m4a&#39;, :m4a)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/cmd/concat.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">audios_with_paddings</span>, <span class="ruby-identifier">output</span>, <span class="ruby-identifier">format</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@audios_with_paddings</span>, <span class="ruby-ivar">@output</span>, <span class="ruby-ivar">@format</span> = <span class="ruby-identifier">audios_with_paddings</span>, <span class="ruby-identifier">output</span>, <span class="ruby-identifier">format</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-cmd-21">
+            
+              <b>cmd!</b>()
+            
+            <a href="../../../../../classes/Media/Audio/Editing/Cmd/Concat.html#method-i-cmd-21" name="method-i-cmd-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Command string</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cmd-21_source')" id="l_method-i-cmd-21_source">show</a>
+                
+              </p>
+              <div id="method-i-cmd-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/cmd/concat.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cmd!</span>
+  <span class="ruby-identifier">output</span> = <span class="ruby-ivar">@output</span>.<span class="ruby-identifier">shellescape</span>
+  <span class="ruby-identifier">audios_with_paddings_length</span> = <span class="ruby-ivar">@audios_with_paddings</span>.<span class="ruby-identifier">length</span>
+  
+  <span class="ruby-identifier">cmd_entries</span> = <span class="ruby-ivar">@audios_with_paddings</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">audio</span>, <span class="ruby-identifier">paddings</span>), <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">cmd_entry</span>(<span class="ruby-identifier">audio</span>.<span class="ruby-identifier">shellescape</span>, <span class="ruby-identifier">output</span>, <span class="ruby-identifier">audios_with_paddings_length</span>, <span class="ruby-identifier">paddings</span>, <span class="ruby-identifier">i</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Shell command example:</span>
+  <span class="ruby-comment">#  ( ( avconv -i c1.m4a -f sox - | sox -p -p pad 5 5) ; ( avconv -i c2.m4a -f sox - | sox -p -p pad 5 5 ); ( avconv -i c1.m4a -f sox - | sox -p pad 5 5 ) ; ( avconv -i c2.m4a -f sox - | sox -p -p pad 5 5 ) ) | sox -p -p | avconv -f sox -i - -strict experimental -c:a aac prova.m4a</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">unsupported_format?</span>
+    <span class="ruby-node">&quot;( #{cmd_entries.join(&#39; ; &#39;)} ) | sox -p -p | avconv -f sox -i - -strict experimental -c:a aac #{output}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">cmd_entries</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; | &#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cmd_entry">
+            
+              <b>cmd_entry</b>(input, output, audios_with_paddings_length, paddings, i)
+            
+            <a href="../../../../../classes/Media/Audio/Editing/Cmd/Concat.html#method-i-cmd_entry" name="method-i-cmd_entry" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sub-command for each input entry; if the input format is not supported by
+<a href="Sox.html">Sox</a>, uses avconv in order to convert the input to a
+sox pipe and passing it at sox, so it can add the pads</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cmd_entry_source')" id="l_method-i-cmd_entry_source">show</a>
+                
+              </p>
+              <div id="method-i-cmd_entry_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/cmd/concat.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cmd_entry</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">output</span>, <span class="ruby-identifier">audios_with_paddings_length</span>, <span class="ruby-identifier">paddings</span>, <span class="ruby-identifier">i</span>)
+  <span class="ruby-identifier">pad</span> = <span class="ruby-identifier">sox_pad</span>(<span class="ruby-identifier">paddings</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">unsupported_format?</span>
+    <span class="ruby-identifier">pad_with_pipe</span> = <span class="ruby-identifier">pad</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;| #{pad} &quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-node">&quot;( avconv -i #{input} -f sox - #{pad_with_pipe})&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">cmds</span> = [ <span class="ruby-constant">BIN_AND_GLOBAL_OPTIONS</span>, <span class="ruby-identifier">sox_input</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">i</span>), <span class="ruby-identifier">sox_output</span>(<span class="ruby-identifier">output</span>, <span class="ruby-identifier">audios_with_paddings_length</span>, <span class="ruby-identifier">i</span>) ]
+    <span class="ruby-identifier">cmds</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">pad</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pad</span>
+    <span class="ruby-identifier">cmds</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39; &#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sox_input">
+            
+              <b>sox_input</b>(input, i)
+            
+            <a href="../../../../../classes/Media/Audio/Editing/Cmd/Concat.html#method-i-sox_input" name="method-i-sox_input" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Input option for <a href="Sox.html">Sox</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-sox_input_source')" id="l_method-i-sox_input_source">show</a>
+                
+              </p>
+              <div id="method-i-sox_input_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/cmd/concat.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sox_input</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">i</span>)
+  <span class="ruby-comment"># If it is the first input it is a normal input, otherwise it is a sox pipe</span>
+  <span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">input</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;-p #{input}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sox_output">
+            
+              <b>sox_output</b>(output, audios_with_paddings_length, i)
+            
+            <a href="../../../../../classes/Media/Audio/Editing/Cmd/Concat.html#method-i-sox_output" name="method-i-sox_output" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Output option for <a href="Sox.html">Sox</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-sox_output_source')" id="l_method-i-sox_output_source">show</a>
+                
+              </p>
+              <div id="method-i-sox_output_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/cmd/concat.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sox_output</span>(<span class="ruby-identifier">output</span>, <span class="ruby-identifier">audios_with_paddings_length</span>, <span class="ruby-identifier">i</span>)
+  <span class="ruby-comment"># If it is the last input is is and audio pipe, otherwise it is a sox pipe</span>
+  <span class="ruby-identifier">i</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">audios_with_paddings_length</span><span class="ruby-operator">-</span><span class="ruby-number">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">output</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;-p&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-sox_pad">
+            
+              <b>sox_pad</b>(paddings)
+            
+            <a href="../../../../../classes/Media/Audio/Editing/Cmd/Concat.html#method-i-sox_pad" name="method-i-sox_pad" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Pad option for <a href="Sox.html">Sox</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-sox_pad_source')" id="l_method-i-sox_pad_source">show</a>
+                
+              </p>
+              <div id="method-i-sox_pad_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/cmd/concat.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">sox_pad</span>(<span class="ruby-identifier">paddings</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">paddings</span>
+    <span class="ruby-identifier">lpad</span>, <span class="ruby-identifier">rpad</span> = <span class="ruby-identifier">paddings</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">lpad</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">rpad</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+      <span class="ruby-identifier">lpad</span>, <span class="ruby-identifier">rpad</span> = <span class="ruby-identifier">lpad</span>.<span class="ruby-identifier">round</span>(<span class="ruby-number">2</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">shellescape</span>, <span class="ruby-identifier">rpad</span>.<span class="ruby-identifier">round</span>(<span class="ruby-number">2</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">shellescape</span>
+      <span class="ruby-node">&quot;pad #{lpad} #{rpad}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-unsupported_format-3F">
+            
+              <b>unsupported_format?</b>()
+            
+            <a href="../../../../../classes/Media/Audio/Editing/Cmd/Concat.html#method-i-unsupported_format-3F" name="method-i-unsupported_format-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Whether the supplied format is supported by <a href="Sox.html">Sox</a> or
+not</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-unsupported_format-3F_source')" id="l_method-i-unsupported_format-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-unsupported_format-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/audio/editing/cmd/concat.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">unsupported_format?</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-ivar">@format</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">*</span><span class="ruby-constant">UNSUPPORTED_FORMATS</span> <span class="ruby-keyword">then</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>                           <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

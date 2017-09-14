@@ -1,0 +1,174 @@
+@import 'variables';
+@import 'mixins';
+
+.audioPlayer {
+  
+  background-color: #3B3A3B;
+  width: 95%;
+  height: 62%;
+  display: inline-block;
+  
+  .sliderDisabler {
+  
+    position: absolute;
+    top: 20px;
+    left: 130px;
+    background-color: #000;
+    opacity: 0;
+    width: 620px;
+    height: 30px;
+    z-index: 5;
+  }
+}
+
+.audioSlider {
+  
+  float: left;
+  width: 75%;
+  margin: 10px 0px;
+  background-color: #2D2E2D;
+  
+}
+
+.audioSlider.ui-slider .ui-slider-handle {
+  
+  background-color: $green;
+  top: -.2em;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  width: 0.8em;
+  height: 0.8em;
+  cursor: pointer;
+  
+}
+
+.audioSlider .ui-slider-range-min {
+  
+  background-color: $green;
+  
+}
+
+.secondTime {
+  
+  width: 10%;
+  margin: 10px 0 0 0;
+  color: #fff;
+  float: left;
+  text-align: center;
+  font-size: 80%;
+  
+}
+
+.videoPlayer {
+  
+  background-color: #3B3A3B;
+  height: 280px;
+  position: relative;
+  
+  .sliderDisabler {
+    
+    position: absolute;
+    bottom: 4%;
+    left: 10%;
+    background-color: #000;
+    opacity: 0;
+    width: 80%;
+    height: 30px;
+    z-index: 5;
+   
+  }
+  
+}
+
+.videoSlider, html.lesson-editor-layout .videoSlider {
+  
+  float: left;
+  width: 65%;
+  margin-top: 10px;
+  background-color: #2D2E2D;
+  
+  .sliderDisabler {
+    
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #000;
+    opacity: 0;
+    width: 341px;
+    height: 30px;
+    z-index: 5;
+    border: 1px solid red;
+    
+  }
+  
+}
+
+.videoSlider.ui-slider .ui-slider-handle {
+  
+  background-color: $green;
+  top: -.2em;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  width: 0.9em;
+  height: 0.9em;
+  cursor: pointer;
+  
+}
+
+.videoSlider .ui-slider-range-min {
+  
+  background-color: $green;
+  
+}
+
+.play {
+  
+  @include buttonPlayer;
+  background-position: 0 (-$players-button-size * 2);
+  opacity: 0.3;
+  float: left;
+  
+  &:hover {
+    
+    background-position: 0 0;
+    opacity: 1;
+    
+  }
+  
+}
+
+.fullScreen {
+  
+  @include buttonPlayer;
+  float: right;
+  background-position: (-$players-button-size * 3) (-$players-button-size * 2);
+  opacity: 0.3;
+  margin-right: 3px;
+  
+  &:hover {
+    
+    background-position: (-$players-button-size * 3) 0;
+    opacity: 1;
+    
+  }
+  
+}
+
+.pause {
+  
+  @include buttonPlayer;
+  float: left;
+  display: none;
+  background-position: (-$players-button-size * 2) 0;
+  opacity: 1;
+  
+  &:hover {
+    
+    background-position: (-$players-button-size * 2) (-$players-button-size * 2);
+    opacity: 0.3;
+    
+  }
+  
+}

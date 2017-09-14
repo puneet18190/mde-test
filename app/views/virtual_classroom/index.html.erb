@@ -1,0 +1,15 @@
+<div class="griglia-contenuti">
+  <div class="playListContainer" style="margin-top:<%= @lessons.empty? ? '-50px' : '20px' %>">
+    <%= render :partial => 'virtual_classroom/playlist', :locals => {:lessons => @playlist} %>
+  </div>
+  <div class="listContainer">
+    <%= render :partial => 'virtual_classroom/my_virtual_classroom', :locals => {:lessons => @lessons, :covers => @covers} %>
+    <br class="clearfloat"/>
+    <% if @lessons.any? %>
+      <%= render :partial => 'virtual_classroom/pagination', :locals => {:page => @page, :pages_amount => @pages_amount, :force_index_url => nil} %>
+    <% else %>
+      <div class="dots_pagination_container paginatoreCentrato" id="virtual_classroom_pagination"></div>
+    <% end %>
+  </div>
+  <div id="info_container" style="display:none" data-user-trial="<%= current_user.trial? %>" data-currenturl="<%= request.url %>"></div>
+</div>

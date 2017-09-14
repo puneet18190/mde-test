@@ -1,0 +1,25 @@
+<%
+  kind = 'video_component'
+
+  max_width, max_height = Image::CONTAINER_WIDTHS_BY_KIND[kind], Image::CONTAINER_HEIGHTS_BY_KIND[kind]
+
+  style =
+    if image.is_horizontal?(kind)
+      width = image.resize_width kind
+
+      offset = (width - max_width) / 2
+
+      'right:-%ipx; width:%ipx; height:%ipx' % [offset, width, max_height]
+    else
+      height = image.resize_height kind
+
+      offset = (height - max_height) / 2
+
+      'bottom:-%ipx; width:%ipx; height:%ipx' % [offset, max_width, height]
+    end
+%>
+
+<div class="boxContentMediaElement _video_component_thumb">
+  <%= image_tag image.url, :style => style %>
+  <%= render :partial => 'video_editor/component_menu' %>
+</div>

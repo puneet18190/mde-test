@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Video::Editing::Cmd::Conversion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Video::Editing::Cmd::Conversion 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="Avconv.html">Media::Video::Editing::Cmd::Avconv</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../../files/lib/media/video/editing/cmd/conversion_rb.html">lib/media/video/editing/cmd/conversion.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>CLI for video conversions</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-amap">amap</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-astreams">astreams</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-vfilters">vfilters</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-vmap">vmap</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-vstreams">vstreams</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">OW</td>
+            <td>=</td>
+            <td class="attr-value">AVCONV_OUTPUT_WIDTH</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Output video width</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">OH</td>
+            <td>=</td>
+            <td class="attr-value">AVCONV_OUTPUT_HEIGHT</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Output video height</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">OAR</td>
+            <td>=</td>
+            <td class="attr-value">AVCONV_OUTPUT_ASPECT_RATIO</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Output video aspect ratio</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(input_file, output_file, format, input_file_info = nil)
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/Conversion.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Creates a new <a
+href="Conversion.html">Media::Video::Editing::Cmd::Conversion</a> instance</p>
+
+<h3 id="method-c-new-label-Arguments">Arguments</h3>
+<ul><li>
+<p><em>input_file</em>: the path of file to be converted</p>
+</li><li>
+<p><em>output_file</em>: the output path</p>
+</li><li>
+<p><em>format</em>: the output format</p>
+</li><li>
+<p><em>input_file_info</em> <em>optional</em>: the <a
+href="../../../Info.html">Media::Info</a> of the input file</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/conversion.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">input_file</span>, <span class="ruby-identifier">output_file</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">input_file_info</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">super</span>([<span class="ruby-identifier">input_file</span>], <span class="ruby-identifier">output_file</span>, <span class="ruby-identifier">format</span>)
+  
+  <span class="ruby-ivar">@input_file_info</span> = <span class="ruby-identifier">input_file_info</span> <span class="ruby-operator">||</span> <span class="ruby-constant">Info</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">input_file</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">vstreams</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>( <span class="ruby-string">&#39;at least one video stream must be present&#39;</span>, 
+                     <span class="ruby-identifier">input_file</span><span class="ruby-operator">:</span> <span class="ruby-identifier">input_file</span>, <span class="ruby-identifier">output_file</span><span class="ruby-operator">:</span> <span class="ruby-identifier">output_file</span>, <span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-identifier">format</span>, <span class="ruby-identifier">input_file_info</span><span class="ruby-operator">:</span> <span class="ruby-identifier">input_file_info</span> )
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">output_options</span> [ <span class="ruby-identifier">vcodec</span>, <span class="ruby-identifier">acodec</span>, <span class="ruby-identifier">vmap</span>, <span class="ruby-identifier">amap</span>, <span class="ruby-identifier">vfilters</span>, <span class="ruby-identifier">achannels</span>, <span class="ruby-identifier">ar</span> ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-amap">
+            
+              <b>amap</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/Conversion.html#method-i-amap" name="method-i-amap" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>input audios filtering</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-amap_source')" id="l_method-i-amap_source">show</a>
+                
+              </p>
+              <div id="method-i-amap_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/conversion.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">amap</span>
+  <span class="ruby-identifier">astreams</span>.<span class="ruby-identifier">present?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;-map 0:a:0&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-astreams">
+            
+              <b>astreams</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/Conversion.html#method-i-astreams" name="method-i-astreams" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>input audio streams (not used by the command)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-astreams_source')" id="l_method-i-astreams_source">show</a>
+                
+              </p>
+              <div id="method-i-astreams_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/conversion.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">astreams</span>
+  <span class="ruby-ivar">@input_file_info</span>.<span class="ruby-identifier">audio_streams</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-vfilters">
+            
+              <b>vfilters</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/Conversion.html#method-i-vfilters" name="method-i-vfilters" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>avconv video filters option (<code>-vf</code>)</p>
+
+<p>The goal here is to resize the input video keeping the original ratio to a
+size which fills in OUTPUT_WIDTH and OUTPUT_HEIGHT values, and then
+eventually crop the parts of the input video which exceed in order to
+obtain an output video of OUTPUT_WIDTH and OUTPUT_HEIGHT sizes.</p>
+
+<p>In order to reach our goal, we apply two avconv filters; in order to
+understand how they work, you should read carefully AVConv manual before
+(<code>man avconv</code>), expecially sections &#39;EXPRESSION
+EVALUATION&#39; and &#39;VIDEO FILTERS&#39;.</p>
+
+<p>We apply two filters:</p>
+
+<p>scale:  output width:  lt(iw/ih,#{OAR}) #=&gt; if input_width/input_height
+is less than the output aspect ratio  *#{OW} #=&gt; then resize width to
+OUTPUT_WIDTH  +gte(iw/ih,#{OAR}) #=&gt; else if input_width/input_height is
+greater than or equal to the output aspect ratio  *-1 #=&gt; then resize
+width to a value which maintains the aspect ratio of the input video 
+output height:  lt(iw/ih,#{OAR}) #=&gt; if input_width/input_height is less
+than the output aspect ratio  *-1 #=&gt; then resize height to a value
+which maintains the aspect ratio of the input video  +gte(iw/ih,#{OAR})
+#=&gt; else if input_width/input_height is greater than or equal to the
+output aspect ratio  *#{OH} #=&gt; then resize height to OUTPUT_HEIGHT 
+crop:  output width and output height:  #{OW}:#{OH} #=&gt; set respectively
+equal to OUTPUT_WIDTH and OUTPUT_HEIGHT  crop x and crop y: 
+(iw-OW)/2:(ih-OH)/2 #=&gt; sets the position of the top-left corner of the
+output in order to center the video</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-vfilters_source')" id="l_method-i-vfilters_source">show</a>
+                
+              </p>
+              <div id="method-i-vfilters_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/conversion.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">vfilters</span>
+  <span class="ruby-node">%Q[-vf &#39;scale=lt(iw/ih\\,#{OAR})*#{OW}+gte(iw/ih\\,#{OAR})*-1:lt(iw/ih\\,#{OAR})*-1+gte(iw/ih\\,#{OAR})*#{OH},crop=#{OW}:#{OH}:(iw-ow)/2:(ih-oh)/2&#39;]</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-vmap">
+            
+              <b>vmap</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/Conversion.html#method-i-vmap" name="method-i-vmap" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>input videos filtering</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-vmap_source')" id="l_method-i-vmap_source">show</a>
+                
+              </p>
+              <div id="method-i-vmap_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/conversion.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">vmap</span>
+  <span class="ruby-string">&#39;-map 0:v:0&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-vstreams">
+            
+              <b>vstreams</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/Conversion.html#method-i-vstreams" name="method-i-vstreams" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>input video streams (not used by the command)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-vstreams_source')" id="l_method-i-vstreams_source">show</a>
+                
+              </p>
+              <div id="method-i-vstreams_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/conversion.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">vstreams</span>
+  <span class="ruby-ivar">@input_file_info</span>.<span class="ruby-identifier">video_streams</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

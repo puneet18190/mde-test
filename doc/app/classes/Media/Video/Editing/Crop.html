@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Video::Editing::Crop</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Video::Editing::Crop 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/media/video/editing/crop_rb.html">lib/media/video/editing/crop.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p><a href="Crop.html">Crop</a> the input videos supplied producing shorter
+output videos</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-crop">crop</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-output">output</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-outputs">outputs</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-run">run</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../../Logging.html">
+              Media::Logging
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">FORMATS</td>
+            <td>=</td>
+            <td class="attr-value">FORMATS</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Output formats</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">CROP_CMD</td>
+            <td>=</td>
+            <td class="attr-value">Cmd::Crop</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p><a href="Crop.html">Crop</a> command class (needed by <a
+href="../../Audio/Editing/Crop.html">Media::Audio::Editing::Crop</a> which
+is a descendant of this class)</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(inputs, output_without_extension, start, duration, log_folder = nil)
+            
+            <a href="../../../../classes/Media/Video/Editing/Crop.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Create a new <a href="Crop.html">Media::Video::Editing::Crop</a> instance</p>
+
+<h3 id="method-c-new-label-Arguments">Arguments</h3>
+<ul><li>
+<p><em>inputs</em>: hash with the input paths per video format</p>
+</li><li>
+<p><em>output_without_extension</em>: output path without the extension</p>
+</li><li>
+<p><em>start</em>: start crop point (in seconds)</p>
+</li><li>
+<p><em>duration</em>: duration of the cropped file (in seconds)</p>
+</li><li>
+<p><em>log_folder</em> <em>optional</em>: log folder path</p>
+</li></ul>
+
+<h3 id="method-c-new-label-Examples">Examples</h3>
+
+<p><a href="Crop.html#method-c-new">::new</a>({ mp4:
+&#39;/path/to/media.mp4&#39;, webm: &#39;/path/to/media.webm&#39; },
+&#39;/path/to/cropped/files&#39;, 13, 20)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/crop.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">inputs</span>, <span class="ruby-identifier">output_without_extension</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">log_folder</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)                           <span class="ruby-keyword">and</span> 
+         <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">FORMATS</span>.<span class="ruby-identifier">sort</span> <span class="ruby-keyword">and</span>
+         <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">all?</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">String</span> }
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;inputs must be an Hash with #{self.class::FORMATS.inspect} as keys and strings as values&quot;</span>, <span class="ruby-identifier">inputs</span><span class="ruby-operator">:</span> <span class="ruby-identifier">inputs</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">output_without_extension</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;output_without_extension must be a String&#39;</span>, <span class="ruby-identifier">output_without_extension</span><span class="ruby-operator">:</span> <span class="ruby-identifier">output_without_extension</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">start</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">start</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-number">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;start must be a Numeric &gt;= 0&#39;</span>, <span class="ruby-identifier">start</span><span class="ruby-operator">:</span> <span class="ruby-identifier">start</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">duration</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">duration</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;duration must be a Numeric &gt; 0&#39;</span>, <span class="ruby-identifier">duration</span><span class="ruby-operator">:</span> <span class="ruby-identifier">duration</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-ivar">@inputs</span>, <span class="ruby-ivar">@output_without_extension</span>, <span class="ruby-ivar">@start</span>, <span class="ruby-ivar">@duration</span> = <span class="ruby-identifier">inputs</span>, <span class="ruby-identifier">output_without_extension</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">duration</span>
+
+  <span class="ruby-ivar">@log_folder</span> = <span class="ruby-identifier">log_folder</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-run">
+            
+              <b>run</b>()
+            
+            <a href="../../../../classes/Media/Video/Editing/Crop.html#method-i-run" name="method-i-run" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Execute the crop processing returning the output paths</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-run_source')" id="l_method-i-run_source">show</a>
+                
+              </p>
+              <div id="method-i-run_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/crop.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">run</span>
+  <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">run</span> <span class="ruby-operator">*</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">FORMATS</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span> <span class="ruby-identifier">proc</span>{ <span class="ruby-identifier">crop</span>(<span class="ruby-identifier">format</span>) } }, <span class="ruby-identifier">close_connection_before_execution</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">outputs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-crop">
+            
+              <b>crop</b>(format)
+            
+            <a href="../../../../classes/Media/Video/Editing/Crop.html#method-i-crop" name="method-i-crop" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Format-relative crop processing</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-crop_source')" id="l_method-i-crop_source">show</a>
+                
+              </p>
+              <div id="method-i-crop_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/crop.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">crop</span>(<span class="ruby-identifier">format</span>)
+  <span class="ruby-identifier">create_log_folder</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">CROP_CMD</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@inputs</span>[<span class="ruby-identifier">format</span>], <span class="ruby-identifier">output</span>(<span class="ruby-identifier">format</span>), <span class="ruby-ivar">@start</span>, <span class="ruby-ivar">@duration</span>, <span class="ruby-identifier">format</span>).<span class="ruby-identifier">run!</span> <span class="ruby-operator">*</span><span class="ruby-identifier">logs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-output">
+            
+              <b>output</b>(format)
+            
+            <a href="../../../../classes/Media/Video/Editing/Crop.html#method-i-output" name="method-i-output" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Format-relative output path</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-output_source')" id="l_method-i-output_source">show</a>
+                
+              </p>
+              <div id="method-i-output_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/crop.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">output</span>(<span class="ruby-identifier">format</span>)
+  <span class="ruby-node">&quot;#{@output_without_extension}.#{format}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-outputs">
+            
+              <b>outputs</b>()
+            
+            <a href="../../../../classes/Media/Video/Editing/Crop.html#method-i-outputs" name="method-i-outputs" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Output paths hash per format</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-outputs_source')" id="l_method-i-outputs_source">show</a>
+                
+              </p>
+              <div id="method-i-outputs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/crop.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">outputs</span>
+  <span class="ruby-constant">Hash</span>[ <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span><span class="ruby-operator">::</span><span class="ruby-constant">FORMATS</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">format</span>, <span class="ruby-identifier">output</span>(<span class="ruby-identifier">format</span>)] } ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

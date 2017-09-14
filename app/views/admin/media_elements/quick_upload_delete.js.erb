@@ -1,0 +1,8 @@
+<% if @ok %>
+  $('#quick_load_element_<%= @key %>').hide('fade', {}, 500, function() {
+    $(this).remove();
+    if($('._quick_load_creation_form').length == 0) {
+      $('#new_elements_preview').prepend('<div id="empty_files_in_admin_media_element_uploader"><%= j t("admin.media_elements.empty_files") %></div>');
+    }
+  });
+<% end %>

@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>NotificationsTest</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            NotificationsTest 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/lib/autoload/notifications_test_rb.html">lib/autoload/notifications_test.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Test notifications in any language</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-try_all">try_all</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-try_all">
+            
+              <b>try_all</b>(language, an_user_id)
+            
+            <a href="../classes/NotificationsTest.html#method-c-try_all" name="method-c-try_all" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Method that tries to send all the notifications in a given language</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-try_all_source')" id="l_method-c-try_all_source">show</a>
+                
+              </p>
+              <div id="method-c-try_all_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/autoload/notifications_test.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">try_all</span>(<span class="ruby-identifier">language</span>, <span class="ruby-identifier">an_user_id</span>)
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">locale</span> = <span class="ruby-identifier">language</span>
+  <span class="ruby-comment"># 1 - documents.destroyed</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.documents.destroyed.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.documents.destroyed.message&#39;</span>, <span class="ruby-value">:document_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;La seconda guerra mondiale&#39;</span>, <span class="ruby-value">:lesson_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.documents.destroyed.basement&#39;</span>, <span class="ruby-value">:lesson_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;www.google.com&#39;</span>)
+  )
+  <span class="ruby-comment"># 2 - lessons.destroyed</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.destroyed.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.destroyed.message&#39;</span>, <span class="ruby-value">:user_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Luciano Moggi&#39;</span>, <span class="ruby-value">:lesson_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 3 - lessons.link_sent</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.link_sent.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.link_sent.message&#39;</span>, <span class="ruby-value">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>, <span class="ruby-value">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Guardate che bella lezione!&#39;</span>, <span class="ruby-value">:emails</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;moggi@figc.it, carraro@figc.it&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 4 - lessons.modified</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.modified.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.modified.message&#39;</span>, <span class="ruby-value">:lesson_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>, <span class="ruby-value">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Ho aggiornato le ultime slides&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.modified.basement&#39;</span>, <span class="ruby-value">:lesson_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;www.google.com&#39;</span>)
+  )
+  <span class="ruby-comment"># 5 - lessons.unpublished</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.unpublished.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.unpublished.message&#39;</span>, <span class="ruby-value">:user_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Luciano Moggi&#39;</span>, <span class="ruby-value">:lesson_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 6 - audio.compose.update.started</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.update.started.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.update.started.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 7 - audio.compose.update.ok</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.update.ok.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.update.ok.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 8 - audio.compose.update.failed</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.update.failed.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.update.failed.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;www.google.com&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 9 - audio.compose.create.started</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.create.started.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.create.started.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 10 - audio.compose.create.ok</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.create.ok.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.create.ok.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 11 - audio.compose.create.failed</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.create.failed.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.compose.create.failed.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;www.google.com&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 12 - audio.upload.started</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.upload.started.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.upload.started.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 13 - audio.upload.ok</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.upload.ok.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.upload.ok.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 14 - audio.upload.failed</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.upload.failed.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.audio.upload.failed.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 15 - video.compose.update.started</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.update.started.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.update.started.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 16 - video.compose.update.ok</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.update.ok.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.update.ok.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 17 - video.compose.update.failed</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.update.failed.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.update.failed.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;www.google.com&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 18 - video.compose.create.started</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.create.started.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.create.started.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 19 - video.compose.create.ok</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.create.ok.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.create.ok.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 20 - video.compose.create.failed</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.create.failed.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.compose.create.failed.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;www.google.com&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 21 - video.upload.started</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.upload.started.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.upload.started.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 22 - video.upload.ok</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.upload.ok.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.upload.ok.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 23 - video.upload.failed</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.upload.failed.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.video.upload.failed.message&#39;</span>, <span class="ruby-value">:item</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Gelato al cioccolato&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 24 - account.renewed</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.renewed.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.renewed.message&#39;</span>, <span class="ruby-value">:expiration_date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;1 gennaio 2014&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 25 - account.trial</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.trial.title&#39;</span>, <span class="ruby-value">:user_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Luciano Moggi&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.trial.message&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;DESY&#39;</span>, <span class="ruby-value">:validity</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;30&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.trial.basement&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;DESY&#39;</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;www.google.com&#39;</span>)
+  )
+  <span class="ruby-comment"># 26 - account.upgraded</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.upgraded.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.upgraded.message&#39;</span>, <span class="ruby-value">:expiration_date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;1 gennaio 2014&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># 27 - account.welcome</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">an_user_id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.welcome.title&#39;</span>, <span class="ruby-value">:user_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Luciano Moggi&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.welcome.message&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;DESY&#39;</span>, <span class="ruby-value">:expiration_date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;1 gennaio 2014&#39;</span>),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-comment"># Here I set the times to be all different</span>
+  <span class="ruby-identifier">time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span>
+  <span class="ruby-identifier">decrement</span> = <span class="ruby-number">0</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;id DESC&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">update_all</span>(<span class="ruby-value">:created_at</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">time</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">decrement</span>)
+    <span class="ruby-identifier">decrement</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                        </div>
+
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,14 @@
+<div class="header">
+  <div class="contenitore">
+    <h1 class="fltlft upper"><%= t('audio_editor.label') %></h1>
+    <div id="audio_editor_title" class="testo fltlft">
+      <% if parameters[:initial_audio].nil? %>
+        <span class="_untitled"><%= t('media_elements.editor.new_untitled') %></span>
+      <% else %>
+        <span class="_untitled" style="display:none"><%= t('media_elements.editor.new_untitled') %></span>
+        <span class="_titled"><%= parameters[:initial_audio].title %></span>
+      <% end %>
+    </div>
+    <div class="fltrt"><a class="esciButton _exit_media_element_editor" title="<%= t('titles.exit_without_saving') %>" data-type="audio"></a></div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+$('#element_<%= @element.id %>_preview').html('<%= j render(:partial => "admin/media_elements/previews/#{@element.sti_type.downcase}", :locals => {:media_element => @element}) %>');
+$('#element_<%= @element.id %>_preview').data('loaded', true);

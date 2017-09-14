@@ -1,0 +1,47 @@
+<%
+  additional_class = ''
+  normal_title = t('titles.lesson_editor.add_slide_in_last_position')
+  disabled_title = t('titles.lesson_editor.last_slide_reached', :num => SETTINGS['max_number_slides_in_a_lesson'])
+  if @max_slides
+    additional_class = 'disabled'
+    normal_title = t('titles.lesson_editor.last_slide_reached', :num => SETTINGS['max_number_slides_in_a_lesson'])
+    disabled_title = t('titles.lesson_editor.add_slide_in_last_position')
+  end
+%>
+
+<% content_for :nav do %>
+  <nav id="heading">
+    <div class="scrollOrange">
+      <div class="scroll-pane horizontal-only" id="nav_list_menu">
+        <%= render :partial => 'lesson_editor/index_nav', :locals => {:slides => @slides, :with_current => true} %>
+      </div>
+    </div>
+  </nav>
+  <a class="add add-small _add_new_slide_options_in_last_position <%= additional_class %>" title="<%= normal_title %>" data-disabled-title="<%= disabled_title %>"></a>
+<% end %>
+
+<ul id="slides">
+  <%= render :partial => 'lesson_editor/index_slides', :locals => {:slides => @slides, :with_current => true, :documents_slides => @documents_slides} %>
+</ul>
+
+<%= render :partial => 'lesson_editor/new_slide' %>
+
+<div id="lesson_editor_audio_gallery_container" class="lesson_editor_gallery_container" data-loaded="false" data-page="0" data-tot-pages="0" style="display:none"></div>
+
+<div id="lesson_editor_image_gallery_container" class="lesson_editor_gallery_container" data-loaded="false" data-page="0" data-tot-pages="0" style="display:none"></div>
+
+<div id="lesson_editor_video_gallery_container" class="lesson_editor_gallery_container" data-loaded="false" data-page="0" data-tot-pages="0" style="display:none"></div>
+
+<div id="lesson_editor_document_gallery_container" class="lesson_editor_gallery_container" data-loaded="false" data-slide-id="" data-page="0" data-tot-pages="0" data-title-add="<%= t('titles.buttons.documents.add') %>" data-title-remove="<%= t('titles.buttons.documents.remove') %>" data-title-1-doc="<%= t('titles.buttons.documents.attached', :num => 1) %>" data-title-2-doc="<%= t('titles.buttons.documents.attached', :num => 2) %>" data-title-3-doc="<%= t('titles.buttons.documents.attached', :num => 3) %>" style="display:none"></div>
+
+<%= render :partial => 'shared/upload_target' %>
+
+<div id="info_container" style="display:none" data-lesson-id="<%= @lesson_id %>" data-current-media-element-position="1"></div>
+
+<script>
+  $(document).ready(function() {
+    $('#info_container').data('media-elements-not-anymore-in-conversion', new Array());
+    var list = new Array();
+   lessonEditorConversionOverview(list, 5000);
+  });
+</script>

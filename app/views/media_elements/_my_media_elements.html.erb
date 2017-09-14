@@ -1,0 +1,20 @@
+<div id="my_media_elements">
+  <% if media_elements.empty? %>
+    <% if filter == Filters::ALL_MEDIA_ELEMENTS %>
+      <%= render :partial => 'media_elements/empty' %>
+    <% else %>
+      <%= render :partial => 'media_elements/empty_filter' %>
+    <% end %>
+  <% else %>
+    <% if display == MediaElement::DISPLAY_MODES[:expanded] %>
+      <% media_elements.each do |me| %>
+        <%= render :partial => 'media_elements/view_single_expanded', :locals => {:media_element => me, :destination => ButtonDestinations::EXPANDED_MEDIA_ELEMENT, :used_in_private_lessons => (me.instances.to_i > 0)} %>
+      <% end %>
+    <% else %>
+      <% media_elements.each_with_index do |me, index| %>
+        <% forced_margin = (index == media_elements.length - 1) ? (@for_page - media_elements.length) : nil %>
+        <%= render :partial => 'media_elements/view_single_compact', :locals => {:media_element => me, :destination => ButtonDestinations::COMPACT_MEDIA_ELEMENT, :used_in_private_lessons => (me.instances.to_i > 0), :forced_margin => forced_margin} %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

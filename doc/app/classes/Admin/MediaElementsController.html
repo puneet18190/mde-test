@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Admin::MediaElementsController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Admin::MediaElementsController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../AdminController.html">AdminController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/app/controllers/admin/media_elements_controller_rb.html">app/controllers/admin/media_elements_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Admin::MediaElementsController-label-Description">Description</h3>
+
+<p>Controller of elements in the administration section. See <a
+href="../AdminController.html">AdminController</a>.</p>
+
+<h3 id="class-Admin::MediaElementsController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="../MediaElement.html">MediaElement</a></p>
+</li><li>
+<p><a href="../Location.html">Location</a></p>
+</li><li>
+<p><a href="../AdminSearchForm.html">AdminSearchForm</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-create">create</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-destroy">destroy</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-edit">edit</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-index">index</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-load_media_element">load_media_element</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Q</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-quick_upload">quick_upload</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-quick_upload_delete">quick_upload_delete</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-update">update</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-create">
+            
+              <b>create</b>()
+            
+            <a href="../../classes/Admin/MediaElementsController.html#method-i-create" name="method-i-create" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create-label-Description">Description</h3>
+
+<p>Submits one of the multiple upload temporary files and creates a new
+element</p>
+
+<h3 id="method-i-create-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-create-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_source')" id="l_method-i-create_source">show</a>
+                
+              </p>
+              <div id="method-i-create_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/media_elements_controller.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create</span>
+  <span class="ruby-ivar">@key</span> = <span class="ruby-value">:&quot;#{params[:key]}&quot;</span>
+  <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:media</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">filename</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">me</span> = <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">new</span> <span class="ruby-value">:media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">join</span>(<span class="ruby-node">&quot;public/admin/#{current_user.id}/#{filename}&quot;</span>))
+    <span class="ruby-identifier">me</span>.<span class="ruby-identifier">title</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:title_placeholder</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>] <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-identifier">me</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:description_placeholder</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>] <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-identifier">me</span>.<span class="ruby-identifier">tags</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:tags_placeholder</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:tags</span>] <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-identifier">me</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-identifier">me</span>.<span class="ruby-identifier">save_tags</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@saved</span> = <span class="ruby-identifier">me</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@saved</span>
+      <span class="ruby-identifier">fields</span> = <span class="ruby-identifier">me</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">keys</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">fields</span>.<span class="ruby-identifier">include?</span> <span class="ruby-value">:sti_type</span>
+        <span class="ruby-identifier">fields</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:media</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">fields</span>.<span class="ruby-identifier">include?</span> <span class="ruby-value">:media</span>
+        <span class="ruby-identifier">fields</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value">:sti_type</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@error_fields</span> = []
+      <span class="ruby-identifier">fields</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@error_fields</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@error_fields</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value">:publish</span>
+        <span class="ruby-identifier">me</span> = <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">me</span>.<span class="ruby-identifier">id</span>
+        <span class="ruby-identifier">me</span>.<span class="ruby-identifier">is_public</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">me</span>.<span class="ruby-identifier">publication_date</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span>
+        <span class="ruby-ivar">@ok</span> = <span class="ruby-identifier">me</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">remove_from_admin_quick_uploading_cache</span>(<span class="ruby-ivar">@key</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-destroy">
+            
+              <b>destroy</b>()
+            
+            <a href="../../classes/Admin/MediaElementsController.html#method-i-destroy" name="method-i-destroy" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-destroy-label-Description">Description</h3>
+
+<p>Destroys an element without the normal filters, from the administrator</p>
+
+<h3 id="method-i-destroy-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-destroy-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-destroy_source')" id="l_method-i-destroy_source">show</a>
+                
+              </p>
+              <div id="method-i-destroy_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/media_elements_controller.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">destroy</span>
+  <span class="ruby-ivar">@element</span> = <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@element</span>.<span class="ruby-identifier">destroyable_even_if_public</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@element</span>.<span class="ruby-identifier">destroy</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:back_url</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-edit">
+            
+              <b>edit</b>()
+            
+            <a href="../../classes/Admin/MediaElementsController.html#method-i-edit" name="method-i-edit" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-edit-label-Description">Description</h3>
+
+<p>It opens the page for updating and sharing the private elements loaded by
+the administrator</p>
+
+<h3 id="method-i-edit-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-edit-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-edit_source')" id="l_method-i-edit_source">show</a>
+                
+              </p>
+              <div id="method-i-edit_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/media_elements_controller.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">edit</span>
+  <span class="ruby-ivar">@private_elements</span> = <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;created_at DESC&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:is_public</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:converted</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">preload</span>(<span class="ruby-value">:user</span>, <span class="ruby-value">:taggings</span>, {<span class="ruby-value">:taggings</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:tag</span>})
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-index">
+            
+              <b>index</b>()
+            
+            <a href="../../classes/Admin/MediaElementsController.html#method-i-index" name="method-i-index" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-index-label-Description">Description</h3>
+
+<p>Main page of elements in the admin. If <a href=":search">params</a> is
+present, it is used <a href="../AdminSearchForm.html">AdminSearchForm</a>
+to perform the requested search.</p>
+
+<h3 id="method-i-index-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-index-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-index_source')" id="l_method-i-index_source">show</a>
+                
+              </p>
+              <div id="method-i-index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/media_elements_controller.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">index</span>
+  <span class="ruby-identifier">elements</span> = <span class="ruby-constant">AdminSearchForm</span>.<span class="ruby-identifier">search_media_elements</span>((<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>] <span class="ruby-operator">:</span> {<span class="ruby-value">:ordering</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>, <span class="ruby-value">:desc</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;true&#39;</span>}))
+  <span class="ruby-ivar">@elements</span> = <span class="ruby-identifier">elements</span>.<span class="ruby-identifier">preload</span>(<span class="ruby-value">:user</span>, <span class="ruby-value">:taggings</span>, {<span class="ruby-value">:taggings</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:tag</span>}).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
+  <span class="ruby-ivar">@locations</span> = [<span class="ruby-constant">Location</span>.<span class="ruby-identifier">roots</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
+    <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">get_from_chain_params</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
+    <span class="ruby-ivar">@locations</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">select_without_selected</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@from_reporting</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:from_reporting</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-load_media_element">
+            
+              <b>load_media_element</b>()
+            
+            <a href="../../classes/Admin/MediaElementsController.html#method-i-load_media_element" name="method-i-load_media_element" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-load_media_element-label-Description">Description</h3>
+
+<p>Loads an element in the administrator (so the server is not charged too
+much)</p>
+
+<h3 id="method-i-load_media_element-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-load_media_element-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-load_media_element_source')" id="l_method-i-load_media_element_source">show</a>
+                
+              </p>
+              <div id="method-i-load_media_element_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/media_elements_controller.rb, line 216</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">load_media_element</span>
+  <span class="ruby-ivar">@element</span> = <span class="ruby-constant">MediaElement</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-new">
+            
+              <b>new</b>()
+            
+            <a href="../../classes/Admin/MediaElementsController.html#method-i-new" name="method-i-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-new-label-Description">Description</h3>
+
+<p>It opens the page for multiple loading of elements</p>
+
+<h3 id="method-i-new-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-new-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-new_source')" id="l_method-i-new_source">show</a>
+                
+              </p>
+              <div id="method-i-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/media_elements_controller.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">new</span>
+  <span class="ruby-ivar">@files</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">admin_quick_uploading_cache</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-quick_upload">
+            
+              <b>quick_upload</b>()
+            
+            <a href="../../classes/Admin/MediaElementsController.html#method-i-quick_upload" name="method-i-quick_upload" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-quick_upload-label-Description">Description</h3>
+
+<p>Single action of a multiple loading of elements (with a multiple loading
+many of these actions are fired)</p>
+
+<h3 id="method-i-quick_upload-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-quick_upload-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-quick_upload_source')" id="l_method-i-quick_upload_source">show</a>
+                
+              </p>
+              <div id="method-i-quick_upload_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/media_elements_controller.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">quick_upload</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value">:from_ie</span>
+    <span class="ruby-ivar">@file</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">save_in_admin_quick_uploading_cache</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:media</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:tags</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value">:media</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-string">&#39;/admin/media_elements/new&#39;</span> 
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@file</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">save_in_admin_quick_uploading_cache</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:media</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:tags</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-quick_upload_delete">
+            
+              <b>quick_upload_delete</b>()
+            
+            <a href="../../classes/Admin/MediaElementsController.html#method-i-quick_upload_delete" name="method-i-quick_upload_delete" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-quick_upload_delete-label-Description">Description</h3>
+
+<p>Deletes a temporary file in the multiple uploading section</p>
+
+<h3 id="method-i-quick_upload_delete-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-quick_upload_delete-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-quick_upload_delete_source')" id="l_method-i-quick_upload_delete_source">show</a>
+                
+              </p>
+              <div id="method-i-quick_upload_delete_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/media_elements_controller.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">quick_upload_delete</span>
+  <span class="ruby-ivar">@key</span> = <span class="ruby-value">:&quot;#{params[:key]}&quot;</span>
+  <span class="ruby-ivar">@ok</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">remove_from_admin_quick_uploading_cache</span> <span class="ruby-ivar">@key</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-update">
+            
+              <b>update</b>()
+            
+            <a href="../../classes/Admin/MediaElementsController.html#method-i-update" name="method-i-update" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-update-label-Description">Description</h3>
+
+<p>Updates or publishes a private media element loaded by the administrator</p>
+
+<h3 id="method-i-update-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-update-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li><li>
+<p><a
+href="../ApplicationController.html#method-i-initialize_media_element_with_owner_and_private">ApplicationController#initialize_media_element_with_owner_and_private</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-update_source')" id="l_method-i-update_source">show</a>
+                
+              </p>
+              <div id="method-i-update_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/media_elements_controller.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">update</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ok</span>
+    <span class="ruby-ivar">@media_element</span>.<span class="ruby-identifier">title</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>]
+    <span class="ruby-ivar">@media_element</span>.<span class="ruby-identifier">description</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:description</span>]
+    <span class="ruby-ivar">@media_element</span>.<span class="ruby-identifier">tags</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:tags</span>]
+    <span class="ruby-ivar">@media_element</span>.<span class="ruby-identifier">save_tags</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:is_public</span>]
+      <span class="ruby-ivar">@media_element</span>.<span class="ruby-identifier">is_public</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-ivar">@media_element</span>.<span class="ruby-identifier">publication_date</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@error_fields</span> = <span class="ruby-ivar">@media_element</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">keys</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@media_element</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

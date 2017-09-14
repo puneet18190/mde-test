@@ -1,0 +1,9 @@
+<% if @ok %>
+  var slide = $('#slide_in_lesson_editor_<%= @slide_id %>');
+  slide.find('.slide-not-loaded').replaceWith('<%= j render(:partial => "lesson_editor/slides/#{@slide.kind}", :locals => {:slide => @slide, :documents_slides => @documents_slides}) %>');
+  slide.data('loaded', true);
+  $('html.lesson-editor-layout ul#slides input').attr('autocomplete', 'off');
+  slide.find('.slide-content .image.editable').each(function() {
+    makeDraggable($(this).attr('id'));
+  });
+<% end %>

@@ -1,0 +1,47 @@
+<%
+  image = slide.media_elements_at
+  author = slide.lesson.user
+  subject = slide.lesson.subject
+  image_height = image.resize_height(slide.kind) if image
+  image_width = image.resize_width(slide.kind) if image
+%>
+
+
+<div class="slide-content cover small-size">
+  
+  <div class="image-container item">
+    
+    <% if image %>
+      <div class="image read-only">
+        <% if image.is_horizontal?(slide.kind) %>
+          <%= image_tag image.media_element.url, :style => "left:#{image.alignment}px; width:#{image_width}px" %>
+        <% else %>
+          <%= image_tag image.media_element.url, :style => "top:#{image.alignment}px; height:#{image_height}px" %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="image editable">
+        <div class="empty-mask">
+          <a class="add"></a>
+          <br/>
+          <p class="lower"><%= t('lesson_editor.choose_image') %></p>
+        </div>
+      </div>
+    <% end %>
+    
+    <div class="title-container">
+      <div class="lessonTitle"><%= slide.lesson.title %></div>
+    </div>
+    
+  </div>
+  
+  <div class="footer-container item">
+    <div class="subject pull-left">
+      <%= subject.description %>
+    </div>
+    <div class="author pull-right">
+      <%= t('lessons.author') %>: <span class="name"><%= author.full_name %></span>
+    </div>
+  </div>
+  
+</div>

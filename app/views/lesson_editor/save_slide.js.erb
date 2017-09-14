@@ -1,0 +1,11 @@
+<% if @ok %>
+  $('body').prepend('<span class="_saved"></span>');
+  centerThis('._saved');
+  $('._saved').fadeTo('fast', 0).fadeTo('fast', 0.7).fadeTo('fast', 0.3).fadeOut(function() {
+    $('._saved').remove();
+  });
+  var thumb_div = $('#slide_in_nav_lesson_editor_' + <%= @slide.id %>).siblings('.slide-tooltip');
+  thumb_div.find('.zoomOutThumb').html('<%= j(render :partial => "lesson_editor/thumbnails/#{@slide.kind}", :locals => {:slide => @slide}) %>')
+<% else %>
+  redError();
+<% end %>

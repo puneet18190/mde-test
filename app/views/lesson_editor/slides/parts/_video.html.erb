@@ -1,0 +1,22 @@
+<div id="media_element_1_in_slide_<%= slide.id %>" class="video editable">
+  
+  <% if video %>
+    <input class="video-id" type="hidden" value="<%= video.id %>" name="media_element_1" autocomplete="off"/>
+  <% else %>
+    <input class="video-id" type="hidden" value="" name="media_element_1" autocomplete="off"/>
+  <% end %>
+  
+  <div class="mask <%= video.nil? ? 'hidden' : 'visible' %>">
+    <div class="alignable" data-rolloverable="true">
+      <%= render(:partial => "shared/players/custom/video", :locals => {:video => video, :initialize_now => true}) %>
+    </div>
+    <span class="add hidden" data-position="1" title="<%= t('titles.lesson_editor.change_video') %>"></span>
+  </div>
+  
+  <div class="empty-mask <%= video.nil? ? 'visible' : 'hidden' %>">
+    <a class="add" data-position="1"></a>
+    <br/>
+    <p class="lower"><%= t('lesson_editor.choose_video') %></p>
+  </div>
+  
+</div>

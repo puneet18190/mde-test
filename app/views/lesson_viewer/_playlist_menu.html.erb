@@ -1,0 +1,15 @@
+<div class="playlistMenu" <%= (vc_lessons.length < 4) ? "style=\"padding-bottom:2px\"".html_safe : '' %>>
+  <div class="scrollBlu">
+    <div id="playlist_menu" class="scroll-pane horizontal-only">
+      <div class="scrollCane" style="width:<%= (vc_lessons.length * 307) - 60 %>px">
+        <div class="playlistInnerMenu">
+          <% vc_lessons.each do |vc_lesson| %>
+            <div id="playlist_menu_item_<%= vc_lesson.lesson_id %>" class="playlistInnerMenuItem _playlist_menu_item" data-lesson-id="<%= vc_lesson.lesson_id %>">
+              <%= render :partial => 'lessons/thumbnail', :locals => {:lesson => vc_lesson.lesson, :cover => covers[vc_lesson.lesson_id]} %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

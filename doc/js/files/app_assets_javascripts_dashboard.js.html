@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>app/assets/javascripts/dashboard.js - DESY</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="DESY"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdminAutocomplete.html">AdminAutocomplete</a></li>
+            
+                <li><a href="../classes/AdminBrowserSupport.html">AdminBrowserSupport</a></li>
+            
+                <li><a href="../classes/AdminCollapsed.html">AdminCollapsed</a></li>
+            
+                <li><a href="../classes/AdminDocumentReady.html">AdminDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderBinder.html">AjaxLoaderBinder</a></li>
+            
+                <li><a href="../classes/AjaxLoaderDocumentReady.html">AjaxLoaderDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderVisibility.html">AjaxLoaderVisibility</a></li>
+            
+                <li><a href="../classes/AudioEditorComponents.html">AudioEditorComponents</a></li>
+            
+                <li><a href="../classes/AudioEditorCutters.html">AudioEditorCutters</a></li>
+            
+                <li><a href="../classes/AudioEditorDocumentReady.html">AudioEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/AudioEditorGalleries.html">AudioEditorGalleries</a></li>
+            
+                <li><a href="../classes/AudioEditorGeneral.html">AudioEditorGeneral</a></li>
+            
+                <li><a href="../classes/AudioEditorGraphics.html">AudioEditorGraphics</a></li>
+            
+                <li><a href="../classes/AudioEditorPreview.html">AudioEditorPreview</a></li>
+            
+                <li><a href="../classes/AudioEditorScrollpain.html">AudioEditorScrollpain</a></li>
+            
+                <li><a href="../classes/BrowserSupportMain.html">BrowserSupportMain</a></li>
+            
+                <li><a href="../classes/ButtonsAccessories.html">ButtonsAccessories</a></li>
+            
+                <li><a href="../classes/ButtonsDocumentReady.html">ButtonsDocumentReady</a></li>
+            
+                <li><a href="../classes/ButtonsLesson.html">ButtonsLesson</a></li>
+            
+                <li><a href="../classes/ButtonsMediaElement.html">ButtonsMediaElement</a></li>
+            
+                <li><a href="../classes/DashboardAccessories.html">DashboardAccessories</a></li>
+            
+                <li><a href="../classes/DashboardExpandedContents.html">DashboardExpandedContents</a></li>
+            
+                <li><a href="../classes/DashboardLessonDescriptions.html">DashboardLessonDescriptions</a></li>
+            
+                <li><a href="../classes/DashboardResizing.html">DashboardResizing</a></li>
+            
+                <li><a href="../classes/DialogsAccessories.html">DialogsAccessories</a></li>
+            
+                <li><a href="../classes/DialogsConfirmation.html">DialogsConfirmation</a></li>
+            
+                <li><a href="../classes/DialogsGalleries.html">DialogsGalleries</a></li>
+            
+                <li><a href="../classes/DialogsTimed.html">DialogsTimed</a></li>
+            
+                <li><a href="../classes/DialogsWithForm.html">DialogsWithForm</a></li>
+            
+                <li><a href="../classes/GalleriesAccessories.html">GalleriesAccessories</a></li>
+            
+                <li><a href="../classes/GalleriesDocumentReady.html">GalleriesDocumentReady</a></li>
+            
+                <li><a href="../classes/GalleriesInitializers.html">GalleriesInitializers</a></li>
+            
+                <li><a href="../classes/GeneralCentering.html">GeneralCentering</a></li>
+            
+                <li><a href="../classes/GeneralDocumentReady.html">GeneralDocumentReady</a></li>
+            
+                <li><a href="../classes/GeneralMiscellanea.html">GeneralMiscellanea</a></li>
+            
+                <li><a href="../classes/GeneralUrls.html">GeneralUrls</a></li>
+            
+                <li><a href="../classes/ImageEditorDocumentReady.html">ImageEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/ImageEditorGraphics.html">ImageEditorGraphics</a></li>
+            
+                <li><a href="../classes/ImageEditorImageScale.html">ImageEditorImageScale</a></li>
+            
+                <li><a href="../classes/ImageEditorTexts.html">ImageEditorTexts</a></li>
+            
+                <li><a href="../classes/JqueryBrowsersDetection.html">JqueryBrowsersDetection</a></li>
+            
+                <li><a href="../classes/JqueryPatchesBrowsers.html">JqueryPatchesBrowsers</a></li>
+            
+                <li><a href="../classes/LessonEditorCurrentSlide.html">LessonEditorCurrentSlide</a></li>
+            
+                <li><a href="../classes/LessonEditorDocumentReady.html">LessonEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonEditorForms.html">LessonEditorForms</a></li>
+            
+                <li><a href="../classes/LessonEditorGalleries.html">LessonEditorGalleries</a></li>
+            
+                <li><a href="../classes/LessonEditorImageResizing.html">LessonEditorImageResizing</a></li>
+            
+                <li><a href="../classes/LessonEditorJqueryAnimations.html">LessonEditorJqueryAnimations</a></li>
+            
+                <li><a href="../classes/LessonEditorSlideLoading.html">LessonEditorSlideLoading</a></li>
+            
+                <li><a href="../classes/LessonEditorSlidesNavigation.html">LessonEditorSlidesNavigation</a></li>
+            
+                <li><a href="../classes/LessonEditorTinyMCE.html">LessonEditorTinyMCE</a></li>
+            
+                <li><a href="../classes/LessonViewerDocumentReady.html">LessonViewerDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonViewerGeneral.html">LessonViewerGeneral</a></li>
+            
+                <li><a href="../classes/LessonViewerGraphics.html">LessonViewerGraphics</a></li>
+            
+                <li><a href="../classes/LessonViewerPlaylist.html">LessonViewerPlaylist</a></li>
+            
+                <li><a href="../classes/LessonViewerSlidesNavigation.html">LessonViewerSlidesNavigation</a></li>
+            
+                <li><a href="../classes/MediaElementEditorCache.html">MediaElementEditorCache</a></li>
+            
+                <li><a href="../classes/MediaElementEditorConversion.html">MediaElementEditorConversion</a></li>
+            
+                <li><a href="../classes/MediaElementEditorDocumentReady.html">MediaElementEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/MediaElementEditorForms.html">MediaElementEditorForms</a></li>
+            
+                <li><a href="../classes/MediaElementEditorHorizontalTimelines.html">MediaElementEditorHorizontalTimelines</a></li>
+            
+                <li><a href="../classes/NotificationsAccessories.html">NotificationsAccessories</a></li>
+            
+                <li><a href="../classes/NotificationsDocumentReady.html">NotificationsDocumentReady</a></li>
+            
+                <li><a href="../classes/NotificationsGraphics.html">NotificationsGraphics</a></li>
+            
+                <li><a href="../classes/PlayersAudioEditor.html">PlayersAudioEditor</a></li>
+            
+                <li><a href="../classes/PlayersCommon.html">PlayersCommon</a></li>
+            
+                <li><a href="../classes/PlayersDocumentReady.html">PlayersDocumentReady</a></li>
+            
+                <li><a href="../classes/PlayersGeneral.html">PlayersGeneral</a></li>
+            
+                <li><a href="../classes/PlayersVideoEditor.html">PlayersVideoEditor</a></li>
+            
+                <li><a href="../classes/ProfilePrelogin.html">ProfilePrelogin</a></li>
+            
+                <li><a href="../classes/ProfileUsers.html">ProfileUsers</a></li>
+            
+                <li><a href="../classes/SearchDocumentReady.html">SearchDocumentReady</a></li>
+            
+                <li><a href="../classes/TagsAccessories.html">TagsAccessories</a></li>
+            
+                <li><a href="../classes/TagsInitializers.html">TagsInitializers</a></li>
+            
+                <li><a href="../classes/UploaderDocumentReady.html">UploaderDocumentReady</a></li>
+            
+                <li><a href="../classes/UploaderGlobal.html">UploaderGlobal</a></li>
+            
+                <li><a href="../classes/UploaderLoadingBar.html">UploaderLoadingBar</a></li>
+            
+                <li><a href="../classes/VideoEditorAddComponents.html">VideoEditorAddComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorComponents.html">VideoEditorComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorCutters.html">VideoEditorCutters</a></li>
+            
+                <li><a href="../classes/VideoEditorDocumentReady.html">VideoEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/VideoEditorGalleries.html">VideoEditorGalleries</a></li>
+            
+                <li><a href="../classes/VideoEditorGeneral.html">VideoEditorGeneral</a></li>
+            
+                <li><a href="../classes/VideoEditorPreview.html">VideoEditorPreview</a></li>
+            
+                <li><a href="../classes/VideoEditorPreviewAccessories.html">VideoEditorPreviewAccessories</a></li>
+            
+                <li><a href="../classes/VideoEditorReplaceComponents.html">VideoEditorReplaceComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorScrollPain.html">VideoEditorScrollPain</a></li>
+            
+                <li><a href="../classes/VideoEditorTextComponentEditor.html">VideoEditorTextComponentEditor</a></li>
+            
+                <li><a href="../classes/VirtualClassroomDocumentReady.html">VirtualClassroomDocumentReady</a></li>
+            
+                <li><a href="../classes/VirtualClassroomJavaScriptAnimations.html">VirtualClassroomJavaScriptAnimations</a></li>
+            
+                <li><a href="../classes/VirtualClassroomMultipleLoading.html">VirtualClassroomMultipleLoading</a></li>
+            
+                <li><a href="../classes/VirtualClassroomSendLink.html">VirtualClassroomSendLink</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/admin.html">admin</a></li>
+            
+                <li><a href="../modules/ajax-loader.html">ajax-loader</a></li>
+            
+                <li><a href="../modules/audio-editor.html">audio-editor</a></li>
+            
+                <li><a href="../modules/browser-support.html">browser-support</a></li>
+            
+                <li><a href="../modules/buttons.html">buttons</a></li>
+            
+                <li><a href="../modules/dashboard.html">dashboard</a></li>
+            
+                <li><a href="../modules/dialogs.html">dialogs</a></li>
+            
+                <li><a href="../modules/galleries.html">galleries</a></li>
+            
+                <li><a href="../modules/general.html">general</a></li>
+            
+                <li><a href="../modules/image-editor.html">image-editor</a></li>
+            
+                <li><a href="../modules/jquery-browsers.html">jquery-browsers</a></li>
+            
+                <li><a href="../modules/jquery-patches.html">jquery-patches</a></li>
+            
+                <li><a href="../modules/lesson-editor.html">lesson-editor</a></li>
+            
+                <li><a href="../modules/lesson-viewer.html">lesson-viewer</a></li>
+            
+                <li><a href="../modules/media-element-editor.html">media-element-editor</a></li>
+            
+                <li><a href="../modules/notifications.html">notifications</a></li>
+            
+                <li><a href="../modules/players.html">players</a></li>
+            
+                <li><a href="../modules/profile.html">profile</a></li>
+            
+                <li><a href="../modules/search.html">search</a></li>
+            
+                <li><a href="../modules/tags.html">tags</a></li>
+            
+                <li><a href="../modules/uploader.html">uploader</a></li>
+            
+                <li><a href="../modules/video-editor.html">video-editor</a></li>
+            
+                <li><a href="../modules/virtual-classroom.html">virtual-classroom</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: app/assets/javascripts/dashboard.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+The dashboard contains a list of suggested lessons and media elements. The dashboard is the first page shown to the logged user.
+&lt;br/&gt;&lt;br/&gt;
+When the dashboard is opened at first, it&#x27;s possible to see two subsections, one containing elements and the other one containing lessons. The number of items shown depends on the browser, this functionality is handled by the class {{#crossLink &quot;DashboardResizing&quot;}}{{/crossLink}}. At any time the user resizes the window, the application calls the server that responds with index.js (see {{#crossLink &quot;DashboardAccessories/dashboardDocumentReady:method&quot;}}{{/crossLink}}).
+&lt;br/&gt;&lt;br/&gt;
+Clicking on a special icon, the section of lessons or media elements can be expanded or compressed: this functionality is handled in {{#crossLink &quot;DashboardExpandedContents&quot;}}{{/crossLink}}. Finally, a single lesson has its own expansion that opens a div containing description, author and subject: see functions in the class {{#crossLink &quot;DashboardLessonDescriptions&quot;}}{{/crossLink}}.
+@module dashboard
+**/
+
+
+
+
+
+/**
+Initializes the dashboard, and reactions to window resizing. To handle hover sensitive lessons and show a div containing the description, the method calls functions in {{#crossLink &quot;DashboardLessonDescriptions&quot;}}{{/crossLink}}.
+@method dashboardDocumentReady
+@for DashboardAccessories
+**/
+function dashboardDocumentReady() {
+  dashboardResizeController();
+  $window.resize(function() {
+    dashboardResizeController();
+  });
+  initSearchTagsAutocomplete(&#x27;#general_tag_reader_for_search&#x27;, &#x27;lesson&#x27;);
+  $body.on(&#x27;mouseenter&#x27;, &#x27;.lesson_dashboard_hover_sensitive&#x27;, function() {
+    var item = $(this).find(&#x27;.literature_container&#x27;);
+    item.data(&#x27;delaying&#x27;, true);
+    setTimeout(function() {
+      if(item.data(&#x27;delaying&#x27;)) {
+        openDescriptionDashboardLayer(item);
+      }
+    }, 500);
+  });
+  $body.on(&#x27;mouseleave&#x27;, &#x27;.lesson_dashboard_hover_sensitive&#x27;, function() {
+    var item = $(this).find(&#x27;.literature_container&#x27;);
+    item.data(&#x27;delaying&#x27;, false);
+    if(item.data(&#x27;moving&#x27;)) {
+      item.data(&#x27;moving&#x27;, false);
+    } else {
+      item.animate({height: &#x27;80px&#x27;}, 200, function() {
+        item.find(&#x27;.description&#x27;).hide();
+      });
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#dashboard_container .title_lessons .expand_icon.off&#x27;, function() {
+    if(!$(this).data(&#x27;moving&#x27;)) {
+      expandLessonsInDashboard();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#dashboard_container .title_media_elements .expand_icon.off&#x27;, function() {
+    if(!$(this).data(&#x27;moving&#x27;)) {
+      expandMediaElementsInDashboard();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#dashboard_container .title_lessons .expand_icon.on&#x27;, function() {
+    if(!$(this).data(&#x27;moving&#x27;)) {
+      compressLessonsInDashboard();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#dashboard_container .title_media_elements .expand_icon.on&#x27;, function() {
+    if(!$(this).data(&#x27;moving&#x27;)) {
+      compressMediaElementsInDashboard();
+    }
+  });
+}
+
+/**
+Empties the pages, before loading new contents. This is used in the action index.js.erb.
+@method emptyAllPagesInDashboard
+@for DashboardAccessories
+@param selector {String} either &#x27;lessons&#x27; or &#x27;media_elements&#x27;
+**/
+function emptyAllPagesInDashboard(selector) {
+  var container = $(&#x27;#dashboard_container .space_&#x27; + selector);
+  container.find(&#x27;.page1&#x27;).html(&#x27;&#x27;);
+  container.find(&#x27;.page2&#x27;).html(&#x27;&#x27;);
+  container.find(&#x27;.page3&#x27;).html(&#x27;&#x27;);
+  container.find(&#x27;.page4&#x27;).html(&#x27;&#x27;);
+  container.find(&#x27;.page5&#x27;).html(&#x27;&#x27;);
+  container.find(&#x27;.page6&#x27;).html(&#x27;&#x27;);
+}
+
+/**
+Resets all the pages to invisible, and sets as visible the one selected by the user.
+@method resetVisibilityOfAllPagesInDashboard
+@for DashboardAccessories
+@param selector {String} either &#x27;lessons&#x27; or &#x27;media_elements&#x27;
+@param visible {Number} the number of the page to be shown
+**/
+function resetVisibilityOfAllPagesInDashboard(selector, visible) {
+  var container = $(&#x27;#dashboard_container .space_&#x27; + selector);
+  container.find(&#x27;.dashpage&#x27;).hide();
+  container.find(&#x27;.page&#x27; + visible).show();
+}
+
+
+
+
+
+/**
+Compresses the section &#x27;lessons&#x27;, using animate to have a graphical effect.
+@method compressLessonsInDashboard
+@for DashboardExpandedContents
+**/
+function compressLessonsInDashboard() {
+  var container = $(&#x27;#dashboard_container&#x27;);
+  container.find(&#x27;.title_lessons .expand_icon.on&#x27;).hide();
+  container.find(&#x27;.title_lessons .expand_icon.off&#x27;).show().data(&#x27;moving&#x27;, true);
+  $(&#x27;#dashboard_container .pagination_lessons&#x27;).animate({height: &#x27;0px&#x27;}, 40, function() {
+    $(&#x27;#dashboard_container .space_lessons&#x27;).animate({height: &#x27;315px&#x27;}, 500, function() {
+      container.data(&#x27;lessons-expanded&#x27;, false);
+      unbindLoader();
+      $.ajax({
+        type: &#x27;get&#x27;,
+        url: &#x27;/dashboard/lessons?for_row=&#x27; + container.data(&#x27;lessons-in-space&#x27;)
+      }).always(bindLoader);
+      if(container.find(&#x27;.space_lessons .page1 .lesson_in_dashboard&#x27;).length &lt;= container.data(&#x27;lessons-in-space&#x27;)) {
+        $(&#x27;#dashboard_container .title_lessons .expand_icon.off&#x27;).removeClass(&#x27;off&#x27;).addClass(&#x27;disabled&#x27;);
+      }
+    });
+  });
+}
+
+/**
+Compresses the section &#x27;media elements&#x27;, using animate to have a graphical effect.
+@method compressMediaElementsInDashboard
+@for DashboardExpandedContents
+**/
+function compressMediaElementsInDashboard() {
+  var container = $(&#x27;#dashboard_container&#x27;);
+  container.find(&#x27;.title_media_elements .expand_icon.on&#x27;).hide();
+  container.find(&#x27;.title_media_elements .expand_icon.off&#x27;).show().data(&#x27;moving&#x27;, true);
+  $(&#x27;#dashboard_container .pagination_media_elements&#x27;).animate({height: &#x27;0px&#x27;}, 40, function() {
+    $(&#x27;#dashboard_container .space_media_elements&#x27;).animate({height: &#x27;315px&#x27;}, 500, function() {
+      container.data(&#x27;media-elements-expanded&#x27;, false);
+      unbindLoader();
+      $.ajax({
+        type: &#x27;get&#x27;,
+        url: &#x27;/dashboard/media_elements?for_row=&#x27; + container.data(&#x27;media-elements-in-space&#x27;)
+      }).always(bindLoader);
+      if(container.find(&#x27;.space_media_elements .page1 .boxViewExpandedMediaElement&#x27;).length &lt;= container.data(&#x27;media-elements-in-space&#x27;)) {
+        $(&#x27;#dashboard_container .title_media_elements .expand_icon.off&#x27;).removeClass(&#x27;off&#x27;).addClass(&#x27;disabled&#x27;);
+      }
+    });
+  });
+}
+
+/**
+Expands the section &#x27;lessons&#x27;, using animate to have a graphical effect.
+@method expandLessonsInDashboard
+@for DashboardExpandedContents
+**/
+function expandLessonsInDashboard() {
+  var container = $(&#x27;#dashboard_container&#x27;);
+  container.find(&#x27;.title_lessons .expand_icon.off&#x27;).hide();
+  container.find(&#x27;.title_lessons .expand_icon.on&#x27;).show().data(&#x27;moving&#x27;, true);
+  $(&#x27;#dashboard_container .space_lessons&#x27;).animate({height: &#x27;660px&#x27;}, 500, function() {
+    container.data(&#x27;lessons-expanded&#x27;, true);
+    $(&#x27;#dashboard_container .pagination_lessons&#x27;).animate({height: &#x27;40px&#x27;}, 40);
+    unbindLoader();
+    $.ajax({
+      type: &#x27;get&#x27;,
+      url: &#x27;/dashboard/lessons?for_row=&#x27; + container.data(&#x27;lessons-in-space&#x27;) + &#x27;&amp;expanded=true&#x27;
+    }).always(bindLoader);
+  });
+}
+
+/**
+Expands the section &#x27;media elements&#x27;, using animate to have a graphical effect. The variable &#x27;scroll_height&#x27; is calculated as follows: if the section lessons has been expanded (see {{#crossLink &quot;DashboardExpandedContents/expandLessonsInDashboard:method&quot;}}{{/crossLink}}) the overall height is 72px (header) + 61px (header menu) + 50px (margin of global content) + 70px (header of lessons) + 660px (height of lessons) + 40px (pagination of lessons) + 50px (margin of the section elements) + 70px (header of elements) + 660px (height of section elements, once it is expanded) + 40px (pagination of elements) + 50px (padding between main content and footer) = 1823px; if lessons are not expanded, the height of lessons is only 315, and it&#x27;s not calculated the height of lessons pagination, obtaining a total of 1438px. The scroll is launched with a delay of 150 ms, to avoid overlapping with the expansion effect.
+@method expandMediaElementsInDashboard
+@for DashboardExpandedContents
+**/
+function expandMediaElementsInDashboard() {
+  var container = $(&#x27;#dashboard_container&#x27;);
+  container.find(&#x27;.title_media_elements .expand_icon.off&#x27;).hide();
+  container.find(&#x27;.title_media_elements .expand_icon.on&#x27;).show().data(&#x27;moving&#x27;, true);
+  var scroll_height = (container.data(&#x27;lessons-expanded&#x27;) ? 1823 : 1438) - $window.height() + $(&#x27;.global-footer&#x27;).height();
+  setTimeout(function() {
+    browserDependingScrollToTag().animate({scrollTop: (scroll_height + &#x27;px&#x27;)}, 500);
+  }, 150);
+  $(&#x27;#dashboard_container .space_media_elements&#x27;).animate({height: &#x27;660px&#x27;}, 500, function() {
+    container.data(&#x27;media-elements-expanded&#x27;, true);
+    $(&#x27;#dashboard_container .pagination_media_elements&#x27;).animate({height: &#x27;40px&#x27;}, 40);
+    unbindLoader();
+    $.ajax({
+      type: &#x27;get&#x27;,
+      url: &#x27;/dashboard/media_elements?for_row=&#x27; + container.data(&#x27;media-elements-in-space&#x27;) + &#x27;&amp;expanded=true&#x27;
+    }).always(bindLoader);
+  });
+}
+
+/**
+This function is used to initialize the paginator in the dashboard. It replaces the paginator, copying and pasting it from a hidden div. The method is called only for an expanded section, otherwise there is no pagination.
+@method initializeDashboardPagination
+@for DashboardExpandedContents
+@param selector {String}  either &#x27;lessons&#x27; or &#x27;media_elements&#x27;
+@param pos {Number} the current page
+@param pages_amount {Number} the total amount of pages
+**/
+function initializeDashboardPagination(selector, pos, pages_amount) {
+  $(&#x27;#dashboard_container .pagination_&#x27; + selector + &#x27; .dots_pagination_container&#x27;).replaceWith($(&#x27;#hidden_dashboard_pagination&#x27;).html());
+  var space = $(&#x27;#dashboard_container .space_&#x27; + selector);
+  var info = $(&#x27;#info_container&#x27;);
+  var paginator = $(&#x27;#dashboard_container .pagination_&#x27; + selector + &#x27; .dots_pagination_container&#x27;);
+  var first_page = paginator.find(&#x27;.pages a&#x27;).first();
+  var second_page = $(paginator.find(&#x27;.pages a&#x27;)[1]);
+  var third_page = paginator.find(&#x27;.pages a&#x27;).last();
+  first_page.data(&#x27;page&#x27;, (pos - 1));
+  second_page.data(&#x27;page&#x27;, pos);
+  third_page.data(&#x27;page&#x27;, (pos + 1));
+  var next_space = $(&#x27;#dashboard_container .space_&#x27; + selector + &#x27; .page&#x27; + (pos + 1));
+  if(pos != 1) {
+    first_page.removeClass(&#x27;disabled&#x27;).attr(&#x27;title&#x27;, paginator.data(&#x27;title-prev&#x27;));
+  }
+  if(next_space.length != 0 &amp;&amp; next_space.find(&#x27;div&#x27;).length != 0) {
+    third_page.removeClass(&#x27;disabled&#x27;).attr(&#x27;title&#x27;, paginator.data(&#x27;title-next&#x27;));
+  }
+  var prevPage = function(prevPage) {
+    space.find(&#x27;.page&#x27; + pos).hide(&#x27;fade&#x27;, {}, 500, function() {
+      space.find(&#x27;.page&#x27; + (pos - 1)).show();
+      info.data(&#x27;currenturl&#x27;, updateURLParameter(info.data(&#x27;currenturl&#x27;), (selector + &#x27;_expanded&#x27;), (pos - 1)));
+      initializeDashboardPagination(selector, pos - 1, pages_amount);
+    });
+    return true;
+  }
+  var nextPage = function(nextPage) {
+    space.find(&#x27;.page&#x27; + pos).hide(&#x27;fade&#x27;, {}, 500, function() {
+      space.find(&#x27;.page&#x27; + (pos + 1)).show();
+      info.data(&#x27;currenturl&#x27;, updateURLParameter(info.data(&#x27;currenturl&#x27;), (selector + &#x27;_expanded&#x27;), (pos + 1)));
+      initializeDashboardPagination(selector, pos + 1, pages_amount);
+    });
+    return true;
+  }
+  new DotsPagination(paginator.find(&#x27;.pages&#x27;), pages_amount, { &#x27;complete&#x27;: { &#x27;prev&#x27;: prevPage, &#x27;next&#x27;: nextPage } });
+}
+
+
+
+
+
+/**
+This method calls {{#crossLink &quot;DashboardLessonDescriptions/openDescriptionDashboardRecursionLayer:method&quot;}}{{/crossLink}} after a certain delay of ms (this procedure is similar to the one defined in {{#crossLink &quot;VideoEditorComponents/startVideoEditorPreviewClipWithDelay:method&quot;}}{{/crossLink}}, in the module {{#crossLinkModule &quot;video-editor&quot;}}{{/crossLinkModule}}.
+@method openDescriptionDashboardLayer
+@for DashboardLessonDescriptions
+@param item {Object} the div that expands, containing a hidden description
+**/
+function openDescriptionDashboardLayer(item) {
+  var tot_time = 200;
+  var h_i = item.height();
+  var h_f = 263 - h_i;
+  var k = h_f / (tot_time * tot_time);
+  item.find(&#x27;.description&#x27;).show();
+  item.data(&#x27;moving&#x27;, true);
+  openDescriptionDashboardRecursionLayer(item, 0, h_i, h_f, tot_time);
+}
+
+/**
+This method is used to open the special div containing description, author and subject of a lesson. It doesn&#x27;t use animate so it&#x27;s possible to reverse the expansion just firing mouseleave on the lesson.
+@method openDescriptionDashboardRecursionLayer
+@for DashboardLessonDescriptions
+@param item {Object} the div that expands, containing a hidden description
+@param t {Number} the current time in the animation
+@param h_i {Number} the current height
+@param h_f {Number} the final height of the div
+@param tot_time {Number} the total time available to achieve the animation
+**/
+function openDescriptionDashboardRecursionLayer(item, t, h_i, h_f, tot_time) {
+  var height = h_i + ((t * h_f) / tot_time);
+  item.css(&#x27;height&#x27;, (height + &#x27;px&#x27;));
+  if(t &lt; tot_time) {
+    if(item.data(&#x27;moving&#x27;)) {
+      setTimeout(function() {
+        openDescriptionDashboardRecursionLayer(item, (t + 5), h_i, h_f, tot_time);
+      }, 5);
+    } else {
+      item.animate({height: &#x27;80px&#x27;}, t, function() {
+        item.find(&#x27;.description&#x27;).hide();
+      });
+    }
+  } else {
+    item.data(&#x27;moving&#x27;, false);
+  }
+}
+
+
+
+
+
+/**
+This method makes decisions about how to react to a resize event. First it centers the lessons, calculating the maximum number that fits the available horizontal space, and the margin-left to apply. Then, it uses such a margin left to calculate the available space for media elements (these must be aligned with the lessons on both left and right sides). After the correct number of lessons and media elements has been calculated, the method decides if it&#x27;s necessary to call the server and fetch new items: if this is not necessary, it&#x27;s called {{#crossLink &quot;DashboardResizing/resizeLessonsAndMediaElementsInDashboard:method}}{{/crossLink}}.
+@method dashboardResizeController
+@for DashboardResizing
+**/
+function dashboardResizeController() {
+  var container = $(&#x27;#dashboard_container&#x27;);
+  var width = container.width();
+  var lessons_in_space = parseInt((width - 20) / 320);
+  var media_elements_in_space = parseInt((width - 20) / 222);
+  var lessons_margin = (width - lessons_in_space * 300) / (lessons_in_space + 1);
+  var lessons_width = lessons_in_space * (300 + lessons_margin) - lessons_margin;
+  media_elements_in_space = parseInt((lessons_width - 207) / 207) + 1;
+  var condition_lessons = (lessons_in_space &lt;= 50 &amp;&amp; lessons_in_space != container.data(&#x27;lessons-in-space&#x27;));
+  var condition_media_elements = (media_elements_in_space &lt;= 50 &amp;&amp; media_elements_in_space != container.data(&#x27;media-elements-in-space&#x27;));
+  if(condition_lessons || condition_media_elements) {
+    var dashboard_url = &#x27;/dashboard?media_elements_for_row=&#x27; + media_elements_in_space + &#x27;&amp;lessons_for_row=&#x27; + lessons_in_space;
+    if(container.data(&#x27;lessons-expanded&#x27;)) {
+      var current_lessons_page = container.find(&#x27;.pagination_lessons .pages a&#x27;).first().data(&#x27;page&#x27;) + 1;
+      var new_lessons_page = calculateTheNewVisiblePage(container.data(&#x27;lessons-in-space&#x27;) * 2, current_lessons_page, lessons_in_space * 2);
+      resetVisibilityOfAllPagesInDashboard(&#x27;lessons&#x27;, new_lessons_page);
+      dashboard_url += &#x27;&amp;lessons_expanded=&#x27; + new_lessons_page;
+    }
+    if(container.data(&#x27;media-elements-expanded&#x27;)) {
+      var current_media_elements_page = container.find(&#x27;.pagination_media_elements .pages a&#x27;).first().data(&#x27;page&#x27;) + 1;
+      var new_media_elements_page = calculateTheNewVisiblePage(container.data(&#x27;media-elements-in-space&#x27;) * 2, current_media_elements_page, media_elements_in_space * 2);
+      resetVisibilityOfAllPagesInDashboard(&#x27;media_elements&#x27;, new_media_elements_page);
+      dashboard_url += &#x27;&amp;media_elements_expanded=&#x27; + new_media_elements_page;
+    }
+    container.data(&#x27;lessons-in-space&#x27;, lessons_in_space);
+    container.data(&#x27;media-elements-in-space&#x27;, media_elements_in_space);
+    resizeLessonsAndMediaElementsInDashboard(lessons_in_space, media_elements_in_space, true);
+    unbindLoader();
+    $.ajax({
+      type: &#x27;get&#x27;,
+      url: dashboard_url
+    }).always(bindLoader);
+  } else {
+    resizeLessonsAndMediaElementsInDashboard(lessons_in_space, media_elements_in_space, false);
+  }
+}
+
+/**
+This method resizes lessons and media elements without calling the server to add new ones.
+@method resizeLessonsAndMediaElementsInDashboard
+@for DashboardResizing
+@param lessons {Number} how many lessons fit horizontally the screen
+@param media_elements {Number} how many media elements fit horizontally the screen
+@param with_vertical_margin {Boolean} if true, sets temporarily the vertical margin to adapt to the new pagination: this is used in case the server is too slow, to visualize in a good way the items while waiting for an answer
+**/
+function resizeLessonsAndMediaElementsInDashboard(lessons, media_elements, with_vertical_margin) {
+  var container = $(&#x27;#dashboard_container&#x27;);
+  var lessons_margin = (container.width() - lessons * 300) / (lessons + 1);
+  container.find(&#x27;.space_lessons .lesson_in_dashboard&#x27;).css(&#x27;margin-left&#x27;, lessons_margin + &#x27;px&#x27;);
+  container.find(&#x27;.title_lessons .icon&#x27;).css(&#x27;margin-left&#x27;, lessons_margin + &#x27;px&#x27;);
+  if(with_vertical_margin) {
+    container.find(&#x27;.space_lessons .dashpage&#x27;).each(function() {
+      var second_row_lesson = $($(this).find(&#x27;.lesson_in_dashboard&#x27;)[lessons]);
+      var first_row_lesson = second_row_lesson.prev();
+      while(second_row_lesson.length != 0) {
+        second_row_lesson.css(&#x27;margin-top&#x27;, &#x27;30px&#x27;);
+        second_row_lesson = second_row_lesson.next();
+      }
+      while(first_row_lesson.length != 0) {
+        first_row_lesson.css(&#x27;margin-top&#x27;, &#x27;0px&#x27;);
+        first_row_lesson = first_row_lesson.prev();
+      }
+    });
+    container.find(&#x27;.space_media_elements .dashpage&#x27;).each(function() {
+      var second_row_media_element = $($(this).find(&#x27;.boxViewExpandedMediaElement&#x27;)[media_elements]);
+      var first_row_media_element = second_row_media_element.prev();
+      while(second_row_media_element.length != 0) {
+        second_row_media_element.css(&#x27;margin-top&#x27;, &#x27;30px&#x27;);
+        second_row_media_element = second_row_media_element.next();
+      }
+      while(first_row_media_element.length != 0) {
+        first_row_media_element.css(&#x27;margin-top&#x27;, &#x27;0px&#x27;);
+        first_row_media_element = first_row_media_element.prev();
+      }
+    });
+  }
+  var new_calc = 2 * lessons_margin + 90;
+  container.find(&#x27;.title_lessons .icon&#x27;).next().css(&#x27;width&#x27;, &#x27;calc(100% - &#x27; + new_calc + &#x27;px)&#x27;);
+  container.find(&#x27;.space_media_elements .dashpage&#x27;).each(function() {
+    var first_media_element = $(this).find(&#x27;.boxViewExpandedMediaElement&#x27;).first();
+    first_media_element.css(&#x27;margin-left&#x27;, lessons_margin + &#x27;px&#x27;);
+    var first_media_element_of_second_row = $($(this).find(&#x27;.boxViewExpandedMediaElement&#x27;)[media_elements]);
+    first_media_element_of_second_row.css(&#x27;margin-left&#x27;, lessons_margin + &#x27;px&#x27;);
+    var media_elements_margin = (container.width() - (2 * lessons_margin) - media_elements * 202) / (media_elements - 1);
+    $(this).find(&#x27;.boxViewExpandedMediaElement&#x27;).each(function() {
+      if($(this).attr(&#x27;id&#x27;) != first_media_element.attr(&#x27;id&#x27;) &amp;&amp; $(this).attr(&#x27;id&#x27;) != first_media_element_of_second_row.attr(&#x27;id&#x27;)) {
+        $(this).css(&#x27;margin-left&#x27;, media_elements_margin + &#x27;px&#x27;);
+      }
+    });
+  });
+  container.find(&#x27;.title_media_elements .icon&#x27;).css(&#x27;margin-left&#x27;, lessons_margin + &#x27;px&#x27;);
+  var new_calc = 2 * lessons_margin + 90;
+  container.find(&#x27;.title_media_elements .icon&#x27;).next().css(&#x27;width&#x27;, &#x27;calc(100% - &#x27; + new_calc + &#x27;px)&#x27;);
+}
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

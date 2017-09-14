@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="audios_test-layout <%= controller_html_class %> <%= action_html_class %>">
+  <head><%= render :partial => 'layouts/application/head' %></head>
+  <body>
+    <% conditions = { converted: true } -%>
+    <% conditions[:id] = params[:id] if params[:id] -%>
+    <% audios = Audio.where(conditions).order(:id) -%>
+
+    <% if params[:format] != 'ogg' -%>
+      <% audios.each do |record| -%>
+        <audio controls="controls">
+          <source src="<%= record.media.url(:m4a) %>" type="audio/mp4">
+        </audio>
+      <% end -%>
+    <% end -%>
+
+    <% if params[:format] != 'm4a' -%>
+      <% audios.each do |record| -%>
+        <audio controls="controls">
+          <source src="<%= record.media.url(:ogg) %>" type="audio/ogg">
+        </audio>
+      <% end -%>
+    <% end -%>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<%
+  title = ''
+  string_duration = ''
+  duration = 0
+  style_full = 'display:none'
+  style_empty = 'display:block'
+  if parameters[:audio_track]
+    title = parameters[:audio_track].title
+    duration = parameters[:audio_track].min_duration
+    string_duration = seconds_to_time(duration)
+    style_full = 'display:block'
+    style_empty = 'display:none'
+  end
+%>
+
+<div id="full_audio_track_placeholder_in_video_editor" data-duration="<%= duration %>" class="fltlft" style="<%= style_full %>">
+  <div class="audioButton current _show_audio_gallery_in_video_editor"  title="<%= t('titles.video_editor.audio_track.add') %>"></div>
+  <div class="titleTrack _title"><%= title %><br/><%= string_duration %></div>
+  <div class="fltlft">
+    <a class="exitButton _remove" title="<%= t('titles.video_editor.audio_track.remove') %>">&nbsp;</a>
+  </div>
+</div>
+
+<div id="empty_audio_track_placeholder_in_video_editor" class="fltlft" style="<%= style_empty %>">
+  <a class="creaNuovoButton _show_audio_gallery_in_video_editor"></a>
+  <p style="padding-top:10px"><%= t('video_editor.audio_track.title') %><br/>
+  <span style="color:#3a393a"><%= t('video_editor.audio_track.description') %></span></p>
+</div>

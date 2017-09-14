@@ -1,0 +1,141 @@
+<%= render :partial => 'video_editor/header', :locals => {:parameters => @parameters} %>
+
+<div id="video_editor" class="mediaEditorVideoContainer">
+  
+  <%= render :partial => 'video_editor/preview_container', :locals => {:parameters => @parameters} %>
+  
+  <div class="global-data hideMe">
+    
+    <% if @parameters[:components].any? %>
+      <div id="video_editor_global_preview" class="bottoniVerdi _enabled" data-current-component="0" data-current-time="0" data-in-use="false" data-arrows="true">
+        <a class="upper"><%= t('video_editor.preview.label') %></a>
+      </div>
+    <% else %>
+      <div id="video_editor_global_preview" class="bottoniVerdi" data-current-component="0" data-current-time="0" data-in-use="false" data-arrows="true">
+        <a class="upper disabled"><%= t('video_editor.preview.label') %></a>
+      </div>
+    <% end %>
+    
+    <div id="video_editor_global_preview_pause" class="bottoniVerdi" style="display:none">
+      <a class="upper"><%= t('video_editor.preview.pause') %></a>
+    </div>
+    <div id="video_editor_global_preview_play" class="bottoniVerdi" style="display:none" data-temporarily-disabled="false">
+      <a class="upper"><%= t('video_editor.preview.play') %></a>
+    </div>
+    <p class="capitalize" style="color:#43a848"><%= t('video_editor.total_length') %>:</p>
+    <p>
+      <span id="visual_video_editor_total_length"><%= seconds_to_time(@total_length) %></span><br/>
+      <span id="visual_video_editor_current_time" style="visibility:hidden; color:#787575"><%= seconds_to_time(0) %></span>
+    </p>
+  </div>
+  
+  <%= form_tag video_editor_save_cache_path, :id => 'video_editor_form', :remote => true, :autocomplete => 'off' do %>
+    <%= render :partial => 'media_elements/info_form_in_editor/new', :locals => {:type => MediaElement::VIDEO_TYPE.downcase, :edited => @edited_video} %>
+    <% if @parameters[:initial_video] %>
+      <%= render :partial => 'media_elements/info_form_in_editor/edit', :locals => {:media_element => @parameters[:initial_video]} %>
+    <% end %>
+    <div class="mediaEditorListaElementi hideMe">
+      <% if @parameters[:initial_video] %>
+        <%= hidden_field_tag 'initial_video_id', @parameters[:initial_video].id, :id => 'initial_video_in_video_editor_input' %>
+      <% end %>
+      <%= hidden_field_tag 'audio_id', (@parameters[:audio_track].nil? ? '' : @parameters[:audio_track].id), :id => 'audio_track_in_video_editor_input' %>
+      <a id="video_editor_preview_go_to_left_component" style="display:none"></a>
+      <%= render :partial => 'timeline', :locals => {:parameters => @parameters} %>
+      <a id="video_editor_preview_go_to_right_component" style="display:none"></a>
+      <div class="addAudioandSave _video_editor_bottom_bar">
+        <%= render :partial => 'audio_track', :locals => {:parameters => @parameters} %>
+        <div class="fltrt">
+          <div class="fltrt">
+            <a class="_commit_media_element_editor nextButton <%= @parameters[:initial_video].nil? ? '' : '_with_choice'.html_safe %>" title="<%= t('titles.video_editor.commit') %>" style="visibility:<%= @parameters[:components].any? ? 'visible'.html_safe : 'hidden'.html_safe %>" data-type="video">
+            </a>
+            <a id="exit_video_editor_preview" class="closeButton" style="display:none" title="<%= t('titles.video_editor.close_preview') %>"></a>
+          </div>
+        </div>
+      </div>
+      <%= render :partial => 'cutters', :locals => {:parameters => @parameters} %>
+      <%= render :partial => 'preview_utils' %>
+    </div>
+  <% end %>
+  
+</div>
+
+
+<div id="empty_video_component_for_video_editor" style="display:none">
+  <%= render :partial => "video_editor/components/video", :locals => {:component => {}, :position => 1, :empty => true} %>
+</div>
+
+<div id="empty_image_component_for_video_editor" style="display:none">
+  <%= render :partial => "video_editor/components/image", :locals => {:component => {}, :position => 1, :empty => true} %>
+</div>
+
+<div id="empty_text_component_for_video_editor" style="display:none">
+  <%= render :partial => "video_editor/components/text", :locals => {:component => {}, :position => 1, :empty => true} %>
+</div>
+
+
+<div id="empty_video_preview_for_video_editor" style="display:none">
+  <%= render :partial => 'video_editor/previews/video', :locals => {:component => {}, :identifier => 1, :empty => true, :mute => false} %>
+</div>
+
+<div id="empty_image_preview_for_video_editor" style="display:none">
+  <%= render :partial => 'video_editor/previews/image', :locals => {:component => {}, :identifier => 1, :empty => true} %>
+</div>
+
+<div id="empty_text_preview_for_video_editor" style="display:none">
+  <%= render :partial => 'video_editor/previews/text', :locals => {:component => {}, :identifier => 1, :empty => true} %>
+</div>
+
+<div id="empty_audio_track_preview_for_video_editor" style="display:none">
+  <%= render :partial => 'video_editor/previews/audio_track', :locals => {:audio_track => nil} %>
+</div>
+
+
+<div id="empty_video_cutter_for_video_editor" style="display:none">
+  <%= render :partial => 'video_editor/cutters/video', :locals => {:component => {}, :identifier => 1, :empty => true} %>
+</div>
+
+<div id="empty_image_cutter_for_video_editor" style="display:none">
+  <%= render :partial => 'video_editor/cutters/image', :locals => {:component => {}, :identifier => 1, :empty => true} %>
+</div>
+
+<div id="empty_text_cutter_for_video_editor" style="display:none">
+  <%= render :partial => 'video_editor/cutters/text', :locals => {:component => {}, :identifier => 1, :empty => true} %>
+</div>
+
+
+<div id="video_editor_mixed_gallery_container" class="mediaElementGalleryContainer" style="display:none" data-loaded="false" data-video-page="0" data-video-tot-pages="0" data-image-page="0" data-image-tot-pages="0"></div>
+
+<div id="video_editor_audio_gallery_container" class="mediaElementGalleryContainer" style="display:none" data-loaded="false" data-page="0" data-tot-pages="0"></div>
+
+<div id="info_container" data-last-component-id="<%= @parameters[:components].count %>" data-current-component="" data-replacing-component="false" data-total-length="<%= @total_length %>" data-save-cache="false" data-cache-enabled-first-time="true" data-forced-kevin-luck-style="" data-used-in-private-lessons="<%= @used_in_private_lessons %>" style="display:none"></div>
+
+
+<script>
+  $(document).ready(function() {
+    <% if @cache.nil? %>
+      setTimeout(function() {
+        if($('#info_container').data('cache-enabled-first-time')) {
+          startCacheLoop();
+        }
+      }, $('#popup_parameters_container').data('cache-time'));
+    <% else %>
+      showRestoreCacheMediaElementEditorPopUp(function() {
+        window.location.href = '/videos/cache/restore'
+      }, function() {
+        closePopUp('dialog-restore-cache-media-element-editor');
+        unbindLoader();
+        $.ajax({
+          type: 'post',
+          url: '/videos/cache/empty',
+          success: function() {
+            setTimeout(function() {
+              if($('#info_container').data('cache-enabled-first-time')) {
+                startCacheLoop();
+              }
+            }, $('#popup_parameters_container').data('cache-time'));
+          }
+        }).always(bindLoader);
+      });
+    <% end %>
+  });
+</script>

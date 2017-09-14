@@ -1,0 +1,5 @@
+<%= @mail_content %>
+<p>
+  <% url = user_confirm_url(@user.confirmation_token) -%>
+  <%= link_to url, url %>
+</p>

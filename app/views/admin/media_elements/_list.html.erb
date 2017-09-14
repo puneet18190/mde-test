@@ -1,0 +1,99 @@
+<% if elements.present? %>
+  <table id="elements-list" class="table table-striped table-hover table-bordered table-rounded">
+    <thead>
+      <tr>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.media_elements.fields.id'), :ordering => 0} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.media_elements.fields.title'), :ordering => 1} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.media_elements.fields.sti_type'), :ordering => 2} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.media_elements.fields.user'), :ordering => 3} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.media_elements.fields.created_at'), :ordering => 4} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.media_elements.fields.updated_at'), :ordering => 5} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.media_elements.fields.is_public'), :ordering => 6} %>
+        </th>
+        <th></th>
+        <% if from_reporting.present? %>
+          <th></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <a name="list-anchor"></a>
+      <%
+       back_page = 1
+       if params[:page]
+         back_page = (elements.length == 1) ? params[:page].to_i - 1 : params[:page].to_i
+       end
+      %>
+      <% elements.each do |element| %>
+        <tr class="collapse" id="<%= element.id %>">
+          <td><%= element.id %></td>
+          <td><%= element.title %></td>
+          <td><%= element.sti_type_to_s %></td>
+          <td><%= link_to element.user.full_name, admin_user_path(element.user_id), :class => '_user_link_in_admin' %></td>
+          <td><%= TimeConvert.to_string element.created_at %></td>
+          <td><%= TimeConvert.to_string element.updated_at %></td>
+          <td>
+            <%= element.is_public.to_s %>
+          </td>
+          <% if from_reporting.present? %>
+            <td>
+              <a class="_report_item" data-report-id="<%= from_reporting %>"><%= t('admin.messages.reports.actions.delete') %></a>
+            </td>
+            <td>
+              <a class="_dont_report_item" data-report-id="<%= from_reporting %>"><%= t('admin.messages.reports.actions.ok') %></a>
+            </td>
+          <% else %>
+            <td>
+              <a rel="nofollow" data-method="delete" data-confirm="<%= t('admin.media_elements.delete_confirm') %>" href="/admin/media_elements/<%= element.id %>?back_url=<%= manipulate_url(:page => back_page, :escape => true).html_safe %>">
+                <i class="icon-remove"></i>
+              </a>
+            </td>
+          <% end %>
+        </tr>
+        <div style="clear:both;"></div>
+        <tr class="collapsed">
+          <td colspan="10">
+            <div class="row-fluid">
+            <div class="span3">
+              <div id="element_<%= element.id %>_preview" class="element-thumbnail" data-param="<%= element.id %>" data-loaded="false"></div>
+            </div>
+            <div class="span3">
+              <h5><%= t('admin.media_elements.fields.tags') %></h5>
+              <%= element.visive_tags %>
+            </div>
+            <div class="span6">
+              <h5><%= t('admin.media_elements.fields.description') %></h5>
+              <%= element.description %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <% if params[:search].present? && params[:search][:id].present? %>
+    <script>
+      openAndLoadNextTr($('tr#<%=params[:search][:id] %>'));
+    </script>
+  <% end %>
+  
+<% else %>
+  
+  <div class="widget">
+    <%= t('admin.media_elements.empty') %>
+  </div>
+  
+<% end %>

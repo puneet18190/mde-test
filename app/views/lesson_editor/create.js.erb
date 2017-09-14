@@ -1,0 +1,5 @@
+<% if @errors %>
+  showFormErrors($('#new-lesson'), <%= @errors.to_json.html_safe %>);
+<% else %>
+  window.location = '/lessons/<%= @lesson.id %>/slides/edit/';
+<% end %>

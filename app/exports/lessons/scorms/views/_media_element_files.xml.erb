@@ -1,0 +1,19 @@
+<% if media_element.sti_type == 'Video' %>
+  <file href="<%= media_element.mp4_url(UrlTypes::SCORM) %>">
+    <%= render :partial => 'media_element_file_metadata.xml', :locals => {:media_element => media_element, :extension => 'mp4'} %>
+  </file>
+  <file href="<%= media_element.webm_url(UrlTypes::SCORM) %>">
+    <%= render :partial => 'media_element_file_metadata.xml', :locals => {:media_element => media_element, :extension => 'webm'} %>
+  </file>
+<% elsif media_element.sti_type == 'Image' %>
+  <file href="<%= media_element.url(UrlTypes::SCORM) %>">
+    <%= render :partial => 'media_element_file_metadata.xml', :locals => {:media_element => media_element, :extension => media_element.extension} %>
+  </file>
+<% elsif media_element.sti_type == 'Audio' %>
+  <file href="<%= media_element.m4a_url(UrlTypes::SCORM) %>">
+    <%= render :partial => 'media_element_file_metadata.xml', :locals => {:media_element => media_element, :extension => 'm4a'} %>
+  </file>
+  <file href="<%= media_element.ogg_url(UrlTypes::SCORM) %>">
+    <%= render :partial => 'media_element_file_metadata.xml', :locals => {:media_element => media_element, :extension => 'ogg'} %>
+  </file>
+<% end %>

@@ -1,0 +1,37 @@
+<% if @delete_item.blank? %>
+  $('#my_virtual_classroom').hide('fade', {}, 500, function() {
+    $('#my_virtual_classroom').replaceWith('<%= j(render(:partial => "virtual_classroom/my_virtual_classroom", :locals => {:lessons => @lessons, :covers => @covers})) %>');
+    <% if @lessons.any? %>
+      $('#virtual_classroom_pagination').replaceWith("<%= j(render(:partial => 'virtual_classroom/pagination', :locals => {:page => @page, :pages_amount => @pages_amount, :force_index_url => nil})) %>");
+      $('.playListContainer').css('margin-top', '20px');
+    <% else %>
+      $('#virtual_classroom_pagination').html('');
+      $('.playListContainer').css('margin-top', '-50px');
+    <% end %>
+    initializeVirtualClassroom();
+  });
+<% else %>
+  var to_delete = $('#<%= @delete_item %>');
+  to_delete.hide('fade', {}, 500, function() {
+    $('#my_virtual_classroom').replaceWith('<%= j(render(:partial => "virtual_classroom/my_virtual_classroom", :locals => {:lessons => @lessons, :covers => @covers})) %>');
+    <% if @lessons.any? %>
+      $('#virtual_classroom_pagination').replaceWith("<%= j(render(:partial => 'virtual_classroom/pagination', :locals => {:page => @page, :pages_amount => @pages_amount, :force_index_url => nil})) %>");
+      $('.playListContainer').css('margin-top', '20px');
+    <% else %>
+      $('#virtual_classroom_pagination').html('');
+      $('.playListContainer').css('margin-top', '-50px');
+    <% end %>
+    initializeVirtualClassroom();
+    $('#lesson_in_playlist_<%= @delete_item.split('_').last.html_safe %>').hide('fade', {}, 500, function() {
+      $('#virtual_classroom_playlist').replaceWith('<%= j(render(:partial => "virtual_classroom/playlist", :locals => {:lessons => @playlist})) %>');
+      initializePlaylist();
+      $('#virtual_classroom_playlist').effect('highlight', {color: '#6E6363'}, 1000);
+    });
+  });
+<% end %>
+
+<% if @lessons.empty? %>
+  $('#empty_virtual_classroom').addClass('disabled');
+<% end %>
+
+$('#info_container').data('currenturl', <%= manipulate_url(remove_query_param: ["delete_item"], page: @page).to_json.html_safe %>);

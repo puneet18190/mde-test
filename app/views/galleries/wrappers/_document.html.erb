@@ -1,0 +1,57 @@
+<%
+  title_max = t('documents.title_placeholder', :num => t('language_parameters.document.length_title').to_s).downcase
+  description_max = t('documents.description_placeholder', :num => t('language_parameters.document.length_description').to_s).downcase
+%>
+
+<div id="load-gallery-document" class="loadInGallery document" data-placeholder-title="<%= title_max %>" data-placeholder-description="<%= description_max %>" data-placeholder-media="<%= t('documents.upload_form.attachment_placeholder').downcase %>" data-loader-can-move="true" data-loader-with-errors="false" data-loader-position-stop="0" data-bar-width="900" data-bar-height="590" data-bar-padding="50" data-fake-url="/lessons/galleries/documents/create/fake">
+  <%= form_tag "/lessons/galleries/documents", :method => :post, :id => 'new_gallery_document', :class => 'form-selector-class', :multipart => true, :autocomplete => 'off' do %>
+    <div class="part1">
+      <div class="attachment">
+        <label>
+          <span>
+            <input type="file" class="file" name="media"/>
+          </span>
+        </label>
+        <input class="media" disabled="disabled" value=""/>
+      </div>
+      <div class="title_and_subtitle">
+        <h1>
+          <%= t('forms.gallery_upload.document.title') %>
+        </h1>
+        <p>
+          <%= t('forms.gallery_upload.document.description').html_safe %>
+        </p>
+      </div>
+    </div>
+    <div class="part2">
+      <div class="title_and_description">
+        <input class="title" type="text" value="" name="title"/>
+        <input class="title_placeholder" type="hidden" value="" name="title_placeholder"/>
+        <textarea class="description" name="description"></textarea>
+        <input class="description_placeholder" type="hidden" value="" name="description_placeholder"/>
+      </div>
+    </div>
+    <div class="part3">
+      <a class="submit"><%= t('forms.gallery_upload.document.done').downcase %></a>
+      <a class="close"><%= t('forms.gallery_upload.document.cancel').downcase %></a>
+    </div>
+    <div class="loading-square loading-square-1"></div>
+    <div class="loading-square loading-square-2"></div>
+    <div class="loading-square loading-square-3"></div>
+    <div class="loading-square loading-square-4"></div>
+    <div class="loading-square loading-square-5"></div>
+    <div class="loading-square-bis loading-square-bis-1"></div>
+    <div class="loading-square-bis loading-square-bis-2"></div>
+    <div class="loading-square-bis loading-square-bis-3"></div>
+    <div class="loading-square-bis loading-square-bis-4"></div>
+    <div class="errors_layer description" data-focus-selector=".part2 .description" data-form-error-selector=".part2 .description" data-focus-action="focus"></div>
+    <div class="errors_layer media" data-form-error-selector=".part1 .attachment .media"></div>
+    <div class="errors_layer title" data-focus-selector=".part2 .title" data-form-error-selector=".part2 .title" data-focus-action="focus"></div>
+  <% end %>
+  <div class="full_folder">
+    <p class="msge"></p>
+    <a class="back_to_gallery"><%= t('forms.error_captions.document_folder_full_button').downcase %></a>
+  </div>
+</div>
+
+<%= render :partial => 'galleries/document', :locals => {:documents => documents} %>

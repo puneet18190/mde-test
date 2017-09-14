@@ -1,0 +1,26 @@
+var container = $('#lesson_editor_document_gallery_container');
+container.find('.for-scroll-pain').show();
+container.find('#empty_document_gallery').hide();
+container.find('p.regular_empty').show();
+container.find('p.filter_empty').html('').hide();
+var filtrable = container.find('.for-scroll-pain');
+if(filtrable.hasClass('jspScrollable')) {
+  filtrable = container.find('.for-scroll-pain .jspPane');
+}
+filtrable.html('');
+<% @documents.each_with_index do |document, index| %>
+  <% margin = (index == 0) ? "style=\"margin-top:0\"".html_safe : '' %>
+  var html_to_append = '<div id="gallery_document_<%= document.id %>" class="documentInGalleryExternal" <%= margin %>>';
+  html_to_append += '<%= j(render(:partial => "galleries/thumbs/document", :locals => {:document => document, :word => @word})) %></div>';
+  filtrable.append(html_to_append);
+<% end %>
+container.show();
+container.data('page', 1);
+container.data('tot-pages', <%= @tot_pages %>);
+updateEffectsInsideDocumentGallery();
+<% if @documents.empty? %>
+  container.find('.for-scroll-pain').hide();
+  container.find('#empty_document_gallery').show();
+  container.find('p.regular_empty').hide();
+  container.find('p.filter_empty').html('<%= j t("galleries.documents.empty_filter", :word => @word) %>').show();
+<% end %>

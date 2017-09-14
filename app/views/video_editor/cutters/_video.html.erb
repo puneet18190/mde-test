@@ -1,0 +1,29 @@
+<%
+  div_id = empty ? '' : "id=\"video_component_#{identifier}_cutter\""
+  from = empty ? 0 : component[:from]
+  to = empty ? 0 : component[:to]
+  max_to = empty ? 0 : component[:video].min_duration
+%>
+
+<div class="contentCutter _video_component_cutter" data-playing="false" data-from="<%= from %>" data-to="<%= to %>" data-max-to="<%= max_to %>" data-changed="false" style="display:none" <%= div_id.html_safe %>>
+  <div class="cutter">
+    <a class="left _precision_arrow_left"></a>
+    <a class="rewind _media_player_rewind_in_video_editor_preview" title="<%= t('titles.video_editor.video_cutter.rewind') %>"></a>
+    <a class="play _media_player_play_in_video_editor_preview" title="<%= t('titles.video_editor.video_cutter.play') %>"></a>
+    <a class="pause _media_player_pause_in_video_editor_preview" title="<%= t('titles.video_editor.video_cutter.pause') %>"></a>
+    <a class="done _media_player_done_video_component_in_video_editor_preview upper"><%= t('video_editor.cutters.done') %></a>
+    <div class="videoSlider _media_player_slider"></div>
+    <a class="right _precision_arrow_right"></a>
+    <div class="sliderDisabler _media_player_slider_disabler" style="display: none;"></div>
+    <div class="underDoubleSlider"></div>
+    <div class="videoDoubleSlider _double_slider"></div>
+  </div>
+  <p><%= t('video_editor.cutters.total_length') %> <span class="_video_editor_cutter_total_time"><%= seconds_to_time(max_to) %></span></p>
+  <p><%= t('video_editor.cutters.selected_length') %> <span class="_video_editor_cutter_selected_time"><%= seconds_to_time(to - from) %></span></p>
+</div>
+
+<% if !empty %>
+  <script>
+    initializeVideoInVideoEditorPreview(<%= identifier %>);
+  </script>
+<% end %>

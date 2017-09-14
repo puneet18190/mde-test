@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>app/assets/javascripts/virtual_classroom.js - DESY</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="DESY"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdminAutocomplete.html">AdminAutocomplete</a></li>
+            
+                <li><a href="../classes/AdminBrowserSupport.html">AdminBrowserSupport</a></li>
+            
+                <li><a href="../classes/AdminCollapsed.html">AdminCollapsed</a></li>
+            
+                <li><a href="../classes/AdminDocumentReady.html">AdminDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderBinder.html">AjaxLoaderBinder</a></li>
+            
+                <li><a href="../classes/AjaxLoaderDocumentReady.html">AjaxLoaderDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderVisibility.html">AjaxLoaderVisibility</a></li>
+            
+                <li><a href="../classes/AudioEditorComponents.html">AudioEditorComponents</a></li>
+            
+                <li><a href="../classes/AudioEditorCutters.html">AudioEditorCutters</a></li>
+            
+                <li><a href="../classes/AudioEditorDocumentReady.html">AudioEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/AudioEditorGalleries.html">AudioEditorGalleries</a></li>
+            
+                <li><a href="../classes/AudioEditorGeneral.html">AudioEditorGeneral</a></li>
+            
+                <li><a href="../classes/AudioEditorGraphics.html">AudioEditorGraphics</a></li>
+            
+                <li><a href="../classes/AudioEditorPreview.html">AudioEditorPreview</a></li>
+            
+                <li><a href="../classes/AudioEditorScrollpain.html">AudioEditorScrollpain</a></li>
+            
+                <li><a href="../classes/BrowserSupportMain.html">BrowserSupportMain</a></li>
+            
+                <li><a href="../classes/ButtonsAccessories.html">ButtonsAccessories</a></li>
+            
+                <li><a href="../classes/ButtonsDocumentReady.html">ButtonsDocumentReady</a></li>
+            
+                <li><a href="../classes/ButtonsLesson.html">ButtonsLesson</a></li>
+            
+                <li><a href="../classes/ButtonsMediaElement.html">ButtonsMediaElement</a></li>
+            
+                <li><a href="../classes/DashboardAccessories.html">DashboardAccessories</a></li>
+            
+                <li><a href="../classes/DashboardExpandedContents.html">DashboardExpandedContents</a></li>
+            
+                <li><a href="../classes/DashboardLessonDescriptions.html">DashboardLessonDescriptions</a></li>
+            
+                <li><a href="../classes/DashboardResizing.html">DashboardResizing</a></li>
+            
+                <li><a href="../classes/DialogsAccessories.html">DialogsAccessories</a></li>
+            
+                <li><a href="../classes/DialogsConfirmation.html">DialogsConfirmation</a></li>
+            
+                <li><a href="../classes/DialogsGalleries.html">DialogsGalleries</a></li>
+            
+                <li><a href="../classes/DialogsTimed.html">DialogsTimed</a></li>
+            
+                <li><a href="../classes/DialogsWithForm.html">DialogsWithForm</a></li>
+            
+                <li><a href="../classes/GalleriesAccessories.html">GalleriesAccessories</a></li>
+            
+                <li><a href="../classes/GalleriesDocumentReady.html">GalleriesDocumentReady</a></li>
+            
+                <li><a href="../classes/GalleriesInitializers.html">GalleriesInitializers</a></li>
+            
+                <li><a href="../classes/GeneralCentering.html">GeneralCentering</a></li>
+            
+                <li><a href="../classes/GeneralDocumentReady.html">GeneralDocumentReady</a></li>
+            
+                <li><a href="../classes/GeneralMiscellanea.html">GeneralMiscellanea</a></li>
+            
+                <li><a href="../classes/GeneralUrls.html">GeneralUrls</a></li>
+            
+                <li><a href="../classes/ImageEditorDocumentReady.html">ImageEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/ImageEditorGraphics.html">ImageEditorGraphics</a></li>
+            
+                <li><a href="../classes/ImageEditorImageScale.html">ImageEditorImageScale</a></li>
+            
+                <li><a href="../classes/ImageEditorTexts.html">ImageEditorTexts</a></li>
+            
+                <li><a href="../classes/JqueryBrowsersDetection.html">JqueryBrowsersDetection</a></li>
+            
+                <li><a href="../classes/JqueryPatchesBrowsers.html">JqueryPatchesBrowsers</a></li>
+            
+                <li><a href="../classes/LessonEditorCurrentSlide.html">LessonEditorCurrentSlide</a></li>
+            
+                <li><a href="../classes/LessonEditorDocumentReady.html">LessonEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonEditorForms.html">LessonEditorForms</a></li>
+            
+                <li><a href="../classes/LessonEditorGalleries.html">LessonEditorGalleries</a></li>
+            
+                <li><a href="../classes/LessonEditorImageResizing.html">LessonEditorImageResizing</a></li>
+            
+                <li><a href="../classes/LessonEditorJqueryAnimations.html">LessonEditorJqueryAnimations</a></li>
+            
+                <li><a href="../classes/LessonEditorSlideLoading.html">LessonEditorSlideLoading</a></li>
+            
+                <li><a href="../classes/LessonEditorSlidesNavigation.html">LessonEditorSlidesNavigation</a></li>
+            
+                <li><a href="../classes/LessonEditorTinyMCE.html">LessonEditorTinyMCE</a></li>
+            
+                <li><a href="../classes/LessonViewerDocumentReady.html">LessonViewerDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonViewerGeneral.html">LessonViewerGeneral</a></li>
+            
+                <li><a href="../classes/LessonViewerGraphics.html">LessonViewerGraphics</a></li>
+            
+                <li><a href="../classes/LessonViewerPlaylist.html">LessonViewerPlaylist</a></li>
+            
+                <li><a href="../classes/LessonViewerSlidesNavigation.html">LessonViewerSlidesNavigation</a></li>
+            
+                <li><a href="../classes/MediaElementEditorCache.html">MediaElementEditorCache</a></li>
+            
+                <li><a href="../classes/MediaElementEditorConversion.html">MediaElementEditorConversion</a></li>
+            
+                <li><a href="../classes/MediaElementEditorDocumentReady.html">MediaElementEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/MediaElementEditorForms.html">MediaElementEditorForms</a></li>
+            
+                <li><a href="../classes/MediaElementEditorHorizontalTimelines.html">MediaElementEditorHorizontalTimelines</a></li>
+            
+                <li><a href="../classes/NotificationsAccessories.html">NotificationsAccessories</a></li>
+            
+                <li><a href="../classes/NotificationsDocumentReady.html">NotificationsDocumentReady</a></li>
+            
+                <li><a href="../classes/NotificationsGraphics.html">NotificationsGraphics</a></li>
+            
+                <li><a href="../classes/PlayersAudioEditor.html">PlayersAudioEditor</a></li>
+            
+                <li><a href="../classes/PlayersCommon.html">PlayersCommon</a></li>
+            
+                <li><a href="../classes/PlayersDocumentReady.html">PlayersDocumentReady</a></li>
+            
+                <li><a href="../classes/PlayersGeneral.html">PlayersGeneral</a></li>
+            
+                <li><a href="../classes/PlayersVideoEditor.html">PlayersVideoEditor</a></li>
+            
+                <li><a href="../classes/ProfilePrelogin.html">ProfilePrelogin</a></li>
+            
+                <li><a href="../classes/ProfileUsers.html">ProfileUsers</a></li>
+            
+                <li><a href="../classes/SearchDocumentReady.html">SearchDocumentReady</a></li>
+            
+                <li><a href="../classes/TagsAccessories.html">TagsAccessories</a></li>
+            
+                <li><a href="../classes/TagsInitializers.html">TagsInitializers</a></li>
+            
+                <li><a href="../classes/UploaderDocumentReady.html">UploaderDocumentReady</a></li>
+            
+                <li><a href="../classes/UploaderGlobal.html">UploaderGlobal</a></li>
+            
+                <li><a href="../classes/UploaderLoadingBar.html">UploaderLoadingBar</a></li>
+            
+                <li><a href="../classes/VideoEditorAddComponents.html">VideoEditorAddComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorComponents.html">VideoEditorComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorCutters.html">VideoEditorCutters</a></li>
+            
+                <li><a href="../classes/VideoEditorDocumentReady.html">VideoEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/VideoEditorGalleries.html">VideoEditorGalleries</a></li>
+            
+                <li><a href="../classes/VideoEditorGeneral.html">VideoEditorGeneral</a></li>
+            
+                <li><a href="../classes/VideoEditorPreview.html">VideoEditorPreview</a></li>
+            
+                <li><a href="../classes/VideoEditorPreviewAccessories.html">VideoEditorPreviewAccessories</a></li>
+            
+                <li><a href="../classes/VideoEditorReplaceComponents.html">VideoEditorReplaceComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorScrollPain.html">VideoEditorScrollPain</a></li>
+            
+                <li><a href="../classes/VideoEditorTextComponentEditor.html">VideoEditorTextComponentEditor</a></li>
+            
+                <li><a href="../classes/VirtualClassroomDocumentReady.html">VirtualClassroomDocumentReady</a></li>
+            
+                <li><a href="../classes/VirtualClassroomJavaScriptAnimations.html">VirtualClassroomJavaScriptAnimations</a></li>
+            
+                <li><a href="../classes/VirtualClassroomMultipleLoading.html">VirtualClassroomMultipleLoading</a></li>
+            
+                <li><a href="../classes/VirtualClassroomSendLink.html">VirtualClassroomSendLink</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/admin.html">admin</a></li>
+            
+                <li><a href="../modules/ajax-loader.html">ajax-loader</a></li>
+            
+                <li><a href="../modules/audio-editor.html">audio-editor</a></li>
+            
+                <li><a href="../modules/browser-support.html">browser-support</a></li>
+            
+                <li><a href="../modules/buttons.html">buttons</a></li>
+            
+                <li><a href="../modules/dashboard.html">dashboard</a></li>
+            
+                <li><a href="../modules/dialogs.html">dialogs</a></li>
+            
+                <li><a href="../modules/galleries.html">galleries</a></li>
+            
+                <li><a href="../modules/general.html">general</a></li>
+            
+                <li><a href="../modules/image-editor.html">image-editor</a></li>
+            
+                <li><a href="../modules/jquery-browsers.html">jquery-browsers</a></li>
+            
+                <li><a href="../modules/jquery-patches.html">jquery-patches</a></li>
+            
+                <li><a href="../modules/lesson-editor.html">lesson-editor</a></li>
+            
+                <li><a href="../modules/lesson-viewer.html">lesson-viewer</a></li>
+            
+                <li><a href="../modules/media-element-editor.html">media-element-editor</a></li>
+            
+                <li><a href="../modules/notifications.html">notifications</a></li>
+            
+                <li><a href="../modules/players.html">players</a></li>
+            
+                <li><a href="../modules/profile.html">profile</a></li>
+            
+                <li><a href="../modules/search.html">search</a></li>
+            
+                <li><a href="../modules/tags.html">tags</a></li>
+            
+                <li><a href="../modules/uploader.html">uploader</a></li>
+            
+                <li><a href="../modules/video-editor.html">video-editor</a></li>
+            
+                <li><a href="../modules/virtual-classroom.html">virtual-classroom</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: app/assets/javascripts/virtual_classroom.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+The &lt;b&gt;Virtual Classroom&lt;/b&gt; is a container where the user can collect and visualize lessons. In the left part of the screen is located the list of lessons (with pagination), on the right there is the playlist.
+&lt;br/&gt;&lt;br/&gt;
+On each lesson, there are buttons to perform actions (see {{#crossLink &quot;VirtualClassroomDocumentReady/virtualClassroomDocumentReadyIconsAndButtons:method&quot;}}{{/crossLink}}). Furthermore, each lesson can be dragged using &lt;i&gt;JQueryUi draggable&lt;/i&gt; and dropped inside the playlist (see {{#crossLink &quot;VirtualClassroomJavaScriptAnimations/initializeDraggableVirtualClassroomLesson:method&quot;}}{{/crossLink}}).
+&lt;br/&gt;&lt;br/&gt;
+One of the buttons in the header opens a popup for loading multiple lessons (initialized in {{#crossLink &quot;VirtualClassroomDocumentReady/virtualClassroomDocumentReadyMultipleLessonLoading:method&quot;}}{{/crossLink}}, see also {{#crossLink &quot;VirtualClassroomMultipleLoading&quot;}}{{/crossLink}}); another functionality is the popup to send the public link of a lesson (initialized in {{#crossLink &quot;VirtualClassroomDocumentReady/virtualClassroomDocumentReadySendLink:method&quot;}}{{/crossLink}}, see also {{#crossLink &quot;VirtualClassroomSendLink&quot;}}{{/crossLink}}).
+@module virtual-classroom
+**/
+
+
+
+
+
+/**
+Global initializer.
+@method virtualClassroomDocumentReady
+@for VirtualClassroomDocumentReady
+**/
+function virtualClassroomDocumentReady() {
+  initializeVirtualClassroom();
+  virtualClassroomDocumentReadyPlaylist();
+  virtualClassroomDocumentReadyMultipleLessonLoading();
+  virtualClassroomDocumentReadyIconsAndButtons();
+  virtualClassroomDocumentReadySendLink();
+}
+
+/**
+Initializer for icons and buttons.
+@method virtualClassroomDocumentReadyIconsAndButtons
+@for VirtualClassroomDocumentReady
+**/
+function virtualClassroomDocumentReadyIconsAndButtons() {
+  $body.on(&#x27;click&#x27;, &#x27;._remove_lesson_from_inside_virtual_classroom&#x27;, function() {
+    var lesson_id = $(this).data(&#x27;clickparam&#x27;);
+    var current_url = $(&#x27;#info_container&#x27;).data(&#x27;currenturl&#x27;);
+    var redirect_url = addDeleteItemToCurrentUrl(current_url, (&#x27;virtual_classroom_lesson_&#x27; + lesson_id));
+    $.ajax({
+      type: &#x27;post&#x27;,
+      dataType: &#x27;json&#x27;,
+      url: &#x27;/virtual_classroom/&#x27; + lesson_id + &#x27;/remove_lesson_from_inside&#x27;,
+      success: function(data) {
+        if(data.ok) {
+          $.ajax({
+            type: &#x27;get&#x27;,
+            url: redirect_url
+          });
+        } else {
+          showErrorPopUp(data.msg);
+        }
+      }
+    });
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#empty_virtual_classroom&#x27;, function() {
+    if(!$(this).hasClass(&#x27;disabled&#x27;)) {
+      var captions = $captions;
+      var title = captions.data(&#x27;empty-virtual-classroom-title&#x27;);
+      var confirm = captions.data(&#x27;empty-virtual-classroom-confirm&#x27;);
+      var yes = captions.data(&#x27;empty-virtual-classroom-yes&#x27;);
+      var no = captions.data(&#x27;empty-virtual-classroom-no&#x27;);
+      showConfirmPopUp(title, confirm, yes, no, function() {
+        closePopUp(&#x27;dialog-confirm&#x27;);
+        $.ajax({
+          type: &#x27;post&#x27;,
+          url: &#x27;/virtual_classroom/empty_virtual_classroom&#x27;
+        });
+      }, function() {
+        closePopUp(&#x27;dialog-confirm&#x27;);
+      });
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._virtual_classroom_preview&#x27;, function(e) {
+    e.preventDefault();
+    if(!$(this).parent().hasClass(&#x27;_disabled&#x27;)) {
+      var my_param = $(this).data(&#x27;lesson-id&#x27;);
+      var redirect_back_to = $(&quot;#info_container&quot;).data(&#x27;currenturl&#x27;);
+      previewLesson(my_param, redirect_back_to);
+    }
+    return false;
+  });
+}
+
+/**
+Initializer for multiple lessons loading.
+@method virtualClassroomDocumentReadyMultipleLessonLoading
+@for VirtualClassroomDocumentReady
+**/
+function virtualClassroomDocumentReadyMultipleLessonLoading() {
+  $body.on(&#x27;click&#x27;, &#x27;#open_quick_load_lessons_popup_in_virtual_classroom&#x27;, function() {
+    if(!$(this).hasClass(&#x27;current&#x27;)) {
+      $.ajax({
+        type: &#x27;get&#x27;,
+        url: &#x27;/virtual_classroom/select_lessons&#x27;
+      });
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._virtual_classroom_quick_loaded_lesson&#x27;, function() {
+    var cover = $(&#x27;#&#x27; + this.id + &#x27; ._lesson_thumb&#x27;);
+    if(!cover.hasClass(&#x27;current&#x27;)) {
+      var appended = $(&#x27;#&#x27; + this.id + &#x27; ._current_inserted&#x27;);
+      if(appended.length == 0) {
+        $(&#x27;#virtual_classroom_quick_select_submit&#x27;).removeClass(&#x27;current&#x27;);
+        $(&#x27;#&#x27; + this.id + &#x27; input&#x27;).val(&#x27;1&#x27;);
+        cover.append(&#x27;&lt;div class=&quot;currentInserted _current_inserted&quot;&gt;&lt;a&gt;&lt;/a&gt;&lt;/div&gt;&#x27;);
+      } else {
+        $(&#x27;#&#x27; + this.id + &#x27; input&#x27;).val(&#x27;0&#x27;);
+        appended.remove();
+        if($(&#x27;#dialog-virtual-classroom-quick-select ._current_inserted&#x27;).length == 0) {
+          $(&#x27;#virtual_classroom_quick_select_submit&#x27;).addClass(&#x27;current&#x27;);
+        }
+      }
+    }
+  });
+  $body.on(&#x27;mouseover&#x27;, &#x27;._virtual_classroom_quick_loaded_lesson ._current_inserted&#x27;, function() {
+    $(this).children(&#x27;a&#x27;).addClass(&#x27;with_x&#x27;);
+  });
+  $body.on(&#x27;mouseout&#x27;, &#x27;._virtual_classroom_quick_loaded_lesson ._current_inserted&#x27;, function() {
+    $(this).children(&#x27;a&#x27;).removeClass(&#x27;with_x&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#virtual_classroom_quick_select_submit&#x27;, function() {
+    if(!$(this).hasClass(&#x27;current&#x27;)) {
+      $(&#x27;#virtual_classroom_quick_select_container form&#x27;).submit();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#virtual_classroom_quick_select_close&#x27;, function() {
+    $(&#x27;.dialog_opaco&#x27;).removeClass(&#x27;dialog_opaco&#x27;);
+    $(&#x27;.ui-widget-overlay&#x27;).css(&#x27;opacity&#x27;, 0);
+    closePopUp(&#x27;dialog-virtual-classroom-quick-select&#x27;);
+  });
+}
+
+/**
+Initializer for playlist.
+@method virtualClassroomDocumentReadyPlaylist
+@for VirtualClassroomDocumentReady
+**/
+function virtualClassroomDocumentReadyPlaylist() {
+  $body.on(&#x27;click&#x27;, &#x27;._playlist_play&#x27;, function() {
+    window.location = &#x27;/lessons/view/playlist&#x27;;
+  });
+  $body.on(&#x27;mouseover&#x27;, &#x27;._lesson_in_playlist&#x27;, function() {
+    $(&#x27;#&#x27; + this.id + &#x27; ._remove_lesson_from_playlist&#x27;).show();
+  });
+  $body.on(&#x27;mouseout&#x27;, &#x27;._lesson_in_playlist&#x27;, function() {
+    $(&#x27;#&#x27; + this.id + &#x27; ._remove_lesson_from_playlist&#x27;).hide();
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._remove_lesson_from_playlist&#x27;, function() {
+    var lesson_id = $(this).data(&#x27;clickparam&#x27;);
+    $.ajax({
+      type: &#x27;post&#x27;,
+      url: &#x27;/virtual_classroom/&#x27; + lesson_id + &#x27;/remove_lesson_from_playlist&#x27;
+    });
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._empty_playlist_button&#x27;, function() {
+    var captions = $captions;
+    var title = captions.data(&#x27;empty-virtual-classroom-playlist-title&#x27;);
+    var confirm = captions.data(&#x27;empty-virtual-classroom-playlist-confirm&#x27;);
+    var yes = captions.data(&#x27;empty-virtual-classroom-playlist-yes&#x27;);
+    var no = captions.data(&#x27;empty-virtual-classroom-playlist-no&#x27;);
+    showConfirmPopUp(title, confirm, yes, no, function() {
+      closePopUp(&#x27;dialog-confirm&#x27;);
+      $.ajax({
+        type: &#x27;post&#x27;,
+        url: &#x27;/virtual_classroom/empty_playlist&#x27;
+      });
+    }, function() {
+      closePopUp(&#x27;dialog-confirm&#x27;);
+    });
+  });
+}
+
+/**
+Initializer for popup sending the public link of a lesson.
+@method virtualClassroomDocumentReadySendLink
+@for VirtualClassroomDocumentReady
+**/
+function virtualClassroomDocumentReadySendLink() {
+  $body.on(&#x27;click&#x27;, &#x27;._send_lesson_link&#x27;, function() {
+    if($(&#x27;#info_container&#x27;).data(&#x27;user-trial&#x27;)) {
+      showErrorPopUp($captions.data(&#x27;trial-user-lock-virtual-classroom-send-link&#x27;));
+      return
+    }
+    var lesson_id = $(this).data(&#x27;lesson-id&#x27;);
+    showSendLessonLinkPopUp(lesson_id);
+    $(&#x27;#virtual_classroom_send_link_mails_box&#x27;).jScrollPane({
+      autoReinitialise: true
+    });
+  });
+  $body.on(&#x27;focus&#x27;, &#x27;#virtual_classroom_emails_selector&#x27;, function() {
+    if($(this).data(&#x27;placeholdered&#x27;)) {
+      $(this).val(&#x27;&#x27;);
+      $(this).data(&#x27;placeholdered&#x27;, false);
+    }
+  });
+  $body.on(&#x27;focus&#x27;, &#x27;#virtual_classroom_send_link_message&#x27;, function() {
+    var placeholder = $(&#x27;#virtual_classroom_send_link_message_placeholder&#x27;);
+    if(placeholder.val() === &#x27;&#x27;) {
+      $(this).val(&#x27;&#x27;);
+      placeholder.val(&#x27;0&#x27;);
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#virtual_classroom_emails_submitter&#x27;, function() {
+    addEmailToVirtualClassroomSendLessonLinkSelector();
+  });
+  $body.on(&#x27;keydown&#x27;, &#x27;#virtual_classroom_emails_selector&#x27;, function(e) {
+    if(e.which === 186) {
+      e.preventDefault();
+      var value = $(this).val();
+      value += &#x27;@&#x27;;
+      $(this).val(value);
+    }
+    if(e.which === 13) {
+      e.preventDefault();
+      addEmailToVirtualClassroomSendLessonLinkSelector();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#virtual_classroom_send_link_mails_box ._remove&#x27;, function() {
+    $(this).parent().remove();
+    resetVirtualClassroomSendLinkLines();
+    setTimeout(function() {
+      resetVirtualClassroomSendLinkLines();
+    }, 700);
+  });
+  $(&#x27;#select_mailing_list&#x27;).selectbox({
+    onChange: function(val, inst) {
+      if(val != &#x27;&#x27;) {
+        var emails = $(&#x27;#virtual_classroom_hidden_mailing_lists ._mailing_list_&#x27; + val + &#x27; div&#x27;);
+        for(var i = 0; i &lt; emails.length; i++) {
+          $(&#x27;#virtual_classroom_send_link_mails_box .jspPane&#x27;).append(emails[i].outerHTML);
+          resetVirtualClassroomSendLinkLines();
+          setTimeout(function() {
+            resetVirtualClassroomSendLinkLines();
+          }, 700);
+        }
+      }
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#dialog-virtual-classroom-send-link ._no&#x27;, function() {
+    var obj = $(&#x27;#dialog-virtual-classroom-send-link&#x27;);
+    closePopUp(&#x27;dialog-virtual-classroom-send-link&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#dialog-virtual-classroom-send-link ._yes&#x27;, function() {
+    var obj = $(&#x27;#dialog-virtual-classroom-send-link&#x27;);
+    obj.dialog(&#x27;option&#x27;, &#x27;hide&#x27;, null);
+    var emails_input = &#x27;&#x27;;
+    $(&#x27;#virtual_classroom_send_link_mails_box .jspPane ._email ._text&#x27;).each(function() {
+      emails_input += ($(this).html() + &#x27;,&#x27;);
+    });
+    emails_input = emails_input.substr(0, emails_input.length - 1);
+    $(&#x27;#virtual_classroom_send_link_hidden_emails&#x27;).val(emails_input);
+    closePopUp(&#x27;dialog-virtual-classroom-send-link&#x27;);
+    obj.dialog(&#x27;option&#x27;, &#x27;hide&#x27;, {effect: &quot;fade&quot;});
+    $(&#x27;#dialog-virtual-classroom-send-link form&#x27;).submit();
+  });
+}
+
+
+
+
+
+/**
+Gets the highest zIndex value among elements of a given class.
+@method getMaximumZIndex
+@for VirtualClassroomJavaScriptAnimations
+@param a_class {String} HTML class name
+@return {Number} highest zIndex value
+**/
+function getMaximumZIndex(a_class) {
+  var index_highest = 0;
+  $(&#x27;.&#x27; + a_class).each(function() {
+    var index_current = parseInt($(this).css(&quot;zIndex&quot;), 10);
+    if(index_current &gt; index_highest) {
+      index_highest = index_current;
+    }
+  });
+  return index_highest;
+}
+
+/**
+Initializes the functionality of dragging a single lesson into the playlist.
+@method initializeDraggableVirtualClassroomLesson
+@for VirtualClassroomJavaScriptAnimations
+@param id {String} HTML id of the lesson
+**/
+function initializeDraggableVirtualClassroomLesson(id) {
+  var lesson_cover = $(&#x27;#&#x27; + id + &#x27; ._lesson_thumb&#x27;);
+  var object = $(&#x27;#&#x27; + id);
+  if(object.hasClass(&#x27;ui-draggable&#x27;)) {
+    object.draggable(&#x27;enable&#x27;);
+  } else {
+    object.draggable({
+      revert: true,
+      handle: &#x27;._lesson_thumb&#x27;,
+      cursor: &#x27;move&#x27;,
+      containment: &#x27;.griglia-contenuti&#x27;,
+      helper: function() {
+        var current_z_index = getMaximumZIndex(&#x27;_virtual_classroom_lesson&#x27;) + 1;
+        var div_to_return = $(&#x27;#&#x27; + this.id + &#x27; ._lesson_thumb&#x27;)[0].outerHTML;
+        div_to_return = &#x27;&lt;div &#x27; + &#x27;style=&quot;&#x27; + current_z_index + &#x27;;outline:1px solid white&quot; &#x27; + div_to_return.substr(5, div_to_return.length);
+        return div_to_return;
+      },
+      start: function() {
+        lesson_cover.addClass(&#x27;current&#x27;);
+      },
+      stop: function(event, ui) {
+        if(!ui.helper.hasClass(&#x27;_lesson_dropped&#x27;)) {
+          lesson_cover.removeClass(&#x27;current&#x27;);
+        }
+      }
+    });
+  }
+  if(lesson_cover.hasClass(&#x27;current&#x27;)) {
+    lesson_cover.removeClass(&#x27;current&#x27;);
+  }
+  if(object.data(&#x27;in-playlist&#x27;)) {
+    object.data(&#x27;in-playlist&#x27;, false);
+  }
+}
+
+/**
+Initialize playlist container (using &lt;i&gt;JQueryUi sortable&lt;/i&gt;)and jScrollPane.
+@method initializePlaylist
+@for VirtualClassroomJavaScriptAnimations
+**/
+function initializePlaylist() {
+  $(&#x27;#lessons_list_in_playlist&#x27;).jScrollPane({
+    autoReinitialise: true
+  });
+  $(&#x27;#virtual_classroom_playlist&#x27;).droppable({
+    accept: &#x27;._virtual_classroom_lesson&#x27;,
+    drop: function(event, ui) {
+      ui.helper.hide();
+      ui.helper.addClass(&#x27;_lesson_dropped&#x27;);
+      $.ajax({
+        type: &#x27;post&#x27;,
+        url: &#x27;/virtual_classroom/&#x27; + ui.draggable.data(&#x27;lesson-id&#x27;) + &#x27;/add_lesson_to_playlist&#x27;
+      });
+    },
+    hoverClass: &#x27;current&#x27;
+  });
+  $(&#x27;#virtual_classroom_playlist .jspPane&#x27;).sortable({
+    scroll: true,
+    handle: &#x27;._lesson_in_playlist&#x27;,
+    axis: &#x27;y&#x27;,
+    cursor: &#x27;move&#x27;,
+    cancel: &#x27;._remove_lesson_from_playlist&#x27;,
+    helper: function(event, ui) {
+      var current_z_index = getMaximumZIndex(&#x27;_lesson_in_playlist&#x27;) + 1;
+      var div_to_return = $($(&#x27;#&#x27; + ui.attr(&#x27;id&#x27;))[0].outerHTML);
+      div_to_return.addClass(&#x27;current&#x27;);
+      div_to_return = div_to_return[0].outerHTML;
+      var my_index = div_to_return.indexOf(&#x27;&lt;div class=&quot;_remove_lesson_from_playlist&#x27;);
+      var second_half_string = div_to_return.substring(my_index, div_to_return.length);
+      var my_second_index = my_index + second_half_string.indexOf(&#x27;&lt;/div&gt;&#x27;) + 6;
+      return div_to_return.substring(0, (my_index - 1)) + div_to_return.substring((my_second_index + 1), div_to_return.length);
+    },
+    stop: function(event, ui) {
+      var previous = ui.item.prev();
+      var new_position = 0;
+      var old_position = ui.item.data(&#x27;position&#x27;);
+      if(previous.length == 0) {
+        new_position = 1;
+      } else {
+        var previous_item_position = previous.data(&#x27;position&#x27;);
+        if(old_position &gt; previous_item_position) {
+          new_position = previous_item_position + 1;
+        } else {
+          new_position = previous_item_position;
+        }
+      }
+      if(old_position != new_position) {
+        $.ajax({
+          type: &#x27;post&#x27;,
+          url: &#x27;/virtual_classroom/&#x27; + ui.item.data(&#x27;lesson-id&#x27;) + &#x27;/playlist/&#x27; + new_position + &#x27;/change_position&#x27;
+        });
+      }
+    }
+  });
+}
+
+/**
+Uses together {{#crossLink &quot;VirtualClassroomJavaScriptAnimations/initializeDraggableVirtualClassroomLesson:method&quot;}}{{/crossLink}} and {{#crossLink &quot;VirtualClassroomJavaScriptAnimations/initializePlaylist:method&quot;}}{{/crossLink}}.
+@method initializeVirtualClassroom
+@for VirtualClassroomJavaScriptAnimations
+**/
+function initializeVirtualClassroom() {
+  $(&#x27;._virtual_classroom_lesson&#x27;).each(function() {
+    if($(this).data(&#x27;in-playlist&#x27;)) {
+      $(&#x27;#&#x27; + this.id + &#x27; ._lesson_thumb&#x27;).addClass(&#x27;current&#x27;);
+    } else {
+      initializeDraggableVirtualClassroomLesson(this.id);
+    }
+  });
+  initializePlaylist();
+}
+
+
+
+
+
+/**
+Initializer for lessons that can&#x27;t be loaded from the multiple lessons loader.
+@method initializeNotAvailableLessonsToLoadQuick
+@for VirtualClassroomMultipleLoading
+**/
+function initializeNotAvailableLessonsToLoadQuick() {
+  $(&#x27;._virtual_classroom_quick_loaded_lesson&#x27;).each(function() {
+    if(!$(this).data(&#x27;available&#x27;)) {
+      $(&#x27;#&#x27; + this.id + &#x27; ._lesson_thumb&#x27;).addClass(&#x27;current&#x27;);
+    }
+  });
+}
+
+/**
+Initializer for the JScrollPain in the multiple lessons loader (event infinite scroll to load more lessons).
+@method initializeScrollPaneQuickLessonSelector
+@for VirtualClassroomMultipleLoading
+**/
+function initializeScrollPaneQuickLessonSelector() {
+  $(&#x27;#virtual_classroom_quick_select_container.scroll-pane&#x27;).bind(&#x27;jsp-arrow-change&#x27;, function(event, isAtTop, isAtBottom, isAtLeft, isAtRight) {
+    var page = $(&#x27;#virtual_classroom_quick_select_container&#x27;).data(&#x27;page&#x27;);
+    var tot_pages = $(&#x27;#virtual_classroom_quick_select_container&#x27;).data(&#x27;tot-pages&#x27;);
+    if(isAtBottom &amp;&amp; (page &lt; tot_pages)) {
+      $.get(&#x27;/virtual_classroom/select_lessons_new_block?page=&#x27; + (page + 1));
+    }
+  });
+}
+
+
+
+
+
+/**
+Add email to recipients list on email add button (+).
+@method addEmailToVirtualClassroomSendLessonLinkSelector
+@for VirtualClassroomSendLink
+**/
+function addEmailToVirtualClassroomSendLessonLinkSelector() {
+  var selector = $(&#x27;#virtual_classroom_emails_selector&#x27;);
+  if(!selector.data(&#x27;placeholdered&#x27;) &amp;&amp; selector.val() != &#x27;&#x27;) {
+    $(&#x27;#virtual_classroom_send_link_mails_box .jspPane&#x27;).append(&#x27;&lt;div class=&quot;_email&quot;&gt;&lt;span class=&quot;_text&quot;&gt;&#x27; + selector.val() + &#x27;&lt;/span&gt;&lt;a class=&quot;_remove&quot;&gt;&lt;/a&gt;&lt;/div&gt;&#x27;);
+    selector.val(&#x27;&#x27;);
+    resetVirtualClassroomSendLinkLines();
+    setTimeout(function() {
+      resetVirtualClassroomSendLinkLines();
+    }, 700);
+  }
+}
+
+/**
+Resets the spaces between the emails sent.
+@method resetVirtualClassroomSendLinkLines
+@for VirtualClassroomSendLink
+**/
+function resetVirtualClassroomSendLinkLines() {
+  var container = $(&#x27;#virtual_classroom_send_link_mails_box .jspPane&#x27;);
+  var must_first_line = true;
+  container.find(&#x27;._email&#x27;).removeClass(&#x27;first_line&#x27;);
+  container.find(&#x27;._email&#x27;).each(function() {
+    if(must_first_line) {
+      var me = $(this);
+      var prev = me.prev();
+      if(prev.length &gt; 0) {
+        if(me.position().top != prev.position().top) {
+          must_first_line = false;
+        } else {
+          me.addClass(&#x27;first_line&#x27;);
+        }
+      } else {
+        me.addClass(&#x27;first_line&#x27;);
+      }
+    }
+  });
+}
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

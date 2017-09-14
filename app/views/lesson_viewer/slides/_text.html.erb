@@ -1,0 +1,22 @@
+<%
+  url_type           ||= nil
+  slide_text_options ||= {}
+  slide_text           = slide.text(slide_text_options)
+  unless defined? show_documents then show_documents = true end
+%>
+
+<div class="slide-content text normal-size">
+  
+  <div class="item title-container">
+    <input class="title read-only" type="text" value="<%= slide.title %>" disabled="disabled"/>
+  </div>
+  
+  <div class="item text-container read-only">
+    <%= slide_text.html_safe if slide_text %>
+  </div>
+  
+  <% if show_documents && slide.documents_slides.present? %>
+    <%= render :partial => 'lesson_viewer/documents', :locals => {:documents_slides => slide.documents_slides, :url_type => url_type} %>
+  <% end %>
+  
+</div>

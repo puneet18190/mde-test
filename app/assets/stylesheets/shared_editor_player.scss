@@ -1,0 +1,163 @@
+@import 'variables';
+@import 'mixins';
+
+.iconMediaElements {
+  
+  .audio {
+    
+    background-size: 11.3em 22.7em;
+    background-image: $assets-icone-editor-elementi_svg;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding: 0;
+    background-position: 0 -2.5em;
+    
+  }
+  
+}
+
+.scrollVerde {
+  
+  .jspTrack {
+    
+    background-color: #3F3F3F;
+    
+  }
+  
+  .jspHorizontalBar {
+    height: 8px;
+    
+  }
+  
+  .jspDrag {
+    
+    background-color: $green;
+    
+  }
+  
+}
+
+.scrollBlu {
+  
+  .jspTrack {
+    
+    background-color: #3F3F3F;
+    
+  }
+  
+  .jspHorizontalBar {
+    
+    height: 8px;
+  }
+  
+  .jspDrag {
+    
+    background-color: $blue;
+    
+  }
+  
+}
+
+.esciButton {
+  
+  background-image: $assets-esci_svg;
+  background-repeat: no-repeat;
+  background-size: 12em 6em;
+  background-position: 0em -1em;
+  padding: 0;
+  float: right;
+  font-size: 0.4em;
+  width: 5.8em;
+  height: 4em;
+  margin-top: 6px;
+  
+  &:hover {
+    
+    background-position: -6em -1em;
+    
+  }
+  
+}
+
+.exitGallery {
+  
+  background-image: $assets-x_svg;
+  background-repeat: no-repeat;
+  background-size: 23.8em 3.4em;
+  background-position: -7.1em 0em;
+  float: right;
+  font-size: 0.5em;
+  width: 3em;
+  height: 3em;
+  
+  &:hover {
+    
+    background-position: -10.5em 0em;
+    
+  }
+  
+}
+
+.nextButton {
+  
+  @include svg-circle-icon-handler($assets-next_svg, 47px, 2, 1, 0.2, 0, 0, 1, 1, 0);
+  
+}
+
+.okButtonContent {
+  
+  width: 6.2em;
+  height: 6.3em;
+  background-image: $assets-v_svg;
+  background-repeat: no-repeat;
+  background-size: 14em 7em;
+  background-position: 0 0;
+  padding: 0;
+  opacity: 0.5;
+  margin-top: 5px;
+  font-size: 0.6em;
+  
+  &:hover {
+    
+    opacity: 1;
+    background-position: -7.1em 0em;
+    
+  }
+  
+}
+
+.navLeft {
+  
+  background: $assets-nav-left_png no-repeat center left;
+  opacity: 0.6;
+  position: absolute;
+  left: 0%;
+  bottom: 50%;
+  width: 46px;
+  height: 59px;
+  
+  &:hover {
+    
+    opacity: 1;
+    
+  }
+  
+}
+
+.navRight {
+  
+  background: $assets-nav-right_png no-repeat center left;
+  opacity: 0.6;
+  position: absolute;
+  right: 0%;
+  bottom: 50%;
+  width: 46px;
+  height: 59px;
+  
+  &:hover {
+    
+    opacity: 1;
+    
+  }
+  
+}

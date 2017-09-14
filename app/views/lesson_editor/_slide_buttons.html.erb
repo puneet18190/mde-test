@@ -1,0 +1,26 @@
+<%
+  additional_class = ''
+  normal_title = t('titles.lesson_editor.add_slide')
+  disabled_title = t('titles.lesson_editor.last_slide_reached', :num => SETTINGS['max_number_slides_in_a_lesson'])
+  if @max_slides
+    additional_class = 'disabled'
+    normal_title = t('titles.lesson_editor.last_slide_reached', :num => SETTINGS['max_number_slides_in_a_lesson'])
+    disabled_title = t('titles.lesson_editor.add_slide')
+  end
+  number_of_buttons = 4
+  number_of_buttons += 1 if !slide.cover?
+  number_of_buttons += 1 if slide.allows_document?
+%>
+
+<div class="buttons pull-right buttons_x_<%= number_of_buttons %>" style="display:<%= show_now ? 'block' : 'none' %>">
+  <% if !slide.cover? %>
+    <a class ="deleteButtonOrange _delete_slide" title="<%= t('titles.lesson_editor.delete_slide') %>"></a>
+  <% end %>
+  <a class="addButtonOrange _add_new_slide_options <%= additional_class %>" title="<%= normal_title %>" data-title="<%= t('titles.lesson_editor.add_slide') %>" data-other-title="<%= t('titles.lesson_editor.add_slide_cancel') %>" data-disabled-title="<%= disabled_title %>"></a>
+  <a class="infoButtonOrange _save_slide_and_edit" title="<%= t('titles.lesson_editor.change_info') %>"></a>
+  <% if slide.allows_document? %>
+    <a class ="attacheButtonOrange _attach_document" title="<%= t('titles.lesson_editor.document') %>"></a>
+  <% end %>
+  <a class="saveButtonOrange _save_slide" title="<%= t('titles.lesson_editor.save_slide') %>" data-param="form-<%= slide.id %>"></a>
+  <a class="exitButtonOrange _save_slide_and_exit" title="<%= t('titles.lesson_editor.save_and_exit') %>"></a>
+</div>

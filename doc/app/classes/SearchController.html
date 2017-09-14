@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>SearchController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            SearchController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="ApplicationController.html">ApplicationController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/controllers/search_controller_rb.html">app/controllers/search_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-SearchController-label-Description">Description</h3>
+
+<p>Controller for the search engine with all its options</p>
+
+<h3 id="class-SearchController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="Lesson.html">Lesson</a></p>
+</li><li>
+<p><a href="MediaElement.html">MediaElement</a></p>
+</li><li>
+<p><a href="User.html">User</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-get_result_lessons">get_result_lessons</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-get_result_lessons_by_specific_tag">get_result_lessons_by_specific_tag</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-get_result_media_elements">get_result_media_elements</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-get_result_media_elements_by_specific_tag">get_result_media_elements_by_specific_tag</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-index">index</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_paginator_and_filters">initialize_paginator_and_filters</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_paginator_and_filters_for_lessons">initialize_paginator_and_filters_for_lessons</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_paginator_and_filters_for_media_elements">initialize_paginator_and_filters_for_media_elements</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-initialize_word_and_specific_tag">initialize_word_and_specific_tag</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">LESSONS_FOR_PAGE</td>
+            <td>=</td>
+            <td class="attr-value">8</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>How many lessons in a page</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">MEDIA_ELEMENTS_FOR_PAGE</td>
+            <td>=</td>
+            <td class="attr-value">8</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>How many elements in a page</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-index">
+            
+              <b>index</b>()
+            
+            <a href="../classes/SearchController.html#method-i-index" name="method-i-index" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-index-label-Description">Description</h3>
+
+<p>Search for lessons and elements in the application&#39;s database. There
+are different options: * if <code>params</code> has the key
+<code>word</code>, it means that the user searched for something (even when
+he only used filters, the parameter <code>word</code> is present and
+blank); if this is not verified, it means that the user entered in the
+search engine through the direct link labelled as &#39;advanced search&#39;
+* the search engine contains two subsections, one for lessons and one for
+elements: to choose which subsection needs to be visible, the filter checks
+a specific parameter called <code>item</code> * if the parameter
+<code>tag_id</code> is present, the method calls <a
+href="User.html#method-i-search_media_elements">User#search_media_elements</a>
+or <a href="User.html#method-i-search_lessons">User#search_lessons</a>
+twice:  * first with <code>word</code> = <code>tag_id</code> in
+<code>params</code>  * second with <code>word</code> = <code>word</code> in
+<code>params</code> and the option <code>only_tags</code> =
+<code>true</code>: this way it&#39;s shown the whole range of tags
+associated to the original word, and only the requested tag is selected *
+if the parameter <code>tag_id</code> is blank, the method calls <a
+href="User.html#method-i-search_media_elements">User#search_media_elements</a>
+or <a href="User.html#method-i-search_lessons">User#search_lessons</a>
+normally, passing it the <code>word</code> as it received it (possibly
+blank, in which case there is a call to the submethods <a
+href="User.html#method-i-search_lessons_without_tag">User#search_lessons_without_tag</a>
+or <a
+href="User.html#method-i-search_media_elements_without_tag">User#search_media_elements_without_tag</a>)</p>
+
+<h3 id="method-i-index-label-Mode">Mode</h3>
+
+<p>Html + Ajax</p>
+
+<h3 id="method-i-index-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_layout">ApplicationController#initialize_layout</a></p>
+</li><li>
+<p><a
+href="SearchController.html#method-i-initialize_paginator_and_filters">#initialize_paginator_and_filters</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-index_source')" id="l_method-i-index_source">show</a>
+                
+              </p>
+              <div id="method-i-index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/search_controller.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">index</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@did_you_search</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@search_item</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;lessons&#39;</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@specific_tag</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">get_result_lessons</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@page</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+            <span class="ruby-ivar">@page</span> = <span class="ruby-ivar">@pages_amount</span>
+            <span class="ruby-identifier">get_result_lessons</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">get_result_lessons_by_specific_tag</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@page</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+            <span class="ruby-ivar">@page</span> = <span class="ruby-ivar">@pages_amount</span>
+            <span class="ruby-identifier">get_result_lessons_by_specific_tag</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+            <span class="ruby-ivar">@specific_tag</span> = <span class="ruby-keyword">nil</span>
+            <span class="ruby-identifier">get_result_lessons</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@page</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+              <span class="ruby-ivar">@page</span> = <span class="ruby-ivar">@pages_amount</span>
+              <span class="ruby-identifier">get_result_lessons</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-ivar">@tags</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">search_lessons</span>(<span class="ruby-ivar">@word</span>, <span class="ruby-number">1</span>, <span class="ruby-ivar">@for_page</span>, <span class="ruby-constant">SearchOrders</span><span class="ruby-operator">::</span><span class="ruby-constant">TITLE</span>, <span class="ruby-ivar">@filter</span>, <span class="ruby-ivar">@subject_id</span>, <span class="ruby-keyword">true</span>, <span class="ruby-ivar">@school_level_id</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;media_elements&#39;</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@specific_tag</span>.<span class="ruby-identifier">nil?</span>
+          <span class="ruby-identifier">get_result_media_elements</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@page</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+            <span class="ruby-ivar">@page</span> = <span class="ruby-ivar">@pages_amount</span>
+            <span class="ruby-identifier">get_result_media_elements</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">get_result_media_elements_by_specific_tag</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@page</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+            <span class="ruby-ivar">@page</span> = <span class="ruby-ivar">@pages_amount</span>
+            <span class="ruby-identifier">get_result_media_elements_by_specific_tag</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+            <span class="ruby-ivar">@specific_tag</span> = <span class="ruby-keyword">nil</span>
+            <span class="ruby-identifier">get_result_media_elements</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@page</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@pages_amount</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+              <span class="ruby-ivar">@page</span> = <span class="ruby-ivar">@pages_amount</span>
+              <span class="ruby-identifier">get_result_media_elements</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-ivar">@tags</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">search_media_elements</span>(<span class="ruby-ivar">@word</span>, <span class="ruby-number">1</span>, <span class="ruby-ivar">@for_page</span>, <span class="ruby-constant">SearchOrders</span><span class="ruby-operator">::</span><span class="ruby-constant">TITLE</span>, <span class="ruby-ivar">@filter</span>, <span class="ruby-keyword">true</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@subjects</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:description</span>)
+  <span class="ruby-ivar">@school_levels</span> = <span class="ruby-constant">SchoolLevel</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:created_at</span>)
+  <span class="ruby-identifier">render_js_or_html_index</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-get_result_lessons">
+            
+              <b>get_result_lessons</b>()
+            
+            <a href="../classes/SearchController.html#method-i-get_result_lessons" name="method-i-get_result_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets lessons using <a
+href="User.html#method-i-search_lessons">User#search_lessons</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_result_lessons_source')" id="l_method-i-get_result_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-get_result_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/search_controller.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_result_lessons</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">search_lessons</span>(<span class="ruby-ivar">@word</span>, <span class="ruby-ivar">@page</span>, <span class="ruby-ivar">@for_page</span>, <span class="ruby-ivar">@order</span>, <span class="ruby-ivar">@filter</span>, <span class="ruby-ivar">@subject_id</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-ivar">@school_level_id</span>)
+  <span class="ruby-ivar">@lessons</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:records</span>]
+  <span class="ruby-ivar">@pages_amount</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:pages_amount</span>]
+  <span class="ruby-ivar">@lessons_amount</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:records_amount</span>]
+  <span class="ruby-ivar">@covers</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:covers</span>]
+  <span class="ruby-ivar">@tags</span> = []
+  <span class="ruby-ivar">@tags</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:tags</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value">:tags</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_result_lessons_by_specific_tag">
+            
+              <b>get_result_lessons_by_specific_tag</b>()
+            
+            <a href="../classes/SearchController.html#method-i-get_result_lessons_by_specific_tag" name="method-i-get_result_lessons_by_specific_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets lessons by specific tag, using <a
+href="User.html#method-i-search_lessons_with_tag">User#search_lessons_with_tag</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_result_lessons_by_specific_tag_source')" id="l_method-i-get_result_lessons_by_specific_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-get_result_lessons_by_specific_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/search_controller.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_result_lessons_by_specific_tag</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">search_lessons</span>(<span class="ruby-ivar">@specific_tag_id</span>, <span class="ruby-ivar">@page</span>, <span class="ruby-ivar">@for_page</span>, <span class="ruby-ivar">@order</span>, <span class="ruby-ivar">@filter</span>, <span class="ruby-ivar">@subject_id</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-ivar">@school_level_id</span>)
+  <span class="ruby-ivar">@lessons</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:records</span>]
+  <span class="ruby-ivar">@pages_amount</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:pages_amount</span>]
+  <span class="ruby-ivar">@lessons_amount</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:records_amount</span>]
+  <span class="ruby-ivar">@covers</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:covers</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_result_media_elements">
+            
+              <b>get_result_media_elements</b>()
+            
+            <a href="../classes/SearchController.html#method-i-get_result_media_elements" name="method-i-get_result_media_elements" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets media elements using <a
+href="User.html#method-i-search_media_elements">User#search_media_elements</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_result_media_elements_source')" id="l_method-i-get_result_media_elements_source">show</a>
+                
+              </p>
+              <div id="method-i-get_result_media_elements_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/search_controller.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_result_media_elements</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">search_media_elements</span>(<span class="ruby-ivar">@word</span>, <span class="ruby-ivar">@page</span>, <span class="ruby-ivar">@for_page</span>, <span class="ruby-ivar">@order</span>, <span class="ruby-ivar">@filter</span>)
+  <span class="ruby-ivar">@media_elements</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:records</span>]
+  <span class="ruby-ivar">@pages_amount</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:pages_amount</span>]
+  <span class="ruby-ivar">@media_elements_amount</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:records_amount</span>]
+  <span class="ruby-ivar">@tags</span> = []
+  <span class="ruby-ivar">@tags</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:tags</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value">:tags</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-get_result_media_elements_by_specific_tag">
+            
+              <b>get_result_media_elements_by_specific_tag</b>()
+            
+            <a href="../classes/SearchController.html#method-i-get_result_media_elements_by_specific_tag" name="method-i-get_result_media_elements_by_specific_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Gets media elements by specific tag, using <a
+href="User.html#method-i-search_media_elements_with_tag">User#search_media_elements_with_tag</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-get_result_media_elements_by_specific_tag_source')" id="l_method-i-get_result_media_elements_by_specific_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-get_result_media_elements_by_specific_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/search_controller.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">get_result_media_elements_by_specific_tag</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">search_media_elements</span>(<span class="ruby-ivar">@specific_tag_id</span>, <span class="ruby-ivar">@page</span>, <span class="ruby-ivar">@for_page</span>, <span class="ruby-ivar">@order</span>, <span class="ruby-ivar">@filter</span>)
+  <span class="ruby-ivar">@media_elements</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:records</span>]
+  <span class="ruby-ivar">@pages_amount</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:pages_amount</span>]
+  <span class="ruby-ivar">@media_elements_amount</span> = <span class="ruby-identifier">resp</span>[<span class="ruby-value">:records_amount</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_paginator_and_filters">
+            
+              <b>initialize_paginator_and_filters</b>()
+            
+            <a href="../classes/SearchController.html#method-i-initialize_paginator_and_filters" name="method-i-initialize_paginator_and_filters" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes paginator and filters - generic method</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_paginator_and_filters_source')" id="l_method-i-initialize_paginator_and_filters_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_paginator_and_filters_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/search_controller.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_paginator_and_filters</span>
+  <span class="ruby-ivar">@did_you_search</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-value">:word</span>
+  <span class="ruby-ivar">@search_item</span> = [<span class="ruby-string">&#39;lessons&#39;</span>, <span class="ruby-string">&#39;media_elements&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:item</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:item</span>] <span class="ruby-operator">:</span> <span class="ruby-string">&#39;lessons&#39;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@did_you_search</span>
+    <span class="ruby-identifier">initialize_word_and_specific_tag</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-ivar">@search_item</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;lessons&#39;</span>
+        <span class="ruby-identifier">initialize_paginator_and_filters_for_lessons</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;media_elements&#39;</span>
+        <span class="ruby-identifier">initialize_paginator_and_filters_for_media_elements</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_paginator_and_filters_for_lessons">
+            
+              <b>initialize_paginator_and_filters_for_lessons</b>()
+            
+            <a href="../classes/SearchController.html#method-i-initialize_paginator_and_filters_for_lessons" name="method-i-initialize_paginator_and_filters_for_lessons" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Called from <a
+href="SearchController.html#method-i-initialize_paginator_and_filters">#initialize_paginator_and_filters</a>,
+it contains specific parameters for lessons</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_paginator_and_filters_for_lessons_source')" id="l_method-i-initialize_paginator_and_filters_for_lessons_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_paginator_and_filters_for_lessons_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/search_controller.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_paginator_and_filters_for_lessons</span>
+  <span class="ruby-ivar">@filter</span> = <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">LESSONS_SEARCH_SET</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:filter</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:filter</span>] <span class="ruby-operator">:</span> <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">ALL_LESSONS</span>
+  <span class="ruby-ivar">@order</span> = <span class="ruby-constant">SearchOrders</span><span class="ruby-operator">::</span><span class="ruby-constant">LESSONS_SET</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:order</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:order</span>] <span class="ruby-operator">:</span> <span class="ruby-constant">SearchOrders</span><span class="ruby-operator">::</span><span class="ruby-constant">TITLE</span>
+  <span class="ruby-ivar">@subject_id</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:subject_id</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:subject_id</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@school_level_id</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:school_level_id</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:school_level_id</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@for_page</span> = <span class="ruby-constant">LESSONS_FOR_PAGE</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_paginator_and_filters_for_media_elements">
+            
+              <b>initialize_paginator_and_filters_for_media_elements</b>()
+            
+            <a href="../classes/SearchController.html#method-i-initialize_paginator_and_filters_for_media_elements" name="method-i-initialize_paginator_and_filters_for_media_elements" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Called from <a
+href="SearchController.html#method-i-initialize_paginator_and_filters">#initialize_paginator_and_filters</a>,
+it contains specific parameters for elements</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_paginator_and_filters_for_media_elements_source')" id="l_method-i-initialize_paginator_and_filters_for_media_elements_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_paginator_and_filters_for_media_elements_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/search_controller.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_paginator_and_filters_for_media_elements</span>
+  <span class="ruby-ivar">@filter</span> = <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">MEDIA_ELEMENTS_SEARCH_SET</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:filter</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:filter</span>] <span class="ruby-operator">:</span> <span class="ruby-constant">Filters</span><span class="ruby-operator">::</span><span class="ruby-constant">ALL_MEDIA_ELEMENTS</span>
+  <span class="ruby-ivar">@order</span> = <span class="ruby-constant">SearchOrders</span><span class="ruby-operator">::</span><span class="ruby-constant">MEDIA_ELEMENTS_SET</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:order</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:order</span>] <span class="ruby-operator">:</span> <span class="ruby-constant">SearchOrders</span><span class="ruby-operator">::</span><span class="ruby-constant">TITLE</span>
+  <span class="ruby-ivar">@for_page</span> = <span class="ruby-constant">MEDIA_ELEMENTS_FOR_PAGE</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-initialize_word_and_specific_tag">
+            
+              <b>initialize_word_and_specific_tag</b>()
+            
+            <a href="../classes/SearchController.html#method-i-initialize_word_and_specific_tag" name="method-i-initialize_word_and_specific_tag" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Extracts the parameters <code>tag_id</code> and <code>word</code></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-initialize_word_and_specific_tag_source')" id="l_method-i-initialize_word_and_specific_tag_source">show</a>
+                
+              </p>
+              <div id="method-i-initialize_word_and_specific_tag_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/search_controller.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize_word_and_specific_tag</span>
+  <span class="ruby-ivar">@word</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:word_placeholder</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:word</span>]
+  <span class="ruby-ivar">@page</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-number">1</span>
+  <span class="ruby-ivar">@specific_tag_id</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:tag_id</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:tag_id</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@specific_tag</span> = <span class="ruby-constant">Tag</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-ivar">@specific_tag_id</span>
+  <span class="ruby-ivar">@word</span> = <span class="ruby-ivar">@specific_tag</span>.<span class="ruby-identifier">word</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@specific_tag</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-ivar">@word</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> (<span class="ruby-node">/#{@word}/</span> <span class="ruby-operator">=~</span> <span class="ruby-ivar">@specific_tag</span>.<span class="ruby-identifier">word</span>) <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,68 @@
+<%
+  title_max = t('forms.placeholders.title', :num => t('language_parameters.lesson.length_title').to_s).downcase 
+  description_max = t('forms.placeholders.description', :num => t('language_parameters.lesson.length_description').to_s).downcase
+  tags_max = t('forms.placeholders.tags', :items => SETTINGS['min_tags_for_item'].to_s, :num => SETTINGS['max_tag_length'].to_s).downcase
+%>
+
+<div style="width:100%; height: 40px;">
+</div>
+<ul id="slides">
+  <li class="slides" style="opacity:1">
+    <div id="new-lesson" class="lessonForm">
+      <%= form_tag '/lessons/create', :remote => true, :class => 'form-selector-class', :autocomplete => 'off' do %>
+        <div class="part1">
+          <div class="attachment">
+            <div class="icon"></div>
+          </div>
+          <div class="title_and_subtitle">
+            <h1>
+              <%= t('forms.new_lesson.title') %>
+            </h1>
+            <p>
+              <%= t('forms.new_lesson.description') %>
+            </p>
+          </div>
+        </div>
+        <div class="part2">
+          <div class="title_and_description">
+            <input class="title" type="text" value="<%= title_max %>" name="title"/>
+            <input class="title_placeholder" type="hidden" value="" name="title_placeholder"/>
+            <textarea class="description" name="description"><%= description_max %></textarea>
+            <input class="description_placeholder" type="hidden" value="" name="description_placeholder"/>
+          </div>
+          <div class="tags_loader">
+            <select id="lesson_subject" name="subject_id">
+              <option value="" class="delete_me"><%= t('forms.placeholders.subject_id').downcase %></option>
+              <% @subjects.each do |s| %>
+                <option value="<%= s.id %>"><%= s.description %></option>
+              <% end %>
+            </select>
+            <div class="_tags_container" data-max-width="397.5" data-lines="4">
+              <input class="tags" type="text" value="" maxlength="<%= SETTINGS['max_tag_length'] %>"/>
+              <div class="_placeholder">
+                <%= tags_max %>
+              </div>
+              <input class="tags_value" type="hidden" value="" name="tags_value"/>
+            </div>
+          </div>
+        </div>
+        <div class="part3">
+          <a class="submit"><%= t('forms.new_lesson.done').downcase %></a>
+          <a class="close" href="/lessons"><%= t('forms.new_lesson.cancel').downcase %></a>
+        </div>
+        <div class="errors_layer description" data-focus-selector=".part2 .description" data-form-error-selector=".part2 .description" data-focus-action="focus"></div>
+        <div class="errors_layer subject_id" data-focus-selector=".part2 .tags_loader .sbSelector" data-form-error-selector=".part2 .tags_loader .sbHolder" data-focus-action="click"></div>
+        <div class="errors_layer tags" data-focus-selector=".part2 ._tags_container .tags" data-form-error-selector=".part2 ._tags_container" data-focus-action="click"></div>
+        <div class="errors_layer title" data-focus-selector=".part2 .title" data-form-error-selector=".part2 .title" data-focus-action="focus"></div>
+      <% end %>
+      <div class="menu">
+        <div class="school-level">
+          <%= t('lessons.school_level') %>: <%= current_user.school_level.description %>
+        </div>
+        <div class="author">
+          <%= t('lessons.author') %>: <span class="name"><%= current_user.full_name %></span>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

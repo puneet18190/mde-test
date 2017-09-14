@@ -1,0 +1,13 @@
+<%
+  slide_title = slide.title.blank? ? t('lesson_editor.placeholders.title') : slide.title
+%>
+
+<div class="slide-content title normal-size">
+  <%= form_tag save_slide_path(slide.lesson_id, slide.id), :method => :post, :remote => true, :id => "form-#{slide.id}", :autocomplete => 'off' do %>
+    
+    <div class="item title-container">
+      <%= text_area_tag :title, slide_title, :class => 'title _lesson_editor_placeholder', :data => {:placeholder => slide.title.blank?} %>
+    </div>
+    
+  <% end %>
+</div>

@@ -1,0 +1,25 @@
+<div class="barzeretti"></div>
+
+<%
+  word ||= nil
+  my_title = html_escape document.title
+  my_title.gsub! /(#{Regexp.quote word})/i, '<b class="to_be_removed"><u>\1</u></b>' if word.present?
+  my_title = my_title.html_safe
+%>
+
+<div class="documentInGallery" data-rollovered="false">
+  <div class="popuppina-tri <%= document.type.to_s %>" style="display:none"></div>
+  <div class="popuppina" style="display:none; background-color:<%= documents_type_color(document) %>">
+    <%= document.description %>
+  </div>
+  <div class="icon">
+    <%= image_tag document.icon_url, :title => document.icon_title %>
+  </div>
+  <div class="title">
+    <%= my_title %>
+  </div>
+  <div class="extension">
+    <%= document.size_and_extension %>
+  </div>
+  <a class="add_remove" data-document-id="<%= document.id %>"></a>
+</div>

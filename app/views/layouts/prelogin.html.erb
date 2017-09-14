@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="prelogin-layout <%= controller_html_class %> <%= action_html_class %>">
+  <head><%= render :partial => 'layouts/prelogin/head' %></head>
+  <body>
+    <%= render :partial => 'shared/browser_support_script' %>
+    <%= render :partial => 'shared/popups' %>
+    <%= render :partial => 'shared/loading' %>
+    <div class="container">
+      <%= render partial: 'layouts/flash', locals: { flash: flash } %>
+      <%= yield %>
+    </div>
+    <div class="footer">
+      <div class="footer_logo_content ">
+        <div class="fltlft" style="padding:10px" >
+        <% if SETTINGS['show_partner_logo'] -%>
+          <img src="<%= asset_path 'partner_logo.jpg' %>" alt="Partner logo">
+        <% end -%>
+        </div>
+        <div class="fltrt" style="padding:30px; display: none;">
+          <%= SETTINGS['application_copyright'] %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

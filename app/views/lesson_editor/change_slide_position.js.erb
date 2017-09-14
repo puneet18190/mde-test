@@ -1,0 +1,41 @@
+<% if @ok %>
+  <%
+    class_slide = "#{@current_slide.kind} slides"
+    div_covering = ''
+    if @current_slide.cover? && with_current
+      class_slide = "#{class_slide} active _lesson_editor_current_slide"
+    else
+      div_covering = '<layer class="_not_current_slide"></layer>'
+    end
+  %>
+  $('#nav_list_menu').data('jsp').destroy();
+  if($("ta-<%= @current_slide.id %>").length > 0){
+    tinyMCE.get('ta-<%= @current_slide.id %>').remove();
+  }
+  var to_be_moved = $('#slide_in_lesson_editor_<%= @current_slide.id %>');
+  var old_position = to_be_moved.data('position');
+  to_be_moved.detach();
+  var html_to_move = "<%= j(render :partial => 'lesson_editor/slide_wrapper', :locals => {:class_slide => class_slide, :div_covering => div_covering, :slide => @current_slide, :loaded => true, :first_time => false, :documents_slides => @documents_slides})%>"
+
+  var target_slide = $('#slide_in_lesson_editor_<%= @replaced_slide.id %>');
+  if(old_position > <%= @position %>) {
+    target_slide.before(html_to_move);
+  } else {
+    target_slide.after(html_to_move);
+  }
+  
+  $(html_to_move).find('.slide-content .image.editable').each(function() {
+    makeDraggable($(this).attr('id'));
+  });
+  
+  reInitializeSlidePositionsInLessonEditor();
+  
+  $("nav#heading #nav_list_menu").html("<%= j(render :partial => 'index_nav', :locals => {:slides => @slides, :with_current => false})%>");
+  initializeSortableNavs();
+  $('#nav_list_menu').jScrollPane({
+    autoReinitialise: false
+  });
+  slideTo(<%= @current_slide.id %>);
+<% else %>
+  redError();
+<% end %>

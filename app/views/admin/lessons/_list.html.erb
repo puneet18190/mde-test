@@ -1,0 +1,103 @@
+<% if lessons.present? %>
+  <table id="lessons-list" class="table table-striped table-hover table-bordered table-rounded">
+    <thead>
+      <tr>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.lessons.fields.id'), :ordering => 0} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.lessons.fields.title'), :ordering => 1} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.lessons.fields.subject'), :ordering => 2} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.lessons.fields.user'), :ordering => 3} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.lessons.fields.created_at'), :ordering => 4} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.lessons.fields.updated_at'), :ordering => 5} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.lessons.fields.likes'), :ordering => 6} %>
+        </th>
+        <th>
+          <%= render :partial => 'admin/ordering', :locals => {:name => t('admin.lessons.fields.is_public'), :ordering => nil} %>
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <% if from_reporting.present? %>
+          <th></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <a name="list-anchor"></a>
+      <%
+       back_page = 1
+       if params[:page]
+         back_page = (lessons.length == 1) ? params[:page].to_i - 1 : params[:page].to_i
+       end
+      %>
+      <% lessons.each do |lesson| %>
+        <tr class="collapse" id="<%= lesson.id %>">
+          <td><%= lesson.id %></td>
+          <td><%= lesson.title %></td>
+          <td><%= lesson.subject.description %></td>
+          <td><%= link_to lesson.user.full_name, admin_user_path(lesson.user_id), :class => '_user_link_in_admin' %></td>
+          <td><%= TimeConvert.to_string lesson.created_at %></td>
+          <td><%= TimeConvert.to_string lesson.updated_at %></td>
+          <td><%= lesson.likes_count %></td>
+          <td><%= lesson.is_public.to_s %></td>
+          <td><%= link_to '<i class="icon-eye-open"></i>'.html_safe, "/lessons/#{lesson.id}/view?token=#{lesson.token}", :class => 'action' %></td>
+          <td><%= link_to '<i class="icon-bullhorn"></i>'.html_safe, admin_toggle_publish_path(lesson.id), :class => 'action', :remote => true, :data => {:confirm => t('admin.lessons.toggle_publish.confirm')}, :title => t('admin.lessons.toggle_publish.title'), :method => :post %></td>
+          <% if from_reporting.present? %>
+            <td>
+              <a class="_report_item" data-report-id="<%= from_reporting %>"><%= t('admin.messages.reports.actions.delete') %></a>
+            </td>
+            <td>
+              <a class="_dont_report_item" data-report-id="<%= from_reporting %>"><%= t('admin.messages.reports.actions.ok') %></a>
+            </td>
+          <% else %>
+            <td>
+              <a rel="nofollow" data-method="delete" data-confirm="<%= t('admin.lessons.delete_confirm') %>" href="/admin/lessons/<%= lesson.id %>?back_url=<%= manipulate_url(:page => back_page, :escape => true).html_safe %>">
+                <i class="icon-remove"></i>
+              </a>
+            </td>
+          <% end %>
+        </tr>
+        <tr class="collapsed">
+          <td colspan="11">
+            <div class="row-fluid">
+              <div class="span3">
+                <div class="img-polaroid lesson-thumbnail" data-loaded="true">
+                  <%= render :partial => 'lessons/thumbnail', :locals => {:lesson => lesson, :cover => covers[lesson.id]} %>
+                </div>
+              </div>
+              <div class="span3">
+                <h5><%= t('admin.lessons.fields.tags') %></h5>
+                <%= lesson.visive_tags %>
+              </div>
+              <div class="span6">
+                <h5><%= t('admin.lessons.fields.description') %></h5>
+                <%= lesson.description %>
+              </div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% if params[:search].present? && params[:search][:id].present? %>
+    <script>
+      openAndLoadNextTr($('tr#<%=params[:search][:id] %>'));
+    </script>
+  <% end %>
+<% else %>
+  <div class="widget">
+    <%= t('admin.lessons.empty') %>
+  </div>
+<% end %>

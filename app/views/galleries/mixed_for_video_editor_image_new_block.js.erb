@@ -1,0 +1,21 @@
+$('._image_gallery_thumb_in_mixed_gallery_video_editor._with_margin_bottom').css('margin-bottom', '0').removeClass('_with_margin_bottom');
+var temporary_invisible_div = '<div class="_temporary" style="display:none">';
+<%
+  images_count = @images.count
+  images_count = ((images_count % 7 == 0) ? (images_count - 8) : ((images_count / 7) * 7 - 1))
+%>
+<% @images.each_with_index do |image, index| %>
+  $('#video_editor_mixed_gallery_container #image_gallery_content .jspPane').append('<%= j(render(:partial => "galleries/thumbs/image", :locals => {:image => image, :index => index, :count => images_count, :force_margin_top => true})) %>');
+  var mini_image = '<%= j(render(:partial => "video_editor/components/thumbs/image", :locals => {:image => image})) %>';
+  var preview_image = '<%= j(render(:partial => "video_editor/previews/image_thumb", :locals => {:image => image})) %>';
+  preview_image = '<div class="_image_preview_in_video_editor_gallery" style="display:none">' + preview_image + '</div>';
+  var duration_selector = '<div class="_duration_selector" style="display:none">';
+  duration_selector += '<div class="caption"><div class="elementoTime"><div class="tempo">';
+  duration_selector += '<p><%= j t("video_editor.components.image.time") %></p><input class="numberTime" maxlength="<%= t("language_parameters.video_editor.length_duration") %>"/><p class="lower"><%= j t("captions.seconds_shortened") %></p></div></div></div>';
+  duration_selector += '<a class="okButtonContent current _add_image_component_to_video_editor_after_select_duration" data-image-id="<%= image.id %>" data-url="<%= image.url %>" data-width="<%= image.width %>" data-height="<%= image.height %>" style="float:right"></a>';
+  duration_selector += '</div>';
+  $('#dialog-image-gallery-<%= image.id %>').append(temporary_invisible_div + mini_image + preview_image + '</div>').append(duration_selector);
+<% end %>
+$('#video_editor_mixed_gallery_container').data('image-page', <%= @page %>);
+$('._select_image_from_gallery').addClass('_add_image_component_to_video_editor');
+$('._image_gallery_thumb').addClass('_image_gallery_thumb_in_mixed_gallery_video_editor').removeClass('_image_gallery_thumb');

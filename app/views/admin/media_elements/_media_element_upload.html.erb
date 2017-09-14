@@ -1,0 +1,42 @@
+<%
+  file_title = file[:title].blank? ? t('admin.media_elements.fields.title').downcase : file[:title]
+  file_description = file[:description].blank? ? t('admin.media_elements.fields.description').downcase : file[:description]
+  file_tags = file[:tags].blank? ? t('admin.media_elements.fields.tags').downcase : file[:tags]
+%>
+
+<div id="quick_load_element_<%= file[:name] %>" class="element-update-form span<%= colspan %> img-polaroid">
+  <form class="_quick_load_creation_form">
+    <div class="alert">
+      <%= file[:original_name] %>
+    </div>
+    <% if file[:type] == 'audio' %>
+      <%= image_tag 'simbolo-audio.svg', :width => '200', :style => 'margin-top:0' %>
+    <% elsif file[:type] == 'video' %>
+      <%= image_tag 'thumb_video.jpg', :width => '200', :style => 'margin-top:0' %>
+    <% elsif file[:type] == 'image' %>
+      <div style="width:200px; height:200px; margin-top:20px; margin-left:auto; margin-bottom:0; margin-right:auto; vertical-align:middle; overflow:hidden">
+        <%= image_tag "/admin/#{current_user.id}/#{file[:name]}#{file[:ext]}", :width => 200, :height => 200, :style => 'margin:0' %>
+      </div>
+    <% else %>
+      <%= image_tag 'simbolo-audio.svg', :width => '200', :style => 'margin-top:0' %>
+    <% end %>
+    <%= hidden_field_tag 'media', "#{file[:name]}#{file[:ext]}" %><br/>
+    <%= text_field_tag 'title', file_title, :class => '_form_input _qume_title' %><br/>
+    <%= hidden_field_tag 'title_placeholder', (file[:title].blank? ? '1' : ''), :class => '_qume_title_placeholder' %>
+    <%= text_area_tag 'description', file_description, :class => '_form_input _qume_description' %><br/>
+    <%= hidden_field_tag 'description_placeholder', (file[:description].blank? ? '1' : ''), :class => '_qume_description_placeholder' %>
+    <%= text_area_tag 'tags', file_tags, :class => '_form_input _qume_tags' %><br/>
+    <%= hidden_field_tag 'tags_placeholder', (file[:tags].blank? ? '1' : ''), :class => '_qume_tags_placeholder' %>
+    <%= check_box_tag 'publish', '1', (file[:type] == 'image'), :disabled => (file[:type] != 'image') %>
+    <span style="margin-left:10px">
+      <%= t('admin.media_elements.publish_now').downcase %>
+    </span>
+    <br/><br/>
+    <button class="_create_new_element btn btn-small btn-success" type="button" data-param="<%= file[:name] %>">
+      <%= t('admin.media_elements.actions.save') %>
+    </button>
+    <button class="_delete_new_element btn btn-small btn-danger" type="button" data-param="<%= file[:name] %>">
+      <%= t('admin.media_elements.actions.delete') %>
+    </button>
+  </form>
+</div>

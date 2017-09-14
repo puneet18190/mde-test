@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html class="lesson-scorm-layout lesson_export-controller scorm-action">
+  
+  <head>
+    <title><%= "#{SETTINGS['application_name']} - #{@lesson.title}" %></title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <link href="assets/favicon32x32.png" rel="shortcut icon" type="image/png"/>
+    <link href="assets/lesson_scorm/application.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="assets/lesson_scorm/application.js"></script>
+  </head>
+  
+  <body>
+    <div class="container">
+      <div id="carousel_container">
+        <div id="carousel_inner">
+          <ul id="carousel_ul">
+            <li id="slide_in_lesson_viewer_<%= @slide_id %>" class="_lesson_viewer_current_slide cover slide">
+              <%= yield %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div id="lesson-title">
+        <img src="assets/lesson-editor-logo-footer.png">
+        <p><%= t('lesson_viewer.export_lesson.made_in_desy', :copyright => SETTINGS['application_copyright']) %></p>
+      </div>
+    </div>
+  </body>
+  
+</html>

@@ -1,0 +1,5 @@
+<% if @errors %>
+  $('tr#<%= @user.id %>').css('background-color', 'red');
+<% else %>
+  $('tr#<%= @user.id %>').remove();
+<% end %>

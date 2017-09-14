@@ -1,0 +1,11 @@
+<% if @ok %>
+  
+  <% @lessons.each_with_index do |l, index| %>
+    $('#virtual_classroom_quick_select_container form').append('<%= j(render(:partial => "virtual_classroom/view_single_in_quick_load", :locals => {:lesson => l, :index => (index + 3), :cover => @covers[l.id]})) %>');
+  <% end %>
+  
+  $('#virtual_classroom_quick_select_container').data('page', <%= @page %>);
+  
+  initializeNotAvailableLessonsToLoadQuick();
+  
+<% end %>

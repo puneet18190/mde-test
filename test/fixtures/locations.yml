@@ -1,0 +1,11 @@
+one:
+  id: 1
+  name: 'Roma'
+  sti_type: 'School'
+  code: 'XCMY0'
+
+two:
+  id: 2
+  name: 'Milano'
+  sti_type: 'School'
+  code: 'XCMYAA'

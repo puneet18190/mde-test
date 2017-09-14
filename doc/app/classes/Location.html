@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Location</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Location 
+            
+                <span class="parent">&lt; 
+                    
+                    ActiveRecord::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/location_rb.html">app/models/location.rb</a></li>
+            
+            <li><a href="../files/app/models/user_rb.html">app/models/user.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Location-label-Description">Description</h3>
+
+<p>ActiveRecord class that corresponds to the table <code>locations</code>.
+The class uses single table inheritance to be divided into different
+categories: the categories are configured into settings.yml (for each
+category the application creates a submodel)</p>
+
+<h3 id="class-Location-label-Fields">Fields</h3>
+<ul><li>
+<p><em>name</em>: the name of the location</p>
+</li><li>
+<p><em>sti_type</em>: category to which the location belongs (for example
+city, region, etc)</p>
+</li><li>
+<p><em>ancestry</em>: list of ancestries of the location. If the location
+belongs to the top category, this field is <code>nil</code>; if it belongs
+to the second category from the top, the field is a string containing only
+the id of the parent location; for any other case, the field contains a
+string with the list top-bottom of all the ancestries of the location (ex.
+“1/5/13/18”)</p>
+</li><li>
+<p><em>code</em>: a unique code for each sti_type (it is not compulsory)</p>
+</li></ul>
+
+<h3 id="class-Location-label-Associations">Associations</h3>
+<ul><li>
+<p><em>parent</em> the parent location if there is one, found with the field
+ancestry</p>
+</li></ul>
+
+<h3 id="class-Location-label-Validations">Validations</h3>
+<ul><li>
+<p><em>presence</em> and length of <code>name</code> (maximum 255)</p>
+</li><li>
+<p><em>presence</em> of sti_type</p>
+</li><li>
+<p><em>length</em> for code if not nil (maximum 255)</p>
+</li><li>
+<p><em>uniqueness</em> for code with scope inside locations of the same
+sti_type</p>
+</li><li>
+<p><em>inclusion</em> of sti_type in the list of allowed classes</p>
+</li><li>
+<p><em>internal</em> <em>validations</em> for the field ancestry (this are not
+very strict, because we don&#39;t want to overload the model of validations
+which must interact with an external gem; for the same reason there are not
+associations &#39;has_many&#39; from here)</p>
+</li></ul>
+
+<h3 id="class-Location-label-Callbacks">Callbacks</h3>
+
+<p>None</p>
+
+<h3 id="class-Location-label-Database+callbacks">Database callbacks</h3>
+
+<p>None</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-ancestry_with_me">ancestry_with_me</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>B</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-base_label">base_label</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-gender">gender</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-get_from_chain_params">get_from_chain_params</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-is_descendant_of-3F">is_descendant_of?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-label">label</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-label_at">label_at</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-select_with_selected">select_with_selected</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-select_without_selected">select_without_selected</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-to_s">to_s</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">SUBMODELS</td>
+            <td>=</td>
+            <td class="attr-value">SETTINGS[&#39;location_types&#39;].map do |type|
+Object.const_set type, Class.new(self)
+end</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>List of sublocations (configured in settings.yml)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">SUBMODEL_NAMES</td>
+            <td>=</td>
+            <td class="attr-value">SUBMODELS.map { |a_class| a_class.to_s }</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>List of submodels in string format</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-base_label">
+            
+              <b>base_label</b>(plural=false)
+            
+            <a href="../classes/Location.html#method-c-base_label" name="method-c-base_label" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-base_label-label-Description">Description</h3>
+
+<p>Returns the label of the lowest category of location</p>
+
+<h3 id="method-c-base_label-label-Args">Args</h3>
+<ul><li>
+<p><em>plural</em>: pluralizes the label (default = false)</p>
+</li></ul>
+
+<h3 id="method-c-base_label-label-Returns">Returns</h3>
+
+<p>A string translated with I18n</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-base_label_source')" id="l_method-c-base_label_source">show</a>
+                
+              </p>
+              <div id="method-c-base_label_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/location.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">base_label</span>(<span class="ruby-identifier">plural</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">plural</span>
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;locations.labels.plural&#39;</span>).<span class="ruby-identifier">last</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;locations.labels.singular&#39;</span>).<span class="ruby-identifier">last</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-get_from_chain_params">
+            
+              <b>get_from_chain_params</b>(params)
+            
+            <a href="../classes/Location.html#method-c-get_from_chain_params" name="method-c-get_from_chain_params" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-get_from_chain_params-label-Description">Description</h3>
+
+<p>Given a hash of parameters with the names of the categories as keys, this
+method returns the <a href="Location.html">Location</a> corresponding to
+the last parameter (from parent to son) which is not null. Used in <a
+href="AdminSearchForm.html">AdminSearchForm</a> and in <a
+href="UsersController.html">UsersController</a>.</p>
+
+<h3 id="method-c-get_from_chain_params-label-Args">Args</h3>
+<ul><li>
+<p><em>params</em>: a hash which has the names of each category as keys</p>
+</li></ul>
+
+<h3 id="method-c-get_from_chain_params-label-Returns">Returns</h3>
+
+<p>An object of type <a href="Location.html">Location</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-get_from_chain_params_source')" id="l_method-c-get_from_chain_params_source">show</a>
+                
+              </p>
+              <div id="method-c-get_from_chain_params_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/location.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">get_from_chain_params</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">flag</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">index</span> = <span class="ruby-constant">SUBMODEL_NAMES</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>
+  <span class="ruby-identifier">loc_param</span> = <span class="ruby-identifier">params</span>[<span class="ruby-constant">SUBMODEL_NAMES</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">downcase</span>]
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">flag</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-number">0</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">loc_param</span>.<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">loc_param</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span>
+      <span class="ruby-identifier">flag</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">index</span> <span class="ruby-operator">-=</span> <span class="ruby-number">1</span>
+      <span class="ruby-identifier">loc_param</span> = <span class="ruby-identifier">params</span>[<span class="ruby-constant">SUBMODEL_NAMES</span>[<span class="ruby-identifier">index</span>].<span class="ruby-identifier">downcase</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Location</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">loc_param</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-label_at">
+            
+              <b>label_at</b>(index, plural=false)
+            
+            <a href="../classes/Location.html#method-c-label_at" name="method-c-label_at" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-label_at-label-Description">Description</h3>
+
+<p>Returns the label of a chosen category</p>
+
+<h3 id="method-c-label_at-label-Args">Args</h3>
+<ul><li>
+<p><em>index</em>: the depth of the chosen category</p>
+</li><li>
+<p><em>plural</em>: pluralizes the label (default = false)</p>
+</li></ul>
+
+<h3 id="method-c-label_at-label-Returns">Returns</h3>
+
+<p>A string translated with I18n</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-label_at_source')" id="l_method-c-label_at_source">show</a>
+                
+              </p>
+              <div id="method-c-label_at_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/location.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">label_at</span>(<span class="ruby-identifier">index</span>, <span class="ruby-identifier">plural</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">plural</span>
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;locations.labels.plural&#39;</span>)[<span class="ruby-identifier">index</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;locations.labels.singular&#39;</span>)[<span class="ruby-identifier">index</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-ancestry_with_me">
+            
+              <b>ancestry_with_me</b>()
+            
+            <a href="../classes/Location.html#method-i-ancestry_with_me" name="method-i-ancestry_with_me" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-ancestry_with_me-label-Description">Description</h3>
+
+<p>Returns the field <code>ancestry</code>, adding to its beginning the id of
+the current location</p>
+
+<h3 id="method-i-ancestry_with_me-label-Returns">Returns</h3>
+
+<p>A string of ids separated by &#39;/&#39;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ancestry_with_me_source')" id="l_method-i-ancestry_with_me_source">show</a>
+                
+              </p>
+              <div id="method-i-ancestry_with_me_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/location.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">ancestry_with_me</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ancestry</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;#{self.id}/&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{self.ancestry}/#{self.id}/&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-gender">
+            
+              <b>gender</b>()
+            
+            <a href="../classes/Location.html#method-i-gender" name="method-i-gender" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-gender-label-Description">Description</h3>
+
+<p>Returns the gender (masculine, feminine) of the location.</p>
+
+<h3 id="method-i-gender-label-Returns">Returns</h3>
+
+<p>The string &#39;masculine&#39; or &#39;feminine&#39;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-gender_source')" id="l_method-i-gender_source">show</a>
+                
+              </p>
+              <div id="method-i-gender_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/location.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">gender</span>
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;locations.labels.feminine&#39;</span>)[<span class="ruby-constant">SUBMODEL_NAMES</span>.<span class="ruby-identifier">index</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">sti_type</span>)] <span class="ruby-operator">?</span> <span class="ruby-string">&#39;feminine&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;masculine&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-is_descendant_of-3F">
+            
+              <b>is_descendant_of?</b>(ancestor)
+            
+            <a href="../classes/Location.html#method-i-is_descendant_of-3F" name="method-i-is_descendant_of-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-is_descendant_of-3F-label-Description">Description</h3>
+
+<p>Checks if the current location is a descendant of a given one</p>
+
+<h3 id="method-i-is_descendant_of-3F-label-Parameters">Parameters</h3>
+
+<p>An object of type <a href="Location.html">Location</a></p>
+
+<h3 id="method-i-is_descendant_of-3F-label-Returns">Returns</h3>
+
+<p>A boolean</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-is_descendant_of-3F_source')" id="l_method-i-is_descendant_of-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-is_descendant_of-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/location.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">is_descendant_of?</span>(<span class="ruby-identifier">ancestor</span>)
+  <span class="ruby-identifier">max_depth</span> = <span class="ruby-constant">SUBMODEL_NAMES</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ancestor</span>.<span class="ruby-identifier">ancestry</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ancestry</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">ancestor</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">||</span> (<span class="ruby-node">/#{ancestor.ancestry_with_me}/</span> <span class="ruby-operator">=~</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ancestry</span>) <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">depth</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">max_depth</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ancestor</span>.<span class="ruby-identifier">depth</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">max_depth</span> <span class="ruby-operator">-</span> <span class="ruby-number">2</span>
+    (<span class="ruby-node">/#{ancestor.ancestry_with_me.chop}/</span> <span class="ruby-operator">=~</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ancestry</span>) <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+  <span class="ruby-keyword">else</span>
+    (<span class="ruby-node">/#{ancestor.ancestry_with_me}/</span> <span class="ruby-operator">=~</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ancestry</span>) <span class="ruby-operator">==</span> <span class="ruby-number">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-label">
+            
+              <b>label</b>()
+            
+            <a href="../classes/Location.html#method-i-label" name="method-i-label" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-label-label-Description">Description</h3>
+
+<p>Used in the frontend, to extract the label of the location&#39;s category
+(translated with I18n)</p>
+
+<h3 id="method-i-label-label-Returns">Returns</h3>
+
+<p>A string</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-label_source')" id="l_method-i-label_source">show</a>
+                
+              </p>
+              <div id="method-i-label_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/location.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">label</span>
+  <span class="ruby-identifier">index</span> = <span class="ruby-number">0</span>
+  <span class="ruby-constant">SUBMODEL_NAMES</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">index</span> = <span class="ruby-identifier">i</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sti_type</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Location</span>.<span class="ruby-identifier">label_at</span> <span class="ruby-identifier">index</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-select_with_selected">
+            
+              <b>select_with_selected</b>(stop_before_leaves=false)
+            
+            <a href="../classes/Location.html#method-i-select_with_selected" name="method-i-select_with_selected" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-select_with_selected-label-Description">Description</h3>
+
+<p>Returns an array of hashes (:selected, which may be either an id or zero if
+no location is selected, and :content, which contains the effective
+locations): it starts from the first ancestors until the leaves. After the
+first children of the current location, the response loads empty arrays
+until the leaves.</p>
+
+<h3 id="method-i-select_with_selected-label-Args">Args</h3>
+<ul><li>
+<p><em>stop_before_leaves</em>: default = false, if true the response
+doesn&#39;t contain locations below the direct children of the current
+location</p>
+</li></ul>
+
+<h3 id="method-i-select_with_selected-label-Returns">Returns</h3>
+
+<p>An array of hashes</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-select_with_selected_source')" id="l_method-i-select_with_selected_source">show</a>
+                
+              </p>
+              <div id="method-i-select_with_selected_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/location.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">select_with_selected</span>(<span class="ruby-identifier">stop_before_leaves</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">resp</span> = []
+  <span class="ruby-identifier">index</span> = <span class="ruby-constant">SUBMODEL_NAMES</span>.<span class="ruby-identifier">index</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:selected</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>, <span class="ruby-value">:content</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Location</span>.<span class="ruby-identifier">roots</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)}
+    <span class="ruby-identifier">index</span> = <span class="ruby-number">1</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">anc</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:selected</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">anc</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:content</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">anc</span>.<span class="ruby-identifier">siblings</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)}
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:selected</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>, <span class="ruby-value">:content</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">siblings</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)}
+    <span class="ruby-identifier">index</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">SUBMODEL_NAMES</span>.<span class="ruby-identifier">last</span>
+      <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:selected</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>, <span class="ruby-value">:content</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)}
+      <span class="ruby-identifier">index</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">stop_before_leaves</span>
+    <span class="ruby-keyword">while</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">SUBMODEL_NAMES</span>.<span class="ruby-identifier">length</span>
+      <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:selected</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>, <span class="ruby-value">:content</span> =<span class="ruby-operator">&gt;</span> []}
+      <span class="ruby-identifier">index</span> <span class="ruby-operator">+=</span> <span class="ruby-number">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-select_without_selected">
+            
+              <b>select_without_selected</b>()
+            
+            <a href="../classes/Location.html#method-i-select_without_selected" name="method-i-select_without_selected" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-select_without_selected-label-Description">Description</h3>
+
+<p>Returns an array of arrays, starting from the first ancestors until the
+direct children of the location. If the location is a leaf, the response
+stops to the location itself.</p>
+
+<h3 id="method-i-select_without_selected-label-Returns">Returns</h3>
+
+<p>An array of strings</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-select_without_selected_source')" id="l_method-i-select_without_selected_source">show</a>
+                
+              </p>
+              <div id="method-i-select_without_selected_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/location.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">select_without_selected</span>
+  <span class="ruby-identifier">resp</span> = []
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ancestors</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">anc</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">anc</span>.<span class="ruby-identifier">siblings</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">siblings</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)
+  <span class="ruby-identifier">resp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">SUBMODEL_NAMES</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-to_s">
+            
+              <b>to_s</b>()
+            
+            <a href="../classes/Location.html#method-i-to_s" name="method-i-to_s" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-to_s-label-Description">Description</h3>
+
+<p>Shortcut to return the name of the location</p>
+
+<h3 id="method-i-to_s-label-Returns">Returns</h3>
+
+<p>A string</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-to_s_source')" id="l_method-i-to_s_source">show</a>
+                
+              </p>
+              <div id="method-i-to_s_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/location.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">to_s</span>
+  <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

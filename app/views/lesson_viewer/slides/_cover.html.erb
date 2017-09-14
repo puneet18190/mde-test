@@ -1,0 +1,43 @@
+<%
+  url_type ||= nil
+  image      = slide.media_elements_at
+  author     = slide.lesson.user
+  subject    = slide.lesson.subject
+%>
+
+<div class="slide-content cover normal-size">
+  
+  <div class="image-container item">
+    
+    <div class="image read-only">
+      <% if image %>
+        <%
+          url           = image.media_element.url(url_type)
+          effective_url = loaded ? "src=\"#{url}\"".html_safe : ''
+        %>
+        <% if image.is_horizontal?(slide.kind) %>
+          <% resized_width = image.resize_width(slide.kind) %>
+          <img style="left:<%= image.alignment %>px; width:<%= resized_width %>px" data-url="<%= url %>" alt="<%= image.media_element.title %>" <%= effective_url %>/>
+        <% else %>
+          <% resized_height = image.resize_height(slide.kind) %>
+          <img style="top:<%= image.alignment %>px; height:<%= resized_height %>px" data-url="<%= url %>" alt="<%= image.media_element.title %>" <%= effective_url %>/>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <div class="title-container">
+      <div class="lessonTitle"><%= slide.lesson.title %></div>
+    </div>
+    
+  </div>
+  
+  <div class="footer-container item">
+    <div class="subject pull-left">
+      <%= subject.description %>
+    </div>
+    <div class="author pull-right">
+      <%= t('lessons.author') %>: <span class="name"><%= author.full_name %></span>
+    </div>
+  </div>
+  
+</div>

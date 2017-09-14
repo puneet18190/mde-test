@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>app/assets/javascripts/media_element_editor.js - DESY</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="DESY"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/AdminAutocomplete.html">AdminAutocomplete</a></li>
+            
+                <li><a href="../classes/AdminBrowserSupport.html">AdminBrowserSupport</a></li>
+            
+                <li><a href="../classes/AdminCollapsed.html">AdminCollapsed</a></li>
+            
+                <li><a href="../classes/AdminDocumentReady.html">AdminDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderBinder.html">AjaxLoaderBinder</a></li>
+            
+                <li><a href="../classes/AjaxLoaderDocumentReady.html">AjaxLoaderDocumentReady</a></li>
+            
+                <li><a href="../classes/AjaxLoaderVisibility.html">AjaxLoaderVisibility</a></li>
+            
+                <li><a href="../classes/AudioEditorComponents.html">AudioEditorComponents</a></li>
+            
+                <li><a href="../classes/AudioEditorCutters.html">AudioEditorCutters</a></li>
+            
+                <li><a href="../classes/AudioEditorDocumentReady.html">AudioEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/AudioEditorGalleries.html">AudioEditorGalleries</a></li>
+            
+                <li><a href="../classes/AudioEditorGeneral.html">AudioEditorGeneral</a></li>
+            
+                <li><a href="../classes/AudioEditorGraphics.html">AudioEditorGraphics</a></li>
+            
+                <li><a href="../classes/AudioEditorPreview.html">AudioEditorPreview</a></li>
+            
+                <li><a href="../classes/AudioEditorScrollpain.html">AudioEditorScrollpain</a></li>
+            
+                <li><a href="../classes/BrowserSupportMain.html">BrowserSupportMain</a></li>
+            
+                <li><a href="../classes/ButtonsAccessories.html">ButtonsAccessories</a></li>
+            
+                <li><a href="../classes/ButtonsDocumentReady.html">ButtonsDocumentReady</a></li>
+            
+                <li><a href="../classes/ButtonsLesson.html">ButtonsLesson</a></li>
+            
+                <li><a href="../classes/ButtonsMediaElement.html">ButtonsMediaElement</a></li>
+            
+                <li><a href="../classes/DashboardAccessories.html">DashboardAccessories</a></li>
+            
+                <li><a href="../classes/DashboardExpandedContents.html">DashboardExpandedContents</a></li>
+            
+                <li><a href="../classes/DashboardLessonDescriptions.html">DashboardLessonDescriptions</a></li>
+            
+                <li><a href="../classes/DashboardResizing.html">DashboardResizing</a></li>
+            
+                <li><a href="../classes/DialogsAccessories.html">DialogsAccessories</a></li>
+            
+                <li><a href="../classes/DialogsConfirmation.html">DialogsConfirmation</a></li>
+            
+                <li><a href="../classes/DialogsGalleries.html">DialogsGalleries</a></li>
+            
+                <li><a href="../classes/DialogsTimed.html">DialogsTimed</a></li>
+            
+                <li><a href="../classes/DialogsWithForm.html">DialogsWithForm</a></li>
+            
+                <li><a href="../classes/GalleriesAccessories.html">GalleriesAccessories</a></li>
+            
+                <li><a href="../classes/GalleriesDocumentReady.html">GalleriesDocumentReady</a></li>
+            
+                <li><a href="../classes/GalleriesInitializers.html">GalleriesInitializers</a></li>
+            
+                <li><a href="../classes/GeneralCentering.html">GeneralCentering</a></li>
+            
+                <li><a href="../classes/GeneralDocumentReady.html">GeneralDocumentReady</a></li>
+            
+                <li><a href="../classes/GeneralMiscellanea.html">GeneralMiscellanea</a></li>
+            
+                <li><a href="../classes/GeneralUrls.html">GeneralUrls</a></li>
+            
+                <li><a href="../classes/ImageEditorDocumentReady.html">ImageEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/ImageEditorGraphics.html">ImageEditorGraphics</a></li>
+            
+                <li><a href="../classes/ImageEditorImageScale.html">ImageEditorImageScale</a></li>
+            
+                <li><a href="../classes/ImageEditorTexts.html">ImageEditorTexts</a></li>
+            
+                <li><a href="../classes/JqueryBrowsersDetection.html">JqueryBrowsersDetection</a></li>
+            
+                <li><a href="../classes/JqueryPatchesBrowsers.html">JqueryPatchesBrowsers</a></li>
+            
+                <li><a href="../classes/LessonEditorCurrentSlide.html">LessonEditorCurrentSlide</a></li>
+            
+                <li><a href="../classes/LessonEditorDocumentReady.html">LessonEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonEditorForms.html">LessonEditorForms</a></li>
+            
+                <li><a href="../classes/LessonEditorGalleries.html">LessonEditorGalleries</a></li>
+            
+                <li><a href="../classes/LessonEditorImageResizing.html">LessonEditorImageResizing</a></li>
+            
+                <li><a href="../classes/LessonEditorJqueryAnimations.html">LessonEditorJqueryAnimations</a></li>
+            
+                <li><a href="../classes/LessonEditorSlideLoading.html">LessonEditorSlideLoading</a></li>
+            
+                <li><a href="../classes/LessonEditorSlidesNavigation.html">LessonEditorSlidesNavigation</a></li>
+            
+                <li><a href="../classes/LessonEditorTinyMCE.html">LessonEditorTinyMCE</a></li>
+            
+                <li><a href="../classes/LessonViewerDocumentReady.html">LessonViewerDocumentReady</a></li>
+            
+                <li><a href="../classes/LessonViewerGeneral.html">LessonViewerGeneral</a></li>
+            
+                <li><a href="../classes/LessonViewerGraphics.html">LessonViewerGraphics</a></li>
+            
+                <li><a href="../classes/LessonViewerPlaylist.html">LessonViewerPlaylist</a></li>
+            
+                <li><a href="../classes/LessonViewerSlidesNavigation.html">LessonViewerSlidesNavigation</a></li>
+            
+                <li><a href="../classes/MediaElementEditorCache.html">MediaElementEditorCache</a></li>
+            
+                <li><a href="../classes/MediaElementEditorConversion.html">MediaElementEditorConversion</a></li>
+            
+                <li><a href="../classes/MediaElementEditorDocumentReady.html">MediaElementEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/MediaElementEditorForms.html">MediaElementEditorForms</a></li>
+            
+                <li><a href="../classes/MediaElementEditorHorizontalTimelines.html">MediaElementEditorHorizontalTimelines</a></li>
+            
+                <li><a href="../classes/NotificationsAccessories.html">NotificationsAccessories</a></li>
+            
+                <li><a href="../classes/NotificationsDocumentReady.html">NotificationsDocumentReady</a></li>
+            
+                <li><a href="../classes/NotificationsGraphics.html">NotificationsGraphics</a></li>
+            
+                <li><a href="../classes/PlayersAudioEditor.html">PlayersAudioEditor</a></li>
+            
+                <li><a href="../classes/PlayersCommon.html">PlayersCommon</a></li>
+            
+                <li><a href="../classes/PlayersDocumentReady.html">PlayersDocumentReady</a></li>
+            
+                <li><a href="../classes/PlayersGeneral.html">PlayersGeneral</a></li>
+            
+                <li><a href="../classes/PlayersVideoEditor.html">PlayersVideoEditor</a></li>
+            
+                <li><a href="../classes/ProfilePrelogin.html">ProfilePrelogin</a></li>
+            
+                <li><a href="../classes/ProfileUsers.html">ProfileUsers</a></li>
+            
+                <li><a href="../classes/SearchDocumentReady.html">SearchDocumentReady</a></li>
+            
+                <li><a href="../classes/TagsAccessories.html">TagsAccessories</a></li>
+            
+                <li><a href="../classes/TagsInitializers.html">TagsInitializers</a></li>
+            
+                <li><a href="../classes/UploaderDocumentReady.html">UploaderDocumentReady</a></li>
+            
+                <li><a href="../classes/UploaderGlobal.html">UploaderGlobal</a></li>
+            
+                <li><a href="../classes/UploaderLoadingBar.html">UploaderLoadingBar</a></li>
+            
+                <li><a href="../classes/VideoEditorAddComponents.html">VideoEditorAddComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorComponents.html">VideoEditorComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorCutters.html">VideoEditorCutters</a></li>
+            
+                <li><a href="../classes/VideoEditorDocumentReady.html">VideoEditorDocumentReady</a></li>
+            
+                <li><a href="../classes/VideoEditorGalleries.html">VideoEditorGalleries</a></li>
+            
+                <li><a href="../classes/VideoEditorGeneral.html">VideoEditorGeneral</a></li>
+            
+                <li><a href="../classes/VideoEditorPreview.html">VideoEditorPreview</a></li>
+            
+                <li><a href="../classes/VideoEditorPreviewAccessories.html">VideoEditorPreviewAccessories</a></li>
+            
+                <li><a href="../classes/VideoEditorReplaceComponents.html">VideoEditorReplaceComponents</a></li>
+            
+                <li><a href="../classes/VideoEditorScrollPain.html">VideoEditorScrollPain</a></li>
+            
+                <li><a href="../classes/VideoEditorTextComponentEditor.html">VideoEditorTextComponentEditor</a></li>
+            
+                <li><a href="../classes/VirtualClassroomDocumentReady.html">VirtualClassroomDocumentReady</a></li>
+            
+                <li><a href="../classes/VirtualClassroomJavaScriptAnimations.html">VirtualClassroomJavaScriptAnimations</a></li>
+            
+                <li><a href="../classes/VirtualClassroomMultipleLoading.html">VirtualClassroomMultipleLoading</a></li>
+            
+                <li><a href="../classes/VirtualClassroomSendLink.html">VirtualClassroomSendLink</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/admin.html">admin</a></li>
+            
+                <li><a href="../modules/ajax-loader.html">ajax-loader</a></li>
+            
+                <li><a href="../modules/audio-editor.html">audio-editor</a></li>
+            
+                <li><a href="../modules/browser-support.html">browser-support</a></li>
+            
+                <li><a href="../modules/buttons.html">buttons</a></li>
+            
+                <li><a href="../modules/dashboard.html">dashboard</a></li>
+            
+                <li><a href="../modules/dialogs.html">dialogs</a></li>
+            
+                <li><a href="../modules/galleries.html">galleries</a></li>
+            
+                <li><a href="../modules/general.html">general</a></li>
+            
+                <li><a href="../modules/image-editor.html">image-editor</a></li>
+            
+                <li><a href="../modules/jquery-browsers.html">jquery-browsers</a></li>
+            
+                <li><a href="../modules/jquery-patches.html">jquery-patches</a></li>
+            
+                <li><a href="../modules/lesson-editor.html">lesson-editor</a></li>
+            
+                <li><a href="../modules/lesson-viewer.html">lesson-viewer</a></li>
+            
+                <li><a href="../modules/media-element-editor.html">media-element-editor</a></li>
+            
+                <li><a href="../modules/notifications.html">notifications</a></li>
+            
+                <li><a href="../modules/players.html">players</a></li>
+            
+                <li><a href="../modules/profile.html">profile</a></li>
+            
+                <li><a href="../modules/search.html">search</a></li>
+            
+                <li><a href="../modules/tags.html">tags</a></li>
+            
+                <li><a href="../modules/uploader.html">uploader</a></li>
+            
+                <li><a href="../modules/video-editor.html">video-editor</a></li>
+            
+                <li><a href="../modules/virtual-classroom.html">virtual-classroom</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: app/assets/javascripts/media_element_editor.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+This module contains javascript functions common to all the editors ({{#crossLinkModule &quot;audio-editor&quot;}}{{/crossLinkModule}}, {{#crossLinkModule &quot;image-editor&quot;}}{{/crossLinkModule}}, {{#crossLinkModule &quot;video-editor&quot;}}{{/crossLinkModule}}).
+@module media-element-editor
+**/
+
+
+
+
+
+/**
+One step of the repeated &lt;b&gt;cache&lt;/b&gt; saving (used in {{#crossLinkModule &quot;image-editor&quot;}}{{/crossLinkModule}} and {{#crossLinkModule &quot;video-editor&quot;}}{{/crossLinkModule}}).
+@method saveCacheLoop
+@for MediaElementEditorCache
+**/
+function saveCacheLoop() {
+  var cache_form = $(&#x27;#video_editor_form, #audio_editor_form&#x27;);
+  var time = $parameters.data(&#x27;cache-time&#x27;);
+  if(cache_form.length &gt; 0 &amp;&amp; $(&#x27;#info_container&#x27;).data(&#x27;save-cache&#x27;)) {
+    submitMediaElementEditorCacheForm(cache_form);
+    setTimeout(function() {
+      saveCacheLoop();
+    }, time);
+  }
+}
+
+/**
+Initializes the &lt;b&gt;cache loop&lt;/b&gt; and starts it calling {{#crossLink &quot;MediaElementEditorCache/saveCacheLoop:method&quot;}}{{/crossLink}}.
+@method startCacheLoop
+@for MediaElementEditorCache
+**/
+function startCacheLoop() {
+  $(&#x27;#info_container&#x27;).data(&#x27;save-cache&#x27;, true);
+  saveCacheLoop();
+}
+
+/**
+Stops the cache loop.
+@method stopCacheLoop
+@for MediaElementEditorCache
+**/
+function stopCacheLoop() {
+  $(&#x27;#info_container&#x27;).data(&#x27;cache-enabled-first-time&#x27;, false);
+  $(&#x27;#info_container&#x27;).data(&#x27;save-cache&#x27;, false);
+}
+
+/**
+Submethod of {{#crossLink &quot;MediaElementEditorCache/saveCacheLoop:method&quot;}}{{/crossLink}}.
+@method submitMediaElementEditorCacheForm
+@for MediaElementEditorCache
+**/
+function submitMediaElementEditorCacheForm(form) {
+  unbindLoader();
+  $.ajax({
+    type: &#x27;post&#x27;,
+    url: form.attr(&#x27;action&#x27;),
+    timeout: 5000,
+    data: form.serialize()
+  }).always(bindLoader);
+}
+
+
+
+
+
+/**
+Function that checks the conversion of the unconverted media elements in the page. Same structure of {{#crossLink &quot;MediaElementEditorConversion/mediaElementLoaderConversionOverview:method&quot;}}{{/crossLink}}.
+@method lessonEditorConversionOverview
+@for MediaElementEditorConversion
+@param list {Array} list of media elements that are being checked
+@param time {Number} time to iterate the loop
+**/
+function lessonEditorConversionOverview(list, time) {
+  $(&#x27;#lesson-title&#x27;).show();
+  $(&#x27;#error-footer-disclaimer&#x27;).hide();
+  $(&#x27;._audio_gallery_thumb._disabled, ._video_gallery_thumb._disabled&#x27;).each(function() {
+    var my_id = $(this).hasClass(&#x27;_video_gallery_thumb&#x27;) ? $(this).data(&#x27;video-id&#x27;) : $(this).data(&#x27;audio-id&#x27;);
+    if(list.indexOf(my_id) == -1) {
+      list.push(my_id);
+    }
+  });
+  var black_list = $(&#x27;#info_container&#x27;).data(&#x27;media-elements-not-anymore-in-conversion&#x27;);
+  for(var i = 0; i &lt; black_list.length; i ++) {
+    var j = list.indexOf(black_list[i]);
+    if(j != -1) {
+      list.splice(j, 1);
+    }
+  }
+  if(list.length &gt; 0) {
+    var ajax_url = &#x27;/lesson_editor/check_conversion?&#x27;;
+    for(var i = 0; i &lt; list.length; i ++) {
+      ajax_url += (&#x27;me&#x27; + list[i] + &#x27;=true&#x27;);
+      if(i != list.length - 1) {
+        ajax_url += &#x27;&amp;&#x27;;
+      }
+    }
+    unbindLoader();
+    $.ajax({
+      url: ajax_url,
+      type: &#x27;get&#x27;
+    }).always(bindLoader);
+  }
+  setTimeout(function() {
+    lessonEditorConversionOverview(list, time);
+  }, time);
+}
+
+/**
+Function that checks the conversion of the unconverted media elements in the page. Same structure of {{#crossLink &quot;MediaElementEditorConversion/lessonEditorConversionOverview:method&quot;}}{{/crossLink}}.
+@method mediaElementLoaderConversionOverview
+@for MediaElementEditorConversion
+@param list {Array} list of media elements that are being checked
+@param time {Number} time to iterate the loop
+**/
+function mediaElementLoaderConversionOverview(list, time) {
+  $(&#x27;._media_element_item._disabled&#x27;).each(function() {
+    var my_id = $(this).find(&#x27;._Image_button_preview, ._Audio_button_preview, ._Video_button_preview&#x27;).data(&#x27;clickparam&#x27;);
+    if(list.indexOf(my_id) == -1) {
+      list.push(my_id);
+    }
+  });
+  var black_list = $(&#x27;#info_container&#x27;).data(&#x27;media-elements-not-anymore-in-conversion&#x27;);
+  for(var i = 0; i &lt; black_list.length; i ++) {
+    var j = list.indexOf(black_list[i]);
+    if(j != -1) {
+      list.splice(j, 1);
+    }
+  }
+  if(list.length &gt; 0) {
+    var ajax_url = &#x27;/media_elements/conversion/check?&#x27;;
+    for(var i = 0; i &lt; list.length; i ++) {
+      ajax_url += (&#x27;me&#x27; + list[i] + &#x27;=true&#x27;);
+      if(i != list.length - 1) {
+        ajax_url += &#x27;&amp;&#x27;;
+      }
+    }
+    unbindLoader();
+    $.ajax({
+      url: ajax_url,
+      type: &#x27;get&#x27;
+    }).always(bindLoader);
+  }
+  setTimeout(function() {
+    mediaElementLoaderConversionOverview(list, time);
+  }, time);
+}
+
+/**
+Shows the message after the conversion ended inside Lesson Editor.
+@method uploaderConversionChecker
+@for MediaElementEditorConversion
+@param selector {String} selector for the correct translation to be shown
+@param title {String} the title of the item
+**/
+function uploaderConversionChecker(selector, title) {
+  var message = $captions.data(&#x27;lesson-editor-conversion-&#x27; + selector);
+  if(title != undefined) {
+    message = message.replace(&#x27;%{item}&#x27;, title);
+  }
+  var delayed = function() {
+    $(&#x27;#lesson-title&#x27;).hide();
+    $(&#x27;#error-footer-disclaimer&#x27;).text(message).removeClass(&#x27;true false&#x27;).addClass(selector.split(&#x27;-&#x27;)[1]).show();
+  }
+  if($(&#x27;#error-footer-disclaimer&#x27;).is(&#x27;:visible&#x27;)) {
+    setTimeout(delayed, 5000);
+  } else {
+    delayed();
+  }
+}
+
+
+
+
+
+/**
+Initializes the placeholder of the &lt;b&gt;commit forms&lt;/b&gt; used in {{#crossLinkModule &quot;audio-editor&quot;}}{{/crossLinkModule}}, {{#crossLinkModule &quot;image-editor&quot;}}{{/crossLinkModule}} and {{#crossLinkModule &quot;video-editor&quot;}}{{/crossLinkModule}}.
+@method mediaElementEditorDocumentReady
+@for MediaElementEditorDocumentReady
+**/
+function mediaElementEditorDocumentReady() {
+  $body.on(&#x27;click&#x27;, &#x27;._exit_media_element_editor&#x27;, function() {
+    stopCacheLoop();
+    var type = $(this).data(&#x27;type&#x27;);
+    var captions = $captions;
+    var title = captions.data(&#x27;exit-&#x27; + type + &#x27;-editor-title&#x27;);
+    var confirm = captions.data(&#x27;exit-&#x27; + type + &#x27;-editor-confirm&#x27;);
+    var yes = captions.data(&#x27;exit-&#x27; + type + &#x27;-editor-yes&#x27;);
+    var no = captions.data(&#x27;exit-&#x27; + type + &#x27;-editor-no&#x27;);
+    showConfirmPopUp(title, confirm, yes, no, function() {
+      $(&#x27;dialog-confirm&#x27;).hide();
+      unbindLoader();
+      $.ajax({
+        type: &#x27;post&#x27;,
+        url: &#x27;/&#x27; + type + &#x27;s/cache/empty&#x27;,
+        success: function() {
+          window.location = &#x27;/media_elements&#x27;;
+        }
+      }).always(bindLoader);
+    }, function() {
+      if($(&#x27;.formMediaElement&#x27;).is(&#x27;:visible&#x27;)) {
+        startCacheLoop();
+      }
+      closePopUp(&#x27;dialog-confirm&#x27;);
+    });
+  });
+  $body.on(&#x27;click&#x27;, &#x27;._commit_media_element_editor&#x27;, function() {
+    var type = $(this).data(&#x27;type&#x27;);
+    if(type != &#x27;image&#x27;) {
+      stopCacheLoop();
+      submitMediaElementEditorCacheForm($(&#x27;#&#x27; + type + &#x27;_editor_form&#x27;));
+    }
+    if($(this).hasClass(&#x27;_with_choice&#x27;)) {
+      var captions = $captions;
+      var title = captions.data(&#x27;save-media-element-editor-title&#x27;);
+      var confirm = captions.data(&#x27;save-media-element-editor-confirm&#x27;);
+      var yes = captions.data(&#x27;save-media-element-editor-yes&#x27;);
+      var no = captions.data(&#x27;save-media-element-editor-no&#x27;);
+      showConfirmPopUp(title, confirm, yes, no, function() {
+        closePopUp(&#x27;dialog-confirm&#x27;);
+        showCommitMediaElementEditorForm(type, &#x27;edit&#x27;)
+        disableTagsInputTooHigh($(&#x27;#edit-media-element ._tags_container&#x27;));
+      }, function() {
+        closePopUp(&#x27;dialog-confirm&#x27;);
+        $(&#x27;#&#x27; + type + &#x27;_editor_title ._titled&#x27;).hide();
+        $(&#x27;#&#x27; + type + &#x27;_editor_title ._untitled&#x27;).show();
+        showCommitMediaElementEditorForm(type, &#x27;new&#x27;)
+      });
+    } else {
+      showCommitMediaElementEditorForm(type, &#x27;new&#x27;)
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.formMediaElement .part3 .submit&#x27;, function() {
+    var container = $(this).parents(&#x27;.formMediaElement&#x27;);
+    var action = container.data(&#x27;form-action&#x27;);
+    var type = container.data(&#x27;form-type&#x27;);
+    if(action == &#x27;overwrite&#x27; &amp;&amp; $(&#x27;#info_container&#x27;).data(&#x27;used-in-private-lessons&#x27;)) {
+      var captions = $captions;
+      var title = captions.data(&#x27;overwrite-media-element-editor-title&#x27;);
+      var confirm = captions.data(&#x27;overwrite-media-element-editor-confirm&#x27;);
+      var yes = captions.data(&#x27;overwrite-media-element-editor-yes&#x27;);
+      var no = captions.data(&#x27;overwrite-media-element-editor-no&#x27;);
+      showConfirmPopUp(title, confirm, yes, no, function() {
+        $(&#x27;dialog-confirm&#x27;).hide();
+        $(&#x27;#&#x27; + type + &#x27;_editor_form&#x27;).attr(&#x27;action&#x27;, &#x27;/&#x27; + type + &#x27;s/commit/overwrite&#x27;).submit();
+      }, function() {
+        closePopUp(&#x27;dialog-confirm&#x27;);
+      });
+    } else {
+      $(&#x27;#&#x27; + type + &#x27;_editor_form&#x27;).attr(&#x27;action&#x27;, (&#x27;/&#x27; + type + &#x27;s/commit/&#x27; + action)).submit();
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;#new-media-element.formMediaElement .part3 .on-left .reuse-old-data&#x27;, function() {
+    var reuse = $(this);
+    var container = reuse.parents(&#x27;.formMediaElement&#x27;);
+    var reuse_hidden = container.find(&#x27;.part3 .on-left .hidden-data&#x27;);
+    if(!reuse.hasClass(&#x27;disabled&#x27;)) {
+      reuse.addClass(&#x27;disabled&#x27;);
+      reuse.find(&#x27;#reuse-old-data&#x27;).attr(&#x27;checked&#x27;, &#x27;checked&#x27;).attr(&#x27;disabled&#x27;, &#x27;disabled&#x27;);
+      container.find(&#x27;.part2 .title&#x27;).val(reuse_hidden.data(&#x27;title&#x27;));
+      container.find(&#x27;.part2 .title_placeholder&#x27;).val(&#x27;0&#x27;);
+      container.find(&#x27;.part2 .description&#x27;).val(reuse_hidden.data(&#x27;description&#x27;));
+      container.find(&#x27;.part2 .description_placeholder&#x27;).val(&#x27;0&#x27;);
+      var tags_container = container.find(&#x27;.part2 ._tags_container&#x27;);
+      container.find(&#x27;.part2 ._tags_container span&#x27;).remove();
+      container.find(&#x27;.part2 ._tags_container ._placeholder&#x27;).hide();
+      reuse_hidden.find(&#x27;span&#x27;).each(function() {
+        var copy = $(this)[0].outerHTML;
+        tags_container.prepend(copy);
+      });
+      container.find(&#x27;.part2 ._tags_container .tags_value&#x27;).val(reuse_hidden.data(&#x27;tags&#x27;));
+      container.find(&#x27;.form_error&#x27;).removeClass(&#x27;form_error&#x27;);
+      container.find(&#x27;.errors_layer&#x27;).hide();
+      disableTagsInputTooHigh(tags_container);
+    }
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.formMediaElement .part3 .close&#x27;, function() {
+    var container = $(this).parents(&#x27;.formMediaElement&#x27;);
+    var type = container.data(&#x27;form-type&#x27;);
+    var action = container.data(&#x27;form-action&#x27;);
+    if(type != &#x27;image&#x27;) {
+      $(&#x27;#&#x27; + type + &#x27;_editor_form&#x27;).attr(&#x27;action&#x27;, &#x27;/&#x27; + type + &#x27;s/cache/save&#x27;);
+      startCacheLoop();
+    }
+    if(action == &#x27;new&#x27;) {
+      if($(&#x27;#&#x27; + type + &#x27;_editor_title ._titled&#x27;).length &gt; 0) {
+        $(&#x27;#&#x27; + type + &#x27;_editor_title ._titled&#x27;).show();
+        $(&#x27;#&#x27; + type + &#x27;_editor_title ._untitled&#x27;).hide();
+      }
+      hideCommitMediaElementEditorForm(type, &#x27;new&#x27;);
+      container.find(&#x27;.part3 .on-left .reuse-old-data&#x27;).removeClass(&#x27;disabled&#x27;);
+      container.find(&#x27;.part3 .on-left .reuse-old-data #reuse-old-data&#x27;).removeAttr(&#x27;disabled&#x27;).removeAttr(&#x27;checked&#x27;);
+      container.find(&#x27;.part2 .title&#x27;).val(container.data(&#x27;placeholder-title&#x27;));
+      container.find(&#x27;.part2 .title_placeholder&#x27;).val(&#x27;&#x27;);
+      container.find(&#x27;.part2 .description&#x27;).val(container.data(&#x27;placeholder-description&#x27;));
+      container.find(&#x27;.part2 .description_placeholder&#x27;).val(&#x27;&#x27;);
+      container.find(&#x27;.part2 ._tags_container span&#x27;).remove();
+      container.find(&#x27;.part2 ._tags_container ._placeholder&#x27;).show();
+      container.find(&#x27;.part2 .tags_value&#x27;).val(&#x27;&#x27;);
+      container.find(&#x27;.part2 .tags&#x27;).val(&#x27;&#x27;);
+    } else {
+      hideCommitMediaElementEditorForm(type, &#x27;edit&#x27;);
+      container.find(&#x27;.part2 .title&#x27;).val(container.data(&#x27;title&#x27;));
+      container.find(&#x27;.part2 .title_placeholder&#x27;).val(&#x27;&#x27;);
+      container.find(&#x27;.part2 .description&#x27;).val(container.data(&#x27;description&#x27;));
+      container.find(&#x27;.part2 .description_placeholder&#x27;).val(&#x27;&#x27;);
+      container.find(&#x27;.part2 ._tags_container span&#x27;).remove();
+      container.find(&#x27;.part2 .hidden-tags span&#x27;).each(function() {
+        var copy = $(this)[0].outerHTML;
+        container.find(&#x27;.part2 ._tags_container&#x27;).prepend(copy);
+      });
+      container.find(&#x27;.part2 ._tags_container .tags_value&#x27;).val(container.data(&#x27;tags&#x27;));
+      container.find(&#x27;.part2 .tags&#x27;).val(&#x27;&#x27;).show();
+    }
+    container.find(&#x27;.form_error&#x27;).removeClass(&#x27;form_error&#x27;);
+    container.find(&#x27;.errors_layer&#x27;).hide();
+  });
+  $body.on(&#x27;focus&#x27;, &#x27;#new-media-element.formMediaElement .part2 .title&#x27;, function() {
+    var container = $(this).parents(&#x27;.formMediaElement&#x27;);
+    container.find(&#x27;.part3 .on-left .reuse-old-data&#x27;).removeClass(&#x27;disabled&#x27;);
+    container.find(&#x27;.part3 .on-left .reuse-old-data #reuse-old-data&#x27;).removeAttr(&#x27;disabled&#x27;).removeAttr(&#x27;checked&#x27;);
+    if(container.find(&#x27;.part2 .title_placeholder&#x27;).val() == &#x27;&#x27;) {
+      $(this).val(&#x27;&#x27;);
+      container.find(&#x27;.part2 .title_placeholder&#x27;).val(&#x27;0&#x27;);
+    }
+  });
+  $body.on(&#x27;focus&#x27;, &#x27;#new-media-element.formMediaElement .part2 .description&#x27;, function() {
+    var container = $(this).parents(&#x27;.formMediaElement&#x27;);
+    container.find(&#x27;.part3 .on-left .reuse-old-data&#x27;).removeClass(&#x27;disabled&#x27;);
+    container.find(&#x27;.part3 .on-left .reuse-old-data #reuse-old-data&#x27;).removeAttr(&#x27;disabled&#x27;).removeAttr(&#x27;checked&#x27;);
+    if(container.find(&#x27;.part2 .description_placeholder&#x27;).val() == &#x27;&#x27;) {
+      $(this).val(&#x27;&#x27;);
+      container.find(&#x27;.part2 .description_placeholder&#x27;).val(&#x27;0&#x27;);
+    }
+  });
+  $body.on(&#x27;focus&#x27;, &#x27;#new-media-element.formMediaElement .part2 ._tags_container .tags&#x27;, function() {
+    var container = $(this).parents(&#x27;.formMediaElement&#x27;);
+    container.find(&#x27;.part3 .on-left .reuse-old-data&#x27;).removeClass(&#x27;disabled&#x27;);
+    container.find(&#x27;.part3 .on-left .reuse-old-data #reuse-old-data&#x27;).removeAttr(&#x27;disabled&#x27;).removeAttr(&#x27;checked&#x27;);
+  });
+  $body.on(&#x27;keydown&#x27;, &#x27;.formMediaElement .part2 .title, .formMediaElement .part2 .description&#x27;, function() {
+    $(this).removeClass(&#x27;form_error&#x27;);
+  });
+  $body.on(&#x27;keydown&#x27;, &#x27;.formMediaElement .part2 ._tags_container .tags&#x27;, function() {
+    $(this).parent().removeClass(&#x27;form_error&#x27;);
+  });
+  $body.on(&#x27;click&#x27;, &#x27;.formMediaElement .errors_layer&#x27;, function() {
+    var myself = $(this);
+    var container = myself.parents(&#x27;.formMediaElement&#x27;);
+    myself.hide();
+    container.find(myself.data(&#x27;focus-selector&#x27;)).trigger(myself.data(&#x27;focus-action&#x27;));
+  });
+}
+
+
+
+
+
+/**
+Hides the commit form for overwrite or for new element (depending on the parameter).
+@method hideCommitMediaElementEditorForm
+@for MediaElementEditorForms
+@param type {String} &#x27;audio&#x27;, &#x27;image&#x27;, or &#x27;video&#x27;
+@param scope {String} it can be either &#x27;edit&#x27; or &#x27;new&#x27;
+**/
+function hideCommitMediaElementEditorForm(type, scope) {
+  $(&#x27;#&#x27; + scope + &#x27;-media-element&#x27;).hide();
+  $(&#x27;#&#x27; + type + &#x27;_editor .hideMe&#x27;).show();
+  if(type == &#x27;audio&#x27;) {
+    setBackAllZIndexesInAudioEditor();
+  }
+}
+
+/**
+Resets the media element loading form; used in {{#crossLink &quot;DialogsWithForm/showDocumentInfoPopUp:method&quot;}}{{/crossLink}}.
+@method resetDocumentChangeInfo
+@for MediaElementEditorForms
+@param container {Object} JQuery object of the form
+**/
+function resetDocumentChangeInfo(container) {
+  container.find(&#x27;.part2 .title&#x27;).val(container.data(&#x27;title&#x27;));
+  container.find(&#x27;.part2 .description&#x27;).val(container.data(&#x27;description&#x27;));
+  container.find(&#x27;.form_error&#x27;).removeClass(&#x27;form_error&#x27;);
+  container.find(&#x27;.errors_layer&#x27;).hide();
+}
+
+/**
+Resets the media element loading form; used in {{#crossLink &quot;DialogsWithForm/showMediaElementInfoPopUp:method&quot;}}{{/crossLink}}.
+@method resetMediaElementChangeInfo
+@for MediaElementEditorForms
+@param container {Object} JQuery object of the form
+**/
+function resetMediaElementChangeInfo(container) {
+  var tags_container = container.find(&#x27;.part2 ._tags_container&#x27;);
+  container.find(&#x27;.part2 .title&#x27;).val(container.data(&#x27;title&#x27;));
+  container.find(&#x27;.part2 .description&#x27;).val(container.data(&#x27;description&#x27;));
+  container.find(&#x27;.part2 ._tags_container span&#x27;).remove();
+  container.find(&#x27;.part2 .hidden-tags span&#x27;).each(function() {
+    var copy = $(this)[0].outerHTML;
+    tags_container.prepend(copy);
+  });
+  container.find(&#x27;.part2 ._tags_container .tags_value&#x27;).val(container.data(&#x27;tags&#x27;));
+  container.find(&#x27;.form_error&#x27;).removeClass(&#x27;form_error&#x27;);
+  container.find(&#x27;.errors_layer&#x27;).hide();
+  container.find(&#x27;.part2 .tags&#x27;).val(&#x27;&#x27;).show();
+}
+
+/**
+Shows the commit form for overwrite or for new element (depending on the parameter).
+@method showCommitMediaElementEditorForm
+@for MediaElementEditorForms
+@param type {String} &#x27;audio&#x27;, &#x27;image&#x27;, or &#x27;video&#x27;
+@param scope {String} it can be either &#x27;edit&#x27; or &#x27;new&#x27;
+**/
+function showCommitMediaElementEditorForm(type, scope) {
+  $(&#x27;#&#x27; + scope + &#x27;-media-element&#x27;).show();
+  $(&#x27;#&#x27; + type + &#x27;_editor .hideMe&#x27;).hide();
+  if(type == &#x27;audio&#x27;) {
+    setToZeroAllZIndexesInAudioEditor();
+  }
+}
+
+
+
+
+
+/**
+Submethod used in the methods of {{#crossLink &quot;VideoEditorScrollPain&quot;}}{{/crossLink}}: calculates the correct movement that a horizontal &lt;b&gt;left&lt;/b&gt; scroll must do taking into consideration the space available (thing that obviously JScrollPain doesn&#x27;t do itself).
+@method calculateCorrectMovementHorizontalScrollLeft
+@for MediaElementEditorHorizontalTimelines
+@param hidden {Float} the portion of the scroll hidden on the left
+@param movement {Float} the required movement
+@return {Float} the correct movement to do
+**/
+function calculateCorrectMovementHorizontalScrollLeft(hidden, movement) {
+  if(movement &gt; hidden) {
+    return hidden;
+  } else {
+    return movement;
+  }
+}
+
+/**
+Submethod used in the methods of {{#crossLink &quot;VideoEditorScrollPain&quot;}}{{/crossLink}}: calculates the correct movement that a horizontal &lt;b&gt;right&lt;/b&gt; scroll must do taking into consideration the space available (thing that obviously JScrollPain doesn&#x27;t do itself).
+@method calculateCorrectMovementHorizontalScrollRight
+@for MediaElementEditorHorizontalTimelines
+@param hidden {Float} the portion of the scroll hidden on the left
+@param movement {Float} the required movement
+@return {Float} the correct movement to do
+**/
+function calculateCorrectMovementHorizontalScrollRight(hidden, movement, tot, visible) {
+  return calculateCorrectMovementHorizontalScrollLeft(tot - hidden - visible, movement);
+}
+
+/**
+Submethod used in the methods of {{#crossLink &quot;VideoEditorScrollPain&quot;}}{{/crossLink}}: calculates the absolute position to be assigned to &lt;b&gt;a div that must be aligned to the component&lt;/b&gt; after having been moved to first position.
+@method getAbsolutePositionTimelineHorizontalScrollPane
+@for MediaElementEditorHorizontalTimelines
+@param jscrollpane_id {String} the HTML id of the scroll pane
+@param component_width {Number} the width in pixels of a single component
+@param component_position {Number} the position among the other components
+@param components_visible_number {Number} how many components are visible at the same time in the scroll pane
+@return {Number} the correct position of the div in pixels (it&#x27;s not float because we pass to the method only integers, unlike {{#crossLink &quot;MediaElementEditorHorizontalTimelines/calculateCorrectMovementHorizontalScrollRight:method&quot;}}{{/crossLink}} and {{#crossLink &quot;MediaElementEditorHorizontalTimelines/calculateCorrectMovementHorizontalScrollRight:method&quot;}}{{/crossLink}} that are defined generally)
+**/
+function getAbsolutePositionTimelineHorizontalScrollPane(jscrollpane_id, component_width, component_position, components_visible_number) {
+  var how_many_hidden_to_left = getHowManyComponentsHiddenToLeftTimelineHorizontalScrollPane(jscrollpane_id, component_width);
+  if($(&#x27;#&#x27; + jscrollpane_id).data(&#x27;jsp&#x27;).getPercentScrolledX() == 1) {
+    how_many_hidden_to_left += 1;
+  }
+  var resp = (components_visible_number - 1);
+  if(how_many_hidden_to_left + components_visible_number &gt;= component_position) {
+   resp = (component_position - how_many_hidden_to_left - 1);
+  }
+  return resp * component_width;
+}
+
+/**
+Submethod used in the methods of {{#crossLink &quot;VideoEditorScrollPain&quot;}}{{/crossLink}}: gets how many components are hidden to the left of the scroll pane.
+@method getHowManyComponentsHiddenToLeftTimelineHorizontalScrollPane
+@for MediaElementEditorHorizontalTimelines
+@param jscrollpane_id {String} the HTML id of the scroll pane
+@param component_width {Number} the width in pixels of a single component
+@return {Number} the number of components hidden to the left
+**/
+function getHowManyComponentsHiddenToLeftTimelineHorizontalScrollPane(jscrollpane_id, component_width) {
+  var hidden_to_left = $(&#x27;#&#x27; + jscrollpane_id).data(&#x27;jsp&#x27;).getContentPositionX();
+  return parseInt(hidden_to_left / component_width);
+}
+
+/**
+Submethod used in the methods of {{#crossLink &quot;VideoEditorScrollPain&quot;}}{{/crossLink}}: exactly the same as {{#crossLink &quot;MediaElementEditorHorizontalTimelines/getAbsolutePositionTimelineHorizontalScrollPane:method&quot;}}{{/crossLink}}, but &lt;b&gt;it returns the position of the scroll pane&lt;/b&gt; instead of the absolute pixels for an external div.
+@method getNormalizedPositionTimelineHorizontalScrollPane
+@for MediaElementEditorHorizontalTimelines
+@param jscrollpane_id {String} the HTML id of the scroll pane
+@param component_width {Number} the width in pixels of a single component
+@param component_position {Number} the position among the other components
+@param components_visible_number {Number} how many components are visible at the same time in the scroll pane
+@return {Number} the correct position of the scroll in pixels
+**/
+function getNormalizedPositionTimelineHorizontalScrollPane(jscrollpane_id, component_width, component_position, components_visible_number) {
+  var how_many_hidden_to_left = getHowManyComponentsHiddenToLeftTimelineHorizontalScrollPane(jscrollpane_id, component_width);
+  var resp = how_many_hidden_to_left * component_width;
+  if(how_many_hidden_to_left + components_visible_number &lt; component_position) {
+    resp += component_width;
+  }
+  return resp;
+}
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

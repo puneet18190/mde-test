@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html class="lesson-viewer-layout <%= controller_html_class %> <%= action_html_class %>">
+  
+  <head><%= render :partial => 'layouts/application/head' %></head>
+  
+  <body itemscope itemtype="http://schema.org/Product">
+    <% if controller_path == 'lesson_viewer' && action_name == 'index' %>
+      <% cover_img = @slides.first.media_elements_slides.first %>
+      <% if cover_img %>
+        <img style="display:none" itemprop="image" src="<%= url_for cover_img.media_element.thumb_url %>"/>
+      <% end %>
+    <% end %>
+    <%= render :partial => 'shared/browser_support_script' %>
+    <%= render :partial => 'shared/popups' %>
+    <%= render :partial => 'shared/loading' %>
+    <a id="left_scroll" class="navLeft" title="<%= t('titles.slides.back') %>"></a>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <a id="right_scroll" class="navRight" title="<%= t('titles.slides.forward') %>"></a>
+  </body>
+  
+</html>

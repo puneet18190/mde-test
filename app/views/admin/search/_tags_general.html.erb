@@ -1,0 +1,43 @@
+<%
+  options = ['', "<option value=\"1\">", "<option value=\"2\">", "<option value=\"3\">", "<option value=\"4\">"]
+  options[params[:recency].to_i] = options[params[:recency].to_i].gsub('>', " selected=\"selected\">") if params.present? && params[:recency].present?
+%>
+
+<div class="span4">
+  <div class="control-group for_tags heading">
+    <label class="for_title"><h5><%= t('admin.search.tags.titles.id') %></h5></label>
+  </div>
+  <div class="control-group for_tags">
+    <label for="id"><%= t('admin.search.tags.fields.id') %></label>
+    <div class="controls">
+      <%= text_field_tag 'search[id]', params ? params[:id] : '', :class => 'input-mini', :placeholder => t('admin.search.tags.fields.id') %>
+    </div>
+  </div>
+</div>
+<div class="span4">
+  <div class="control-group for_tags heading">
+    <label class="for_title"><h5><%= t('admin.search.tags.titles.word') %></h5></label>
+  </div>
+  <div class="control-group for_tags">
+    <label><%= t('admin.search.tags.fields.word') %></label>
+    <div class="controls">
+      <%= text_field_tag 'search[word]', params ? params[:word] : '', :class => 'input-medium', :placeholder => t('admin.search.tags.fields.word') %>
+    </div>
+  </div>
+</div>
+<div class="span4">
+  <div class="control-group for_tags heading">
+    <label class="for_title"><h5><%= t('admin.search.tags.titles.created_at') %></h5></label>
+  </div>
+  <div class="control-group for_tags">
+    <div class="controls">
+      <select id="recency" name="search[recency]">
+        <option value=""><%= t('admin.search.tags.fields.created_at.select') %></option>
+        <%= options[1].html_safe %><%= t('admin.search.tags.fields.created_at.today') %></option>
+        <%= options[2].html_safe %><%= t('admin.search.tags.fields.created_at.week') %></option>
+        <%= options[3].html_safe %><%= t('admin.search.tags.fields.created_at.month') %></option>
+        <%= options[4].html_safe %><%= t('admin.search.tags.fields.created_at.year') %></option>
+      </select>
+    </div>
+  </div>
+</div>

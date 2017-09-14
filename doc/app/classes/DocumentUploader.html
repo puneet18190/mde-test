@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>DocumentUploader</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            DocumentUploader 
+            
+                <span class="parent">&lt; 
+                    
+                    CarrierWave::Uploader::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/uploaders/document_uploader_rb.html">app/uploaders/document_uploader.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-absolute_store_dir_pathname">absolute_store_dir_pathname</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cache_dir">cache_dir</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-filename">filename</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-folder">folder</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-folder_size">folder_size</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-maximum_folder_size_exceeded-3F">maximum_folder_size_exceeded?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-original_extension">original_extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-original_filename_without_extension">original_filename_without_extension</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-remove_folder-21">remove_folder!</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-store_dir">store_dir</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="EnvRelativePath.html">
+              EnvRelativePath
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">STORE_DIR</td>
+            <td>=</td>
+            <td class="attr-value">env_relative_path &quot;documents&quot;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">FOLDER</td>
+            <td>=</td>
+            <td class="attr-value">Rails.public_pathname.join(STORE_DIR).to_s</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">MAXIMUM_FOLDER_SIZE</td>
+            <td>=</td>
+            <td class="attr-value">SETTINGS[&#39;maximum_documents_folder_size&#39;].gigabytes.to_i</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Maximum allowed size for media elements folder; if exceeded, upload gets
+disabled</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [R]
+            </td>
+            <td class='attr-name'>original_filename</td>
+            <td class='attr-desc'></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-folder_size">
+            
+              <b>folder_size</b>()
+            
+            <a href="../classes/DocumentUploader.html#method-c-folder_size" name="method-c-folder_size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-folder_size_source')" id="l_method-c-folder_size_source">show</a>
+                
+              </p>
+              <div id="method-c-folder_size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/document_uploader.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">folder_size</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-number">0</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-constant">FOLDER</span>
+  <span class="ruby-constant">Find</span>.<span class="ruby-identifier">find</span>(<span class="ruby-constant">FOLDER</span>).<span class="ruby-identifier">sum</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-identifier">f</span>).<span class="ruby-identifier">size</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-maximum_folder_size_exceeded-3F">
+            
+              <b>maximum_folder_size_exceeded?</b>()
+            
+            <a href="../classes/DocumentUploader.html#method-c-maximum_folder_size_exceeded-3F" name="method-c-maximum_folder_size_exceeded-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Whether the media folder size exceeds the maximum size or not</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-maximum_folder_size_exceeded-3F_source')" id="l_method-c-maximum_folder_size_exceeded-3F_source">show</a>
+                
+              </p>
+              <div id="method-c-maximum_folder_size_exceeded-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/document_uploader.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">maximum_folder_size_exceeded?</span>
+  <span class="ruby-identifier">folder_size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">MAXIMUM_FOLDER_SIZE</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-c-remove_folder-21">
+            
+              <b>remove_folder!</b>()
+            
+            <a href="../classes/DocumentUploader.html#method-c-remove_folder-21" name="method-c-remove_folder-21" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-remove_folder-21_source')" id="l_method-c-remove_folder-21_source">show</a>
+                
+              </p>
+              <div id="method-c-remove_folder-21_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/document_uploader.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">remove_folder!</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-constant">FOLDER</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-absolute_store_dir_pathname">
+            
+              <b>absolute_store_dir_pathname</b>()
+            
+            <a href="../classes/DocumentUploader.html#method-i-absolute_store_dir_pathname" name="method-i-absolute_store_dir_pathname" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-absolute_store_dir_pathname_source')" id="l_method-i-absolute_store_dir_pathname_source">show</a>
+                
+              </p>
+              <div id="method-i-absolute_store_dir_pathname_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/document_uploader.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">absolute_store_dir_pathname</span>
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">public_pathname</span>.<span class="ruby-identifier">join</span> <span class="ruby-identifier">store_dir</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-cache_dir">
+            
+              <b>cache_dir</b>()
+            
+            <a href="../classes/DocumentUploader.html#method-i-cache_dir" name="method-i-cache_dir" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cache_dir_source')" id="l_method-i-cache_dir_source">show</a>
+                
+              </p>
+              <div id="method-i-cache_dir_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/document_uploader.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cache_dir</span>
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>.<span class="ruby-identifier">join</span> <span class="ruby-string">&#39;tmp/documents&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-filename">
+            
+              <b>filename</b>()
+            
+            <a href="../classes/DocumentUploader.html#method-i-filename" name="method-i-filename" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Override the filename of the uploaded files: Avoid using model.id or
+version_name here, see uploader/store.rb for details.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-filename_source')" id="l_method-i-filename_source">show</a>
+                
+              </p>
+              <div id="method-i-filename_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/document_uploader.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">filename</span>
+  <span class="ruby-node">&quot;#{original_filename_without_extension.parameterize}_#{model.filename_token}#{original_extension}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">original_filename</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-folder">
+            
+              <b>folder</b>()
+            
+            <a href="../classes/DocumentUploader.html#method-i-folder" name="method-i-folder" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-folder_source')" id="l_method-i-folder_source">show</a>
+                
+              </p>
+              <div id="method-i-folder_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/document_uploader.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">folder</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span> <span class="ruby-identifier">path</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-original_extension">
+            
+              <b>original_extension</b>()
+            
+            <a href="../classes/DocumentUploader.html#method-i-original_extension" name="method-i-original_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-original_extension_source')" id="l_method-i-original_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-original_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/document_uploader.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">original_extension</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">original_filename</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">original_filename</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-original_filename_without_extension">
+            
+              <b>original_filename_without_extension</b>()
+            
+            <a href="../classes/DocumentUploader.html#method-i-original_filename_without_extension" name="method-i-original_filename_without_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-original_filename_without_extension_source')" id="l_method-i-original_filename_without_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-original_filename_without_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/document_uploader.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">original_filename_without_extension</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">original_filename</span>, <span class="ruby-identifier">original_extension</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">original_filename</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-store_dir">
+            
+              <b>store_dir</b>()
+            
+            <a href="../classes/DocumentUploader.html#method-i-store_dir" name="method-i-store_dir" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Override the directory where uploaded files will be stored. This is a
+sensible default for uploaders that are meant to be mounted:</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-store_dir_source')" id="l_method-i-store_dir_source">show</a>
+                
+              </p>
+              <div id="method-i-store_dir_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/uploaders/document_uploader.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">store_dir</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span> <span class="ruby-constant">STORE_DIR</span>, <span class="ruby-node">&quot;#{model.id}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

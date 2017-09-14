@@ -1,0 +1,29 @@
+<div class="griglia-contenuti">
+  <div class="profile-content">
+    <%= render :partial => 'users/title_bar', :locals => {:classes => ['', '', '', '', 'current']} %>
+    <br class="clearfloat"/>
+    <div class="contentFormInProfile">
+      <header>
+        <h2><%= t('users.trial.title', :desy => SETTINGS['application_name']).html_safe %></h2>
+        <p><%= t('users.trial.description', :desy => SETTINGS['application_name']) %></p>
+      </header>
+      <%= form_tag user_logged_upgrade_trial_path, :method => :post, :autocomplete => 'off' do %>
+        <div id="profile-trial-edit" class="profile-element-container">
+          <div class="profile-element">
+            <%= t('users.trial.purchase_code') %><br/>
+            <input type="text" value="" name="purchase_id"/>
+          </div>
+          <br class="clearfloat"/>
+          <ul class="profile-errors">
+            <% if @error.present? %>
+              <li><%= @error %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="form_submit">
+          <input type="submit" value="<%= t('users.trial.commit') %>"/>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

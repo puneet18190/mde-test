@@ -1,0 +1,24 @@
+<div class="row-fluid">
+  <div class="span3">
+    <ul class="nav nav-pills">
+      <% if expandable %>
+        <li>
+          <a href="#" id="expand-all"><%= t('admin.general.expand_all') %></a>
+        </li>
+        <li>
+          <a href="#" id="collapse-all"><%= t('admin.general.close_all') %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="span6" style="text-align:center">
+    <%# kaminari "total_count" scope under certain conditions makes Rails produce a false positive warning about implicit join references -%>
+    <%# https://github.com/amatsuda/kaminari/issues/444 -%>
+    <%= ActiveRecord::Base.implicit_join_references_warning_disabled { paginate items } %>
+  </div>
+  <div class="span3">
+    <div class="pull-right">
+      <span class="label"><%= page_items_counter(items) %></span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<%
+  kind = 'video_component_preview'
+
+  max_width, max_height = Image::CONTAINER_WIDTHS_BY_KIND[kind], Image::CONTAINER_HEIGHTS_BY_KIND[kind]
+
+  style =
+    if image.is_horizontal?(kind)
+      width = image.resize_width kind
+
+      offset = (width - max_width) / 2
+
+      'right:-%ipx; width:%ipx; height:%ipx' % [offset, width, max_height]
+    else
+      height = image.resize_height kind
+
+      offset = (height - max_height) / 2
+
+      'bottom:-%ipx; width:%ipx; height:%ipx' % [offset, max_width, height]
+    end
+%>
+
+<%= image_tag image.url, :style => style %>

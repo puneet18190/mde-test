@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Export::Lesson::Scorm::View::Helper</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Module</span> 
+            Export::Lesson::Scorm::View::Helper 
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../../files/lib/export/lesson/scorm/view/helper_rb.html">lib/export/lesson/scorm/view/helper.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-default_url_options">default_url_options</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-ims_duration">ims_duration</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-scorm_locale">scorm_locale</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-scorm_school_level">scorm_school_level</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-scorm_slide_title">scorm_slide_title</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            Rails
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">SCORM_LOCALE</td>
+            <td>=</td>
+            <td class="attr-value">I18n.default_locale</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">SCORM_SCHOOL_LEVELS</td>
+            <td>=</td>
+            <td class="attr-value">{}</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-default_url_options">
+            
+              <b>default_url_options</b>()
+            
+            <a href="../../../../../classes/Export/Lesson/Scorm/View/Helper.html#method-i-default_url_options" name="method-i-default_url_options" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-default_url_options_source')" id="l_method-i-default_url_options_source">show</a>
+                
+              </p>
+              <div id="method-i-default_url_options_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/export/lesson/scorm/view/helper.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">default_url_options</span>
+  <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;application&#39;</span>][<span class="ruby-string">&#39;default_url_options&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-ims_duration">
+            
+              <b>ims_duration</b>(media_element, extension)
+            
+            <a href="../../../../../classes/Export/Lesson/Scorm/View/Helper.html#method-i-ims_duration" name="method-i-ims_duration" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-ims_duration_source')" id="l_method-i-ims_duration_source">show</a>
+                
+              </p>
+              <div id="method-i-ims_duration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/export/lesson/scorm/view/helper.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">ims_duration</span>(<span class="ruby-identifier">media_element</span>, <span class="ruby-identifier">extension</span>)
+  <span class="ruby-identifier">duration</span> = <span class="ruby-identifier">media_element</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:&quot;#{extension}_duration&quot;</span>).<span class="ruby-identifier">round</span>(<span class="ruby-number">1</span>)
+  <span class="ruby-identifier">float_seconds</span> = ((<span class="ruby-identifier">duration</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">duration</span>.<span class="ruby-identifier">to_i</span>) <span class="ruby-operator">*</span> <span class="ruby-number">10</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">duration</span> = <span class="ruby-identifier">duration</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">seconds</span> = <span class="ruby-identifier">duration</span> <span class="ruby-operator">%</span> <span class="ruby-number">60</span>
+  <span class="ruby-identifier">duration</span> = <span class="ruby-identifier">duration</span> <span class="ruby-operator">/</span> <span class="ruby-number">60</span>
+  <span class="ruby-identifier">minutes</span> = <span class="ruby-identifier">duration</span> <span class="ruby-operator">%</span> <span class="ruby-number">60</span>
+  <span class="ruby-identifier">hours</span> = <span class="ruby-identifier">duration</span> <span class="ruby-operator">/</span> <span class="ruby-number">60</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hours</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;PT#{hours}H#{minutes}M#{seconds}.#{float_seconds}S&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">minutes</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;PT#{minutes}M#{seconds}.#{float_seconds}S&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;PT#{seconds}.#{float_seconds}S&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-scorm_locale">
+            
+              <b>scorm_locale</b>()
+            
+            <a href="../../../../../classes/Export/Lesson/Scorm/View/Helper.html#method-i-scorm_locale" name="method-i-scorm_locale" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-scorm_locale_source')" id="l_method-i-scorm_locale_source">show</a>
+                
+              </p>
+              <div id="method-i-scorm_locale_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/export/lesson/scorm/view/helper.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">scorm_locale</span>
+  <span class="ruby-constant">SCORM_LOCALE</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-scorm_school_level">
+            
+              <b>scorm_school_level</b>(school_level)
+            
+            <a href="../../../../../classes/Export/Lesson/Scorm/View/Helper.html#method-i-scorm_school_level" name="method-i-scorm_school_level" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-scorm_school_level_source')" id="l_method-i-scorm_school_level_source">show</a>
+                
+              </p>
+              <div id="method-i-scorm_school_level_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/export/lesson/scorm/view/helper.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">scorm_school_level</span>(<span class="ruby-identifier">school_level</span>)
+  <span class="ruby-identifier">resp</span> = <span class="ruby-constant">SCORM_SCHOOL_LEVELS</span>[<span class="ruby-identifier">school_level</span>]
+  <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;school&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">html_safe</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-scorm_slide_title">
+            
+              <b>scorm_slide_title</b>(slide)
+            
+            <a href="../../../../../classes/Export/Lesson/Scorm/View/Helper.html#method-i-scorm_slide_title" name="method-i-scorm_slide_title" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-scorm_slide_title_source')" id="l_method-i-scorm_slide_title_source">show</a>
+                
+              </p>
+              <div id="method-i-scorm_slide_title_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/export/lesson/scorm/view/helper.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">scorm_slide_title</span>(<span class="ruby-identifier">slide</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;Cover&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">slide</span>.<span class="ruby-identifier">cover?</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-node">&quot;Slide #{slide.position - 1}&quot;</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-node">&quot;#{resp} - #{slide.title}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">slide</span>.<span class="ruby-identifier">title</span>.<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">resp</span>.<span class="ruby-identifier">html_safe</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

@@ -1,0 +1,11 @@
+<%
+  first_depth = 0
+  first_depth = @locations.first.depth if @locations.any?
+%>
+
+<% ((first_depth + 1)...(SETTINGS['location_types'].length)).to_a.each do |depth| %>
+  $('select#locations_list_<%= depth %>').html('');
+<% end %>
+<% if @locations.any? %>
+  $('select#locations_list_<%= @locations.first.depth %>').html('<%= j render(:partial => "admin/users/locations_list", :locals => {:locations => @locations, :param => nil}) %>');
+<% end %>

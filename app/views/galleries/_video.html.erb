@@ -1,0 +1,12 @@
+<div id="video_gallery" class="video_gallery video-kind">
+  <div class="gallery-header">
+    <h3 class="pull-left"><%= t('galleries.videos.select') %></h3>
+    <a class="icon"></a>
+  </div>
+  <%= render :partial => 'galleries/contents/video', :locals => {:videos => videos} %>
+  <div class="gallery-footer">
+    <div class="pull-right">
+      <a class="_close_video_gallery exitGallery" title="<%= t('titles.galleries.close') %>"></a>
+    </div>
+  </div>
+</div>

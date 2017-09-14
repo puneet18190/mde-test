@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Admin::MessagesController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Admin::MessagesController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../AdminController.html">AdminController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/app/controllers/admin/messages_controller_rb.html">app/controllers/admin/messages_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Admin::MessagesController-label-Description">Description</h3>
+
+<p>Controller of notifications and general messages in the administration
+section. See <a href="../AdminController.html">AdminController</a>.</p>
+
+<h3 id="class-Admin::MessagesController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="../Location.html">Location</a></p>
+</li><li>
+<p><a href="../Notification.html">Notification</a></p>
+</li><li>
+<p><a href="../Report.html">Report</a></p>
+</li><li>
+<p><a href="../User.html">User</a></p>
+</li><li>
+<p><a href="../AdminSearchForm.html">AdminSearchForm</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-filter_users">filter_users</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-new_notification">new_notification</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-reports">reports</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-send_notifications">send_notifications</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-filter_users">
+            
+              <b>filter_users</b>()
+            
+            <a href="../../classes/Admin/MessagesController.html#method-i-filter_users" name="method-i-filter_users" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-filter_users-label-Description">Description</h3>
+
+<p>Ajax action that updates the number of recipients in the multiple
+notification sender main page</p>
+
+<h3 id="method-i-filter_users-label-Mode">Mode</h3>
+
+<p>Ajax</p>
+
+<h3 id="method-i-filter_users-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p>ApplicationController#admin_authentication</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-filter_users_source')" id="l_method-i-filter_users_source">show</a>
+                
+              </p>
+              <div id="method-i-filter_users_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/messages_controller.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">filter_users</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:send_message</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:message</span>].<span class="ruby-identifier">present?</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:all_users</span>].<span class="ruby-identifier">present?</span>
+        <span class="ruby-identifier">users</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">pluck</span>(<span class="ruby-value">:id</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">users</span> = <span class="ruby-constant">AdminSearchForm</span>.<span class="ruby-identifier">search_notifications_users</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]).<span class="ruby-identifier">pluck</span>(<span class="ruby-string">&#39;users.id&#39;</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">users</span>.<span class="ruby-identifier">present?</span>
+        <span class="ruby-identifier">send_notifications</span>(<span class="ruby-identifier">users</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:title</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:message</span>], <span class="ruby-identifier">params</span>[<span class="ruby-value">:basement</span>])
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@reset_form</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@users_count</span> = <span class="ruby-constant">AdminSearchForm</span>.<span class="ruby-identifier">search_notifications_users</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>], <span class="ruby-keyword">true</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-new_notification">
+            
+              <b>new_notification</b>()
+            
+            <a href="../../classes/Admin/MessagesController.html#method-i-new_notification" name="method-i-new_notification" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-new_notification-label-Description">Description</h3>
+
+<p>Main page of the multiple notification sender</p>
+
+<h3 id="method-i-new_notification-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-new_notification-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p>ApplicationController#admin_authentication</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-new_notification_source')" id="l_method-i-new_notification_source">show</a>
+                
+              </p>
+              <div id="method-i-new_notification_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/messages_controller.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">new_notification</span>
+  <span class="ruby-ivar">@locations</span> = [<span class="ruby-constant">Location</span>.<span class="ruby-identifier">roots</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
+    <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">get_from_chain_params</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
+    <span class="ruby-ivar">@locations</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">select_without_selected</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@users</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:users</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[\[\]\&quot;]/</span>, <span class="ruby-string">&#39;&#39;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:users</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reports">
+            
+              <b>reports</b>()
+            
+            <a href="../../classes/Admin/MessagesController.html#method-i-reports" name="method-i-reports" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-reports-label-Description">Description</h3>
+
+<p>Main page of the reports (for actions related to reports, see <a
+href="ReportsController.html">Admin::ReportsController</a>)</p>
+
+<h3 id="method-i-reports-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-reports-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p>ApplicationController#admin_authentication</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-reports_source')" id="l_method-i-reports_source">show</a>
+                
+              </p>
+              <div id="method-i-reports_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/messages_controller.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reports</span>
+  <span class="ruby-ivar">@elements_reports</span> = <span class="ruby-constant">Report</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;created_at DESC&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:reportable_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;MediaElement&#39;</span>).<span class="ruby-identifier">preload</span>(<span class="ruby-value">:reportable</span>, <span class="ruby-value">:user</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:elements_page</span>])
+  <span class="ruby-ivar">@lessons_reports</span> = <span class="ruby-constant">Report</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&#39;created_at DESC&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-value">:reportable_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Lesson&#39;</span>).<span class="ruby-identifier">preload</span>(<span class="ruby-value">:reportable</span>, <span class="ruby-value">:user</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:lessons_page</span>])
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-send_notifications">
+            
+              <b>send_notifications</b>(users_ids, title, message, basement)
+            
+            <a href="../../classes/Admin/MessagesController.html#method-i-send_notifications" name="method-i-send_notifications" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Uses <a
+href="../Notification.html#method-c-send_to">Notification.send_to</a> to
+send multiple messages organizing them in different threads</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-send_notifications_source')" id="l_method-i-send_notifications_source">show</a>
+                
+              </p>
+              <div id="method-i-send_notifications_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/messages_controller.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">send_notifications</span>(<span class="ruby-identifier">users_ids</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">basement</span>)
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(<span class="ruby-identifier">users_ids</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">basement</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

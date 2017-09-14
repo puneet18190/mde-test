@@ -1,0 +1,13 @@
+<div class="menuController <%= additional_class %>" id="media_element_menu_buttons_<%= media_element.id %>">
+  <% cont = 0 %>
+  <% media_element.buttons.each do |b| %>
+    <%= render :partial => "shared/buttons/#{b}", :locals => {:item => media_element, :destination => destination} %>
+    <% cont += 1 %>
+  <% end %>
+  <% if destination != ButtonDestinations::EXPANDED_MEDIA_ELEMENT %>
+    <% while cont < 3 %>
+      <a class="placeholder-btn"></a>
+      <% cont += 1 %>
+    <% end %>
+  <% end %>
+</div>

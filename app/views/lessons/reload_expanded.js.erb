@@ -1,0 +1,13 @@
+<% if @ok %>
+  <% if !@ok_msg.blank? %>
+    showOkPopUp('<%= j @ok_msg %>');
+  <% end %>
+  var target = $('#<%= @destination %>_<%= @lesson_id %>');
+  var margin_left = target.css('margin-left');
+  var margin_top = target.css('margin-top');
+  <% js_content = j(render(:partial => "lessons/view_single_expanded", :locals => {:lesson => @lesson})) %>
+  target.replaceWith("<%= js_content %>");
+  $('#<%= @destination %>_<%= @lesson_id %>').css('margin-left', margin_left).css('margin-top', margin_top);
+<% else %>
+  showErrorPopUp('<%= j @error %>');
+<% end %>

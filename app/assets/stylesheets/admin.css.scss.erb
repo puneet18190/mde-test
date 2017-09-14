@@ -1,0 +1,23 @@
+/*
+ * This is a manifest file that'll be compiled into admin.css, which will include all the files
+ * listed below.
+ *
+ *= require bootstrap_desy
+ *= require bootstrap-responsive
+ *= require datepicker
+ *= require jquery-ui-1.9.0.custom
+ */
+
+
+@import url(//fonts.googleapis.com/css?family=Nunito);
+@import url(//fonts.googleapis.com/css?family=Raleway:400,200);
+
+
+$assets-admin-menu-icons_png: url("<%= asset_path 'admin-menu-icons.png' %>");
+$orange: #F29400;
+$green: #41A62A;
+$blue: #2EAADC;
+$black: #5D5C5C;
+
+
+@import 'admin_overrides';

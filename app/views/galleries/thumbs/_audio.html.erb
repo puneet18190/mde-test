@@ -1,0 +1,21 @@
+<%
+  disabled = !audio.converted?
+  additional_class = disabled ? '_disabled'.html_safe : '_enabled'.html_safe
+  margin = (index == 0) ? "style=\"margin-top:0\"".html_safe : ''
+  my_title = disabled ? "title=\"#{t('titles.not_available.audio', :title => audio.title)}\"".html_safe : ''
+%>
+<div id="gallery_audio_<%= audio.id %>" class="audioTrackCompact _audio_gallery_thumb <%= additional_class %>" data-audio-id="<%= audio.id %>">
+  <div class="audioTrackContent _compact" <%= my_title %> <%= margin %>>
+    <div class="titleTrack"><p><%= audio.title %></p></div>
+    <div class="fltrt">
+      <% if !disabled %>
+        <a class="addButtonContent _select_audio_from_gallery" data-audio-id="<%= audio.id %>" data-m4a="<%= audio.m4a_url %>" data-ogg="<%= audio.ogg_url %>" data-duration="<%= audio.min_duration %>" title="<%= t('titles.galleries.add_audio') %>"></a>
+      <% end %>
+    </div>
+  </div>
+  <% if !disabled %>
+    <div class="audioTrackExpanded _expanded" style="display:none">
+      <%= render :partial => 'shared/players/custom/audio', :locals => {:audio => nil, :initialize_now => false} %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<div id="my_documents">
+  <% if documents.empty? %>
+    <% if word.nil? %>
+      <%= render :partial => 'documents/empty' %>
+    <% else %>
+      <%= render :partial => 'documents/empty_word', :locals => {:word => word} %>
+    <% end %>
+  <% else %>
+    <% documents.each_with_index do |d, index| %>
+      <% forced_margin = (index == documents.length - 1) ? (@for_page - documents.length) : nil %>
+      <%= render :partial => 'documents/view_single_compact', :locals => {:document => d, :word => word, :used_in_your_lessons => (d.instances.to_i != 0), :forced_margin => forced_margin} %>
+    <% end %>
+  <% end %>
+</div>

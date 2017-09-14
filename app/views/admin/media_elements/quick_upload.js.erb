@@ -1,0 +1,4 @@
+<% if !@file.nil? %>
+  $('#empty_files_in_admin_media_element_uploader').remove();
+  $('#new_elements_preview').prepend("<%= j render(:partial => 'media_element_upload', :locals => {:file => @file, :colspan => 4}) %>");
+<% end %>

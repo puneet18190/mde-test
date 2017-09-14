@@ -1,0 +1,39 @@
+<%
+  audio = slide.media_elements_at
+  audio_title = audio.nil? ? '' : audio.title
+%>
+
+<div class="slide-content audio small-size">
+  
+  <div class="item title-container">
+    <input class="title read-only" type="text" value="<%= slide.title.blank? ? t('lesson_editor.placeholders.title') : slide.title %>" disabled="disabled"/>
+  </div>
+  
+  <div class="item audio-container">
+    <% if audio %>
+      <div class="audio editable">
+        <div class="mask visible">
+          <%= render :partial => 'lesson_editor/thumbnails/fake_players/audio', :locals => {:audio => audio} %>
+          <span class="add" data-position="1" title="<%= t('titles.lesson_editor.change_audio') %>"></span>
+          <br/>
+          <div class="title"><%= audio_title %></div>
+        </div>
+      </div>
+    <% else %>
+      <div class="audio editable">
+        <div class="empty-mask visible">
+          <a class="add" data-position="1"></a>
+          <br/>
+          <p class="lower"><%= t('lesson_editor.choose_audio') %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="item text-container read-only">
+    <%= slide.text.blank? ? t('lesson_editor.placeholders.text') : slide.text.html_safe %>
+  </div>
+  
+  <a class="attached_document_internal" style="display:<%= slide.documents_slides.any? ? 'block' : 'none' %>"></a>
+  
+</div>

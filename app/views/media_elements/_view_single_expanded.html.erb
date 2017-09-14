@@ -1,0 +1,26 @@
+<%
+  disabled = (!media_element.image? && !media_element.converted?)
+  additional_class = ''
+  disabled_title = ''
+  if disabled
+    additional_class = '_disabled'.html_safe
+    disabled_title = "title=\"#{t("titles.not_available.#{media_element.sti_type.downcase}", :title => media_element.title)}\"".html_safe
+  end
+%>
+
+<div id="<%= destination %>_<%= media_element.id %>" class="boxViewExpandedMediaElement <%= additional_class %> _media_element_item _media_element_item_id_<%= media_element.id %>" data-preview-loaded="false" data-used-in-private-lessons="<%= used_in_private_lessons %>">
+  <div class="contentInterno _expanded_media_element_internal_container" <%= disabled_title %>>
+    <div class="thumbnail-container">
+      <%= render :partial => "media_elements/thumbnails/#{media_element.sti_type.downcase}", :locals => {:item => media_element} %>
+    </div>
+    <div class="description">
+      <h3><%= media_element.sti_type_to_s %></h3>
+      <h4><%= media_element.title %></h4>
+    </div>
+  </div>
+  <div class="mediaStatus fltlft">
+    <%= media_element.status(true) %>
+  </div>
+  <%= render :partial => 'media_elements/action_buttons', :locals => {:media_element => media_element, :destination => destination, :additional_class => additional_class} %>
+  <%= render :partial => 'media_elements/popup', :locals => {:media_element => media_element, :locked => true} %>
+</div>

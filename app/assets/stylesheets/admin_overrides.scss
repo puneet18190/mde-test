@@ -1,0 +1,853 @@
+.admin-layout {
+  
+  body {
+    
+    padding-bottom: 30px;
+    background-color: #F6F6F6;
+    
+  }
+  
+  .top-nav-box {
+    
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    border-radius: 0;
+    height: 160px;
+    padding-top: 50px;
+    background-color: #2B2B2B;
+    background-image: linear-gradient(bottom, rgb(0,0,0) 26%, rgb(91,91,91) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(0,0,0) 26%, rgb(91,91,91) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(0,0,0) 26%, rgb(91,91,91) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(0,0,0) 26%, rgb(91,91,91) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(0,0,0) 26%, rgb(91,91,91) 100%);
+    
+  }
+  
+  .navbar-inverse {
+    
+    background-color: transparent;
+    margin-top: 50px;
+    
+  }
+  
+  .full-content {
+    
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #fff;
+    
+  }
+  
+  table.outer_locations td, .outer_locations th {
+    
+    text-align: center;
+    
+  }
+  
+  table.inner_locations tr:last-child {
+    
+    border-bottom: 0;
+    
+  }
+  
+  table.outer_locations td {
+    
+    padding: 0px;
+    
+  }
+  
+  table.outer_locations a {
+    
+    cursor: pointer;
+    
+  }
+  
+  table.inner_locations, table.create_admin_location_form {
+    
+    width: 100%;
+    
+    a {
+      
+      cursor: pointer;
+      
+    }
+    
+    input {
+      
+      padding: 0;
+      margin: 0;
+      width: 60px;
+      
+    }
+    
+    tr {
+      
+      border-bottom: 1px solid #DDDDDD;
+      
+      td {
+        
+        border: none;
+        padding: 5px;
+        
+      }
+      
+    }
+    
+    tr.off {
+      
+      background-color: white;
+      
+    }
+    
+    tr.on {
+      
+      background-color: #CED8F6;
+      
+    }
+    
+  }
+  
+  .outer_locations.table-striped tbody > tr:nth-child(2n+1) > td {
+    
+    background-color: transparent;
+    
+  }
+  
+  .brand {
+    
+    margin-top: 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: $orange;
+    
+    img {
+      
+      margin-bottom: 14px;
+      
+    }
+    
+  }
+  
+  .service-links {
+    
+    padding-top: 10px;
+    text-align: right;
+    
+    a {
+      
+      margin-top: 5px;
+      
+    }
+    
+  }
+  
+  footer {
+    
+    clear: both;
+    margin-top: 30px;
+    
+  }
+  
+  a.action:hover {
+    
+   opacity: 0.5;
+   
+  }
+  
+  a.action.disabled {
+    
+    opacity: 0.2;
+    
+  }
+  
+  .table-hover tbody tr {
+    
+    cursor: pointer;
+    
+  }
+  
+  table thead tr th a:hover {
+    
+    opacity: 0.7;
+    
+  }
+  
+  .collapsed {
+    
+    display: none;
+    
+  }
+  
+  audio {
+    
+    width: 250px;
+    
+  }
+  
+  .lesson-thumbnail {
+    
+    width: 246px;
+    font-size: 12px;
+    
+  }
+  
+  .element-thumbnail {
+    
+    width: auto;
+    font-size: 12px;
+    
+    .bulletPointVideo {
+      
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      width: 200px;
+      
+    }
+    
+  }
+  
+  .new_elements_well .row-fluid div:nth-child(3n+1) {
+    
+    clear: left;
+    margin-left: 0;
+    
+  }
+  
+  blockquote {
+    
+    clear: both;
+    background-color: #FFFFFF;
+    padding: 10px;
+    
+    &.elements {
+      
+      border-color: #4BAB36;
+      
+    }
+    
+    &.lessons {
+      
+      border-color: #F89406;
+      
+    }
+    
+    &.legend {
+      
+      padding: 5px 10px;
+      height: 20px;
+      border-left: 10px solid gray;
+      margin-bottom: 5px;
+      
+    }
+    
+  }
+  
+  a blockquote,a blockquote:hover, .reports a, .reports a:hover {
+    
+    color: #2B2B2B;
+    text-decoration: none;
+    
+  }
+  
+  .reports a blockquote:hover {
+    
+    background-color: #F9F9F9;
+    
+  }
+  
+  .counter-label, .date-label {
+    
+    &.elements {
+      
+      color: #4BAB36;
+      
+    }
+    
+    &.lessons {
+      
+      color: #F89406;
+      
+    }
+    
+  }
+  
+  .search-foam {
+    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #FAFAFA;
+    padding: 20px 0 0 15px;
+    
+  }
+  
+  form {
+    
+    &.search-form {
+      
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #FAFAFA;
+      padding: 20px 0 0 15px;
+      
+      .form-actions {
+        
+        margin: 0 0 0 -15px;
+        
+      }
+      
+      .search-form-box {
+        
+        float: left;
+        width: 31%;
+        margin: 0 20px 20px 0;
+        
+      }
+      
+    }
+    
+    .control-group {
+      
+      float: left;
+      width: 350px;
+      margin-right: 20px;
+      
+      &.heading, &.heading h5 {
+        
+        padding: 0;
+        margin: 0 0 5px 0;
+        
+      }
+      
+      label {
+        
+        float: left;
+        text-align: right;
+        padding: 5px 15px 0 0;
+        width: 100px;
+        
+      }
+      
+      controls {
+        
+        float: right;
+        width: 165px;
+        
+      }
+      
+      select {
+        
+        width: 165px;
+        
+      }
+      
+      &.for_tags {
+        
+        float: left;
+        width: 350px;
+        margin-right: 20px;
+        
+        &.heading, &.heading h5 {
+          
+          padding: 0;
+          margin: 0 0 5px 0;
+          
+        }
+        
+        label.for_title {
+          
+          float: left;
+          text-align: right;
+          padding: 5px 15px 0 0;
+          width: 200px;
+          
+        }
+        
+        controls {
+          
+          float: right;
+          width: 165px;
+          
+        }
+        
+        select {
+          
+          width: 165px;
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  .ui-helper-hidden-accessible {
+    
+    display: none;
+    
+  }
+  
+  .element-update-form {
+    
+    text-align: center;
+    margin-bottom: 20px;
+    
+    img {
+      
+      margin: 20px auto;
+      width: 200px;
+      
+    }
+    
+  }
+  
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    
+    display: block;
+    margin-top: -3px;
+    
+  }
+  
+  a.menu:after, .dropdown-toggle:after {
+    
+    content: none;
+    
+  }
+  
+  .dropdown-menu a:hover {
+    
+    color: #FFFFFF;
+    background-color: #4F4F4F;
+    text-decoration: none;
+    
+  }
+  
+  .navbar-inverse .nav {
+    
+    margin-left: 2%;
+    
+  }
+  
+  .navbar-inverse .nav li a.first-level {
+    
+    width: 65px;
+    height: 15px;
+    padding: 60px 10px 10px;
+    margin-right: 10px;
+    background: $assets-admin-menu-icons_png 0 0;
+    text-align: center;
+    color: #FFFFFF;
+    
+    &:hover, &.active {
+      
+      background-position: 0 -85px;
+      color: #2B2B2B;
+      
+    }
+    
+    &.elements {
+      
+      background-position: -85px 0;
+      
+      &:hover, &.active {
+        
+        background-position: -85px -85px;
+        
+      }
+      
+    }
+    
+    &.lessons {
+      
+      background-position: -170px 0;
+      
+      &:hover, &.active {
+        
+        background-position: -170px -85px;
+        
+      }
+    }
+    
+    &.messages {
+      
+      background-position: -255px 0;
+      
+      &:hover, &.active {
+        
+        background-position: -255px -85px;
+        
+      }
+      
+    }
+    
+    &.documents {
+      
+      background-position: -510px 0;
+      
+      &:hover, &.active {
+        
+        background-position: -510px -85px;
+        
+      }
+      
+    }
+    
+    &.users {
+      
+      background-position: -340px 0;
+      
+      &:hover, &.active {
+        
+        background-position: -340px -85px;
+        
+      }
+      
+    }
+    
+    &.purchases {
+      
+      background-position: -595px 0;
+      margin-right: 0;
+      
+      &:hover, &.active {
+        
+        background-position: -595px -85px;
+        
+      }
+      
+    }
+    
+    &.settings {
+      
+      background-position: -425px 0;
+      
+      &:hover, &.active {
+        
+        background-position: -425px -85px;
+        
+      }
+      
+    }
+    
+  }
+  
+  #loading {
+    
+    display: none;
+    z-index: 100000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    opacity: 0.8;
+    text-align: center;
+    
+  }
+  
+  .containerLoading {
+    
+    position: absolute;
+    z-index: 999999;
+    background-color: #fff;
+    border-radius: 20px;
+    
+  }
+  
+  #preset-recipients {
+    
+    width: 500px;
+    font-size: 1em;
+    line-height: 1.3em;
+    
+  }
+  
+  .everyone {
+    
+    padding-top: 45px;
+    
+    input {
+      
+      margin-top: 0px;
+      
+    }
+    
+  }
+  
+  #log .label {
+    
+    margin: 0 5px 5px 0;
+    font-weight: normal;
+    
+    a {
+      
+      margin: 0 3px;
+      
+      &:hover {
+        
+        text-decoration: none;
+        
+      }
+      
+    }
+    
+  }
+  
+  i.icon-remove {
+    
+    cursor: pointer;
+    
+    &:hover {
+      
+      opacity: 0.5;
+      
+    }
+    
+  }
+  
+  .label.tags {
+    
+    margin: 0 10px 10px 0;
+    padding: 7px;
+    font-size: 14px;
+    font-weight: normal;
+    
+    i.icon-remove {
+      
+      margin: 3px 0 0 5px;
+      
+    }
+    
+    a {
+      
+      color: white;
+      font-weight: normal;
+      
+    }
+    
+  }
+  
+  .dashboard table, &.show-action table, table.white {
+    
+    background-color: #ffffff;
+    
+  }
+  
+  .list-heading {
+    
+    padding-top: 10px;
+    
+  }
+  
+  &.show-action table thead th a {
+    
+    display: none;
+    
+  }
+  
+  .label.subjects {
+    
+    font-weight: normal;
+    font-size: 13px;
+    
+  }
+  
+  .ui-autocomplete {
+    
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    display: none;
+    min-width: 160px;
+    _width: 160px;
+    padding: 4px 0;
+    margin: 2px 0 0 0;
+    list-style: none;
+    background-color: #ffffff;
+    border-color: #ccc;
+    border-color: rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    
+    li a {
+      
+      color: #F89406;
+      cursor: pointer;
+      
+    }
+    
+  }
+  
+  input[type="checkbox"] {
+    
+    zoom: 150%;
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    
+  }
+  
+  @media (max-width: 960px) {
+    
+    .navbar-inner {
+      
+      margin: 0 -30px;
+      
+    }
+    
+    .nav-collapse {
+      
+      background-color: black;
+      margin: 0 -20px;
+      padding: 0 20px;
+      
+      ul {
+        
+        margin-top: 100px;
+        
+      }
+      
+    }
+    
+  }
+  
+  .img_expanded {
+    
+    float: left;
+    padding: 0;
+    color: #fff;
+    font-size: 100%;
+    position: relative;
+    
+    .cover {
+      
+      width: 247px;
+      height: 143px;
+      overflow: hidden;
+      position: relative;
+      
+      img {
+        
+        position: absolute;
+        
+      }
+      
+    }
+    
+    .lessonSubject {
+      
+      background-color: #fff;
+      font-size: 80%;
+      color: #373737;
+      padding: 3px 10px;
+      clear: both;
+      width: 227px;
+      
+      span {
+        
+        float: right;
+        
+      }
+      
+      strong {
+        
+        color: $orange;
+        font-weight: normal;
+        
+      }
+      
+    }
+    
+    .bg_text {
+      
+      padding: 0px 7px 0px 7px;
+      background-color: rgba(242, 148, 0, 0.95);
+      height: 35px;
+      position: absolute;
+      bottom: 17px;
+      left: 0px;
+      width: 233px;
+      
+      .lessonTitle {
+        
+        font-size: 107%;
+        font-family: "Nunito", "Arial Rounded MT Bold", Helvetica, sans-serif;
+        line-height: 1em;
+        color: #fff;
+        padding: 5px 0 5px 0;
+        
+      }
+      
+    }
+    
+  }
+  
+  .img-polaroid.lesson-thumbnail {
+    
+    height: 164px;
+    
+  }
+  
+  .scope-cane a {
+    
+    color: #555555;
+    
+  }
+  
+  .clearfloat {
+  
+    clear: both;
+    height: 0;
+    
+  }
+  
+  #get_location_code {
+    
+    width: 100px;
+    
+  }
+  
+  #get_location_by_code_or_id {
+    
+    cursor: pointer;
+    
+  }
+  
+  .erroraccio {
+    
+    outline: 1px solid red;
+    
+  }
+  
+  #new_purchase #renewed {
+    
+    cursor: pointer;
+    
+  }
+  
+  #purchases-list tr.expired, #purchases-list tr.expired:hover, #purchases-list tr.expired td, #purchases-list tr.expired td:hover {
+    
+    background-color: #F7F2E0;
+    
+  }
+  
+}

@@ -1,0 +1,19 @@
+<div class="navcontainer">
+  <ul class="navlist">
+    <li class="dashboard lower">
+      <%= link_to t('captions.dashboard'), dashboard_path, :class => (@where == 'dashboard' ? 'current' : '') %>
+    </li>
+    <li class="lessons lower">
+      <%= link_to t('captions.lessons'), my_lessons_path, :class => (@where == 'lessons' ? 'current' : '') %>
+    </li>
+    <li class="media_elements lower">
+      <%= link_to t('captions.media_elements'), my_media_elements_path, :class => (@where == 'media_elements' ? 'current' : '') %>
+    </li>
+    <li class="documents lower">
+      <%= link_to t('captions.documents'), documents_path, :class => (@where == 'documents' ? 'current' : '') %>
+    </li>
+    <li class="virtual_classroom lower">
+      <%= link_to t('captions.virtual_classroom'), my_virtual_classroom_path, :class => (@where == 'virtual_classroom' ? 'current' : '') %>
+    </li>
+  </ul>
+</div>

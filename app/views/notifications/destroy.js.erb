@@ -1,0 +1,31 @@
+<% if @ok %>
+  var was_first = $('#notification_<%= @notification_id %>').hasClass('no-margin');
+  $('#notification_<%= @notification_id %>').hide('fade', {}, 500, function() {
+    $('#notification_<%= @notification_id %>').replaceWith('');
+    if(was_first) {
+      var first_new_notification = $('._single_notification').first();
+      if(first_new_notification.length > 0) {
+        first_new_notification.addClass('no-margin');
+      }
+    }
+    $('#tooltip_content').data('offset', <%= @offset_notifications %>);
+    $('#tooltip_content').data('tot-number', <%= @tot_notifications %>);
+    $('#tooltip_arancione').data('number', <%= @new_notifications %>);
+    $('#tooltip_arancione').html('<%= @new_notifications %>');
+    <% if @next_notification %>
+      $('#tooltip_content #notifications_list .jspPane').append('<%= j(render(:partial => "notifications/notification", :locals => {:notification => @next_notification, :without_margin => false})) %>');
+    <% elsif @offset_notifications == 0 %>
+      $('#notifications_list').html('<%= j(render(:partial => "notifications/empty")) %>');
+    <% end %>
+    var my_expanded = $('#expanded_notification');
+    if(my_expanded.is(':visible') && my_expanded.data('contentid') == 'notification_<%= @notification_id %>') {
+      my_expanded.hide('fade', {}, 500, function() {
+        hideExpandedNotification();
+        my_expanded.html('');
+        my_expanded.data('contentid', '0');
+      });
+    }
+  });
+<% else %>
+  showErrorPopUp('<%= j @error %>');
+<% end %>

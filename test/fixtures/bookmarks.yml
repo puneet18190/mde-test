@@ -1,0 +1,11 @@
+one:
+  id: 1
+  user_id: 1
+  bookmarkable_type: 'Lesson'
+  bookmarkable_id: 2
+
+two:
+  id: 2
+  user_id: 2
+  bookmarkable_type: 'MediaElement'
+  bookmarkable_id: 4

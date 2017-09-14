@@ -1,0 +1,32 @@
+var there_is_expanded = $('._lesson_expanded:visible');
+if(there_is_expanded.length > 0) {
+  there_is_expanded.parent().find('._lesson_compact').click();
+}
+
+<% if @delete_item.blank? %>
+  $('#my_lessons').hide('fade', {}, 500, function() {
+    $('#my_lessons').replaceWith("<%= j(render(:partial => 'lessons/my_lessons', :locals => {:lessons => @lessons, :filter => @filter, :covers => @covers})) %>");
+    <% if @lessons.any? %>
+      $('#general_pagination').replaceWith("<%= j(render(:partial => 'shared/pagination', :locals => {:page => @page, :pages_amount => @pages_amount})) %>");
+    <% else %>
+      $('#general_pagination').html('');
+    <% end %>
+  });
+<% else %>
+  var to_delete = $('#<%= @delete_item %>');
+  to_delete.hide('fade', {}, 500, function() {
+    var temporary_msg = $('#popup_captions_container').data('temporary-msg');
+    if(temporary_msg != '') {
+      showOkPopUp(temporary_msg);
+      $('#popup_captions_container').data('temporary-msg', '');
+    }
+    $('#my_lessons').replaceWith("<%= j(render(:partial => 'lessons/my_lessons', :locals => {:lessons => @lessons, :filter => @filter, :covers => @covers})) %>");
+    <% if @lessons.any? %>
+      $('#general_pagination').replaceWith("<%= j(render(:partial => 'shared/pagination', :locals => {:page => @page, :pages_amount => @pages_amount})) %>");
+    <% else %>
+      $('#general_pagination').html('');
+    <% end %>
+  });
+<% end %>
+
+$('#info_container').data('currenturl', <%= manipulate_url(remove_query_param: ["delete_item"], page: @page).to_json.html_safe %>);

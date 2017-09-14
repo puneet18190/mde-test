@@ -1,0 +1,11 @@
+<div id="notifications_main" class="fltrt">
+  <a id="help" title="<%= t('titles.help_tooltip') %>"></a>
+  <a id="notifications_button" title="<%= t('titles.notifications.label') %>"></a>
+  <a href="/profile" class="<%= @where == 'users' ? 'current' : '' %>" id="profile_link" title="<%= t('titles.profile.label') %>"></a>
+  <div id="expanded_notification" class="hidden" data-contentid="0"></div>
+  <%= render :partial => 'notifications/tooltip', :locals => {:notifications => notifications, :offset => offset, :tot => tot} %>
+  <span id="tooltip_arancione" class="tooltipArancione hidden" data-number="<%= news %>">
+    <%= news %>
+  </span>
+  <%= render :partial => 'notifications/tooltip_help', :locals => {:where => where} %>
+</div>

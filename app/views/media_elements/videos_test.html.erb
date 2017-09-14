@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="videos_test-layout <%= controller_html_class %> <%= action_html_class %>">
+  <head><%= render :partial => 'layouts/application/head' %></head>
+  <body>
+    <% conditions = { converted: true } -%>
+    <% conditions[:id] = params[:id] if params[:id] -%>
+    <% videos = Video.where(conditions).order(:id) -%>
+
+    <% if params[:format] != 'webm' -%>
+      <% videos.each do |record| -%>
+        <video controls="controls" width="720" height="405">
+          <source src="<%= record.media.url(:mp4) %>" type="video/mp4">
+        </video>
+      <% end -%>
+    <% end -%>
+
+    <% if params[:format] != 'mp4' -%>
+      <% videos.each do |record| -%>
+        <video controls="controls" width="720" height="405">
+          <source src="<%= record.media.url(:webm) %>" type="video/webm">
+        </video>
+      <% end -%>
+    <% end -%>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+<% @notifications.each do |n| %>
+  $('#tooltip_content #notifications_list .jspPane').append('<%= j(render(:partial => "notifications/notification", :locals => {:notification => n, :without_margin => false})) %>');
+<% end %>
+$('#tooltip_content').data('offset', <%= @offset_notifications %>);

@@ -1,0 +1,16 @@
+var container = $('#audio_editor_gallery_container');
+showGalleryInAudioEditor();
+container.html('<%= j(render(:partial => 'galleries/audio', :locals => {:audios => @audios})) %>');
+container.data('loaded', true);
+container.data('page', 1);
+container.data('tot-pages', <%= @tot_pages %>);
+$('._select_audio_from_gallery').addClass('_add_audio_component_to_audio_editor');
+$('._close_audio_gallery').addClass('_close_audio_gallery_in_audio_editor');
+<% @audios.each do |audio| %>
+  $('#gallery_audio_<%= audio.id %> ._select_audio_from_gallery').data('title', '<%= j audio.title %>');
+<% end %>
+<% if @audios.count > 6 %>
+  initializeAudioGalleryInAudioEditor();
+<% else %>
+  $('.audio_gallery .scroll-pane').css('overflow', 'hidden');
+<% end %>

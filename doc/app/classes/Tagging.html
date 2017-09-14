@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Tagging</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Tagging 
+            
+                <span class="parent">&lt; 
+                    
+                    ActiveRecord::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/tagging_rb.html">app/models/tagging.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Tagging-label-Description">Description</h3>
+
+<p>ActiveRecord class that corresponds to the table <code>taggings</code>. A
+tagging is an instance of a tag on a <a href="Lesson.html">Lesson</a> or a
+<a href="MediaElement.html">MediaElement</a>.</p>
+
+<h3 id="class-Tagging-label-Fields">Fields</h3>
+<ul><li>
+<p><em>taggable_id</em>: id of the item (lesson or media element) to which the
+tag is associated</p>
+</li><li>
+<p><em>taggable_type</em>: contains the string description of the classes <a
+href="Lesson.html">Lesson</a> or <a
+href="MediaElement.html">MediaElement</a> (the type is an enum defined in
+postgrsql)</p>
+</li><li>
+<p><em>tag_id</em>: id of the <a href="Tag.html">Tag</a> associated to the
+item</p>
+</li></ul>
+
+<h3 id="class-Tagging-label-Associations">Associations</h3>
+<ul><li>
+<p><em>tag</em>: associated <a href="Tag.html">Tag</a> (<em>belongs_to</em>)</p>
+</li><li>
+<p><em>taggable</em>: <a href="Lesson.html">Lesson</a> or <a
+href="MediaElement.html">MediaElement</a> tagged (polymorphic association)
+(<em>belongs_to</em>)</p>
+</li></ul>
+
+<h3 id="class-Tagging-label-Validations">Validations</h3>
+<ul><li>
+<p><em>presence</em> with numericality and existence of associated record for
+<code>tag_id</code> and <code>taggable_id</code></p>
+</li><li>
+<p><em>inclusion</em> of <code>taggable_type</code> between &#39;Lesson&#39;
+and &#39;MediaElement&#39;</p>
+</li><li>
+<p><em>uniqueness</em> of the triple [<code>tag_id</code>,
+<code>taggable_type</code>, <code>taggable_id</code>] <strong>only if
+<code>taggable_type</code> is correct</strong></p>
+</li><li>
+<p><em>modifications</em> <em>not</em> <em>available</em> for the three
+fields, if the record is not new</p>
+</li></ul>
+
+<h3 id="class-Tagging-label-Callbacks">Callbacks</h3>
+<ol><li>
+<p><em>after_destroy</em>: destroys the associated <a href="Tag.html">Tag</a>,
+if this tagging was the last attached to it: <strong>this happens only if
+the attribute <a
+href="Tagging.html#attribute-i-not_orphans">#not_orphans</a> is set as
+true</strong></p>
+</li></ol>
+
+<h3 id="class-Tagging-label-Database+callbacks">Database callbacks</h3>
+
+<p>None.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-destroy_orphan_tags">destroy_orphan_tags</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>G</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-good_taggable_type">good_taggable_type</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-init_validation">init_validation</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-validate_associations">validate_associations</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_impossible_changes">validate_impossible_changes</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-c-visive_tags">visive_tags</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+      <!-- Section attributes -->
+      <div class="sectiontitle">Attributes</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class='attr-rw'>
+              [W]
+            </td>
+            <td class='attr-name'>not_orphans</td>
+            <td class='attr-desc'><p>Used to skip the <code>after_destroy</code> callback</p></td>
+          </tr>
+        
+      </table>
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-visive_tags">
+            
+              <b>visive_tags</b>(tags)
+            
+            <a href="../classes/Tagging.html#method-c-visive_tags" name="method-c-visive_tags" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-visive_tags-label-Description">Description</h3>
+
+<p>Used as support for <a
+href="Lesson.html#method-i-visive_tags">Lesson#visive_tags</a> and <a
+href="MediaElement.html#method-i-visive_tags">MediaElement#visive_tags</a></p>
+
+<h3 id="method-c-visive_tags-label-Args">Args</h3>
+<ul><li>
+<p><em>tags</em>: the string containing tags in the shape
+&#39;,tag1,tag2,tag3,tag4,&#39;</p>
+</li></ul>
+
+<h3 id="method-c-visive_tags-label-Returns">Returns</h3>
+
+<p>A string of tags separated by comma and space</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-visive_tags_source')" id="l_method-c-visive_tags_source">show</a>
+                
+              </p>
+              <div id="method-c-visive_tags_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/tagging.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">visive_tags</span>(<span class="ruby-identifier">tags</span>)
+  <span class="ruby-identifier">tags</span>[<span class="ruby-number">1</span>, <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">length</span>].<span class="ruby-identifier">chop</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&#39;,&#39;</span>, <span class="ruby-string">&#39;, &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-destroy_orphan_tags">
+            
+              <b>destroy_orphan_tags</b>()
+            
+            <a href="../classes/Tagging.html#method-i-destroy_orphan_tags" name="method-i-destroy_orphan_tags" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Callback that destroys the attached <a href="Tag.html">Tag</a> if it
+doesn&#39;t have attached taggings anymore. The callback is not fired if
+the attribute <a
+href="Tagging.html#attribute-i-not_orphans">#not_orphans</a> is
+<code>true</code></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-destroy_orphan_tags_source')" id="l_method-i-destroy_orphan_tags_source">show</a>
+                
+              </p>
+              <div id="method-i-destroy_orphan_tags_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/tagging.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">destroy_orphan_tags</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@not_orphans</span>
+  <span class="ruby-identifier">tag</span>.<span class="ruby-identifier">destroy</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">tag</span>.<span class="ruby-identifier">taggings</span>.<span class="ruby-identifier">exists?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-good_taggable_type">
+            
+              <b>good_taggable_type</b>()
+            
+            <a href="../classes/Tagging.html#method-i-good_taggable_type" name="method-i-good_taggable_type" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Checks that <code>taggable_type</code> is in the correct format</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-good_taggable_type_source')" id="l_method-i-good_taggable_type_source">show</a>
+                
+              </p>
+              <div id="method-i-good_taggable_type_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/tagging.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">good_taggable_type</span>
+  [<span class="ruby-string">&#39;Lesson&#39;</span>, <span class="ruby-string">&#39;MediaElement&#39;</span>].<span class="ruby-identifier">include?</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">taggable_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-init_validation">
+            
+              <b>init_validation</b>()
+            
+            <a href="../classes/Tagging.html#method-i-init_validation" name="method-i-init_validation" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes validation objects (see <a
+href="Valid.html#method-c-get_association">Valid.get_association</a>)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-init_validation_source')" id="l_method-i-init_validation_source">show</a>
+                
+              </p>
+              <div id="method-i-init_validation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/tagging.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">init_validation</span>
+  <span class="ruby-ivar">@tagging</span> = <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:id</span>
+  <span class="ruby-ivar">@lesson</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">taggable_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Lesson&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span>(<span class="ruby-keyword">self</span>, <span class="ruby-value">:taggable_id</span>, <span class="ruby-constant">Lesson</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@media_element</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">taggable_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;MediaElement&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span>(<span class="ruby-keyword">self</span>, <span class="ruby-value">:taggable_id</span>, <span class="ruby-constant">MediaElement</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_associations">
+            
+              <b>validate_associations</b>()
+            
+            <a href="../classes/Tagging.html#method-i-validate_associations" name="method-i-validate_associations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates the presence of all the associated objects</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_associations_source')" id="l_method-i-validate_associations_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_associations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/tagging.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_associations</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:tag_id</span>, <span class="ruby-value">:doesnt_exist</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Tag</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">tag_id</span>)
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:taggable_id</span>, <span class="ruby-value">:lesson_doesnt_exist</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">taggable_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Lesson&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@lesson</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:taggable_id</span>, <span class="ruby-value">:media_element_doesnt_exist</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">taggable_type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;MediaElement&#39;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@media_element</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_impossible_changes">
+            
+              <b>validate_impossible_changes</b>()
+            
+            <a href="../classes/Tagging.html#method-i-validate_impossible_changes" name="method-i-validate_impossible_changes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>If not a new record, it validates that no field changed</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_impossible_changes_source')" id="l_method-i-validate_impossible_changes_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_impossible_changes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/tagging.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_impossible_changes</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tagging</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:tag_id</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tag_id</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@tagging</span>.<span class="ruby-identifier">tag_id</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:taggable_id</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">taggable_id</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@tagging</span>.<span class="ruby-identifier">taggable_id</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:taggable_type</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">taggable_type</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@tagging</span>.<span class="ruby-identifier">taggable_type</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

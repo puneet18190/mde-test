@@ -1,0 +1,1356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>UsersController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            UsersController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="ApplicationController.html">ApplicationController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/controllers/users_controller_rb.html">app/controllers/users_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-UsersController-label-Description">Description</h3>
+
+<p>Controller for actions related to user&#39;s profile and statistics</p>
+
+<h3 id="class-UsersController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="User.html">User</a></p>
+</li><li>
+<p><a href="UserMailer.html">UserMailer</a></p>
+</li><li>
+<p><a href="Location.html">Location</a></p>
+</li><li>
+<p><a href="Subject.html">Subject</a></p>
+</li><li>
+<p><a href="SchoolLevel.html">SchoolLevel</a></p>
+</li></ul>
+
+<h3 id="class-UsersController-label-Subcontrollers">Subcontrollers</h3>
+<ul><li>
+<p><a href="Users/SessionsController.html">Users::SessionsController</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-confirm">confirm</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create">create</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-edit">edit</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-find_locations">find_locations</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-logged_upgrade_trial">logged_upgrade_trial</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-mailing_lists">mailing_lists</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-request_reset_password">request_reset_password</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-request_upgrade_trial">request_upgrade_trial</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-reset_password">reset_password</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-send_reset_password">send_reset_password</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-send_upgrade_trial">send_upgrade_trial</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-statistics">statistics</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-subjects">subjects</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-toggle_locations">toggle_locations</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-trial">trial</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-update">update</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-update_subjects">update_subjects</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-upgrade_trial_link">upgrade_trial_link</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-confirm">
+            
+              <b>confirm</b>()
+            
+            <a href="../classes/UsersController.html#method-i-confirm" name="method-i-confirm" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-confirm-label-Description">Description</h3>
+
+<p>Confirms a profile using the link with token received by e-mail by the user</p>
+
+<h3 id="method-i-confirm-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-confirm-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-confirm_source')" id="l_method-i-confirm_source">show</a>
+                
+              </p>
+              <div id="method-i-confirm_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">confirm</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">confirm!</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>])
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;users/fullpage_notifications/confirmation/received&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;users/fullpage_notifications/expired_link&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-create">
+            
+              <b>create</b>()
+            
+            <a href="../classes/UsersController.html#method-i-create" name="method-i-create" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create-label-Description">Description</h3>
+
+<p>Creates a profile which is not confirmed yet</p>
+
+<h3 id="method-i-create-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-create-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_source')" id="l_method-i-create_source">show</a>
+                
+              </p>
+              <div id="method-i-create_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create</span>
+  <span class="ruby-ivar">@saas</span> = <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;saas_registration_mode&#39;</span>]
+  <span class="ruby-identifier">subject_ids</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:subjects</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-value">:subjects</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">subject_ids</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;_&#39;</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">user_saved</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">active</span>.<span class="ruby-identifier">not_confirmed</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">email</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>]
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">email_confirmation</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:email_confirmation</span>]
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>]
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">surname</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:surname</span>]
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">password</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>]
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">password_confirmation</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:password_confirmation</span>]
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">school_level_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:school_level_id</span>]
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">subject_ids</span> = <span class="ruby-identifier">subject_ids</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:policies</span>].<span class="ruby-identifier">present?</span>
+      <span class="ruby-identifier">params</span>[<span class="ruby-value">:policies</span>].<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">policy</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:&quot;#{policy}=&quot;</span>, <span class="ruby-string">&#39;1&#39;</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@saas</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:trial</span>].<span class="ruby-identifier">blank?</span>
+      <span class="ruby-identifier">purchase</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">find_by_token</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:purchase_id</span>]
+      <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">purchase_id</span> = <span class="ruby-identifier">purchase</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">id</span> <span class="ruby-operator">:</span> <span class="ruby-number">0</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:location</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:location</span>][<span class="ruby-constant">LAST_LOCATION</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+      <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">location_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:location</span>][<span class="ruby-constant">LAST_LOCATION</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">user_saved</span> = <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Rollback</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user_saved</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">user_saved</span>
+    <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">account_confirmation</span>(<span class="ruby-ivar">@user</span>).<span class="ruby-identifier">deliver</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@saas</span>
+      <span class="ruby-identifier">desy</span> = <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;application_name&#39;</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">trial?</span>
+        <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+          <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">id</span>,
+          <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.trial.title&#39;</span>, <span class="ruby-value">:user_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">name</span>),
+          <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.trial.message&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>, <span class="ruby-value">:validity</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;saas_trial_duration&#39;</span>]),
+          <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.trial.basement&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">upgrade_trial_link</span>)
+        )
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+          <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">id</span>,
+          <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.welcome.title&#39;</span>, <span class="ruby-value">:user_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">name</span>),
+          <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.welcome.message&#39;</span>, <span class="ruby-value">:desy</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">desy</span>, <span class="ruby-value">:expiration_date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">TimeConvert</span>.<span class="ruby-identifier">to_string</span>(<span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">expiration_date</span>)),
+          <span class="ruby-string">&#39;&#39;</span>
+        )
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">purchase</span> = <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">purchase</span>
+      <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">purchase_full</span>(<span class="ruby-identifier">purchase</span>).<span class="ruby-identifier">deliver</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">purchase</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:purchase_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">accounts_number</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;users/fullpage_notifications/confirmation/email_sent&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">initialize_registration_form</span>(<span class="ruby-identifier">subject_ids</span>)
+    <span class="ruby-ivar">@errors</span> = <span class="ruby-identifier">convert_user_error_messages</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">errors</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;prelogin/registration&#39;</span>, <span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;prelogin&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-edit">
+            
+              <b>edit</b>()
+            
+            <a href="../classes/UsersController.html#method-i-edit" name="method-i-edit" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-edit-label-Description">Description</h3>
+
+<p>Form to edit the general information about your profile</p>
+
+<h3 id="method-i-edit-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-edit-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_layout">ApplicationController#initialize_layout</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-edit_source')" id="l_method-i-edit_source">show</a>
+                
+              </p>
+              <div id="method-i-edit_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">edit</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">current_user</span>
+  <span class="ruby-identifier">initialize_general_profile</span>(<span class="ruby-ivar">@user</span>.<span class="ruby-identifier">location</span>)
+  <span class="ruby-ivar">@errors</span> = []
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-find_locations">
+            
+              <b>find_locations</b>()
+            
+            <a href="../classes/UsersController.html#method-i-find_locations" name="method-i-find_locations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-find_locations-label-Description">Description</h3>
+
+<p>Necessary to fill the locations list</p>
+
+<h3 id="method-i-find_locations-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-find_locations-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-find_locations_source')" id="l_method-i-find_locations_source">show</a>
+                
+              </p>
+              <div id="method-i-find_locations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 451</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">find_locations</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;0&#39;</span>
+    <span class="ruby-ivar">@parent</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-ivar">@first_depth</span> = <span class="ruby-number">1</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@parent</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+    <span class="ruby-ivar">@first_depth</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:empty_children</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">?</span> (<span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">depth</span> <span class="ruby-operator">+</span> <span class="ruby-number">2</span>) <span class="ruby-operator">:</span> (<span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">depth</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@locations</span> = <span class="ruby-ivar">@parent</span>.<span class="ruby-identifier">select_with_selected</span>
+  <span class="ruby-ivar">@location_types</span> = <span class="ruby-constant">LOCATION_TYPES</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-logged_upgrade_trial">
+            
+              <b>logged_upgrade_trial</b>()
+            
+            <a href="../classes/UsersController.html#method-i-logged_upgrade_trial" name="method-i-logged_upgrade_trial" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-logged_upgrade_trial-label-Description">Description</h3>
+
+<p>Sends to the user an email containing the upgrade trial token</p>
+
+<h3 id="method-i-logged_upgrade_trial-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-logged_upgrade_trial-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_layout">ApplicationController#initialize_layout</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-logged_upgrade_trial_source')" id="l_method-i-logged_upgrade_trial_source">show</a>
+                
+              </p>
+              <div id="method-i-logged_upgrade_trial_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 411</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">logged_upgrade_trial</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">trial?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">my_profile_path</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-identifier">current_user</span>
+  <span class="ruby-identifier">purchase</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">find_by_token</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:purchase_id</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">purchase</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">users</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">accounts_number</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;users.trial.errors.code_not_valid&#39;</span>)
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;trial&#39;</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">purchase_id</span> = <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">location_id</span> = <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">location_id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">location</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">sti_type</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-constant">LAST_LOCATION</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-ivar">@error</span> = <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;users.trial.errors.problem_saving&#39;</span>)
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;trial&#39;</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.upgraded.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.upgraded.message&#39;</span>, <span class="ruby-value">:expiration_date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">TimeConvert</span>.<span class="ruby-identifier">to_string</span>(<span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">expiration_date</span>)),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">dashboard_path</span>, { <span class="ruby-identifier">flash</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;users.trial.successful_upgrade&#39;</span>) } }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mailing_lists">
+            
+              <b>mailing_lists</b>()
+            
+            <a href="../classes/UsersController.html#method-i-mailing_lists" name="method-i-mailing_lists" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-mailing_lists-label-Description">Description</h3>
+
+<p>Manage your mailing lists and addresses (see <a
+href="MailingListsController.html">MailingListsController</a>)</p>
+
+<h3 id="method-i-mailing_lists-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-mailing_lists-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_layout">ApplicationController#initialize_layout</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mailing_lists_source')" id="l_method-i-mailing_lists_source">show</a>
+                
+              </p>
+              <div id="method-i-mailing_lists_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 504</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mailing_lists</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-request_reset_password">
+            
+              <b>request_reset_password</b>()
+            
+            <a href="../classes/UsersController.html#method-i-request_reset_password" name="method-i-request_reset_password" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-request_reset_password-label-Description">Description</h3>
+
+<p>Opens the page where the user writes an email to reset the password</p>
+
+<h3 id="method-i-request_reset_password-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-request_reset_password-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-request_reset_password_source')" id="l_method-i-request_reset_password_source">show</a>
+                
+              </p>
+              <div id="method-i-request_reset_password_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">request_reset_password</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-request_upgrade_trial">
+            
+              <b>request_upgrade_trial</b>()
+            
+            <a href="../classes/UsersController.html#method-i-request_upgrade_trial" name="method-i-request_upgrade_trial" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-request_upgrade_trial-label-Description">Description</h3>
+
+<p>Opens the page where the user writes an email and a purchase code to
+upgrade his trial account</p>
+
+<h3 id="method-i-request_upgrade_trial-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-request_upgrade_trial-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-request_upgrade_trial_source')" id="l_method-i-request_upgrade_trial_source">show</a>
+                
+              </p>
+              <div id="method-i-request_upgrade_trial_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">request_upgrade_trial</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;saas_registration_mode&#39;</span>]
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-reset_password">
+            
+              <b>reset_password</b>()
+            
+            <a href="../classes/UsersController.html#method-i-reset_password" name="method-i-reset_password" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-reset_password-label-Description">Description</h3>
+
+<p>Checks the token and resets the password; sends to the user an email
+containing the new password</p>
+
+<h3 id="method-i-reset_password-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-reset_password-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-reset_password_source')" id="l_method-i-reset_password_source">show</a>
+                
+              </p>
+              <div id="method-i-reset_password_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">reset_password</span>
+  <span class="ruby-identifier">new_password</span>, <span class="ruby-identifier">user</span> = <span class="ruby-operator">*</span><span class="ruby-constant">User</span>.<span class="ruby-identifier">reset_password!</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:token</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">new_password</span>
+    <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">new_password_confirmed</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">new_password</span>).<span class="ruby-identifier">deliver</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;users/fullpage_notifications/reset_password/received&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;users/fullpage_notifications/expired_link&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-send_reset_password">
+            
+              <b>send_reset_password</b>()
+            
+            <a href="../classes/UsersController.html#method-i-send_reset_password" name="method-i-send_reset_password" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-send_reset_password-label-Description">Description</h3>
+
+<p>Sends to the user an email containing the reset password token</p>
+
+<h3 id="method-i-send_reset_password-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-send_reset_password-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-send_reset_password_source')" id="l_method-i-send_reset_password_source">show</a>
+                
+              </p>
+              <div id="method-i-send_reset_password_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">send_reset_password</span>
+  <span class="ruby-identifier">email</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">email</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">user_request_reset_password_path</span>, { <span class="ruby-identifier">flash</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;flash.email_is_blank&#39;</span>) } }
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">active</span>.<span class="ruby-identifier">confirmed</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">email</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>).<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">password_token!</span>
+    <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">new_password</span>(<span class="ruby-identifier">user</span>).<span class="ruby-identifier">deliver</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;users/fullpage_notifications/reset_password/email_sent&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-send_upgrade_trial">
+            
+              <b>send_upgrade_trial</b>()
+            
+            <a href="../classes/UsersController.html#method-i-send_upgrade_trial" name="method-i-send_upgrade_trial" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-send_upgrade_trial-label-Description">Description</h3>
+
+<p>Sends to the user an email containing the upgrade trial token</p>
+
+<h3 id="method-i-send_upgrade_trial-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-send_upgrade_trial-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-send_upgrade_trial_source')" id="l_method-i-send_upgrade_trial_source">show</a>
+                
+              </p>
+              <div id="method-i-send_upgrade_trial_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">send_upgrade_trial</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;saas_registration_mode&#39;</span>]
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">root_path</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:purchase_id</span>].<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">user_request_upgrade_trial_path</span>, { <span class="ruby-identifier">flash</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;flash.upgrade_trial.missing_fields&#39;</span>) } }
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">active</span>.<span class="ruby-identifier">confirmed</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:email</span>]).<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">trial?</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">valid_password?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>])
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">user_request_upgrade_trial_path</span>, { <span class="ruby-identifier">flash</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;flash.upgrade_trial.wrong_login_or_not_trial&#39;</span>) } }
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">purchase</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">find_by_token</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:purchase_id</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">purchase</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">users</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">accounts_number</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">user_request_upgrade_trial_path</span>, { <span class="ruby-identifier">flash</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;flash.upgrade_trial.purchase_token_not_valid&#39;</span>) } }
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">purchase_id</span> = <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-identifier">user</span>.<span class="ruby-identifier">location_id</span> = <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">location_id</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">location</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">sti_type</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-constant">LAST_LOCATION</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">user_request_upgrade_trial_path</span>, { <span class="ruby-identifier">flash</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;flash.upgrade_trial.generic_error&#39;</span>) } }
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+    <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>,
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.upgraded.title&#39;</span>),
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.upgraded.message&#39;</span>, <span class="ruby-value">:expiration_date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">TimeConvert</span>.<span class="ruby-identifier">to_string</span>(<span class="ruby-identifier">purchase</span>.<span class="ruby-identifier">expiration_date</span>)),
+    <span class="ruby-string">&#39;&#39;</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-statistics">
+            
+              <b>statistics</b>()
+            
+            <a href="../classes/UsersController.html#method-i-statistics" name="method-i-statistics" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-statistics-label-Description">Description</h3>
+
+<p>Static page with general and personal statistics</p>
+
+<h3 id="method-i-statistics-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-statistics-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_layout">ApplicationController#initialize_layout</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-statistics_source')" id="l_method-i-statistics_source">show</a>
+                
+              </p>
+              <div id="method-i-statistics_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 519</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">statistics</span>
+  <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">user</span> = <span class="ruby-identifier">current_user</span>
+  <span class="ruby-ivar">@my_created_lessons</span>      = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">my_created_lessons</span>
+  <span class="ruby-ivar">@my_created_elements</span>     = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">my_created_elements</span>
+  <span class="ruby-ivar">@my_copied_lessons</span>       = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">my_copied_lessons</span>
+  <span class="ruby-ivar">@my_liked_lessons</span>        = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">my_liked_lessons</span>(<span class="ruby-number">3</span>)
+  <span class="ruby-ivar">@my_linked_lessons_count</span> = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">my_linked_lessons_count</span>
+  <span class="ruby-ivar">@all_liked_lessons</span>       = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">all_liked_lessons</span>(<span class="ruby-number">3</span>)
+  <span class="ruby-ivar">@my_likes_count</span>          = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">my_likes_count</span>
+  <span class="ruby-ivar">@all_shared_elements</span>     = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">all_shared_elements</span>
+  <span class="ruby-ivar">@all_shared_lessons</span>      = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">all_shared_lessons</span>
+  <span class="ruby-ivar">@all_users</span>               = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">all_users</span>
+  <span class="ruby-ivar">@all_users_like</span>          = <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">all_users_like</span>(<span class="ruby-number">3</span>)
+  <span class="ruby-ivar">@subjects_chart</span>          = {
+    <span class="ruby-value">:data</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">subjects_chart</span>,
+    <span class="ruby-value">:texts</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Statistics</span>.<span class="ruby-identifier">subjects</span>,
+    <span class="ruby-value">:colors</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">chart_colors</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-subjects">
+            
+              <b>subjects</b>()
+            
+            <a href="../classes/UsersController.html#method-i-subjects" name="method-i-subjects" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-subjects-label-Description">Description</h3>
+
+<p>Form to edit your list of subjects</p>
+
+<h3 id="method-i-subjects-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-subjects-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_layout">ApplicationController#initialize_layout</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-subjects_source')" id="l_method-i-subjects_source">show</a>
+                
+              </p>
+              <div id="method-i-subjects_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 340</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">subjects</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">current_user</span>
+  <span class="ruby-identifier">initialize_subjects_profile</span>(<span class="ruby-keyword">true</span>)
+  <span class="ruby-ivar">@errors</span> = []
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-toggle_locations">
+            
+              <b>toggle_locations</b>()
+            
+            <a href="../classes/UsersController.html#method-i-toggle_locations" name="method-i-toggle_locations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-toggle_locations-label-Description">Description</h3>
+
+<p>Toggles locations between active and disabled, in the registration form:
+used in case the user doesn&#39;t find his location in the database.</p>
+
+<h3 id="method-i-toggle_locations-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-toggle_locations-label-Skipped+filters">Skipped filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-authenticate">ApplicationController#authenticate</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-toggle_locations_source')" id="l_method-i-toggle_locations_source">show</a>
+                
+              </p>
+              <div id="method-i-toggle_locations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 475</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">toggle_locations</span>
+  <span class="ruby-ivar">@location_types</span> = <span class="ruby-constant">LOCATION_TYPES</span>
+  <span class="ruby-ivar">@on</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:on</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;true&#39;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@on</span>
+    <span class="ruby-identifier">location</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">find_by_id</span>(<span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:location_id</span>]) <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:location_id</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">:</span> <span class="ruby-number">0</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">location</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-ivar">@locations</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">roots</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)
+      <span class="ruby-ivar">@depth</span> = <span class="ruby-number">0</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@locations</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)
+      <span class="ruby-ivar">@depth</span> = <span class="ruby-identifier">location</span>.<span class="ruby-identifier">depth</span> <span class="ruby-operator">+</span> <span class="ruby-number">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@depth</span> = <span class="ruby-identifier">correct_integer?</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:depth</span>]) <span class="ruby-operator">?</span> (<span class="ruby-identifier">params</span>[<span class="ruby-value">:depth</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-number">1</span>) <span class="ruby-operator">:</span> <span class="ruby-number">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-trial">
+            
+              <b>trial</b>()
+            
+            <a href="../classes/UsersController.html#method-i-trial" name="method-i-trial" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-trial-label-Description">Description</h3>
+
+<p>Section of your profile about trial version handling</p>
+
+<h3 id="method-i-trial-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-trial-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_layout">ApplicationController#initialize_layout</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-trial_source')" id="l_method-i-trial_source">show</a>
+                
+              </p>
+              <div id="method-i-trial_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 392</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">trial</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">trial?</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">my_profile_path</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-update">
+            
+              <b>update</b>()
+            
+            <a href="../classes/UsersController.html#method-i-update" name="method-i-update" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-update-label-Description">Description</h3>
+
+<p>Updates your profile.</p>
+
+<h3 id="method-i-update-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-update-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_layout">ApplicationController#initialize_layout</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-update_source')" id="l_method-i-update_source">show</a>
+                
+              </p>
+              <div id="method-i-update_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">update</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">current_user</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:location</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:location</span>][<span class="ruby-constant">LAST_LOCATION</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">!=</span> <span class="ruby-number">0</span>
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">location_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:location</span>][<span class="ruby-constant">LAST_LOCATION</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:name</span>]
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">surname</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:surname</span>]
+  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">school_level_id</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:school_level_id</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">password</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:password</span>]
+    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">password_confirmation</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:password_confirmation</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">my_profile_path</span>, { <span class="ruby-identifier">flash</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;users.info.ok_popup&#39;</span>) } }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@errors</span> = <span class="ruby-identifier">convert_user_error_messages</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">errors</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:subjects</span>].<span class="ruby-identifier">any?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:policies</span>].<span class="ruby-identifier">any?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:purchase</span>].<span class="ruby-identifier">any?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value">:email</span>)
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">my_profile_path</span>, { <span class="ruby-identifier">flash</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;users.info.wrong_popup&#39;</span>) } }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">initialize_general_profile</span>(<span class="ruby-ivar">@user</span>.<span class="ruby-identifier">location</span>)
+      <span class="ruby-ivar">@errors</span> = <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:general</span>]
+      <span class="ruby-identifier">render</span> <span class="ruby-value">:edit</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-update_subjects">
+            
+              <b>update_subjects</b>()
+            
+            <a href="../classes/UsersController.html#method-i-update_subjects" name="method-i-update_subjects" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-update_subjects-label-Description">Description</h3>
+
+<p>Updates your subjects.</p>
+
+<h3 id="method-i-update_subjects-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-update_subjects-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="ApplicationController.html#method-i-initialize_layout">ApplicationController#initialize_layout</a></p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-update_subjects_source')" id="l_method-i-update_subjects_source">show</a>
+                
+              </p>
+              <div id="method-i-update_subjects_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">update_subjects</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">current_user</span>
+  <span class="ruby-identifier">subject_ids</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:subjects</span>].<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-value">:subjects</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">subject_ids</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;_&#39;</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">subject_ids</span><span class="ruby-operator">:</span> <span class="ruby-identifier">subject_ids</span>)
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">my_subjects_path</span>, { <span class="ruby-identifier">flash</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;users.subjects.ok_popup&#39;</span>) } }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@errors</span> = <span class="ruby-identifier">convert_user_error_messages</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">errors</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:general</span>].<span class="ruby-identifier">any?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:policies</span>].<span class="ruby-identifier">any?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:purchase</span>].<span class="ruby-identifier">any?</span>
+      <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">my_subjects_path</span>, { <span class="ruby-identifier">flash</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;users.subjects.wrong_popup&#39;</span>) } }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">initialize_subjects_profile</span>(<span class="ruby-keyword">true</span>)
+      <span class="ruby-ivar">@errors</span> = <span class="ruby-ivar">@errors</span>[<span class="ruby-value">:subjects</span>]
+      <span class="ruby-identifier">render</span> <span class="ruby-value">:subjects</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-upgrade_trial_link">
+            
+              <b>upgrade_trial_link</b>()
+            
+            <a href="../classes/UsersController.html#method-i-upgrade_trial_link" name="method-i-upgrade_trial_link" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Function to be overwritten if the upgrade trial path changes</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-upgrade_trial_link_source')" id="l_method-i-upgrade_trial_link_source">show</a>
+                
+              </p>
+              <div id="method-i-upgrade_trial_link_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/users_controller.rb, line 542</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">upgrade_trial_link</span>
+  <span class="ruby-identifier">my_trial_path</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

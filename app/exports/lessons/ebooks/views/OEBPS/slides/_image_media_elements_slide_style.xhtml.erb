@@ -1,0 +1,5 @@
+<%= %[ background-image:    url(&quot;#{h image_path(image_media_elements_slide.media_element)}&quot;);
+       background-position: #{h image_media_elements_slide.background_position.to_s};
+       background-size:     #{h image_media_elements_slide.background_size.to_s}
+     ].strip.gsub(/\s+/, ' ').html_safe if image_media_elements_slide
+%>

@@ -1,0 +1,7 @@
+<% if @ok %>
+  $('h3#accordion_group_' + <%= @mailing_list_group_id %> + ' .group-title').text('<%= @mailing_list_group.name %>').effect('highlight', {color: '#41A62A'}, 1500);
+<% elsif @mailing_list_group %>
+  $('h3#accordion_group_' + <%= @mailing_list_group_id %>).effect('highlight', {color: '#cc0000'}, 500);
+<% else %>
+  showErrorPopUp($('#popup_captions_container').data('mailing-list-general-error'));
+<% end %>

@@ -1,0 +1,11 @@
+<%
+  image      = slide.media_elements_at
+  slide_text = slide.text(math_images_path_relative_from_folder: math_images_archive_folder_name)
+-%>
+
+<h1 class="title"><%= slide.title.to_s.strip %></h1>
+<figure class="<%= image_figure_classes image, 'image' %>">
+  <div style="<%= image_style image %>"></div>
+  <figcaption><%= image.caption if image %></figcaption>
+</figure>
+<div class="text"><%= slide_text.html_safe if slide_text %></div>

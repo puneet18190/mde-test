@@ -1,0 +1,14 @@
+<% if flash.notice %>
+  <script>
+    $(document).ready(function() {
+      showOkPopUp(<%= flash.notice.to_json.html_safe %>);
+    });
+  </script>
+<% end %>
+<% if flash.alert %>
+  <script>
+    $(document).ready(function() {
+      showErrorPopUp(<%= flash.alert.to_json.html_safe %>);
+    });
+  </script>
+<% end %>

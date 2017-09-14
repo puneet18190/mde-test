@@ -1,0 +1,7 @@
+<h3><%= t('admin.purchases.edit.title').upcase %></h3>
+<%= form_for(@purchase, :id => 'admin-purchases-edit', :class => 'search-form', :url => admin_purchase_path(@purchase.id), :remote => true) do |f| %>
+  <hr/>
+  <%= render :partial => 'common_form', :locals => {:f => f} %>
+  <hr/>
+  <%= f.submit t('admin.purchases.edit.submit') %>
+<% end %>

@@ -1,0 +1,9 @@
+<% if @ok %>
+  $('#lesson_in_playlist_<%= @lesson_id %>').hide('fade', {}, 500, function() {
+    $('#virtual_classroom_playlist').replaceWith('<%= j(render(:partial => 'virtual_classroom/playlist', :locals => {:lessons => @playlist})) %>');
+    initializeDraggableVirtualClassroomLesson('virtual_classroom_lesson_<%= @lesson_id %>');
+    initializePlaylist();
+  });
+<% else %>
+  showErrorPopUp('<%= j @error %>');
+<% end %>

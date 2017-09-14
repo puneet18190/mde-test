@@ -1,0 +1,1122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Document 
+            
+                <span class="parent">&lt; 
+                    
+                    ActiveRecord::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/document_rb.html">app/models/document.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Document-label-Description">Description</h3>
+
+<p>ActiveRecord class that corresponds to the table <code>documents</code>.</p>
+
+<h3 id="class-Document-label-Fields">Fields</h3>
+<ul><li>
+<p><em>user_id</em>: id of the creator of the document</p>
+</li><li>
+<p><em>title</em>: title</p>
+</li><li>
+<p><em>description</em>: description</p>
+</li><li>
+<p><em>attachment</em>: attached file</p>
+</li><li>
+<p><em>metadata</em>: contains:</p>
+</li><li>
+<p><code>size</code>: dimension of the attached file</p>
+</li></ul>
+
+<h3 id="class-Document-label-Associations">Associations</h3>
+<ul><li>
+<p><em>user</em>: reference to the <a href="User.html">User</a> who created
+the document (<em>belongs_to</em>)</p>
+</li><li>
+<p><em>documents_slides</em>: instances of this <a
+href="Document.html">Document</a> contained in a slide (see <a
+href="DocumentsSlide.html">DocumentsSlide</a>) (<em>has_many</em>)</p>
+</li></ul>
+
+<h3 id="class-Document-label-Validations">Validations</h3>
+<ul><li>
+<p><em>presence</em> with numericality and existence of associated record for
+<code>user_id</code></p>
+</li><li>
+<p><em>presence</em> for <code>title</code> and <code>attachment</code></p>
+</li><li>
+<p><em>length</em> of <code>title</code> and <code>description</code> (values
+configured in the I18n translation file; only for title, if the value is
+greater than 255 it&#39;s set to 255)</p>
+</li><li>
+<p><em>modifications</em> <em>not</em> <em>available</em> for the
+<code>user_id</code></p>
+</li></ul>
+
+<h3 id="class-Document-label-Callbacks">Callbacks</h3>
+<ol><li>
+<p><em>before_validation</em> saves the <code>title</code> from the attachment
+if it&#39;s not present</p>
+</li><li>
+<p><em>before_save</em> sets the <code>size</code> in metadata</p>
+</li></ol>
+
+<h3 id="class-Document-label-Database+callbacks">Database callbacks</h3>
+<ol><li>
+<p><em>cascade</em> <em>destruction</em> for the associated table <a
+href="DocumentsSlide.html">DocumentsSlide</a></p>
+</li></ol>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-destroy_with_notifications">destroy_with_notifications</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-extension">extension</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-human_size">human_size</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-icon_title">icon_title</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-icon_url">icon_url</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-init_validation">init_validation</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-set_size">set_size</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-size">size</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-size-3D">size=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-size_and_extension">size_and_extension</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-type">type</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-uploaded_filename_without_extension">uploaded_filename_without_extension</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-url">url</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-used_in_your_lessons-3F">used_in_your_lessons?</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-validate_associations">validate_associations</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_impossible_changes">validate_impossible_changes</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_maximum_folder_size">validate_maximum_folder_size</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_size">validate_size</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            ActionView::Helpers::NumberHelper
+          
+        </li>
+      
+        <li>
+          
+            Rails
+          
+        </li>
+      
+        <li>
+          
+            <a href="FilenameToken.html">
+              FilenameToken
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="UrlTypes.html">
+              UrlTypes
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">MAX_TITLE_LENGTH</td>
+            <td>=</td>
+            <td class="attr-value">(I18n.t(&#39;language_parameters.document.length_title&#39;) &gt; 255 ? 255 : I18n.t(&#39;language_parameters.document.length_title&#39;))</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Maximum length of the title</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">MAX_ATTACHMENT_SIZE</td>
+            <td>=</td>
+            <td class="attr-value">SETTINGS[&#39;max_document_size&#39;].megabytes</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Maximum attachment size expressed in megabytes</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">TYPES_BY_EXTENSION</td>
+            <td>=</td>
+            <td class="attr-value">{
+&#39;.ppt&#39;     =&gt; :ppt,
+&#39;.pptx&#39;    =&gt; :ppt,
+&#39;.keynote&#39; =&gt; :ppt,
+&#39;.odp&#39;     =&gt; :ppt,
+&#39;.doc&#39;     =&gt; :doc,
+&#39;.docx&#39;    =&gt; :doc,
+&#39;.pages&#39;   =&gt; :doc,
+&#39;.odt&#39;     =&gt; :doc,
+&#39;.txt&#39;     =&gt; :doc,
+&#39;.zip&#39;     =&gt; :zip,
+&#39;.gz&#39;      =&gt; :zip,
+&#39;.xls&#39;     =&gt; :exc,
+&#39;.xlsx&#39;    =&gt; :exc,
+&#39;.numbers&#39; =&gt; :exc,
+&#39;.ods&#39;     =&gt; :exc,
+&#39;.pdf&#39;     =&gt; :pdf,
+&#39;.ps&#39;      =&gt; :pdf,
+}</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>List of accepted types</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">COLORS_BY_TYPE</td>
+            <td>=</td>
+            <td class="attr-value">{
+:ppt     =&gt; &#39;#F6921E&#39;,
+:doc     =&gt; &#39;#26A9E0&#39;,
+:zip     =&gt; &#39;#57585B&#39;,
+:exc     =&gt; &#39;#37B34A&#39;,
+:pdf     =&gt; &#39;#EC1C24&#39;,
+:unknown =&gt; &#39;#A7A9AC&#39;
+}</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Colors of the icons by type</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-destroy_with_notifications">
+            
+              <b>destroy_with_notifications</b>()
+            
+            <a href="../classes/Document.html#method-i-destroy_with_notifications" name="method-i-destroy_with_notifications" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-destroy_with_notifications-label-Description">Description</h3>
+
+<p>Destroys the document and sends notifications to the users who had a <a
+href="Lesson.html">Lesson</a> containing it.</p>
+
+<h3 id="method-i-destroy_with_notifications-label-Returns">Returns</h3>
+
+<p>A boolean</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-destroy_with_notifications_source')" id="l_method-i-destroy_with_notifications_source">show</a>
+                
+              </p>
+              <div id="method-i-destroy_with_notifications_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">destroy_with_notifications</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new_record?</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:base</span>, <span class="ruby-value">:problem_destroying</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">DocumentsSlide</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:slide</span>, {<span class="ruby-value">:slide</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:lesson</span>}).<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;lessons.user_id AS my_user_id, lessons.title AS lesson_title, lessons.id AS lesson_id&#39;</span>).<span class="ruby-identifier">group</span>(<span class="ruby-string">&#39;lessons.id&#39;</span>).<span class="ruby-identifier">where</span>(<span class="ruby-string">&#39;documents_slides.document_id = ?&#39;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ds</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">n_title</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.documents.destroyed.title&#39;</span>)
+      <span class="ruby-identifier">n_message</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.documents.destroyed.message&#39;</span>, <span class="ruby-value">:document_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">title</span>, <span class="ruby-value">:lesson_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ds</span>.<span class="ruby-identifier">lesson_title</span>)
+      <span class="ruby-identifier">n_basement</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.documents.destroyed.basement&#39;</span>, <span class="ruby-value">:lesson_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ds</span>.<span class="ruby-identifier">lesson_title</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">lesson_viewer_path</span>(<span class="ruby-identifier">ds</span>.<span class="ruby-identifier">lesson_id</span>.<span class="ruby-identifier">to_i</span>))
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">ds</span>.<span class="ruby-identifier">my_user_id</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(<span class="ruby-identifier">ds</span>.<span class="ruby-identifier">my_user_id</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-identifier">n_title</span>, <span class="ruby-identifier">n_message</span>, <span class="ruby-identifier">n_basement</span>)
+        <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:base</span>, <span class="ruby-value">:problem_destroying</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Rollback</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-constant">Bookmark</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:bookmarkable_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Lesson&#39;</span>, <span class="ruby-value">:bookmarkable_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ds</span>.<span class="ruby-identifier">lesson_id</span>.<span class="ruby-identifier">to_i</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">automatic_message</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.documents.standard_message_for_linked_lessons&#39;</span>, <span class="ruby-value">:document_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">title</span>)
+        <span class="ruby-identifier">n_title</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.modified.title&#39;</span>)
+        <span class="ruby-identifier">n_message</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.modified.message&#39;</span>, <span class="ruby-value">:lesson_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ds</span>.<span class="ruby-identifier">lesson_title</span>, <span class="ruby-value">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">automatic_message</span>)
+        <span class="ruby-identifier">n_basement</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.lessons.modified.basement&#39;</span>, <span class="ruby-value">:lesson_title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ds</span>.<span class="ruby-identifier">lesson_title</span>, <span class="ruby-value">:link</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">lesson_viewer_path</span>(<span class="ruby-identifier">ds</span>.<span class="ruby-identifier">lesson_id</span>.<span class="ruby-identifier">to_i</span>))
+        <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(<span class="ruby-identifier">b</span>.<span class="ruby-identifier">user_id</span>, <span class="ruby-identifier">n_title</span>, <span class="ruby-identifier">n_message</span>, <span class="ruby-identifier">n_basement</span>)
+          <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:base</span>, <span class="ruby-value">:problem_destroying</span>)
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Rollback</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">destroy</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span>
+      <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:base</span>, <span class="ruby-value">:problem_destroying</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Rollback</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">resp</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">resp</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extension">
+            
+              <b>extension</b>()
+            
+            <a href="../classes/Document.html#method-i-extension" name="method-i-extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extension_source')" id="l_method-i-extension_source">show</a>
+                
+              </p>
+              <div id="method-i-extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extension</span>
+  <span class="ruby-identifier">attachment</span>.<span class="ruby-identifier">original_extension</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">attachment</span> <span class="ruby-operator">?</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">attachment</span>.<span class="ruby-identifier">path</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-human_size">
+            
+              <b>human_size</b>()
+            
+            <a href="../classes/Document.html#method-i-human_size" name="method-i-human_size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Renders the size with mega, giga, etc</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-human_size_source')" id="l_method-i-human_size_source">show</a>
+                
+              </p>
+              <div id="method-i-human_size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">human_size</span>
+  <span class="ruby-identifier">number_to_human_size</span> <span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-icon_title">
+            
+              <b>icon_title</b>()
+            
+            <a href="../classes/Document.html#method-i-icon_title" name="method-i-icon_title" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the title associated to the icon</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-icon_title_source')" id="l_method-i-icon_title_source">show</a>
+                
+              </p>
+              <div id="method-i-icon_title_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">icon_title</span>
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-node">&quot;titles.documents.#{type.to_s}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-icon_url">
+            
+              <b>icon_url</b>(url_type = nil)
+            
+            <a href="../classes/Document.html#method-i-icon_url" name="method-i-icon_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the icon, depending on the extension</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-icon_url_source')" id="l_method-i-icon_url_source">show</a>
+                
+              </p>
+              <div id="method-i-icon_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">icon_url</span>(<span class="ruby-identifier">url_type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">url_by_url_type</span> <span class="ruby-node">&quot;/assets/documents/#{type.to_s}.svg&quot;</span>, <span class="ruby-identifier">url_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-size">
+            
+              <b>size</b>()
+            
+            <a href="../classes/Document.html#method-i-size" name="method-i-size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the size</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-size_source')" id="l_method-i-size_source">show</a>
+                
+              </p>
+              <div id="method-i-size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">size</span>
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-size-3D">
+            
+              <b>size=</b>(size)
+            
+            <a href="../classes/Document.html#method-i-size-3D" name="method-i-size-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the size</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-size-3D_source')" id="l_method-i-size-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-size-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">size=</span>(<span class="ruby-identifier">size</span>)
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">size</span> = <span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-size_and_extension">
+            
+              <b>size_and_extension</b>()
+            
+            <a href="../classes/Document.html#method-i-size_and_extension" name="method-i-size_and_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the size and extension in a nice way for the views</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-size_and_extension_source')" id="l_method-i-size_and_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-size_and_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">size_and_extension</span>
+  <span class="ruby-node">&quot;#{extension.sub /\A\./, &#39;&#39;}, #{human_size}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-type">
+            
+              <b>type</b>()
+            
+            <a href="../classes/Document.html#method-i-type" name="method-i-type" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Checks in the list of accepted types</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-type_source')" id="l_method-i-type_source">show</a>
+                
+              </p>
+              <div id="method-i-type_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">type</span>
+  <span class="ruby-constant">TYPES_BY_EXTENSION</span>.<span class="ruby-identifier">fetch</span> <span class="ruby-identifier">extension</span>, <span class="ruby-value">:unknown</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-uploaded_filename_without_extension">
+            
+              <b>uploaded_filename_without_extension</b>()
+            
+            <a href="../classes/Document.html#method-i-uploaded_filename_without_extension" name="method-i-uploaded_filename_without_extension" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the extension of the attachment after an upload</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-uploaded_filename_without_extension_source')" id="l_method-i-uploaded_filename_without_extension_source">show</a>
+                
+              </p>
+              <div id="method-i-uploaded_filename_without_extension_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">uploaded_filename_without_extension</span>
+  <span class="ruby-identifier">attachment</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:original_filename_without_extension</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-url">
+            
+              <b>url</b>(url_type = nil)
+            
+            <a href="../classes/Document.html#method-i-url" name="method-i-url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns the url</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-url_source')" id="l_method-i-url_source">show</a>
+                
+              </p>
+              <div id="method-i-url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">url</span>(<span class="ruby-identifier">url_type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">attachment</span>.<span class="ruby-identifier">url</span>
+  <span class="ruby-identifier">url_by_url_type</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">url_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-used_in_your_lessons-3F">
+            
+              <b>used_in_your_lessons?</b>()
+            
+            <a href="../classes/Document.html#method-i-used_in_your_lessons-3F" name="method-i-used_in_your_lessons-3F" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Returns true if the document has been attached to your own lessons</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-used_in_your_lessons-3F_source')" id="l_method-i-used_in_your_lessons-3F_source">show</a>
+                
+              </p>
+              <div id="method-i-used_in_your_lessons-3F_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">used_in_your_lessons?</span>
+  <span class="ruby-constant">DocumentsSlide</span>.<span class="ruby-identifier">joins</span>(<span class="ruby-value">:slide</span>, {<span class="ruby-value">:slide</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:lesson</span>}).<span class="ruby-identifier">where</span>(<span class="ruby-value">:documents_slides</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:document_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>}, <span class="ruby-value">:lessons</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-value">:user_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_id</span>}).<span class="ruby-identifier">any?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-init_validation">
+            
+              <b>init_validation</b>()
+            
+            <a href="../classes/Document.html#method-i-init_validation" name="method-i-init_validation" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes validation objects (see <a
+href="Valid.html#method-c-get_association">Valid.get_association</a>)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-init_validation_source')" id="l_method-i-init_validation_source">show</a>
+                
+              </p>
+              <div id="method-i-init_validation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">init_validation</span>
+  <span class="ruby-ivar">@document</span> = <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:id</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:user_id</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-set_size">
+            
+              <b>set_size</b>()
+            
+            <a href="../classes/Document.html#method-i-set_size" name="method-i-set_size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Sets the size (callback)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-set_size_source')" id="l_method-i-set_size_source">show</a>
+                
+              </p>
+              <div id="method-i-set_size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">set_size</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span> = <span class="ruby-identifier">attachment</span>.<span class="ruby-identifier">size</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">attachment</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_associations">
+            
+              <b>validate_associations</b>()
+            
+            <a href="../classes/Document.html#method-i-validate_associations" name="method-i-validate_associations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates the presence of all the associated objects</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_associations_source')" id="l_method-i-validate_associations_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_associations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_associations</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:user_id</span>, <span class="ruby-value">:doesnt_exist</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_impossible_changes">
+            
+              <b>validate_impossible_changes</b>()
+            
+            <a href="../classes/Document.html#method-i-validate_impossible_changes" name="method-i-validate_impossible_changes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates that if the document is not new record the field
+<code>user_id</code> cannot be changed</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_impossible_changes_source')" id="l_method-i-validate_impossible_changes_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_impossible_changes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_impossible_changes</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:user_id</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@document</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@document</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_id</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_maximum_folder_size">
+            
+              <b>validate_maximum_folder_size</b>()
+            
+            <a href="../classes/Document.html#method-i-validate_maximum_folder_size" name="method-i-validate_maximum_folder_size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates the sum of the documents folder size to don&#39;t exceed the
+maximum size available</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_maximum_folder_size_source')" id="l_method-i-validate_maximum_folder_size_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_maximum_folder_size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_maximum_folder_size</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span> <span class="ruby-value">:attachment</span>, <span class="ruby-value">:folder_size_exceeded</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">DocumentUploader</span>.<span class="ruby-identifier">maximum_folder_size_exceeded?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_size">
+            
+              <b>validate_size</b>()
+            
+            <a href="../classes/Document.html#method-i-validate_size" name="method-i-validate_size" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates the size of the attached file, comparing it to the maximum size
+configured in megabytes in settings.yml</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_size_source')" id="l_method-i-validate_size_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_size_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/document.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_size</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">attachment</span>.<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">attachment</span>.<span class="ruby-identifier">file</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">MAX_ATTACHMENT_SIZE</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:attachment</span>, <span class="ruby-value">:too_large</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

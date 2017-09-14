@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Notification</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Notification 
+            
+                <span class="parent">&lt; 
+                    
+                    ActiveRecord::Base
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/notification_rb.html">app/models/notification.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Notification-label-Description">Description</h3>
+
+<p>ActiveRecord class that corresponds to the table
+<code>notifications</code>: this table contains messages sent by the
+application to the users.</p>
+
+<h3 id="class-Notification-label-Fields">Fields</h3>
+<ul><li>
+<p><em>user_id</em>: reference to the <a href="User.html">User</a> who
+received the notification</p>
+</li><li>
+<p><em>message</em>: message</p>
+</li><li>
+<p><em>seen</em>: boolean, <code>true</code> if the <a
+href="User.html">User</a> has already seen the notification</p>
+</li></ul>
+
+<h3 id="class-Notification-label-Associations">Associations</h3>
+<ul><li>
+<p><em>user</em>: reference to the <a href="User.html">User</a> who received
+the notification (<em>belongs_to</em>)</p>
+</li></ul>
+
+<h3 id="class-Notification-label-Validations">Validations</h3>
+<ul><li>
+<p><em>presence</em> with numericality and existence of associated record for
+<code>user_id</code></p>
+</li><li>
+<p><em>presence</em> for <code>message</code></p>
+</li><li>
+<p><em>presence</em> <em>and</em> <em>maximum</em> <em>length</em> for
+<code>title</code></p>
+</li><li>
+<p><em>inclusion</em> of <code>seen</code> in [<code>true</code>,
+<code>false</code>]</p>
+</li><li>
+<p><em>if</em> <em>new</em> <em>record</em>, <code>seen</code> must be false</p>
+</li><li>
+<p><em>modifications</em> <em>not</em> <em>available</em> for the five fields</p>
+</li></ul>
+
+<h3 id="class-Notification-label-Callbacks">Callbacks</h3>
+
+<p>None</p>
+
+<h3 id="class-Notification-label-Database+callbacks">Database callbacks</h3>
+
+<p>None</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>H</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-has_been_seen">has_been_seen</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-init_validation">init_validation</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-send_to">send_to</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-time">time</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-validate_associations">validate_associations</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_impossible_changes">validate_impossible_changes</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-validate_seen">validate_seen</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">SENDING_SLICES_AMOUNT</td>
+            <td>=</td>
+            <td class="attr-value">1_000</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Block of notifications sent for each job</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-send_to">
+            
+              <b>send_to</b>(user_id_or_user_ids, title, message, basement)
+            
+            <a href="../classes/Notification.html#method-c-send_to" name="method-c-send_to" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-c-send_to-label-Description">Description</h3>
+
+<p>Sends a notification to one or more users</p>
+
+<h3 id="method-c-send_to-label-Args">Args</h3>
+<ul><li>
+<p><em>user_id_or_user_ids</em>: if it&#39;s an Integer, it sends the
+notification to a single user, otherwise splits the block of notifications
+and uses thread to send them</p>
+</li><li>
+<p><em>title</em>: the content of the notification</p>
+</li><li>
+<p><em>message</em>: the content of the notification</p>
+</li><li>
+<p><em>basement</em>: the content of the notification</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-send_to_source')" id="l_method-c-send_to_source">show</a>
+                
+              </p>
+              <div id="method-c-send_to_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/notification.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">self</span>.<span class="ruby-identifier">send_to</span>(<span class="ruby-identifier">user_id_or_user_ids</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">basement</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">user_id_or_user_ids</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-identifier">user_id_or_user_ids</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-constant">SENDING_SLICES_AMOUNT</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">slice</span><span class="ruby-operator">|</span> <span class="ruby-constant">Delayed</span><span class="ruby-operator">::</span><span class="ruby-constant">Job</span>.<span class="ruby-identifier">enqueue</span> <span class="ruby-constant">NotificationsJob</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">slice</span>, <span class="ruby-identifier">title</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">basement</span>) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">n</span>.<span class="ruby-identifier">user_id</span> = <span class="ruby-identifier">user_id_or_user_ids</span>
+      <span class="ruby-identifier">n</span>.<span class="ruby-identifier">title</span> = <span class="ruby-identifier">title</span>
+      <span class="ruby-identifier">n</span>.<span class="ruby-identifier">message</span> = <span class="ruby-identifier">message</span>
+      <span class="ruby-identifier">n</span>.<span class="ruby-identifier">basement</span> = <span class="ruby-identifier">basement</span>
+      <span class="ruby-identifier">n</span>.<span class="ruby-identifier">seen</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-has_been_seen">
+            
+              <b>has_been_seen</b>()
+            
+            <a href="../classes/Notification.html#method-i-has_been_seen" name="method-i-has_been_seen" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-has_been_seen-label-Description">Description</h3>
+
+<p>Sets <code>seen</code> as <code>true</code>. Used in <a
+href="NotificationsController.html#method-i-seen">NotificationsController#seen</a></p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-has_been_seen_source')" id="l_method-i-has_been_seen_source">show</a>
+                
+              </p>
+              <div id="method-i-has_been_seen_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/notification.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">has_been_seen</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new_record?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">seen</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">save</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-time">
+            
+              <b>time</b>()
+            
+            <a href="../classes/Notification.html#method-i-time" name="method-i-time" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-time-label-Description">Description</h3>
+
+<p>Renders the time difference</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-time_source')" id="l_method-i-time_source">show</a>
+                
+              </p>
+              <div id="method-i-time_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/notification.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">time</span>
+  <span class="ruby-constant">TimeConvert</span>.<span class="ruby-identifier">time_difference_to_s</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">created_at</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-init_validation">
+            
+              <b>init_validation</b>()
+            
+            <a href="../classes/Notification.html#method-i-init_validation" name="method-i-init_validation" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Initializes validation objects (see <a
+href="Valid.html#method-c-get_association">Valid.get_association</a>)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-init_validation_source')" id="l_method-i-init_validation_source">show</a>
+                
+              </p>
+              <div id="method-i-init_validation_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/notification.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">init_validation</span>
+  <span class="ruby-ivar">@notification</span> = <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:id</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">Valid</span>.<span class="ruby-identifier">get_association</span> <span class="ruby-keyword">self</span>, <span class="ruby-value">:user_id</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_associations">
+            
+              <b>validate_associations</b>()
+            
+            <a href="../classes/Notification.html#method-i-validate_associations" name="method-i-validate_associations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates the presence of all the associated objects</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_associations_source')" id="l_method-i-validate_associations_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_associations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/notification.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_associations</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:user_id</span>, <span class="ruby-value">:doesnt_exist</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_impossible_changes">
+            
+              <b>validate_impossible_changes</b>()
+            
+            <a href="../classes/Notification.html#method-i-validate_impossible_changes" name="method-i-validate_impossible_changes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>If not a new record, it validates that no field can be changed</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_impossible_changes_source')" id="l_method-i-validate_impossible_changes_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_impossible_changes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/notification.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_impossible_changes</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@notification</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:seen</span>, <span class="ruby-value">:cant_be_switched_from_true_to_false</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">seen</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">seen</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:user_id</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">user_id</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">user_id</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:message</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">message</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">message</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:title</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">title</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">title</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:basement</span>, <span class="ruby-value">:cant_be_changed</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">basement</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">basement</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-validate_seen">
+            
+              <b>validate_seen</b>()
+            
+            <a href="../classes/Notification.html#method-i-validate_seen" name="method-i-validate_seen" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Validates that <code>seen</code> must be false if the notification is a new
+record</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-validate_seen_source')" id="l_method-i-validate_seen_source">show</a>
+                
+              </p>
+              <div id="method-i-validate_seen_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/notification.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">validate_seen</span>
+  <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:seen</span>, <span class="ruby-value">:must_be_false_if_new_record</span>) <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@notification</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">seen</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

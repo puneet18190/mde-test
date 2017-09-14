@@ -1,0 +1,36 @@
+<%
+  now = Time.zone.now.strftime('%d-%m-%Y')
+%>
+<div class="control-group heading">
+  <label><h5><%= t('admin.search.date.title') %></h5></label>
+</div>
+<div class="control-group">
+  <label><%= t('admin.search.date.range.caption') %></label>
+  <div class="controls">
+    <select id="search_date_range" name="search[date_range_field]" class="input-medium">
+      <option value=''><%= t('admin.search.date.range.select') %></option>
+      <% if params.present? && (params[:date_range_field].to_s == 'created_at') %>
+        <option value='created_at' selected="selected"><%= t('admin.search.date.created_at') %></option>
+        <option value='updated_at'><%= t('admin.search.date.updated_at') %></option>
+      <% elsif params.present? && (params[:date_range_field].to_s == 'updated_at') %>
+        <option value='created_at'><%= t('admin.search.date.created_at') %></option>
+        <option value='updated_at' selected="selected"><%= t('admin.search.date.updated_at') %></option>
+      <% else %>
+        <option value='created_at'><%= t('admin.search.date.created_at') %></option>
+        <option value='updated_at'><%= t('admin.search.date.updated_at') %></option>
+      <% end %>
+    </select>
+  </div>
+</div>
+<div class="control-group">
+  <label><%= t('admin.search.date.from') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[from]', (params && params[:from]) ? params[:from] : now, :id => 'dpd1', :class => 'input input-medium datepick disabled', 'data-date' => now, 'data-date-format' => 'dd-mm-yyyy', :disabled => :disabled %>
+  </div>
+</div>
+<div class="control-group">
+  <label><%= t('admin.search.date.to') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[to]', (params && params[:to]) ? params[:to] : now, :id => 'dpd2', :class=>"input input-medium datepick", 'data-date'=> now, 'data-date-format' => 'dd-mm-yyyy', :disabled => :disabled %>
+  </div>
+</div>

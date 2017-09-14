@@ -1,0 +1,39 @@
+<div class="gray-description">
+  <%= t('faqs.description').html_safe %><br/><br/>
+  <%= contact_us_link %>
+</div>
+<div class="faqs_content">
+  <div class="lessons">
+    <h2 class="title"><%= t('faqs.lessons.title') %></h2>
+    <ul>
+      <% @lessons_faqs.each_with_index do |lf, index| %>
+        <li><%= link_to lf[0], lessons_faqs_path(index + 1) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="media_elements">
+    <h2 class="title"><%= t('faqs.media_elements.title') %></h2>
+    <ul>
+      <% @media_elements_faqs.each_with_index do |mef, index| %>
+        <li><%= link_to mef[0], media_elements_faqs_path(index + 1) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="virtual_classroom">
+    <h2 class="title"><%= t('faqs.virtual_classroom.title') %></h2>
+    <ul>
+      <% @virtual_classroom_faqs.each_with_index do |vcf, index| %>
+        <li><%= link_to vcf[0], virtual_classroom_faqs_path(index + 1) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="profile">
+    <h2 class="title"><%= t('faqs.profile.title') %></h2>
+    <ul>
+      <% @profile_faqs.each_with_index do |pf, index| %>
+        <li><%= link_to pf[0], profile_faqs_path(index + 1) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <br class="clearfloat"/>
+</div>

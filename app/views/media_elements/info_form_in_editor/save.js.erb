@@ -1,0 +1,12 @@
+<% if @redirect %>
+  window.location = '<%= dashboard_path %>'
+<% else %>
+  <% if @errors %>
+    try {
+      closePopUp('dialog-confirm');
+    } catch(err) {}
+    showFormErrors($('#<%= (action_name == "save") ? "new" : "edit" %>-media-element'), <%= @errors.to_json.html_safe %>);
+  <% else %>
+    window.location = '<%= my_media_elements_path %>';
+  <% end %>
+<% end %>

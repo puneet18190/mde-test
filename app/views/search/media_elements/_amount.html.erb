@@ -1,0 +1,9 @@
+<div id="media_elements_search_amount">
+  <% if tags.empty? %>
+    <p><%= t('search.media_elements.result', :num => amount.to_s) %></p>
+  <% elsif specific_tag.nil? %>
+    <p><%= t('search.media_elements.result_with_tags', :num => amount.to_s) %></p>
+  <% else %>
+    <p><%= t('search.media_elements.result_filtered_by_tag', :num => amount.to_s, :tag => specific_tag.word).html_safe %></p>
+  <% end %>
+</div>

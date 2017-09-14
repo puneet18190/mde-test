@@ -1,0 +1,30 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.selectbox
+ *= require jquery-ui-1.9.0.custom
+ */
+
+<%# assets urls %>
+<%= Erubis::Eruby.new( Rails.application.config.assets.stylesheets.paths.urls.read ).result binding() %>
+
+@import 'variables';
+@import 'mixins';
+@import 'global';
+@import 'shared';
+@import 'shared_editor_player';
+@import 'players';
+@import 'content';
+@import 'layouts/slides';
+
+html.lesson-archive-layout {
+  @include lesson-viewer-general
+}

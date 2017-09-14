@@ -1,0 +1,42 @@
+showGalleryInVideoEditor('mixed');
+
+var container = $('#video_editor_mixed_gallery_container');
+
+container.html('<%= j(render(:partial => "galleries/mixed_video_image_text", :locals => {:images => @images, :videos => @videos})) %>');
+container.data('loaded', true);
+container.data('video-page', 1);
+container.data('video-tot-pages', <%= @video_tot_pages %>);
+container.data('image-page', 1);
+container.data('image-tot-pages', <%= @image_tot_pages %>);
+$('._select_video_from_gallery').addClass('_add_video_component_to_video_editor');
+$('._select_image_from_gallery').addClass('_add_image_component_to_video_editor');
+$('._image_gallery_thumb').addClass('_image_gallery_thumb_in_mixed_gallery_video_editor').removeClass('_image_gallery_thumb');
+
+var temporary_invisible_div = '<div class="_temporary" style="display:none">';
+
+<% @images.each do |image| %>
+  var mini_image = '<%= j(render(:partial => "video_editor/components/thumbs/image", :locals => {:image => image})) %>';
+  var preview_image = '<%= j(render(:partial => "video_editor/previews/image_thumb", :locals => {:image => image})) %>';
+  preview_image = '<div class="_image_preview_in_video_editor_gallery" style="display:none">' + preview_image + '</div>';
+  var duration_selector = '<div class="_duration_selector" style="display:none">';
+  duration_selector += '<div class="caption"><div class="elementoTime"><div class="tempo">';
+  duration_selector += '<p><%= j t("video_editor.components.image.time") %></p><input class="numberTime" maxlength="<%= t("language_parameters.video_editor.length_duration") %>"/><p class="lower"><%= j t("captions.seconds_shortened") %></p></div></div></div>';
+  duration_selector += '<a class="okButtonContent current _add_image_component_to_video_editor_after_select_duration" data-image-id="<%= image.id %>" data-url="<%= image.url %>" data-width="<%= image.width %>" data-height="<%= image.height %>" style="float:right"></a>';
+  duration_selector += '</div>';
+  $('#dialog-image-gallery-<%= image.id %>').append(temporary_invisible_div + mini_image + preview_image + '</div>').append(duration_selector);
+<% end %>
+
+<% if @images.count <= 21 %>
+  $('#info_container').addClass('_dont_initialize_image_gallery');
+<% end %>
+
+<% @videos.each do |video| %>
+  var mini_video = '<%= j(render(:partial => "video_editor/components/thumbs/video", :locals => {:video => video})) %>';
+  $('#dialog-video-gallery-<%= video.id %>').append(temporary_invisible_div + mini_video + '</div>');
+<% end %>
+
+<% if @videos.count <= 6 %>
+  $('#info_container').addClass('_dont_initialize_video_gallery');
+<% end %>
+
+initializeMixedGalleryInVideoEditor();

@@ -1,0 +1,214 @@
+<?xml version="1.0" standalone="no" ?>
+
+<%
+  media_elements = {}
+  documents = {}
+  math_images = []
+%>
+
+<%= render :partial => 'manifest_header.xml', :locals => {:lesson => lesson} %>
+  
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>2004 4th Edition</schemaversion>
+    <lom>
+      <general>
+        <identifier>
+          <catalog>URI</catalog>
+          <entry><%= lesson_viewer_url lesson.id %></entry>
+        </identifier>
+        <title>
+          <string language="<%= scorm_locale %>"><%= lesson.title %></string>
+        </title>
+        <language><%= scorm_locale %></language>
+        <description>
+          <string language="<%= scorm_locale %>"><%= lesson.description %></string>
+        </description>
+        <%= render :partial => 'scorm_tags.xml', :locals => {:tags => lesson.tags} %>
+        <coverage>
+          <string language="en">Lesson about <%= lesson.subject.description %></string>
+        </coverage>
+      </general>
+      <lifeCycle>
+        <status>
+          <source>LOMv1.0</source>
+          <value>final</value>
+        </status>
+        <%= render :partial => 'scorm_author.xml', :locals => {:author => lesson.user.full_name, :date => lesson.updated_at, :type => 'Date of last modification'} %>
+      </lifeCycle>
+      <%= render :partial => 'metametadata.xml' %>
+      <technical>
+        <%= render :partial => 'requirements.xml' %>
+      </technical>
+      <educational>
+        <interactivityType>
+          <source>LOMv1.0</source>
+          <value>expositive</value>
+        </interactivityType>
+        <interactivityLevel>
+          <source>LOMv1.0</source>
+          <value>low</value>
+        </interactivityLevel>
+        <intendedEndUserRole>
+          <source>LOMv1.0</source>
+          <value>learner</value>
+        </intendedEndUserRole>
+        <context>
+          <source>LOMv1.0</source>
+          <value><%= scorm_school_level lesson.school_level.description %></value>
+        </context>
+        <language><%= scorm_locale %></language>
+      </educational>
+      <%= render :partial => 'copyrights.xml' %>
+    </lom>
+  </metadata>
+  
+  <organizations default="slides">
+    <organization identifier="slides">
+      <title><%= lesson.title %></title>
+      <% lesson.slides.order(:position).each do |slide| %>
+        <item identifier="activity_slide_<%= slide.id %>" identifierref="slide_<%= slide.id %>">
+          <title><%= scorm_slide_title slide %></title>
+          <%= render :partial => 'slide_metadata.xml', :locals => {:slide => slide} %>
+        </item>
+      <% end %>
+      <imsss:sequencing>
+        <imsss:controlMode choice="true" flow="true"/>
+      </imsss:sequencing>
+      <metadata>
+        <lom>
+          <general>
+            <structure>
+              <source>LOMv1.0</source>
+              <value>linear</value>
+            </structure>
+            <aggregationLevel>
+              <source>LOMv1.0</source>
+              <value>2</value>
+            </aggregationLevel>
+          </general>
+          <%= render :partial => 'metametadata.xml' %>
+        </lom>
+      </metadata>
+    </organization>
+  </organizations>
+  
+  <resources>
+    <% lesson.slides.order(:id).each do |slide| %>
+      <resource identifier="slide_<%= slide.id %>" type="webcontent" adlcp:scormType="asset" href="html/slide<%= slide.id %>.html">
+        <file href="html/slide<%= slide.id %>.html"/>
+        <% my_documents_slides = [] %>
+        <% slide.documents_slides.each do |ds| %>
+          <% if !my_documents_slides.include?(ds.document_id) %>
+            <dependency identifierref="document_<%= ds.document_id %>"/>
+            <%
+              my_documents_slides << ds.document_id
+              documents[ds.document_id] = true
+            %>
+          <% end %>
+        <% end %>
+        <% my_media_elements_slides = [] %>
+        <% slide.media_elements_slides.each do |mes| %>
+          <% if !my_media_elements_slides.include?(mes.media_element_id) %>
+            <dependency identifierref="media_element_<%= mes.media_element_id %>"/>
+            <%
+              my_media_elements_slides << mes.media_element_id
+              media_elements[mes.media_element_id] = true
+            %>
+          <% end %>
+        <% end %>
+        <% slide.math_images_paths.each do |mi| %>
+          <%
+            mi = mi.to_s
+            math_img_code = math_images.find_index(mi)
+            if math_img_code.nil?
+              math_images << mi
+              math_img_code = math_images.length
+            else
+              math_img_code += 1
+            end
+          %>
+          <dependency identifierref="math_image_<%= math_img_code %>"/>
+        <% end %>
+        <%= render :partial => 'slide_dependencies.xml', :locals => {:slide => slide} %>
+        <metadata>
+          <lom>
+            <general>
+              <structure>
+                <source>LOMv1.0</source>
+                <value>collection</value>
+              </structure>
+            </general>
+            <technical>
+              <format>text/html</format>
+              <%= render :partial => 'requirements.xml' %>
+            </technical>
+            <educational>
+              <learningResourceType>
+                <source>LOMv1.0</source>
+                <value>slide</value>
+              </learningResourceType>
+            </educational>
+            <%= render :partial => 'copyrights.xml' %>
+            <%= render :partial => 'metametadata.xml' %>
+          </lom>
+        </metadata>
+      </resource>
+    <% end %>
+    <% Document.where(:id => documents.keys).order(:id).each do |document| %>
+      <resource identifier="document_<%= document.id %>" type="webcontent" adlcp:scormType="asset">
+        <%= render :partial => 'document_file.xml', :locals => {:document => document} %>
+        <metadata>
+          <lom>
+            <%= render :partial => 'document_general_metadata.xml', :locals => {:document => document} %>
+            <lifeCycle>
+              <%= render :partial => 'scorm_author.xml', :locals => {:author => document.user.full_name, :date => document.updated_at, :type => 'Date of creation'} %>
+            </lifeCycle>
+            <%= render :partial => 'metametadata.xml' %>
+          </lom>
+        </metadata>
+      </resource>
+    <% end %>
+    <% MediaElement.where(:id => media_elements.keys).order(:id).each do |media_element| %>
+      <resource identifier="media_element_<%= media_element.id %>" type="webcontent" adlcp:scormType="asset">
+        <%= render :partial => 'media_element_files.xml', :locals => {:media_element => media_element} %>
+        <metadata>
+          <lom>
+            <general>
+              <title>
+                <string language="<%= scorm_locale %>"><%= media_element.title %></string>
+              </title>
+              <description>
+                <string language="<%= scorm_locale %>"><%= media_element.description %></string>
+              </description>
+              <structure>
+                <source>LOMv1.0</source>
+                <value>atomic</value>
+              </structure>
+              <%= render :partial => 'scorm_tags.xml', :locals => {:tags => media_element.tags} %>
+            </general>
+            <lifeCycle>
+              <%= render :partial => 'scorm_author.xml', :locals => {:author => media_element.user.full_name, :date => media_element.updated_at, :type => 'Date of last modification'} %>
+            </lifeCycle>
+            <%= render :partial => 'metametadata.xml' %>
+          </lom>
+        </metadata>
+      </resource>
+    <% end %>
+    <% math_images.each_with_index do |mi, index| %>
+      <resource identifier="math_image_<%= index + 1 %>" type="webcontent" adlcp:scormType="asset">
+        <file href="html/math_images/<%= mi %>">
+          <metadata>
+            <lom>
+              <technical>
+                <format>image/png</format>
+              </technical>
+            </lom>
+          </metadata>
+        </file>
+      </resource>
+    <% end %>
+    <%= render :partial => 'base_packages.xml' %>
+  </resources>
+  
+</manifest>

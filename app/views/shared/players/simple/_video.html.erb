@@ -1,0 +1,21 @@
+<%
+  url_type ||= nil
+  if video
+    video_class = '_instance_of_player'
+    mp4         = video.mp4_url url_type
+    webm        = video.webm_url url_type
+    cover       = video.cover_url url_type
+  else
+    video_class = '_empty_video_player'
+  end
+%>
+
+<div class="<%= video_class %>">
+  <% if video -%>
+      <video width="960" height="540" controls="controls" poster="<%= cover %>">
+        <source src="<%= mp4 %>" type="video/mp4"/>
+        <source src="<%= webm %>" type="video/webm"/>
+        <img src="<%= cover %>" alt="<%= video.title %>"/>
+      </video>
+  <% end -%>
+</div>

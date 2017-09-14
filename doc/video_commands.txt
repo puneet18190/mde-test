@@ -1,0 +1,181 @@
+ATTENZIONE!!! L'ORDINE DEI PARAMETRI È IMPORTANTE!!!
+
+Tagliare audio e video:
+
+  Mettiamo che input.aac sia un file audio lungo 1:50 minuti: partiamo dal secondo 0:30 (-ss) e prendiamo 30 secondi di traccia (-t 30)
+
+  avconv -ss 30 -i input.aac -t 30 output.30sec.aac
+
+
+Concatenare due video:
+
+  NOTA: MP4Box non supporta la concatenazione di più di 20 file.
+
+  Prerequisito: i video devono essere stati convertiti con la stessa -q:v
+  avconv -i arbitro.webm -q:v 1 join1.webm
+  avconv -i piscina.webm -q:v 1 join2.webm
+
+  webm (esempio: arbitro.webm e piscina.webm):
+    mkvmerge join1.webm +join2.webm -o output.webm
+
+  mp4:
+    MP4Box -cat file1.mp4 -cat file2.mp4 output.mp4
+    * Purtroppo non possiamo usarlo, è troppo buggato, per cui concateniamo in webm e convertiamo
+
+  Se ci sono video con tracce audio e video senza:
+    webm: 
+      Es.: concat1.webm è lungo 10 secondi e non ha la traccia audio, concat2.webm si
+      
+      Generare la traccia video scartando gli audio dai file che non ne hanno (o da tutti):
+      mkvmerge -o final.noaudio.webm --no-audio concat1.webm + --no-audio concat2.webm + --no-audio concat1.webm + --no-audio concat2.webm
+      Attaccarci la traccia audio concatenando gli audio dei video precedenti e settando i corretti delay (uguali alla durata dei video senza audio):
+      mkvmerge -o final.webm final.noaudio.webm --no-video -y 1:10000 concat2.webm --no-video -y 1:10000 + concat2.webm
+      * Purtroppo questo metodo genera una traccia audio che convertita in mp3 scarta i delay, epr cui lo dobbiamo scartare.
+
+      Generare la traccia video scartando gli audio dai file che non ne hanno (o da tutti):
+      mkvmerge -o final.noaudio.webm --no-audio concat1.webm + --no-audio concat2.webm + --no-audio concat1.webm + --no-audio concat2.webm
+      Estrarre gli audio che ci interessano:
+      avconv -i concat2.mp4 -map 0:1 -c copy concat2.mp3
+      Paddarli con i corretti delay (uguali alla durata dei video senza audio):
+      sox concat2.mp3 concat2.pad.10.0.mp3 pad 10 0
+      Concatenare le tracce audio se più di una:
+      sox concat2.pad.10.0.mp3 concat2.pad.10.0.mp3 final.mp3
+      Tirare fuori il video finale unendo la traccia senza audio ed il nuovo audio generato tagliando alla lunghezza del video dato che l'audio probabilmente sarà più lungo:
+      avconv -i final.noaudio.webm -i final.mp3 -c:v libx264 -c:a copy -t 96.34 final.mp4
+
+Concatenare audio (mp3):
+  Prima li trasformiamo in .wav con lame che gestisce gli eventuali delay dell'encoder e del decoder (sox a quanto pare non lo fa):
+    lame concat1.mp3 --decode concat1.wav
+    lame concat2.mp3 --decode concat2.wav
+    sox concat1.wav -p pad 10 10 | sox -p concat2.wav -t wav - | lame - --preset standard asd.lame.mp3
+
+
+Estrarre tracce (audio o video) da video:
+
+  # 2 è il numero della traccia
+  mkvextract tracks arbitro.webm 2:arbitro.ogg
+
+
+Video senza audio:
+
+  mkvmerge: mkvmerge --no-audio arbitro.webm -o arbitro.noaudio.webm 
+  avconv: avconv -i input.webm -map 0:v output.webm
+
+
+Video senza video:
+
+  mkvmerge: mkvmerge --no-video arbitro.webm -o arbitro.novideo.webm
+  avconv: avconv -i input.webm -map 0:a output.webm 
+
+
+Video con solo prima traccia video e prima traccia audio:
+
+  avconv -i input.webm -map 0:v:0 -map 0:a:0 output.webm
+
+
+Esportare l'ultimo frame come immagine:
+
+  # 00:00:38.70: lunghezza del video
+  avconv -ss 00:00:38.70 -i arbitro.webm -frames:v 1 arbitro.jpg
+  avconv -i arbitro.webm -ss 38.70 -frames:v 1 arbitro.jpg # se non viene generato un output, bisogna riprovare diminuendo il seek 
+
+Esportare il primo frame come immagine:
+
+  avconv -i piscina.webm -ss 0 -frames:v 1 piscina.jpg
+
+
+Transizione fade-out fade-in:
+
+  convert arbitro.jpg piscina.jpg -morph 23 trans.jpg
+  avconv -i trans-%d.jpg trans.webm
+
+  # Attenzione!!! Se specifichiamo un frame rate basso con un video webm - es.:
+
+  avconv -r 1/5 -i trans-%d.png trans.slideshow.webm
+
+  c'è un baco (https://bugzilla.libav.org/show_bug.cgi?id=364) che genera un video inusabile.
+  Soluzione temporanea: generare un video mp4 e convertirlo successivamente in webm:
+
+  # -crf 0 : opzione per H.264 che non fa perdere la qualità
+  avconv -r 1/5 -i trans-%d.png -vcodec libx264 -crf 0 trans.slideshow.mp4  
+  avconv -i trans.slideshow.mp4 trans.slideshow.webm
+
+
+Creare un video con un immagine ed un file audio:
+
+  http://stackoverflow.com/questions/5887311/ffmpeg-1-image-1-audio-file-1-video
+
+Convertire un'immagine in un video di durata x secondi:
+  webm: avconv -loop 1 -i _.jpg  -vf pad="iw+1:ih+1:(ow-iw)/2:(oh-ih)/2" -t 10 -q 1 -cpu-used -16 -b:v 3000k _.webm
+  mp4: avconv -loop 1 -i _.jpg  -vf pad="iw+1:ih+1:(ow-iw)/2:(oh-ih)/2" -t 10 _.mp4 
+    (crf 23, preset medium)
+  Nota: pad necessario se le dimensioni del video sono dispari
+
+Compilarsi il pacchetto di avconv per Ubuntu:
+  https://ffmpeg.org/trac/ffmpeg/wiki/UbuntuCompilationGuide
+
+  * Rimuovere i pacchetti avconv-tools libavutil-extra-51 libswscale2
+
+  * Installare pacchetti: autoconf build-essential checkinstall git pkg-config yasm libva-dev libfreetype6-dev libgsm1-dev libschroedinger-dev libspeex-dev libtheora-dev libvorbis-dev libvpx-dev libdc1394-22-dev libxfixes-dev libx264-dev libfaac-dev libmp3lame-dev libvo-aacenc-dev libxvidcore-dev libxext-dev
+
+  * Clonare il git master di libav: git://git.libav.org/libav.git
+
+  * Entrare nella cartella clonata
+
+  * ./configure --arch=amd64 --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu --enable-vdpau --enable-bzlib --enable-libgsm --enable-libschroedinger --enable-libspeex --enable-libtheora --enable-libvorbis --enable-pthreads --enable-zlib --enable-libvpx --enable-runtime-cpudetect --enable-libfreetype --enable-vaapi --enable-gpl --enable-version3 --enable-nonfree --enable-swscale --enable-x11grab --enable-libdc1394 --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libvo-aacenc --enable-libxvid --shlibdir=/usr/lib/x86_64-linux-gnu --enable-shared --disable-static
+
+  * se installato in /opt : ./configure --arch=amd64 --prefix=/opt/libav --enable-vdpau --enable-bzlib --enable-libgsm --enable-libschroedinger --enable-libspeex --enable-libtheora --enable-libvorbis --enable-pthreads --enable-zlib --enable-libvpx --enable-runtime-cpudetect --enable-libfreetype --enable-vaapi --enable-gpl --enable-version3 --enable-nonfree --enable-swscale --enable-x11grab --enable-libdc1394 --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libvo-aacenc --enable-libxvid
+
+  * make
+
+  * sudo checkinstall --pkgname=avconv --pkgversion="5:$(date +%Y%m%d%H%M)-git" --backup=no \
+  --deldoc=yes --fstrans=no --default
+
+
+Compilarsi il pacchetto di gpac per Ubuntu:
+
+  * 
+
+  * LDFLAGS="$LDFLAGS -L/opt/libav-src/libavcodec -L/opt/libav-src/libavformat -L/opt/libav-src/libavutil -L/opt/libav-src/libswscale" ./configure
+
+  ./configure --extra-ldflags=-L/usr/lib/firefox-devel/sdk/lib --disable-ssl
+  LD_LIBRARY_PATH=/usr/lib/firefox make
+
+
+
+<JEEB> to be honest if you have a libx264 built with all chroma subsampling modes then you could have a non-mod2 picture in there, but the problem is that most decoders only take in 4:2:0 (luma having one sample for every input sample, and chroma having one sample per 2x2 area)
+<JEEB> so it makes sense to set 4:2:0 as the default, as most people want exactly that :)
+
+
+Qualità dei webm: 
+  settare un bitrate alto! (almeno più di 3000)
+
+
+Video informativo riguardo i video:
+  http://www.xiph.org/video/vid1.shtml
+
+
+
+
+Chroma subsampling
+  impostabile tramite -pix_fmt
+
+
+960x540
+
+avconv -y -i _.tmp.webm -vf "scale=960:-1,crop=960:540:0:(ih-oh)/2" -b 3000k _.tmp.960x540.cropped.webm
+
+avconv -y -i _.tmp.webm -vf "scale=lt(iw/ih\,16/9)*960+gte(iw/ih\,16/9)*-1:lt(iw/ih\,16/9)*-1+gte(iw/ih\,16/9)*540,crop=960:540:(iw-ow)/2:(ih-oh)/2" -b 3000k _.tmp.960x540.cropped.webm
+
+LD_LIBRARY_PATH=/opt/libav/lib /opt/libav/bin/avconv -loglevel debug -y -i /home/mau/web_apps/demos/video_editor/tmp/video_editing/conversions/test/77/in\ put.flv -threads 2 -benchmark -c:v libvpx -c:a libvorbis -q 1 -map 0:v:0 -map 0:a:0 -b:v 200k -b:a 176k -vf 'scale=lt(iw/ih\,16/9)*960+gte(iw/ih\,16/9)*-1:lt(iw/ih\,16/9)*-1+gte(iw/ih\,16/9)*540,crop=960:540:(iw-ow)/2:(ih-oh)/2' /home/mau/web_apps/demos/video_editor/public/media_elements/videos/test/77/in-put.webm
+
+
+Avprobe, output in JSON:
+  avprobe_opt -show_format -show_streams -of json ~/Video/video_editing/arbitro.flv
+
+
+HandBrake:
+  compilazione:
+    sudo aptitude install libfribidi-dev libbz2-dev intltool libglib2.0-dev
+
+  conversione: HandBrakeCLI -i sole.m4v -O -e x264 -w 960 -l 540 --x264-preset slow -o sole.hb.mp4

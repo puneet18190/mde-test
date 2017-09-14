@@ -1,0 +1,37 @@
+<h4><%= t('admin.media_elements.search.label') %></h4>
+<%= form_tag 'media_elements', :method => :get, :id => 'admin-search-elements', :class => 'search-form' do %>
+  <%= hidden_field_tag 'search[search_type]', 'elements' %>
+  <%= hidden_field_tag 'search[ordering]', '' %>
+  <%= hidden_field_tag 'search[desc]', '' %>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= render :partial => 'admin/search/alerts' %>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span4">
+      <%= render :partial => 'admin/search/elements_general', :locals => {:params => params[:search]} %>
+    </div>
+    <div class="span4">
+      <%= render :partial => 'admin/search/date', :locals => {:params => params[:search]} %>
+    </div>
+    <div class="span4">
+      <%= render :partial => 'admin/search/location', :locals => {:locations => @locations, :params => params[:search]} %>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="form-actions">
+        <button type="submit" class="btn btn-block btn-success"><%= t('admin.media_elements.search.submit').upcase %></button>
+      </div>
+    </div>
+  </div>
+<% end %>
+<h3><%= t('admin.media_elements.title') %></h3>
+<% if @elements.present? %>
+  <%= render :partial => 'admin/list_heading', :locals => {:items => @elements, :expandable => false} %>
+<% end %>
+<%= render :partial => 'admin/media_elements/list', :locals => {:elements => @elements, :from_reporting => @from_reporting} %>
+<% if @elements.present? %>
+  <%= render :partial => 'admin/list_heading', :locals => {:items => @elements, :expandable => false} %>
+<% end %>

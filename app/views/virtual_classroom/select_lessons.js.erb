@@ -1,0 +1,9 @@
+showVirtualClassroomQuickSelectPopUp('<%= j(render(:partial => "virtual_classroom/select_lessons_popup", :locals => {:lessons => @lessons, :tot_pages => @tot_pages, :covers => @covers})) %>');
+
+initializeNotAvailableLessonsToLoadQuick();
+
+$('#virtual_classroom_quick_select_container').jScrollPane({
+  autoReinitialise: true
+});
+
+initializeScrollPaneQuickLessonSelector();

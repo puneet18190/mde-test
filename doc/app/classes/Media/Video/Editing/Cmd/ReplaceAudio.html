@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Video::Editing::Cmd::ReplaceAudio</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Video::Editing::Cmd::ReplaceAudio 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="Avconv.html">Media::Video::Editing::Cmd::Avconv</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../../files/lib/media/video/editing/cmd/replace_audio_rb.html">lib/media/video/editing/cmd/replace_audio.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>CLI for replacing the audio track of a video file</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>A</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-acodec">acodec</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>D</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-duration">duration</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-maps">maps</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>Q</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-qa">qa</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>V</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-vcodec">vcodec</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(video_input, audio_input, _duration, output, format)
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/ReplaceAudio.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/replace_audio.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">video_input</span>, <span class="ruby-identifier">audio_input</span>, <span class="ruby-identifier">_duration</span>, <span class="ruby-identifier">output</span>, <span class="ruby-identifier">format</span>)
+  <span class="ruby-ivar">@video_input</span>, <span class="ruby-ivar">@audio_input</span>, <span class="ruby-ivar">@duration</span>, <span class="ruby-ivar">@output</span> = <span class="ruby-identifier">video_input</span>, <span class="ruby-identifier">audio_input</span>, <span class="ruby-identifier">_duration</span>, <span class="ruby-identifier">output</span>
+  <span class="ruby-identifier">inputs</span> = [<span class="ruby-ivar">@video_input</span>, <span class="ruby-ivar">@audio_input</span>]
+  <span class="ruby-keyword">super</span> <span class="ruby-identifier">inputs</span>, <span class="ruby-ivar">@output</span>, <span class="ruby-identifier">format</span>
+  <span class="ruby-identifier">output_options</span> [ <span class="ruby-identifier">maps</span>, <span class="ruby-identifier">vcodec</span>, <span class="ruby-identifier">acodec</span>, <span class="ruby-identifier">qa</span>, <span class="ruby-identifier">duration</span> ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-acodec">
+            
+              <b>acodec</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/ReplaceAudio.html#method-i-acodec" name="method-i-acodec" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../../../Audio.html">Audio</a> codec</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-acodec_source')" id="l_method-i-acodec_source">show</a>
+                
+              </p>
+              <div id="method-i-acodec_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/replace_audio.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">acodec</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@format</span> <span class="ruby-operator">==</span> <span class="ruby-value">:webm</span>
+    <span class="ruby-string">&#39;-c:a libvorbis&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-string">&#39;-c:a copy&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-duration">
+            
+              <b>duration</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/ReplaceAudio.html#method-i-duration" name="method-i-duration" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Output duration</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-duration_source')" id="l_method-i-duration_source">show</a>
+                
+              </p>
+              <div id="method-i-duration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/replace_audio.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">duration</span>
+  <span class="ruby-node">&quot;-t #{@duration.round(2).to_s.shellescape}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-maps">
+            
+              <b>maps</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/ReplaceAudio.html#method-i-maps" name="method-i-maps" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../../../Video.html">Video</a> and audio maps</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-maps_source')" id="l_method-i-maps_source">show</a>
+                
+              </p>
+              <div id="method-i-maps_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/replace_audio.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">maps</span>
+  <span class="ruby-string">&#39;-map 0:v:0 -map 1:a:0&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-qa">
+            
+              <b>qa</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/ReplaceAudio.html#method-i-qa" name="method-i-qa" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../../../Audio.html">Audio</a> quality</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-qa_source')" id="l_method-i-qa_source">show</a>
+                
+              </p>
+              <div id="method-i-qa_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/replace_audio.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">qa</span>
+  <span class="ruby-keyword">super</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@format</span> <span class="ruby-operator">==</span> <span class="ruby-value">:webm</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-vcodec">
+            
+              <b>vcodec</b>()
+            
+            <a href="../../../../../classes/Media/Video/Editing/Cmd/ReplaceAudio.html#method-i-vcodec" name="method-i-vcodec" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p><a href="../../../Video.html">Video</a> codec</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-vcodec_source')" id="l_method-i-vcodec_source">show</a>
+                
+              </p>
+              <div id="method-i-vcodec_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/cmd/replace_audio.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">vcodec</span>
+  <span class="ruby-string">&#39;-c:v copy&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

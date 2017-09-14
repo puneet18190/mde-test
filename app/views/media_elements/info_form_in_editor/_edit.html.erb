@@ -1,0 +1,49 @@
+<% my_tags = Tagging.includes(:tag).where(:taggable_type => 'MediaElement', :taggable_id => media_element.id).order(:tag_id) %>
+<div id="edit-media-element" class="formMediaElement" style="display:none" data-title="<%= media_element.title %>" data-description="<%= media_element.description %>" data-tags="<%= media_element.tags %>" data-form-action="overwrite" data-form-type="<%= media_element.sti_type.downcase %>">
+  <div class="form-selector-class">
+    <div class="part1">
+      <div class="attachment">
+        <div class="icon <%= media_element.sti_type.downcase %>"></div>
+      </div>
+      <div class="title_and_subtitle">
+        <h1>
+          <%= t('forms.overwrite_media_element_in_editor.title') %>
+        </h1>
+        <p>
+          <%= t('forms.overwrite_media_element_in_editor.description').html_safe %>
+        </p>
+      </div>
+    </div>
+    <div class="part2">
+      <div class="title_and_description">
+        <input class="title" type="text" name="edit_title" value="<%= media_element.title %>"/>
+        <textarea class="description" name="edit_description"><%= media_element.description %></textarea>
+      </div>
+      <div class="tags_loader">
+        <div class="_tags_container" data-max-width="377.5" data-lines="5">
+          <% my_tags.each do |t| %>
+            <span><%= t.tag.word.strip %><a class="remove"></a></span>
+          <% end %>
+          <input class="tags" type="text" value="" maxlength="<%= SETTINGS['max_tag_length'] %>"/>
+          <input class="tags_value" name="edit_tags" type="hidden" value="<%= media_element.tags %>"/>
+        </div>
+        <div class="hidden-tags" style="display:none">
+          <% my_tags.reverse.each do |t| %>
+            <span><%= t.tag.word.strip %><a class="remove"></a></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="part3">
+      <div class="on-left">
+      </div>
+      <div class="on-right">
+        <a class="submit"><%= t('forms.overwrite_media_element_in_editor.done').downcase %></a>
+        <a class="close"><%= t('forms.overwrite_media_element_in_editor.cancel').downcase %></a>
+      </div>
+    </div>
+    <div class="errors_layer description" data-focus-selector=".part2 .description" data-form-error-selector=".part2 .description" data-focus-action="focus"></div>
+    <div class="errors_layer tags" data-focus-selector=".part2 ._tags_container .tags" data-form-error-selector=".part2 ._tags_container" data-focus-action="focus"></div>
+    <div class="errors_layer title" data-focus-selector=".part2 .title" data-form-error-selector=".part2 .title" data-focus-action="focus"></div>
+  </div>
+</div>

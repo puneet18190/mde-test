@@ -1,0 +1,5 @@
+<% @audios.each do |audio| %>
+  $('#video_editor_audio_gallery_container #audio_gallery_content .jspPane').append('<%= j(render(:partial => "galleries/thumbs/audio", :locals => {:audio => audio, :index => 1})) %>');
+<% end %>
+$('#video_editor_audio_gallery_container').data('page', <%= @page %>);
+$('._select_audio_from_gallery').addClass('_add_audio_track_to_video_editor');

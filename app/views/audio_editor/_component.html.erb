@@ -1,0 +1,86 @@
+<%
+  external_div_attributes = "data-position=\"\" data-duration=\"\" data-from=\"\" data-to=\"\""
+  title = ''
+  total_length = ''
+  from = ''
+  to = ''
+  max_to = 0
+  ogg = ''
+  m4a = ''
+  if !empty
+    external_div_attributes = "id=\"audio_component_#{identifier}\" data-position=\"#{identifier}\" data-duration=\"#{component[:to] - component[:from]}\" data-from=\"#{component[:from]}\" data-to=\"#{component[:to]}\""
+    title = component[:audio].title
+    total_length = seconds_to_time component[:audio].min_duration
+    from = seconds_to_time component[:from]
+    to = seconds_to_time component[:to]
+    max_to = component[:audio].min_duration
+    ogg = component[:audio].ogg_url
+    m4a = component[:audio].m4a_url
+  end
+%>
+
+<div data-loaded="<%= empty %>" data-m4a="<%= m4a %>" data-ogg="<%= ogg %>" class="<%= empty ? '_audio_editor_empty_component'.html_safe : '_audio_editor_component'.html_safe %>" <%= external_div_attributes.html_safe %> data-max-to="<%= max_to %>" data-playing="false">
+  
+  <div class="contatore _audio_component_icon">
+    <%= identifier %>
+  </div>
+  <div class="audioContent _content">
+    
+    <div class="manigliaAudio _sort_handle" title="<%= t('titles.audio_editor.components.sort') %>"></div>
+    <div class="audioComponentContent">
+      
+      <div class="audioComponentTitle _title">
+        <%= title %>
+      </div>
+      
+      <div class="audioComponentPlayer">
+        <div class="_player_content" style="opacity:0.2">
+          <span class="_current_time" style="float:left"><%= from %></span>
+          <div class="cutter">
+            <audio>
+              <source src="" type="audio/mp4">
+              <source src="" type="audio/ogg">
+              <%= t('captions.dont_support_audio') %>
+            </audio>
+            <a class="left _precision_arrow_left"></a>
+            <div class="audioSlider _media_player_slider"></div>
+            <a class="right _precision_arrow_right"></a>
+            <div class="underDoubleSlider _under_double_slider"></div>
+            <div class="audioDoubleSlider _double_slider"></div>
+          </div>
+          <div class="sliderDisabler _media_player_slider_disabler" style="display: none;"></div>
+          <span class="_total_length" style="float:right"><%= total_length %></span>
+        </div>
+      </div>
+      
+      <div class="audioComponentBottom">
+        <div class="audioComponentDurations">
+          <%= t('audio_editor.cutters.selected') %>: <span class="_cutter_from"><%= from %></span><%= ' - '.html_safe %><span class="_cutter_to"><%= to %></span>
+        </div>
+        <div class="audioComponentControls _controls" style="visibility:hidden">
+          <a class="rewind _media_player_rewind_in_audio_editor_preview" title="<%= t('titles.audio_editor.audio_cutter.rewind') %>"></a>
+          <a class="play _media_player_play_in_audio_editor_preview" title="<%= t('titles.audio_editor.audio_cutter.play') %>"></a>
+          <a class="pause _media_player_pause_in_audio_editor_preview" title="<%= t('titles.audio_editor.audio_cutter.pause') %>"></a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <% if !empty %>
+    <%= hidden_field_tag "audio_id_#{identifier}", component[:audio].id, :class => '_audio_component_input_audio_id' %>
+    <%= hidden_field_tag "from_#{identifier}", component[:from], :class => '_audio_component_input_from' %>
+    <%= hidden_field_tag "to_#{identifier}", component[:to], :class => '_audio_component_input_to' %>
+    <%= hidden_field_tag "position_#{identifier}", identifier, :class => '_audio_component_input_position' %>
+  <% end %>
+  
+  <a class="exitButton _remove" title="<%= t('titles.audio_editor.components.remove') %>"></a>
+  <div class="boxGhost _box_ghost" title="<%= t('titles.audio_editor.components.box_ghost') %>"></div>
+</div>
+
+
+<% if !empty %>
+  <script>
+    initializeAudioEditorCutter(<%= identifier %>);
+  </script>
+<% end %>

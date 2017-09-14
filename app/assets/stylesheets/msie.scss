@@ -1,0 +1,20 @@
+@import 'variables';
+@import 'mixins';
+
+.msie {
+  
+  .slide-tooltip, .slide-tooltip-to-left {
+    
+    .miniature-container {
+      
+      .zoomOutThumb {
+        
+        zoom: 27%;
+        
+      }
+      
+    }
+    
+  }
+  
+}

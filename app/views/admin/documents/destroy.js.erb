@@ -1,0 +1,6 @@
+<% if @errors %>
+  $('tr#<%= @document.id %>').css('background-color', 'red');
+<% else %>
+  $('tr#<%= @document.id %>').next('tr.collapsed').remove();
+  $('tr#<%= @document.id %>').remove();
+<% end %>

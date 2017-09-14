@@ -1,0 +1,28 @@
+<h3><%= t('admin.purchases.links.title', :purchaser => @purchase.name) %></h3>
+<%= form_tag "/admin/purchases/#{@purchase.id}/links/send", :method => :post, :id => 'admin-purchases-send-link', :class => 'search-form' do %>
+  <div class="row-fluid">
+    <div class="span4">
+      <div class="control-group">
+        <h4><%= t('admin.purchases.links.email') %></h4>
+        <div class="controls">
+          <%= text_area_tag 'emails', @purchase.email, :style => 'height:150px; width:400px; resize:none' %>
+        </div>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="control-group">
+        <h4><%= t('admin.purchases.links.message') %></h4>
+        <div class="controls">
+          <%= text_area_tag 'message', '', :placeholder => t('admin.purchases.links.message'), :style => 'height:150px; width:400px; resize:none' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="form-actions">
+        <button type="submit" class="btn btn-block btn-info"><%= t('admin.purchases.links.send').upcase %></button>
+      </div>
+    </div>
+  </div>
+<% end %>

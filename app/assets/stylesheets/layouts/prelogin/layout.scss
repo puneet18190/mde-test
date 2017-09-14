@@ -1,0 +1,261 @@
+@import 'variables';
+@import 'mixins';
+
+html.prelogin-layout {
+  
+  body {
+    
+    @include arial(80%);
+    background-color: #9BC3EB;
+    background-image: $assets-bg-register_jpg;
+    background-repeat: repeat-x ;
+    background-position: 0px 0px;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  hr {
+    
+    color: #248FBA;
+    background-color: #248FBA;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    margin-bottom:10px;
+    
+  }
+  
+  a {
+    
+    color: #fff;
+    cursor: pointer;
+    
+  }
+  
+  .footer {
+    
+    border-top: 1px solid #F7F9FA;
+    padding-top: 15px;
+    
+    .footer_logo_content {
+      
+      width: 96%;
+      padding: 0 2% 0 2%;
+      float: left;
+      
+    }
+    
+  }
+  
+  .container {
+    
+    margin: 0 auto;
+    width: 944px;
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+    
+    h1 {
+      
+      font-size: 280%;
+      color: #fff;
+      padding-top: 24px;
+      padding-bottom: 0px;
+      line-height: 100%;
+      
+    }
+    
+    h2 {
+      
+      color: #fff;
+      font-size: 130%;
+      padding: 30px 0px 0px 90px;
+      line-height: 100%;
+      
+    }
+    
+    
+    
+    h3 {
+      
+      font-size: 110%;
+      color: #fff;
+      line-height: 100%;
+      
+    }
+    
+    .containerText {
+      
+      p {
+        
+        padding-bottom: 10px;
+        
+      }
+      
+      h2 {
+        
+        padding: 0px;
+        
+      }
+      
+      ul {
+        
+        padding: 20px;
+        
+      }
+      
+      ul li {
+        
+        padding-bottom: 10px;
+        
+      }
+      
+    }
+    
+  }
+  
+  &.prelogin-controller.registration-action, &.users-controller.create-action {
+    
+    .container {
+      
+      padding: 0;
+      background-color: transparent;
+      position: relative;
+      width: 972px;
+      
+      h1 {
+        
+        @include nunito(36px);
+        
+      }
+      
+      h2 {
+        
+        @include nunito(16px);
+        
+        &.subtitle {
+          
+          margin-top: 15px;
+          
+        }
+        
+      }
+      
+      .footer {
+        
+        padding: 10px 30px 10px 40px;
+        border-top: 7px solid #FDB525;
+        float: left;
+        background-color: #fff;
+        color: #CECDCD;
+        font-size: 75%;
+        text-transform: lowercase;
+        position: relative;
+        width: 914px;
+        height: 40px;
+        
+      }
+      
+      .containerText {
+        
+        padding: 0px 90px 20px 0px;
+        font-family: 'Nunito', sans-serif;
+        
+      }
+      
+    }
+    
+  }
+  
+  &.prelogin-controller.what_is-action {
+    
+    body {
+      
+      background-color: #fff;
+      background-image: none;
+      margin: 0;
+      color: #6D6D6E;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      
+    }
+    
+    .container {
+      
+      position: relative;
+      padding: 0;
+      width: 972px;
+      
+      .containerText {
+        
+        display: inline-block;
+        padding: 40px;
+        color: #6D6D6E;
+        
+        h1, h3 {
+          
+          font-family: 'Nunito', sans-serif;
+          
+        }
+        
+        h1 {
+          
+          color: #3C9927;
+          font-size: 22px;
+          
+        }
+        
+        h3 {
+          
+          padding-bottom: 25px;
+          color: #FDB525;
+          
+        }
+        
+        ul {
+          
+          list-style: none;
+          
+          li {
+            
+            padding-left: 18px;
+            background-image: $assets-arrow-yellow_png;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            
+          }
+          
+        }
+        
+        .colS {
+          
+          width: 45%;
+          
+        }
+        
+      }
+      
+      .footer {
+        
+        padding: 10px 30px 10px 40px;
+        border-top: 7px solid #FDB525;
+        background-color: #fff;
+        color: #CECDCD;
+        font-size: 75%;
+        text-transform: lowercase;
+        position: relative;
+        width: 914px;
+        height: 40px;
+        
+      }
+      
+    }
+    
+  }
+  
+}

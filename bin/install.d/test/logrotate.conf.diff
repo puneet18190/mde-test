@@ -1,0 +1,12 @@
+2,3c2,3
+< "$app_path"/log/*.log {
+<   su $username $groupname
+---
+> "/home/testuser/www/desy"/log/*.log {
+>   su testuser testgroup
+14,15c14,15
+< "$app_path"/log/media/*.log "$app_path"/log/media/*/*.log "$app_path"/log/media/*/*/*.log "$app_path"/log/media/*/*/*/*.log "$app_path"/log/media/*/*/*/*/*.log "$app_path"/log/media/*/*/*/*/*/*.log "$app_path"/log/media/*/*/*/*/*/*/*.log "$app_path"/log/media/*/*/*/*/*/*/*/*.log "$app_path"/log/media/*/*/*/*/*/*/*/*/*.log {
+<   su $username $groupname
+---
+> "/home/testuser/www/desy"/log/media/*.log "/home/testuser/www/desy"/log/media/*/*.log "/home/testuser/www/desy"/log/media/*/*/*.log "/home/testuser/www/desy"/log/media/*/*/*/*.log "/home/testuser/www/desy"/log/media/*/*/*/*/*.log "/home/testuser/www/desy"/log/media/*/*/*/*/*/*.log "/home/testuser/www/desy"/log/media/*/*/*/*/*/*/*.log "/home/testuser/www/desy"/log/media/*/*/*/*/*/*/*/*.log "/home/testuser/www/desy"/log/media/*/*/*/*/*/*/*/*/*.log {
+>   su testuser testgroup

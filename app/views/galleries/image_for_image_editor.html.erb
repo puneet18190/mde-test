@@ -1,0 +1,14 @@
+<%= render :partial => 'image_editor/header', :locals => {:image => nil, :is_public => true} %>
+<div id="image_gallery_for_image_editor" data-page="1" data-tot-pages="<%= @tot_pages %>">
+  <div class="mediaEditorElementContainer image_editor_only">
+    <%= render :partial => 'galleries/image', :locals => {:images => @images} %>
+  </div>
+</div>
+
+<script>
+  <% if @images.count > 21 %>
+    initializeImageGalleryInImageEditor();
+  <% else %>
+    $('.image_gallery .scroll-pane').css('overflow', 'hidden');
+  <% end %>
+</script>

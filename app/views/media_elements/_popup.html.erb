@@ -1,0 +1,111 @@
+<%
+  image_width = 0
+  additional_style = {
+    :left => '',
+    :righ => ''
+  }
+  if media_element.image?
+    width = media_element.width.to_f
+    height = media_element.height.to_f
+    ratio = (355.to_f / 500.to_f)
+    if (height / width) <= ratio
+      image_width = 500
+    else
+      image_width = (width * 355.to_f / height).to_i
+    end
+    additional_style[:left] = "style=\"width:#{image_width}px\"".html_safe
+    additional_style[:right] = "style=\"width:#{700 - image_width}px\"".html_safe
+  end
+%>
+
+<div id="dialog-media-element-<%= media_element.id %>" class="dialogMediaElement triceratopo camaleonte opossum" style="display:none">
+  <% if !locked %>
+    <% if media_element.buttons.include? Buttons::PREVIEW %>
+      <div class="wrapper">
+        <div class="preview <%= media_element.sti_type.downcase %>">
+          <% if media_element.audio? %>
+            <div class="description">
+              <h2><%= media_element.sti_type_to_s %></h2>
+              <h3><%= media_element.title %></h3>
+              <p><%= media_element.description %></p>
+            </div>
+            <div class="content">
+              <%= render :partial => 'media_elements/previews/audio', :locals => {:media_element => media_element} %>
+            </div>
+          <% else %>
+            <div class="content" <%= additional_style[:left] %>>
+              <%= render :partial => "media_elements/previews/#{media_element.sti_type.downcase}", :locals => {:media_element => media_element} %>
+            </div>
+            <div class="description" <%= additional_style[:right] %>>
+              <h2><%= media_element.sti_type_to_s %></h2>
+              <h3><%= media_element.title %></h3>
+              <p><%= media_element.description %></p>
+            </div>
+          <% end %>
+        </div>
+        <% if media_element.info_changeable %>
+          <% my_tags = Tagging.includes(:tag).where(:taggable_type => 'MediaElement', :taggable_id => media_element.id).order(:tag_id) %>
+          <div class="change-info" style="display:none" data-title="<%= media_element.title %>" data-description="<%= media_element.description %>" data-tags="<%= media_element.tags %>">
+            <%= form_tag media_element_path(media_element.id), :remote => true, :class => 'form-selector-class', :autocomplete => 'off' do %>
+              <div class="part1">
+                <div class="attachment">
+                  <div class="icon <%= media_element.sti_type.downcase %>"></div>
+                </div>
+                <div class="title_and_subtitle">
+                  <h1>
+                    <%= t('forms.change_info_media_element.title') %>
+                  </h1>
+                  <p>
+                    <%= t('forms.change_info_media_element.description') %>
+                  </p>
+                </div>
+              </div>
+              <div class="part2">
+                <div class="title_and_description">
+                  <input class="title" type="text" value="<%= media_element.title %>" name="title"/>
+                  <textarea class="description" name="description"><%= media_element.description %></textarea>
+                </div>
+                <div class="tags_loader">
+                  <div class="_tags_container" data-max-width="355" data-lines="4">
+                    <% my_tags.each do |t| %>
+                      <span><%= t.tag.word.strip %><a class="remove"></a></span>
+                    <% end %>
+                    <input class="tags" type="text" value="" maxlength="<%= SETTINGS['max_tag_length'] %>"/>
+                    <input class="tags_value" type="hidden" value="<%= media_element.tags %>" name="tags_value"/>
+                  </div>
+                  <div class="hidden-tags" style="display:none">
+                    <% my_tags.reverse.each do |t| %>
+                      <span><%= t.tag.word.strip %><a class="remove"></a></span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="part3">
+                <a class="submit"><%= t('forms.change_info_media_element.done').downcase %></a>
+                <a class="close"><%= t('forms.change_info_media_element.cancel').downcase %></a>
+              </div>
+              <div class="errors_layer description" data-focus-selector=".part2 .description" data-form-error-selector=".part2 .description" data-focus-action="focus"></div>
+              <div class="errors_layer tags" data-focus-selector=".part2 ._tags_container .tags" data-form-error-selector=".part2 ._tags_container" data-focus-action="focus"></div>
+              <div class="errors_layer title" data-focus-selector=".part2 .title" data-form-error-selector=".part2 .title" data-focus-action="focus"></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="menu">
+        <div class="on-left">
+          <a class="edit" href="/<%= media_element.sti_type.downcase %>s/<%= media_element.id %>/edit" title="<%= t('titles.buttons.edit') %>"></a>
+          <% if media_element.info_changeable %>
+            <a class="change-info" title="<%= t('titles.media_elements.change_info') %>"></a>
+          <% end %>
+        </div>
+        <div class="on-right">
+          <a class="close" title="<%= t('titles.close') %>"></a>
+          <% if media_element.is_reportable %>
+            <a class="report" title="<%= t('titles.report') %>"></a>
+            <%= render :partial => 'reports/form', :locals => {:item => media_element} %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

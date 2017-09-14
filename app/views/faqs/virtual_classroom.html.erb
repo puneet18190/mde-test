@@ -1,0 +1,10 @@
+<div class="gray-description">
+  <%= t('faqs.virtual_classroom.description').html_safe %><br/><br/>
+  <%= contact_us_link %>
+</div>
+<div id="virtual_classroom_faq">
+  <h2 class="title"><%= t('faqs.virtual_classroom.title') %></h2>
+  <h3 class="answer_title"><%= @answer[0] %></h3>
+  <div class="content"><%= @answer[1].html_safe %></div>
+  <%= link_to t('faqs.back'), faqs_path, :class => 'backBtn' %>
+</div>

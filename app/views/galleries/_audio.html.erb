@@ -1,0 +1,12 @@
+<div id="audio_gallery" class="audio_gallery audio-kind">
+  <div class="gallery-header">
+    <h3 class="pull-left"><%= t('galleries.audios.select') %></h3>
+    <a class="icon"></a>
+  </div>
+  <%= render :partial => 'galleries/contents/audio', :locals => {:audios => audios} %>
+  <div class="gallery-footer">
+    <div class="pull-right">
+      <a class="_close_audio_gallery exitGallery" title="<%= t('titles.galleries.close') %>"></a>
+    </div>
+  </div>
+</div>

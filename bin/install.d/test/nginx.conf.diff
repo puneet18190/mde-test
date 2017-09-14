@@ -1,0 +1,32 @@
+1c1
+< upstream $username_$appname {
+---
+> upstream testuser_desy {
+7c7
+<   server unix:/tmp/$username.$appname.production.sock fail_timeout=0;
+---
+>   server unix:/tmp/testuser.desy.production.sock fail_timeout=0;
+12c12
+<   server_name $servername;
+---
+>   server_name desy.example.com;
+15c15
+<   root $path_to_application/public;
+---
+>   root /home/testuser/www/desy/public;
+31c31
+<     alias $path_to_application/vendor/assets/javascripts/tinymce/plugins/tiny_mce_wiris/integration;
+---
+>     alias /home/testuser/www/desy/vendor/assets/javascripts/tinymce/plugins/tiny_mce_wiris/integration;
+78c78
+<     proxy_pass http://$username_$appname;
+---
+>     proxy_pass http://testuser_desy;
+84c84
+<     root $path_to_application/public;
+---
+>     root /home/testuser/www/desy/public;
+90c90
+<     root $path_to_application/public;
+---
+>     root /home/testuser/www/desy/public;

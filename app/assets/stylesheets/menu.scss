@@ -1,0 +1,139 @@
+@import 'variables';
+@import 'mixins';
+
+.navcontainer {
+  
+  @include nunito(180%);
+  margin: 0 auto;
+  padding-bottom: 50px;
+  float: left;
+  width: 100%;
+  
+  ul.navlist {
+    
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    float: left;
+    
+    li {
+      
+      display: block;
+      float: left;
+      width: 20%;
+      margin: 0;
+      padding: 0;
+      
+      a {
+        
+        display: block;
+        width: 100%;
+        padding: 0;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        text-transform: lowercase;
+        line-height: 61px;
+      }
+      
+      &.lessons a {
+        
+        background-color: $orange;
+        text-shadow: #D68300 0px 2px 0px;
+        
+        &.current {
+          
+          color: #F5A933;
+          
+        }
+        
+        &:hover, &:active, &:focus {
+          
+          color: #F5A933;
+          
+        }
+        
+      }
+      
+      &.media_elements a {
+        
+        background-color: $green;
+        text-shadow: #368A23 0px 2px 0px;
+        
+        &.current {
+          
+          color: #67B855;
+          
+        }
+        
+        &:hover, &:active, &:focus {
+          
+          color: #67B855;
+          
+        }
+        
+      }
+      
+      &.virtual_classroom a {
+        
+        background-color: $blue;
+        text-shadow: #3490B5 0px 2px 0px;
+        
+        &.current {
+          
+          color: #58BBE3;
+          
+        }
+        
+        &:hover, &:active, &:focus {
+          
+          color: #58BBE3;
+          
+        }
+        
+      }
+      
+      &.documents a {
+        
+        background-color: $black;
+        text-shadow: #4E4D4D 0px 2px 0px;
+        
+        &.current {
+          
+          color: #7D7D7D;
+          
+        }
+        
+        &:hover, &:active, &:focus { 
+          
+          color: #7D7D7D;
+          
+        }
+        
+      }
+      
+      &.dashboard a {
+        
+        background-color: #262626;
+        text-shadow: black 0px 2px 0px;
+        
+        &.current {
+          
+          color: #515151;
+          
+        }
+        
+        &:hover, &:active, &:focus {
+          
+          color: #515151;
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}

@@ -1,0 +1,75 @@
+$body-padding: 16px;
+
+html.image1-slide {
+
+body {
+  margin: 0;
+  padding: $body-padding;
+  min-width: 400px;
+  max-width: 900px;
+}
+
+.title {
+  color: #F29400;
+  font-size: 4em;
+  font-weight: normal;
+  line-height: 100%;
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+.text {
+  @extend %hyphenate;
+  margin-top: 1em;
+  text-align: justify;
+  img {
+    vertical-align: middle;
+  }
+}
+
+.image {
+  width: 100%;
+  max-width: 421px;
+  margin: 0 0 1em;
+}
+
+.image.no-image {
+  margin: 0;
+}
+
+.image div {
+  width: 100%;
+  height: 421px;
+  background: none no-repeat scroll 0 0 transparent;
+}
+
+.image.no-image div {
+  height: 0px;
+}
+
+.image figcaption {
+  font-size: 0.75em;
+  font-style: italic;
+  margin-top: 0.5em;
+}
+
+$i: 469px;
+@while $i > 448 {
+  @media all and (width: $i) {
+    .image div {
+      width: $i - 48;
+      height: $i - 48;
+    }
+  }
+  $i: $i - 1;
+}
+
+$i: $i - 1;
+@media all and (max-width: $i) {
+  .image div {
+    width: $i - 48;
+    height: $i - 48;
+  }
+}
+
+}

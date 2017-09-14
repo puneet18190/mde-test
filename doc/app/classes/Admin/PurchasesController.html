@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Admin::PurchasesController</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../css/github.css" type="text/css" media="screen" />
+<script src="../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Admin::PurchasesController 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="../AdminController.html">AdminController</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../files/app/controllers/admin/purchases_controller_rb.html">app/controllers/admin/purchases_controller.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Admin::PurchasesController-label-Description">Description</h3>
+
+<p>Controller of purchases in the administration section. See <a
+href="../AdminController.html">AdminController</a>.</p>
+
+<h3 id="class-Admin::PurchasesController-label-Models+used">Models used</h3>
+<ul><li>
+<p><a href="../AdminSearchForm.html">AdminSearchForm</a></p>
+</li><li>
+<p><a href="../Purchase.html">Purchase</a></p>
+</li><li>
+<p><a href="../Location.html">Location</a></p>
+</li></ul>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-check_saas">check_saas</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-create">create</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-edit">edit</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-fill_locations">fill_locations</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-find_locations">find_locations</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-index">index</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>L</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-link_form">link_form</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-purchase_attributes">purchase_attributes</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>S</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-send_link">send_link</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>U</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-update">update</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+
+
+
+  
+
+    
+
+    
+
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-create">
+            
+              <b>create</b>()
+            
+            <a href="../../classes/Admin/PurchasesController.html#method-i-create" name="method-i-create" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-create-label-Description">Description</h3>
+
+<p>Action to create a new purchase</p>
+
+<h3 id="method-i-create-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-create-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li><li>
+<p>Admin::PurchaseController#check_saas</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-create_source')" id="l_method-i-create_source">show</a>
+                
+              </p>
+              <div id="method-i-create_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/purchases_controller.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">create</span>
+  <span class="ruby-ivar">@purchase</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">purchase_attributes</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">renewed</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:renewed_id</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">renewed</span>
+      <span class="ruby-identifier">renewed</span>.<span class="ruby-identifier">users</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">u</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">u</span>.<span class="ruby-identifier">purchase_id</span> = <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">id</span>
+        <span class="ruby-identifier">u</span>.<span class="ruby-identifier">save</span>
+        <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">send_to</span>(
+          <span class="ruby-identifier">u</span>.<span class="ruby-identifier">id</span>,
+          <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.renewed.title&#39;</span>),
+          <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;notifications.account.renewed.message&#39;</span>, <span class="ruby-value">:expiration_date</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">TimeConvert</span>.<span class="ruby-identifier">to_string</span>(<span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">expiration_date</span>)),
+          <span class="ruby-string">&#39;&#39;</span>
+        )
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">renewed</span>.<span class="ruby-identifier">expiration_date</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span>
+      <span class="ruby-identifier">renewed</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-ivar">@errors</span> = <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">keys</span>
+    <span class="ruby-ivar">@errors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:ssn_code</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:base</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-edit">
+            
+              <b>edit</b>()
+            
+            <a href="../../classes/Admin/PurchasesController.html#method-i-edit" name="method-i-edit" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-edit-label-Description">Description</h3>
+
+<p>Form to edit a purchase</p>
+
+<h3 id="method-i-edit-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-edit-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li><li>
+<p>Admin::PurchaseController#check_saas</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-edit_source')" id="l_method-i-edit_source">show</a>
+                
+              </p>
+              <div id="method-i-edit_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/purchases_controller.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">edit</span>
+  <span class="ruby-ivar">@purchase</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-fill_locations">
+            
+              <b>fill_locations</b>()
+            
+            <a href="../../classes/Admin/PurchasesController.html#method-i-fill_locations" name="method-i-fill_locations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-fill_locations-label-Description">Description</h3>
+
+<p>It fills the locations in the restriction form, receiving as input an id or
+a code</p>
+
+<h3 id="method-i-fill_locations-label-Mode">Mode</h3>
+
+<p>Js</p>
+
+<h3 id="method-i-fill_locations-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li><li>
+<p>Admin::PurchaseController#check_saas</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-fill_locations_source')" id="l_method-i-fill_locations_source">show</a>
+                
+              </p>
+              <div id="method-i-fill_locations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/purchases_controller.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">fill_locations</span>
+  <span class="ruby-identifier">location_id</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>], <span class="ruby-value">:sti_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:sti_type</span>].<span class="ruby-identifier">camelize</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">location_code</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:code</span>].<span class="ruby-identifier">present?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Location</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:code</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:code</span>], <span class="ruby-value">:sti_type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:sti_type</span>].<span class="ruby-identifier">camelize</span>).<span class="ruby-identifier">first</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@location</span> = <span class="ruby-identifier">location_id</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">location_code</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">location_id</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@location</span>
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@locations</span> = <span class="ruby-ivar">@location</span>.<span class="ruby-identifier">select_with_selected</span>(<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-find_locations">
+            
+              <b>find_locations</b>()
+            
+            <a href="../../classes/Admin/PurchasesController.html#method-i-find_locations" name="method-i-find_locations" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-find_locations-label-Description">Description</h3>
+
+<p>It fills the locations in the restriction form; specific for purchases</p>
+
+<h3 id="method-i-find_locations-label-Mode">Mode</h3>
+
+<p>Js</p>
+
+<h3 id="method-i-find_locations-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li><li>
+<p>Admin::PurchaseController#check_saas</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-find_locations_source')" id="l_method-i-find_locations_source">show</a>
+                
+              </p>
+              <div id="method-i-find_locations_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/purchases_controller.rb, line 211</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">find_locations</span>
+  <span class="ruby-identifier">parent</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-ivar">@locations</span> = <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> [] <span class="ruby-operator">:</span> <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-index">
+            
+              <b>index</b>()
+            
+            <a href="../../classes/Admin/PurchasesController.html#method-i-index" name="method-i-index" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-index-label-Description">Description</h3>
+
+<p>Main page of the section &#39;purchases&#39; in admin. If <a
+href=":search">params</a> is present, it is used <a
+href="../AdminSearchForm.html">AdminSearchForm</a> to perform the requested
+search.</p>
+
+<h3 id="method-i-index-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-index-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li><li>
+<p>Admin::PurchaseController#check_saas</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-index_source')" id="l_method-i-index_source">show</a>
+                
+              </p>
+              <div id="method-i-index_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/purchases_controller.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">index</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@ok</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-string">&#39;/admin&#39;</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">purchases</span> = <span class="ruby-constant">AdminSearchForm</span>.<span class="ruby-identifier">search_purchases</span>((<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>] <span class="ruby-operator">:</span> {<span class="ruby-value">:ordering</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>, <span class="ruby-value">:desc</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;true&#39;</span>}))
+  <span class="ruby-ivar">@purchases</span> = <span class="ruby-identifier">purchases</span>.<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-link_form">
+            
+              <b>link_form</b>()
+            
+            <a href="../../classes/Admin/PurchasesController.html#method-i-link_form" name="method-i-link_form" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-link_form-label-Description">Description</h3>
+
+<p>Form to send to a list of emails the instructions to use the purchase code</p>
+
+<h3 id="method-i-link_form-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-link_form-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li><li>
+<p>Admin::PurchaseController#check_saas</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-link_form_source')" id="l_method-i-link_form_source">show</a>
+                
+              </p>
+              <div id="method-i-link_form_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/purchases_controller.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">link_form</span>
+  <span class="ruby-ivar">@purchase</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@purchase</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-string">&#39;/admin/purchases&#39;</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-new">
+            
+              <b>new</b>()
+            
+            <a href="../../classes/Admin/PurchasesController.html#method-i-new" name="method-i-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-new-label-Description">Description</h3>
+
+<p>Form to create a new purchase</p>
+
+<h3 id="method-i-new-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-new-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li><li>
+<p>Admin::PurchaseController#check_saas</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-new_source')" id="l_method-i-new_source">show</a>
+                
+              </p>
+              <div id="method-i-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/purchases_controller.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">new</span>
+  <span class="ruby-ivar">@renewed</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:renew</span>]
+  <span class="ruby-ivar">@purchase</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@locations</span> = <span class="ruby-constant">Location</span>.<span class="ruby-identifier">roots</span>.<span class="ruby-identifier">order</span>(<span class="ruby-value">:name</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@renewed</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">name</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">name</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">responsible</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">responsible</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">phone_number</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">phone_number</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">fax</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">fax</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">email</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">email</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">ssn_code</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">ssn_code</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">vat_code</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">vat_code</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">address</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">address</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">postal_code</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">postal_code</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">city</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">city</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">country</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">country</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">includes_invoice</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">includes_invoice</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">release_date</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span>
+    <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">start_date</span> = <span class="ruby-ivar">@renewed</span>.<span class="ruby-identifier">expiration_date</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-send_link">
+            
+              <b>send_link</b>()
+            
+            <a href="../../classes/Admin/PurchasesController.html#method-i-send_link" name="method-i-send_link" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-send_link-label-Description">Description</h3>
+
+<p>Action to send to a list of emails the instructions to use the purchase
+code</p>
+
+<h3 id="method-i-send_link-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-send_link-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li><li>
+<p>Admin::PurchaseController#check_saas</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-send_link_source')" id="l_method-i-send_link_source">show</a>
+                
+              </p>
+              <div id="method-i-send_link_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/purchases_controller.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">send_link</span>
+  <span class="ruby-ivar">@purchase</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@purchase</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-string">&#39;/admin/purchases&#39;</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@message</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:message</span>].<span class="ruby-identifier">blank?</span> <span class="ruby-operator">?</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&#39;admin.purchases.links.empty_message&#39;</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:message</span>]
+  <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">purchase_resume</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:emails</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>), <span class="ruby-ivar">@purchase</span>, <span class="ruby-ivar">@message</span>).<span class="ruby-identifier">deliver</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-string">&#39;/admin/purchases&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-update">
+            
+              <b>update</b>()
+            
+            <a href="../../classes/Admin/PurchasesController.html#method-i-update" name="method-i-update" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-update-label-Description">Description</h3>
+
+<p>Action to update a purchase</p>
+
+<h3 id="method-i-update-label-Mode">Mode</h3>
+
+<p>Html</p>
+
+<h3 id="method-i-update-label-Specific+filters">Specific filters</h3>
+<ul><li>
+<p><a
+href="../ApplicationController.html#method-i-admin_authenticate">ApplicationController#admin_authenticate</a></p>
+</li><li>
+<p>Admin::PurchaseController#check_saas</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-update_source')" id="l_method-i-update_source">show</a>
+                
+              </p>
+              <div id="method-i-update_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/purchases_controller.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">update</span>
+  <span class="ruby-ivar">@purchase</span> = <span class="ruby-constant">Purchase</span>.<span class="ruby-identifier">find_by_id</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">update</span> <span class="ruby-identifier">purchase_attributes</span>
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@ok</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-ivar">@errors</span> = <span class="ruby-ivar">@purchase</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">messages</span>.<span class="ruby-identifier">keys</span>
+    <span class="ruby-ivar">@errors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:ssn_code</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@errors</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:base</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-check_saas">
+            
+              <b>check_saas</b>()
+            
+            <a href="../../classes/Admin/PurchasesController.html#method-i-check_saas" name="method-i-check_saas" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Filter that checks if this section is enabled</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-check_saas_source')" id="l_method-i-check_saas_source">show</a>
+                
+              </p>
+              <div id="method-i-check_saas_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/purchases_controller.rb, line 251</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">check_saas</span>
+  <span class="ruby-ivar">@ok</span> = (<span class="ruby-constant">SETTINGS</span>[<span class="ruby-string">&#39;saas_registration_mode&#39;</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">super_admin?</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-purchase_attributes">
+            
+              <b>purchase_attributes</b>()
+            
+            <a href="../../classes/Admin/PurchasesController.html#method-i-purchase_attributes" name="method-i-purchase_attributes" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-purchase_attributes_source')" id="l_method-i-purchase_attributes_source">show</a>
+                
+              </p>
+              <div id="method-i-purchase_attributes_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/controllers/admin/purchases_controller.rb, line 243</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">purchase_attributes</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">action_name</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;create&#39;</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:purchase</span>).<span class="ruby-identifier">permit</span> <span class="ruby-operator">*</span><span class="ruby-constant">Purchase</span><span class="ruby-operator">::</span><span class="ruby-constant">ATTR_ACCESSIBLE</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&#39;update&#39;</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:purchase</span>).<span class="ruby-identifier">permit</span> <span class="ruby-operator">*</span><span class="ruby-constant">Purchase</span><span class="ruby-operator">::</span><span class="ruby-constant">ATTR_ACCESSIBLE</span><span class="ruby-operator">+</span>[<span class="ruby-value">:includes_invoice</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

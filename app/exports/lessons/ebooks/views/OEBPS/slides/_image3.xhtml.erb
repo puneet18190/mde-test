@@ -1,0 +1,8 @@
+<%
+  image = slide.media_elements_at
+%>
+
+<figure class="<%= image_figure_classes image, 'vertical_align', 'image' %>">
+  <div style="<%= image_style image %>"></div>
+  <figcaption><%= image.caption if image %></figcaption>
+</figure>

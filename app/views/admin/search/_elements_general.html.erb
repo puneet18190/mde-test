@@ -1,0 +1,40 @@
+<div class="control-group heading">
+  <label><h5><%= t('admin.search.media_elements.title') %></h5></label>
+</div>
+<div class="control-group">
+  <label for="id"><%= t('admin.search.media_elements.fields.id') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[id]', params ? params[:id] : '', :class => 'input-mini', :placeholder => t('admin.search.media_elements.fields.id') %>
+  </div>
+</div>
+<div class="control-group">
+  <label><%= t('admin.search.media_elements.fields.title') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[title]', params ? params[:title] : '', :class => 'input-medium', :placeholder => t('admin.search.media_elements.fields.title') %>
+  </div>
+</div>
+<div class="control-group">
+  <label for="subject"><%= t('admin.search.media_elements.fields.sti_type') %></label>
+  <div class="controls">
+    <select id="search_sti_type" name="search[sti_type]">
+      <option value=""><%= t('admin.search.media_elements.fields.all_sti_types') %></option>
+      <% MediaElement::STI_TYPES.each do |sti_type| %>
+        <% if params && params[:sti_type] == sti_type %>
+          <option selected="selected">
+            <%= sti_type %>
+          </option>
+        <% else %>
+          <option>
+            <%= sti_type %>
+          </option>
+        <% end %>
+      <% end %>
+    </select>
+  </div>
+</div>
+<div class="control-group">
+  <label for="search_user"><%= t('admin.search.media_elements.fields.user') %></label>
+  <div class="controls">
+    <%= text_field_tag 'search[user]',  params ? params[:user] : '', :class=>'input-medium', :placeholder => t('admin.search.media_elements.fields.user') %>
+  </div>
+</div>

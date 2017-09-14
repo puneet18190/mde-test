@@ -1,0 +1,8 @@
+<% if @ok %>
+  window.location = '/admin/purchases';
+<% else %>
+  $('.erroraccio').removeClass('erroraccio');
+  <% @errors.each do |e| %>
+    $('#purchase_<%= e.to_s %>').addClass('erroraccio');
+  <% end %>
+<% end %>

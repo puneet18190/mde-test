@@ -1,0 +1,14 @@
+<div id="media_elements_title_bar" class="title-bar">
+  <h1 class="lower"><%= t('captions.media_elements') %></h1>
+    <div class="filter">
+      <h2><%= t('captions.show') %></h2>
+      <select id="filter_media_elements">
+        <% Filters::MEDIA_ELEMENTS_SET.each do |f| %>
+          <option value="<%= f %>" <%= (filter == f) ? "selected=\"selected\"".html_safe : '' %>><%= MediaElement.filter(f) %></option>
+        <% end %>
+      </select>
+    </div>
+    <p id="format_media_elements">
+      <%= t('media_elements.display_mode.title') %>: <a id="display_expanded_media_elements" class="<%= (display == MediaElement::DISPLAY_MODES[:expanded] ? 'current' : '') %>"><%= t('media_elements.display_mode.large') %></a> - <a id="display_compact_media_elements" class="<%= (display == MediaElement::DISPLAY_MODES[:compact] ? 'current' : '') %>"><%= t('media_elements.display_mode.small') %></a>
+    </p>
+</div>

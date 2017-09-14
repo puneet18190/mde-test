@@ -1,0 +1,19 @@
+<div class="griglia-contenuti">
+  <div class="profile-content">
+    <%= render :partial => 'users/title_bar', :locals => {:classes => ['', '', 'current', '', '']} %>
+    <br class="clearfloat"/>
+    <div class="contentFormInProfile">
+      <header>
+        <h2><%= t('users.mailing_list.title') %></h2>
+        <p><%= t('users.mailing_list.description') %></p>
+      </header>
+      <div id="list">
+        <%= render :partial => 'mailing_lists/list' %>
+      </div>
+      <br />
+      <div class="form_submit">
+        <input id="fake_save_mailing_list" type="submit" value="<%= t('users.mailing_list.save') %>" />
+      </div>
+    </div>
+  </div>
+</div>

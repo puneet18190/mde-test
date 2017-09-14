@@ -1,0 +1,37 @@
+<h4><%= t('admin.documents.search.label') %></h4>
+<%= form_tag 'documents', :method => :get, :id => 'admin-search-documents', :class => 'search-form' do %>
+  <%= hidden_field_tag 'search[search_type]', 'documents' %>
+  <%= hidden_field_tag 'search[ordering]', '' %>
+  <%= hidden_field_tag 'search[desc]', '' %>
+  <div class="row-fluid">
+    <div class="span12">
+      <%= render :partial => 'admin/search/alerts' %>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span4">
+      <%= render :partial => 'admin/search/documents_general', :locals => {:params => params[:search]} %>
+    </div>  
+    <div class="span4">
+      <%= render :partial => 'admin/search/date', :locals => {:params => params[:search]} %>
+    </div>
+    <div class="span4">
+      <%= render :partial => 'admin/search/location', :locals => {:locations => @locations, :params => params[:search]} %>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="form-actions">
+        <button type="submit" class="btn btn-block btn-inverse"><%= t('admin.documents.search.submit').upcase %></button>
+      </div>
+    </div>
+  </div>
+<% end %>
+<h3><%= t('admin.documents.title') %></h3>
+<% if @documents.present? %>
+  <%= render :partial => 'admin/list_heading', :locals => {:items => @documents, :expandable => false} %>
+<% end %>
+<%= render :partial => 'list', :locals => {:documents => @documents} %>
+<% if @documents.present? %>
+  <%= render :partial => 'admin/list_heading', :locals => {:items => @documents, :expandable => false} %>
+<% end %>

@@ -1,0 +1,13 @@
+<% if @ok %>
+  <% if !@ok_msg.blank? %>
+    showOkPopUp('<%= j @ok_msg %>');
+  <% end %>
+  removeCompletelyMediaElementPopup(<%= @media_element_id %>);
+  var target = $('#<%= @destination %>_<%= @media_element_id %>');
+  var old_margin_bottom = target.css('margin-bottom');
+  <% js_content = j(render(:partial => 'media_elements/view_single_compact', :locals => {:media_element => @media_element, :destination => @destination, :used_in_private_lessons => @media_element.media_elements_slides.any?})) %>
+  target.replaceWith("<%= js_content %>");
+  $('#<%= @destination %>_<%= @media_element_id %>').css('margin-bottom', old_margin_bottom);
+<% else %>
+  showErrorPopUp('<%= j @error %>');
+<% end %>

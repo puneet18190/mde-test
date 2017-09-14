@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Video::Editing::Concat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Video::Editing::Concat 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/media/video/editing/concat_rb.html">lib/media/video/editing/concat.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Concatenate an array of video files producing a new video as output</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-concat">concat</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-copy_first_inputs_to_outputs">copy_first_inputs_to_outputs</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>F</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-final_wav">final_wav</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>I</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-increase_rpadding_depending_on_video_overflow">increase_rpadding_depending_on_video_overflow</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-mp4_inputs">mp4_inputs</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-mp4_output">mp4_output</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-outputs">outputs</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-paddings">paddings</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-run">run</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-wavs_with_paddings">wavs_with_paddings</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-webm_inputs">webm_inputs</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-webm_output">webm_output</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../../Logging.html">
+              Media::Logging
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="../../InTmpDir.html">
+              Media::InTmpDir
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">CONCAT_M4A_FORMAT</td>
+            <td>=</td>
+            <td class="attr-value">&#39;concat%i.m4a&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Filename of a m4a format concatenation intermediate instance</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">CONCAT_WAV_FORMAT</td>
+            <td>=</td>
+            <td class="attr-value">&#39;concat%i.wav&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Filename of a wav format concatenation intermediate instance</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">FINAL_WAV</td>
+            <td>=</td>
+            <td class="attr-value">&#39;final.wav&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Filename of the intermediate wav file</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">FINAL_WEBM_NO_AUDIO</td>
+            <td>=</td>
+            <td class="attr-value">&#39;final_webm_no_audio.webm&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Filename of the intermediate webm file without the audio track</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">OUTPUT_MP4_FORMAT</td>
+            <td>=</td>
+            <td class="attr-value">&#39;%s.mp4&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Filename of the output video (mp4 format)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">OUTPUT_WEBM_FORMAT</td>
+            <td>=</td>
+            <td class="attr-value">&#39;%s.webm&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Filename of the output video (webm format)</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(inputs, output_without_extension, log_folder = nil)
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Creates a new <a href="Concat.html">Media::Video::Editing::Concat</a>
+instance, which can be used to concatenate various video files.</p>
+
+<h3 id="method-c-new-label-Arguments">Arguments</h3>
+<ul><li>
+<p><em>inputs</em>: an array with hash values containing the video files per
+format</p>
+</li><li>
+<p><em>output_without_extension</em>: output path without extension</p>
+</li><li>
+<p><em>log_folder</em> <em>optional</em>: Custom log folder path</p>
+</li></ul>
+
+<p>See <a href="#method-c-new-label-Examples">Examples</a> for usage examples.</p>
+
+<h3 id="method-c-new-label-Examples">Examples</h3>
+
+<p><a href="Concat.html#method-c-new">::new</a>([ { webm:
+&#39;input.webm&#39;, mp4: &#39;input.mp4&#39;}, { webm:
+&#39;input2.webm&#39;, mp4: &#39;input2.mp4&#39;} ],
+&#39;/output/without/extension&#39;).run  #=&gt; {
+mp4:&#39;/output/without/extension.mp4&#39;,
+webm:&#39;/output/without/extension.webm&#39; }</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">inputs</span>, <span class="ruby-identifier">output_without_extension</span>, <span class="ruby-identifier">log_folder</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">&amp;&amp;</span>
+         <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">present?</span>     <span class="ruby-operator">&amp;&amp;</span>
+         <span class="ruby-identifier">inputs</span>.<span class="ruby-identifier">all?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">input</span><span class="ruby-operator">|</span>
+           <span class="ruby-identifier">input</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)                 <span class="ruby-operator">&amp;&amp;</span>
+           <span class="ruby-identifier">input</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span> <span class="ruby-operator">==</span> <span class="ruby-constant">FORMATS</span>.<span class="ruby-identifier">sort</span>   <span class="ruby-operator">&amp;&amp;</span>
+           <span class="ruby-identifier">input</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-constant">FORMATS</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&amp;&amp;</span>
+           <span class="ruby-identifier">input</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">all?</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) }
+         <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>( <span class="ruby-node">&quot;inputs must be an array with at least one element and its elements must be hashes with #{FORMATS.inspect} as keys and strings as values&quot;</span>, 
+                     <span class="ruby-identifier">inputs</span><span class="ruby-operator">:</span> <span class="ruby-identifier">inputs</span>, <span class="ruby-identifier">output_without_extension</span><span class="ruby-operator">:</span> <span class="ruby-identifier">output_without_extension</span> )
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">output_without_extension</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;output_without_extension must be a string&#39;</span>, <span class="ruby-identifier">output_without_extension</span><span class="ruby-operator">:</span> <span class="ruby-identifier">output_without_extension</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-ivar">@inputs</span>, <span class="ruby-ivar">@output_without_extension</span> = <span class="ruby-identifier">inputs</span>, <span class="ruby-identifier">output_without_extension</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">mp4_inputs</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">webm_inputs</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;mp4_inputs and webm_inputs must be of the same size&#39;</span>, <span class="ruby-identifier">inputs</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@inputs</span>, <span class="ruby-identifier">output_without_extension</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@output_without_extension</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@log_folder</span> = <span class="ruby-identifier">log_folder</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-run">
+            
+              <b>run</b>()
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-run" name="method-i-run" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Runs the concatenation processing</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-run_source')" id="l_method-i-run_source">show</a>
+                
+              </p>
+              <div id="method-i-run_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">run</span>
+  <span class="ruby-comment"># In order to check how many video pairs we have we can check mp4_inputs, because we already checked that mp4_inputs.size == webm_inputs.size inside the initialization</span>
+  <span class="ruby-comment"># Edge case: if there is just one inputs hash we can just copy the inputs to their respective outputs</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">copy_first_inputs_to_outputs</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">mp4_inputs</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-number">1</span>
+  
+  <span class="ruby-identifier">mp4_inputs_infos</span> = <span class="ruby-identifier">mp4_inputs</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">input</span><span class="ruby-operator">|</span> <span class="ruby-constant">Info</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">input</span>) }
+  <span class="ruby-identifier">paddings</span> = <span class="ruby-identifier">paddings</span> <span class="ruby-identifier">mp4_inputs_infos</span>
+  <span class="ruby-identifier">final_videos</span> = <span class="ruby-keyword">nil</span>
+  
+  <span class="ruby-identifier">in_tmp_dir</span> { <span class="ruby-identifier">final_videos</span> = <span class="ruby-identifier">concat</span>(<span class="ruby-identifier">mp4_inputs_infos</span>, <span class="ruby-identifier">paddings</span>) }
+  
+  <span class="ruby-identifier">final_videos</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-concat">
+            
+              <b>concat</b>(mp4_inputs_infos, paddings)
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-concat" name="method-i-concat" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Concatenation core processing</p>
+
+<h3 id="method-i-concat-label-Logic">Logic</h3>
+<ol><li>
+<p>If there is at least one audio streamse c&#39;è almeno uno stream audio: 
+a. we generate its wav file  b. otherwise we don&#39;t</p>
+</li><li>
+<p>We generate the video track concatenating the webm video tracks and
+discarding their audio tracks; after this operation we have the final audio
+track in wav format and the final video track in web format</p>
+</li><li>
+<p>We generate the mp4 and the webm videos joining and converting the two
+tracks</p>
+</li></ol>
+
+<h3 id="method-i-concat-label-Arguments">Arguments</h3>
+<ul><li>
+<p><em>mp4_inputs_infos</em>: <a href="../../Info.html">Media::Info</a>
+instances about the mp4 input files</p>
+</li><li>
+<p><em>paddings</em>: an array with the paddings which should be between an
+audio track and another</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-concat_source')" id="l_method-i-concat_source">show</a>
+                
+              </p>
+              <div id="method-i-concat_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">concat</span>(<span class="ruby-identifier">mp4_inputs_infos</span>, <span class="ruby-identifier">paddings</span>)
+  <span class="ruby-identifier">create_log_folder</span>
+  
+  <span class="ruby-identifier">final_wav</span> = 
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">mp4_inputs_infos</span>.<span class="ruby-identifier">any?</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">info</span><span class="ruby-operator">|</span> <span class="ruby-identifier">info</span>.<span class="ruby-identifier">audio_streams</span>.<span class="ruby-identifier">present?</span> } <span class="ruby-comment"># 1.</span>
+      <span class="ruby-identifier">final_wav</span>(<span class="ruby-identifier">mp4_inputs_infos</span>, <span class="ruby-identifier">paddings</span>) <span class="ruby-comment"># 1.a</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">nil</span> <span class="ruby-comment"># 1.b</span>
+    <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">final_webm_no_audio</span> = <span class="ruby-identifier">tmp_path</span> <span class="ruby-constant">FINAL_WEBM_NO_AUDIO</span>
+  <span class="ruby-constant">Cmd</span><span class="ruby-operator">::</span><span class="ruby-constant">MergeWebmVideoStreams</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">webm_inputs</span>, <span class="ruby-identifier">final_webm_no_audio</span>).<span class="ruby-identifier">run!</span> <span class="ruby-operator">*</span><span class="ruby-identifier">logs</span>(<span class="ruby-string">&#39;3_merge_webm_video_streams&#39;</span>) <span class="ruby-comment"># 2.</span>
+  
+  <span class="ruby-identifier">final_webm_no_audio_info</span> = <span class="ruby-constant">Info</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">final_webm_no_audio</span>
+
+  <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">run</span> <span class="ruby-operator">*</span><span class="ruby-constant">FORMATS</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">proc</span> {
+      <span class="ruby-constant">Cmd</span><span class="ruby-operator">::</span><span class="ruby-constant">Concat</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">final_webm_no_audio</span>, <span class="ruby-identifier">final_wav</span>, <span class="ruby-identifier">final_webm_no_audio_info</span>.<span class="ruby-identifier">duration</span>, <span class="ruby-identifier">outputs</span>[<span class="ruby-identifier">format</span>], <span class="ruby-identifier">format</span>).<span class="ruby-identifier">run!</span> <span class="ruby-operator">*</span><span class="ruby-identifier">logs</span>(<span class="ruby-node">&quot;4_#{format}&quot;</span>) <span class="ruby-comment"># 3.</span>
+    }
+  }, <span class="ruby-identifier">close_connection_before_execution</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+  
+  <span class="ruby-identifier">outputs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-copy_first_inputs_to_outputs">
+            
+              <b>copy_first_inputs_to_outputs</b>()
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-copy_first_inputs_to_outputs" name="method-i-copy_first_inputs_to_outputs" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Edge case management: when there is just one inputs hash we just copy the
+inputs to their respective outputs</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-copy_first_inputs_to_outputs_source')" id="l_method-i-copy_first_inputs_to_outputs_source">show</a>
+                
+              </p>
+              <div id="method-i-copy_first_inputs_to_outputs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">copy_first_inputs_to_outputs</span>
+  <span class="ruby-constant">Hash</span>[
+    <span class="ruby-ivar">@inputs</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span>, <span class="ruby-identifier">input</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">output</span> = <span class="ruby-identifier">outputs</span>[<span class="ruby-identifier">format</span>]
+      <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp</span> <span class="ruby-identifier">input</span>, <span class="ruby-identifier">output</span>
+      [<span class="ruby-identifier">format</span>, <span class="ruby-identifier">output</span>]
+    <span class="ruby-keyword">end</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-final_wav">
+            
+              <b>final_wav</b>(mp4_inputs_infos, paddings)
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-final_wav" name="method-i-final_wav" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Final wav track file generation</p>
+
+<h3 id="method-i-final_wav-label-Logic">Logic</h3>
+<ol><li>
+<p>Extracting the m4a from the mp4</p>
+</li><li>
+<p>Converting them to wav (cut-join operations are more precise using lossless
+formats)</p>
+</li><li>
+<p>Increasing the audio right padding when the wav track is considerably
+shorter than the respective video track</p>
+</li><li>
+<p>Associating the wavs to the respective paddings</p>
+</li><li>
+<p>Concatenating the wavs adding the paddings</p>
+</li></ol>
+
+<p>1., 2., 3., 4. steps are executed by the <a
+href="Concat.html#method-i-wavs_with_paddings">#wavs_with_paddings</a>
+method</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-final_wav_source')" id="l_method-i-final_wav_source">show</a>
+                
+              </p>
+              <div id="method-i-final_wav_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">final_wav</span>(<span class="ruby-identifier">mp4_inputs_infos</span>, <span class="ruby-identifier">paddings</span>)
+  <span class="ruby-identifier">wavs_with_paddings</span> = <span class="ruby-identifier">wavs_with_paddings</span>(<span class="ruby-identifier">mp4_inputs_infos</span>, <span class="ruby-identifier">paddings</span>)
+  <span class="ruby-identifier">final_wav</span> = <span class="ruby-identifier">tmp_path</span> <span class="ruby-constant">FINAL_WAV</span>
+  <span class="ruby-constant">Audio</span><span class="ruby-operator">::</span><span class="ruby-constant">Editing</span><span class="ruby-operator">::</span><span class="ruby-constant">Cmd</span><span class="ruby-operator">::</span><span class="ruby-constant">Concat</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">wavs_with_paddings</span>, <span class="ruby-identifier">final_wav</span>).<span class="ruby-identifier">run!</span> <span class="ruby-operator">*</span><span class="ruby-identifier">logs</span>(<span class="ruby-string">&#39;2_concat_with_paddings&#39;</span>) <span class="ruby-comment"># 5.</span>
+  <span class="ruby-identifier">final_wav</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-increase_rpadding_depending_on_video_overflow">
+            
+              <b>increase_rpadding_depending_on_video_overflow</b>(video_info, wav, paddings)
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-increase_rpadding_depending_on_video_overflow" name="method-i-increase_rpadding_depending_on_video_overflow" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Responsible of the step 3. of the <a
+href="Concat.html#method-i-final_wav">#final_wav</a> logic</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-increase_rpadding_depending_on_video_overflow_source')" id="l_method-i-increase_rpadding_depending_on_video_overflow_source">show</a>
+                
+              </p>
+              <div id="method-i-increase_rpadding_depending_on_video_overflow_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">increase_rpadding_depending_on_video_overflow</span>(<span class="ruby-identifier">video_info</span>, <span class="ruby-identifier">wav</span>, <span class="ruby-identifier">paddings</span>)
+  <span class="ruby-identifier">wav_info</span> = <span class="ruby-constant">Info</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">wav</span>)
+  <span class="ruby-identifier">overflow</span> = <span class="ruby-identifier">video_info</span>.<span class="ruby-identifier">duration</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">wav_info</span>.<span class="ruby-identifier">duration</span>
+  <span class="ruby-identifier">paddings</span>[<span class="ruby-number">1</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">overflow</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">overflow</span> <span class="ruby-operator">&gt;</span> <span class="ruby-number">0</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mp4_inputs">
+            
+              <b>mp4_inputs</b>()
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-mp4_inputs" name="method-i-mp4_inputs" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>array of mp4 inputs</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mp4_inputs_source')" id="l_method-i-mp4_inputs_source">show</a>
+                
+              </p>
+              <div id="method-i-mp4_inputs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mp4_inputs</span>
+  <span class="ruby-ivar">@mp4_inputs</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@inputs</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">input</span><span class="ruby-operator">|</span> <span class="ruby-identifier">input</span>[<span class="ruby-value">:mp4</span>] }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mp4_output">
+            
+              <b>mp4_output</b>()
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-mp4_output" name="method-i-mp4_output" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>mp4 output filename</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mp4_output_source')" id="l_method-i-mp4_output_source">show</a>
+                
+              </p>
+              <div id="method-i-mp4_output_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mp4_output</span>
+  <span class="ruby-constant">OUTPUT_MP4_FORMAT</span> <span class="ruby-operator">%</span> <span class="ruby-ivar">@output_without_extension</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-outputs">
+            
+              <b>outputs</b>()
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-outputs" name="method-i-outputs" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>outputs per format</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-outputs_source')" id="l_method-i-outputs_source">show</a>
+                
+              </p>
+              <div id="method-i-outputs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">outputs</span>
+  { <span class="ruby-identifier">mp4</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mp4_output</span>, <span class="ruby-identifier">webm</span><span class="ruby-operator">:</span> <span class="ruby-identifier">webm_output</span> }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-paddings">
+            
+              <b>paddings</b>(infos)
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-paddings" name="method-i-paddings" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Calculates the audio tracks paddings in order to have as result an audio
+track whose duration equals the sum of the video durations and synchronized
+with them. Example:</p>
+
+<pre><code>                    VIDEO</code></pre>
+
+<p>|—-|—–|—-|—|—-|——|——|—-|—–| VIDEO TRACKS  |-a0–| |a1-|-a2-| |-a3-| AUDIO
+TRACKS  p0 p1 p2=0 p3 p4 PADDINGS</p>
+
+<pre><code>          a0      a1        a2      a3
+-&gt;   [ [p0,p1], [0,p2=0], [0,p3], [0,p4] ]           RESULT</code></pre>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-paddings_source')" id="l_method-i-paddings_source">show</a>
+                
+              </p>
+              <div id="method-i-paddings_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">paddings</span>(<span class="ruby-identifier">infos</span>)
+  <span class="ruby-identifier">paddings</span>, <span class="ruby-identifier">lpadding</span> = [], <span class="ruby-number">0</span>
+  
+  <span class="ruby-identifier">infos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">info</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">info</span>.<span class="ruby-identifier">audio_streams</span>.<span class="ruby-identifier">blank?</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">paddings</span>.<span class="ruby-identifier">blank?</span>
+        <span class="ruby-identifier">lpadding</span>         <span class="ruby-operator">+=</span> <span class="ruby-identifier">info</span>.<span class="ruby-identifier">duration</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">paddings</span>.<span class="ruby-identifier">last</span>[<span class="ruby-number">1</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">info</span>.<span class="ruby-identifier">duration</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">next</span>
+    <span class="ruby-keyword">end</span>
+  
+    <span class="ruby-identifier">paddings</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">lpadding</span>, <span class="ruby-number">0</span>]
+    <span class="ruby-identifier">lpadding</span> = <span class="ruby-number">0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">paddings</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-wavs_with_paddings">
+            
+              <b>wavs_with_paddings</b>(mp4_inputs_infos, paddings)
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-wavs_with_paddings" name="method-i-wavs_with_paddings" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Responsible of the 1., 2., 3., 4. steps of the <a
+href="Concat.html#method-i-final_wav">#final_wav</a> logic (step 3. is
+delegated to <a
+href="Concat.html#method-i-increase_rpadding_depending_on_video_overflow">#increase_rpadding_depending_on_video_overflow</a>
+)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-wavs_with_paddings_source')" id="l_method-i-wavs_with_paddings_source">show</a>
+                
+              </p>
+              <div id="method-i-wavs_with_paddings_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">wavs_with_paddings</span>(<span class="ruby-identifier">mp4_inputs_infos</span>, <span class="ruby-identifier">paddings</span>)
+  <span class="ruby-constant">Hash</span>[ {}.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">unordered_wavs_with_paddings</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">run</span> <span class="ruby-operator">*</span><span class="ruby-identifier">mp4_inputs_infos</span>.<span class="ruby-identifier">select</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">info</span><span class="ruby-operator">|</span> <span class="ruby-identifier">info</span>.<span class="ruby-identifier">audio_streams</span>.<span class="ruby-identifier">present?</span> }.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">video_info</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">proc</span> {
+        <span class="ruby-identifier">m4a</span> = <span class="ruby-identifier">tmp_path</span>(<span class="ruby-constant">CONCAT_M4A_FORMAT</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">i</span>)
+  
+        <span class="ruby-constant">Cmd</span><span class="ruby-operator">::</span><span class="ruby-constant">AudioStreamToFile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">video_info</span>.<span class="ruby-identifier">path</span>, <span class="ruby-identifier">m4a</span>).<span class="ruby-identifier">run!</span> <span class="ruby-operator">*</span><span class="ruby-identifier">logs</span>(<span class="ruby-node">&quot;0_audio_stream_to_file_#{i}&quot;</span>) <span class="ruby-comment"># 1.</span>
+  
+        <span class="ruby-identifier">wav</span> = <span class="ruby-identifier">tmp_path</span>(<span class="ruby-constant">CONCAT_WAV_FORMAT</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">i</span>)
+        <span class="ruby-constant">Cmd</span><span class="ruby-operator">::</span><span class="ruby-constant">M4aToWav</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">m4a</span>, <span class="ruby-identifier">wav</span>).<span class="ruby-identifier">run!</span> <span class="ruby-operator">*</span><span class="ruby-identifier">logs</span>(<span class="ruby-node">&quot;1_m4a_to_wav_#{i}&quot;</span>) <span class="ruby-comment"># 2.</span>
+        
+        <span class="ruby-comment"># Increase of right padding when the wav track is considerably shorter than the respective video track, considering that the encoding operation can add a padding by itself</span>
+        <span class="ruby-identifier">increase_rpadding_depending_on_video_overflow</span> <span class="ruby-identifier">video_info</span>, <span class="ruby-identifier">wav</span>, <span class="ruby-identifier">paddings</span>[<span class="ruby-identifier">i</span>] <span class="ruby-comment"># 3.</span>
+  
+        <span class="ruby-identifier">unordered_wavs_with_paddings</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">wav</span>, <span class="ruby-identifier">paddings</span>[<span class="ruby-identifier">i</span>] <span class="ruby-comment"># 4.</span>
+      }
+    }
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">wavs_with_paddings</span><span class="ruby-operator">|</span> <span class="ruby-identifier">wavs_with_paddings</span> } ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-webm_inputs">
+            
+              <b>webm_inputs</b>()
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-webm_inputs" name="method-i-webm_inputs" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>array of the webm inputs</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-webm_inputs_source')" id="l_method-i-webm_inputs_source">show</a>
+                
+              </p>
+              <div id="method-i-webm_inputs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">webm_inputs</span>
+  <span class="ruby-ivar">@webm_inputs</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@inputs</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">input</span><span class="ruby-operator">|</span> <span class="ruby-identifier">input</span>[<span class="ruby-value">:webm</span>] }
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-webm_output">
+            
+              <b>webm_output</b>()
+            
+            <a href="../../../../classes/Media/Video/Editing/Concat.html#method-i-webm_output" name="method-i-webm_output" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>webm output filename</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-webm_output_source')" id="l_method-i-webm_output_source">show</a>
+                
+              </p>
+              <div id="method-i-webm_output_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/concat.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">webm_output</span>
+  <span class="ruby-constant">OUTPUT_WEBM_FORMAT</span> <span class="ruby-operator">%</span> <span class="ruby-ivar">@output_without_extension</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

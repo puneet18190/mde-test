@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Media::Video::Editing::Transition</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../../../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../../../css/github.css" type="text/css" media="screen" />
+<script src="../../../../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Media::Video::Editing::Transition 
+            
+                <span class="parent">&lt; 
+                    
+                    Object
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../../../../files/lib/media/video/editing/transition_rb.html">lib/media/video/editing/transition.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<p>Creates a video transition between two videos</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>E</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-end_frame_extraction_start_seek">end_frame_extraction_start_seek</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extract_end_transition_frame">extract_end_transition_frame</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-extract_start_transition_frame">extract_start_transition_frame</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>N</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-c-new">new</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>O</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-output">output</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-outputs">outputs</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>R</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-run">run</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-transition">transition</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="../../Logging.html">
+              Media::Logging
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="../../InTmpDir.html">
+              Media::InTmpDir
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">START_FRAME</td>
+            <td>=</td>
+            <td class="attr-value">&#39;start_frame.jpg&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Start frame image filename</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">VIDEO_NO_AUDIO</td>
+            <td>=</td>
+            <td class="attr-value">&#39;video_no_audio.mp4&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p><a href="../../Video.html">Video</a> without the audio filename</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">LAST_FRAME_STEP</td>
+            <td>=</td>
+            <td class="attr-value">-0.01</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Step to be used to seek starting from the end of the
+<code>start_inputs</code> duration in order to get the last frame (in
+seconds)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">LAST_FRAME_SKIP</td>
+            <td>=</td>
+            <td class="attr-value">LAST_FRAME_STEP.abs*3</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Duration of the skipping for the last frame seeking (in seconds)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">END_FRAME</td>
+            <td>=</td>
+            <td class="attr-value">&#39;end_frame.jpg&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>End frame image filename</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">TRANSITIONS</td>
+            <td>=</td>
+            <td class="attr-value">&#39;transition.jpg&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p><a href="Transition.html">Transition</a> image filename</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">TRANSITIONS_FORMAT</td>
+            <td>=</td>
+            <td class="attr-value">proc{ f = Pathname.new(TRANSITIONS); &quot;#{f.basename(f.extname)}-%d#{f.extname}&quot; }.call</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p><a href="Transition.html">Transition</a> images filename format
+(<code>&quot;transition-%d.jpg&quot;</code>)</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">INNER_FRAMES_AMOUNT</td>
+            <td>=</td>
+            <td class="attr-value">23</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p><a href="Transition.html">Transition</a> frames amount excluding the first
+and the last</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">FRAME_RATE</td>
+            <td>=</td>
+            <td class="attr-value">25</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p><a href="Transition.html">Transition</a> frame rate</p></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+    
+      <div class="sectiontitle">Class Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-c-new">
+            
+              <b>new</b>(start_inputs, end_inputs, output_without_extension, log_folder = nil)
+            
+            <a href="../../../../classes/Media/Video/Editing/Transition.html#method-c-new" name="method-c-new" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Create a new <a
+href="Transition.html">Media::Video::Editing::Transition</a> instance</p>
+
+<h3 id="method-c-new-label-Arguments">Arguments</h3>
+<ul><li>
+<p><em>start_inputs</em>: hash with the start video input paths per video
+format</p>
+</li><li>
+<p><em>end_inputs</em>: hash with the end video input paths per video format</p>
+</li><li>
+<p><em>output_without_extension</em>: output path without the extension</p>
+</li><li>
+<p><em>log_folder</em> <em>optional</em>: log folder path</p>
+</li></ul>
+
+<h3 id="method-c-new-label-Examples">Examples</h3>
+
+<p><a href="Transition.html#method-c-new">::new</a>({ mp4:
+&#39;/path/to/start/media.mp4&#39;, webm:
+&#39;/path/to/start/media.webm&#39; }, { mp4:
+&#39;/path/to/end/media.mp4&#39;, webm: &#39;/path/to/end/media.webm&#39;
+}, &#39;/path/to/new/video/files&#39;)</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-c-new_source')" id="l_method-c-new_source">show</a>
+                
+              </p>
+              <div id="method-c-new_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/transition.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">initialize</span>(<span class="ruby-identifier">start_inputs</span>, <span class="ruby-identifier">end_inputs</span>, <span class="ruby-identifier">output_without_extension</span>, <span class="ruby-identifier">log_folder</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">start_inputs</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)                       <span class="ruby-keyword">and</span> 
+         <span class="ruby-identifier">start_inputs</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span> <span class="ruby-operator">==</span> <span class="ruby-constant">FORMATS</span>.<span class="ruby-identifier">sort</span>         <span class="ruby-keyword">and</span>
+         <span class="ruby-identifier">start_inputs</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">all?</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">String</span> }
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;start_inputs must be an Hash with #{FORMATS.inspect} as keys and strings as values&quot;</span>, <span class="ruby-identifier">start_inputs</span><span class="ruby-operator">:</span> <span class="ruby-identifier">start_inputs</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">end_inputs</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)                       <span class="ruby-keyword">and</span>
+         <span class="ruby-identifier">end_inputs</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">sort</span> <span class="ruby-operator">==</span> <span class="ruby-constant">FORMATS</span>.<span class="ruby-identifier">sort</span>         <span class="ruby-keyword">and</span>
+         <span class="ruby-identifier">end_inputs</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">all?</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">String</span> }
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;end_inputs must be an Hash with #{FORMATS.inspect} as keys and strings as values&quot;</span>, <span class="ruby-identifier">end_inputs</span><span class="ruby-operator">:</span> <span class="ruby-identifier">end_inputs</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">output_without_extension</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;output_without_extension must be a string&#39;</span>, <span class="ruby-identifier">output_without_extension</span><span class="ruby-operator">:</span> <span class="ruby-identifier">output_without_extension</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-ivar">@start_inputs</span>, <span class="ruby-ivar">@end_inputs</span>, <span class="ruby-ivar">@output_without_extension</span> = <span class="ruby-identifier">start_inputs</span>, <span class="ruby-identifier">end_inputs</span>, <span class="ruby-identifier">output_without_extension</span>
+  
+  <span class="ruby-ivar">@log_folder</span> = <span class="ruby-identifier">log_folder</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                  
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-run">
+            
+              <b>run</b>()
+            
+            <a href="../../../../classes/Media/Video/Editing/Transition.html#method-i-run" name="method-i-run" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Execute the transition creation processing</p>
+
+<h3 id="method-i-run-label-Logic">Logic</h3>
+<ol><li>
+<p>Extract the last frame of the start input</p>
+</li><li>
+<p>Extract the last frame of the end input</p>
+</li><li>
+<p>Generate the transition images</p>
+</li><li>
+<p>Generate the video using the transition images</p>
+</li></ol>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-run_source')" id="l_method-i-run_source">show</a>
+                
+              </p>
+              <div id="method-i-run_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/transition.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">run</span>
+  <span class="ruby-identifier">create_log_folder</span>
+  
+  <span class="ruby-identifier">in_tmp_dir</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">start_frame</span> = <span class="ruby-identifier">tmp_path</span> <span class="ruby-constant">START_FRAME</span>
+    <span class="ruby-identifier">extract_start_transition_frame</span>(<span class="ruby-identifier">start_frame</span>) <span class="ruby-comment"># 1.</span>
+  
+    <span class="ruby-identifier">end_frame</span> = <span class="ruby-identifier">tmp_path</span> <span class="ruby-constant">END_FRAME</span>
+    <span class="ruby-identifier">extract_end_transition_frame</span>(<span class="ruby-identifier">end_frame</span>) <span class="ruby-comment"># 2.</span>
+  
+    <span class="ruby-identifier">transitions</span> = <span class="ruby-identifier">tmp_path</span> <span class="ruby-constant">TRANSITIONS</span>
+    <span class="ruby-constant">Cmd</span><span class="ruby-operator">::</span><span class="ruby-constant">GenerateTransitionFrames</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">start_frame</span>, <span class="ruby-identifier">end_frame</span>, <span class="ruby-identifier">transitions</span>, <span class="ruby-constant">INNER_FRAMES_AMOUNT</span>).<span class="ruby-identifier">run!</span> <span class="ruby-operator">*</span><span class="ruby-identifier">logs</span>(<span class="ruby-string">&#39;3_generate_transition_frames&#39;</span>) <span class="ruby-comment"># 3.</span>
+  
+    <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">run</span> <span class="ruby-operator">*</span><span class="ruby-constant">FORMATS</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span> <span class="ruby-identifier">proc</span>{ <span class="ruby-identifier">transition</span>(<span class="ruby-identifier">format</span>) } }, <span class="ruby-identifier">close_connection_before_execution</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span> <span class="ruby-comment"># 4.</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">outputs</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+              
+      <div class="sectiontitle">Instance Private methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-end_frame_extraction_start_seek">
+            
+              <b>end_frame_extraction_start_seek</b>(duration)
+            
+            <a href="../../../../classes/Media/Video/Editing/Transition.html#method-i-end_frame_extraction_start_seek" name="method-i-end_frame_extraction_start_seek" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Start seek of the end frame extraction, related to the video duration</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-end_frame_extraction_start_seek_source')" id="l_method-i-end_frame_extraction_start_seek_source">show</a>
+                
+              </p>
+              <div id="method-i-end_frame_extraction_start_seek_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/transition.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">end_frame_extraction_start_seek</span>(<span class="ruby-identifier">duration</span>)
+  <span class="ruby-identifier">duration</span><span class="ruby-operator">-</span><span class="ruby-constant">LAST_FRAME_SKIP</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_end_transition_frame">
+            
+              <b>extract_end_transition_frame</b>(output_path)
+            
+            <a href="../../../../classes/Media/Video/Editing/Transition.html#method-i-extract_end_transition_frame" name="method-i-extract_end_transition_frame" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Extract the end transition frame returning the path, raising an exception
+if the frame couldn&#39;t be extracted</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extract_end_transition_frame_source')" id="l_method-i-extract_end_transition_frame_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_end_transition_frame_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/transition.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extract_end_transition_frame</span>(<span class="ruby-identifier">output_path</span>)
+  <span class="ruby-constant">Cmd</span><span class="ruby-operator">::</span><span class="ruby-constant">ExtractFrame</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@end_inputs</span>[<span class="ruby-value">:mp4</span>], <span class="ruby-identifier">output_path</span>, <span class="ruby-number">0</span>).<span class="ruby-identifier">run!</span> <span class="ruby-operator">*</span><span class="ruby-identifier">logs</span>(<span class="ruby-string">&#39;2_extract_end_transition_frame&#39;</span>) <span class="ruby-comment"># 2.</span>
+  
+  <span class="ruby-comment"># Raise an exception if couldn&#39;t extract the frame</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-identifier">output_path</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;end transition frame extraction failed&#39;</span>, <span class="ruby-identifier">end_input_mp4</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@end_inputs</span>[<span class="ruby-value">:mp4</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-extract_start_transition_frame">
+            
+              <b>extract_start_transition_frame</b>(output_path)
+            
+            <a href="../../../../classes/Media/Video/Editing/Transition.html#method-i-extract_start_transition_frame" name="method-i-extract_start_transition_frame" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Extract the start transition frame returning the path, raising an exception
+if the frame couldn&#39;t be extracted</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-extract_start_transition_frame_source')" id="l_method-i-extract_start_transition_frame_source">show</a>
+                
+              </p>
+              <div id="method-i-extract_start_transition_frame_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/transition.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">extract_start_transition_frame</span>(<span class="ruby-identifier">output_path</span>)
+  <span class="ruby-identifier">video_duration</span> = <span class="ruby-constant">Info</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@start_inputs</span>[<span class="ruby-value">:mp4</span>]).<span class="ruby-identifier">duration</span>
+  <span class="ruby-identifier">end_frame_extraction_start_seek</span>(<span class="ruby-identifier">video_duration</span>).<span class="ruby-identifier">step</span>(<span class="ruby-number">0</span>, <span class="ruby-constant">LAST_FRAME_STEP</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">seek</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">Cmd</span><span class="ruby-operator">::</span><span class="ruby-constant">ExtractFrame</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@start_inputs</span>[<span class="ruby-value">:mp4</span>], <span class="ruby-identifier">output_path</span>, <span class="ruby-identifier">seek</span>).<span class="ruby-identifier">run!</span> <span class="ruby-operator">*</span><span class="ruby-identifier">logs</span>(<span class="ruby-string">&#39;1_extract_start_transition_frame&#39;</span>)
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-identifier">output_path</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Raise an exception if couldn&#39;t extract the frame</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span> <span class="ruby-identifier">output_path</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;start transition frame extraction failed&#39;</span>, <span class="ruby-identifier">start_input_mp4</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@start_inputs</span>[<span class="ruby-value">:mp4</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-output">
+            
+              <b>output</b>(format)
+            
+            <a href="../../../../classes/Media/Video/Editing/Transition.html#method-i-output" name="method-i-output" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Format-relative output path</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-output_source')" id="l_method-i-output_source">show</a>
+                
+              </p>
+              <div id="method-i-output_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/transition.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">output</span>(<span class="ruby-identifier">format</span>)
+  <span class="ruby-node">&quot;#{@output_without_extension}.#{format}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-outputs">
+            
+              <b>outputs</b>()
+            
+            <a href="../../../../classes/Media/Video/Editing/Transition.html#method-i-outputs" name="method-i-outputs" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Output paths hash per format</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-outputs_source')" id="l_method-i-outputs_source">show</a>
+                
+              </p>
+              <div id="method-i-outputs_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/transition.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">outputs</span>
+  <span class="ruby-constant">Hash</span>[ <span class="ruby-constant">FORMATS</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">format</span>, <span class="ruby-identifier">output</span>(<span class="ruby-identifier">format</span>)] } ]
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-transition">
+            
+              <b>transition</b>(format)
+            
+            <a href="../../../../classes/Media/Video/Editing/Transition.html#method-i-transition" name="method-i-transition" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <p>Format-relative processing</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-transition_source')" id="l_method-i-transition_source">show</a>
+                
+              </p>
+              <div id="method-i-transition_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File lib/media/video/editing/transition.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">transition</span>(<span class="ruby-identifier">format</span>)
+  <span class="ruby-identifier">create_log_folder</span>
+  <span class="ruby-constant">Cmd</span><span class="ruby-operator">::</span><span class="ruby-constant">Transition</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tmp_path</span>(<span class="ruby-constant">TRANSITIONS_FORMAT</span>), <span class="ruby-identifier">output</span>(<span class="ruby-identifier">format</span>), <span class="ruby-constant">FRAME_RATE</span>, <span class="ruby-identifier">format</span>).<span class="ruby-identifier">run!</span> <span class="ruby-operator">*</span><span class="ruby-identifier">logs</span>(<span class="ruby-node">&quot;4_#{format}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

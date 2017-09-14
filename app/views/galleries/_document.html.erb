@@ -1,0 +1,34 @@
+<%
+  doc_empty = documents.empty?
+  display_docs = doc_empty ? ['none', 'block'] : ['block', 'none']
+%>
+
+<div id="document_gallery" class="document_gallery document-kind" data-empty="<%= doc_empty %>">
+  <div id="inputs_for_documents" style="display:none"></div>
+  <div class="attachedExternal">
+    <div class="attachedInternal">
+      <% [1, 2, 3].each do |i| %>
+        <div id="document_<%= i %>_attached" class="document_attached" style="margin-bottom:<%= (i == 3) ? '0' : '2px' %>"></div>
+        <div id="document_<%= i %>_attached_empty" style="display:none">
+          <div class="document_number"><%= i %></div>
+          <div class="document_placeholder">
+            <%= t('galleries.documents.placeholder', :link => "<a class=\"document_quick_upload_hint\">#{t('galleries.quick_load.document').downcase}</a>").html_safe %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= render :partial => 'galleries/contents/document', :locals => {:documents => documents, :display_docs => display_docs, :empty => doc_empty} %>
+  <div class="documentsFooter">
+    <div class="triangolo" style="display:<%= display_docs[0] %>"></div>
+    <div class="footerLeft" style="display:<%= display_docs[0] %>">
+      <p class="filterBy lower"><%= t('galleries.documents.filter_by') %></p>
+      <input id="document_gallery_filter" type="text" value="" class="filterByInput" data-letters="0" style="color:#999"/>
+      <%= image_tag 'cerca_documenti_scuro.gif', :class => '_loader', :style => 'display:none; float:right' %>
+    </div>
+    <div class="footerButtons">
+      <div class="lower cancel button"><%= t('galleries.documents.cancel') %></div>
+      <div class="lower attach button"><%= t('galleries.documents.done') %></div>
+    </div>
+  </div>
+</div>

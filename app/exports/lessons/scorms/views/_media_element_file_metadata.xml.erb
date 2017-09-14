@@ -1,0 +1,39 @@
+<%
+  array = case extension
+    when 'mp4'
+      [media_element.mp4_url(UrlTypes::FULL_URL), media_element.size(:mp4)]
+    when 'webm'
+      [media_element.webm_url(UrlTypes::FULL_URL), media_element.size(:webm)]
+    when 'm4a'
+      [media_element.m4a_url(UrlTypes::FULL_URL), media_element.size(:m4a)]
+    when 'ogg'
+      [media_element.ogg_url(UrlTypes::FULL_URL), media_element.size(:ogg)]
+    else
+      [media_element.url(UrlTypes::FULL_URL), media_element.size]
+  end
+  my_url, my_size = array[0], array[1]
+%>
+
+<metadata>
+  <lom>
+    <general>
+      <identifier>
+        <catalog>URI</catalog>
+        <entry><%= my_url %></entry>
+      </identifier>
+    </general>
+    <technical>
+      <format><%= media_element.sti_type.downcase %>/<%= extension %></format>
+      <size><%= my_size %></size>
+      <location><%= my_url %></location>
+      <% if ['mp4', 'webm', 'm4a', 'ogg'].include?(extension) %>
+        <duration>
+          <duration><%= ims_duration(media_element, extension) %></duration>
+          <description>
+            <string language="en"><%= "Length of the #{media_element.sti_type.downcase} in format #{extension}" %></string>
+          </description>
+        </duration>
+      <% end %>
+    </technical>
+  </lom>
+</metadata>

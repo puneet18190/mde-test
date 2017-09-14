@@ -1,0 +1,121 @@
+<% desy = SETTINGS['application_name'] %>
+<%= render :partial => 'media_elements/new_form_popup' %>
+<%= render :partial => 'documents/new_form_popup' %>
+<%= render :partial => 'shared/upload_target' %>
+<div id="dashboard_container" data-lessons-expanded="false" data-media-elements-expanded="false" data-lessons-in-space="0" data-media-elements-in-space="0">
+  <div class="title_lessons">
+    <div class="icon"></div>
+    <div class="content">
+      <div class="title"><%= t('dashboard.selected.lessons.title') %></div>
+      <div class="description"><%= t('dashboard.selected.lessons.description', :desy => desy) %></div>
+    </div>
+    <a class="expand_icon disabled" title="<%= t('titles.dashboard.expand_lessons') %>" data-moving="false"></a>
+    <a class="expand_icon on" title="<%= t('titles.dashboard.compress_lessons') %>" data-moving="false" style="display:none"></a>
+  </div>
+  <div class="space_lessons">
+    <div class="page1 dashpage">
+    </div>
+    <div class="page2 dashpage" style="display:none">
+    </div>
+    <div class="page3 dashpage" style="display:none">
+    </div>
+    <div class="page4 dashpage" style="display:none">
+    </div>
+    <div class="page5 dashpage" style="display:none">
+    </div>
+    <div class="page6 dashpage" style="display:none">
+    </div>
+  </div>
+  <div class="pagination_lessons">
+    <%= render :partial => 'dashboard/pagination' %>
+  </div>
+  <div class="title_media_elements">
+    <div class="icon"></div>
+    <div class="content">
+      <div class="title"><%= t('dashboard.selected.media_elements.title') %></div>
+      <div class="description"><%= t('dashboard.selected.media_elements.description', :desy => desy) %></div>
+    </div>
+    <a class="expand_icon disabled" title="<%= t('titles.dashboard.expand_media_elements') %>" data-moving="false"></a>
+    <a class="expand_icon on" title="<%= t('titles.dashboard.compress_media_elements') %>" data-moving="false" style="display:none"></a>
+  </div>
+  <div class="space_media_elements">
+    <div class="page1 dashpage">
+    </div>
+    <div class="page2 dashpage" style="display:none">
+    </div>
+    <div class="page3 dashpage" style="display:none">
+    </div>
+    <div class="page4 dashpage" style="display:none">
+    </div>
+    <div class="page5 dashpage" style="display:none">
+    </div>
+    <div class="page6 dashpage" style="display:none">
+    </div>
+  </div>
+  <div class="pagination_media_elements">
+    <%= render :partial => 'dashboard/pagination' %>
+  </div>
+</div>
+<div id="hidden_dashboard_pagination" style="display:none">
+  <%= render :partial => 'dashboard/pagination' %>
+</div>
+<div id="dashboard_toolbar">
+  <div class="boxText">
+    <span><%= t('dashboard.search.title') %></span>
+    <p><%= t('dashboard.search.description', :desy => desy) %></p>
+  </div>
+  <div class="searchBox">
+    <form id="search_general" class="search-form" method="get" action="/search">
+      <table>
+        <tr>
+          <td colspan="2">
+            <input type="text" name="word" value="<%= t('search.long_label', :desy => desy) %>" class="text" id="general_tag_reader_for_search" style="color:#999"/>
+            <%= hidden_field_tag 'word_placeholder', '', :id => 'general_tag_kind_for_search' %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <select name="item" id="which_item_to_search">
+              <option value="lessons" <%= @where != 'media_elements' ? "selected=\"selected\"".html_safe : '' %>>
+                <%= t('captions.lessons') %>
+              </option>
+              <option value="media_elements" <%= @where == 'media_elements' ? "selected=\"selected\"".html_safe : '' %>>
+                <%= t('captions.media_elements') %>
+              </option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <div class="boxAdvancedSearch">
+        <%= link_to t('search.label'), "#{search_items_path}?item=#{@where}", :class =>'advanced fltlft' %>
+        <a id="search_general_submit" class="cerca current fltrt" title="<%= t('titles.search') %>">&nbsp;</a>
+      </div>
+    </form>
+  </div>
+  <div class="buttonPlus">
+    <a href="/lessons/new" class="createLessonBtn fltlft">
+      <div class="iconPlus"></div> 
+      <p><%= t('dashboard.create_new.lesson').downcase %></p>
+    </a>
+    <a class="openLoader uploadResourceBtn fltlft" data-type="media-element">
+      <div class="iconPlus"></div> 
+      <p><%= t('dashboard.create_new.media_element').downcase %></p>
+    </a>
+    <a class="openLoader uploadDocumentBtn fltlft" data-type="document">
+      <div class="iconPlus"></div> 
+      <p><%= t('dashboard.create_new.document').downcase %></p>
+    </a>
+  </div>
+  <div class="boxText">
+    <span><%= t('dashboard.faqs.title', :desy => desy) %></span>
+    <p><%= t('dashboard.faqs.description', :desy => desy) %></p>
+    <%= link_to t('dashboard.faqs.link'), faqs_path %>
+  </div>
+  <div class="boxText">
+    <span><%= t('dashboard.contact_us.title', :desy => desy) %></span>
+    <p><%= t('dashboard.contact_us.description', :desy => desy) %></p>
+    <%= link_to t('dashboard.contact_us.link'), "mailto:#{SETTINGS['application']['contact_us_email']}" %>
+  </div>
+</div>
+<div id="info_container" style="display:none" data-currenturl="<%= request.url %>"></div>
+<br class="clearfloat"/>

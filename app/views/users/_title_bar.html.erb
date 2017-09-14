@@ -1,0 +1,12 @@
+<div id="profile_title_bar" class="title-bar">
+  <h1><%= t('captions.profile') %></h1>
+  <ul class="navlist">
+    <li><%= link_to t('users.info.menu_link'), my_profile_path, :class => classes[0] %></li>
+    <li><%= link_to t('users.subjects.menu_link'), my_subjects_path, :class => classes[1] %></li>
+    <li><%= link_to t('users.mailing_list.menu_link'), my_mailing_lists_path, :class => classes[2] %></li>
+    <li><%= link_to t('users.statistics.menu_link'), my_statistics_path, :class => classes[3] %></li>
+    <% if current_user.trial? %>
+      <li><%= link_to t('users.trial.menu_link'), my_trial_path, :class => classes[4] %></li>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,14 @@
+<%
+  first_depth = 0
+  first_depth = @locations.first.depth if @locations.any?
+%>
+
+<% ((first_depth + 1)...(SETTINGS['location_types'].length)).to_a.each do |depth| %>
+  <% gender = Location.where(:sti_type => SETTINGS['location_types'][depth]).first.gender %>
+  var news = '<%= j render(:partial => "admin/purchases/locations", :locals => {:locations => [], :selected => 0, :index => depth, :gender => gender}) %>';
+  $('select#admin_purchase_choose_location_<%= SETTINGS["location_types"][depth].downcase %>').html(news);
+<% end %>
+<% if @locations.any? %>
+  var news = '<%= j render(:partial => "admin/purchases/locations", :locals => {:locations => @locations, :selected => 0, :index => @locations.first.depth, :gender => @locations.first.gender}) %>';
+  $('select#admin_purchase_choose_location_<%= SETTINGS["location_types"][@locations.first.depth].downcase %>').html(news);
+<% end %>

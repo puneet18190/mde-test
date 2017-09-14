@@ -1,0 +1,7 @@
+<% if @ok %>
+  $('table#mailing_list_group_' + <%= @mailing_list_group_id %> + ' tbody').html('<%= j(render :partial => "mailing_lists/address", :locals =>{:group => @mailing_list_group}) %>');
+<% elsif @mailing_list_group %>
+  $('table#mailing_list_group_' + <%= @mailing_list_group_id %>).prev('form').find('#email').effect('highlight', {color: '#cc0000'}, 500);
+<% else %>
+  showErrorPopUp($('#popup_captions_container').data('mailing-list-general-error'));
+<% end %>

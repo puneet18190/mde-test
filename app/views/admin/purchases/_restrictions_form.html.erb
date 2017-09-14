@@ -1,0 +1,43 @@
+<%= f.hidden_field :location_id %>
+<%= t('admin.purchases.restrictions.title') %><br/><br/>
+<select id="admin_purchase_choose_location_kind">
+  <option value="0" selected="selected">
+    <%= t('admin.purchases.restrictions.empty') %>
+  </option>
+  <% SETTINGS['location_types'].each_with_index do |location, index| %>
+    <option class="<%= location.downcase %>" value="<%= location.downcase %>" data-translated="<%= Location.label_at(index).downcase %>">
+      <%= t('admin.purchases.restrictions.location', :location => Location.label_at(index).downcase) %>
+    </option>
+  <% end %>
+</select><br/><br/>
+<div id="admin_purchase_choose_location_wrapper">
+  <% SETTINGS['location_types'].each_with_index do |location, index| %>
+    <%
+      is_last = (index == SETTINGS['location_types'].length - 1)
+      gender = Location.where(:sti_type => location).first.gender
+    %>
+    <%= Location.label_at(index) %>:
+    <select id="admin_purchase_choose_location_<%= location.downcase %>" class="_admin_purchase_choose_location_select_box disabled" disabled="disabled" data-last="<%= is_last %>">
+      <%= render :partial => 'admin/purchases/locations', :locals => {:locations => locations, :selected => 0, :index => index, :gender => gender} %>
+    </select>
+    <% locations = [] %>
+    <br/>
+  <% end %>
+</div><br/><br/>
+<div id="hidden_messages_for_admin_purchase_choose_location" style="display:none">
+  <%= t('admin.purchases.restrictions.search.instructions.regular', :location => '<span class="location"></span>'.html_safe).html_safe %>
+  <select id="get_location_code_type">
+    <option value="id" selected="selected">
+      <%= t('admin.purchases.restrictions.search.fields.id').downcase %>
+    </option>
+    <option value="code">
+      <%= t('admin.purchases.restrictions.search.fields.code').downcase %>
+    </option>
+  </select>: <input id="get_location_code" value=""/> <a id="get_location_by_code_or_id"/>
+    <%= t('admin.purchases.restrictions.commit') %>
+  </a>
+  <br/><br/>
+  <a id="open_location_administrator" href="/admin/settings/locations" target="_blank">
+    <%= t('admin.purchases.restrictions.search.instructions.add', :location => '<span class="location"></span>'.html_safe).html_safe %>
+  </a>
+</div>

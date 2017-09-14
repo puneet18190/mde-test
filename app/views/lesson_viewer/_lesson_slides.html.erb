@@ -1,0 +1,39 @@
+<%
+  url_type ||= nil
+  class_current = '_lesson_viewer_current_slide'
+  style_current = "style=\"display:block\"".html_safe
+  overall_counter = 1
+%>
+
+<div id="carousel_container">
+  <div id="carousel_inner">
+    <ul id="carousel_ul">
+      <% slides.each do |slide| %>
+        <%
+          slide.text = '' if slide.text.blank?
+          class_cover = slide.cover? ? "_cover_bookmark_for_lesson_viewer_#{slide.lesson_id}" : ''
+          loaded = [1, 2, slides.length].include?(overall_counter)
+        %>
+        <li id="slide_in_lesson_viewer_<%= slide.id %>" class="_slide_in_lesson_viewer cover slide <%= class_current %> <%= class_cover %>" data-overall-counter="<%= overall_counter %>" data-lesson-id="<%= slide.lesson_id %>" data-loaded="<%= loaded %>" data-slide-id="<%= slide.id %>" <%= style_current %>>
+          <%= render :partial => "lesson_viewer/slides/#{slide.kind}", :locals => {slide: slide, url_type: url_type, loaded: loaded} %>
+        </li>
+        <%
+          class_current = ''
+          style_current = "style=\"display:none\"".html_safe
+          overall_counter += 1
+        %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<% if with_icons %>
+  <%= render :partial => 'lesson_viewer/export', :locals => {:lesson => slides.first.lesson} %>
+  <% if slides.first.lesson.is_public %>
+    <%= render :partial => 'lesson_viewer/social_networks', :locals => {:lesson => slides.first.lesson, :cover_img => slides.first.media_elements_slides.first} %>
+  <% end %>
+<% end %>
+
+<% if with_exit %>
+  <a class="esciButton fltrt" title="<%= t('titles.exit') %>" href="<%= back.present? ? back : 'javascript:history.back()' %>" style="margin-top:20px"></a>
+<% end %>

@@ -1,0 +1,13 @@
+var container = $('#video_editor_audio_gallery_container');
+showGalleryInVideoEditor('audio');
+container.html('<%= j(render(:partial => 'galleries/audio', :locals => {:audios => @audios})) %>');
+container.data('loaded', true);
+container.data('page', 1);
+container.data('tot-pages', <%= @tot_pages %>);
+$('._select_audio_from_gallery').addClass('_add_audio_track_to_video_editor');
+$('._close_audio_gallery').addClass('_close_audio_gallery_in_video_editor');
+<% if @audios.count > 6 %>
+  initializeAudioGalleryInVideoEditor();
+<% else %>
+  $('.audio_gallery .scroll-pane').css('overflow', 'hidden');
+<% end %>

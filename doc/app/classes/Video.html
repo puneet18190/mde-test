@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Video</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/main.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../css/github.css" type="text/css" media="screen" />
+<script src="../js/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-effect.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/highlight.pack.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+
+<body>     
+    <div class="banner">
+        
+        <h1>
+            <span class="type">Class</span> 
+            Video 
+            
+                <span class="parent">&lt; 
+                    
+                    <a href="MediaElement.html">MediaElement</a>
+                    
+                </span>
+            
+        </h1>
+        <ul class="files">
+            
+            <li><a href="../files/app/models/video_rb.html">app/models/video.rb</a></li>
+            
+        </ul>
+    </div>
+    <div id="bodyContent">
+        <div id="content">
+  
+    <div class="description">
+      
+<h3 id="class-Video-label-Description">Description</h3>
+
+<p>This class inherits from <a href="MediaElement.html">MediaElement</a>, and
+contains the specific methods needed for media elements of type
+<code>video</code>. For methods shared by elements of type
+<code>audio</code> and <code>video</code>, see <a
+href="Media/Shared.html">Media::Shared</a>.</p>
+
+    </div>
+  
+
+
+  
+
+
+  
+  
+
+
+  
+
+
+  
+    <!-- Method ref -->
+    <div class="sectiontitle">Methods</div>
+    <dl class="methods">
+      
+        <dt>C</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-cover_url">cover_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>M</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-min_duration">min_duration</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-mp4_duration">mp4_duration</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-mp4_duration-3D">mp4_duration=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-mp4_url">mp4_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>P</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-placeholder_url">placeholder_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>T</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-thumb_url">thumb_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+        <dt>W</dt>
+        <dd>
+          <ul>
+            
+              
+              <li>
+                <a href="#method-i-webm_duration">webm_duration</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-webm_duration-3D">webm_duration=</a>,
+              </li>
+            
+              
+              <li>
+                <a href="#method-i-webm_url">webm_url</a>
+              </li>
+            
+          </ul>
+        </dd>
+      
+    </dl>
+  
+
+  
+    <!-- Includes -->
+    <div class="sectiontitle">Included Modules</div>
+    <ul>
+      
+        <li>
+          
+            <a href="Media/Shared.html">
+              Media::Shared
+            </a>
+          
+        </li>
+      
+        <li>
+          
+            <a href="UrlTypes.html">
+              UrlTypes
+            </a>
+          
+        </li>
+      
+    </ul>
+  
+
+
+
+  
+
+    
+
+    
+
+    
+      <!-- Section constants -->
+      <div class="sectiontitle">Constants</div>
+      <table border='0' cellpadding='5'>
+        
+          <tr valign='top'>
+            <td class="attr-name">UPLOADER</td>
+            <td>=</td>
+            <td class="attr-value">Media::Video::Uploader</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Instance of specific uploader for a video</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">EXTENSION_WHITE_LIST</td>
+            <td>=</td>
+            <td class="attr-value">UPLOADER::EXTENSION_WHITE_LIST</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>List of accepted extensions</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">CACHE_RESTORE_PATH</td>
+            <td>=</td>
+            <td class="attr-value">&#39;/videos/cache/restore&#39;</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"><p>Path for restoring the video editor cache</p></td>
+            </tr>
+          
+        
+          <tr valign='top'>
+            <td class="attr-name">EBOOK_FORMATS</td>
+            <td>=</td>
+            <td class="attr-value">UPLOADER::FORMATS + UPLOADER::VERSION_FORMATS.keys - [:thumb]</td>
+          </tr>
+          
+            <tr valign='top'>
+              <td>&nbsp;</td>
+              <td colspan="2" class="attr-desc"></td>
+            </tr>
+          
+        
+      </table>
+    
+
+
+    
+
+
+    <!-- Methods -->
+        
+      <div class="sectiontitle">Instance Public methods</div>
+      
+        <div class="method">
+          <div class="title method-title" id="method-i-cover_url">
+            
+              <b>cover_url</b>(url_type = nil)
+            
+            <a href="../classes/Video.html#method-i-cover_url" name="method-i-cover_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-cover_url-label-Description">Description</h3>
+
+<p>Returns the url of the image used anywhere it&#39;s necessary the cover of
+the video with original proportions (it&#39;s the middle frame of the
+video, in 960 x 540 pixels).</p>
+
+<h3 id="method-i-cover_url-label-Returns">Returns</h3>
+
+<p>An url.</p>
+
+<h3 id="method-i-cover_url-label-Usage">Usage</h3>
+
+<p>&lt;%= image_tag video.cover_url %&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-cover_url_source')" id="l_method-i-cover_url_source">show</a>
+                
+              </p>
+              <div id="method-i-cover_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/video.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">cover_url</span>(<span class="ruby-identifier">url_type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">converted</span>
+
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">media</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:url</span>, <span class="ruby-value">:cover</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">url</span>
+  
+  <span class="ruby-identifier">url_by_url_type</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">url_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-min_duration">
+            
+              <b>min_duration</b>()
+            
+            <a href="../classes/Video.html#method-i-min_duration" name="method-i-min_duration" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-min_duration-label-Description">Description</h3>
+
+<p>Returns the lower integer approximation of the minimum between
+<code>webm_duration</code> and <code>mp4_duration</code>. This is necessary
+to insert in the html players an integer duration in seconds that can be
+used without risks.</p>
+
+<h3 id="method-i-min_duration-label-Returns">Returns</h3>
+
+<p>An integer.</p>
+
+<h3 id="method-i-min_duration-label-Usage">Usage</h3>
+
+<p>&lt;div class=“videoPlayer _instance_of_player” data-media-type=“video”
+data-initialized=“false” data-duration=“&lt;%= video.min_duration
+%&gt;”&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-min_duration_source')" id="l_method-i-min_duration_source">show</a>
+                
+              </p>
+              <div id="method-i-min_duration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/video.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">min_duration</span>
+  [<span class="ruby-identifier">mp4_duration</span>, <span class="ruby-identifier">webm_duration</span>].<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_i</span>).<span class="ruby-identifier">min</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mp4_duration">
+            
+              <b>mp4_duration</b>()
+            
+            <a href="../classes/Video.html#method-i-mp4_duration" name="method-i-mp4_duration" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-mp4_duration-label-Description">Description</h3>
+
+<p>Returns the float duration in seconds of the mp4 track;</p>
+
+<h3 id="method-i-mp4_duration-label-Returns">Returns</h3>
+
+<p>A float.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mp4_duration_source')" id="l_method-i-mp4_duration_source">show</a>
+                
+              </p>
+              <div id="method-i-mp4_duration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/video.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mp4_duration</span>
+  <span class="ruby-identifier">converted</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">mp4_duration</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mp4_duration-3D">
+            
+              <b>mp4_duration=</b>(mp4_duration)
+            
+            <a href="../classes/Video.html#method-i-mp4_duration-3D" name="method-i-mp4_duration-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-mp4_duration-3D-label-Description">Description</h3>
+
+<p>Sets the float duration in seconds of the mp4 track;</p>
+
+<h3 id="method-i-mp4_duration-3D-label-Args">Args</h3>
+<ul><li>
+<p><em>mp4_duration</em>: the duration to be set</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mp4_duration-3D_source')" id="l_method-i-mp4_duration-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-mp4_duration-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/video.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mp4_duration=</span>(<span class="ruby-identifier">mp4_duration</span>)
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">mp4_duration</span> = <span class="ruby-identifier">mp4_duration</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-mp4_url">
+            
+              <b>mp4_url</b>(url_type = nil)
+            
+            <a href="../classes/Video.html#method-i-mp4_url" name="method-i-mp4_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-mp4_url-label-Description">Description</h3>
+
+<p>Returns the url for the video in format <code>mp4</code></p>
+
+<h3 id="method-i-mp4_url-label-Returns">Returns</h3>
+
+<p>An url.</p>
+
+<h3 id="method-i-mp4_url-label-Usage">Usage</h3>
+
+<p>&lt;video&gt;  &lt;source src=“&lt;%= video.mp4_url %&gt;”
+type=“video/mp4”&gt;  &lt;/video&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-mp4_url_source')" id="l_method-i-mp4_url_source">show</a>
+                
+              </p>
+              <div id="method-i-mp4_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/video.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">mp4_url</span>(<span class="ruby-identifier">url_type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">converted</span>
+
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">media</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:url</span>, <span class="ruby-value">:mp4</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">url</span>
+
+  <span class="ruby-identifier">url_by_url_type</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">url_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-placeholder_url">
+            
+              <b>placeholder_url</b>(type, url_type = nil)
+            
+            <a href="../classes/Video.html#method-i-placeholder_url" name="method-i-placeholder_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-placeholder_url-label-Description">Description</h3>
+
+<p>Returns the url of the placeholder used in case the video is being
+converted (an animated gif).</p>
+
+<h3 id="method-i-placeholder_url-label-Args">Args</h3>
+<ul><li>
+<p><em>type</em>: the type of placeholder required: it can be</p>
+</li><li>
+<p><code>:thumb</code>: used in the expanded media element</p>
+</li><li>
+<p><code>:lesson_viewer_big</code>: used in the lesson viewer (slides of kind
+&#39;video2&#39;, see <a href="Slide.html">Slide</a>)</p>
+</li><li>
+<p><code>:lesson_viewer_small</code>: used in the lesson viewer (slides of
+kind &#39;video1&#39;, see <a href="Slide.html">Slide</a>)</p>
+</li><li>
+<p><code>:gallery</code>: used in the <a href="Video.html">Video</a> Gallery</p>
+</li></ul>
+
+<h3 id="method-i-placeholder_url-label-Returns">Returns</h3>
+
+<p>An url.</p>
+
+<h3 id="method-i-placeholder_url-label-Usage">Usage</h3>
+
+<p>&lt;% if video.converted? %&gt;  &lt;%= render :partial =&gt;
+“shared/players/custom/video”, :locals =&gt; {:video =&gt; video} %&gt; 
+&lt;% else %&gt;  &lt;%= image_tag
+video.placeholder_url(:lesson_viewer_small) %&gt;  &lt;% end %&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-placeholder_url_source')" id="l_method-i-placeholder_url_source">show</a>
+                
+              </p>
+              <div id="method-i-placeholder_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/video.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">placeholder_url</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">url_type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">url_by_url_type</span> <span class="ruby-node">&quot;/assets/placeholders/video_#{type}.gif&quot;</span>, <span class="ruby-identifier">url_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-thumb_url">
+            
+              <b>thumb_url</b>()
+            
+            <a href="../classes/Video.html#method-i-thumb_url" name="method-i-thumb_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-thumb_url-label-Description">Description</h3>
+
+<p>Returns the url of the thumb image used in the section “elements” (the
+middle frame of the video resized to 200 x 200 pixels).</p>
+
+<h3 id="method-i-thumb_url-label-Returns">Returns</h3>
+
+<p>An url.</p>
+
+<h3 id="method-i-thumb_url-label-Usage">Usage</h3>
+
+<p>&lt;%= image_tag video.thumb_url %&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-thumb_url_source')" id="l_method-i-thumb_url_source">show</a>
+                
+              </p>
+              <div id="method-i-thumb_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/video.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">thumb_url</span>
+  <span class="ruby-identifier">media</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:url</span>, <span class="ruby-value">:thumb</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">converted</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-webm_duration">
+            
+              <b>webm_duration</b>()
+            
+            <a href="../classes/Video.html#method-i-webm_duration" name="method-i-webm_duration" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-webm_duration-label-Description">Description</h3>
+
+<p>Returns the float duration in seconds of the webm track;</p>
+
+<h3 id="method-i-webm_duration-label-Returns">Returns</h3>
+
+<p>A float.</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-webm_duration_source')" id="l_method-i-webm_duration_source">show</a>
+                
+              </p>
+              <div id="method-i-webm_duration_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/video.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">webm_duration</span>
+  <span class="ruby-identifier">converted</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">webm_duration</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-webm_duration-3D">
+            
+              <b>webm_duration=</b>(webm_duration)
+            
+            <a href="../classes/Video.html#method-i-webm_duration-3D" name="method-i-webm_duration-3D" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-webm_duration-3D-label-Description">Description</h3>
+
+<p>Sets the float duration in seconds of the webm track;</p>
+
+<h3 id="method-i-webm_duration-3D-label-Args">Args</h3>
+<ul><li>
+<p><em>webm_duration</em>: the duration to be set</p>
+</li></ul>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-webm_duration-3D_source')" id="l_method-i-webm_duration-3D_source">show</a>
+                
+              </p>
+              <div id="method-i-webm_duration-3D_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/video.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">webm_duration=</span>(<span class="ruby-identifier">webm_duration</span>)
+  <span class="ruby-identifier">metadata</span>.<span class="ruby-identifier">webm_duration</span> = <span class="ruby-identifier">webm_duration</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+        
+        <div class="method">
+          <div class="title method-title" id="method-i-webm_url">
+            
+              <b>webm_url</b>(url_type = nil)
+            
+            <a href="../classes/Video.html#method-i-webm_url" name="method-i-webm_url" class="permalink">Link</a>
+          </div>
+          
+          
+            <div class="description">
+              <h3 id="method-i-webm_url-label-Description">Description</h3>
+
+<p>Returns the url for the video in format <code>webm</code></p>
+
+<h3 id="method-i-webm_url-label-Returns">Returns</h3>
+
+<p>An url.</p>
+
+<h3 id="method-i-webm_url-label-Usage">Usage</h3>
+
+<p>&lt;video&gt;  &lt;source src=“&lt;%= video.webm_url %&gt;”
+type=“video/webm”&gt;  &lt;/video&gt;</p>
+            </div>
+          
+          
+          
+
+          
+          
+          
+            
+            <div class="sourcecode">
+              
+              <p class="source-link">
+                Source: 
+                <a href="javascript:toggleSource('method-i-webm_url_source')" id="l_method-i-webm_url_source">show</a>
+                
+              </p>
+              <div id="method-i-webm_url_source" class="dyn-source">
+                <pre><span class="ruby-comment"># File app/models/video.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword ruby-title">webm_url</span>(<span class="ruby-identifier">url_type</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">converted</span>
+
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">media</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:url</span>, <span class="ruby-value">:webm</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">url</span>
+
+  <span class="ruby-identifier">url_by_url_type</span> <span class="ruby-identifier">url</span>, <span class="ruby-identifier">url_type</span>
+<span class="ruby-keyword">end</span></pre>
+              </div>
+            </div>
+            
+          </div>
+                    </div>
+
+    </div>
+  </body>
+</html>    

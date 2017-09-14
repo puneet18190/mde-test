@@ -1,0 +1,49 @@
+<%
+  
+  colors = []
+  SETTINGS['colors'].each do |k, v|
+    colors[v['pos'] - 1] = k
+  end
+  
+  locals_for_text_thumb = {
+    :background_color => 'white',
+    :text_color => 'black',
+    :content => t('video_editor.components.text.insert')
+  }
+  
+%>
+
+<div id="text_component_preview" class="contentInsertText background_color_white" data-background-color="white" data-text-color="black" data-placeholder="true" data-placeholder-content="<%= t('video_editor.components.text.insert') %>">
+  <textarea class="color_black" cols="30" rows="2" maxlength="<%= t('language_parameters.video_editor.length_text_component') %>"><%= t('video_editor.components.text.insert') %></textarea>
+</div>
+
+<div class="menuTexts">
+  <div class="elementoTime">
+    <div class="tempo _duration_selector">
+      <p><%= t('video_editor.components.text.time') %></p>
+      <input class="numberTime" maxlength="<%= t('language_parameters.video_editor.length_duration') %>"/>
+      <p class="lower"><%= t('captions.seconds_shortened') %></p>
+    </div>
+  </div>
+  <div class="elementoGrigio">
+    <div class="scegliBgColor _text_component_in_video_editor_background_color_selector">
+      <p><%= t('video_editor.components.text.background_color') %></p>
+      <% colors.each do |color| %>
+        <div class="background_color_<%= color %> _color <%= (color == 'white') ? 'current'.html_safe : '' %>" data-color="<%= color %>"></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="elementoGrigio">
+    <div class="scegliTxtColor _text_component_in_video_editor_text_color_selector">
+      <p><%= t('video_editor.components.text.color') %></p>
+      <% colors.each do |color| %>
+        <div class="background_color_<%= color %> _color <%= (color == 'black') ? 'current'.html_safe : '' %>" data-color="<%= color %>"></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="bottoniVerdi fltrt"><a id="insert_text_component_in_video_editor" class="upper"><%= t('video_editor.components.text.done') %></a></div>
+</div>
+
+<div class="_temporary" style="display:none">
+  <%= render :partial => 'video_editor/components/thumbs/text', :locals => locals_for_text_thumb %>
+</div>
