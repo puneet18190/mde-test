@@ -426,11 +426,16 @@ class GalleriesController < ApplicationController
   # Html
   #
   def create_video
+puts "1"
     record = initialize_media_element_creation
+puts "2"
     if record.valid?
       if record.sti_type == 'Video'
+puts "3"
         if record.save
+puts "4"
           get_videos(1)
+puts "5"
           Notification.send_to(
             current_user.id,
             I18n.t('notifications.video.upload.started.title'),
@@ -439,12 +444,17 @@ class GalleriesController < ApplicationController
           )
         end
       else
+puts "6"
         @errors = {:media => t('forms.error_captions.wrong_sti_type.video').downcase}
       end
     else
+puts "7"
       if record.errors.added? :media, :too_large
+puts "7a"
         return render :file => Rails.root.join('public/413.html'), :layout => false, :status => 413
       end
+puts "8"
+puts record.errors.inspect
       @errors = convert_media_element_error_messages record.errors
       @errors[:media] = t('forms.error_captions.wrong_sti_type.video').downcase if !@errors.has_key?(:media) && record.sti_type != 'Video'
     end
@@ -518,7 +528,9 @@ class GalleriesController < ApplicationController
   
   # Common operations in media element initialization.
   def initialize_media_element_creation
-    record = MediaElement.new :media => params[:media]
+puts "=============================testing"
+puts params    
+record = MediaElement.new :media => params[:media]
     record.title = params[:title_placeholder] != '0' ? '' : params[:title]
     record.description = params[:description_placeholder] != '0' ? '' : params[:description]
     record.tags = params[:tags_value]

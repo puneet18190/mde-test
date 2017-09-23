@@ -1031,16 +1031,21 @@ class User < ActiveRecord::Base
       lesson.user_id = self.id
       lesson.tags = tags
       lesson.save_tags = true
-      lesson.valid?
-      lesson.errors.add(:subject_id, :is_not_your_subject)
-      return lesson.errors
+      lesson.uuid = SecureRandom.uuid
+      if lesson.valid? && lesson.save!
+        return lesson
+      else
+        lesson.errors.add(:subject_id, :is_not_your_subject)
+        return lesson.errors
+      end
     end
     lesson = Lesson.new :subject_id => subject_id, :school_level_id => self.school_level_id, :title => title, :description => description
     lesson.copied_not_modified = false
     lesson.user_id = self.id
     lesson.tags = tags
     lesson.save_tags = true
-    return lesson.save ? lesson : lesson.errors
+    lesson.uuid = SecureRandom.uuid
+    return lesson.save! ? lesson : lesson.errors
   end
   
   # ### Description

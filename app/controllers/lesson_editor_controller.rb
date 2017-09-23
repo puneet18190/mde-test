@@ -346,8 +346,12 @@ class LessonEditorController < ApplicationController
   # Initializes the subjects
   def initialize_subjects
     @subjects = []
+    if current_user.super_admin?
+      @subjects =  Subject.all
+    else
     UsersSubject.joins(:subject).where(:user_id => current_user.id).order('subjects.description ASC').each do |sbj|
       @subjects << sbj.subject
+    end
     end
     @subjects
   end

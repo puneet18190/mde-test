@@ -63,7 +63,13 @@ module Media
     #   * +Hash+
     def initialize(model, column, value)
       @model, @column, @value = model, column, value
-
+puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+puts @model.inspect
+puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+puts @column.inspect
+puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+puts @value.inspect
+puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
       case @value
       when String
         @filename_without_extension = File.basename @value

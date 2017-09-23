@@ -69,3 +69,6 @@ end
 group :production do
   gem 'exception_notification'
 end
+gem 'rails_db_info'
+gem 'pry'
+gem 'rails_12factor', group: :production
